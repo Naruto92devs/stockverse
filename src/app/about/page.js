@@ -1,12 +1,7 @@
-
 export default function About() {
     return (
-        <div>
-            <h1>About World!</h1>
-            <a href="/">
-                Home
-            </a>
-        </div>
+      <div className="p-8">
+        <h1 className="text-2xl text-black font-bold">About Page</h1>
+      </div>
     );
   }
-  

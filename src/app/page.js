@@ -1,12 +1,7 @@
-
 export default function Home() {
   return (
-    <div classname="">
-      <h1>Hello World!</h1>
-      <a href="/about">
-          About
-      </a>
+    <div className="p-8">
+      <h1 className="text-2xl font-bold text-black dark:text-white">Home Page</h1>
     </div>
-    
   );
 }
