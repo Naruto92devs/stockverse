@@ -6,10 +6,16 @@ import Navbar from '@/components/Navbar';
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <head>
+        <meta name="description" content="StockVerse Your Gateway to Informed Investing!" />
+        <title>Stockverse</title>
+      </head>
+      <body className="bg-background w-full h-full mx-auto lg:container max-xl:px-12">
         <Providers>
-          <Navbar/>
-          {children}
+          <main className="w-full h-full ">
+            <Navbar/>
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

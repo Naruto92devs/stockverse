@@ -8,16 +8,11 @@ module.exports = {
   // darkMode: 'class', // Enable dark mode
   theme: {
     colors: {
-      background: "rgba(var(--background))",
-        border: "rgba(var(--border))",
-        card: "rgba(var(--card))",
-        "copy-primary": "rgba(var(--copy-primary))",
-        "copy-secondary": "rgba(var(--copy-secondary))",
-        cta: "rgba(var(--cta))",
-        "cta-active": "rgba(var(--cta-active))",
-        "cta-text": "rgba(var(--cta-text))",
-
-        grape: "rgba(var(--grape))",
+        primaryText: "rgba(var(--primary-text))",
+        primaryTextHover: "rgba(var(--primary-text-hover))",
+        primaryButtonText: "rgba(var(--primary-button-text))",
+        primaryButtonBg: "rgba(var(--primary-button-bg))",
+        background: "rgba(var(--background))",
       },
     },
     plugins: [],
