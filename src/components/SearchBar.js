@@ -24,7 +24,7 @@ const fetchData = async () => {
     const currentRequestId = ++requestIdRef.current;
     setLoading(true);
     try {
-        const response = await fetch(`/api/search?keyword=${query}`);
+        const response = await fetch(`https://devsalman.tech/search?keyword=${query}`);
         if (!response.ok) {
         throw new Error('Network response was not ok');
         }
@@ -104,14 +104,14 @@ return (
     <path
         d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
         stroke={strokeColor} // Use strokeColor state here
-        strokeWidth="3"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
     />
     <path
         d="M20.9999 20.9999L16.6499 16.6499"
         stroke={strokeColor} // Use strokeColor state here
-        strokeWidth="3"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
     />
@@ -129,15 +129,15 @@ return (
     <div className="absolute top-full left-0 w-full p-2 text-gray-500">No results found</div>
     )}
     {showResults && results.length > 0 && (
-    <ul className="absolute top-[120%] p-1 pb-0.5 left-0 w-[400%] bg-primaryColor rounded shadow-xl">
+    <ul className="absolute top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor rounded shadow-xl">
         {results.map((result, index) => (
         <li
             key={index}
             className="flex items-center justify-between text-base text-primaryText w-[100%] px-4 py-2 mb-0.5 rounded cursor-pointer bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
         >
             {/* <div className="w-[10%]">{index + 1}</div> */}
-            <div className="w-[50%]">{result['1. symbol']}</div>
-            <div className="w-[50%]">{result['2. name']}</div>
+            <div className="w-[20%]">{result['1. symbol']}</div>
+            <div className="w-[80%]">{result['2. name']}</div>
         </li>
         ))}
     </ul>
