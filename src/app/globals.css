@@ -10,7 +10,7 @@
   -moz-tap-highlight-color: transparent;
 }
 
-.light {
+.white {
   --primary-color: 255, 255, 255;
   --secondary-color: 0, 0, 0;
   --background: 255, 255, 255;

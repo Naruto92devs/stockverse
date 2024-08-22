@@ -33,7 +33,7 @@ return (
     {resolvedTheme === 'dark' ? (
     <FiSun
         className="cursor-pointer w-[42px] h-[42px] rounded-full p-2 hover:bg-primaryText/10"
-        onClick={() => setTheme('light')}
+        onClick={() => setTheme('white')}
     />
     ) : (
     <FiMoon
