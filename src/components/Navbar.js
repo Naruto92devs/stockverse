@@ -14,6 +14,7 @@ return (
             <span className="text-2xl max-xl:text-xl text-primaryText font-serif font-bold">StockVerse</span>
         </Link>
         <div className="w-[60%] flex items-center gap-1 max-xl:gap-0.5">
+            <SearchBar/>
             <div className="cursor-pointer relative group flex items-end px-4 py-2 text-base max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded" id="menu-button" aria-expanded="true" aria-haspopup="true">
                 <span>Market</span>
                 <svg className="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -49,7 +50,6 @@ return (
                 </svg>
                 <span>Stock Picks</span>
             </Link>
-            <SearchBar/>
         </div>
         <div className="w-max flex items-center gap-2">
             <Link href="/login" className="px-4 py-2 text-base max-xl:text-sm text-primaryButton rounded">

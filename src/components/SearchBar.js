@@ -92,7 +92,7 @@ if (value.length < 1) {
 };
 
 return (
-<div ref={searchBarRef} className="relative w-[30%]">
+<div ref={searchBarRef} className="relative w-[25%]">
     <svg
     className="absolute"
     width="24"
@@ -129,13 +129,13 @@ return (
     <div className="absolute top-full left-0 w-full p-2 text-gray-500">No results found</div>
     )}
     {showResults && results.length > 0 && (
-    <ul className="absolute top-full left-0 w-[50vw] bg-background rounded-md shadow-lg">
+    <ul className="absolute top-[120%] p-1 left-0 w-[400%] bg-background rounded shadow-xl">
         {results.map((result, index) => (
         <li
             key={index}
-            className="flex items-center justify-between w-[100%] px-4 py-2 cursor-pointer hover:bg-gray-100"
+            className="flex items-center justify-between text-base text-primaryText w-[100%] px-4 py-2 mb-0.5 rounded cursor-pointer bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
         >
-            <div className="w-[10%]">{index + 1}</div>
+            {/* <div className="w-[10%]">{index + 1}</div> */}
             <div className="w-[50%]">{result['1. symbol']}</div>
             <div className="w-[50%]">{result['2. name']}</div>
         </li>

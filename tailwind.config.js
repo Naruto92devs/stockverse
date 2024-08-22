@@ -8,6 +8,8 @@ module.exports = {
   // darkMode: 'class', // Enable dark mode
   theme: {
     colors: {
+        primaryColor: "rgba(var(--primary-color))",
+        secondaryColor: "rgba(var(--secondary-color))",
         primaryText: "rgba(var(--primary-text))",
         primaryTextHover: "rgba(var(--primary-text-hover))",
         primaryButtonText: "rgba(var(--primary-button-text))",
