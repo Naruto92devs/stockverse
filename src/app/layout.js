@@ -10,9 +10,9 @@ export default function RootLayout({ children }) {
         <meta name="description" content="StockVerse Your Gateway to Informed Investing!" />
         <title>Stockverse</title>
       </head>
-      <body className="bg-background w-full h-full mx-auto lg:container max-xl:px-12">
+      <body className="bg-background w-[100%] h-[100%] mx-auto px-6 xl:container max-xl:px-3">
         <Providers>
-          <main className="w-full h-full ">
+          <main className="w-[100%] h-[100%] ">
             <Navbar/>
             {children}
           </main>
