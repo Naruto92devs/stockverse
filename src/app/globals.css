@@ -21,8 +21,11 @@
 }
 
 .dark {
+  --primary-color: 0, 0, 0;
+  --secondary-color: 255, 255, 255;
   --background: 32, 32, 32;
   --primary-text: 245, 245, 245;
+  --primary-text-hover: 0, 0, 0;
   --primary-button-text: 0, 0, 0;
   --primary-button-bg: 245, 245, 245;
 }

@@ -94,7 +94,7 @@ if (value.length < 1) {
 return (
 <div ref={searchBarRef} className="relative w-[25%]">
     <svg
-    className="absolute"
+    className="absolute left-1 top-[14%]"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -118,7 +118,7 @@ return (
     </svg>
     <input
     type="text"
-    className="w-full pl-8 text-base bg-background rounded focus:outline-none"
+    className="w-full p-1 pl-8 rounded-full text-base bg-background border rounded focus:outline-none"
     placeholder="Search stocks..."
     value={query}
     onChange={handleInputChange}
@@ -129,7 +129,7 @@ return (
     <div className="absolute top-full left-0 w-full p-2 text-gray-500">No results found</div>
     )}
     {showResults && results.length > 0 && (
-    <ul className="absolute top-[120%] p-1 left-0 w-[400%] bg-background rounded shadow-xl">
+    <ul className="absolute top-[120%] p-1 pb-0.5 left-0 w-[400%] bg-primaryColor rounded shadow-xl">
         {results.map((result, index) => (
         <li
             key={index}

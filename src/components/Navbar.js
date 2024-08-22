@@ -9,7 +9,7 @@ const Navbar = () => {
 return (
     
     <nav className="w-[100%] h-[100%] flex items-center justify-between py-2">
-        <Link href='/' className="w-max nav-logo flex items-center gap-2">
+        <Link href='/' className="w-max nav-logo flex items-center mr-4 gap-2">
             <Image width={1} height={1} className="w-[48px] h-[48px] max-xl:w-[42px] max-xl:h-[42px]" src='/images/stockverse_logo.svg' alt='Stockverse_logo'/>
             <span className="text-2xl max-xl:text-xl text-primaryText font-serif font-bold">StockVerse</span>
         </Link>
