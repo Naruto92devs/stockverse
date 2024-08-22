@@ -1,0 +1,3 @@
+[submodule "stockverse"]
+    path = stockverse
+    url = https://github.com/naruto92devs/stockverse.git

@@ -2,6 +2,7 @@
 import ThemeSwitch from "./ThemeSwitch";
 import Link from "next/link";
 import Image from "next/image";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
 
@@ -48,6 +49,7 @@ return (
                 </svg>
                 <span>Stock Picks</span>
             </Link>
+            <SearchBar/>
         </div>
         <div className="flex items-center gap-4">
             <Link href="/login" className="px-4 py-2 text-base text-primaryButton rounded">
