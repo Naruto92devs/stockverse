@@ -89,14 +89,14 @@ if (value.length < 1) {
 
 return (
     <div className="relative w-[25%] max-lg:w-max">
-        <Link href='' className="hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded">
+        <Link href='' className="hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded group">
             <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                >
+            >
                 <path
                     d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
                     stroke={svgColor} // Use strokeColor state here
@@ -112,7 +112,9 @@ return (
                     strokeLinejoin="round"
                 />
             </svg>
-            <span>Search</span>
+            <span className="rounded-full max-lg:py-.2 max-lg:px-2 group-hover:bg-primaryText group-hover:text-primaryTextHover">
+                Search
+            </span>
         </Link>
         <div ref={searchBarRef} className="relative w-[full%] max-lg:hidden">
             <svg

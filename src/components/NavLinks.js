@@ -16,16 +16,16 @@ const NavLinks = () => {
 
 
 return (
-        <div className="w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:px-3 max-lg:py-2 max-lg:bg-primaryColor/50 max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0">
+        <div className="w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-1 max-lg:py-2 max-lg:bg-primaryColor/50 max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0">
             <Link href='/' className="flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714" stroke={svgColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/') ? 'max-lg:bg-primaryText/10' : ''}`}>Home</span>
+                <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/') ? 'max-lg:bg-primaryText max-lg:text-primaryTextHover' : ''}`}>Home</span>
             </Link>
             <SearchBar/>
-            <Link href='/stockverse-gpt' className="flex flex-col items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded">
-                <svg className="hidden max-lg:flex" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Link href='/stockverse-gpt' className="flex flex-col items-center max-lg:gap-1.5 max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
+                <svg className="absolute -top-5 hidden max-lg:flex" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_374_32)">
                 <path d="M39.0665 0H8.93353C3.99968 0 0 3.99968 0 8.93353V39.0665C0 44.0003 3.99968 48 8.93353 48H39.0665C44.0003 48 48 44.0003 48 39.0665V8.93353C48 3.99968 44.0003 0 39.0665 0Z" fill="url(#paint0_linear_374_32)"/>
                 <path d="M26.3983 25.5894L26.2217 25.69L26.3983 25.5894Z" fill="black"/>
@@ -44,7 +44,7 @@ return (
                 </clipPath>
                 </defs>
                 </svg>
-                <span className="max-lg:hidden">Stocks GPT</span>
+                <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/stockverse-gpt') ? 'max-lg:bg-primaryText max-lg:text-primaryTextHover' : ''}`}>Stocks GPT</span>
             </Link>
             <Link href='/ai-news' className="flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,15 +52,15 @@ return (
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 13C7 12.4477 7.44772 12 8 12H12C12.5523 12 13 12.4477 13 13C13 13.5523 12.5523 14 12 14H8C7.44772 14 7 13.5523 7 13Z" fill={svgColor}/>
                 <path fillRule="evenodd" clipRule="evenodd" d="M6.71963 17.4636C7.07906 17.164 7.53213 17 8 17H19C19.5523 17 20 16.5523 20 16V6C20 5.44771 19.5523 5 19 5H5C4.44772 5 4 5.44772 4 6V19.7299L6.71963 17.4636ZM8 19H19C20.6569 19 22 17.6569 22 16V6C22 4.34315 20.6569 3 19 3H5C3.34315 3 2 4.34315 2 6V19.7299C2 21.4256 3.97771 22.3519 5.28037 21.2664L8 19Z" fill={svgColor}/>
                 </svg>
-                <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/ai-news') ? 'max-lg:bg-primaryText/10' : ''}`}>News</span>
+                <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/ai-news') ? 'max-lg:text-primaryTextHover max-lg:bg-primaryText' : ''}`}>News</span>
             </Link>
-            <div className="cursor-pointer relative group max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded" id="menu-button" aria-expanded="true" aria-haspopup="true">
+            <div className="cursor-pointer relative group max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded group" id="menu-button" aria-expanded="true" aria-haspopup="true">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={svgColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M2 12H22" stroke={svgColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z" stroke={svgColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/market') ? 'max-lg:bg-primaryText/10' : ''}`}>Market</span>
+                <span className="rounded-full max-lg:py-.2 max-lg:px-2 group-hover:max-lg:bg-primaryText group-hover:max-lg:text-primaryTextHover">Market</span>
                 <svg className="-mr-1 h-5 w-5 text-gray-400 max-lg:hidden" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
                 </svg>

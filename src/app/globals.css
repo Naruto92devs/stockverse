@@ -11,7 +11,7 @@
 }
 
 .white {
-  --primary-color: 255, 255, 255;
+  --primary-color: 32,32, 32;
   --secondary-color: 0, 0, 0;
   --background: 255, 255, 255;
   --primary-text: 0, 0, 0;
