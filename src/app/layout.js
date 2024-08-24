@@ -2,6 +2,8 @@
 import { Providers } from './providers';
 import './globals.css';
 import Navbar from '@/components/Navbar';
+import { ThemeProvider } from '../context/ThemeContext';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 export default function RootLayout({ children }) {
   return (
@@ -12,10 +14,14 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-background w-[100%] h-[100%] mx-auto px-6 xl:container max-xl:px-3">
         <Providers>
-          <main className="w-[100%] h-[100%] ">
-            <Navbar/>
-            {children}
-          </main>
+          <NextThemesProvider>
+            <ThemeProvider>
+              <main className="w-[100%] h-[100%] ">
+                <Navbar/>
+                {children}
+              </main>
+            </ThemeProvider>
+          </NextThemesProvider>
         </Providers>
       </body>
     </html>
