@@ -211,7 +211,7 @@ return (
                         strokeLinejoin="round"
                     />
                 </svg>
-                <span className="rounded-full max-lg:py-.2 max-lg:px-2 group-hover:bg-primaryText group-hover:text-primaryTextHover">
+                <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isVisible ? 'max-lg:bg-primaryText max-lg:text-primaryTextHover' : ''}`}>
                     Search
                 </span>
             </Link>
