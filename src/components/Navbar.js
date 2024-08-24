@@ -245,7 +245,7 @@ return (
                 </svg>
                 <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/ai-news') ? 'max-lg:text-primaryTextHover max-lg:bg-primaryText' : ''}`}>News</span>
             </Link>
-            <div className="cursor-pointer relative group max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded group" id="menu-button" aria-expanded="true" aria-haspopup="true">
+            <div className="cursor-pointer lg:relative group max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded group" id="menu-button" aria-expanded="true" aria-haspopup="true">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={svgColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M2 12H22" stroke={svgColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -255,7 +255,7 @@ return (
                 <svg className="-mr-1 h-5 w-5 text-gray-400 max-lg:hidden" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
                 </svg>
-                <div className="absolute p-2 overflow-hidden top-[80%] left-0 mt-2 w-48 bg-background rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible">
+                <div className="absolute p-2 max-lg:w-full max-lg:left-[0%] max-lg:z-50 max-lg:-top-[320%] overflow-hidden top-[80%] left-0 mt-2 w-48 bg-background rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible">
                     <Link href="/gainers&losers">
                         <span className="w-full h-full rounded text-base block px-4 py-2 text-primaryText hover:bg-primaryText/10">Gainers / Losers</span>
                     </Link>
@@ -264,6 +264,9 @@ return (
                     </Link>
                     <Link href="/ipo">
                         <span className="block px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">IPO Calender</span>
+                    </Link>
+                    <Link href="/stockpicks" className="hidden max-lg:flex">
+                        <span className="block px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">Stock Picks</span>
                     </Link>
                 </div>
             </div>

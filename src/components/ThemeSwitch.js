@@ -28,7 +28,7 @@ if (!mounted) return (
 )
 
 return (
-<div onClick={handleClick} className={`z-50 transform transition-transform duration-400 max-lg:fixed max-lg:bottom-[12%] max-lg:right-5 ${isRotated ? 'rotate-45' : ''}`}>
+<div onClick={handleClick} className={`z-10 transform transition-transform duration-400 max-lg:fixed max-lg:bottom-[12%] max-lg:right-5 ${isRotated ? 'rotate-45' : ''}`}>
     {resolvedTheme === 'dark' ? (
     <svg className="max-lg:bg-primaryColor max-lg:shadow-xl cursor-pointer w-[42px] h-[42px] rounded-full p-2 lg:hover:bg-primaryText/10"
     onClick={() => setTheme('white')}
