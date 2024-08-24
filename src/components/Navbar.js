@@ -266,7 +266,7 @@ return (
                         <span className="block px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">IPO Calender</span>
                     </Link>
                     <Link href="/stockpicks" className="hidden max-lg:flex">
-                        <span className="block px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">Stock Picks</span>
+                        <span className="block w-full px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">Stock Picks</span>
                     </Link>
                 </div>
             </div>
