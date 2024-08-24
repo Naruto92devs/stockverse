@@ -1,11 +1,8 @@
 // src/components/Navbar.js
-'use client';
+// 'use client';
 import Link from "next/link";
-import SearchBar from "./SearchBar";
 import { usePathname } from 'next/navigation';
 import { useThemeContext } from '../context/ThemeContext';
-// import { useTheme } from 'next-themes';
-// import { useState, useEffect } from 'react';
 
 const NavLinks = () => {
 
@@ -16,14 +13,40 @@ const NavLinks = () => {
 
 
 return (
-        <div className="w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-1 max-lg:py-2 max-lg:bg-primaryColor/50 max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0">
+        <div className="z-20 w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-1 max-lg:py-2 max-lg:bg-primaryColor max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
             <Link href='/' className="flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714" stroke={svgColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <span className={`rounded-full max-lg:py-.2 max-lg:px-2 ${isActive('/') ? 'max-lg:bg-primaryText max-lg:text-primaryTextHover' : ''}`}>Home</span>
             </Link>
-            <SearchBar/>
+            <Link href='' className="hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded group">
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                        stroke={svgColor} // Use strokeColor state here
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                    <path
+                        d="M20.9999 20.9999L16.6499 16.6499"
+                        stroke={svgColor} // Use strokeColor state here
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
+                <span className="rounded-full max-lg:py-.2 max-lg:px-2 group-hover:bg-primaryText group-hover:text-primaryTextHover">
+                    Search
+                </span>
+            </Link>
             <Link href='/stockverse-gpt' className="flex flex-col items-center max-lg:gap-1.5 max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
                 <svg className="absolute -top-5 hidden max-lg:flex" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_374_32)">

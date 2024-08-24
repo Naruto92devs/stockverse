@@ -11,7 +11,7 @@
 }
 
 .white {
-  --primary-color: 32,32, 32;
+  --primary-color: 255, 255, 255;
   --secondary-color: 0, 0, 0;
   --background: 255, 255, 255;
   --primary-text: 0, 0, 0;
@@ -21,7 +21,7 @@
 }
 
 .dark {
-  --primary-color: 0, 0, 0;
+  --primary-color:  32, 32, 32;
   --secondary-color: 255, 255, 255;
   --background: 32, 32, 32;
   --primary-text: 245, 245, 245;

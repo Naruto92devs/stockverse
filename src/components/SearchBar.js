@@ -14,6 +14,7 @@ const requestIdRef = useRef(0);
 const { svgColor } = useThemeContext();
 
 
+
 useEffect(() => {
 const fetchData = async () => {
     if (query.length > 0) {
@@ -88,35 +89,8 @@ if (value.length < 1) {
 };
 
 return (
-    <div className="relative w-[25%] max-lg:w-max">
-        <Link href='' className="hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded group">
-            <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                    stroke={svgColor} // Use strokeColor state here
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                />
-                <path
-                    d="M20.9999 20.9999L16.6499 16.6499"
-                    stroke={svgColor} // Use strokeColor state here
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                />
-            </svg>
-            <span className="rounded-full max-lg:py-.2 max-lg:px-2 group-hover:bg-primaryText group-hover:text-primaryTextHover">
-                Search
-            </span>
-        </Link>
-        <div ref={searchBarRef} className="relative w-[full%] max-lg:hidden">
+    <div className="relative w-[25%] transform max-lg:translate-y-full z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-secondaryColor max-lg:p-4 max-lg:fixed max-lg:top-0 max-lg:left-0">
+        <div ref={searchBarRef} className="relative w-[100%]">
             <svg
             className="absolute left-1 top-[14%]"
             width="24"
@@ -153,7 +127,7 @@ return (
             <div className="absolute top-full left-0 w-full p-2 text-gray-500">No results found</div>
             )}
             {showResults && results.length > 0 && (
-            <ul className="absolute top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor rounded shadow-xl">
+            <ul className="absolute max-lg:relative max-lg:w-[100%] top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor max-lg:mt-2 rounded shadow-xl">
                 {results.map((result, index) => (
                 <li
                     key={index}
