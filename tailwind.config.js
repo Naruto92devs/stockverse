@@ -8,8 +8,10 @@ module.exports = {
   // darkMode: 'class', // Enable dark mode
   theme: {
     colors: {
-        svgColor: "var(--primary-color)",
+        svgColor: "var(--svg-color)",
         oppositeSvgColor: "var(--opposite-svg-color)",
+        mobNavBg: "rgba(var(--mob-nav-bg))",
+        mobNavLink: "rgba(var(--mob-nav-link))",
         primaryColor: "rgba(var(--primary-color))",
         secondaryColor: "rgba(var(--secondary-color))",
         primaryText: "rgba(var(--primary-text))",

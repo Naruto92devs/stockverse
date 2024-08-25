@@ -86,7 +86,7 @@ if (value.length < 1) {
 };
 
 return (
-    <div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-secondaryColor max-lg:p-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
+    <div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:p-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
         isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
     }`}>
         <div ref={searchBarRef} className="relative w-[100%]">
