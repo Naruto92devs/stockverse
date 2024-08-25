@@ -86,12 +86,12 @@ if (value.length < 1) {
 };
 
 return (
-    <div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:p-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
+    <div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
         isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
     }`}>
-        <div ref={searchBarRef} className="relative w-[100%]">
+        <div ref={searchBarRef} className="relative w-[100%] max-lg:flex max-lg:flex-col max-lg:items-center">
             <svg
-            className="absolute left-1 top-[14%] max-lg:top-[7px]"
+            className="absolute left-1 top-[14%] max-lg:top-2 max-lg:left-3.5"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ return (
             <input
             name="search_Symbols"
             type="text"
-            className="w-full p-1 pl-8 rounded-full max-lg:rounded-xl text-base max-lg:text-xl bg-background border rounded focus:outline-none"
+            className="w-full max-lg:w-[95%] p-1 pl-8 rounded-full max-lg:rounded-full text-base max-lg:text-xl bg-background border rounded focus:outline-none"
             placeholder="Search stocks..."
             value={query}
             onChange={handleInputChange}
@@ -127,11 +127,11 @@ return (
             <div className="absolute top-full left-0 w-full p-2 text-gray-500 max-lg:text-mobNavLink">No results found</div>
             )}
             {showResults && results.length > 0 && (
-            <ul className="absolute max-lg:relative max-lg:max-h-[75vh] max-lg:overflow-y-scroll max-lg:w-[100%] top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
+            <ul className="absolute max-lg:relative max-lg:max-h-[75vh] max-lg:overflow-y-scroll max-lg:w-[100%] top-[120%] max-lg:p-0 p-1 pb-0.5 left-0 w-[350%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
                 {results.map((result, index) => (
                 <li
                     key={index}
-                    className="flex items-center justify-between text-base text-primaryText max-lg:border-b max-lg:text-mobNavLink w-[100%] px-4 py-2 mb-0.5 rounded cursor-pointer max-lg:bg-secondaryColor/0 bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
+                    className="flex items-center justify-between text-base text-primaryText max-lg:border-b max-lg:text-mobNavLink w-[100%] px-4 py-2 mb-0.5 max-lg:mb-0 rounded max-lg:rounded-none cursor-pointer max-lg:bg-secondaryColor/0 bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
                 >
                     {/* <div className="w-[10%]">{index + 1}</div> */}
                     <div className="w-[20%]">{result['1. symbol']}</div>
