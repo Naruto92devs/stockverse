@@ -16,12 +16,17 @@ const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
 const [isDropdownVisible, setIsDropdownVisible] = useState(false); // State for dropdown visibility
 
 const toggleSearchBar = () => {
-  setIsSearchBarVisible(!isSearchBarVisible);
+setIsSearchBarVisible(!isSearchBarVisible);
 };
 
 const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible); // Toggle the dropdown
-  };
+setIsDropdownVisible(!isDropdownVisible); // Toggle the dropdown
+};
+
+// Function to close the search bar
+const closeSearchBar = () => {
+setIsSearchBarVisible(false);
+};
 
 return (
     <nav className="w-[100%] flex items-center justify-between py-2 max-lg:py-4 relative select-none">
@@ -45,7 +50,7 @@ return (
             <path d="M17.3958 13.1537L17.1567 13.2915L17.3958 13.1537Z" fill="var(--svg-color)"/>
             </svg>
         </Link>
-        <SearchBar isVisible={isSearchBarVisible}/>
+        <SearchBar isVisible={isSearchBarVisible} onClose={closeSearchBar}/>
         <div className="z-20 w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
             <Link href='/' className="z-50 flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded-full">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

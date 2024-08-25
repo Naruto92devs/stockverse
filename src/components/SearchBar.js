@@ -1,7 +1,8 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
-export default function SearchBar({ isVisible }) {
+export default function SearchBar({ isVisible, onClose }) {
 const [query, setQuery] = useState('');
 const [results, setResults] = useState([]);
 const [loading, setLoading] = useState(false);
@@ -9,6 +10,7 @@ const [noResults, setNoResults] = useState(false);
 const [showResults, setShowResults] = useState(false);
 const searchBarRef = useRef(null);
 const requestIdRef = useRef(0);
+const pathname = usePathname(); // Hook to detect route changes
 
 
 
@@ -69,6 +71,13 @@ return () => {
 };
 }, []);
 
+useEffect(() => {
+    // Close the search bar when the route changes
+    if (onClose) {
+    onClose();
+    }
+  }, [pathname]); // Detects route change
+
 const handleFocus = () => {
 if (results.length > 0) {
     setShowResults(true);
@@ -85,13 +94,14 @@ if (value.length < 1) {
 }
 };
 
+
 return (
     <div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
         isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
     }`}>
         <div ref={searchBarRef} className="relative w-[100%] max-lg:flex max-lg:flex-col max-lg:items-center">
             <svg className="hidden max-lg:flex mb-3" width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_379_19)">
+            <g clipPath="url(#clip0_379_19)">
             <path d="M17.57 26.1401L17.3 26.2901L17.57 26.1401Z" fill="white"/>
             <path d="M27.7 16.94V8L13.85 0L0 8V16.31L16.2 25.66L13.85 27.02L0 19.02V27.96L13.85 35.96L27.7 27.96V19.65L11.5 10.3L13.85 8.94L27.7 16.94ZM1.09 8.63L13.85 1.26L26.61 8.63V11.35L13.85 4.01L1.09 11.34V8.62V8.63ZM1.09 15.68V13.24L19.4 23.81L17.29 25.03L1.09 15.68ZM26.61 27.34L13.85 34.71L1.09 27.34V24.63L13.85 31.99L26.61 24.63V27.34ZM26.61 20.29V22.73L8.29 12.15L10.4 10.93L26.6 20.28L26.61 20.29ZM10.41 9.67L10.14 9.83L6.11 12.16L26.07 23.68L13.86 30.73L1.09 23.36V20.92L13.85 28.28L17.3 26.29L17.57 26.13L21.6 23.8L1.64 12.29L13.85 5.27L26.61 12.61V15.05L13.85 7.69L10.4 9.68L10.41 9.67Z" fill="white"/>
             <path d="M10.4099 9.66992L10.1299 9.82992L10.4099 9.66992Z" fill="white"/>
