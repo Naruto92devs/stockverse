@@ -1,9 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { useThemeContext } from '../context/ThemeContext';
 
-export default function SearchBar() {
+export default function SearchBar({ isVisible }) {
 const [query, setQuery] = useState('');
 const [results, setResults] = useState([]);
 const [loading, setLoading] = useState(false);
@@ -11,7 +9,6 @@ const [noResults, setNoResults] = useState(false);
 const [showResults, setShowResults] = useState(false);
 const searchBarRef = useRef(null);
 const requestIdRef = useRef(0);
-const { svgColor } = useThemeContext();
 
 
 
@@ -89,7 +86,9 @@ if (value.length < 1) {
 };
 
 return (
-    <div className="relative w-[25%] transform max-lg:translate-y-full z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-secondaryColor max-lg:p-4 max-lg:fixed max-lg:top-0 max-lg:left-0">
+    <div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-secondaryColor max-lg:p-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
+        isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
+    }`}>
         <div ref={searchBarRef} className="relative w-[100%]">
             <svg
             className="absolute left-1 top-[14%]"
@@ -101,14 +100,14 @@ return (
             >
             <path
                 d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                stroke={svgColor} // Use strokeColor state here
+                stroke="var(--svg-color)" // Use strokeColor state here
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
             <path
                 d="M20.9999 20.9999L16.6499 16.6499"
-                stroke={svgColor} // Use strokeColor state here
+                stroke="var(--svg-color)" // Use strokeColor state here
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"

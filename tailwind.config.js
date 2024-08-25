@@ -8,6 +8,8 @@ module.exports = {
   // darkMode: 'class', // Enable dark mode
   theme: {
     colors: {
+        svgColor: "var(--primary-color)",
+        oppositeSvgColor: "var(--opposite-svg-color)",
         primaryColor: "rgba(var(--primary-color))",
         secondaryColor: "rgba(var(--secondary-color))",
         primaryText: "rgba(var(--primary-text))",
