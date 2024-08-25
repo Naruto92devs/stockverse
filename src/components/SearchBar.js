@@ -91,7 +91,7 @@ return (
     }`}>
         <div ref={searchBarRef} className="relative w-[100%]">
             <svg
-            className="absolute left-1 top-[14%]"
+            className="absolute left-1 top-[14%] max-lg:top-[7px]"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -116,22 +116,22 @@ return (
             <input
             name="search_Symbols"
             type="text"
-            className="w-full p-1 pl-8 rounded-full text-base bg-background border rounded focus:outline-none"
+            className="w-full p-1 pl-8 rounded-full max-lg:rounded-xl text-base max-lg:text-xl bg-background border rounded focus:outline-none"
             placeholder="Search stocks..."
             value={query}
             onChange={handleInputChange}
             onFocus={handleFocus}
             />
-            {loading && <div className="absolute top-full left-0 w-full p-2 text-gray-500">Loading...</div>}
+            {loading && <div className="absolute top-full left-0 w-full p-2 text-gray-500 max-lg:text-mobNavLink">Loading...</div>}
             {noResults && !loading && (
-            <div className="absolute top-full left-0 w-full p-2 text-gray-500">No results found</div>
+            <div className="absolute top-full left-0 w-full p-2 text-gray-500 max-lg:text-mobNavLink">No results found</div>
             )}
             {showResults && results.length > 0 && (
-            <ul className="absolute max-lg:relative max-lg:w-[100%] top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor max-lg:mt-2 rounded shadow-xl">
+            <ul className="absolute max-lg:relative max-lg:w-[100%] top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
                 {results.map((result, index) => (
                 <li
                     key={index}
-                    className="flex items-center justify-between text-base text-primaryText w-[100%] px-4 py-2 mb-0.5 rounded cursor-pointer bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
+                    className="flex items-center justify-between text-base text-primaryText max-lg:border-b max-lg:text-mobNavLink w-[100%] px-4 py-2 mb-0.5 rounded cursor-pointer max-lg:bg-secondaryColor/0 bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
                 >
                     {/* <div className="w-[10%]">{index + 1}</div> */}
                     <div className="w-[20%]">{result['1. symbol']}</div>
