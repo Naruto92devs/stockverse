@@ -13,10 +13,15 @@ const pathname = usePathname();
 const isActive = (path) => pathname === path;
 
 const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
+const [isDropdownVisible, setIsDropdownVisible] = useState(false); // State for dropdown visibility
 
 const toggleSearchBar = () => {
   setIsSearchBarVisible(!isSearchBarVisible);
 };
+
+const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible); // Toggle the dropdown
+  };
 
 return (
     <nav className="w-[100%] flex items-center justify-between py-2 max-lg:py-4 relative select-none">
@@ -41,14 +46,14 @@ return (
             </svg>
         </Link>
         <SearchBar isVisible={isSearchBarVisible}/>
-        <div className="z-20 w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-1 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
-            <Link href='/' className="flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded-full">
+        <div className="z-20 w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
+            <Link href='/' className="z-50 flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded-full">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714" stroke="rgba(var(--mob-nav-link))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>Home</span>
             </Link>
-            <Link href=''  onClick={toggleSearchBar} className="hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded-full group">
+            <Link href=''  onClick={toggleSearchBar} className="z-50 hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded-full group">
                 <svg
                     width="24"
                     height="24"
@@ -75,7 +80,7 @@ return (
                     Search
                 </span>
             </Link>
-            <Link href='/stockverse-gpt' className="flex flex-col items-center max-lg:gap-1.5 max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
+            <Link href='/stockverse-gpt' className="z-50 flex flex-col items-center max-lg:gap-1.5 max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
                 <svg className="absolute -top-7 hidden max-lg:flex" width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_374_40)">
                 <path d="M48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48C37.2548 48 48 37.2548 48 24Z" fill="rgba(var(--mob-nav-bg))" fillOpacity="1"/>
@@ -112,7 +117,7 @@ return (
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/stockverse-gpt') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>Stocks GPT</span>
             </Link>
-            <Link href='/ai-news' className="flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
+            <Link href='/ai-news' className="z-50 flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 9C7 8.44772 7.44772 8 8 8H16C16.5523 8 17 8.44772 17 9C17 9.55228 16.5523 10 16 10H8C7.44772 10 7 9.55228 7 9Z" fill="rgba(var(--mob-nav-link))"/>
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 13C7 12.4477 7.44772 12 8 12H12C12.5523 12 13 12.4477 13 13C13 13.5523 12.5523 14 12 14H8C7.44772 14 7 13.5523 7 13Z" fill="rgba(var(--mob-nav-link))"/>
@@ -120,28 +125,28 @@ return (
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/ai-news') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>News</span>
             </Link>
-            <div className="cursor-pointer lg:relative group max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full group" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="cursor-pointer lg:relative group max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full group" onClick={toggleDropdown} id="menu-button" aria-expanded="true" aria-haspopup="true">
+                <svg className="z-50 hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="rgba(var(--mob-nav-link))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M2 12H22" stroke="rgba(var(--mob-nav-link))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z" stroke="rgba(var(--mob-nav-link))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className="rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 group-hover:max-lg:bg-mobNavLink group-hover:max-lg:!text-mobNavBg">Market</span>
-                <svg className="-mr-1 h-5 w-5 text-gray-400 max-lg:hidden" viewBox="0 0 20 20" fill="var(--svg-color)" aria-hidden="true">
+                <span className={`z-50 rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isDropdownVisible ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>Market</span>
+                <svg className="z-50 -mr-1 h-5 w-5 text-gray-400 max-lg:hidden" viewBox="0 0 20 20" fill="var(--svg-color)" aria-hidden="true">
                 <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
                 </svg>
-                <div className="absolute p-2 max-lg:w-full max-lg:left-[0%] max-lg:z-50 max-lg:-top-[320%] overflow-hidden top-[80%] left-0 mt-2 w-48 bg-background rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible">
+                <div className={`absolute p-2 max-lg:shadow-none max-lg:w-full max-lg:pb-8 max-lg:left-[0%] max-lg:bg-mobNavBg max-lg:rounded-2xl max-lg:z-10 max-lg:-top-[280%] overflow-hidden top-[80%] left-0 mt-2 w-48 bg-background rounded-md shadow-xl transition-opacity duration-0 ${isDropdownVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
                     <Link href="/gainers&losers">
-                        <span className="w-full h-full rounded text-base block px-4 py-2 text-primaryText hover:bg-primaryText/10">Gainers / Losers</span>
+                        <span className="w-full h-full max-lg:text-mobNavLink rounded text-base block px-4 py-2 text-primaryText hover:bg-primaryText/10">Gainers / Losers</span>
                     </Link>
                     <Link href="/level2">
-                        <span className="block px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">Level 2</span>
+                        <span className="block px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">Level 2</span>
                     </Link>
                     <Link href="/ipo">
-                        <span className="block px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">IPO Calender</span>
+                        <span className="block px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">IPO Calender</span>
                     </Link>
                     <Link href="/stockpicks" className="hidden max-lg:flex">
-                        <span className="block w-full px-4 py-2 rounded text-base text-primaryText hover:bg-primaryText/10">Stock Picks</span>
+                        <span className="block w-full px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">Stock Picks</span>
                     </Link>
                 </div>
             </div>

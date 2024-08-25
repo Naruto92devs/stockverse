@@ -13,7 +13,7 @@
 .white {
   --svg-color: rgb(0, 0, 0);
   --opposite-svg-color: rgb(255, 255, 255);
-  --mob-nav-bg: 7, 13, 63;
+  --mob-nav-bg: 29, 41, 57;
   --mob-nav-link: 255, 255, 255;
   --primary-color: 255, 255, 255;
   --secondary-color: 0, 0, 0;
@@ -21,7 +21,7 @@
   --primary-text: 0, 0, 0;
   --primary-text-hover: 255, 255, 255;
   --primary-button-text: 255, 255, 255;
-  --primary-button-bg: 7, 13, 63;
+  --primary-button-bg: 29, 41, 57;
 }
 
 .dark {
