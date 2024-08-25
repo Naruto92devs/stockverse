@@ -114,6 +114,7 @@ return (
             />
             </svg>
             <input
+            name="search_Symbols"
             type="text"
             className="w-full p-1 pl-8 rounded-full text-base bg-background border rounded focus:outline-none"
             placeholder="Search stocks..."
