@@ -35,7 +35,7 @@ const fetchData = async () => {
     const currentRequestId = ++requestIdRef.current;
     setLoading(true);
     try {
-        const response = await fetch(`https://devsalman.tech/search?keyword=${query}`);
+        const response = await fetch(`/api/search?keyword=${query}`);
         if (!response.ok) {
         throw new Error('Network response was not ok');
         }
