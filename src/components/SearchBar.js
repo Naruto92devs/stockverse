@@ -127,7 +127,7 @@ return (
             <div className="absolute top-full left-0 w-full p-2 text-gray-500 max-lg:text-mobNavLink">No results found</div>
             )}
             {showResults && results.length > 0 && (
-            <ul className="absolute max-lg:relative max-lg:w-[100%] top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
+            <ul className="absolute max-lg:relative max-lg:max-h-[75vh] max-lg:overflow-y-scroll max-lg:w-[100%] top-[120%] p-1 pb-0.5 left-0 w-[350%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
                 {results.map((result, index) => (
                 <li
                     key={index}
@@ -135,7 +135,7 @@ return (
                 >
                     {/* <div className="w-[10%]">{index + 1}</div> */}
                     <div className="w-[20%]">{result['1. symbol']}</div>
-                    <div className="w-[80%]">{result['2. name']}</div>
+                    <div className="w-[75%]">{result['2. name']}</div>
                 </li>
                 ))}
             </ul>
