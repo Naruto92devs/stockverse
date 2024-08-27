@@ -22,6 +22,7 @@
   --primary-text-hover: 255, 255, 255;
   --primary-button-text: 255, 255, 255;
   --primary-button-bg: 29, 41, 57;
+  --theme-color: light;
 }
 
 .dark {
@@ -36,6 +37,7 @@
   --primary-text-hover: 0, 0, 0;
   --primary-button-text: 0, 0, 0;
   --primary-button-bg: 245, 245, 245;
+  --theme-color: dark;
 }
 
 .moon {
