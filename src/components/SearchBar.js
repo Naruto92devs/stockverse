@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function SearchBar({ isVisible, onClose }) {
 const [query, setQuery] = useState('');
@@ -11,6 +11,7 @@ const [showResults, setShowResults] = useState(false);
 const searchBarRef = useRef(null);
 const requestIdRef = useRef(0);
 const pathname = usePathname(); // Hook to detect route changes
+const router = useRouter(); // Use `useRouter` to handle navigation
 
 
 
@@ -94,6 +95,11 @@ if (value.length < 1) {
 }
 };
 
+const handleResultClick = (symbol) => {
+    setQuery('');
+    router.push(`/stocks/${symbol}`);
+  };
+
 
 return (
     <div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
@@ -166,6 +172,7 @@ return (
                 <li
                     key={index}
                     className="flex items-center justify-between text-base text-primaryText max-lg:border-b max-lg:text-mobNavLink w-[100%] px-4 py-2 mb-0.5 max-lg:mb-0 rounded max-lg:rounded-none cursor-pointer max-lg:bg-secondaryColor/0 bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
+                    onClick={() => handleResultClick(result['1. symbol'])}
                 >
                     {/* <div className="w-[10%]">{index + 1}</div> */}
                     <div className="w-[20%]">{result['1. symbol']}</div>
