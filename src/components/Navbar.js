@@ -29,7 +29,7 @@ setIsSearchBarVisible(false);
 };
 
 return (
-    <nav className="w-[100%] flex items-center justify-between py-2 max-lg:py-4 relative select-none">
+    <nav className="w-[100%] mx-auto px-6 xl:container max-xl:px-1 flex items-center justify-between py-2 max-lg:py-4 relative select-none">
         <Link href='/' className="w-max nav-logo flex items-center mr-4 gap-2">
             {/* <Image width={1} height={1} className="w-[48px] h-[48px] max-xl:w-[42px] max-xl:h-[42px]" src='/images/stockverse_logo.svg' alt='Stockverse_logo'/> */}
             <svg width="170" height="38.53" viewBox="0 0 180 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ return (
             </svg>
         </Link>
         <SearchBar isVisible={isSearchBarVisible} onClose={closeSearchBar}/>
-        <div className="z-20 w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
+        <div className="lg:ml-4 z-20 w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
             <Link href='/' className="z-50 flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded-full">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714" stroke="rgba(var(--mob-nav-link))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -166,7 +166,7 @@ return (
                 <span>Stock Picks</span>
             </Link>
         </div>
-        <div className="w-max flex items-center gap-2 max-lg:gap-0">
+        <div className="w-max flex items-center gap-2 max-lg:gap-1">
             <Link href="/login" className="px-4 py-2 text-base max-xl:text-sm text-primaryButton hover:bg-primaryText/10 rounded-full">
                 <span>Login</span>
             </Link> 

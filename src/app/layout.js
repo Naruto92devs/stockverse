@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content="StockVerse Your Gateway to Informed Investing!" />
         <title>Stockverse</title>
       </head>
-      <body className="bg-background w-[100%] h-[100%] mx-auto px-6 xl:container max-xl:px-2">
+      <body className="bg-background w-[100%] mx-auto">
         <Providers>
           <NextThemesProvider>
             <ThemeProvider>
