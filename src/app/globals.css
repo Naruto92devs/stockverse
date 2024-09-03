@@ -39,6 +39,8 @@
   --primary-text-hover: 0, 0, 0;
   --primary-button-text: 0, 0, 0;
   --primary-button-bg: 245, 245, 245;
+  --primary-heading-color: 1, 30, 247;
+  --secondary-heading-color: 0, 0, 0;
   --theme-color: dark;
 }
 
