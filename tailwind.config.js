@@ -19,6 +19,8 @@ module.exports = {
       primaryTextHover: "rgba(var(--primary-text-hover))",
       primaryButtonText: "rgba(var(--primary-button-text))",
       primaryButtonBg: "rgba(var(--primary-button-bg))",
+      primaryHeading: "rgba(var(--primary-heading-color))",
+      secondaryHeading: "rgba(var(--secondary-heading-color))",
       background: "rgba(var(--background))",
     },
     extend: {

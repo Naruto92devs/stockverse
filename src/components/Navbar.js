@@ -29,10 +29,10 @@ setIsSearchBarVisible(false);
 };
 
 return (
-    <nav className="w-[100%] mx-auto px-6 xl:container max-xl:px-1 flex items-center justify-between py-2 max-lg:py-4 relative select-none">
+    <nav className="w-[100%] mx-auto px-6 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none">
         <Link href='/' className="w-max nav-logo flex items-center mr-4 gap-2">
             {/* <Image width={1} height={1} className="w-[48px] h-[48px] max-xl:w-[42px] max-xl:h-[42px]" src='/images/stockverse_logo.svg' alt='Stockverse_logo'/> */}
-            <svg width="170" height="38.53" viewBox="0 0 180 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="max-sm:w-[45vw]" width="170" height="38.53" viewBox="0 0 180 41" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M56.4 29.7053C55.0546 29.7053 53.7703 29.4994 52.5436 29.0876C51.3168 28.6758 50.3501 28.1418 49.6451 27.4874L50.5787 25.5208C51.2505 26.1089 52.1073 26.5957 53.1508 26.9831C54.1926 27.3705 55.2763 27.5625 56.4035 27.5625C57.4278 27.5625 58.2602 27.4456 58.8989 27.21C59.5375 26.9744 60.0087 26.6516 60.3106 26.2398C60.6125 25.8279 60.7643 25.362 60.7643 24.8403C60.7643 24.2348 60.5671 23.7479 60.1727 23.378C59.7783 23.008 59.2653 22.7096 58.6354 22.4828C58.0054 22.2559 57.3127 22.0588 56.5553 21.8912C55.7997 21.7237 55.0389 21.5265 54.2746 21.2997C53.5103 21.0728 52.8123 20.7832 52.1824 20.4307C51.5524 20.0782 51.0429 19.6035 50.6572 19.0068C50.2698 18.41 50.0779 17.6422 50.0779 16.6999C50.0779 15.7576 50.317 14.9566 50.7968 14.1923C51.275 13.428 52.0148 12.8138 53.0147 12.3513C54.0146 11.8889 55.2867 11.6586 56.8345 11.6586C57.8588 11.6586 58.8762 11.7929 59.8848 12.0617C60.8934 12.3304 61.7676 12.7178 62.5058 13.2221L61.6734 15.2393C60.9178 14.735 60.1186 14.3703 59.2793 14.1434C58.4382 13.9166 57.6233 13.8032 56.8345 13.8032C55.8434 13.8032 55.0285 13.9288 54.3898 14.1818C53.7511 14.4331 53.2852 14.7699 52.9903 15.1904C52.6954 15.611 52.5488 16.0821 52.5488 16.6021C52.5488 17.2234 52.746 17.7207 53.1404 18.0889C53.5347 18.4588 54.0478 18.7537 54.6777 18.9719C55.3077 19.19 56.0004 19.3872 56.7578 19.5634C57.5133 19.7397 58.2742 19.9368 59.0385 20.155C59.8028 20.3731 60.5008 20.6593 61.1307 21.0118C61.7607 21.3642 62.2685 21.8354 62.6558 22.4235C63.0415 23.0115 63.2352 23.7689 63.2352 24.692C63.2352 25.6151 62.9909 26.4108 62.504 27.1751C62.0172 27.9394 61.2651 28.5536 60.2477 29.0161C59.2304 29.4785 57.9496 29.7088 56.4035 29.7088L56.4 29.7053Z" fill="var(--svg-color)"/>
             <path d="M72.3075 26.9846C71.8032 27.4034 71.1733 27.6146 70.4159 27.6146C69.7441 27.6146 69.2276 27.4209 68.8664 27.0352C68.5052 26.6479 68.3237 26.0929 68.3237 25.3705V13.2201H65.9034V25.4717C65.9034 26.8154 66.2733 27.8502 67.0132 28.5726C67.7531 29.295 68.7948 29.6562 70.1385 29.6562C70.6934 29.6562 71.2274 29.5812 71.7404 29.4294C72.2534 29.2776 72.6932 29.0437 73.0631 28.7227L72.3075 26.9846ZM69.7581 16.1447L68.3237 18.1358H72.1557V16.1447H69.7581ZM63.6349 16.1447V18.1358H68.3237V16.1447H63.6349Z" fill="var(--svg-color)"/>
             <path d="M80.2489 29.6564C78.9035 29.6564 77.7117 29.3632 76.6699 28.7734C75.6282 28.1853 74.8045 27.3739 74.199 26.3409C73.5935 25.3078 73.2916 24.1352 73.2916 22.8247C73.2916 21.5142 73.5935 20.3206 74.199 19.2946C74.8045 18.2702 75.6282 17.4675 76.6699 16.8865C77.7117 16.3071 78.9053 16.0175 80.2489 16.0175C81.5926 16.0175 82.7652 16.3071 83.8157 16.8865C84.8662 17.4658 85.6898 18.265 86.2866 19.2806C86.8834 20.2979 87.1818 21.4776 87.1818 22.8229C87.1818 24.1683 86.8834 25.327 86.2866 26.3531C85.6898 27.3791 84.8662 28.1853 83.8157 28.7734C82.7652 29.3615 81.5769 29.6564 80.2489 29.6564ZM80.2489 27.5379C81.1057 27.5379 81.8753 27.3442 82.5558 26.9586C83.2364 26.5729 83.7703 26.0215 84.156 25.3078C84.5416 24.5941 84.7353 23.7652 84.7353 22.8247C84.7353 21.8841 84.5416 21.0396 84.156 20.3416C83.7686 19.6436 83.2364 19.1026 82.5558 18.7152C81.8753 18.3296 81.1057 18.1359 80.2489 18.1359C79.3921 18.1359 78.6261 18.3296 77.9543 18.7152C77.2824 19.1026 76.745 19.6436 76.3401 20.3416C75.937 21.0396 75.7346 21.8667 75.7346 22.8247C75.7346 23.7827 75.937 24.5941 76.3401 25.3078C76.7432 26.0215 77.2807 26.5729 77.9543 26.9586C78.6261 27.346 79.3904 27.5379 80.2489 27.5379Z" fill="var(--svg-color)"/>
@@ -52,13 +52,13 @@ return (
         </Link>
         <SearchBar isVisible={isSearchBarVisible} onClose={closeSearchBar}/>
         <div className="lg:ml-4 z-20 w-[60%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
-            <Link href='/' className="z-50 flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded-full">
+            <Link href='/' className="z-50 max-sm:text-[3.6vw] flex flex-col font-medium max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded-full">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714" stroke="rgba(var(--mob-nav-link))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>Home</span>
             </Link>
-            <Link href=''  onClick={toggleSearchBar} className="z-50 hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded-full group">
+            <Link href=''  onClick={toggleSearchBar} className="z-50 max-sm:text-[3.6vw] font-medium hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded-full group">
                 <svg
                     width="24"
                     height="24"
@@ -85,7 +85,7 @@ return (
                     Search
                 </span>
             </Link>
-            <Link href='/stockverse-gpt' className="z-50 flex flex-col items-center max-lg:gap-1.5 max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
+            <Link href='/stockverse-gpt' className="z-50 flex flex-col max-sm:text-[3.6vw] font-medium items-center max-lg:gap-1.5 max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
                 <svg className="absolute -top-7 hidden max-lg:flex" width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_374_40)">
                 <path d="M48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48C37.2548 48 48 37.2548 48 24Z" fill="rgba(var(--mob-nav-bg))" fillOpacity="1"/>
@@ -122,7 +122,7 @@ return (
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/stockverse-gpt') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>Stocks GPT</span>
             </Link>
-            <Link href='/ai-news' className="z-50 flex flex-col max-lg:gap-1.5 items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
+            <Link href='/ai-news' className="z-50 flex flex-col max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 9C7 8.44772 7.44772 8 8 8H16C16.5523 8 17 8.44772 17 9C17 9.55228 16.5523 10 16 10H8C7.44772 10 7 9.55228 7 9Z" fill="rgba(var(--mob-nav-link))"/>
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 13C7 12.4477 7.44772 12 8 12H12C12.5523 12 13 12.4477 13 13C13 13.5523 12.5523 14 12 14H8C7.44772 14 7 13.5523 7 13Z" fill="rgba(var(--mob-nav-link))"/>
@@ -130,7 +130,7 @@ return (
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/ai-news') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>News</span>
             </Link>
-            <div className="cursor-pointer lg:relative group max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full group" onClick={toggleDropdown} id="menu-button" aria-expanded="true" aria-haspopup="true">
+            <div className="cursor-pointer lg:relative group max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-full group" onClick={toggleDropdown} id="menu-button" aria-expanded="true" aria-haspopup="true">
                 <svg className="z-50 hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="rgba(var(--mob-nav-link))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M2 12H22" stroke="rgba(var(--mob-nav-link))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -142,20 +142,20 @@ return (
                 </svg>
                 <div className={`absolute p-2 max-lg:shadow-none max-lg:w-full max-lg:pb-8 max-lg:left-[0%] max-lg:bg-mobNavBg max-lg:rounded-2xl max-lg:z-10 max-lg:-top-[280%] overflow-hidden top-[80%] left-0 mt-2 w-48 bg-background rounded-md shadow-xl transition-opacity duration-0 ${isDropdownVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
                     <Link href="/gainers&losers">
-                        <span className="w-full h-full max-lg:text-mobNavLink rounded text-base block px-4 py-2 text-primaryText hover:bg-primaryText/10">Gainers / Losers</span>
+                        <span className="w-full h-full font-medium max-lg:text-mobNavLink rounded text-base block px-4 py-2 text-primaryText hover:bg-primaryText/10">Gainers / Losers</span>
                     </Link>
                     <Link href="/level2">
-                        <span className="block px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">Level 2</span>
+                        <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">Level 2</span>
                     </Link>
                     <Link href="/ipo">
-                        <span className="block px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">IPO Calender</span>
+                        <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">IPO Calender</span>
                     </Link>
                     <Link href="/stockpicks" className="hidden max-lg:flex">
-                        <span className="block w-full px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">Stock Picks</span>
+                        <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10">Stock Picks</span>
                     </Link>
                 </div>
             </div>
-            <Link href='/stockpicks' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded-full">
+            <Link href='/stockpicks' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 py-2 text-base font-medium max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded-full">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.97 10H3.97V18C3.97 21 4.97 22 7.97 22H15.97C18.97 22 19.97 21 19.97 18V10Z" stroke="var(--svg-color)" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M21.5 7V8C21.5 9.1 20.97 10 19.5 10H4.5C2.97 10 2.5 9.1 2.5 8V7C2.5 5.9 2.97 5 4.5 5H19.5C20.97 5 21.5 5.9 21.5 7Z" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
@@ -167,10 +167,10 @@ return (
             </Link>
         </div>
         <div className="w-max flex items-center gap-2 max-lg:gap-1">
-            <Link href="/login" className="px-4 py-2 text-base max-xl:text-sm text-primaryButton hover:bg-primaryText/10 rounded-full">
+            <Link href="/login" className="px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-primaryButton hover:bg-primaryText/10 rounded-full">
                 <span>Login</span>
             </Link> 
-            <Link href="/register" className="px-6 py-2 text-base max-xl:text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full">
+            <Link href="/register" className="px-6 py-2 max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full">
                 <span>Register</span>
             </Link>
             <ThemeSwitch/>

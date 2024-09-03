@@ -16,12 +16,14 @@
   --mob-nav-bg: 29, 41, 57;
   --mob-nav-link: 255, 255, 255;
   --primary-color: 255, 255, 255;
-  --secondary-color: 1, 30, 247, 1;
+  --secondary-color: 29, 41, 57;
   --background: 255, 255, 255;
   --primary-text: 0, 0, 0;
   --primary-text-hover: 255, 255, 255;
   --primary-button-text: 255, 255, 255;
   --primary-button-bg: 29, 41, 57;
+  --primary-heading-color: 1, 30, 247;
+  --secondary-heading-color: 0, 0, 0;
   --theme-color: light;
 }
 
@@ -49,6 +51,7 @@
     fill: white;
   }
 }
+
 
 /**
 * @license

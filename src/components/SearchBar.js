@@ -102,7 +102,7 @@ router.push(`/stocks/${symbol}`);
 };
 
 return (
-<div className={`relative w-[25%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
+<div className={`relative w-[30%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
     isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
 }`}>
     <div ref={searchBarRef} className="relative w-[100%] max-lg:flex max-lg:flex-col max-lg:items-center">
@@ -142,14 +142,14 @@ return (
                 <path
                     d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
                     stroke="var(--svg-color)" // Use strokeColor state here
-                    strokeWidth="2"
+                    strokeWidth="2.3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 />
                 <path
                     d="M20.9999 20.9999L16.6499 16.6499"
                     stroke="var(--svg-color)" // Use strokeColor state here
-                    strokeWidth="2"
+                    strokeWidth="2.3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 />
