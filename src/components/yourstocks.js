@@ -4,7 +4,7 @@ import Image from "next/image";
 async function yourstocks() {
 
 // Fetch data from the new API on the server side
-const res = await fetch('https://api.stockverse.ai/stocks-list?symbols=lunr,ibm,aapl');
+const res = await fetch('https://api.stockverse.ai/stocks-list?symbols=AAPL,MSFT,GOOG,AMZN,NVDA,TSLA,META,INTC');
 const data = await res.json();
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
@@ -49,9 +49,10 @@ return (
     {stockData.map((stock) => (
         <div key={stock.symbol} className="w-full flex justify-between py-2 px-3">
         <div className="w-[25%] flex items-center min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">
-            <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2" /> {/* Display the logo */}
+            <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Display the logo */}
             <ul className="flex flex-col">
-            <li>{stock.symbol}</li>
+                <li>{stock.symbol}</li>
+                {/* <li>{stock.name}</li> */}
             </ul>
         </div>
         <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">${stock.marketCap}</p>

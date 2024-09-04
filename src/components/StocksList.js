@@ -48,7 +48,7 @@ return (
     {stockData.map((stock) => (
         <div key={stock.symbol} className="w-full flex justify-between py-2 px-3">
         <div className="w-[25%] flex items-center min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">
-            <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2" /> {/* Display the logo */}
+            <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Display the logo */}
             <ul className="flex flex-col">
             <p>{stock.symbol}</p>
             {/* <li>{stock.name}</li> */}
