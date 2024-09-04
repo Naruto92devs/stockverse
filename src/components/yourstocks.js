@@ -4,7 +4,7 @@ import Image from "next/image";
 async function yourstocks() {
 
 // Fetch data from the new API on the server side
-const res = await fetch('https://api.stockverse.ai/stocks-list?symbols=AAPL,MSFT,GOOG,AMZN,NVDA,TSLA,META,INTC');
+const res = await fetch('https://api.stockverse.ai/stocks-list?symbols=AAPL,MSFT,GOOG');
 const data = await res.json();
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
