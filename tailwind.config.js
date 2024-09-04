@@ -21,6 +21,10 @@ module.exports = {
       primaryButtonBg: "rgba(var(--primary-button-bg))",
       primaryHeading: "rgba(var(--primary-heading-color))",
       secondaryHeading: "rgba(var(--secondary-heading-color))",
+      stockListHeading: "rgba(var(--stock-list-heading))",
+      stockListHeadingBg: "rgba(var(--stock-list-heading-bg))",
+      buy: "rgba(var(--buy-color))",
+      sell: "rgba(var(--sell-color))",
       background: "rgba(var(--background))",
     },
     extend: {
