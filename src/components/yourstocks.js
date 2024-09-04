@@ -4,7 +4,7 @@ import Image from "next/image";
 async function yourstocks() {
 
 // Fetch data from the new API on the server side
-const res = await fetch('https://api.stockverse.ai/stocks-list?symbols=AAPL,MSFT,GOOG');
+const res = await fetch('https://devsalman.tech/stocks-list?symbols=ibm,lunr,srm');
 const data = await res.json();
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
@@ -28,11 +28,11 @@ const stockData = data.map((stock) => {
     return {
     symbol: stock.overview.Symbol,
     name: stock.overview.Name,
-    logoUrl: `https://logo.clearbit.com/${domain}`, // Use Clearbit to get the logo
+    logoUrl: `https://img.logo.dev/${domain}?token=pk_GpgWOqB2R1qdEWrvsnD45w&size=300&format=png`, // Use Clearbit to get the logo
     marketCap: formatNumber(Number(stock.overview.MarketCapitalization)),
-    avgGrowth: stock.globalQuote["Global Quote"]["10. change percent"],
-    price: Number(stock.globalQuote["Global Quote"]["05. price"]),
-    volume: formatNumber(Number(stock.globalQuote["Global Quote"]["06. volume"])), // Corrected key for volume
+    avgGrowth: stock.globalQuote["10. change percent"],
+    price: Number(stock.globalQuote["05. price"]),
+    volume: formatNumber(Number(stock.globalQuote["06. volume"])), // Corrected key for volume
     };
 });
 
@@ -47,12 +47,12 @@ return (
         <p className="w-[5%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">WATCH</p>
     </div>
     {stockData.map((stock) => (
-        <div key={stock.symbol} className="w-full flex justify-between py-2 px-3">
+        <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3">
         <div className="w-[25%] flex items-center min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">
             <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Display the logo */}
             <ul className="flex flex-col">
                 <li>{stock.symbol}</li>
-                {/* <li>{stock.name}</li> */}
+                <li className="max-md:hidden">{stock.name}</li>
             </ul>
         </div>
         <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">${stock.marketCap}</p>
