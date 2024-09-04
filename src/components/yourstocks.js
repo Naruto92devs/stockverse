@@ -37,33 +37,33 @@ const stockData = data.map((stock) => {
 });
 
 return (
-    <div className="w-full h-full shadow-lg bg-primaryColor">
+    <div className="w-full h-full shadow-lg bg-primaryColor mb-[20vh]">
     <div className="w-full flex justify-between bg-stockListHeadingBg py-2 px-3 border-y-2 border-stockListHeading/20">
-        <p className="w-[25%] min-w-max font-sansMedium text-sm text-stockListHeading">STOCK</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm text-stockListHeading">MARKET CAP</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm text-stockListHeading">AVG GROWTH</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm text-stockListHeading">CURRENT PRICE</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm text-stockListHeading">VOLUME</p>
-        <p className="w-[5%] min-w-max font-sansMedium text-sm text-stockListHeading">WATCH</p>
+        <p className="w-[25%] min-w-max font-sansMedium text-sm max-md:text-[3vw] text-stockListHeading">STOCK</p>
+        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">MARKET CAP</p>
+        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">CHANGE</p>
+        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">PRICE</p>
+        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">VOLUME</p>
+        <p className="w-[5%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">WATCH</p>
     </div>
     {stockData.map((stock) => (
         <div key={stock.symbol} className="w-full flex justify-between py-2 px-3">
-        <div className="w-[25%] flex items-center min-w-max font-sansMedium text-sm text-stockListHeading">
+        <div className="w-[25%] flex items-center min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">
             <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2" /> {/* Display the logo */}
             <ul className="flex flex-col">
-            <li>{stock.name}</li>
+            <li>{stock.symbol}</li>
             </ul>
         </div>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm text-stockListHeading">${stock.marketCap}</p>
+        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">${stock.marketCap}</p>
         <p
-            className={`w-[10%] min-w-max font-sansMedium text-sm ${
+            className={`w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] ${
             parseFloat(stock.avgGrowth) >= 0 ? 'text-buy' : 'text-sell'
             }`}
         >
-            {stock.avgGrowth}
+            {parseFloat(stock.avgGrowth).toFixed(2) + '%'}
         </p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm text-stockListHeading">${stock.price.toFixed(2)}</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm text-stockListHeading">{stock.volume}</p>
+        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">${stock.price.toFixed(2)}</p>
+        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">{stock.volume}</p>
         <svg
             className="w-[5%]"
             width="26"
