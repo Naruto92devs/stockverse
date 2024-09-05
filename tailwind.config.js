@@ -45,6 +45,7 @@ module.exports = {
       backgroundImage: {
         'heroBg': "url('/images/main_bg.jpg')",
         // 'heroGradient': 'linear-gradient(135deg, #f3f4f6 0%, #e0e4ff 50%, #d9d7f1 100%)',
+        'heroGradientDark': 'linear-gradient(135deg, #1e3a5f 0%, #1f4e59 50%, #342e56 100%)',
       },
     },
   },
