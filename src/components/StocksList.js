@@ -4,7 +4,7 @@ import Image from "next/image";
 async function StocksList() {
 
 // Fetch data from the new API on the server side
-const res = await fetch('https://devsalman.tech/stocks-list?symbols=aapl,msft,goog,amzn,nvda,tsla,meta');
+const res = await fetch('https://api.stockverse.ai/top7');
 const data = await res.json();
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
@@ -37,7 +37,7 @@ const stockData = data.map((stock) => {
 });
 
 return (
-    <div className="w-full h-full shadow-lg bg-primaryColor mb-[20vh]">
+    <div className="w-full h-full shadow-lg bg-primaryColor mt-[60px] mb-[5vh]">
     <div className="w-full flex justify-between bg-stockListHeadingBg py-2 px-3 border-y-2 border-stockListHeading/20">
         <p className="w-[25%] min-w-max font-sansMedium text-sm max-md:text-[3vw] text-stockListHeading">STOCK</p>
         <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">MARKET CAP</p>
