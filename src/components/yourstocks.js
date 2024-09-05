@@ -1,11 +1,12 @@
 // components/StocksListServer.js
 import Image from "next/image";
+import axios from 'axios'; // Import axios
 
-async function yourstocks() {
-
-// Fetch data from the new API on the server side
-const res = await fetch('https://api.stockverse.ai/stocks-list?symbols=ibm,lunr,srm');
-const data = await res.json();
+async function StocksList() {
+try {
+// Fetch data from the new API on the server side using axios
+const res = await axios.get('https://api.stockverse.ai/stocks-list?symbols=ibm,lunr,srm,amd');
+const data = res.data;
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
 const formatNumber = (num) => {
@@ -28,7 +29,7 @@ const stockData = data.map((stock) => {
     return {
     symbol: stock.overview.Symbol,
     name: stock.overview.Name,
-    logoUrl: `https://img.logo.dev/${domain}?token=pk_GpgWOqB2R1qdEWrvsnD45w&size=300&format=png`, // Use Clearbit to get the logo
+    logoUrl: `https://img.logo.dev/${domain}?token=pk_GpgWOqB2R1qdEWrvsnD45w&size=200&format=png`, // Use Clearbit to get the logo
     marketCap: formatNumber(Number(stock.overview.MarketCapitalization)),
     avgGrowth: stock.globalQuote["10. change percent"],
     price: Number(stock.globalQuote["05. price"]),
@@ -37,36 +38,36 @@ const stockData = data.map((stock) => {
 });
 
 return (
-    <div className="w-full h-full shadow-lg bg-primaryColor mb-[20vh]">
-    <div className="w-full flex justify-between bg-stockListHeadingBg py-2 px-3 border-y-2 border-stockListHeading/20">
-        <p className="w-[25%] min-w-max font-sansMedium text-sm max-md:text-[3vw] text-stockListHeading">STOCK</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">MARKET CAP</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">CHANGE</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">PRICE</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">VOLUME</p>
-        <p className="w-[5%] min-w-max font-sansMedium text-sm max-md:text-[2.5vw] text-stockListHeading">WATCH</p>
+    <div className="w-full h-full shadow-lg bg-primaryColor mb-[100px]">
+    <div className="w-full flex justify-between bg-stockListHeadingBg py-3 px-3 max-sm:px-1.5 border-y-2 border-stockListHeading/20">
+        <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">STOCK</p>
+        <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">MARKET CAP</p>
+        <p className="w-[15%] hidden max-sm:block min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">MCap</p>
+        <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">CHANGE</p>
+        <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">PRICE</p>
+        <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">VOLUME</p>
+        <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">WATCH</p>
     </div>
     {stockData.map((stock) => (
-        <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3">
-        <div className="w-[25%] flex items-center min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">
-            <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Display the logo */}
-            <ul className="flex flex-col">
-                <li>{stock.symbol}</li>
-                <li className="max-md:hidden">{stock.name}</li>
+        <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3 max-sm:px-1.5">
+        <div className="w-[27%] max-sm:w-[22%] flex items-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-stockListHeading">
+            <Image width={24} height={24} src={stock.logoUrl} alt={stock.name} className="w-6 h-6 mr-2 max-sm:mr-1.5 rounded-full" /> {/* Display the logo */}
+            <ul className="flex items-center gap-x-1 max-xl:flex-col max-xl:items-start">
+            <li>{stock.symbol}</li>
+            <li className="text-xs max-lg:hidden">({stock.name})</li>
             </ul>
         </div>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">${stock.marketCap}</p>
-        <p
-            className={`w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] ${
+        <p className="w-[20%] max-sm:w-[15%] text-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-stockListHeading">${stock.marketCap}</p>
+        <p className={`w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] ${
             parseFloat(stock.avgGrowth) >= 0 ? 'text-buy' : 'text-sell'
             }`}
         >
             {parseFloat(stock.avgGrowth).toFixed(2) + '%'}
         </p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">${stock.price.toFixed(2)}</p>
-        <p className="w-[10%] min-w-max font-sansMedium text-sm max-md:text-[3.5vw] text-stockListHeading">{stock.volume}</p>
+        <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-stockListHeading">${stock.price.toFixed(2)}</p>
+        <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-stockListHeading">{stock.volume}</p>
         <svg
-            className="w-[5%]"
+            className="w-[8%] max-sm:w-[14%] max-sm:p-1 text-center"
             width="26"
             height="29"
             viewBox="0 0 26 29"
@@ -85,6 +86,10 @@ return (
     ))}
     </div>
 );
+} catch (error) {
+console.error("Error fetching stock data:", error);
+return <div>Error loading stocks data. Please try again later.</div>;
+}
 }
 
-export default yourstocks;
+export default StocksList;
