@@ -5,7 +5,7 @@ import axios from 'axios'; // Import axios
 async function StocksList() {
 try {
 // Fetch data from the new API on the server side using axios
-const res = await axios.get('https://api.stockverse.ai/stocks-list?symbols=ibm,lunr,srm,amd');
+const res = await axios.get('https://api.stockverse.ai/stocks-list?symbols=aapl,msft,goog,amzn,nvda,tsla,meta');
 const data = res.data;
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
