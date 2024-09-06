@@ -236,10 +236,7 @@
 /* From Uiverse.io by vk-uiux */ 
 .card {
   width: 100%;
-  /* padding: 1rem; */
   text-align: center;
-  /* border-radius: .8rem; */
-  /* background-color: white; */
 }
 
 .card__skeleton {
@@ -251,13 +248,11 @@
 	);
   background-size: 300%;
   background-position: 100% 0;
-  /* border-radius: inherit; */
-  animation: shimmer 1s infinite ease-in-out;
+  animation: shimmer 1s infinite alternate-reverse;
 }
 
 .card__title {
   height: 20px;
-  /* margin-bottom: 15px; */
 }
 
 .card__description {

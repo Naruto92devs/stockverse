@@ -59,7 +59,7 @@ const StocksList = () => {
             } catch (error) {
                 console.error("Error fetching stock data:", error);
                 setError('Error loading stocks data. Please try again later.');
-                // setLoading(false); // Set loading to false after error
+                setLoading(true); // Set loading to true after error
             }
         };
 
