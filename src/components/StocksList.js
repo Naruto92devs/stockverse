@@ -31,7 +31,7 @@ const StocksList = () => {
         const fetchData = async () => {
             try {
                 // Fetch data from the new API on the server side using fetch
-                const response = await fetch(`https://api.stockverse.ai/top7`);
+                const response = await fetch(`https://api.stockverse.ai/top_stocks`);
                 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -82,8 +82,9 @@ const StocksList = () => {
             <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">WATCH</p>
         </div>
         {loading ? (
-            <div className="py-14 flex justify-center items-center h-full">
+            <div className="py-14 flex flex-col gap-2 justify-center items-center h-[450px]">
                 <Loader />
+                <p className="text-center font-sansMedium text-md text-primaryText">One moment please.....</p>
             </div>
         ) : (
             stockData.map((stock) => (
