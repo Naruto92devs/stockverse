@@ -5,7 +5,7 @@ import axios from 'axios'; // Import axios
 async function StocksList() {
 try {
 // Fetch data from the new API on the server side using axios
-const res = await axios.get('https://api.stockverse.ai/stocks-list?symbols=aapl,msft,goog,amzn,nvda,tsla,meta');
+const res = await axios.get('https://api.stockverse.ai/stocks-list?symbols=aapl,msft,goog');
 const data = res.data;
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
@@ -38,7 +38,7 @@ const stockData = data.map((stock) => {
 });
 
 return (
-    <div className="w-full h-full shadow-lg bg-background mt-[50px]">
+    <div className="w-full h-full shadow-lg bg-background mb-[20vh]">
     <div className="w-full flex justify-between bg-stockListHeadingBg py-3 px-3 max-sm:px-1.5 border-y-2 border-stockListHeading/20">
         <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">STOCK</p>
         <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">MARKET CAP</p>

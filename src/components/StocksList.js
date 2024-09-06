@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import Loader from './Loader';
+import FallbackUI from './FallbackUI';
 import { useRouter } from 'next/navigation'; // Import router for navigation
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
@@ -31,7 +32,7 @@ const StocksList = () => {
         const fetchData = async () => {
             try {
                 // Fetch data from the new API on the server side using fetch
-                const response = await fetch(`https://api.stockverse.ai/top_stocks`);
+                const response = await fetch('https://api.stockverse.ai/top_stocks');
                 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -71,20 +72,21 @@ const StocksList = () => {
 
 
     return (
-        <div className="w-full h-full shadow-lg bg-background mt-[50px] mb-[20vh]">
-        <div className="w-full flex justify-between bg-stockListHeadingBg py-3 px-3 max-sm:px-1.5 border-y-2 border-stockListHeading/20">
-            <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">STOCK</p>
-            <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">MARKET CAP</p>
-            <p className="w-[15%] hidden max-sm:block min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">MCap</p>
-            <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">CHANGE</p>
-            <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">PRICE</p>
-            <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">VOLUME</p>
-            <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">WATCH</p>
+        <div className="w-full h-full shadow-lg bg-background mt-[50px] ">
+        <div className="w-full flex justify-between bg-mobNavBg py-3 px-3 max-sm:px-1.5 border-b-2 border-stockListHeading/20">
+            <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansSemibold text-sm max-sm:text-[3vw] text-mobNavLink">STOCK</p>
+            <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-mobNavLink">MARKET CAP</p>
+            <p className="w-[15%] hidden max-sm:block min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-mobNavLink">MCap</p>
+            <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-mobNavLink">CHANGE</p>
+            <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-mobNavLink">PRICE</p>
+            <p className="w-[15%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-mobNavLink">VOLUME</p>
+            <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-mobNavLink">WATCH</p>
         </div>
         {loading ? (
             <div className="py-14 flex flex-col gap-2 justify-center items-center h-[450px]">
-                <Loader />
-                <p className="text-center font-sansMedium text-md text-primaryText">One moment please.....</p>
+                {/* <Loader /> */}
+                <FallbackUI/>
+                {/* <p className="text-center font-sansMedium text-md text-primaryText">One moment please.....</p> */}
             </div>
         ) : (
             stockData.map((stock) => (
