@@ -71,7 +71,7 @@ const StocksList = () => {
 
 
     return (
-        <div className="w-full h-full shadow-lg bg-background mt-[50px]">
+        <div className="w-full h-full shadow-lg bg-background mt-[50px] mb-[20vh]">
         <div className="w-full flex justify-between bg-stockListHeadingBg py-3 px-3 max-sm:px-1.5 border-y-2 border-stockListHeading/20">
             <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">STOCK</p>
             <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansSemibold text-sm max-sm:text-[3vw] text-stockListHeading">MARKET CAP</p>
