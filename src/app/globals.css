@@ -24,8 +24,9 @@
   --primary-button-bg: 29, 41, 57;
   --primary-heading-color: 1, 30, 247;
   --secondary-heading-color: 0, 0, 0;
-  --stock-list-heading: 118, 119, 131;
-  --stock-list-heading-bg: 248, 248, 250;
+  /* --stock-list-heading: 118, 119, 131; */
+  /* --stock-list-heading-bg: 248, 248, 250; */
+  --footer-bg: 29, 41, 57;
   --buy-color: 0, 171, 48;
   --sell-color: 235, 0, 27;
   --theme-color: light;
@@ -45,8 +46,9 @@
   --primary-button-bg: 245, 245, 245;
   --primary-heading-color: 1, 30, 247;
   --secondary-heading-color: 0, 0, 0;
-  --stock-list-heading: 225, 225, 225;
-  --stock-list-heading-bg: 0, 0, 0;
+  /* --stock-list-heading: 225, 225, 225; */
+  /* --stock-list-heading-bg: 0, 0, 0; */
+  --footer-bg: 32,32,32;
   --buy-color: 0, 171, 48;
   --sell-color: 235, 0, 27;
   --theme-color: dark;

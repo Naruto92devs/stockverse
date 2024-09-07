@@ -72,7 +72,7 @@ const StocksList = () => {
 
 
     return (
-        <div className="w-full h-full shadow-lg bg-background mt-[50px] ">
+        <div className="w-full h-full shadow-lg bg-background my-[50px] rounded-xl">
         <div className="w-full flex justify-between bg-mobNavBg py-3 px-3 max-sm:px-1.5 border-b-2 border-stockListHeading/20">
             <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">STOCK</p>
             <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">MARKET CAP</p>
@@ -83,7 +83,7 @@ const StocksList = () => {
             <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">WATCH</p>
         </div>
         {loading ? (
-            <div className="py-14 flex flex-col gap-2 justify-center items-center h-[450px]">
+            <div className="py-14 flex flex-col gap-2 justify-center items-center h-[315px]">
                 {/* <Loader /> */}
                 <FallbackUI/>
                 {/* <p className="text-center font-sansMedium text-md text-primaryText">One moment please.....</p> */}
