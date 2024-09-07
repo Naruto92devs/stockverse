@@ -21,6 +21,7 @@ module.exports = {
       primaryButtonBg: "rgba(var(--primary-button-bg))",
       primaryHeading: "rgba(var(--primary-heading-color))",
       secondaryHeading: "rgba(var(--secondary-heading-color))",
+      submit: "rgba(var(--submit-button))",
       // stockListHeading: "rgba(var(--stock-list-heading))",
       // stockListHeadingBg: "rgba(var(--stock-list-heading-bg))",
       footerBg: "rgba(var(--footer-bg))",
@@ -45,7 +46,8 @@ module.exports = {
       },
       backgroundImage: {
         'heroBg': "url('/images/main_bg.jpg')",
-        'heroBgDark': "url('/images/main_bg_1.jpg')",
+        'loginBg': "url('/images/login_bg.jpg')",
+        // 'heroBgDark': "url('/images/main_bg_1.jpg')",
         // 'heroGradient': 'linear-gradient(135deg, #f3f4f6 0%, #e0e4ff 50%, #d9d7f1 100%)',
         'heroGradientDark': 'linear-gradient(135deg, #1e3a5f 0%, #1f4e59 50%, #342e56 100%)',
       },
