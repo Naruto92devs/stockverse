@@ -132,7 +132,7 @@ export default function Register() {
           </form>
           <p className="flex gap-x-2 text-md font-Medium text-secondaryHeading">
             Already have an account?  
-            <Link className="underline" href='/register'>
+            <Link className="underline" href='/login'>
               Sign In!
             </Link>
           </p>
