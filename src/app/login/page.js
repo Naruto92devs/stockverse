@@ -120,7 +120,7 @@ export default function LogIn() {
           </div>
         </form>
         <p className="flex gap-x-2 text-md font-Medium text-secondaryHeading">
-          Don't have an account?  
+          Don&#39;t have an account?
           <Link className="underline" href='/register'>
             Register Now!
           </Link>
