@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="description" content="Discover real-time stock data, expert financial analysis, and market insights on Stockverse. Stay ahead of the market with live updates, in-depth stock news, IPO calendars, and personalized tools to help you make informed investment decisions." />
+        <link rel="icon" href="/favicon.png" />
         <title>Stockverse</title>
       </head>
       <body className="bg-background w-[100%] mx-auto">

@@ -25,6 +25,7 @@ const StocksList = () => {
     const [stockData, setStockData] = useState([]); // State for stock data
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
+    const [strokeColors, setStrokeColors] = useState({});
     const router = useRouter(); // Next.js router for navigation
     const symbolsQuery = symbols.join(',');
 
@@ -56,6 +57,13 @@ const StocksList = () => {
 
                 setStockData(formattedData); // Update state with formatted data
                 setLoading(false);
+
+                // Initialize stroke colors here once the data is available
+                const initialColors = {};
+                formattedData.forEach((stock) => {
+                    initialColors[stock.symbol] = 'var(--svg-color)'; // Default color
+                });
+                setStrokeColors(initialColors);
             } catch (error) {
                 console.error("Error fetching stock data:", error);
                 setError('Error loading stocks data. Please try again later.');
@@ -67,6 +75,14 @@ const StocksList = () => {
 
     const handleResultClick = (symbol) => {
         router.push(`/stocks/${symbol}`); // Navigate to the stock detail page
+    };
+
+    // Function to toggle the stroke color for a specific symbol
+    const toggleStrokeColor = (symbol) => {
+        setStrokeColors((prevColors) => ({
+            ...prevColors,
+            [symbol]: prevColors[symbol] === 'var(--svg-color)' ? 'rgba(var(--sell-color))' : 'var(--svg-color)',
+        }));
     };
 
 
@@ -104,17 +120,18 @@ const StocksList = () => {
                         <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stock.price.toFixed(2)}</p>
                         <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">{stock.volume}</p>
                         <svg
-                            className="w-[8%] max-sm:w-[14%] max-sm:p-1 text-center"
+                            className="cursor-pointer w-[8%] max-sm:w-[14%] max-sm:p-1 text-center"
                             width="26"
                             height="29"
                             viewBox="0 0 26 29"
                             fill="none"
+                            onClick={() => toggleStrokeColor(stock.symbol)} // Toggle specific color on click
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
                                 d="M17.5 22H8.5M17.5 22H25L22.8925 19.8925C22.6095 19.6094 22.385 19.2734 22.2319 18.9035C22.0787 18.5337 21.9999 18.1373 22 17.737V13C22.0002 11.1384 21.4234 9.32251 20.3488 7.80233C19.2743 6.28215 17.755 5.13245 16 4.5115V4C16 3.20435 15.6839 2.44129 15.1213 1.87868C14.5587 1.31607 13.7956 1 13 1C12.2044 1 11.4413 1.31607 10.8787 1.87868C10.3161 2.44129 10 3.20435 10 4V4.5115C6.505 5.7475 4 9.082 4 13V17.7385C4 18.5455 3.679 19.321 3.1075 19.8925L1 22H8.5H17.5ZM17.5 22V23.5C17.5 24.6935 17.0259 25.8381 16.182 26.682C15.3381 27.5259 14.1935 28 13 28C11.8065 28 10.6619 27.5259 9.81802 26.682C8.97411 25.8381 8.5 24.6935 8.5 23.5V22H17.5Z"
-                                stroke="var(--svg-color)"
-                                strokeWidth="1.5"
+                                stroke={strokeColors[stock.symbol]} // Use symbol-specific color
+                                strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                             />
