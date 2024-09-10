@@ -141,14 +141,14 @@ return (
                 >
                 <path
                     d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                    stroke="var(--svg-color)" // Use strokeColor state here
+                    stroke="gray" // Use strokeColor state here
                     strokeWidth="2.3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 />
                 <path
                     d="M20.9999 20.9999L16.6499 16.6499"
-                    stroke="var(--svg-color)" // Use strokeColor state here
+                    stroke="gray" // Use strokeColor state here
                     strokeWidth="2.3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -157,7 +157,7 @@ return (
             <input
                 name="search_Symbols"
                 type="text"
-                className="w-full max-lg:w-[95%] p-1 pl-8 rounded-full max-lg:rounded-lg text-base max-lg:text-xl bg-background border rounded focus:outline-none"
+                className="w-full max-lg:w-[95%] p-1 pl-8 rounded max-lg:rounded-lg text-base max-lg:text-xl bg-background rounded focus:outline-none"
                 placeholder="Search stocks..."
                 value={query}
                 onChange={handleInputChange}
