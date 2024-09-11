@@ -42,7 +42,7 @@ const [error, setError] = useState(null);
 const [topic, setTopic] = useState(''); // Unset by default
 const [sort, setSort] = useState(''); // Unset by default
 const [limit, setLimit] = useState(''); // Unset by default
-const [visibleNewsCount, setVisibleNewsCount] = useState(50); // To control "Show More"
+const [visibleNewsCount, setVisibleNewsCount] = useState(20); // To control "Show More"
 
 // Fetch news data based on selected topic, sort, and limit
 const fetchNews = async (selectedTopic = '', selectedSort = '', selectedLimit = '') => {
@@ -175,45 +175,84 @@ return (
     {!loading && !error && (
     <>
         <div className="news-list flex flex-wrap max-lg:flex-col justify-between gap-y-4">
-        {news.slice(0, visibleNewsCount).map((item, index) => (
-            <div key={index} className="news-item shadow-lg p-6 max-md:p-4 bg-primaryText/10 rounded-2xl w-[49%] max-lg:w-full mb-4 flex flex-col gap-y-4 items-start">
-                {/* <Image width={2} height={2} src={item.banner_image} alt={item.source} className="w-full h-[380px] max-lg:h-[350px] max-md:h-full rounded-lg" /> */}
-                <div className="flex w-full items-center justify-between">
-                    <a className="max-sm:text-[3.5vw] text-base max-xl:text-sm" href={`https://${item.source_domain}`}>
-                        <p>Author: ({item.authors})</p>
-                    </a>
-                    <p
-                    className={`px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
-                        item.overall_sentiment_label === 'Bullish'
-                        ? 'bg-buy'
-                        : item.overall_sentiment_label === 'Bearish'
-                        ? 'bg-sell'
-                        : item.overall_sentiment_label === 'Neutral'
-                        ? 'bg-articleNeutral'
-                        : 'bg-article'
-                    }`}
-                    >
-                    {item.overall_sentiment_label}
-                    </p>
-                </div>
-                <div className={`w-full h-[350px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] rounded-xl bg-cover bg-center bg-no-repeat ${
-                    item.banner_image ? '' : 'bg-ArticleBg bg-contain'
-                }`}
-                style={{ backgroundImage: item.banner_image ? `url(${item.banner_image})` : '' }}
-                >
-                </div>
-                <h3 className="text-xl font-sansSemibold text-primaryText">Title: {item.title}</h3>
-                <p className="text-base font-sansRegular text-primaryText/60">{item.summary}</p>
-                <div className="flex mt-auto w-full items-center justify-between">
-                    <a className="max-sm:text-[3.5vw] text-base max-xl:text-sm" href={`https://${item.source_domain}`}>
+            {news.slice(0, visibleNewsCount).map((item, index) => {
+              // Parse and format the date from "time_published"
+            const formattedDate = new Date(
+                item.time_published.slice(0, 8).replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3')
+            )
+                .toISOString()
+                .split('T')[0];
+
+            return (
+                <div key={index} className="news-item shadow-lg p-6 max-md:p-4 bg-primaryText/10 rounded-2xl w-[49%] max-lg:w-full mb-4 flex flex-col gap-y-4 items-start">
+                    {/* Source, Sentiment, Category */}
+                    <div className="flex w-full items-center justify-end gap-x-1">
+                        <a
+                        className="max-sm:text-[3.3vw] mr-auto text-primaryText text-base max-xl:text-sm"
+                        href={`https://${item.source_domain}`}
+                        >
                         <p>Source: {item.source}</p>
-                    </a>
-                    <a className="px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full" href={item.url} target="_blank" rel="noopener noreferrer">
-                        Full Article  &#8599;
-                    </a>
+                        </a>
+
+                        <p
+                        className={`px-6 py-2 font-sansMedium max-sm:px-[3vw] max-sm:text-[3.3vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
+                            item.overall_sentiment_label === 'Bullish'
+                            ? 'bg-buy'
+                            : item.overall_sentiment_label === 'Bearish'
+                            ? 'bg-sell'
+                            : item.overall_sentiment_label === 'Neutral'
+                            ? 'bg-articleNeutral'
+                            : 'bg-article'
+                        }`}
+                        >
+                        {item.overall_sentiment_label}
+                        </p>
+                        <p
+                        className={`px-6 py-2 font-sansMedium max-sm:px-[3vw] max-sm:text-[3.3vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
+                            item.category_within_source === 'General'
+                            ? 'bg-buy'
+                            : item.category_within_source === 'Trading'
+                            ? 'bg-sell'
+                            : item.category_within_source === 'News'
+                            ? 'bg-articleNeutral'
+                            : 'bg-article'
+                        }`}
+                        >
+                        {item.category_within_source}
+                        </p>
+                    </div>
+
+                    {/* Banner image */}
+                    <div
+                        className={`w-full h-[350px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] rounded-xl bg-cover bg-center bg-no-repeat ${
+                        item.banner_image ? '' : 'bg-ArticleBg bg-contain'
+                        }`}
+                        style={{ backgroundImage: item.banner_image ? `url(${item.banner_image})` : '' }}
+                    ></div>
+
+                    {/* Title and Summary */}
+                    <h3 className="text-xl font-sansSemibold text-primaryText">Title: {item.title}</h3>
+                    <p className="text-base font-sansRegular text-primaryText/60">{item.summary}</p>
+
+                    {/* Author, Date, and Full Article Link */}
+                    <div className="flex mt-auto w-full items-center justify-between">
+                        <div>
+                            <p className="max-sm:text-[3.5vw] text-base max-xl:text-sm">Author: ({item.authors.join(', ')})</p>
+                            {/* Display the formatted date */}
+                            <p className="text-sm text-primaryText/60">Published: {formattedDate}</p>
+                        </div>
+                        <a
+                        className="px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full"
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        Full Article &#8599;
+                        </a>
+                    </div>
                 </div>
-            </div>
-        ))}
+              );
+            })}
         </div>
 
         {/* "Show More" button */}
