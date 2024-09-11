@@ -140,7 +140,7 @@ return (
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 13C7 12.4477 7.44772 12 8 12H12C12.5523 12 13 12.4477 13 13C13 13.5523 12.5523 14 12 14H8C7.44772 14 7 13.5523 7 13Z" fill="rgba(var(--mob-nav-link))"/>
                 <path fillRule="evenodd" clipRule="evenodd" d="M6.71963 17.4636C7.07906 17.164 7.53213 17 8 17H19C19.5523 17 20 16.5523 20 16V6C20 5.44771 19.5523 5 19 5H5C4.44772 5 4 5.44772 4 6V19.7299L6.71963 17.4636ZM8 19H19C20.6569 19 22 17.6569 22 16V6C22 4.34315 20.6569 3 19 3H5C3.34315 3 2 4.34315 2 6V19.7299C2 21.4256 3.97771 22.3519 5.28037 21.2664L8 19Z" fill="rgba(var(--mob-nav-link))"/>
                 </svg>
-                <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/ai-news') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>News</span>
+                <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/news') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>News</span>
             </Link>
             <div className="cursor-pointer lg:relative group max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded group" onClick={toggleDropdown} id="menu-button" aria-expanded="true" aria-haspopup="true">
                 <svg className="z-50 hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

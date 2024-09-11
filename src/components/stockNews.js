@@ -178,12 +178,22 @@ return (
         {news.slice(0, visibleNewsCount).map((item, index) => (
             <div key={index} className="news-item shadow-lg p-6 max-md:p-4 bg-primaryText/10 rounded-2xl w-[49%] max-lg:w-full mb-4 flex flex-col gap-y-4 items-start">
                 {/* <Image width={2} height={2} src={item.banner_image} alt={item.source} className="w-full h-[380px] max-lg:h-[350px] max-md:h-full rounded-lg" /> */}
-                <div className="flex mt-auto w-full items-center justify-between">
+                <div className="flex w-full items-center justify-between">
                     <a className="max-sm:text-[3.5vw] text-base max-xl:text-sm" href={`https://${item.source_domain}`}>
                         <p>Author: ({item.authors})</p>
                     </a>
-                    <p className="px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-mobNavLink bg-article rounded-full">
-                        {item.overall_sentiment_label}
+                    <p
+                    className={`px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
+                        item.overall_sentiment_label === 'Bullish'
+                        ? 'bg-buy'
+                        : item.overall_sentiment_label === 'Bearish'
+                        ? 'bg-sell'
+                        : item.overall_sentiment_label === 'Neutral'
+                        ? 'bg-articleNeutral'
+                        : 'bg-article'
+                    }`}
+                    >
+                    {item.overall_sentiment_label}
                     </p>
                 </div>
                 <div className={`w-full h-[350px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] rounded-xl bg-cover bg-center bg-no-repeat ${

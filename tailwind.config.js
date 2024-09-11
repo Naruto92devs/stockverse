@@ -23,6 +23,7 @@ module.exports = {
       secondaryHeading: "rgba(var(--secondary-heading-color))",
       submit: "rgba(var(--submit-button))",
       article: "rgba(var(--article-button))",
+      articleNeutral: "rgba(var(--article-neutral-button))",
       // stockListHeading: "rgba(var(--stock-list-heading))",
       // stockListHeadingBg: "rgba(var(--stock-list-heading-bg))",
       footerBg: "rgba(var(--footer-bg))",
