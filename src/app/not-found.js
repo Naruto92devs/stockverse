@@ -9,7 +9,6 @@ export default function notFound() {
         <h1 className="text-4xl font-bold text-primaryButtonBg">Oops, something went wrong!</h1>
         <p className="text-base text-primaryText">we could not find the page you were looking for.</p>
         <p className="text-base text-primaryText">Go back to the <Link className="underline" href="/">Home</Link></p>
-        {/* <Card/> */}
       </section>
     );
   }

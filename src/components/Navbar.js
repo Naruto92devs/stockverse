@@ -29,7 +29,7 @@ setIsSearchBarVisible(false);
 };
 
 return (
-    <nav className="w-[100%] mx-auto px-6 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none">
+    <nav className="w-[100%]  mx-auto px-6 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none">
         <Link href='/' className="w-max nav-logo flex items-center mr-4 gap-2">
             <svg className="max-sm:w-[45vw]" width="170" height="39" viewBox="0 0 170 39" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_2291_2706)">

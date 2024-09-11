@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Loader from './Loader';
-import Image from 'next/image';
+import ArticleFallbackUI from './ArticleFallbackUI';
+import Link from 'next/link';
 
 // Define available topics for filters
 const topics = [
@@ -56,9 +56,14 @@ try {
     const response = await fetch(url);
     const data = await response.json();
     setNews(data.feed); // Set the news feed from the response
+    setLoading(false);
 } catch (err) {
-    setError('Failed to load news. Please try again later.');
-} finally {
+    setError(
+    <section className="w-[100%] h-[50dvh] flex flex-col gap-1 items-center justify-center text-center">
+        <h1 className="text-4xl font-bold text-primaryButtonBg">Oops, something went wrong!</h1>
+        <p className="text-base text-primaryText">we were not able to find what you were looking for.</p>
+        <p className="text-base text-primaryText">Please try again!</p>
+    </section>);
     setLoading(false);
 }
 };
@@ -165,9 +170,8 @@ return (
 
     {/* Display loader, error message, or news items */}
     {loading && (
-    <div>
-        <Loader />
-        <p className="text-base">One moment please...</p>
+    <div className="w-full">
+        <ArticleFallbackUI />
     </div>
     )}
     {error && <p>{error}</p>}
@@ -186,16 +190,16 @@ return (
             return (
                 <div key={index} className="news-item shadow-lg p-6 max-md:p-4 bg-primaryText/10 rounded-2xl w-[49%] max-lg:w-full mb-4 flex flex-col gap-y-4 items-start">
                     {/* Source, Sentiment, Category */}
-                    <div className="flex w-full items-center justify-end gap-x-1">
-                        <a
+                    <div className="flex w-full items-center justify-end gap-x-3">
+                        {/* <a
                         className="max-sm:text-[3.3vw] mr-auto text-primaryText text-base max-xl:text-sm"
                         href={`https://${item.source_domain}`}
                         >
                         <p>Source: {item.source}</p>
-                        </a>
+                        </a> */}
 
                         <p
-                        className={`px-6 py-2 font-sansMedium max-sm:px-[3vw] max-sm:text-[3.3vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
+                        className={`px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[4vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
                             item.overall_sentiment_label === 'Bullish'
                             ? 'bg-buy'
                             : item.overall_sentiment_label === 'Bearish'
@@ -208,7 +212,7 @@ return (
                         {item.overall_sentiment_label}
                         </p>
                         <p
-                        className={`px-6 py-2 font-sansMedium max-sm:px-[3vw] max-sm:text-[3.3vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
+                        className={`px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[4vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
                             item.category_within_source === 'General'
                             ? 'bg-buy'
                             : item.category_within_source === 'Trading'
@@ -224,8 +228,8 @@ return (
 
                     {/* Banner image */}
                     <div
-                        className={`w-full h-[350px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] rounded-xl bg-cover bg-center bg-no-repeat ${
-                        item.banner_image ? '' : 'bg-ArticleBg bg-contain'
+                        className={`w-full h-[350px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] bg-primaryText/10 rounded-xl bg-[length:100%_100%] bg-center bg-no-repeat ${
+                        item.banner_image ? '' : 'bg-ArticleBg bg-[length:70%_auto]'
                         }`}
                         style={{ backgroundImage: item.banner_image ? `url(${item.banner_image})` : '' }}
                     ></div>
@@ -235,11 +239,11 @@ return (
                     <p className="text-base font-sansRegular text-primaryText/60">{item.summary}</p>
 
                     {/* Author, Date, and Full Article Link */}
-                    <div className="flex mt-auto w-full items-center justify-between">
-                        <div>
+                    <div className="flex mt-auto max-sm:flex-col max-sm:items-end w-full items-center justify-between">
+                        <div className="max-sm:w-full">
                             <p className="max-sm:text-[3.5vw] text-base max-xl:text-sm">Author: ({item.authors.join(', ')})</p>
                             {/* Display the formatted date */}
-                            <p className="text-sm text-primaryText/60">Published: {formattedDate}</p>
+                            <p className="text-sm text-primaryText/60">Published on: {formattedDate}</p>
                         </div>
                         <a
                         className="px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full"
@@ -251,7 +255,7 @@ return (
                         </a>
                     </div>
                 </div>
-              );
+            );
             })}
         </div>
 

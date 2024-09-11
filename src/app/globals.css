@@ -249,7 +249,7 @@
 
 .card__skeleton {
   background-image: linear-gradient(
-		45deg,
+		90deg,
 		#ccc 0px,
 		rgba(236, 236, 236, 0.9) 40px,
 		#ccc 80px
@@ -264,19 +264,19 @@
 }
 
 .card__description {
-  height: 100px;
+  height: 150px;
 }
 
 @keyframes shimmer {
-  /* to {
+  to {
     background-position: -100% 0;
-  } */
-  from {
+  }
+  /* from {
     opacity: 1;
   }
   to {
     opacity: .5;
-  }
+  } */
 }
 
 
