@@ -21,7 +21,7 @@ const formatNumber = (num) => {
 };
 
 const StocksList = () => {
-    const symbols = ['aapl', 'msft', 'goog', 'amzn', 'nvda', 'tsla', 'meta', 'zm', 'intc', 'amd']; // Static array of symbols
+    const symbols = ['aapl', 'msft', 'goog', 'amzn', 'nvda', 'tsla', 'meta', 'zm', 'intc']; // Static array of symbols
     const [stockData, setStockData] = useState([]); // State for stock data
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
