@@ -33,7 +33,7 @@ const StocksList = () => {
         const fetchData = async () => {
             try {
                 // Fetch data from the new API on the server side using fetch
-                const response = await fetch('https://api.stockverse.ai/top_stocks');
+                const response = await fetch(`https://api.stockverse.ai/stocks-list?symbols=${symbols}`);
                 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

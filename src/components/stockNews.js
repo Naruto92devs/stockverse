@@ -42,7 +42,7 @@ const [error, setError] = useState(null);
 const [topic, setTopic] = useState(''); // Unset by default
 const [sort, setSort] = useState(''); // Unset by default
 const [limit, setLimit] = useState(''); // Unset by default
-const [visibleNewsCount, setVisibleNewsCount] = useState(20); // To control "Show More"
+const [visibleNewsCount, setVisibleNewsCount] = useState(21); // To control "Show More"
 
 // Fetch news data based on selected topic, sort, and limit
 const fetchNews = async (selectedTopic = '', selectedSort = '', selectedLimit = '') => {
@@ -186,9 +186,11 @@ return (
             )
                 .toISOString()
                 .split('T')[0];
+                // Check if ticker_sentiment exists and has at least one element
+    const ticker = item.ticker_sentiment && item.ticker_sentiment.length > 0 ? item.ticker_sentiment[0].ticker : 'N/A';
 
             return (
-                <div key={index} className="news-item shadow-lg p-6 max-md:p-4 bg-primaryText/10 rounded-2xl w-[49%] max-lg:w-full mb-4 flex flex-col gap-y-4 items-start">
+                <div key={index} className="news-item shadow-lg p-6 max-md:p-4 bg-primaryText/10 rounded-2xl w-[32.5%] max-xl:w-[49%] max-lg:w-full mb-4 flex flex-col gap-y-4 items-start">
                     {/* Source, Sentiment, Category */}
                     <div className="flex w-full items-center justify-end gap-x-3">
                         {/* <a
@@ -197,6 +199,7 @@ return (
                         >
                         <p>Source: {item.source}</p>
                         </a> */}
+                        {/* <p className="text-base font-sansRegular text-primaryText/60">{ticker}</p> */}
 
                         <p
                         className={`px-6 py-2 font-sansMedium max-sm:px-[6vw] max-sm:text-[4vw] text-base max-xl:text-sm text-mobNavLink rounded-full ${
@@ -226,16 +229,18 @@ return (
                         </p>
                     </div>
 
+                    <h3 className="text-lg font-sansSemibold text-primaryText">{item.title}</h3>
+
+
                     {/* Banner image */}
                     <div
-                        className={`w-full h-[350px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] bg-primaryText/10 rounded-xl bg-[length:100%_100%] bg-center bg-no-repeat ${
+                        className={`w-full h-[250px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] bg-primaryText/10 rounded-xl bg-[length:100%_100%] bg-center bg-no-repeat ${
                         item.banner_image ? '' : 'bg-articleBg bg-[length:70%_auto]'
                         }`}
                         style={{ backgroundImage: item.banner_image ? `url(${item.banner_image})` : '' }}
                     ></div>
 
                     {/* Title and Summary */}
-                    <h3 className="text-xl font-sansSemibold text-primaryText">Title: {item.title}</h3>
                     <p className="text-base font-sansRegular text-primaryText/60">{item.summary}</p>
 
                     {/* Author, Date, and Full Article Link */}
