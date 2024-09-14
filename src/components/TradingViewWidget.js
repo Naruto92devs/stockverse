@@ -26,7 +26,6 @@ const updateWidget = () => {
         "style": "0",
         "locale": "en",
         "allow_symbol_change": false,
-        "calendar": false,
         "withdateranges": true,
         "allow_symbol_change": false,
         "save_image": false,

@@ -234,7 +234,7 @@ return (
 
                     {/* Banner image */}
                     <div
-                        className={`w-full h-[250px] max-2xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] bg-primaryText/10 rounded-xl bg-[length:100%_100%] bg-center bg-no-repeat ${
+                        className={`w-full h-[250px] max-xl:h-[300px] max-md:h-[250px] max-sm:h-[200px] bg-primaryText/10 rounded-xl bg-[length:100%_100%] bg-center bg-no-repeat ${
                         item.banner_image ? '' : 'bg-articleBg bg-[length:70%_auto]'
                         }`}
                         style={{ backgroundImage: item.banner_image ? `url(${item.banner_image})` : '' }}
