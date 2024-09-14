@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import { ThemeProvider } from '../context/ThemeContext';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import Footer from '@/components/Footer';
-// import script from 'next/script';
+import Script from 'next/script';
 
 export default function RootLayout({ children }) {
   return (
@@ -15,8 +15,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.png" size="92*92" />
         <title>Stockverse</title>
         {/* <!-- Google tag (gtag.js) --> */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=G-PEDC750L6H`}></script>
-        <script>
+        <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-PEDC750L6H`}></Script>
+        <Script id="google-analytics" strategy="afterInteractive">
           {
             `
             window.dataLayer = window.dataLayer || [];
@@ -24,9 +24,10 @@ export default function RootLayout({ children }) {
             gtag('js', new Date());
   
             gtag('config', 'G-PEDC750L6H');
+            gtag('config', 'AW-16488126373');
             `
           }
-        </script>
+        </Script>
       </head>
       <body className="bg-background w-[100%] mx-auto">
         <Providers>
