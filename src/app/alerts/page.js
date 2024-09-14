@@ -3,8 +3,8 @@ import AweberForm from "@/components/AweberForm";
 export default function Alerts() {
     return (
         <div className="w-full">
-            <div className="py-16 max-md:py-6 px-3 lg:px-[20%] max-sm:px-3 mx-auto xl:container gap-y-8 max-sm:gap-y-3 flex flex-col items-center justify-center">
-                <svg className="mb-3 pb-4 w-48 h-16 w-full border-b-2 border-buy" width="400" height="96" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="py-6 max-md:py-6 px-3 lg:px-[20%] max-sm:px-3 mx-auto xl:container gap-y-8 max-sm:gap-y-3 flex flex-col items-center justify-center">
+                <svg className=" pb-4 w-48 h-16 w-full border-b-2 border-buy" width="400" height="96" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_379_19)">
                     <path d="M17.57 26.1401L17.3 26.2901L17.57 26.1401Z" fill="var(--svg-color)"/>
                     <path d="M27.7 16.94V8L13.85 0L0 8V16.31L16.2 25.66L13.85 27.02L0 19.02V27.96L13.85 35.96L27.7 27.96V19.65L11.5 10.3L13.85 8.94L27.7 16.94ZM1.09 8.63L13.85 1.26L26.61 8.63V11.35L13.85 4.01L1.09 11.34V8.62V8.63ZM1.09 15.68V13.24L19.4 23.81L17.29 25.03L1.09 15.68ZM26.61 27.34L13.85 34.71L1.09 27.34V24.63L13.85 31.99L26.61 24.63V27.34ZM26.61 20.29V22.73L8.29 12.15L10.4 10.93L26.6 20.28L26.61 20.29ZM10.41 9.67L10.14 9.83L6.11 12.16L26.07 23.68L13.86 30.73L1.09 23.36V20.92L13.85 28.28L17.3 26.29L17.57 26.13L21.6 23.8L1.64 12.29L13.85 5.27L26.61 12.61V15.05L13.85 7.69L10.4 9.68L10.41 9.67Z" fill="var(--svg-color)"/>
@@ -29,15 +29,15 @@ export default function Alerts() {
                     </defs>
                 </svg>
                 <h1 className="text-primaryText max-md:text-2xl text-center font-sansSemibold text-3xl">Early Investors in this $1.22 stock could turn $10k into <span className="text-buy">$55k...</span></h1>
-            <div className="w-full flex flex-col gap-y-4 lg:px-[5%]">
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-xl">You aren&apos;t on the list to receive our newest stock picks -- but it&apos;s not too late.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-xl">If you had been a member of Stockverse on June 30th, 2022... When Joe alerted Aehr Test Systems... (years before it announced revenue growth of 50%)</p>
-                <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-2xl">you could be up 6602% today.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-xl">Or on December 3rd, 2022, when Joe first alerted Core Scientific, Inc...</p>
-                <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-2xl">you could be up 1677% today.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-xl">Or - recently - on January 15th, 2021... When Joe announced his pick for Applied Digital Corporation... </p>
-                <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-2xl">you could be up 2175% today.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-xl">So don&apos;t delay -- simply enter your phone number below to receive SMS alerts when Joe is about to unveil his next winning stock pick!</p>
+            <div className="w-full flex flex-col gap-y-2 lg:px-[5%]">
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">You aren&apos;t on the list to receive our newest stock picks -- but it&apos;s not too late.</p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">If you had been a member of Stockverse on June 30th, 2022... When Joe alerted Aehr Test Systems... (years before it announced revenue growth of 50%)</p>
+                <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 6602% today.</p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">Or on December 3rd, 2022, when Joe first alerted Core Scientific, Inc...</p>
+                <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 1677% today.</p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">Or - recently - on January 15th, 2021... When Joe announced his pick for Applied Digital Corporation... </p>
+                <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 2175% today.</p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">So don&apos;t delay -- simply enter your phone number below to receive SMS alerts when Joe is about to unveil his next winning stock pick!</p>
                 <AweberForm/>
             </div>
             <div className="w-full border-t-2 border-buy py-4">
