@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const AweberForm = () => {
   useEffect(() => {
     // Check if the script already exists to avoid adding it multiple times
-    const scriptId = 'aweber-wjs-jqwddmo7g';
+    const scriptId = 'aweber-wjs-utlz97g6k';
     if (document.getElementById(scriptId)) return;
 
     // Create a script element
