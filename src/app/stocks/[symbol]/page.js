@@ -198,7 +198,12 @@ export default function StockDetails() {
                         </div>
                     )}
                 </div>
-                <TradingViewWidget symbol={symbol} />
+                {/* <TradingViewWidget symbol={symbol} /> */}
+                <p>Chart</p>
+                <p>Technical Analysis</p>
+                <p>News</p>
+                <p>Level2</p>
+                <p>Historical</p>
             </div>
         </div>
     );
