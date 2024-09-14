@@ -31,11 +31,11 @@ export default function Alerts() {
                 <h1 className="text-primaryText max-md:text-4xl text-center font-sansSemibold text-4xl">Early Investors in this $1.22 <br></br> stock could turn $10k into <span className="text-buy">$55k...</span></h1>
             <div className="w-full flex flex-col gap-y-2 md:px-[15%]">
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">You aren&apos;t on the list to receive our newest stock picks -- but it&apos;s not too late.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">If you had been a member of Stockverse on June 30th, 2022... When Joe alerted Aehr Test Systems... (years before it announced revenue growth of 50%)</p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">If you had been a member of StockVerse on June 30th, 2022... When Mark alerted Aehr Test Systems... (years before it announced revenue growth of 50%)</p>
                 <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 6602% today.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">Or on December 3rd, 2022, when Joe first alerted Core Scientific, Inc...</p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">Or on December 3rd, 2022, when Mark first alerted Core Scientific, Inc...</p>
                 <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 1677% today.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">On January 15th, 2021... When Joe announced his pick for Applied Digital Corporation... </p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">On January 15th, 2021... When Mark announced his pick for Applied Digital Corporation... </p>
                 <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 2175% today.</p>
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">So don&apos;t delay -- simply enter your phone number below to receive SMS alerts when Mark is about to unveil his next <span className="font-sansSemibold">winning stock pick!</span> </p>
                 <AweberForm/>
