@@ -28,7 +28,7 @@ export default function Alerts() {
                     </clipPath>
                     </defs>
                 </svg>
-                <h1 className="text-primaryText max-md:text-2xl text-center font-sansSemibold text-7xl">Early Investors in this $1.22 stock could turn $10k into <span className="text-buy">$55k...</span></h1>
+                <h1 className="text-primaryText max-md:text-2xl text-center font-sansSemibold text-3xl">Early Investors in this $1.22 stock could turn $10k into <span className="text-buy">$55k...</span></h1>
             <div className="w-full flex flex-col gap-y-4 lg:px-[5%]">
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-xl">You aren&apos;t on the list to receive our newest stock picks -- but it&apos;s not too late.</p>
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-xl">If you had been a member of Stockverse on June 30th, 2022... When Joe alerted Aehr Test Systems... (years before it announced revenue growth of 50%)</p>
