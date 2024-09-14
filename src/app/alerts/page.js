@@ -3,7 +3,7 @@ import AweberForm from "@/components/AweberForm";
 export default function Alerts() {
     return (
         <div className="w-full">
-            <div className="py-16 max-md:py-6 px-3 lg:px-[15%] max-sm:px-3 mx-auto xl:container gap-y-8 max-sm:gap-y-3 flex flex-col items-center justify-center">
+            <div className="py-16 max-md:py-6 px-3 lg:px-[20%] max-sm:px-3 mx-auto xl:container gap-y-8 max-sm:gap-y-3 flex flex-col items-center justify-center">
                 <svg className="mb-3 pb-4 w-48 h-16 w-full border-b-2 border-buy" width="400" height="96" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_379_19)">
                     <path d="M17.57 26.1401L17.3 26.2901L17.57 26.1401Z" fill="var(--svg-color)"/>

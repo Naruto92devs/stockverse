@@ -132,7 +132,7 @@ return (
                 </clipPath>
                 </defs>
                 </svg>
-                <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/stockverse-gpt') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>Stocks GPT</span>
+                <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/stockverse-gpt') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>StockVerse GPT</span>
             </Link>
             <Link href='/news' className="z-50 flex flex-col max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
