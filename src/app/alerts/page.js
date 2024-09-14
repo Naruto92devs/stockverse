@@ -28,7 +28,7 @@ export default function Alerts() {
                     </clipPath>
                     </defs>
                 </svg>
-                <h1 className="text-primaryText max-md:text-2xl text-center font-sansSemibold text-3xl">Early Investors in this $1.22 stock could turn $10k into <span className="text-buy">$55k...</span></h1>
+                <h1 className="text-primaryText max-md:text-2xl text-center font-sansSemibold text-4xl">Early Investors in this $1.22 <br></br> stock could turn $10k into <span className="text-buy">$55k...</span></h1>
             <div className="w-full flex flex-col gap-y-2 lg:px-[5%]">
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">You aren&apos;t on the list to receive our newest stock picks -- but it&apos;s not too late.</p>
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">If you had been a member of Stockverse on June 30th, 2022... When Joe alerted Aehr Test Systems... (years before it announced revenue growth of 50%)</p>
@@ -37,7 +37,7 @@ export default function Alerts() {
                 <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 1677% today.</p>
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">Or - recently - on January 15th, 2021... When Joe announced his pick for Applied Digital Corporation... </p>
                 <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 2175% today.</p>
-                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">So don&apos;t delay -- simply enter your phone number below to receive SMS alerts when Joe is about to unveil his next winning stock pick!</p>
+                <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">So don&apos;t delay -- simply enter your phone number below to receive SMS alerts when Mark is about to unveil his next winning stock pick!</p>
                 <AweberForm/>
             </div>
             <div className="w-full border-t-2 border-buy py-4">
