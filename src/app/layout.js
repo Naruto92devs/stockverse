@@ -6,6 +6,7 @@ import { ThemeProvider } from '../context/ThemeContext';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
+import KlaviyoScriptLoader from '@/components/KlaviyoScriptLoader';
 
 export default function RootLayout({ children }) {
   return (
@@ -41,7 +42,7 @@ export default function RootLayout({ children }) {
             </ThemeProvider>
           </NextThemesProvider>
         </Providers>
-        <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SNDh4K"></script>
+        <KlaviyoScriptLoader/>
       </body>
     </html>
   )

@@ -40,9 +40,7 @@ export default function Alerts() {
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">On January 15th, 2021... When Mark announced his pick for Applied Digital Corporation... </p>
                 <p className="text-primaryText text-center max-sm:text-lg font-sansSemibold text-xl">you could be up 2175% today.</p>
                 <p className="text-primaryText font-sansRegular max-sm:text-sm text-lg">So don&apos;t delay -- simply enter your phone number below to receive SMS alerts when Mark is about to unveil his next <span className="font-sansSemibold">winning stock pick!</span> </p>
-                {/* <AweberForm/> */}
                 <div class="klaviyo-form-UyiDsy"></div>
-                {/* <Form/> */}
             </div>
             <div className="w-full border-t-2 border-buy py-4">
                 <h1 className="text-primaryText mb-4 text-center font-sansSemibold text-2xl">Disclaimer</h1>
