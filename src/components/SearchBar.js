@@ -30,7 +30,7 @@ const fetchData = async () => {
             result =>
                 !result['1. symbol'].includes('.') && // Remove symbols with periods
                 !result['2. name'].toLowerCase().includes('warrant') && // Remove companies with "warrant" in their name
-                !(result['1. symbol'].length === 5 && result['1. symbol'].endsWith('X')) // Remove symbols where "X" is the fifth letter
+                !(result['1. symbol'].endsWith('X')) // Remove symbols where "X" is the fifth letter
             );
             setResults(filteredResults);
             setNoResults(filteredResults.length === 0);
@@ -96,9 +96,15 @@ if (value.length < 1) {
 }
 };
 
-const handleResultClick = (symbol) => {
-setQuery('');
-router.push(`/stocks/${symbol}`);
+const handleResultClick = (symbol, name) => {
+    setQuery('');
+
+    // Construct URL with URLSearchParams
+    const params = new URLSearchParams({ name: encodeURIComponent(name) });
+    const url = `/stocks/${symbol}?${params.toString()}`;
+
+    // Use router.push with the constructed URL
+    router.push(url);
 };
 
 return (
@@ -174,7 +180,7 @@ return (
                 <li
                 key={index}
                 className="flex items-center justify-between text-base text-primaryText max-lg:border-b max-lg:text-mobNavLink w-[100%] px-4 py-2 mb-0.5 max-lg:mb-0 rounded max-lg:rounded-none cursor-pointer max-lg:bg-secondaryColor/0 bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
-                onClick={() => handleResultClick(result['1. symbol'])}
+                onClick={() => handleResultClick(result['1. symbol'], result['2. name'])}
                 >
                 <div className="w-[20%]">{result['1. symbol']}</div>
                 <div className="w-[80%]">{result['2. name']}</div>
