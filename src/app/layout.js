@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
             </ThemeProvider>
           </NextThemesProvider>
         </Providers>
+        <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SNDh4K"></script>
       </body>
     </html>
   )
