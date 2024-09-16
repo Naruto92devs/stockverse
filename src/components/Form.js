@@ -65,6 +65,7 @@ return (
                 id="awf_field-117565556"
                 type="email"
                 name="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
                 tabIndex="500"
@@ -81,6 +82,7 @@ return (
                 type="text"
                 id="awf_field-117565557"
                 className="text"
+                autoComplete="tel"
                 name="custom Phone Number"  // Ensure this matches AWeber's required field name
                 value={formData.customPhoneNumber}
                 onChange={handleChange}
@@ -99,6 +101,7 @@ return (
                 name="custom privacy"  // Ensure this matches AWeber's required field name
                 checked={formData.customPrivacy}
                 onChange={handleChange}
+                autoComplete="on"
                 tabIndex="502"
             />
             <label className="choice" htmlFor="awf_field-117565558">
