@@ -60,15 +60,6 @@
   --theme-color: dark;
 }
 
-/* Replace '.klaviyo-popup' with the actual class or ID of the popup form */
-.klaviyo-popup {
-  display: none !important;
-}
-
-#YOUR_POPUP_FORM_ID {
-  display: none !important;
-}
-
 .moon {
   fill: #070D3F;
 }

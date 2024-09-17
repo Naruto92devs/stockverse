@@ -1,6 +1,6 @@
 
 // import AweberForm from "@/components/AweberForm";
-import Form from "@/components/Form";
+// import Form from "@/components/Form";
 
 export default function Alerts() {
     return (
