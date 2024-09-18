@@ -43,7 +43,7 @@ export default function Alerts() {
                         <div className="w-[50%] max-md:w-[100%] max-md:mt-4 flex flex-col gap-y-4 max-md:gap-y-6">
                             <h1 className="text-4xl max-xl:text-2xl font-sansSemibold text-secondaryHeading">Get Winning Stock Picks Sent To Your Phone</h1>
                             <p className="text-xl max-xl:text-md text-secondaryHeading font-sansRegular">2023 Track Record: <span className="font-sansBold"> 477.2%.</span> 2024 Track Record: <span className="font-sansBold"> 233.3%.</span> 28 of Last 32 Trades Won! Make BIG Money Following Our Trades. </p>
-                            <div class="klaviyo-form-UyiDsy"></div>
+                            <div className="klaviyo-form-UyiDsy"></div>
                         </div>
                     </div>
                 </div>
