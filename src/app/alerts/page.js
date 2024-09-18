@@ -6,8 +6,8 @@ import Image from "next/image";
 export default function Alerts() {
     return (
         <div className="w-full">
-            <div className="w-full relative bg-AlertsBg bg-no-repeat bg-cover bg-left-bottom">
-                <div className="absolute z-10 bg-alertsBg/70 w-full h-[100%]"></div>
+            <div className="w-full relative bg-heroBg bg-no-repeat bg-cover bg-left-bottom">
+                {/* <div className="absolute z-10 bg-alertsBg/70 w-full h-[100%]"></div> */}
                 <div className="relative z-10 py-6 max-md:py-6 lg:px-[10%] px-3 max-sm:px-3 mx-auto xl:container gap-y-0 max-sm:gap-y-3 flex flex-col items-start justify-center">
                     <svg className="w-48 h-16" width="400" height="96" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_379_19)">
