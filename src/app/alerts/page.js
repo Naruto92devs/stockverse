@@ -33,7 +33,7 @@ export default function Alerts() {
                         </clipPath>
                         </defs>
                     </svg>
-                    <p className="text-base text-secondaryHeading">
+                    <p className="text-3xl text-secondaryHeading font-sansSemibold">
                         #1 Long Term Stock Picking Service In The U.S.A
                     </p>
                     <div className="w-full mt-2 max-md:flex-col-reverse max-md:gap-y-8 flex items-center justify-between">
