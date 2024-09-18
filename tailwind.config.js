@@ -24,8 +24,6 @@ module.exports = {
       submit: "rgba(var(--submit-button))",
       article: "rgba(var(--article-button))",
       articleNeutral: "rgba(var(--article-neutral-button))",
-      // stockListHeading: "rgba(var(--stock-list-heading))",
-      // stockListHeadingBg: "rgba(var(--stock-list-heading-bg))",
       footerBg: "rgba(var(--footer-bg))",
       buy: "rgba(var(--buy-color))",
       sell: "rgba(var(--sell-color))",

@@ -45,7 +45,7 @@ const observer = new MutationObserver(() => {
     updateWidget();
 });
 
-// Observe changes to the body class (or any other element where you toggle the theme)
+// Observe changes to the body className (or any other element where you toggle the theme)
 observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['class']
