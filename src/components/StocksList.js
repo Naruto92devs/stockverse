@@ -21,7 +21,7 @@ const formatNumber = (num) => {
 };
 
 const StocksList = () => {
-    const symbols = ['aapl', 'msft', 'goog', 'amzn', 'nvda', 'tsla', 'meta', 'zm', 'intc']; // Static array of symbols
+    const symbols = ['aapl', 'msft', 'goog', 'amzn', 'nvda', 'tsla', 'meta']; // Static array of symbols
     const [stockData, setStockData] = useState([]); // State for stock data
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
@@ -87,7 +87,7 @@ const StocksList = () => {
 
 
     return (
-        <div className="w-full h-full shadow-lg bg-background my-[50px] rounded-xl">
+        <div className="w-full h-full shadow-lg bg-background my-[40px] max-sm:mt-0 rounded-xl">
             <div className="w-full flex justify-between bg-mobNavBg py-3 px-3 max-sm:px-1.5 border-b-2 border-stockListHeading/20">
                 <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">STOCK</p>
                 <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">MARKET CAP</p>

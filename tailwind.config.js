@@ -27,6 +27,7 @@ module.exports = {
       footerBg: "rgba(var(--footer-bg))",
       buy: "rgba(var(--buy-color))",
       sell: "rgba(var(--sell-color))",
+      alertsBg: "rgba(var(--alerts-bg))",
       background: "rgba(var(--background))",
     },
     extend: {
@@ -50,8 +51,9 @@ module.exports = {
         'newsBg': "url('/images/news_bg.jpg')",
         'articleBg': "url('/images/Image_not_available.png')",
         'stocksBg': "url('/images/stocks_bg.jpg')",
+        'AlertsBg': "url('/images/alerts_bg.png')",
         // 'heroBgDark': "url('/images/main_bg_1.jpg')",
-        // 'heroGradient': 'linear-gradient(135deg, #f3f4f6 0%, #e0e4ff 50%, #d9d7f1 100%)',
+        'heroGradient': 'linear-gradient(135deg, #f3f4f6 0%, #e0e4ff 50%, #d9d7f1 100%)',
         'heroGradientDark': 'linear-gradient(135deg, #1e3a5f 0%, #1f4e59 50%, #342e56 100%)',
       },
     },

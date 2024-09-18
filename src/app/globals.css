@@ -31,6 +31,7 @@
   --buy-color: 0, 171, 48;
   --sell-color: 235, 0, 27;
   --theme-color: light;
+  --alerts-bg: 119,222,182;
 }
 
 .dark {
@@ -54,6 +55,7 @@
   --buy-color: 0, 171, 48;
   --sell-color: 235, 0, 27;
   --theme-color: dark;
+  --alerts-bg: 119,222,182;
 }
 
 .moon {
