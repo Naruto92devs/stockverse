@@ -7,7 +7,7 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
     const [svgColor, setSvgColor] = useState('white');
-    const { resolvedTheme } = useTheme();
+    const { resolvedTheme } = useTheme('white');
 
     useEffect(() => {
         setSvgColor(resolvedTheme === 'dark' ? 'white' : 'black');

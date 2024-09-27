@@ -20,10 +20,27 @@ const formatNumber = (num) => {
     }
 };
 
+// Utility function to truncate a string after a certain number of words
+const truncateDescription = (description, wordLimit) => {
+    const words = description.split(' ');
+    if (words.length > wordLimit) {
+        return {
+            truncated: words.slice(0, wordLimit).join(' '),
+            isTruncated: true,
+        };
+    }
+    return {
+        truncated: description,
+        isTruncated: false,
+    };
+};
+
+
 export default function StockDetails() {
     const [stockData, setStockData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [showFullDescription, setShowFullDescription] = useState(false); // State to toggle full description
 
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -76,6 +93,11 @@ export default function StockDetails() {
         fetchStockData();
     }, [symbol, name]);
 
+  // Ensure stockData is available before accessing Description
+  const { truncated, isTruncated } = stockData
+  ? truncateDescription(stockData.Description, 30) // 30 word limit
+  : { truncated: '', isTruncated: false };
+
     return (
         <div className="w-full h-full">
             {/* hero section */}
@@ -122,15 +144,20 @@ export default function StockDetails() {
                                     </p>
                                 </div>
                             </div>
-                            <p className="text-base font-sansRegular text-secondaryHeading/50">{stockData.Description}</p>
-                            {/* <p className="w-[20%] max-sm:w-[15%] text-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stockData.marketCap}</p>
-                            <p className={`w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] ${
-                                parseFloat(stockData.avgGrowth) >= 0 ? 'text-buy' : 'text-sell'
-                            }`}>
-                                {parseFloat(stockData.avgGrowth).toFixed(2) + '%'}
-                            </p>
-                            <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stockData.price.toFixed(2)}</p>
-                            <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">{stockData.volume}</p> */}
+                            <div className="description-section">
+                                <p className="text-base font-sansRegular text-secondaryHeading/50">
+                                    {showFullDescription ? stockData.Description : truncated}
+                                </p>
+                                {isTruncated && (
+                                    <button
+                                        onClick={() => setShowFullDescription(!showFullDescription)}
+                                        className="text-blue-500 hover:underline"
+                                    >
+                                        {showFullDescription ? 'See Less' : 'Click To See More'}
+                                    </button>
+                                )}
+                            </div>
+
                         </div>
                     )}
                 </div>
