@@ -35,6 +35,8 @@ const limitOptions = [
 { label: '1000', value: 1000 },
 ];
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function StockNews() {
 const [news, setNews] = useState([]);
 const [loading, setLoading] = useState(false);
@@ -49,7 +51,7 @@ const fetchNews = async (selectedTopic = '', selectedSort = '', selectedLimit = 
 setLoading(true);
 setError(null);
 try {
-    const url = `https://api.stockverse.ai/stock-news?${
+    const url = `${STOCKVERSE_BACK_END}/stock-news?${
     selectedLimit ? `limit=${selectedLimit}` : ''
     }${selectedSort ? `&sort=${selectedSort}` : ''}${selectedTopic ? `&topics=${selectedTopic}` : ''}`;
 

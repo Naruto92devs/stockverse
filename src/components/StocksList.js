@@ -5,6 +5,8 @@ import Image from "next/image";
 import FallbackUI from './FallbackUI';
 import { useRouter } from 'next/navigation'; // Import router for navigation
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
 const formatNumber = (num) => {
     if (num >= 1.0e12) {
@@ -33,7 +35,7 @@ const StocksList = () => {
         const fetchData = async () => {
             try {
                 // Fetch data from the new API on the server side using fetch
-                const response = await fetch(`https://api.stockverse.ai/stocks-list?symbols=${symbols}`);
+                const response = await fetch(`${STOCKVERSE_BACK_END}/stocks-list?symbols=${symbols}`);
                 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

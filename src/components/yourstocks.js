@@ -2,10 +2,12 @@
 import Image from "next/image";
 import axios from 'axios'; // Import axios
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 async function StocksList() {
 try {
 // Fetch data from the new API on the server side using axios
-const res = await axios.get('https://api.stockverse.ai/stocks-list?symbols=aapl,msft,goog');
+const res = await axios.get(`${STOCKVERSE_BACK_END}/stocks-list?symbols=aapl,msft,goog`);
 const data = res.data;
 
 // Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)

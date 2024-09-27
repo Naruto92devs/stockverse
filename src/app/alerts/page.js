@@ -1,7 +1,6 @@
 
 // import AweberForm from "@/components/AweberForm";
 // import Form from "@/components/Form";
-import Image from "next/image";
 
 export default function Alerts() {
     return (

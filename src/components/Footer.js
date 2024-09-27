@@ -58,7 +58,7 @@ export default function Footer () {
                         <h2 className="text-xl font-sansSemibold text-mobNavLink">Quick Links</h2>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/'>Home</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/stockverse-gpt'>Stocks GPT</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/news'>News</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/alerts'>Alerts</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/stockpicks'>Stock Picks</Link>
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">

@@ -35,6 +35,7 @@ const truncateDescription = (description, wordLimit) => {
     };
 };
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 export default function StockDetails() {
     const [stockData, setStockData] = useState(null);
@@ -53,7 +54,7 @@ export default function StockDetails() {
         const fetchStockData = async () => {
             try {
                 // Fetch data from the new API on the server side using fetch
-                const response = await fetch(`https://api.stockverse.ai/stocks-list?symbols=${symbol}`);
+                const response = await fetch(`${STOCKVERSE_BACK_END}/stocks-list?symbols=${symbol}`);
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
