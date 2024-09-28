@@ -108,7 +108,7 @@ const handleResultClick = (symbol, name) => {
 };
 
 return (
-<div className={`relative w-[30%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
+<div className={`relative w-[20%] max-xl:w-[12%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
     isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
 }`}>
     <div ref={searchBarRef} className="relative w-[100%] max-lg:flex max-lg:flex-col max-lg:items-center">
