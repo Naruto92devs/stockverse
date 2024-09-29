@@ -7,24 +7,30 @@ export default function GainersLosersPage() {
 
     return (
         <section className="w-full">
-            <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-wrap gap-1 items-start justify-between">
+            <div className="py-16 max-sm:py-10 w-full bg-newsBg bg-no-repeat bg-cover bg-right-bottom">
+                <div className="lg:pr-[25%] max-md:py-0 py-10 px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
+                <h1 className="text-secondaryHeading max-sm:text-3xl text-4xl font-sansSemibold"><span className="text-article">Market Movers:</span> Gainers, Losers & Actives Stocks</h1>
+                <p className="text-base max-sm:text-sm text-secondaryHeading">Track the stocks making headlines today. Discover the top gainers and losers, and see which stocks are trading at the highest volumes. Stay ahead with quick insights on the market’s biggest movers, all in one place.</p>
+                </div>
+            </div>
+            <div className="py-6 px-6 max-sm:px-3 mx-auto xl:container gap-y-2 flex flex-wrap items-start justify-between">
                 
                 {/* Buttons for selecting stock type */}
-                <div className="w-full flex justify-center gap-4 mb-4">
+                <div className="w-full flex justify-start gap-2 overflow-x-auto">
                     <button
-                        className={`px-4 py-2 rounded ${filter === 'gainer-stocks' ? 'bg-primaryText/10 text-white' : 'bg-gray-200'}`}
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'gainer-stocks' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => setFilter('gainer-stocks')}
                     >
                         Top Gainers
                     </button>
                     <button
-                        className={`px-4 py-2 rounded ${filter === 'loser-stocks' ? 'bg-primaryText/10 text-white' : 'bg-gray-200'}`}
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'loser-stocks' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => setFilter('loser-stocks')}
                     >
                         Top Losers
                     </button>
                     <button
-                        className={`px-4 py-2 rounded ${filter === 'active-stocks' ? 'bg-primaryText/10 text-white' : 'bg-gray-200'}`}
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'active-stocks' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => setFilter('active-stocks')}
                     >
                         Most Active
@@ -32,7 +38,7 @@ export default function GainersLosersPage() {
                 </div>
 
                 {/* Display stock data based on selected filter */}
-                <div className="w-[100%] max-lg:w-[48%] max-sm:w-full">
+                <div className="w-full">
                     <Gainers_Losers stocksType={filter} />
                 </div>
             </div>

@@ -93,15 +93,15 @@ const Gainers_Losers = ({ stocksType }) => {
 
 
     return (
-        <div className="w-full h-full shadow-lg bg-background my-[40px] max-sm:mt-0 rounded-xl">
-            <div className="w-full flex justify-between bg-mobNavBg py-3 px-3 max-sm:px-1.5 border-b-2 border-stockListHeading/20">
-                <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">STOCK</p>
-                <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">MARKET CAP</p>
-                <p className="w-[15%] hidden max-sm:block min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">MCap</p>
-                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">CHANGE</p>
-                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">PRICE</p>
-                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">VOLUME</p>
-                <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-mobNavLink">WATCH</p>
+        <div className="w-full h-full overflow-x-auto">
+            <div className="w-full flex justify-between py-3 px-3 max-sm:px-1.5 border-y-[1px] border-primaryText/10">
+                <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">STOCK</p>
+                <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">MARKET CAP</p>
+                <p className="w-[15%] hidden max-sm:block min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">MCap</p>
+                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">CHANGE</p>
+                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">PRICE</p>
+                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">VOLUME</p>
+                <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">WATCH</p>
             </div>
             {(loading || !stockData || stockData.length === 0) ? (
                 <div className="py-14 flex flex-col gap-2 justify-center items-center h-[315px]">
@@ -109,7 +109,7 @@ const Gainers_Losers = ({ stocksType }) => {
                 </div>
             ) : (
                 stockData.map((stock) => (
-                    <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3 max-sm:px-1.5">
+                    <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3 max-sm:px-1.5 hover:bg-primaryText/10 border-b-[1px] border-primaryText/10">
                         <div className="cursor-pointer w-[27%] max-sm:w-[22%] flex gap-x-2 items-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">
                             {/* Use Logo component */}
                             <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" />
