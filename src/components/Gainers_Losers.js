@@ -1,65 +1,83 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Image from "next/image";
-// import Loader from './Loader';
 import FallbackUI from './FallbackUI';
 import { useRouter } from 'next/navigation'; // Import router for navigation
-import Logo from './Logo';
+import Logo from './Logo'; // Import your new Logo component
 import formatNumber from './FormatNumber';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-const StocksList = () => {
-    const symbols = ['aapl', 'msft', 'goog', 'amzn', 'nvda', 'tsla', 'meta']; // Static array of symbols
+// Utility function to sanitize symbol
+const sanitizeSymbol = (symbol) => {
+    // Remove any special characters from the end of the symbol
+    return symbol.replace(/[+\-\$%\^&*()]+$/, '');
+};
+
+const Gainers_Losers = ({ stocksType }) => {
     const [stockData, setStockData] = useState([]); // State for stock data
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
     const [strokeColors, setStrokeColors] = useState({});
     const router = useRouter(); // Next.js router for navigation
-    const symbolsQuery = symbols.join(',');
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchSymbolsAndStockData = async () => {
+            setLoading(true); // Set loading to true when filter changes
             try {
-                // Fetch data from the new API on the server side using fetch
-                const response = await fetch(`${STOCKVERSE_BACK_END}/stocks-list?symbols=${symbols}`);
-                
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                // Fetch symbols data (gainers, losers, or active stocks)
+                const symbolsResponse = await fetch(`https://api.stockverse.ai/${stocksType}`);
+                if (!symbolsResponse.ok) {
+                    throw new Error('Failed to fetch stock symbols');
                 }
 
-                const data = await response.json();
+                const symbolsData = await symbolsResponse.json();
+                
+                // Create a comma-separated string of symbols for the overview request
+                const symbols = symbolsData.map(item => item.ticker).join(',');
 
-                // Extract necessary information (symbol, market cap, price) from the API structure
-                const formattedData = data.map((stock) => {
+                // Fetch the company overview for all the symbols
+                const overviewResponse = await fetch(`https://api.stockverse.ai/overview?symbol=${symbols}`);
+                if (!overviewResponse.ok) {
+                    throw new Error('Failed to fetch company overview');
+                }
+                
+                const overviewData = await overviewResponse.json();
+
+                // Merge data from both APIs (symbol details and overview)
+                const combinedData = symbolsData.map(symbol => {
+                    const sanitizedSymbol = sanitizeSymbol(symbol.ticker);
+                    const overview = overviewData.find(item => item.Symbol === sanitizedSymbol.toUpperCase());
+
                     return {
-                        symbol: stock.overview.Symbol,
-                        name: stock.overview.Name,
-                        siteUrl: stock.overview.OfficialSite, // Use Clearbit to get the logo
-                        marketCap: formatNumber(Number(stock.overview.MarketCapitalization)),
-                        avgGrowth: stock.globalQuote["10. change percent"],
-                        price: Number(stock.globalQuote["05. price"]),
-                        volume: formatNumber(Number(stock.globalQuote["06. volume"])),
+                        symbol: sanitizedSymbol,
+                        price: symbol.price,
+                        volume: formatNumber(Number(symbol.volume)),
+                        changeAmount: symbol.change_amount,
+                        changePercentage: symbol.change_percentage,
+                        marketCap: overview ? formatNumber(Number(overview.MarketCapitalization)) : 'N/A',
+                        name: overview ? overview.Name : symbol.ticker,
+                        siteUrl: overview ? overview.OfficialSite : '',
                     };
                 });
 
-                setStockData(formattedData); // Update state with formatted data
+                setStockData(combinedData); // Update state with combined data
                 setLoading(false);
 
                 // Initialize stroke colors here once the data is available
                 const initialColors = {};
-                formattedData.forEach((stock) => {
+                combinedData.forEach((stock) => {
                     initialColors[stock.symbol] = 'var(--svg-color)'; // Default color
                 });
                 setStrokeColors(initialColors);
             } catch (error) {
                 console.error("Error fetching stock data:", error);
                 setError('Error loading stocks data. Please try again later.');
+                setLoading(false);
             }
         };
 
-        fetchData(); // Fetch data on component mount
-    }, []); // Empty dependency array means this effect runs once on mount
+        fetchSymbolsAndStockData(); // Fetch symbols and stock data on component mount
+    }, [stocksType]); // Depend on stocksType to refetch when it changes
 
     const handleResultClick = (symbol) => {
         router.push(`/stocks/${symbol}`); // Navigate to the stock detail page
@@ -87,12 +105,13 @@ const StocksList = () => {
             </div>
             {(loading || !stockData || stockData.length === 0) ? (
                 <div className="py-14 flex flex-col gap-2 justify-center items-center h-[315px]">
-                    <FallbackUI/>
+                    <FallbackUI />
                 </div>
             ) : (
                 stockData.map((stock) => (
                     <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3 max-sm:px-1.5">
                         <div className="cursor-pointer w-[27%] max-sm:w-[22%] flex gap-x-2 items-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">
+                            {/* Use Logo component */}
                             <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" />
                             <ul onClick={() => handleResultClick(stock.symbol)} className="flex items-center gap-x-1 max-xl:flex-col max-xl:items-start">
                                 <li>{stock.symbol}</li>
@@ -101,11 +120,11 @@ const StocksList = () => {
                         </div>
                         <p className="w-[20%] max-sm:w-[15%] text-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stock.marketCap}</p>
                         <p className={`w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] ${
-                            parseFloat(stock.avgGrowth) >= 0 ? 'text-buy' : 'text-sell'
+                            parseFloat(stock.changePercentage) >= 0 ? 'text-buy' : 'text-sell'
                         }`}>
-                            {parseFloat(stock.avgGrowth).toFixed(2) + '%'}
+                            {parseFloat(stock.changePercentage).toFixed(2) + '%'}
                         </p>
-                        <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stock.price.toFixed(2)}</p>
+                        <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stock.price}</p>
                         <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">{stock.volume}</p>
                         <svg
                             className="cursor-pointer w-[8%] max-sm:w-[14%] max-sm:p-1 text-center"
@@ -131,4 +150,4 @@ const StocksList = () => {
     );
 }
 
-export default StocksList;
+export default Gainers_Losers;

@@ -3,22 +3,8 @@
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import TradingViewWidget from '@/components/TradingViewWidget'; // Assuming you have a separate component for TradingView
-import Image from 'next/image';
-
-// Utility function to format large numbers (e.g., 1000000 -> 1M, 250000 -> 250K)
-const formatNumber = (num) => {
-    if (num >= 1.0e12) {
-        return (num / 1.0e12).toFixed(1) + 'T';
-    } else if (num >= 1.0e9) {
-        return (num / 1.0e9).toFixed(1) + 'B';
-    } else if (num >= 1.0e6) {
-        return (num / 1.0e6).toFixed(1) + 'M';
-    } else if (num >= 1.0e3) {
-        return (num / 1.0e3).toFixed(1) + 'K';
-    } else {
-        return num;
-    }
-};
+import Logo from '@/components/Logo';
+import formatNumber from '@/components/FormatNumber';
 
 // Utility function to truncate a string after a certain number of words
 const truncateDescription = (description, wordLimit) => {
@@ -63,7 +49,6 @@ export default function StockDetails() {
                 const data = await response.json();
                 const stock = data[0]; // Assuming we always get one stock object
 
-                const domain = new URL(stock.overview.OfficialSite).hostname.replace('www.', '');
 
                 // Use the fallback name if `stock.overview.Name` is "Not Available" or null
                 const stockName = stock.overview.Name && stock.overview.Name !== "Not Available" ? stock.overview.Name : searchBarName;
@@ -75,7 +60,7 @@ export default function StockDetails() {
                     Sector: stock.overview.Sector,
                     Industry: stock.overview.Industry,
                     Description: stock.overview.Description,
-                    logoUrl: `https://img.logo.dev/${domain}?token=pk_GpgWOqB2R1qdEWrvsnD45w&size=200&format=png`,
+                    siteUrl: stock.overview.OfficialSite,
                     marketCap: formatNumber(Number(stock.overview.MarketCapitalization)),
                     avgGrowth: stock.globalQuote["10. change percent"],
                     price: Number(stock.globalQuote["05. price"]),
@@ -117,7 +102,7 @@ export default function StockDetails() {
                         <div className="w-full flex flex-col gap-y-10 py-2 px-3 max-sm:px-1.5 lg:pr-[30%]">
                             <div className="flex max-md:flex-col-reverse max-md:items-start max-md:gap-4 items-end justify-between">
                                 <div className="flex items-end">
-                                    <Image width={42} height={42} src={stockData.logoUrl} alt={stockData.name} className="w-14 h-14 mr-2 max-sm:mr-1.5 rounded-xl shadow-md" />
+                                    <Logo siteUrl={stockData.siteUrl} symbol={stockData.symbol} alt={stockData.name} size={42} className="w-14 h-14 mr-2 max-sm:mr-1.5 rounded-xl shadow-md" />
                                     <div>
                                         <h1 className="text-xl text-secondaryHeading font-sansSemibold">{stockData.symbol}</h1>
                                         <p className="text-sm text-secondaryHeading">{stockData.name}</p>
