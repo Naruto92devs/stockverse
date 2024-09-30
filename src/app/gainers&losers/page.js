@@ -15,7 +15,7 @@ export default function GainersLosersPage() {
                 </div>
             </div>
             <div className="py-6 px-6 max-lg:px-0 mx-auto xl:container gap-y-4 flex flex-wrap items-start justify-between">
-                
+                <p className="text-xl max-lg:pl-3 text-primaryText font-sansSemibold">Filters:</p>
                 {/* Buttons for selecting stock type */}
                 <div className="w-full flex justify-start max-lg:px-3 gap-2 overflow-x-auto">
                     <button
