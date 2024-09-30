@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import ArticleFallbackUI from './ArticleFallbackUI';
-import Link from 'next/link';
 
 // Define available topics for filters
 const topics = [
