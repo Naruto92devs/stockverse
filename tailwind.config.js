@@ -46,12 +46,12 @@ module.exports = {
         sansVariableItalic: ['GeneralSans-VariableItalic', 'sans-serif'],
       },
       backgroundImage: {
-        'heroBg': "url('/images/main_bg.jpg')",
-        'loginBg': "url('/images/login_bg.jpg')",
-        'newsBg': "url('/images/news_bg.jpg')",
+        'heroBg': "url('/images/main_bg.webp')",
+        'loginBg': "url('/images/login_bg.webp')",
+        'newsBg': "url('/images/news_bg.webp')",
         'articleBg': "url('/images/Image_not_available.png')",
-        'stocksBg': "url('/images/stocks_bg.jpg')",
-        'membershipBg': "url('/images/membership_bg.png')",
+        'stocksBg': "url('/images/stocks_bg.webp')",
+        'membershipBg': "url('/images/membership_bg.webp')",
         'heroGradient': 'linear-gradient(135deg, #f3f4f6 0%, #e0e4ff 50%, #d9d7f1 100%)',
         'heroGradientDark': 'linear-gradient(135deg, #1e3a5f 0%, #1f4e59 50%, #342e56 100%)',
         'stockverseGradient': 'radial-gradient(circle at top, #ffffff, rgba(255, 215, 0, 0.8), #000000 80%)', // white, gold, black
