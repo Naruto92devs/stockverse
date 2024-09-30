@@ -100,7 +100,10 @@ const Gainers_Losers1 = ({ stocksType }) => {
                         changePercentage: symbol.change_percentage,
                         marketCap: overview ? formatNumber(Number(overview.MarketCapitalization)) : 'N/A',
                         name: overview ? overview.Name : symbol.ticker,
-                        sector: overview ? overview.Sector : 'Undefined',
+                        sector: overview ? overview.Sector : 'N/A',
+                        StrongBuy: overview ? overview.AnalystRatingStrongBuy : '-',
+                        StrongSell: overview ? overview.AnalystRatingStrongSell : '-',
+                        FiscalYearEnd: overview ? overview.FiscalYearEnd : 'N/A',
                         siteUrl: overview ? overview.OfficialSite : '',
                     };
                 });
@@ -252,6 +255,60 @@ const Gainers_Losers1 = ({ stocksType }) => {
                         stockData.map((stock) => (
                             <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
                                 {stock.volume}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* StrongBuy Column */}
+                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="py-3 font-sansMedium text-sm text-primaryText border-b-[1px] border-primaryText/10">
+                            StrongBuy
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
+                                {stock.StrongBuy}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* StrongSell Column */}
+                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="py-3 font-sansMedium text-sm text-primaryText border-b-[1px] border-primaryText/10">
+                            StrongSell
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
+                                {stock.StrongSell}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* FiscalYearEnd Column */}
+                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="py-3 font-sansMedium text-sm text-primaryText border-b-[1px] border-primaryText/10">
+                        FiscalYearEnd
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
+                                {stock.FiscalYearEnd}
                             </div>
                         ))
                         )}
