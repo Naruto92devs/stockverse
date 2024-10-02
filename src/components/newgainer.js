@@ -150,7 +150,7 @@ const Gainers_Losers1 = ({ stocksType }) => {
     return (
         <div className="w-full flex relative overflow-x-hidden">
             {/* Fixed Stock Column */}
-            <div className="min-w-[30%] max-md:min-w-[35%] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
+            <div className="min-w-[20rem] max-md:min-w-[9rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
                 {/* Header for Stock Column */}
                 <div className=" py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
                     STOCK
@@ -177,39 +177,22 @@ const Gainers_Losers1 = ({ stocksType }) => {
             <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto scrollbar-hide">
                 {/* Columns */}
                 <div className="flex w-full">
-                    {/* Market Cap Column */}
-                    <div className="flex flex-col min-w-[10rem] text-left border-y-[1px] border-primaryText/10">
-                        {/* Header */}
-                        <div className="py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                            MARKET CAP
-                        </div>
-                        {/* Rows */}
-                        {loading || !stockData || stockData.length === 0 ? (
-                            <GainerFallbackUI/>
-                        ) : (
-                            stockData.map((stock) => (
-                                <div key={stock.symbol} className="py-3 pl-2 border-b-[1px] border-primaryText/10">
-                                    ${stock.marketCap}
-                                </div>
-                            ))
-                        )}
-                    </div>
 
-                    {/* shares Column */}
-                    <div className="flex flex-col min-w-[10rem] text-left border-y-[1px] border-primaryText/10">
+                    {/* Price Column */}
+                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
                         {/* Header */}
-                        <div className="py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                        Shares
+                        <div className="pl-2 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            PRICE
                         </div>
                         {/* Rows */}
                         {loading || !stockData || stockData.length === 0 ? (
                             <GainerFallbackUI/>
                         ) : (
-                            stockData.map((stock) => (
-                                <div key={stock.symbol} className="py-3 pl-2 border-b-[1px] border-primaryText/10">
-                                    ${stock.shares}
-                                </div>
-                            ))
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="pl-2 py-3 border-b-[1px] border-primaryText/10">
+                                ${stock.price}
+                            </div>
+                        ))
                         )}
                     </div>
 
@@ -249,11 +232,12 @@ const Gainers_Losers1 = ({ stocksType }) => {
                         )}
                     </div>
 
-                    {/* Price Column */}
+
+                    {/* Volume Column */}
                     <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
                         {/* Header */}
                         <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                            PRICE
+                            VOLUME
                         </div>
                         {/* Rows */}
                         {loading || !stockData || stockData.length === 0 ? (
@@ -261,9 +245,45 @@ const Gainers_Losers1 = ({ stocksType }) => {
                         ) : (
                         stockData.map((stock) => (
                             <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
-                                ${stock.price}
+                                {stock.volume}
                             </div>
                         ))
+                        )}
+                    </div>
+
+                    {/* Market Cap Column */}
+                    <div className="flex flex-col min-w-[10rem] text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            MARKET CAP
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            stockData.map((stock) => (
+                                <div key={stock.symbol} className="py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                    ${stock.marketCap}
+                                </div>
+                            ))
+                        )}
+                    </div>
+
+                    {/* shares Column */}
+                    <div className="flex flex-col min-w-[10rem] text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        Shares
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            stockData.map((stock) => (
+                                <div key={stock.symbol} className="py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                    {stock.shares}
+                                </div>
+                            ))
                         )}
                     </div>
 
@@ -285,23 +305,6 @@ const Gainers_Losers1 = ({ stocksType }) => {
                         )}
                     </div>
 
-                    {/* Volume Column */}
-                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
-                        {/* Header */}
-                        <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                            VOLUME
-                        </div>
-                        {/* Rows */}
-                        {loading || !stockData || stockData.length === 0 ? (
-                            <GainerFallbackUI/>
-                        ) : (
-                        stockData.map((stock) => (
-                            <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
-                                {stock.volume}
-                            </div>
-                        ))
-                        )}
-                    </div>
 
                     {/* FiscalYearEnd Column */}
                     <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
@@ -316,25 +319,6 @@ const Gainers_Losers1 = ({ stocksType }) => {
                         stockData.map((stock) => (
                             <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
                                 {stock.FiscalYearEnd}
-                            </div>
-                        ))
-                        )}
-                    </div>
-
-                    {/* Sector Column */}
-                    <div className="flex flex-col min-w-[17rem] text-left border-y-[1px] border-primaryText/10">
-                        {/* Header */}
-                        <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                            Sector
-                        </div>
-                        {/* Rows */}
-                        {loading || !stockData || stockData.length === 0 ? (
-                            <GainerFallbackUI/>
-                        ) : (
-                        stockData.map((stock) => (
-                            <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
-                                {/* {stock.sector} */}
-                                {stock.sector.length > 8 ? stock.sector.substring(0, 30) + '' : stock.sector}
                             </div>
                         ))
                         )}
@@ -461,6 +445,25 @@ const Gainers_Losers1 = ({ stocksType }) => {
                         stockData.map((stock) => (
                             <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
                                 {stock.StrongSell}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* Sector Column */}
+                    <div className="flex flex-col min-w-[17rem] text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Sector
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="py-3 border-b-[1px] border-primaryText/10">
+                                {/* {stock.sector} */}
+                                {stock.sector.length > 8 ? stock.sector.substring(0, 30) + '' : stock.sector}
                             </div>
                         ))
                         )}
