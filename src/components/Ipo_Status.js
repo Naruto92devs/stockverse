@@ -129,43 +129,41 @@ const IPO = ({ stocksType }) => {
     const priceRangeHighLabel = stockData.some(stock => stock.priceRangeHigh.includes('$')) ? 'Price Range High' : 'Delisting Date';
 
     // Get the label for priceRangeHigh based on the data being shown
-    const currencyLabel = stockData.some(stock => stock.currency.includes('$')) ? 'Status' : 'Currency';
+    const currencyLabel = stockData.some(stock => stock.currency.includes('USD')) ? 'Currency' : 'Status';
 
     return (
-        <div className="w-full flex relative overflow-x-hidden">
-            {/* Fixed Stock Column */}
-            <div className="min-w-[21rem] max-md:min-w-[9rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
-                {/* Header for Stock Column */}
-                <div className=" py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
-                    STOCK
-                </div>
-                {/* Stock Rows */}
-                {loading || !stockData || stockData.length === 0 ? (
-                    <GainerFallbackUI/>
-                ) : (
-                    stockData.map((stock) => (
-                        <div key={stock.symbol} onClick={() => handleResultClick(stock.symbol)} className="cursor-pointer flex items-center gap-x-2 py-3 px-3 hover:bg-primaryText/10 border-b-[1px] border-primaryText/10">
-                            {/* <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" /> */}
-                            <ul className="flex gap-x-2 items-center">
-                                <li>{stock.symbol}</li>
-                                <li className="text-xs max-md:hidden">
-                                    ({stock.name.length > 8 ? stock.name.substring(0, 30) + '...' : stock.name})
-                                </li>
-                            </ul>
-                        </div>
-                    ))
-                )}
-            </div>
             
-            {/* Scrollable Columns Container */}
-            <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto scrollbar-hide">
+            <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">
                 {/* Columns */}
-                <div className="flex w-full">
+                <div ref={scrollRef} className="flex max-w-full w-max max-h-[497px] overflow-y-auto">
+
+                    <div className="min-w-[21rem] sticky top-0 left-0 z-[2] h-max max-md:min-w-[7rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
+                        {/* Header for Stock Column */}
+                        <div className="sticky top-0 left-0 py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
+                            STOCK
+                        </div>
+                        {/* Stock Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            stockData.map((stock) => (
+                                <div key={stock.symbol} onClick={() => handleResultClick(stock.symbol)} className="cursor-pointer flex items-center gap-x-2 py-3 px-3 group border-b-[1px] border-primaryText/10">
+                                    {/* <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" /> */}
+                                    <ul className="flex gap-x-2 items-center">
+                                        <li className="text-xs min-w-[5rem] text-center py-1 px-2 bg-primaryText/10 rounded-md group-hover:bg-article group-hover:text-mobNavLink">{stock.symbol}</li>
+                                        <li className="text-xs max-md:hidden">
+                                            ({stock.name.length > 8 ? stock.name.substring(0, 30) + '...' : stock.name})
+                                        </li>
+                                    </ul>
+                                </div>
+                            ))
+                        )}
+                    </div>
 
                     {/* Exchange Column */}
-                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
                         {/* Header */}
-                        <div className="pl-2 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        <div className="sticky top-0 left-0 pl-2 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                             Exchange
                         </div>
                         {/* Rows */}
@@ -173,7 +171,7 @@ const IPO = ({ stocksType }) => {
                             <GainerFallbackUI/>
                         ) : (
                         stockData.map((stock) => (
-                            <div key={stock.symbol} className="pl-2 py-3 border-b-[1px] border-primaryText/10">
+                            <div key={stock.symbol} className="text-base pl-2 py-3 border-b-[1px] border-primaryText/10">
                                 {stock.exchange}
                             </div>
                         ))
@@ -181,9 +179,9 @@ const IPO = ({ stocksType }) => {
                     </div>
 
                     {/* ipoDate Column */}
-                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
                         {/* Header */}
-                        <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                             ipoDate
                         </div>
                         {/* Rows */}
@@ -191,7 +189,7 @@ const IPO = ({ stocksType }) => {
                             <GainerFallbackUI/>
                         ) : (
                         stockData.map((stock) => (
-                            <div key={stock.symbol} className={"py-3 border-b-[1px] border-primaryText/10 text-primaryText"}>
+                            <div key={stock.symbol} className={"text-base py-3 border-b-[1px] border-primaryText/10 text-primaryText"}>
                                 {stock.ipoDate}
                             </div>
                         ))
@@ -199,9 +197,9 @@ const IPO = ({ stocksType }) => {
                     </div>
 
                     {/* priceRangeLow Column */}
-                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
                         {/* Header */}
-                        <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                             {priceRangeLowLabel}
                         </div>
                         {/* Rows */}
@@ -209,7 +207,7 @@ const IPO = ({ stocksType }) => {
                             <GainerFallbackUI/>
                         ) : (
                         stockData.map((stock) => (
-                            <div key={stock.symbol} className={`py-3 border-b-[1px] border-primaryText/10 
+                            <div key={stock.symbol} className={`text-base py-3 border-b-[1px] border-primaryText/10 
                                 ${stock.priceRangeLow.includes('$') && parseFloat(stock.changePercentage) >= 0 
                                     ? 'text-buy' 
                                     : stock.priceRangeLow.includes('$') 
@@ -223,11 +221,10 @@ const IPO = ({ stocksType }) => {
                         )}
                     </div>
 
-
                     {/* priceRangeHigh Column */}
-                    <div className="flex flex-col min-w-[8rem] text-left border-y-[1px] border-primaryText/10">
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
                         {/* Header */}
-                        <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                         {priceRangeHighLabel}
                         </div>
                         {/* Rows */}
@@ -235,7 +232,7 @@ const IPO = ({ stocksType }) => {
                             <GainerFallbackUI/>
                         ) : (
                         stockData.map((stock) => (
-                            <div key={stock.symbol} className={`py-3 border-b-[1px] border-primaryText/10 
+                            <div key={stock.symbol} className={`text-base py-3 border-b-[1px] border-primaryText/10 
                                 ${stock.priceRangeHigh.includes('$') && parseFloat(stock.changePercentage) >= 0 
                                     ? 'text-buy' 
                                     : stock.priceRangeHigh.includes('$') 
@@ -250,9 +247,9 @@ const IPO = ({ stocksType }) => {
                     </div>
 
                     {/* currency Column */}
-                    <div className="flex flex-col min-w-[10rem] text-left border-y-[1px] border-primaryText/10">
+                    <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
                         {/* Header */}
-                        <div className="py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                         {currencyLabel}
                         </div>
                         {/* Rows */}
@@ -260,50 +257,14 @@ const IPO = ({ stocksType }) => {
                             <GainerFallbackUI/>
                         ) : (
                             stockData.map((stock) => (
-                                <div key={stock.symbol} className="py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                <div key={stock.symbol} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
                                     {stock.currency}
                                 </div>
                             ))
                         )}
                     </div>
-
-                    {/* Watch Column */}
-                    <div className="flex flex-col min-w-[5rem] text-left border-y-[1px] border-primaryText/10">
-                        {/* Header */}
-                        <div className="py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                            WATCH
-                        </div>
-                        {/* Rows */}
-                        {loading || !stockData || stockData.length === 0 ? (
-                            <GainerFallbackUI/>
-                        ) : (
-                        stockData.map((stock) => (
-                            <div key={stock.symbol} className="py-3 pl-3 border-b-[1px] border-primaryText/10">
-                                {/* You can add your Watch button or icon here */}
-                                <svg
-                                    className="cursor-pointer w-6 h-6"
-                                    width="26"
-                                    height="29"
-                                    viewBox="0 0 26 29"
-                                    fill="none"
-                                    onClick={() => toggleStrokeColor(stock.symbol)} // Toggle specific color on click
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M17.5 22H8.5M17.5 22H25L22.8925 19.8925C22.6095 19.6094 22.385 19.2734 22.2319 18.9035C22.0787 18.5337 21.9999 18.1373 22 17.737V13C22.0002 11.1384 21.4234 9.32251 20.3488 7.80233C19.2743 6.28215 17.755 5.13245 16 4.5115V4C16 3.20435 15.6839 2.44129 15.1213 1.87868C14.5587 1.31607 13.7956 1 13 1C12.2044 1 11.4413 1.31607 10.8787 1.87868C10.3161 2.44129 10 3.20435 10 4V4.5115C6.505 5.7475 4 9.082 4 13V17.7385C4 18.5455 3.679 19.321 3.1075 19.8925L1 22H8.5H17.5ZM17.5 22V23.5C17.5 24.6935 17.0259 25.8381 16.182 26.682C15.3381 27.5259 14.1935 28 13 28C11.8065 28 10.6619 27.5259 9.81802 26.682C8.97411 25.8381 8.5 24.6935 8.5 23.5V22H17.5Z"
-                                        stroke={strokeColors[stock.symbol]} // Use symbol-specific color
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </div>
-                        ))
-                        )}
-                    </div>
                 </div>
             </div>
-        </div>
     );
 }
 

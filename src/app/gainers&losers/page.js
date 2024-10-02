@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Gainers_Losers from "@/components/Gainers_Losers";
-import Gainers_Losers1 from '@/components/newgainer';
 
 export default function GainersLosersPage() {
     // Initialize the filter state with null to wait for sessionStorage check
@@ -68,8 +67,7 @@ export default function GainersLosersPage() {
 
                 {/* Display stock data based on selected filter */}
                 <div className="w-full flex flex-col gap-y-4">
-                    {/* <Gainers_Losers stocksType={filter} /> */}
-                    <Gainers_Losers1 stocksType={filter} />
+                    <Gainers_Losers stocksType={filter} />
                 </div>
             </div>
         </section>

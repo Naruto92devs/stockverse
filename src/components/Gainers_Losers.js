@@ -1,9 +1,9 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import FallbackUI from './FallbackUI';
+import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation'; // Import router for navigation
 import Logo from './Logo'; // Import your new Logo component
 import formatNumber from './FormatNumber';
+import GainerFallbackUI from './GainerFallbackUI';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
@@ -19,6 +19,50 @@ const Gainers_Losers = ({ stocksType }) => {
     const [error, setError] = useState(null); // Error state
     const [strokeColors, setStrokeColors] = useState({});
     const router = useRouter(); // Next.js router for navigation
+
+    const scrollRef = useRef();
+    
+    // State to track mouse dragging
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+
+    useEffect(() => {
+        // Function to handle mouse down event
+        const handleMouseDown = (e) => {
+            setIsDragging(true);
+            setStartX(e.pageX - scrollRef.current.offsetLeft);
+            setScrollLeft(scrollRef.current.scrollLeft);
+        };
+
+        // Function to handle mouse move event
+        const handleMouseMove = (e) => {
+            if (!isDragging) return; // Stop function if not dragging
+            e.preventDefault();
+            const x = e.pageX - scrollRef.current.offsetLeft;
+            const walk = (x - startX) * 2; // Increase the value to scroll faster
+            scrollRef.current.scrollLeft = scrollLeft - walk;
+        };
+
+        // Function to handle mouse up event
+        const handleMouseUp = () => {
+            setIsDragging(false);
+        };
+
+        const scrollableDiv = scrollRef.current;
+        scrollableDiv.addEventListener('mousedown', handleMouseDown);
+        scrollableDiv.addEventListener('mousemove', handleMouseMove);
+        scrollableDiv.addEventListener('mouseleave', handleMouseUp);
+        scrollableDiv.addEventListener('mouseup', handleMouseUp);
+
+        // Clean up event listeners on component unmount
+        return () => {
+            scrollableDiv.removeEventListener('mousedown', handleMouseDown);
+            scrollableDiv.removeEventListener('mousemove', handleMouseMove);
+            scrollableDiv.removeEventListener('mouseleave', handleMouseUp);
+            scrollableDiv.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [isDragging, startX, scrollLeft]);
 
     useEffect(() => {
         const fetchSymbolsAndStockData = async () => {
@@ -55,7 +99,18 @@ const Gainers_Losers = ({ stocksType }) => {
                         changeAmount: symbol.change_amount,
                         changePercentage: symbol.change_percentage,
                         marketCap: overview ? formatNumber(Number(overview.MarketCapitalization)) : 'N/A',
+                        shares: overview ? formatNumber(Number(overview.SharesOutstanding)) : 'N/A',
                         name: overview ? overview.Name : symbol.ticker,
+                        sector: overview ? overview.Sector : 'N/A',
+                        DividendPerShare: overview ? overview.DividendPerShare : '-',
+                        DividendYield: overview ? overview.DividendYield : '-',
+                        StrongBuy: overview ? overview.AnalystRatingStrongBuy : '-',
+                        PERatio: overview ? overview.PERatio : '-',
+                        OneYearHigh: overview ? overview['52WeekHigh'] : 'N/A',
+                        OneYearLow: overview ? overview['52WeekLow'] : 'N/A',
+                        StrongSell: overview ? overview.AnalystRatingStrongSell : '-',
+                        FiscalYearEnd: overview ? overview.FiscalYearEnd : 'N/A',
+                        AnalystTargetPrice: overview ? overview.AnalystTargetPrice : 'N/A',
                         siteUrl: overview ? overview.OfficialSite : '',
                     };
                 });
@@ -93,60 +148,361 @@ const Gainers_Losers = ({ stocksType }) => {
 
 
     return (
-        <div className="w-full h-full overflow-x-auto">
-            <div className="w-full flex justify-between py-3 px-3 max-sm:px-1.5 border-y-[1px] border-primaryText/10">
-                <p className="w-[27%] max-sm:w-[22%] min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">STOCK</p>
-                <p className="w-[20%] max-sm:hidden min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">MARKET CAP</p>
-                <p className="w-[15%] hidden max-sm:block min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">MCap</p>
-                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">CHANGE</p>
-                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">PRICE</p>
-                <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">VOLUME</p>
-                <p className="w-[8%] max-sm:w-[14%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">WATCH</p>
-            </div>
-            {(loading || !stockData || stockData.length === 0) ? (
-                <div className="py-14 flex flex-col gap-2 justify-center items-center h-[315px]">
-                    <FallbackUI />
-                </div>
-            ) : (
-                stockData.map((stock) => (
-                    <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3 max-sm:px-1.5 hover:bg-primaryText/10 border-b-[1px] border-primaryText/10">
-                        <div className="cursor-pointer w-[27%] max-sm:w-[22%] flex gap-x-2 items-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">
-                            {/* Use Logo component */}
-                            <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" />
-                            <ul onClick={() => handleResultClick(stock.symbol)} className="flex items-center gap-x-1 max-xl:flex-col max-xl:items-start">
-                                <li>{stock.symbol}</li>
-                                <li className="text-xs max-lg:hidden">({stock.name})</li>
-                            </ul>
+            <div  className="flex-grown cursor-pointer select-none overflow-x-auto">
+                {/* Columns */}
+                <div ref={scrollRef} className="flex w-full max-h-[497px] overflow-y-auto">
+
+                    {/* Fixed Stock Column */}
+                    <div className="min-w-[23rem] sticky top-0 left-0 z-[2] h-max max-md:min-w-[9rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
+                        {/* Header for Stock Column */}
+                        <div className="sticky top-0 left-0 py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
+                            STOCK
                         </div>
-                        <p className="w-[20%] max-sm:w-[15%] text-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stock.marketCap}</p>
-                        <p className={`w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] ${
-                            parseFloat(stock.changePercentage) >= 0 ? 'text-buy' : 'text-sell'
-                        }`}>
-                            {parseFloat(stock.changePercentage).toFixed(2) + '%'}
-                        </p>
-                        <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">${stock.price}</p>
-                        <p className="w-[15%] min-w-max text-center font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">{stock.volume}</p>
-                        <svg
-                            className="cursor-pointer w-[8%] max-sm:w-[14%] max-sm:p-1 text-center"
-                            width="26"
-                            height="29"
-                            viewBox="0 0 26 29"
-                            fill="none"
-                            onClick={() => toggleStrokeColor(stock.symbol)} // Toggle specific color on click
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M17.5 22H8.5M17.5 22H25L22.8925 19.8925C22.6095 19.6094 22.385 19.2734 22.2319 18.9035C22.0787 18.5337 21.9999 18.1373 22 17.737V13C22.0002 11.1384 21.4234 9.32251 20.3488 7.80233C19.2743 6.28215 17.755 5.13245 16 4.5115V4C16 3.20435 15.6839 2.44129 15.1213 1.87868C14.5587 1.31607 13.7956 1 13 1C12.2044 1 11.4413 1.31607 10.8787 1.87868C10.3161 2.44129 10 3.20435 10 4V4.5115C6.505 5.7475 4 9.082 4 13V17.7385C4 18.5455 3.679 19.321 3.1075 19.8925L1 22H8.5H17.5ZM17.5 22V23.5C17.5 24.6935 17.0259 25.8381 16.182 26.682C15.3381 27.5259 14.1935 28 13 28C11.8065 28 10.6619 27.5259 9.81802 26.682C8.97411 25.8381 8.5 24.6935 8.5 23.5V22H17.5Z"
-                                stroke={strokeColors[stock.symbol]} // Use symbol-specific color
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
+                        {/* Stock Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            stockData.map((stock) => (
+                                <div key={stock.symbol} onClick={() => handleResultClick(stock.symbol)} className="cursor-pointer flex items-center gap-x-2 py-2 px-3 group border-b-[1px] border-primaryText/10">
+                                    <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" />
+                                    <ul className="flex gap-x-2 items-center">
+                                        <li className="text-xs min-w-[5rem] text-center py-1 px-2 bg-primaryText/10 rounded-md group-hover:bg-article group-hover:text-mobNavLink">{stock.symbol}</li>
+                                        <li className="text-xs max-md:hidden">
+                                            ({stock.name.length > 8 ? stock.name.substring(0, 30) + '...' : stock.name})
+                                        </li>
+                                    </ul>
+                                </div>
+                            ))
+                        )}
                     </div>
-                ))
-            )}
-        </div>
+
+                    {/* Price Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 pl-2 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            PRICE
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="pl-2 py-3 text-base border-b-[1px] border-primaryText/10">
+                                ${stock.price}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* Change Percentage Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            CHANGE %
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className={`py-3 border-b-[1px] text-base border-primaryText/10 ${parseFloat(stock.changePercentage) >= 0 ? 'text-buy' : 'text-sell'}`}>
+                                {parseFloat(stock.changePercentage).toFixed(2) + '%'}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* Change Amount Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Price CHANGE
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className={`py-3 text-base border-b-[1px] border-primaryText/10 ${parseFloat(stock.changePercentage) >= 0 ? 'text-buy' : 'text-sell'}`}>
+                                {parseFloat(stock.changeAmount).toFixed(2) + '$'}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+
+                    {/* Volume Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            VOLUME
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="py-3 text-base border-b-[1px] border-primaryText/10">
+                                {stock.volume}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* Market Cap Column */}
+                    <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            MARKET CAP
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            stockData.map((stock) => (
+                                <div key={stock.symbol} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                    ${stock.marketCap}
+                                </div>
+                            ))
+                        )}
+                    </div>
+
+                    {/* shares Column */}
+                    <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        Shares
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            stockData.map((stock) => (
+                                <div key={stock.symbol} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                    {stock.shares}
+                                </div>
+                            ))
+                        )}
+                    </div>
+
+                    {/* AnalystTargetPrice Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        Target Price
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                ${stock.AnalystTargetPrice}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+
+                    {/* FiscalYearEnd Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        FiscalYearEnd
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {stock.FiscalYearEnd}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* OneYearHigh Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            1Year High
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                ${stock.OneYearHigh}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* OneYearLow Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            1Year Low
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                ${stock.OneYearLow}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* P/E Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        P/E
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {stock.PERatio}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* DividendPerShare Column */}
+                    <div className="flex flex-col min-w-[9rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        DividendPerShare
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {stock.DividendPerShare}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* DividendYield Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        DividendYield
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {stock.DividendYield}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* StrongBuy Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            StrongBuy
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {stock.StrongBuy}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* StrongSell Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            StrongSell
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {stock.StrongSell}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* Sector Column */}
+                    <div className="flex flex-col min-w-[17rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Sector
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {/* {stock.sector} */}
+                                {stock.sector.length > 8 ? stock.sector.substring(0, 30) + '' : stock.sector}
+                            </div>
+                        ))
+                        )}
+                    </div>
+
+                    {/* Watch Column */}
+                    <div className="flex flex-col min-w-[5rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            WATCH
+                        </div>
+                        {/* Rows */}
+                        {loading || !stockData || stockData.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                        stockData.map((stock) => (
+                            <div key={stock.symbol} className="text-base py-3 pl-3 border-b-[1px] border-primaryText/10">
+                                {/* You can add your Watch button or icon here */}
+                                <svg
+                                    className="cursor-pointer w-6 h-6"
+                                    width="26"
+                                    height="29"
+                                    viewBox="0 0 26 29"
+                                    fill="none"
+                                    onClick={() => toggleStrokeColor(stock.symbol)} // Toggle specific color on click
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M17.5 22H8.5M17.5 22H25L22.8925 19.8925C22.6095 19.6094 22.385 19.2734 22.2319 18.9035C22.0787 18.5337 21.9999 18.1373 22 17.737V13C22.0002 11.1384 21.4234 9.32251 20.3488 7.80233C19.2743 6.28215 17.755 5.13245 16 4.5115V4C16 3.20435 15.6839 2.44129 15.1213 1.87868C14.5587 1.31607 13.7956 1 13 1C12.2044 1 11.4413 1.31607 10.8787 1.87868C10.3161 2.44129 10 3.20435 10 4V4.5115C6.505 5.7475 4 9.082 4 13V17.7385C4 18.5455 3.679 19.321 3.1075 19.8925L1 22H8.5H17.5ZM17.5 22V23.5C17.5 24.6935 17.0259 25.8381 16.182 26.682C15.3381 27.5259 14.1935 28 13 28C11.8065 28 10.6619 27.5259 9.81802 26.682C8.97411 25.8381 8.5 24.6935 8.5 23.5V22H17.5Z"
+                                        stroke={strokeColors[stock.symbol]} // Use symbol-specific color
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                        ))
+                        )}
+                    </div>
+                </div>
+            </div>
     );
 }
 
