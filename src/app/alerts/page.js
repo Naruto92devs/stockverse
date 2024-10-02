@@ -1,6 +1,7 @@
 
 // import AweberForm from "@/components/AweberForm";
 // import Form from "@/components/Form";
+import Image from "next/image";
 
 export default function Alerts() {
     return (
@@ -37,7 +38,7 @@ export default function Alerts() {
                     </p>
                     <div className="w-full mt-2 max-md:flex-col-reverse max-md:gap-y-8 flex items-center justify-between">
                         <div className="w-[39%] max-xl:w-[45%] max-md:w-[100%] p-2">
-                            <img src='/images/alerts.png' alt="iPhone"/>
+                            <Image className="w-[92%] h-[100%]" width={398} height={815} src='/images/alerts.png' alt="iPhone"/>
                         </div>
                         <div className="w-[50%] max-md:w-[100%] max-md:mt-4 flex flex-col gap-y-4 max-md:gap-y-6">
                             <h1 className="text-4xl max-xl:text-2xl font-sansSemibold text-secondaryHeading">Get Winning Stock Picks Sent To Your Phone</h1>

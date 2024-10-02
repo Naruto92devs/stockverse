@@ -208,7 +208,7 @@ return (
                     <Link href="/pricing" className="hidden max-lg:flex">
                         <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Pricing</span>
                     </Link>
-                    <Link href="/alerts" className="hidden max-lg:flex">
+                    <Link href="/alerts" className="">
                         <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Alerts</span>
                     </Link>
                 </div>

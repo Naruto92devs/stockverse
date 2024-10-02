@@ -254,7 +254,7 @@ export default function StockDetails() {
                     )}
                 </div>
                 {/* Buttons for selecting stock type */}
-                <div className="max-w-full w-max flex justify-start items-end gap-2 overflow-x-auto ">
+                <div className="max-w-full w-max flex justify-start items-end gap-2 overflow-x-auto pb-2">
                     <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'chart' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => handleFilterChange('chart')}
@@ -322,7 +322,6 @@ export default function StockDetails() {
                         }
                     })()}
                 </div>
-
             </div>
         </div>
     );
