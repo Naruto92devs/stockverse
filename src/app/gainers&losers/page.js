@@ -1,11 +1,21 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Gainers_Losers from "@/components/Gainers_Losers";
 import Gainers_Losers1 from '@/components/newgainer';
 
 export default function GainersLosersPage() {
-    const [filter, setFilter] = useState('gainer-stocks'); // Default filter
+    // Initialize the filter state from sessionStorage or use default
+    const [filter, setFilter] = useState(() => sessionStorage.getItem('TOP-G/S') || 'gainer-stocks');
 
+    // Store the filter state in sessionStorage whenever it changes
+    useEffect(() => {
+        sessionStorage.setItem('TOP-G/S', filter);
+    }, [filter]);
+
+    // Function to handle filter change
+    const handleFilterChange = (newFilter) => {
+        setFilter(newFilter);
+    };
     return (
         <section className="w-full">
             <div className="py-16 max-sm:py-10 w-full bg-newsBg bg-no-repeat bg-cover bg-right-bottom">
@@ -20,19 +30,19 @@ export default function GainersLosersPage() {
                 <div className="w-full flex justify-start max-lg:px-3 gap-2 overflow-x-auto">
                     <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'gainer-stocks' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
-                        onClick={() => setFilter('gainer-stocks')}
+                        onClick={() => handleFilterChange('gainer-stocks')}
                     >
                         Top Gainers
                     </button>
                     <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'loser-stocks' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
-                        onClick={() => setFilter('loser-stocks')}
+                        onClick={() => handleFilterChange('loser-stocks')}
                     >
                         Top Losers
                     </button>
                     <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'active-stocks' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
-                        onClick={() => setFilter('active-stocks')}
+                        onClick={() => handleFilterChange('active-stocks')}
                     >
                         Most Active
                     </button>

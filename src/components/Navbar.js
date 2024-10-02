@@ -196,8 +196,11 @@ return (
                     <Link href="/level2">
                         <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Level 2</span>
                     </Link>
-                    <Link href="/ipo">
+                    <Link href="/ipo-calendar">
                         <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">IPO Calender</span>
+                    </Link>
+                    <Link href="/earnings-calendar">
+                        <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Earnings Calender</span>
                     </Link>
                     <Link href="/stockpicks" className="hidden max-lg:flex">
                         <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Stock Picks</span>

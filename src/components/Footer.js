@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer () {
     return (
-        <div className="w-full bg-footerBg mt-auto max-lg:mb-[65px] max-lg:pb-5 rounded-t-3xl">
+        <footer className="w-full bg-footerBg mt-auto max-lg:mb-[65px] max-lg:pb-5 rounded-t-3xl">
             <div className="w-full px-6 max-sm:px-3 mx-auto xl:container">
                 <div className="flex justify-between py-6 lg:pt-12 items-start max-md:flex-col max-md:gap-y-3">
                     <div className="w-[45%] max-lg:w-[100%] flex flex-col items-start gap-3">
@@ -57,16 +57,18 @@ export default function Footer () {
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h2 className="text-xl font-sansSemibold text-mobNavLink">Quick Links</h2>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/'>Home</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/stockverse-gpt'>Stocks GPT</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/stockverse-gpt'>StockVerse GPT</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/alerts'>Alerts</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/stockpicks'>Stock Picks</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/pricing'>Pricing</Link>
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h2 className="text-xl font-sansSemibold text-mobNavLink">Market</h2>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/gainers&losers'>Gainers / Losers</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/level2'>Level 2</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/news'>News</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/ipo'>IPO Calendar</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/ipo-calendar'>IPO Calendar</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/earnings-calendar'>Earnings Calendar</Link>
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h2 className="text-xl font-sansSemibold text-mobNavLink">Contact</h2>
@@ -85,6 +87,6 @@ export default function Footer () {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }

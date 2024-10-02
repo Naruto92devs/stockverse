@@ -150,7 +150,7 @@ const Gainers_Losers1 = ({ stocksType }) => {
     return (
         <div className="w-full flex relative overflow-x-hidden">
             {/* Fixed Stock Column */}
-            <div className="min-w-[20rem] max-md:min-w-[9rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
+            <div className="min-w-[21rem] max-md:min-w-[9rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
                 {/* Header for Stock Column */}
                 <div className=" py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
                     STOCK
@@ -164,7 +164,7 @@ const Gainers_Losers1 = ({ stocksType }) => {
                             <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" />
                             <ul className="flex gap-x-2 items-center">
                                 <li>{stock.symbol}</li>
-                                <li className="text-xs max-xl:hidden">
+                                <li className="text-xs max-md:hidden">
                                     ({stock.name.length > 8 ? stock.name.substring(0, 30) + '...' : stock.name})
                                 </li>
                             </ul>
