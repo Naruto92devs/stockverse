@@ -4,18 +4,36 @@ import Gainers_Losers from "@/components/Gainers_Losers";
 import Gainers_Losers1 from '@/components/newgainer';
 
 export default function GainersLosersPage() {
-    // Initialize the filter state from sessionStorage or use default
-    const [filter, setFilter] = useState(() => sessionStorage.getItem('TOP-G/S') || 'gainer-stocks');
+    // Initialize the filter state with null to wait for sessionStorage check
+    const [filter, setFilter] = useState(null);
+
+    useEffect(() => {
+        // Check if `sessionStorage` is available (client-side only)
+        if (typeof window !== 'undefined') {
+            const savedFilter = sessionStorage.getItem('TOP-G/S');
+            if (savedFilter) {
+                setFilter(savedFilter);
+            } else {
+                setFilter('gainer-stocks'); // Default value if nothing is stored
+            }
+        }
+    }, []);
 
     // Store the filter state in sessionStorage whenever it changes
     useEffect(() => {
-        sessionStorage.setItem('TOP-G/S', filter);
+        if (filter !== null && typeof window !== 'undefined') {
+            sessionStorage.setItem('TOP-G/S', filter);
+        }
     }, [filter]);
 
     // Function to handle filter change
     const handleFilterChange = (newFilter) => {
         setFilter(newFilter);
     };
+
+    // Wait until the filter is loaded before rendering
+    if (filter === null) return null;
+
     return (
         <section className="w-full">
             <div className="py-16 max-sm:py-10 w-full bg-newsBg bg-no-repeat bg-cover bg-right-bottom">

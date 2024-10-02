@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import ThemeSwitch from './ThemeSwitch';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import SearchBar from './SearchBar';
 
@@ -21,10 +21,10 @@ const Navbar = () => {
         setIsDropdownVisible(!isDropdownVisible); // Toggle the dropdown
     };
 
-    // Function to close the search bar
-    const closeSearchBar = () => {
+    // useCallback to stabilize the onClose function
+    const onClose = useCallback(() => {
         setIsSearchBarVisible(false);
-    };
+    }, []);
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -74,7 +74,7 @@ return (
             </defs>
             </svg>
         </Link>
-        <SearchBar isVisible={isSearchBarVisible} onClose={closeSearchBar}/>
+        <SearchBar isVisible={isSearchBarVisible} onClose={onClose}/>
         <div className="lg:ml-4 z-20 w-[70%] max-xl:w-[78%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
             <Link href='/' className="z-50 max-sm:text-[3.6vw] flex flex-col font-medium max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

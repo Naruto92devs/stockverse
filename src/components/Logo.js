@@ -11,7 +11,7 @@ const Logo = ({ siteUrl, symbol, size = 200, alt = 'Company Logo', className = '
         : '';
 
     // Construct the full logo URL
-    const logoUrl = `${LOGO_API_BASE}/${cleanedDomain}?token=${LOGO_API_TOKEN}&size=${size}&format=png`;
+    const logoUrl = `${LOGO_API_BASE}/${cleanedDomain}?token=${LOGO_API_TOKEN}`;
 
     // Create a fallback URL based on the first letter of the symbol
     const fallbackUrl = `/images/Brands/${symbol[0].toUpperCase()}.jpeg`;

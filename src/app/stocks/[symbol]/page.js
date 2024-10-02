@@ -51,7 +51,7 @@ export default function StockDetails() {
 
 
                 // Use the fallback name if `stock.overview.Name` is "Not Available" or null
-                const stockName = stock.overview.Name && stock.overview.Name !== "Not Available" ? stock.overview.Name : searchBarName;
+                const stockName = (stock.overview.Name && stock.overview.Name !== "Not Available" && stock.overview.Name !== "Undefined") ? stock.overview.Name : searchBarName;
 
                 const formattedData = {
                     symbol: stock.overview.Symbol,
@@ -77,7 +77,7 @@ export default function StockDetails() {
         };
 
         fetchStockData();
-    }, [symbol, name]);
+    }, [symbol, searchBarName]);
 
   // Ensure stockData is available before accessing Description
   const { truncated, isTruncated } = stockData
