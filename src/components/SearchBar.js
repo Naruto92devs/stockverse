@@ -176,7 +176,7 @@ export default function SearchBar({ isVisible, onClose }) {
                     <div className="absolute top-full left-0 w-full p-2 text-gray-500 max-lg:text-mobNavLink text-center">No results found</div>
                 )}
                 {showResults && results.length > 0 && (
-                    <ul className="select-none absolute max-lg:relative max-lg:max-h-[75vh] max-lg:overflow-y-scroll max-lg:w-[100%] top-[120%] max-lg:p-0 p-1 pb-0.5 left-0 w-[300%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
+                    <ul className="select-none absolute max-lg:relative max-lg:max-h-[75vh] max-lg:overflow-y-scroll max-lg:w-[100%] top-[120%] max-lg:p-0 p-1 pb-0.5 left-0 w-[345%] max-2xl:w-[450%] max-xl:w-[740%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
                         {results.map((result, index) => (
                             <li
                                 key={index}

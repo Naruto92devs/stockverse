@@ -2,9 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import TradingViewWidget from '@/components/TradingViewWidget'; // Assuming you have a separate component for TradingView
 import Logo from '@/components/Logo';
 import formatNumber from '@/components/FormatNumber';
+import Chart from '@/components/TradingViewWidget'; // Assuming you have a separate component for TradingView
+import StockNews from '@/components/stockNews';
+import Earnings_Calendar from '@/components/EarningsCalendar';
+import Technical_Analysis from '@/components/TechnicalAnalysis';
+import Historical_Data from '@/components/HistoricalData';
+import StockVerse_GPT from '@/components/StockverseGpt';
+import Level_2 from '@/components/Level2';
 
 // Utility function to truncate a string after a certain number of words
 const truncateDescription = (description, wordLimit) => {
@@ -28,10 +34,11 @@ export default function StockDetails() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showFullDescription, setShowFullDescription] = useState(false); // State to toggle full description
-
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const symbol = pathname.split('/').pop(); // Extract symbol from URL
+    // Initialize the filter state with null to wait for sessionStorage check
+    const [filter, setFilter] = useState(null);
     
     // Decode the query parameter to ensure it's properly formatted
     const searchBarName = searchParams.get('name') ? decodeURIComponent(searchParams.get('name')) : null;
@@ -79,15 +86,42 @@ export default function StockDetails() {
         fetchStockData();
     }, [symbol, searchBarName]);
 
-  // Ensure stockData is available before accessing Description
-  const { truncated, isTruncated } = stockData
-  ? truncateDescription(stockData.Description, 30) // 30 word limit
-  : { truncated: '', isTruncated: false };
+    // Ensure stockData is available before accessing Description
+    const { truncated, isTruncated } = stockData
+    ? truncateDescription(stockData.Description, 30) // 30 word limit
+    : { truncated: '', isTruncated: false };
+
+    useEffect(() => {
+        // Check if `sessionStorage` is available (client-side only)
+        if (typeof window !== 'undefined') {
+            const savedFilter = sessionStorage.getItem('symbol-details');
+            if (savedFilter) {
+                setFilter(savedFilter);
+            } else {
+                setFilter('chart'); // Default value if nothing is stored
+            }
+        }
+    }, []);
+
+    // Store the filter state in sessionStorage whenever it changes
+    useEffect(() => {
+        if (filter !== null && typeof window !== 'undefined') {
+            sessionStorage.setItem('symbol-details', filter);
+        }
+    }, [filter]);
+
+    // Function to handle filter change
+    const handleFilterChange = (newFilter) => {
+        setFilter(newFilter);
+    };
+
+    // Wait until the filter is loaded before rendering
+    if (filter === null) return null;
 
     return (
         <div className="w-full h-full">
             {/* hero section */}
-            <div className="py-16 max-md:pt-6 w-full bg-stocksBg bg-no-repeat bg-cover bg-right-bottom">
+            <div className="pb-10 pt-8 max-md:pt-6 w-full bg-stocksBg bg-no-repeat bg-cover bg-right-bottom">
                 <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
                     {loading ? (
                         <div className="">
@@ -99,10 +133,10 @@ export default function StockDetails() {
                             <p>{error}</p>
                         </div>
                     ) : (
-                        <div className="w-full flex flex-col gap-y-10 py-2 px-3 max-sm:px-1.5 lg:pr-[30%]">
+                        <div className="w-full flex flex-col gap-y-4 py-2 max-sm:px-1.5 lg:pr-[30%]">
                             <div className="flex max-md:flex-col-reverse max-md:items-start max-md:gap-4 items-end justify-between">
                                 <div className="flex items-end">
-                                    <Logo siteUrl={stockData.siteUrl} symbol={stockData.symbol} alt={stockData.name} size={42} className="w-14 h-14 mr-2 max-sm:mr-1.5 rounded-xl shadow-md" />
+                                    <Logo siteUrl={stockData.siteUrl} symbol={stockData.symbol} alt={stockData.name} size={42} className="w-14 h-14 mr-2 max-sm:mr-1.5 rounded-full shadow-md" />
                                     <div>
                                         <h1 className="text-xl text-secondaryHeading font-sansSemibold">{stockData.symbol}</h1>
                                         <p className="text-sm text-secondaryHeading">{stockData.name}</p>
@@ -150,8 +184,8 @@ export default function StockDetails() {
             </div>
 
             {/* symbol details */}
-            <div className="px-6 pb-16 -mt-12 max-sm:px-3 mx-auto xl:container gap-y-12 max-sm:gap-y-3 flex flex-col items-start">
-                <div className="bg-primaryHeading max-md:rounded-2xl w-full p-8 shadow-xl">
+            <div className="px-6 pb-16 -mt-8 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
+                <div className="bg-primaryHeading max-md:rounded-2xl w-full p-8 rounded-lg shadow-xl">
                     {loading ? (
                         <div className="">
                             <p>Loading...</p>
@@ -219,12 +253,76 @@ export default function StockDetails() {
                         </div>
                     )}
                 </div>
-                <TradingViewWidget symbol={symbol} />
-                <p>Chart</p>
-                <p>Technical Analysis</p>
-                <p>News</p>
-                <p>Level2</p>
-                <p>Historical</p>
+                {/* Buttons for selecting stock type */}
+                <div className="max-w-full w-max flex justify-start items-end gap-2 overflow-x-auto ">
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'chart' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('chart')}
+                    >
+                        Chart
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'news' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('news')}
+                    >
+                        News
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'earnings-calendar' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('earnings-calendar')}
+                    >
+                        Earnings Calendar
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'technical-analysis' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('technical-analysis')}
+                    >
+                        Technical Analysis
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'historical' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('historical')}
+                    >
+                        Historical
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'stockverse-gpt' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('stockverse-gpt')}
+                    >
+                        StockVerse GPT
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'level2' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('level2')}
+                    >
+                        Level 2
+                    </button>
+                </div>
+
+                {/* Render content based on filter */}
+                <div className="w-full h-full pt-2">
+                    {(() => {
+                        switch (filter) {
+                            case 'chart':
+                                return <Chart symbol={symbol} />;
+                            case 'news':
+                                return <StockNews symbol={symbol} />;
+                            case 'earnings-calendar':
+                                return <Earnings_Calendar symbol={symbol} />;
+                            case 'technical-analysis':
+                                return <Technical_Analysis symbol={symbol} />;
+                            case 'historical':
+                                return <Historical_Data symbol={symbol} />;
+                            case 'stockverse-gpt':
+                                return <StockVerse_GPT symbol={symbol} />;
+                            case 'level2':
+                                return <Level_2 symbol={symbol} />;
+                            default:
+                                return null;
+                        }
+                    })()}
+                </div>
+
             </div>
         </div>
     );

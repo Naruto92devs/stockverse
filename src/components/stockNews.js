@@ -36,7 +36,7 @@ const limitOptions = [
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export default function StockNews() {
+export default function StockNews({ symbol }) {
 const [news, setNews] = useState([]);
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(null);
@@ -50,14 +50,20 @@ const fetchNews = async (selectedTopic = '', selectedSort = '', selectedLimit = 
 setLoading(true);
 setError(null);
 try {
-    const url = `${STOCKVERSE_BACK_END}/stock-news?${
-    selectedLimit ? `limit=${selectedLimit}` : ''
-    }${selectedSort ? `&sort=${selectedSort}` : ''}${selectedTopic ? `&topics=${selectedTopic}` : ''}`;
+        // Build query parameters
+        const queryParams = new URLSearchParams();
+        if (symbol) queryParams.append('tickers', symbol);
+        if (selectedLimit) queryParams.append('limit', selectedLimit);
+        if (selectedSort) queryParams.append('sort', selectedSort);
+        if (selectedTopic) queryParams.append('topics', selectedTopic);
 
-    const response = await fetch(url);
-    const data = await response.json();
-    setNews(data.feed); // Set the news feed from the response
-    setLoading(false);
+        const url = `${STOCKVERSE_BACK_END}/stock-news?${queryParams.toString()}`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        setNews(data.feed); // Set the news feed from the response
+        setLoading(false);
 } catch (err) {
     setError(
     <section className="w-[100%] h-[50dvh] flex flex-col gap-1 items-center justify-center text-center">
@@ -94,7 +100,7 @@ setVisibleNewsCount((prevCount) => prevCount + 50); // Show 50 more articles
 };
 
 return (
-<div className="mx-auto p-6 max-sm:px-3 xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center">
+<div className="mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center">
     <div className="filter-dropdowns w-full flex max-sm:flex-col max-sm:items-start items-center gap-4 justify-between mb-6">
         {/* Heading Filter */}
         <div className="flex items-start gap-2">

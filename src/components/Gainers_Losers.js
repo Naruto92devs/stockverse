@@ -33,105 +33,105 @@ const Gainers_Losers = ({ stocksType }) => {
             setIsDragging(true);
             setStartX(e.pageX - scrollRef.current.offsetLeft);
             setScrollLeft(scrollRef.current.scrollLeft);
-        };
+    };
 
-        // Function to handle mouse move event
-        const handleMouseMove = (e) => {
-            if (!isDragging) return; // Stop function if not dragging
-            e.preventDefault();
-            const x = e.pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 2; // Increase the value to scroll faster
-            scrollRef.current.scrollLeft = scrollLeft - walk;
-        };
+    // Function to handle mouse move event
+    const handleMouseMove = (e) => {
+        if (!isDragging) return; // Stop function if not dragging
+        e.preventDefault();
+        const x = e.pageX - scrollRef.current.offsetLeft;
+        const walk = (x - startX) * 2; // Increase the value to scroll faster
+        scrollRef.current.scrollLeft = scrollLeft - walk;
+    };
 
-        // Function to handle mouse up event
-        const handleMouseUp = () => {
-            setIsDragging(false);
-        };
+    // Function to handle mouse up event
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
 
-        const scrollableDiv = scrollRef.current;
-        scrollableDiv.addEventListener('mousedown', handleMouseDown);
-        scrollableDiv.addEventListener('mousemove', handleMouseMove);
-        scrollableDiv.addEventListener('mouseleave', handleMouseUp);
-        scrollableDiv.addEventListener('mouseup', handleMouseUp);
+    const scrollableDiv = scrollRef.current;
+    scrollableDiv.addEventListener('mousedown', handleMouseDown);
+    scrollableDiv.addEventListener('mousemove', handleMouseMove);
+    scrollableDiv.addEventListener('mouseleave', handleMouseUp);
+    scrollableDiv.addEventListener('mouseup', handleMouseUp);
 
-        // Clean up event listeners on component unmount
-        return () => {
-            scrollableDiv.removeEventListener('mousedown', handleMouseDown);
-            scrollableDiv.removeEventListener('mousemove', handleMouseMove);
-            scrollableDiv.removeEventListener('mouseleave', handleMouseUp);
-            scrollableDiv.removeEventListener('mouseup', handleMouseUp);
-        };
+    // Clean up event listeners on component unmount
+    return () => {
+        scrollableDiv.removeEventListener('mousedown', handleMouseDown);
+        scrollableDiv.removeEventListener('mousemove', handleMouseMove);
+        scrollableDiv.removeEventListener('mouseleave', handleMouseUp);
+        scrollableDiv.removeEventListener('mouseup', handleMouseUp);
+    };
     }, [isDragging, startX, scrollLeft]);
 
     useEffect(() => {
         const fetchSymbolsAndStockData = async () => {
-            setLoading(true); // Set loading to true when filter changes
-            try {
-                // Fetch symbols data (gainers, losers, or active stocks)
-                const symbolsResponse = await fetch(`https://api.stockverse.ai/${stocksType}`);
-                if (!symbolsResponse.ok) {
-                    throw new Error('Failed to fetch stock symbols');
-                }
-
-                const symbolsData = await symbolsResponse.json();
-                
-                // Create a comma-separated string of symbols for the overview request
-                const symbols = symbolsData.map(item => item.ticker).join(',');
-
-                // Fetch the company overview for all the symbols
-                const overviewResponse = await fetch(`https://api.stockverse.ai/overview?symbol=${symbols}`);
-                if (!overviewResponse.ok) {
-                    throw new Error('Failed to fetch company overview');
-                }
-                
-                const overviewData = await overviewResponse.json();
-
-                // Merge data from both APIs (symbol details and overview)
-                const combinedData = symbolsData.map(symbol => {
-                    const sanitizedSymbol = sanitizeSymbol(symbol.ticker);
-                    const overview = overviewData.find(item => item.Symbol === sanitizedSymbol.toUpperCase());
-
-                    return {
-                        symbol: sanitizedSymbol,
-                        price: symbol.price,
-                        volume: formatNumber(Number(symbol.volume)),
-                        changeAmount: symbol.change_amount,
-                        changePercentage: symbol.change_percentage,
-                        marketCap: overview ? formatNumber(Number(overview.MarketCapitalization)) : 'N/A',
-                        shares: overview ? formatNumber(Number(overview.SharesOutstanding)) : 'N/A',
-                        name: overview ? overview.Name : symbol.ticker,
-                        sector: overview ? overview.Sector : 'N/A',
-                        DividendPerShare: overview ? overview.DividendPerShare : '-',
-                        DividendYield: overview ? overview.DividendYield : '-',
-                        StrongBuy: overview ? overview.AnalystRatingStrongBuy : '-',
-                        PERatio: overview ? overview.PERatio : '-',
-                        OneYearHigh: overview ? overview['52WeekHigh'] : 'N/A',
-                        OneYearLow: overview ? overview['52WeekLow'] : 'N/A',
-                        StrongSell: overview ? overview.AnalystRatingStrongSell : '-',
-                        FiscalYearEnd: overview ? overview.FiscalYearEnd : 'N/A',
-                        AnalystTargetPrice: overview ? overview.AnalystTargetPrice : 'N/A',
-                        siteUrl: overview ? overview.OfficialSite : '',
-                    };
-                });
-
-                setStockData(combinedData); // Update state with combined data
-                setLoading(false);
-
-                // Initialize stroke colors here once the data is available
-                const initialColors = {};
-                combinedData.forEach((stock) => {
-                    initialColors[stock.symbol] = 'var(--svg-color)'; // Default color
-                });
-                setStrokeColors(initialColors);
-            } catch (error) {
-                console.error("Error fetching stock data:", error);
-                setError('Error loading stocks data. Please try again later.');
-                setLoading(false);
+        setLoading(true); // Set loading to true when filter changes
+        try {
+            // Fetch symbols data (gainers, losers, or active stocks)
+            const symbolsResponse = await fetch(`https://api.stockverse.ai/${stocksType}`);
+            if (!symbolsResponse.ok) {
+                throw new Error('Failed to fetch stock symbols');
             }
-        };
 
-        fetchSymbolsAndStockData(); // Fetch symbols and stock data on component mount
+            const symbolsData = await symbolsResponse.json();
+            
+            // Create a comma-separated string of symbols for the overview request
+            const symbols = symbolsData.map(item => item.ticker).join(',');
+
+            // Fetch the company overview for all the symbols
+            const overviewResponse = await fetch(`https://api.stockverse.ai/overview?symbol=${symbols}`);
+            if (!overviewResponse.ok) {
+            throw new Error('Failed to fetch company overview');
+            }
+                
+            const overviewData = await overviewResponse.json();
+
+            // Merge data from both APIs (symbol details and overview)
+            const combinedData = symbolsData.map(symbol => {
+                const sanitizedSymbol = sanitizeSymbol(symbol.ticker);
+                const overview = overviewData.find(item => item.Symbol === sanitizedSymbol.toUpperCase());
+
+                return {
+                    symbol: sanitizedSymbol,
+                    price: symbol.price,
+                    volume: formatNumber(Number(symbol.volume)),
+                    changeAmount: symbol.change_amount,
+                    changePercentage: symbol.change_percentage,
+                    marketCap: overview ? formatNumber(Number(overview.MarketCapitalization)) : 'N/A',
+                    shares: overview ? formatNumber(Number(overview.SharesOutstanding)) : 'N/A',
+                    name: overview ? overview.Name : symbol.ticker,
+                    sector: overview ? overview.Sector : 'N/A',
+                    DividendPerShare: overview ? overview.DividendPerShare : '-',
+                    DividendYield: overview ? overview.DividendYield : '-',
+                    StrongBuy: overview ? overview.AnalystRatingStrongBuy : '-',
+                    PERatio: overview ? overview.PERatio : '-',
+                    OneYearHigh: overview ? overview['52WeekHigh'] : 'N/A',
+                    OneYearLow: overview ? overview['52WeekLow'] : 'N/A',
+                    StrongSell: overview ? overview.AnalystRatingStrongSell : '-',
+                    FiscalYearEnd: overview ? overview.FiscalYearEnd : 'N/A',
+                    AnalystTargetPrice: overview ? overview.AnalystTargetPrice : 'N/A',
+                    siteUrl: overview ? overview.OfficialSite : '',
+                };
+            });
+
+            setStockData(combinedData); // Update state with combined data
+            setLoading(false);
+
+            // Initialize stroke colors here once the data is available
+            const initialColors = {};
+            combinedData.forEach((stock) => {
+            initialColors[stock.symbol] = 'var(--svg-color)'; // Default color
+        });
+        setStrokeColors(initialColors);
+        } catch (error) {
+            console.error("Error fetching stock data:", error);
+            setError('Error loading stocks data. Please try again later.');
+            setLoading(false);
+        }
+    };
+
+    fetchSymbolsAndStockData(); // Fetch symbols and stock data on component mount
     }, [stocksType]); // Depend on stocksType to refetch when it changes
 
     const handleResultClick = (symbol) => {

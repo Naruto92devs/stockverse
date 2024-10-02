@@ -10,7 +10,9 @@ export default function News() {
           <p className="text-base max-sm:text-sm text-secondaryHeading">Stay updated with the most relevant and timely news from the financial world. Explore insights on market movements, economic policies, earnings reports, technological advancements, and more. Dive into a curated selection of articles that provide a comprehensive view of the current market landscape and help you stay informed about the factors shaping the financial markets.</p>
         </div>
       </div>
+      <div className="p-6 max-sm:px-3 xl:container mx-auto">
         <StockNews/>
+      </div>
     </div>
   );
 }

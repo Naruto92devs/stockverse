@@ -237,6 +237,27 @@
   font-style: italic;
 }
 
+
+/* Example custom styles for scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.4); /* Initial gray */
+  border-radius: 9999px; /* Full rounded corners */
+}
+
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.6); /* Darker gray on hover */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--background); /* Transparent track like macOS */
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 /* --------Fallback UI---------- */
 
 /* From Uiverse.io by vk-uiux */ 

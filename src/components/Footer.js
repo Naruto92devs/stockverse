@@ -68,7 +68,7 @@ export default function Footer () {
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/level2'>Level 2</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/news'>News</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/ipo-calendar'>IPO Calendar</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/earnings-calendar'>Earnings Calendar</Link>
+                        {/* <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/earnings-calendar'>Earnings Calendar</Link> */}
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h2 className="text-xl font-sansSemibold text-mobNavLink">Contact</h2>

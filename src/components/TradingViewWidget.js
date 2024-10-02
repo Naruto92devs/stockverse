@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, memo } from 'react';
 
-function TradingViewWidget({ symbol }) {
+function Chart({ symbol }) {
 const container = useRef();
 
 useEffect(() => {
@@ -21,18 +21,22 @@ const updateWidget = () => {
         "autosize": true,
         "symbol": "${symbol}",
         "interval": "D",
+        "support_host": "https://www.tradingview.com",
         "timezone": "exchange",
         "theme": "${theme}",
-        "style": "0",
-        "locale": "en",
-        "allow_symbol_change": false,
+        "style": "1",
         "withdateranges": true,
+        "hide_side_toolbar": false,
         "allow_symbol_change": false,
         "save_image": false,
-        "details": true,
-        "hotlist": true,
-        "calendar": false,
-        "support_host": "https://www.tradingview.com"
+        "studies": [
+        "ROC@tv-basicstudies",
+        "StochasticRSI@tv-basicstudies",
+        "MASimple@tv-basicstudies"
+        ],
+        "show_popup_button": true,
+        "popup_width": "1000",
+        "popup_height": "650"
     }`;
     container.current.appendChild(script);
 };
@@ -61,7 +65,7 @@ return () => {
 }, [symbol]);
 
 return (
-<section className="w-full h-[500px]">
+<section className="w-full h-[590px] max-md:h-[475px]">
     <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%" }}>
     <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
     <div className="tradingview-widget-copyright">
@@ -74,4 +78,4 @@ return (
 );
 }
 
-export default memo(TradingViewWidget);
+export default memo(Chart);
