@@ -77,8 +77,8 @@ try {
 
 // Fetch news when the component mounts or when the filters change
 useEffect(() => {
-fetchNews(topic, sort, limit, symbol);
-}, [topic, sort, limit, symbol]);
+fetchNews(topic, sort, limit);
+}, [topic, sort, limit]);
 
 // Handle filter changes
 const handleTopicChange = (newTopic) => {

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Logo from '@/components/Logo';
 import formatNumber from '@/components/FormatNumber';
-import Chart from '@/components/TradingViewWidget'; // Assuming you have a separate component for TradingView
+import Chart from '@/components/Chart'; // Assuming you have a separate component for TradingView
 import StockNews from '@/components/stockNews';
 import Earnings_Calendar from '@/components/EarningsCalendar';
 import Technical_Analysis from '@/components/TechnicalAnalysis';
@@ -268,22 +268,28 @@ export default function StockDetails() {
                         News
                     </button>
                     <button
-                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'earnings-calendar' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
-                        onClick={() => handleFilterChange('earnings-calendar')}
-                    >
-                        Earnings Calendar
-                    </button>
-                    <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'technical-analysis' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => handleFilterChange('technical-analysis')}
                     >
                         Technical Analysis
                     </button>
                     <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'earnings-calendar' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('earnings-calendar')}
+                    >
+                        Earnings Calendar
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'insider-transactions' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('insider-transactions')}
+                    >
+                        Insider Transactions
+                    </button>
+                    <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'historical' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => handleFilterChange('historical')}
                     >
-                        Historical
+                        Historical Data
                     </button>
                     <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'stockverse-gpt' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}

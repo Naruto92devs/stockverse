@@ -69,7 +69,7 @@ const IPO = ({ stocksType }) => {
             setLoading(true); // Set loading to true when filter changes
             try {
                 // Fetch symbols data (gainers, losers, or active stocks)
-                const symbolsResponse = await fetch(`https://api.stockverse.ai/${stocksType}`);
+                const symbolsResponse = await fetch(`${STOCKVERSE_BACK_END}/${stocksType}`);
                 if (!symbolsResponse.ok) {
                     throw new Error('Failed to fetch stock symbols');
                 }
@@ -115,12 +115,12 @@ const IPO = ({ stocksType }) => {
     };
 
     // Function to toggle the stroke color for a specific symbol
-    const toggleStrokeColor = (symbol) => {
-        setStrokeColors((prevColors) => ({
-            ...prevColors,
-            [symbol]: prevColors[symbol] === 'var(--svg-color)' ? 'rgba(var(--sell-color))' : 'var(--svg-color)',
-        }));
-    };
+    // const toggleStrokeColor = (symbol) => {
+    //     setStrokeColors((prevColors) => ({
+    //         ...prevColors,
+    //         [symbol]: prevColors[symbol] === 'var(--svg-color)' ? 'rgba(var(--sell-color))' : 'var(--svg-color)',
+    //     }));
+    // };
 
     // Get the label for priceRangeLow based on the data being shown
     const priceRangeLowLabel = stockData.some(stock => stock.priceRangeLow.includes('$')) ? 'Price Range Low' : 'Asset Type';
