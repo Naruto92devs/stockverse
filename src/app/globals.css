@@ -269,9 +269,9 @@
 .card__skeleton {
   background-image: linear-gradient(
 		90deg,
-		#ccc 0px,
+		#cccccc86 0px,
 		rgba(236, 236, 236, 0.9) 40px,
-		#ccc 80px
+		#cccccc86 80px
 	);
   background-size: 300%;
   background-position: 100% 0;

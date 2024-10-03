@@ -11,6 +11,8 @@ import Technical_Analysis from '@/components/TechnicalAnalysis';
 import Historical_Data from '@/components/HistoricalData';
 import StockVerse_GPT from '@/components/StockverseGpt';
 import Level_2 from '@/components/Level2';
+import SymbolFallBackUI from '@/components/SymbolFallbackUI';
+import SymbolDetailsFallBackUI from '@/components/SymbolDetailsFallbackUI';
 
 // Utility function to truncate a string after a certain number of words
 const truncateDescription = (description, wordLimit) => {
@@ -124,9 +126,7 @@ export default function StockDetails() {
             <div className="pb-10 pt-8 max-md:pt-6 w-full bg-stocksBg bg-no-repeat bg-cover bg-right-bottom">
                 <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
                     {loading ? (
-                        <div className="">
-                            <p>Loading...</p>
-                        </div>
+                            <SymbolFallBackUI/>
                     ) : error ? (
                         // Display a custom error UI or message if there's an error
                         <div>
@@ -171,7 +171,7 @@ export default function StockDetails() {
                                 {isTruncated && (
                                     <button
                                         onClick={() => setShowFullDescription(!showFullDescription)}
-                                        className="text-blue-500 hover:underline"
+                                        className="text-primaryHeading hover:underline"
                                     >
                                         {showFullDescription ? 'See Less' : 'Click To See More'}
                                     </button>
@@ -187,9 +187,7 @@ export default function StockDetails() {
             <div className="px-6 pb-16 -mt-8 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
                 <div className="bg-primaryHeading max-md:rounded-2xl w-full p-8 rounded-lg shadow-xl">
                     {loading ? (
-                        <div className="">
-                            <p>Loading...</p>
-                        </div>
+                        <SymbolDetailsFallBackUI/>
                     ) : error ? (
                         // Display a custom error UI or message if there's an error
                         <div>
