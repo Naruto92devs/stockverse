@@ -308,7 +308,12 @@ export default function StockDetails() {
                     {(() => {
                         switch (filter) {
                             case 'chart':
-                                return <Chart symbol={symbol} />;
+                                return (
+                                    <div className="flex flex-col gap-y-6">
+                                        <Chart symbol={symbol} />
+                                        <StockNews symbol={symbol} />
+                                    </div>
+                                );
                             case 'news':
                                 return <StockNews symbol={symbol} />;
                             case 'earnings-calendar':
@@ -325,7 +330,11 @@ export default function StockDetails() {
                                 return null;
                         }
                     })()}
+                    {/* <div className="pt-8">
+                        <StockNews symbol={symbol}/>
+                    </div> */}
                 </div>
+                
             </div>
         </div>
     );

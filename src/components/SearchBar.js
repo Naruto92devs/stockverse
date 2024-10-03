@@ -164,7 +164,7 @@ export default function SearchBar({ isVisible, onClose }) {
                     <input
                         name="search_Symbols"
                         type="text"
-                        className="w-full max-lg:w-[95%] p-1 pl-8 rounded max-lg:rounded-lg text-base max-lg:text-xl bg-background rounded focus:outline-none"
+                        className="w-full max-lg:w-[95%] p-1 pl-8 rounded-full max-lg:rounded-lg text-base max-lg:text-xl bg-background rounded focus:outline-primaryText/10"
                         placeholder="Search stocks..."
                         value={query}
                         onChange={handleInputChange}
