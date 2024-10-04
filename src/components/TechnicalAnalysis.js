@@ -18,7 +18,7 @@ const updateWidget = () => {
     script.async = true;
     script.innerHTML = `
     {
-        "interval": "1m",
+        "interval": "1D",
         "width": "100%",
         "isTransparent": false,
         "height": "100%",
