@@ -93,11 +93,11 @@ const Gainers_Losers = ({ stocksType }) => {
                 const overview = overviewData.find(item => item.Symbol === sanitizedSymbol.toUpperCase());
 
                 return {
-                    symbol: sanitizedSymbol,
-                    price: symbol.price,
-                    volume: formatNumber(Number(symbol.volume)),
-                    changeAmount: symbol.change_amount,
-                    changePercentage: symbol.change_percentage,
+                    symbol: sanitizedSymbol ? sanitizedSymbol : 'N/A',
+                    price: symbol.price ? symbol.price : 'N/A',
+                    volume: formatNumber(Number(symbol.volume)) ? formatNumber(Number(symbol.volume)) : 'N/A',
+                    changeAmount: symbol.change_amount ? symbol.change_amount : 'N/A',
+                    changePercentage: symbol.change_percentage ? symbol.change_percentage : 'N/A',
                     marketCap: overview ? formatNumber(Number(overview.MarketCapitalization)) : 'N/A',
                     shares: overview ? formatNumber(Number(overview.SharesOutstanding)) : 'N/A',
                     name: overview ? overview.Name : symbol.ticker,

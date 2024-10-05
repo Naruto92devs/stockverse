@@ -78,10 +78,10 @@ const Earnings_Calendar = ({ symbol }) => {
                     const sanitizedSymbol = sanitizeSymbol(symbol.symbol);
 
                     return {
-                        symbol: sanitizedSymbol,
-                        name: symbol.name,
-                        reportDate: symbol.reportDate,
-                        fiscalDateEnding: symbol.fiscalDateEnding,
+                        symbol: sanitizedSymbol ? sanitizedSymbol : 'N/A',
+                        name: symbol.name  ? symbol.name : 'N/A',
+                        reportDate: symbol.reportDate ? symbol.reportDate : 'N/A',
+                        fiscalDateEnding: symbol.fiscalDateEnding  ? symbol.fiscalDateEnding : 'N/A',
                         estimate: symbol.estimate ? `$${symbol.estimate}` : 'N/A',
                         currency: symbol.currency ? symbol.currency : 'N/A',
                     };

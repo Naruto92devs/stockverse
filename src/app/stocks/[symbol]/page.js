@@ -252,6 +252,8 @@ export default function StockDetails() {
                         </div>
                     )}
                 </div>
+            </div>
+            <div className="px-6 pb-16 -mt-8 max-lg:px-0 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
                 {/* Buttons for selecting stock type */}
                 <div className="max-w-full w-max flex justify-start items-end gap-2 overflow-x-auto pb-2">
                     <button
@@ -337,7 +339,6 @@ export default function StockDetails() {
                         <StockNews symbol={symbol}/>
                     </div> */}
                 </div>
-                
             </div>
         </div>
     );

@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
-import { useRouter } from 'next/navigation'; // Import router for navigation
 import GainerFallbackUI from './GainerFallbackUI';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -9,7 +8,6 @@ const Insider_Transactions = ({ symbol }) => {
     const [transactions, setTransactions] = useState([]); // State for transactions data
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
-    const router = useRouter(); // Next.js router for navigation
 
     const scrollRef = useRef();
     
@@ -66,16 +64,23 @@ const Insider_Transactions = ({ symbol }) => {
                 }
 
                 const responseData = await response.json();
-                const transactionsData = responseData.data.map(transaction => ({
-                    transactionDate: transaction.transaction_date,
-                    ticker: transaction.ticker,
-                    executive: transaction.executive,
-                    executiveTitle: transaction.executive_title,
-                    securityType: transaction.security_type,
-                    acquisitionOrDisposal: transaction.acquisition_or_disposal,
-                    shares: transaction.shares,
-                    sharePrice: `$${transaction.share_price}`, // Format price
-                }));
+                const transactionsData = responseData.data.map(transaction => {
+                    // Extract and clean the transaction date
+                    const cleanDate = transaction.transaction_date && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(transaction.transaction_date.trim())
+                        ? transaction.transaction_date.trim()
+                        : 'N/A';
+
+                    return {
+                        transactionDate: cleanDate,
+                        ticker: transaction.ticker ? transaction.ticker : 'N/A',
+                        executive: transaction.executive ? transaction.executive : 'N/A',
+                        executiveTitle: transaction.executive_title ? transaction.executive_title : 'N/A',
+                        securityType: transaction.security_type ? transaction.security_type : 'N/A',
+                        acquisitionOrDisposal: transaction.acquisition_or_disposal ? transaction.acquisition_or_disposal : 'N/A',
+                        shares: transaction.shares ? transaction.shares : 'N/A',
+                        sharePrice: transaction.share_price ? `$${transaction.share_price}` : 'N/A', // Format price
+                    };
+                });
 
                 setTransactions(transactionsData); // Update state with parsed data
                 setLoading(false);
@@ -88,10 +93,6 @@ const Insider_Transactions = ({ symbol }) => {
 
         fetchInsiderTransactions(); // Fetch transactions data on component mount
     }, [symbol]); // Refetch when symbol changes
-
-    const handleResultClick = (ticker) => {
-        router.push(`/stocks/${ticker}`); // Navigate to the stock detail page
-    };
     
     return (
         <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">

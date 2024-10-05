@@ -16,10 +16,10 @@ export default function SymbolFallBackUI () {
                     </p>
                 </div>
             </div>
-            <div className="description-section gap-y-1 flex flex-col">
+            <div className="description-section gap-y-1 max-md:gap-y-2 flex flex-col">
                 <p className="card__skeleton card__title rounded w-full max-sm:py-4"></p>
                 <p className="card__skeleton card__title rounded w-full max-sm:py-4"></p>
-                <p className="card__skeleton card__title rounded w-full max-sm:py-4 md:hidden"></p>
+                {/* <p className="card__skeleton card__title rounded w-full max-sm:py-4 md:hidden"></p> */}
                 <p className="card__skeleton card__title rounded w-full max-sm:py-4 sm:hidden"></p>
                 <p className="card__skeleton card__title rounded w-[14%] max-md:w-[40%]"></p>
             </div>
