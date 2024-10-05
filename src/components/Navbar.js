@@ -41,9 +41,9 @@ const Navbar = () => {
     }, []);
 
 return (
-    <nav className="w-[100%]  mx-auto px-6 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none">
-        <Link href='/' className="w-max nav-logo flex items-center mr-4 gap-2">
-            <svg className="max-sm:w-[40vw]" width="170" height="39" viewBox="0 0 170 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <nav className="w-[100%] mx-auto px-3 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none">
+        <Link href='/' className="w-max nav-logo flex items-center mr-2">
+            <svg className="max-sm:max-w-[35vw] max-xl:w-[150px]" width="170" height="39" viewBox="0 0 170 39" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_2291_2706)">
             <path d="M31.6794 0H7.24428C3.24337 0 0 3.24337 0 7.24428V31.6794C0 35.6803 3.24337 38.9236 7.24428 38.9236H31.6794C35.6803 38.9236 38.9236 35.6803 38.9236 31.6794V7.24428C38.9236 3.24337 35.6803 0 31.6794 0Z" fill="var(--svg-color)"/>
             <path d="M22.0858 21.2001L21.8927 21.3099L22.0858 21.2001Z" fill="var(--svg-color)"/>
@@ -75,14 +75,14 @@ return (
             </svg>
         </Link>
         <SearchBar isVisible={isSearchBarVisible} onClose={onClose}/>
-        <div className="lg:ml-4 z-20 w-[70%] max-xl:w-[78%] max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-1.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
-            <Link href='/' className="z-50 max-sm:text-[3.6vw] flex flex-col font-medium max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 py-2 text-base max-xl:text-sm text-primaryText rounded">
+        <div className="z-20 min-w-max max-lg:w-[100%] max-lg:items-end max-lg:shadow-xl max-lg:px-2 max-lg:py-2 max-lg:bg-mobNavBg max-lg:justify-between flex items-center gap-0.5 max-xl:gap-0.5 max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0">
+            <Link href='/' className="z-50 max-sm:text-[3.6vw] flex flex-col font-medium max-lg:gap-1.5 items-center max-lg:p-0 lg:hidden px-4 max-xl:px-2 py-2 text-sm max-xl:text-sm text-primaryText rounded">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714" stroke="rgba(var(--mob-nav-link))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>Home</span>
             </Link>
-            <Link href=''  onClick={toggleSearchBar} className="z-50 max-sm:text-[3.6vw] font-medium hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-base max-xl:text-sm text-primaryText rounded group">
+            <Link href=''  onClick={toggleSearchBar} className="z-50 max-sm:text-[3.6vw] font-medium hidden max-lg:flex flex-col max-lg:gap-1.5 items-center max-lg:px-0 text-sm max-xl:text-sm text-primaryText rounded group">
                 <svg
                     width="24"
                     height="24"
@@ -109,7 +109,7 @@ return (
                     Search
                 </span>
             </Link>
-            <Link href='/stockverse-gpt' className="z-50 flex flex-col max-sm:text-[3.6vw] font-medium items-center max-lg:gap-1.5 max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
+            <Link href='/stockverse-gpt' className="z-50 flex flex-col max-sm:text-[3.6vw] font-medium items-center max-lg:gap-1.5 max-lg:p-0 px-4 max-xl:px-2 py-2 text-sm max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
                 <svg className="absolute -top-7 hidden max-lg:flex" width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_374_40)">
                 <path d="M48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48C37.2548 48 48 37.2548 48 24Z" fill="rgba(var(--mob-nav-bg))" fillOpacity="1"/>
@@ -146,7 +146,7 @@ return (
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/stockverse-gpt') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>StockVerse GPT</span>
             </Link>
-            <Link href='/news' className="z-50 flex flex-col max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 items-center max-lg:p-0 px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
+            <Link href='/news' className="z-50 flex flex-col max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 items-center max-lg:p-0 px-4 max-xl:px-2 py-2 text-sm max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 9C7 8.44772 7.44772 8 8 8H16C16.5523 8 17 8.44772 17 9C17 9.55228 16.5523 10 16 10H8C7.44772 10 7 9.55228 7 9Z" fill="rgba(var(--mob-nav-link))"/>
                 <path fillRule="evenodd" clipRule="evenodd" d="M7 13C7 12.4477 7.44772 12 8 12H12C12.5523 12 13 12.4477 13 13C13 13.5523 12.5523 14 12 14H8C7.44772 14 7 13.5523 7 13Z" fill="rgba(var(--mob-nav-link))"/>
@@ -154,7 +154,7 @@ return (
                 </svg>
                 <span className={`rounded-full max-lg:text-mobNavLink max-lg:py-.2 max-lg:px-2 ${isActive('/news') ? 'max-lg:bg-mobNavLink max-lg:!text-mobNavBg' : ''}`}>News</span>
             </Link>
-            <div className={`cursor-pointer lg:relative group max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 py-2 text-base max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded group ${isDropdownVisible ? 'lg:bg-primaryText/10' : ''}`} onClick={toggleDropdown} id="menu-button" aria-expanded="true" aria-haspopup="true" ref={dropdownRef}>
+            <div className={`cursor-pointer lg:relative group max-sm:text-[3.6vw] font-medium max-lg:gap-1.5 flex max-lg:p-0 max-lg:flex-col max-lg:items-center items-end px-4 max-xl:px-2 py-2 text-sm max-xl:text-sm text-primaryText lg:hover:bg-primaryText/10 rounded group ${isDropdownVisible ? 'lg:bg-primaryText/10' : ''}`} onClick={toggleDropdown} id="menu-button" aria-expanded="true" aria-haspopup="true" ref={dropdownRef}>
                 <svg className="z-50 hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="rgba(var(--mob-nav-link))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M2 12H22" stroke="rgba(var(--mob-nav-link))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -191,29 +191,29 @@ return (
                         </defs>
                     </svg>
                     <Link href="/gainers&losers">
-                        <span className="w-full h-full font-medium max-lg:text-mobNavLink rounded text-base block px-4 py-2 text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Gainers / Losers</span>
+                        <span className="w-full h-full font-medium max-lg:text-mobNavLink rounded text-sm block px-4 py-2 text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Gainers / Losers</span>
                     </Link>
                     <Link href="/level2">
-                        <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Level 2</span>
+                        <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-sm text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Level 2</span>
                     </Link>
                     <Link href="/ipo-calendar">
-                        <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">IPO Calender</span>
+                        <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-sm text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">IPO Calender</span>
                     </Link>
                     {/* <Link href="/earnings-calendar">
                         <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Earnings Calender</span>
                     </Link> */}
                     <Link href="/stockpicks" className="hidden max-lg:flex">
-                        <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Stock Picks</span>
+                        <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-sm text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Stock Picks</span>
                     </Link>
                     <Link href="/pricing" className="hidden max-lg:flex">
-                        <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Pricing</span>
+                        <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-sm text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Pricing</span>
                     </Link>
                     <Link href="/alerts" className="">
-                        <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Alerts</span>
+                        <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-sm text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Alerts</span>
                     </Link>
                 </div>
             </div>
-            <Link href='/stockpicks' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 py-2 text-base font-medium max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded">
+            <Link href='/stockpicks' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 max-xl:px-2 py-2 text-sm font-medium max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.97 10H3.97V18C3.97 21 4.97 22 7.97 22H15.97C18.97 22 19.97 21 19.97 18V10Z" stroke="var(--svg-color)" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M21.5 7V8C21.5 9.1 20.97 10 19.5 10H4.5C2.97 10 2.5 9.1 2.5 8V7C2.5 5.9 2.97 5 4.5 5H19.5C20.97 5 21.5 5.9 21.5 7Z" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
@@ -223,7 +223,7 @@ return (
                 </svg>
                 <span>Stock Picks</span>
             </Link>
-            <Link href='/pricing' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 py-2 text-base font-medium max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded">
+            <Link href='/pricing' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 max-xl:px-2 py-2 text-sm font-medium max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.97 10H3.97V18C3.97 21 4.97 22 7.97 22H15.97C18.97 22 19.97 21 19.97 18V10Z" stroke="var(--svg-color)" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M21.5 7V8C21.5 9.1 20.97 10 19.5 10H4.5C2.97 10 2.5 9.1 2.5 8V7C2.5 5.9 2.97 5 4.5 5H19.5C20.97 5 21.5 5.9 21.5 7Z" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
@@ -234,12 +234,12 @@ return (
                 <span>Pricing</span>
             </Link>
         </div>
-        <div className="w-max flex items-center gap-2 max-lg:gap-1">
-            <Link href="/login" className="px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-primaryButton hover:bg-primaryText/10 rounded-full">
+        <div className="w-max flex items-center gap-1">
+            <Link href="/login" className="px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-sm text-primaryButton hover:bg-primaryText/10 rounded-full">
                 <span>Login</span>
             </Link> 
-            <Link href="/register" className="px-6 py-2 max-sm:px-[6vw] max-sm:text-[3.5vw] text-base max-xl:text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full">
-                <span>Register</span>
+            <Link href="/register" className="px-4 py-2 max-sm:px-[4vw] max-sm:text-[3vw] text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full">
+                <span>Create Free Account</span>
             </Link>
             <ThemeSwitch/>
         </div>

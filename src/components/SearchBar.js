@@ -108,7 +108,7 @@ export default function SearchBar({ isVisible, onClose }) {
     };
 
     return (
-        <div className={`relative w-[20%] max-xl:w-[12%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
+        <div className={`relative w-[20%] max-xl:w-[14%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
             isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
         }`}>
             <div ref={searchBarRef} className="relative w-[100%] max-lg:flex max-lg:flex-col max-lg:items-center">
@@ -164,8 +164,8 @@ export default function SearchBar({ isVisible, onClose }) {
                     <input
                         name="search_Symbols"
                         type="text"
-                        className="w-full max-lg:w-[95%] p-1 pl-8 rounded-full max-lg:rounded-lg text-base max-lg:text-xl bg-background rounded focus:outline-primaryText/10"
-                        placeholder="Search stocks..."
+                        className="w-full max-lg:w-[95%] p-1 pl-8 rounded-full max-lg:rounded-lg text-base max-lg:text-xl bg-background rounded outline outline-1 outline-primaryText/10 focus:outline-primaryText/30"
+                        placeholder="Search stocks, symbols & companies here..."
                         value={query}
                         onChange={handleInputChange}
                         onFocus={handleFocus}
@@ -176,7 +176,7 @@ export default function SearchBar({ isVisible, onClose }) {
                     <div className="absolute top-full left-0 w-full p-2 text-gray-500 max-lg:text-mobNavLink text-center">No results found</div>
                 )}
                 {showResults && results.length > 0 && (
-                    <ul className="select-none absolute max-lg:relative max-lg:max-h-[75vh] max-lg:overflow-y-scroll max-lg:w-[100%] top-[120%] max-lg:p-0 p-1 pb-0.5 left-0 w-[345%] max-2xl:w-[450%] max-xl:w-[740%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
+                    <ul className="select-none absolute max-lg:relative max-lg:max-h-[75vh] max-lg:overflow-y-scroll max-lg:w-[100%] top-[120%] max-lg:p-0 p-1 pb-0.5 left-0 w-[300%] max-xl:w-[400%] bg-primaryColor max-lg:bg-primaryColor/0 max-lg:mt-2 rounded shadow-xl">
                         {results.map((result, index) => (
                             <li
                                 key={index}

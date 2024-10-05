@@ -153,7 +153,7 @@ const Gainers_Losers = ({ stocksType }) => {
                 <div ref={scrollRef} className="flex w-full max-h-[497px] overflow-y-auto">
 
                     {/* Fixed Stock Column */}
-                    <div className="min-w-[23rem] sticky top-0 left-0 z-[2] h-max max-md:min-w-[9rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
+                    <div className="min-w-[23rem] sticky top-0 left-0 z-[2] h-max max-md:min-w-[9.5rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
                         {/* Header for Stock Column */}
                         <div className="sticky top-0 left-0 py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
                             STOCK

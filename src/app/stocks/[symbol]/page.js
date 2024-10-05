@@ -7,6 +7,7 @@ import formatNumber from '@/components/FormatNumber';
 import Chart from '@/components/Chart'; // Assuming you have a separate component for TradingView
 import StockNews from '@/components/stockNews';
 import Earnings_Calendar from '@/components/EarningsCalendar';
+import Insider_Transactions from '@/components/InsiderTransactions';
 import Technical_Analysis from '@/components/TechnicalAnalysis';
 import Historical_Data from '@/components/HistoricalData';
 import StockVerse_GPT from '@/components/StockverseGpt';
@@ -318,6 +319,8 @@ export default function StockDetails() {
                                 return <StockNews symbol={symbol} />;
                             case 'earnings-calendar':
                                 return <Earnings_Calendar symbol={symbol} />;
+                            case 'insider-transactions':
+                                return <Insider_Transactions symbol={symbol} />;
                             case 'technical-analysis':
                                 return <Technical_Analysis symbol={symbol} />;
                             case 'historical':
