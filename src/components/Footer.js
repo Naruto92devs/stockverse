@@ -30,7 +30,7 @@ export default function Footer () {
                             </clipPath>
                             </defs>
                         </svg>
-                        <p className="text-sm max-sm:text-[3.2vw] font-sansMedium text-mobNavLink/80">Your trusted partner for live stock data, AI-driven insights, and personalized trading tools. At Stockverse, we are dedicated to providing traders and investors with the information and tools they need to succeed in the stock market. Whether you’re a seasoned trader or just starting, our platform is designed to help you navigate the complexities of the market with confidence.</p>
+                        <p className="text-sm max-sm:text-[3.2vw] font-sansMedium text-mobNavLink/80">Your trusted platform for live Stock Data, Stock News, IPO Calendar, AI-driven insights, Stockpicks, Alerts and personalized analysis tools.</p>
                         <div className="flex items-center gap-2">
                             <Link href='/'>
                                 <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,14 +58,14 @@ export default function Footer () {
                         <h2 className="text-xl font-sansSemibold text-mobNavLink">Quick Links</h2>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/'>Home</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/stockverse-gpt'>StockVerse GPT</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/alerts'>Alerts</Link>
+                        {/* <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/alerts'>Alerts</Link> */}
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/stockpicks'>Stock Picks</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/pricing'>Pricing</Link>
+                        {/* <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/pricing'>Pricing</Link> */}
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h2 className="text-xl font-sansSemibold text-mobNavLink">Market</h2>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/gainers&losers'>Gainers / Losers</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/level2'>Level 2</Link>
+                        {/* <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/level2'>Level 2</Link> */}
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/news'>News</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/ipo-calendar'>IPO Calendar</Link>
                         {/* <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/earnings-calendar'>Earnings Calendar</Link> */}

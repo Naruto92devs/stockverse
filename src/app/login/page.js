@@ -94,7 +94,7 @@ export default function LogIn() {
           </div>
           <button
             type="submit"
-            className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-secondaryColor transition duration-300"
+            className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-secondaryHeading transition duration-300"
           >
             Sign In
           </button>

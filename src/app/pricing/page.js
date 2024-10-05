@@ -1,17 +1,18 @@
 'use client';
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Membership() {
   const [billingCycle, setBillingCycle] = useState("monthly");
 
   const plans = {
     monthly: {
-      free: { price: "Free/mo", oldPrice: "$8.99", label: "Buy Now" },
+      free: { price: "Free/mo", oldPrice: "$8.99", label: "Get Started" },
       standard: { price: "$29.99/mo", oldPrice: "$39.99", label: "Buy Now" },
       premium: { price: "$49.99/mo", oldPrice: "$69.99", label: "Buy Now" },
     },
     yearly: {
-      free: { price: "Free/yr", oldPrice: "$100.99", label: "Buy Now" },
+      free: { price: "Free/yr", oldPrice: "$100.99", label: "Get Started" },
       standard: { price: "$149.99/yr", oldPrice: "$359.99", label: "Buy Now" },
       premium: { price: "$249.99/yr", oldPrice: "$599.99", label: "Buy Now" },
     },
@@ -55,9 +56,9 @@ export default function Membership() {
             <p className="text-3xl font-sansBold text-primaryText">{plans[billingCycle].free.price}</p>
             <p className="text-lg text-primaryText/70 line-through">{plans[billingCycle].free.oldPrice}</p>
           </div>
-          <button className="w-full hover:bg-primaryText/10 hover:text-primaryText font-sansMedium text-center bg-primaryButtonBg text-primaryButtonText py-3 px-4">
+          <Link href='/register' className="w-full block hover:bg-primaryText/10 hover:text-primaryText font-sansMedium text-center bg-primaryButtonBg text-primaryButtonText py-3 px-4">
             {plans[billingCycle].free.label}
-          </button>
+          </Link>
           <ul className="mt-8 text-base space-y-4">
             <li className="flex items-center gap-x-2">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
