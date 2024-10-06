@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
 import GainerFallbackUI from './GainerFallbackUI';
+import formatNumber from './FormatNumber';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
@@ -95,12 +96,14 @@ const Historical_Data = ({ symbol }) => {
                     const close = parseFloat(data['4. close']);
                     const change = (close - open).toFixed(2);
                     const changePercentage = (((close - open) / open) * 100).toFixed(2);
+                    const volume = formatNumber(Number(data['6. volume'])) ? formatNumber(Number(data['6. volume'])) : formatNumber(Number(data['5. volume']));
 
                     return {
                         dateTime,
                         open: open.toFixed(2),
                         high: parseFloat(data['2. high']).toFixed(2),
                         low: parseFloat(data['3. low']).toFixed(2),
+                        volume: volume ? volume : 'N/A',
                         close: close.toFixed(2),
                         change,
                         changePercentage
@@ -126,7 +129,7 @@ const Historical_Data = ({ symbol }) => {
         <div ref={scrollRef} className="flex flex-col items-start cursor-pointer select-none overflow-x-auto">
             {/* Filter Dropdown */}
             <div className="mb-4 flex items-center" ref={dropdownRef}>
-                <label htmlFor="filter" className="font-medium mr-2 max-lg:ml-2">Select Time Frame:</label>
+                <label htmlFor="filter" className="font-medium mr-2 max-lg:pl-2">Select Time Frame:</label>
                 <div className="relative">
                     <div onClick={FilterToggle} className={`cursor-pointer font-medium gap-x-2 flex items-end px-4 py-2 text-sm text-primaryText lg:hover:bg-primaryText/10 rounded-lg border ${isFilterOpen ? 'lg:bg-primaryText/10' : ''}`}>
                         {filter.replace('_ADJUSTED', '').replace('TIME_SERIES_', '').replace('_', ' ')}
@@ -201,7 +204,7 @@ const Historical_Data = ({ symbol }) => {
                         historicalData.map((data, index) => (
                             <div key={index} className={`text-base py-3 border-b-[1px] border-primaryText/10 \
                             ${(data.change) >= 0 ? 'text-buy' : 'text-sell'}`}>
-                                {data.change}$
+                                {data.change}
                             </div>
                         ))
                     )}
@@ -274,6 +277,24 @@ const Historical_Data = ({ symbol }) => {
                         historicalData.map((data, index) => (
                             <div key={index} className="text-base py-3 border-b-[1px] border-primaryText/10">
                                 {data.low}
+                            </div>
+                        ))
+                    )}
+                </div>
+
+                {/* Volume Column */}
+                <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                    {/* Header */}
+                    <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        Volume
+                    </div>
+                    {/* Rows */}
+                    {loading || !historicalData || historicalData.length === 0 ? (
+                        <GainerFallbackUI />
+                    ) : (
+                        historicalData.map((data, index) => (
+                            <div key={index} className="text-base py-3 border-b-[1px] border-primaryText/10">
+                                {data.volume}
                             </div>
                         ))
                     )}

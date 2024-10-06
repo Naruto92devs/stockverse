@@ -9,6 +9,7 @@ import StockNews from '@/components/stockNews';
 import Earnings_Calendar from '@/components/EarningsCalendar';
 import Insider_Transactions from '@/components/InsiderTransactions';
 import Technical_Analysis from '@/components/TechnicalAnalysis';
+import Historical_Summary from '@/components/Historical_Summary';
 import Historical_Data from '@/components/HistoricalData';
 import StockVerse_GPT from '@/components/StockverseGpt';
 import Level_2 from '@/components/Level2';
@@ -290,7 +291,7 @@ export default function StockDetails() {
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'historical' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => handleFilterChange('historical')}
                     >
-                        Historical Data
+                        Historical
                     </button>
                     <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'stockverse-gpt' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
@@ -312,13 +313,17 @@ export default function StockDetails() {
                         switch (filter) {
                             case 'chart':
                                 return (
-                                    <div className="flex flex-col gap-y-6">
+                                    <div className="flex flex-col gap-y-6 max-lg:px-3">
                                         <Chart symbol={symbol} />
                                         <StockNews symbol={symbol} />
                                     </div>
                                 );
                             case 'news':
-                                return <StockNews symbol={symbol} />;
+                                return (
+                                    <div className="max-lg:px-3">
+                                        <StockNews symbol={symbol} />
+                                    </div>
+                                ) ;
                             case 'earnings-calendar':
                                 return <Earnings_Calendar symbol={symbol} />;
                             case 'insider-transactions':
@@ -326,7 +331,12 @@ export default function StockDetails() {
                             case 'technical-analysis':
                                 return <Technical_Analysis symbol={symbol} />;
                             case 'historical':
-                                return <Historical_Data symbol={symbol} />;
+                                return (
+                                    <div className="w-full h-full flex flex-col gap-y-6">
+                                        <Historical_Summary symbol={symbol} />
+                                        <Historical_Data symbol={symbol} />
+                                    </div>
+                                );
                             case 'stockverse-gpt':
                                 return <StockVerse_GPT symbol={symbol} />;
                             case 'level2':
