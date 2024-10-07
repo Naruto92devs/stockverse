@@ -8,48 +8,52 @@ import Link from 'next/link';
 export default function LogIn() {
 
   const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const router = useRouter();
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const router = useRouter();
 
-    useEffect(() => {
-        const token = Cookies.get('authToken');
-        if (token) {
-            router.push('/dashboard');
-        }
-    }, [router]);
+  useEffect(() => {
+    const token = Cookies.get('authToken');
+    if (token) {
+        router.push('/'); // Redirect to dashboard if already logged in
+    }
+}, [router]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:4848/signin', {
-                email,
-                password,
-            }, {
-                withCredentials:true, // Include cookies in the request
-            });
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+          const response = await axios.post('https://devsalman.tech/signin', {
+              email,
+              password,
+          }, {
+              withCredentials: true, // Include cookies in the request
+          });
 
-            // Check if the response status is 200 (OK)
-            if (response.status === 200) {
-                // Optionally handle token if not stored via cookies in the backend
-                const user = response.data.user;
-                Cookies.set('userdata',user);
-                const token = response.data.token;
-                if (token) {
-                    Cookies.set('authToken', token);
-                }
-                router.push('/dashboard');
-            } else {
-                setError(response.data.message || 'Failed to sign in');
-            }
-        } catch (err) {
-            if (err.response && err.response.data && err.response.data.message) {
-                setError(err.response.data.message);
-            } else {
-                setError('An unexpected error occurred');
-            }
-        }
-    };
+          // Check if the response status is 200 (OK)
+          if (response.status === 200) {
+              // const user = response.data.user;
+              const authToken = response.data.token;
+              // const authToken = JSON.stringify(token);
+
+              // Store user data and token in cookies if they exist
+              // Cookies.set('token', JSON.stringify(token));
+              if (authToken) {
+                  Cookies.set('authToken', authToken, { expires: 6 / 24 });
+              }
+
+              // Redirect to dashboard after successful login
+              router.push('/');
+          } else {
+              setError(response.data.message || 'Failed to sign in');
+          }
+      } catch (err) {
+          if (err.response && err.response.data && err.response.data.message) {
+              setError(err.response.data.message);
+          } else {
+              setError('An unexpected error occurred');
+          }
+      }
+  };
 
   return (
     <div className="max-lg:pt-16 pb-[10vh] max-md:pt-12 w-full bg-loginBg bg-no-repeat bg-cover bg-left-bottom mb-[-20px]">
@@ -86,7 +90,7 @@ export default function LogIn() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
+              // pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
               title="Password must contain at least 1 number, 1 lowercase letter, 1 uppercase letter, 1 special symbol, and be at least 8 characters long."
               required
               className="w-full text-base px-4 py-2 border bg-mobNavLink text-secondaryHeading border-secondaryHeading/40 rounded-lg focus:outline-none focus:border-secondaryHeading"
@@ -100,7 +104,7 @@ export default function LogIn() {
           </button>
           <div className="w-full flex flex-col mt-4 space-y-2">
             <a 
-              href="http://localhost:4848/auth/google" 
+              href="https://devsalman.tech/auth/google" 
               className="w-[100%] flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
             >
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +113,7 @@ export default function LogIn() {
               Login with Google
             </a>
             <a 
-              href="http://localhost:4848/auth/facebook" 
+              href="https://devsalman.tech/auth/facebook" 
               className="w-[100%] pl-5 flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
