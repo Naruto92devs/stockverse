@@ -111,7 +111,7 @@ export default function Register() {
             </button>
             <div className="w-full flex flex-col mt-4 space-y-2">
               <a 
-                href="http://localhost:4848/auth/google" 
+                href="https://devsalman.tech/auth/google" 
                 className="w-[100%] flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
               >
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
