@@ -19,7 +19,7 @@ export default function LogIn() {
     }
 }, [router]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmitForm = async (e) => {
       e.preventDefault();
       try {
           const response = await axios.post('https://devsalman.tech/signin', {
@@ -50,10 +50,41 @@ export default function LogIn() {
           if (err.response && err.response.data && err.response.data.message) {
               setError(err.response.data.message);
           } else {
-              setError('An unexpected error occurred');
+              setError(err.message || 'An unexpected error occurred');
           }
       }
   };
+
+
+  const handleSubmitGoogle = async (e) => {
+    e.preventDefault();
+    try {
+        const response = await axios.get('https://devsalman.tech/auth/google', {
+            withCredentials: true, // Include cookies in the request
+        });
+
+        // Check if the response status is 200 (OK)
+        if (response.status === 200) {
+            console.log(response.data);
+            const authToken = response.data.token;
+
+            if (authToken) {
+                Cookies.set('authToken', authToken, { expires: 6 / 24 });
+            }
+
+            // Redirect to dashboard after successful login
+            router.push('/');
+        } else {
+            setError(response.data.message || 'Failed to sign in');
+        }
+    } catch (err) {
+        if (err.response && err.response.data && err.response.data.message) {
+            setError(err.response.data.message);
+        } else {
+          setError(err.message || 'An unexpected error occurred');
+        }
+    }
+};
 
   return (
     <div className="max-lg:pt-16 pb-[10vh] max-md:pt-12 w-full bg-loginBg bg-no-repeat bg-cover bg-left-bottom mb-[-20px]">
@@ -62,7 +93,7 @@ export default function LogIn() {
         <p className="text-lg mb-8 max-md:mb-4 w-[40%] max-xl:w-[70%] max-sm:w-[100%] leading-[120%] max-xl:text-base max-sm:text-sm text-center text-secondaryHeading">
           Welcome! Sign in to access personalized stock insights, real-time data, and your custom watchlist with StockverseGPT at your side.
         </p>
-        <form onSubmit={handleSubmit} className="w-[35%] max-lg:w-[55%] max-sm:w-[90%] space-y-4">
+        <form onSubmit={handleSubmitForm} className="w-[35%] max-lg:w-[55%] max-sm:w-[90%] space-y-4">
           <div className="w-full flex flex-col">
             <label htmlFor="email" className="text-md font-Medium text-secondaryHeading">
               Email
@@ -104,8 +135,9 @@ export default function LogIn() {
           </button>
           <div className="w-full flex flex-col mt-4 space-y-2">
             <a 
-              href="https://devsalman.tech/auth/google" 
-              className="w-[100%] flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
+              onClick={handleSubmitGoogle}
+              // href="https://devsalman.tech/auth/google" 
+              className="w-[100%] cursor-pointer flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
             >
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M21 12.2898C21 16.4398 18.79 21.4998 12.13 21.4998C7.12461 21.533 3.03852 17.5051 3 12.4998C3.03852 7.49437 7.12461 3.46646 12.13 3.49972C14.2007 3.5074 16.2085 4.21189 17.83 5.49972C17.942 5.59125 18.0109 5.72533 18.02 5.86972C18.0206 6.01581 17.963 6.15613 17.86 6.25972C17.209 6.85492 16.5882 7.48237 16 8.13972C15.8289 8.32802 15.5422 8.35408 15.34 8.19972C14.4161 7.516 13.2888 7.1637 12.14 7.19972C9.18528 7.19972 6.79 9.595 6.79 12.5498C6.79 15.5045 9.18528 17.8998 12.14 17.8998C15.14 17.8998 16.41 16.6198 17.07 14.3498H12.5C12.2239 14.3498 12 14.1259 12 13.8498V11.1998C12 10.9236 12.2239 10.6998 12.5 10.6998H20.5C20.7302 10.6983 20.9244 10.8709 20.95 11.0998C20.9871 11.4953 21.0038 11.8925 21 12.2898Z" fill="black"/>
