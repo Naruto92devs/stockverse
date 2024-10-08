@@ -28,7 +28,6 @@ export default function Membership() {
           <p className="text-md w-[55%] max-xl:w-[70%] max-sm:w-[100%] leading-[120%] max-sm:text-sm text-center text-secondaryHeading">
             Our goal is to provide users with the knowledge and tools they need to succeed. From real-time data to personalized stock alerts, Stockverse offers valuable insights and resources for everyone.
           </p>
-
           {/* Toggle Monthly/Yearly */}
           <div className="flex justify-center mt-8 bg-background p-1">
             <button
