@@ -55,37 +55,6 @@ export default function LogIn() {
       }
   };
 
-
-  const handleSubmitGoogle = async (e) => {
-    e.preventDefault();
-    try {
-        const response = await axios.get('https://devsalman.tech/auth/google', {
-            withCredentials: true, // Include cookies in the request
-        });
-
-        // Check if the response status is 200 (OK)
-        if (response.status === 200) {
-            console.log(response.data);
-            const authToken = response.data.token;
-
-            if (authToken) {
-                Cookies.set('authToken', authToken, { expires: 6 / 24 });
-            }
-
-            // Redirect to dashboard after successful login
-            router.push('/');
-        } else {
-            setError(response.data.message || 'Failed to sign in');
-        }
-    } catch (err) {
-        if (err.response && err.response.data && err.response.data.message) {
-            setError(err.response.data.message);
-        } else {
-          setError(err.message || 'An unexpected error occurred');
-        }
-    }
-};
-
   return (
     <div className="max-lg:pt-16 pb-[10vh] max-md:pt-12 w-full bg-loginBg bg-no-repeat bg-cover bg-left-bottom mb-[-20px]">
       <div className="px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center">
@@ -135,8 +104,7 @@ export default function LogIn() {
           </button>
           <div className="w-full flex flex-col mt-4 space-y-2">
             <a 
-              onClick={handleSubmitGoogle}
-              // href="https://devsalman.tech/auth/google" 
+              href="https://devsalman.tech/auth/google" 
               className="w-[100%] cursor-pointer flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
             >
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
