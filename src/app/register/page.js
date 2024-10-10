@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 export default function Register() {
     const [username, setUsername] = useState('');
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -19,7 +20,7 @@ export default function Register() {
     useEffect(() => {
         const token = Cookies.get('authToken');
         if (token) {
-            router.push('/dashboard');
+            router.push('/');
         }
     }, [router]);
 
@@ -34,6 +35,7 @@ export default function Register() {
     };
 
     const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
 
         if (!passwordsMatch) {
@@ -53,15 +55,19 @@ export default function Register() {
             const data = response.data;
             if (response.status === 201) {
                 setMessage(data.message);
+                setLoading(false);
                 router.push('/verify-email');
             } else {
                 setMessage(data.message || 'Something went wrong');
+                setLoading(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 setMessage(error.response.data.message || 'Something went wrong');
+                setLoading(false);
             } else {
                 setMessage('An error occurred. Please try again.');
+                setLoading(false);
             }
             console.error('Error during signup:', error);
         }
@@ -80,7 +86,8 @@ export default function Register() {
                             Name
                         </label>
                         <input
-                            type="text"
+                            type="name"
+                            autocomplete="name"
                             placeholder="Enter your full name"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
@@ -95,6 +102,7 @@ export default function Register() {
                         <input
                             type="email"
                             id="email"
+                            autocomplete="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
@@ -110,6 +118,7 @@ export default function Register() {
                             type={passwordVisible ? 'text' : 'password'}
                             id="password"
                             value={password}
+                            autoComplete="new-password"
                             onChange={handlePasswordChange}
                             placeholder="Create your password"
                             pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
@@ -133,6 +142,7 @@ export default function Register() {
                             type={confirmPasswordVisible ? 'text' : 'password'}
                             id="confirmPassword"
                             value={confirmPassword}
+                            autoComplete="new-password"
                             onChange={handleConfirmPasswordChange}
                             placeholder="Confirm your password"
                             required
@@ -148,14 +158,15 @@ export default function Register() {
                         </button>
                     </div>
                     <button
+                        disabled={loading}
                         type="submit"
                         className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-secondaryHeading transition duration-300"
                     >
-                        Sign Up
+                        {loading ? 'Signning Up...' : 'Sign Up'}
                     </button>
                     <div className="w-full flex flex-col mt-4 space-y-2">
                         <a 
-                        href="https://devsalman.tech/auth/google" 
+                        href={loading ? '' : 'https://devsalman.tech/auth/google'} 
                         className="w-[100%] cursor-pointer flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
                         >
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -8,6 +8,7 @@ import Link from 'next/link';
 export default function LogIn() {
 
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -21,6 +22,7 @@ export default function LogIn() {
 }, [router]);
 
   const handleSubmitForm = async (e) => {
+      setLoading(true);
       e.preventDefault();
       try {
           const response = await axios.post('https://devsalman.tech/signin', {
@@ -46,12 +48,15 @@ export default function LogIn() {
               router.push('/');
           } else {
               setError(response.data.message || 'Failed to sign in');
+              setLoading(false);
           }
       } catch (err) {
           if (err.response && err.response.data && err.response.data.message) {
               setError(err.response.data.message);
+              setLoading(false);
           } else {
               setError(err.message || 'An unexpected error occurred');
+              setLoading(false);
           }
       }
   };
@@ -71,6 +76,7 @@ export default function LogIn() {
             <input
               type="email"
               id="email"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
@@ -89,6 +95,7 @@ export default function LogIn() {
               type={passwordVisible ? 'text' : 'password'}
               id="password"
               value={password}
+              autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
@@ -105,20 +112,21 @@ export default function LogIn() {
             </button>
           </div>
           <button
+            disabled={loading}
             type="submit"
             className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-secondaryHeading transition duration-300"
           >
-            Sign In
+            {loading ? 'Signning In...' : 'Sign In'}
           </button>
           <div className="w-full flex flex-col mt-4 space-y-2">
-            <a 
-              href="https://devsalman.tech/auth/google" 
+            <a
+              href={loading ? '' : 'https://devsalman.tech/auth/google'} 
               className="w-[100%] cursor-pointer flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
             >
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M21 12.2898C21 16.4398 18.79 21.4998 12.13 21.4998C7.12461 21.533 3.03852 17.5051 3 12.4998C3.03852 7.49437 7.12461 3.46646 12.13 3.49972C14.2007 3.5074 16.2085 4.21189 17.83 5.49972C17.942 5.59125 18.0109 5.72533 18.02 5.86972C18.0206 6.01581 17.963 6.15613 17.86 6.25972C17.209 6.85492 16.5882 7.48237 16 8.13972C15.8289 8.32802 15.5422 8.35408 15.34 8.19972C14.4161 7.516 13.2888 7.1637 12.14 7.19972C9.18528 7.19972 6.79 9.595 6.79 12.5498C6.79 15.5045 9.18528 17.8998 12.14 17.8998C15.14 17.8998 16.41 16.6198 17.07 14.3498H12.5C12.2239 14.3498 12 14.1259 12 13.8498V11.1998C12 10.9236 12.2239 10.6998 12.5 10.6998H20.5C20.7302 10.6983 20.9244 10.8709 20.95 11.0998C20.9871 11.4953 21.0038 11.8925 21 12.2898Z" fill="black"/>
               </svg>
-              Login with Google
+              Sign In with Google
             </a>
             {/* <a 
               href="https://devsalman.tech/auth/facebook" 
