@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="hero pt-16 max-sm:pt-6 pb-0 w-full bg-heroBg bg-no-repeat bg-cover bg-left-bottom mb-[-20px]">
       <div className="content px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center">
-          <div className={`hidden flex-col ga-y-4 items-center ${userVisible ? 'hidden' : 'flex'}`}>
+          <div className={`${userVisible ? 'flex flex-col ga-y-4 items-center' : 'hidden'}`}>
             <User/>
             <LogoutButton/> 
           </div>
