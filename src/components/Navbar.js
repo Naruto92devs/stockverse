@@ -202,7 +202,7 @@ return (
                     {/* <Link href="/earnings-calendar">
                         <span className="block px-4 py-2 font-medium max-lg:text-mobNavLink rounded text-base text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Earnings Calender</span>
                     </Link> */}
-                    <Link href="/stockpicks" className="hidden max-lg:flex">
+                    <Link href="/cvkd" className="hidden max-lg:flex">
                         <span className="block w-full font-medium px-4 py-2 max-lg:text-mobNavLink rounded text-sm text-primaryText hover:bg-primaryText/10 max-lg:bg-primaryTextHover/20">Stock Picks</span>
                     </Link>
                     <Link href="/pricing" className="hidden max-lg:flex">
@@ -213,7 +213,7 @@ return (
                     </Link>
                 </div>
             </div>
-            <Link href='/stockpicks' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 max-xl:px-2 py-2 text-sm font-medium max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded">
+            <Link href='/cvkd' className="max-lg:hidden flex flex-col items-center max-lg:p-0 px-4 max-xl:px-2 py-2 text-sm font-medium max-xl:text-sm text-primaryText hover:bg-primaryText/10 rounded">
                 <svg className="hidden max-lg:flex" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.97 10H3.97V18C3.97 21 4.97 22 7.97 22H15.97C18.97 22 19.97 21 19.97 18V10Z" stroke="var(--svg-color)" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M21.5 7V8C21.5 9.1 20.97 10 19.5 10H4.5C2.97 10 2.5 9.1 2.5 8V7C2.5 5.9 2.97 5 4.5 5H19.5C20.97 5 21.5 5.9 21.5 7Z" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
