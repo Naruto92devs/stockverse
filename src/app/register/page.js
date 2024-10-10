@@ -42,7 +42,7 @@ export default function Register() {
         }
 
         try {
-            const response = await axios.post('http://localhost:4848/signup', {
+            const response = await axios.post('https://devsalman.tech/signup', {
                 username,
                 email,
                 password,
