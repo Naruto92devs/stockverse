@@ -20,5 +20,5 @@ export default function AuthSuccess() {
         router.push('/');
     }, [router]);
 
-    return <div className="container mx-auto pt-8">Redirecting...</div>;
+    return <div className="container mx-auto pt-8 text-center">Redirecting...</div>;
 }

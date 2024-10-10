@@ -10,6 +10,7 @@ export default function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -77,7 +78,7 @@ export default function LogIn() {
               className="w-full text-base px-4 py-2 border bg-mobNavLink text-secondaryHeading border-secondaryHeading/40 rounded-lg focus:outline-none focus:border-secondaryHeading"
             />
           </div>
-          <div className="w-full flex flex-col">
+          <div className="w-full flex flex-col relative">
             <div className="flex justify-between items-end">
               <label htmlFor="password" className="text-md font-Medium text-secondaryHeading">
                 Password
@@ -85,16 +86,23 @@ export default function LogIn() {
               <Link className="text-md font-Medium text-secondaryHeading underline" href='/reset_password'>Forgot your password?</Link>
             </div>
             <input
-              type="password"
+              type={passwordVisible ? 'text' : 'password'}
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              // pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
+              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
               title="Password must contain at least 1 number, 1 lowercase letter, 1 uppercase letter, 1 special symbol, and be at least 8 characters long."
               required
               className="w-full text-base px-4 py-2 border bg-mobNavLink text-secondaryHeading border-secondaryHeading/40 rounded-lg focus:outline-none focus:border-secondaryHeading"
             />
+            <button
+                type="button"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+                className="absolute right-3 top-[2.1rem] text-secondaryHeading focus:outline-none"
+            >
+                {passwordVisible ? '👁️' : '🙈'}
+            </button>
           </div>
           <button
             type="submit"
@@ -112,7 +120,7 @@ export default function LogIn() {
               </svg>
               Login with Google
             </a>
-            <a 
+            {/* <a 
               href="https://devsalman.tech/auth/facebook" 
               className="w-[100%] pl-5 flex gap-x-2 justify-center border-[1.5px] border-secondaryHeading hover:border-mobNavLink text-center text-base text-secondaryHeading py-2 rounded-lg hover:bg-mobNavLink transition duration-300"
             >
@@ -120,7 +128,7 @@ export default function LogIn() {
               <path d="M9.03153 23L9 13H5V9H9V6.5C9 2.7886 11.2983 1 14.6091 1C16.1951 1 17.5581 1.11807 17.9553 1.17085V5.04948L15.6591 5.05052C13.8584 5.05052 13.5098 5.90614 13.5098 7.16171V9H18.75L16.75 13H13.5098V23H9.03153Z" fill="black"/>
               </svg>
               Login with Facebook
-            </a>
+            </a> */}
           </div>
         </form>
         <p className="flex gap-x-2 text-md font-Medium text-secondaryHeading">
