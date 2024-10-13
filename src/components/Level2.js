@@ -156,7 +156,7 @@ const Level2 = ({ symbol }) => {
         {/* Columns */}
         <div ref={scrollRef} className="flex max-w-full w-max max-h-[500px] overflow-y-auto">
 
-            <div className="min-w-max sticky top-0 left-0 z-[2] h-max max-md:min-w-[7rem] bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
+            <div className="min-w-max sticky top-0 left-0 z-[2] h-max min-w-max bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
                 {/* Header for Ask Exchange Column */}
                 <div className="sticky top-0 left-0 py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
                     Ask Exchange
@@ -200,8 +200,6 @@ const Level2 = ({ symbol }) => {
                     </div>
                 ))}
             </div>
-
-
 
             {/* Bid Size Column */}
             <div className="flex flex-col min-w-max h-max text-left border-y-[1px] border-primaryText/10">
@@ -247,7 +245,7 @@ const Level2 = ({ symbol }) => {
             </div>
 
             {/* Bid Exchange Column */}
-            <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
+            <div className="flex flex-col min-w-max h-max text-left border-y-[1px] border-primaryText/10">
                 {/* Header */}
                 <div className="sticky top-0 left-0 px-4 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                     Bid Exchange
