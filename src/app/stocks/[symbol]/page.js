@@ -11,6 +11,7 @@ import Insider_Transactions from '@/components/InsiderTransactions';
 import Technical_Analysis from '@/components/TechnicalAnalysis';
 import Historical_Summary from '@/components/Historical_Summary';
 import Historical_Data from '@/components/HistoricalData';
+import Trades from '@/components/Trades';
 import StockVerse_GPT from '@/components/StockverseGpt';
 import Level_2 from '@/components/Level2';
 import SymbolFallBackUI from '@/components/SymbolFallbackUI';
@@ -294,6 +295,12 @@ export default function StockDetails() {
                         Historical
                     </button>
                     <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'trades' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('trades')}
+                    >
+                        Trades
+                    </button>
+                    <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'stockverse-gpt' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => handleFilterChange('stockverse-gpt')}
                     >
@@ -337,6 +344,8 @@ export default function StockDetails() {
                                         <Historical_Data symbol={symbol} />
                                     </div>
                                 );
+                            case 'trades':
+                                return <Trades symbol={symbol} />;
                             case 'stockverse-gpt':
                                 return <StockVerse_GPT symbol={symbol} />;
                             case 'level2':

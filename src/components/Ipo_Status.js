@@ -114,14 +114,6 @@ const IPO = ({ stocksType }) => {
         router.push(`/stocks/${symbol}`); // Navigate to the stock detail page
     };
 
-    // Function to toggle the stroke color for a specific symbol
-    // const toggleStrokeColor = (symbol) => {
-    //     setStrokeColors((prevColors) => ({
-    //         ...prevColors,
-    //         [symbol]: prevColors[symbol] === 'var(--svg-color)' ? 'rgba(var(--sell-color))' : 'var(--svg-color)',
-    //     }));
-    // };
-
     // Get the label for priceRangeLow based on the data being shown
     const priceRangeLowLabel = stockData.some(stock => stock.priceRangeLow.includes('$')) ? 'Price Range Low' : 'Asset Type';
 
