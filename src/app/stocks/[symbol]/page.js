@@ -301,16 +301,16 @@ export default function StockDetails() {
                         Trades
                     </button>
                     <button
-                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'stockverse-gpt' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
-                        onClick={() => handleFilterChange('stockverse-gpt')}
-                    >
-                        StockVerse GPT
-                    </button>
-                    <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'level2' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => handleFilterChange('level2')}
                     >
                         Level 2
+                    </button>
+                    <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'stockverse-gpt' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('stockverse-gpt')}
+                    >
+                        StockVerse GPT
                     </button>
                 </div>
 

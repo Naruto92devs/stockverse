@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 const convertTimestamp = (sipTimestamp) => {
     const timestampInSeconds = sipTimestamp / 1_000_000_000;
     const date = new Date(timestampInSeconds * 1000); // Convert to milliseconds
-    return date.toLocaleString();
+    return date.toLocaleTimeString(); // Return only the time part
 };
 
 // Utility function to ensure symbol is uppercase
@@ -188,57 +188,60 @@ const Level2 = ({ symbol }) => {
             </div>
 
             {/* Ask Price Column */}
-            <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
+            <div className="flex flex-col min-w-max h-max text-left border-y-[1px] border-primaryText/10">
                 {/* Header */}
-                <div className="sticky top-0 left-0 px-4 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                <div className="sticky top-0 left-0 px-6 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                     Ask Price
                 </div>
                 {/* Rows */}
                 {level2Data.map((trade, index) => (
-                    <div key={index} className="text-base px-4 py-3 border-b-[1px] border-primaryText/10">
+                    <div key={index} className="text-base px-6 py-3 border-b-[1px] border-primaryText/10">
                         ${trade.ask_price}
                     </div>
                 ))}
             </div>
 
-            {/* Buy/Sell Column */}
-            <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
-                {/* Header */}
-                <div className="sticky top-0 left-0 px-4 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                    Buy/Sell
-                </div>
-                {/* Rows */}
-                {level2Data.map((trade, index) => (
-                    <div key={index} className="text-base px-4 py-3 border-b-[1px] border-primaryText/10">
-                        {determineBuyOrSell(trade.price, trade.bid_price, trade.ask_price)}
-                    </div>
-                ))}
-            </div>
+
 
             {/* Bid Size Column */}
             <div className="flex flex-col min-w-max h-max text-left border-y-[1px] border-primaryText/10">
                 {/* Header */}
-                <div className="sticky top-0 left-0 px-4 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                <div className="sticky top-0 left-0 px-6 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                 Bid Size
                 </div>
                 {/* Rows */}
                 {level2Data.map((trade, index) => (
-                    <div key={index} className="text-base px-4 py-3 border-b-[1px] border-primaryText/10">
+                    <div key={index} className="text-base px-6 py-3 border-b-[1px] border-primaryText/10">
                         {trade.bid_size}
                     </div>
                 ))}
             </div>
 
             {/* Bid Price Column */}
-            <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
+            <div className="flex flex-col min-w-max h-max text-left border-y-[1px] border-primaryText/10">
                 {/* Header */}
-                <div className="sticky top-0 left-0 px-4 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                <div className="sticky top-0 left-0 px-6 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
                     Bid Price
                 </div>
                 {/* Rows */}
                 {level2Data.map((trade, index) => (
-                    <div key={index} className="text-base px-4 py-3 border-b-[1px] border-primaryText/10">
+                    <div key={index} className="text-base px-6 py-3 border-b-[1px] border-primaryText/10">
                         ${trade.bid_price}
+                    </div>
+                ))}
+            </div>
+
+
+            {/* Timestamp Column */}
+            <div className="flex flex-col min-w-max h-max text-left border-y-[1px] border-primaryText/10">
+                {/* Header */}
+                <div className="sticky top-0 left-0 py-3 px-4 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                    Timestamp
+                </div>
+                {/* Rows */}
+                {level2Data.map((trade, index) => (
+                    <div key={index} className="text-base py-3 px-4 border-b-[1px] border-primaryText/10">
+                        {convertTimestamp(trade.participant_timestamp)}
                     </div>
                 ))}
             </div>
@@ -257,19 +260,6 @@ const Level2 = ({ symbol }) => {
                 ))}
             </div>
 
-            {/* Timestamp Column */}
-            <div className="flex flex-col min-w-max h-max text-left border-y-[1px] border-primaryText/10">
-                {/* Header */}
-                <div className="sticky top-0 left-0 py-3 px-4 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                    Timestamp
-                </div>
-                {/* Rows */}
-                {level2Data.map((trade, index) => (
-                    <div key={index} className="text-base py-3 px-4 border-b-[1px] border-primaryText/10">
-                        {convertTimestamp(trade.participant_timestamp)}
-                    </div>
-                ))}
-            </div>
         </div>
     </div>
     );
