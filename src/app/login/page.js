@@ -38,16 +38,10 @@ export default function LogIn() {
 
           // Check if the response status is 200 (OK)
           if (response.status === 200) {
-              // const user = response.data.user;
               const authToken = response.data.token;
-              // const authToken = JSON.stringify(token);
-
-              // Store user data and token in cookies if they exist
-              // Cookies.set('token', JSON.stringify(token));
               if (authToken) {
                   Cookies.set('authToken', authToken, { expires: 6 / 24 });
               }
-
               // Redirect to dashboard after successful login
               router.push('/');
           }else if (response.status === 201) {
@@ -87,9 +81,16 @@ export default function LogIn() {
         const data = response.data;
         console.log(data);
         if (response.status === 207) {
-            setError(data.message);
-            setLoading(false);
-            router.push('/login');
+            const authToken = response.data.token;
+            console.log(authToken);
+            if (authToken) {
+                Cookies.set('authToken', authToken, { expires: 6 / 24 });
+            }
+            // Redirect to dashboard after successful login
+            router.push('/');
+            // setError(data.message);
+            // setLoading(false);
+            // router.push('/login');
         } else {
           setError(data.message || 'Something went wrong');
             setLoading(false);

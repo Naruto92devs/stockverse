@@ -94,9 +94,16 @@ export default function Register() {
             const data = response.data;
             console.log(data);
             if (response.status === 207) {
-                setMessage(data.message);
-                setLoading(false);
-                router.push('/login');
+                const authToken = response.data.token;
+                // console.log(authToken);
+                if (authToken) {
+                    Cookies.set('authToken', authToken, { expires: 6 / 24 });
+                }
+                // Redirect to dashboard after successful login
+                router.push('/');
+                // setMessage(data.message);
+                // setLoading(false);
+                // router.push('/login');
             } else {
                 setMessage(data.message || 'Something went wrong');
                 setLoading(false);
