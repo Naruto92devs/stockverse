@@ -1,9 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Register() {
     const [username, setUsername] = useState('');
@@ -11,8 +12,11 @@ export default function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [OTP, setOTP] = useState('');
+    const [VerifyOTP, setVerifyOTP] = useState(false);
     const [passwordsMatch, setPasswordsMatch] = useState(true); // State to track password matching
     const [message, setMessage] = useState(null);
+    const [id, setid] = useState(null);
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
     const router = useRouter();
@@ -53,10 +57,46 @@ export default function Register() {
             });
 
             const data = response.data;
+            console.log(data);
             if (response.status === 201) {
                 setMessage(data.message);
+                setid(data.id);
                 setLoading(false);
-                router.push('/verify-email');
+                setVerifyOTP(true);
+            } else {
+                setMessage(data.message || 'Something went wrong');
+                setLoading(false);
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                setMessage(error.response.data.message || 'Something went wrong');
+                setLoading(false);
+            } else {
+                setMessage('An error occurred. Please try again.');
+                setLoading(false);
+            }
+            console.error('Error during signup:', error);
+        }
+    };
+
+    const handleSubmitOTP = async (e) => {
+        setLoading(true);
+        e.preventDefault();
+
+        try {
+            const response = await axios.post('https://devsalman.tech/auth/verify-otp', {
+                id,
+                OTP,
+            }, {
+                withCredentials: true,
+            });
+
+            const data = response.data;
+            console.log(data);
+            if (response.status === 207) {
+                setMessage(data.message);
+                setLoading(false);
+                router.push('/login');
             } else {
                 setMessage(data.message || 'Something went wrong');
                 setLoading(false);
@@ -75,7 +115,7 @@ export default function Register() {
 
     return (
         <div className="max-lg:pt-16 pb-[10vh] max-md:pt-10 w-full bg-loginBg bg-no-repeat bg-cover bg-left-bottom mb-[-20px]">
-            <div className="px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center">
+            <div className={`${VerifyOTP ? 'hidden' : 'flex'} px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
                 <h1 className="text-6xl max-md:text-4xl font-sansSemibold text-secondaryHeading">Register</h1>
                 <p className="text-lg mb-8 max-md:mb-4 w-[40%] max-xl:w-[70%] max-sm:w-[100%] leading-[120%] max-xl:text-base max-sm:text-sm text-center text-secondaryHeading">
                     Welcome! Sign Up now to access personalized stock insights, real-time data, and your custom watchlist with StockverseGPT at your side.
@@ -87,7 +127,7 @@ export default function Register() {
                         </label>
                         <input
                             type="name"
-                            autocomplete="name"
+                            autoComplete="name"
                             placeholder="Enter your full name"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
@@ -102,7 +142,7 @@ export default function Register() {
                         <input
                             type="email"
                             id="email"
-                            autocomplete="email"
+                            autoComplete="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
@@ -183,6 +223,41 @@ export default function Register() {
                     </Link>
                 </p>
                 {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+            </div>
+
+            {/* OTP VERIFICATION POPUP */}
+            <div className={`${VerifyOTP ? 'flex' : 'hidden'} px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
+                <form onSubmit={handleSubmitOTP} className="flex flex-col items-center w-[35%] max-lg:w-[55%] max-sm:w-[90%] space-y-4">
+                    <Image src="/images/stockverseLogo.png" width={250} height={57.20} alt='Stockverse Logo' />
+                    <div className="p-8 flex flex-col gap-y-8 items-center bg-background shadow-lg">
+                        <p className="text-base leading-[120%] font-sansRegular max-sm:text-sm text-center text-primaryText">
+                            Thanks for signing up! Before getting started, could you verify your email address by providing OTP emailed to you?
+                        </p>
+                        <div className="w-full flex flex-col gap-y-2">
+                            <label htmlFor="otp" className="text-md font-Medium text-secondaryHeading">
+                                Enter OTP
+                            </label>
+                            <input
+                                type="text"
+                                id="otp"
+                                autoComplete="otp"
+                                value={OTP}
+                                onChange={(e) => setOTP(e.target.value)}
+                                placeholder="Enter OTP Sent To Your Email"
+                                required
+                                className="w-full text-base px-4 py-2 border bg-mobNavLink text-secondaryHeading border-secondaryHeading/40 rounded-lg focus:outline-none focus:border-secondaryHeading"
+                            />
+                        </div>
+                        <button
+                            disabled={loading}
+                            type="submit"
+                            className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-secondaryHeading transition duration-300"
+                        >
+                            {loading ? 'Verifying...' : 'Submit'}
+                        </button>
+                    </div>
+                    {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+                </form>
             </div>
         </div>
     );

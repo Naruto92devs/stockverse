@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LogIn() {
 
@@ -12,6 +13,9 @@ export default function LogIn() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [OTP, setOTP] = useState('');
+  const [VerifyOTP, setVerifyOTP] = useState(false);
+  const [id, setid] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -46,6 +50,13 @@ export default function LogIn() {
 
               // Redirect to dashboard after successful login
               router.push('/');
+          }else if (response.status === 201) {
+            const data = response.data;
+            console.log(data);
+            setError(data.message);
+            setid(data.id);
+            setLoading(false);
+            setVerifyOTP(true);
           } else {
               setError(response.data.message || 'Failed to sign in');
               setLoading(false);
@@ -61,9 +72,44 @@ export default function LogIn() {
       }
   };
 
+  const handleSubmitOTP = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+
+    try {
+        const response = await axios.post('https://devsalman.tech/auth/verify-otp', {
+            id,
+            OTP,
+        }, {
+            withCredentials: true,
+        });
+
+        const data = response.data;
+        console.log(data);
+        if (response.status === 207) {
+            setError(data.message);
+            setLoading(false);
+            router.push('/login');
+        } else {
+          setError(data.message || 'Something went wrong');
+            setLoading(false);
+        }
+    } catch (error) {
+        if (error.response && error.response.data) {
+          setError(error.response.data.message || 'Something went wrong');
+            setError(false);
+        } else {
+            setError('An error occurred. Please try again.');
+            setLoading(false);
+        }
+        console.error('Error during signup:', error);
+    }
+  };
+
   return (
-    <div className="max-lg:pt-16 pb-[10vh] max-md:pt-12 w-full bg-loginBg bg-no-repeat bg-cover bg-left-bottom mb-[-20px]">
-      <div className="px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center">
+    <div className="max-lg:pt-16 pb-[19vh] max-md:pt-12 w-full bg-loginBg bg-no-repeat bg-cover bg-left-bottom mb-[-20px]">
+      
+      <div className={` ${VerifyOTP ? 'hidden' : 'flex'} px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
         <h1 className="text-6xl max-md:text-4xl font-sansSemibold text-secondaryHeading">Log In</h1>
         <p className="text-lg mb-8 max-md:mb-4 w-[40%] max-xl:w-[70%] max-sm:w-[100%] leading-[120%] max-xl:text-base max-sm:text-sm text-center text-secondaryHeading">
           Welcome! Sign in to access personalized stock insights, real-time data, and your custom watchlist with StockverseGPT at your side.
@@ -147,6 +193,42 @@ export default function LogIn() {
         </p>
         {error && <p className="text-red-500 text-center mt-4">{error}</p>}
       </div>
+
+      {/* OTP VERIFICATION POPUP */}
+      <div className={`${VerifyOTP ? 'flex' : 'hidden'} px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
+          <form onSubmit={handleSubmitOTP} className="flex flex-col items-center w-[40%] max-lg:w-[55%] max-sm:w-[90%] space-y-4">
+              <Image src="/images/stockverseLogo.png" width={250} height={57.20} alt='Stockverse Logo' />
+              <div className="p-8 flex flex-col gap-y-8 items-center bg-background shadow-lg">
+                  <p className="text-base leading-[120%] font-sansRegular max-sm:text-sm text-center text-primaryText">
+                      You have already registered on our website but haven&#39;t verified your email address! In order to Login, please verify your email address by providing OTP sent to your email Inbox?
+                  </p>
+                  <div className="w-full flex flex-col gap-y-2">
+                      <label htmlFor="otp" className="text-md font-Medium text-secondaryHeading">
+                          Enter OTP
+                      </label>
+                      <input
+                          type="text"
+                          id="otp"
+                          autoComplete="otp"
+                          value={OTP}
+                          onChange={(e) => setOTP(e.target.value)}
+                          placeholder="Enter OTP Sent To Your Email"
+                          required
+                          className="w-full text-base px-4 py-2 border bg-mobNavLink text-secondaryHeading border-secondaryHeading/40 rounded-lg focus:outline-none focus:border-secondaryHeading"
+                      />
+                  </div>
+                  <button
+                      disabled={loading}
+                      type="submit"
+                      className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-secondaryHeading transition duration-300"
+                  >
+                      {loading ? 'Verifying...' : 'Submit'}
+                  </button>
+              </div>
+          </form>
+          {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+      </div>
+
     </div>
   );
 }
