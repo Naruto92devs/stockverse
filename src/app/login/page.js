@@ -153,7 +153,7 @@ export default function LogIn() {
             <button
                 type="button"
                 onClick={() => setPasswordVisible(!passwordVisible)}
-                className="absolute right-3 top-[2.1rem] text-secondaryHeading focus:outline-none"
+                className="absolute right-3 top-[1.7rem] text-3xl text-secondaryHeading focus:outline-none"
             >
                 {passwordVisible ? '👁️' : '🙈'}
             </button>

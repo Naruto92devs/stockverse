@@ -153,6 +153,8 @@ const Level2 = ({ symbol }) => {
     return (
     <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">
 
+        {/* <input placeholder="Search" className="input" type="date" /> */}
+
         {/* Columns */}
         <div ref={scrollRef} className="flex max-w-full w-max max-h-[500px] overflow-y-auto">
 
