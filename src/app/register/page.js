@@ -236,7 +236,7 @@ export default function Register() {
             <div className={`${VerifyOTP ? 'flex' : 'hidden'} px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
                 <form onSubmit={handleSubmitOTP} className="flex flex-col items-center w-[35%] max-lg:w-[55%] max-sm:w-[90%] space-y-4">
                     <Image src="/images/stockverseLogo.png" width={250} height={57.20} alt='Stockverse Logo' />
-                    <div className="p-8 flex flex-col gap-y-8 items-center bg-background shadow-lg">
+                    <div className="p-8 max-sm:px-4 rounded-xl flex flex-col gap-y-8 items-center bg-background shadow-lg">
                         <p className="text-base leading-[120%] font-sansRegular max-sm:text-sm text-center text-primaryText">
                             Thanks for signing up! Before getting started, could you verify your email address by providing OTP emailed to you?
                         </p>
