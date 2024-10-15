@@ -6,14 +6,27 @@ import Cookies from 'js-cookie';
 export default function User() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [userInfo, setUserInfo] = useState(null);  // Initialize as null, not true
     const token = Cookies.get('authToken');
+
+    // Load userInfo from localStorage on mount
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const savedUserInfo = localStorage.getItem('UserInfo');
+            if (savedUserInfo) {
+                setUserInfo(JSON.parse(savedUserInfo));  // Parse the saved JSON string
+            } else {
+                setUserInfo(null);  // Default value
+            }
+        }
+    }, []);  // Empty array, only run once on mount
 
     useEffect(() => {
         const fetchUser = async () => {
             try {
                 if (!token) {
                     setLoading(false);
-                    return console.log("token deos not exist");
+                    return console.log("Token does not exist");
                 } else {
                     console.log(token);
                 }
@@ -22,11 +35,13 @@ export default function User() {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
-                    withCredentials: true, // This ensures cookies/credentials are sent
+                    withCredentials: true,
                 });
 
                 if (response.status === 200) {
-                    setUser(response.data.user);
+                    console.log(response.data);
+                    localStorage.setItem('UserInfo', JSON.stringify(response.data));  // Save data in localStorage
+                    setUserInfo(response.data);  // Set the userInfo directly from API response
                 } else {
                     console.log('Failed to fetch user');
                 }
@@ -38,22 +53,23 @@ export default function User() {
         };
 
         fetchUser();
-    }, [token]);  // Empty dependency array ensures this runs once after the initial render
+    }, [token]);
 
     if (loading) {
         return <div className="text-center text-gray-600">Loading user data...</div>;
     }
 
-    if (!user) {
+    if (!userInfo) {  // Check if userInfo is null
         return <div className="text-center text-red-600">No user data found</div>;
     }
 
     return (
         <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 mt-10">
             <h1 className="text-2xl font-semibold text-gray-800 mb-4">User Information</h1>
-            <p className="text-gray-600"><strong>Full Name:</strong>{user[0].fullname}</p>
-            <p className="text-gray-600"><strong>Email:</strong><a href={`mailto:${user[0].email}`}>{user[0].email}</a></p>
-            <p className="text-gray-600"><strong>Verified:</strong> {user[0].is_verified ? 'Yes' : 'No'}</p>
+            <p className="text-gray-600"><strong>Full Name:</strong> {userInfo.user.fullname}</p>
+            <p className="text-gray-600"><strong>Email:</strong> <a href={`mailto:${userInfo.user.email}`}>{userInfo.user.email}</a></p>
+            <p className="text-gray-600"><strong>Verified:</strong> {userInfo.user.is_verified ? 'Yes' : 'No'}</p>
+            <p className="text-gray-600"><strong>User ID:</strong> {userInfo.user.userid}</p>
         </div>
     );
 }

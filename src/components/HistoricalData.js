@@ -15,9 +15,6 @@ const Historical_Data = ({ symbol }) => {
     const dropdownRef = useRef(null);
 
     const scrollRef = useRef();
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
 
     
     // Load filter from sessionStorage on mount

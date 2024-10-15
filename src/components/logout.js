@@ -17,6 +17,7 @@ const LogoutButton = () => {
             await axios.post('https://devsalman.tech/logout', {}, { withCredentials: true });
             // Redirect to the login page or home page after successful logout
             Cookies.remove('authToken');
+            localStorage.removeItem('UserInfo')
             router.push('/login');
         } catch (err) {
             console.error('Error logging out:', err);
