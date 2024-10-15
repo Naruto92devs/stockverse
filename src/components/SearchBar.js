@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import axios from 'axios';
 
 export default function SearchBar({ isVisible, onClose }) {
     const [query, setQuery] = useState('');
@@ -107,6 +108,32 @@ export default function SearchBar({ isVisible, onClose }) {
         router.push(url);
     };
 
+    const handleSubmitHistory = async (symbol, name) => {
+        try {
+            handleResultClick(symbol, name);
+            const response = await axios.post('https://devsalman.tech/search-history', {
+                symbol,
+            }, {
+                withCredentials: true,
+            });
+    
+            const data = response.data;
+            console.log(data);
+            if (response.status === 207) {
+                console.log(response.data.symbol);
+            } else {
+                console.log(data.message)
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                console.log(error.response.data.message)
+            } else {
+                console.log('An error occurred. Please try again.');
+            }
+            console.error('Error during watchlist submission:', error);
+        }
+    };
+
     return (
         <div className={`relative w-[20%] max-xl:w-[14%] transform z-10 max-lg:h-[100%] max-lg:w-full max-lg:bg-mobNavBg max-lg:pt-4 max-lg:fixed max-lg:top-0 max-lg:left-0 transition duration-300 ease-in-out ${
             isVisible ? 'max-lg:translate-y-0' : 'max-lg:translate-y-full'
@@ -181,7 +208,7 @@ export default function SearchBar({ isVisible, onClose }) {
                             <li
                                 key={index}
                                 className="flex items-center justify-between text-base text-primaryText max-lg:border-b max-lg:text-mobNavLink w-[100%] px-4 py-2 mb-0.5 max-lg:mb-0 rounded max-lg:rounded-none cursor-pointer max-lg:bg-secondaryColor/0 bg-secondaryColor/10 hover:bg-secondaryColor hover:text-primaryTextHover"
-                                onClick={() => handleResultClick(result['1. symbol'], result['2. name'])}
+                                onClick={() => handleSubmitHistory(result['1. symbol'], result['2. name'])}
                             >
                                 <div className="w-[20%]">{result['1. symbol']}</div>
                                 <div className="w-[80%]">{result['2. name']}</div>

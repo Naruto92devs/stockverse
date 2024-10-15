@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 
-const LogoutButton = () => {
+const LogoutButton = ({ onLogout }) => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -18,6 +18,10 @@ const LogoutButton = () => {
             // Redirect to the login page or home page after successful logout
             Cookies.remove('authToken');
             localStorage.removeItem('UserInfo')
+            // Call the passed onLogout function to reset state in the User component
+            if (onLogout) {
+                onLogout();
+            }
             router.push('/login');
         } catch (err) {
             console.error('Error logging out:', err);
@@ -31,7 +35,7 @@ const LogoutButton = () => {
         <div className="flex flex-col items-center">
             <button
                 onClick={handleLogout}
-                className={`bg-red-500 text-white py-2 px-4 rounded ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`text-primaryText py-2 px-4 rounded ${loading ? 'cursor-not-allowed' : ''}`}
                 disabled={loading} // Disable button while loading
             >
                 {loading ? 'Logging out...' : 'Logout'}

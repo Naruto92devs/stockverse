@@ -4,10 +4,24 @@ import ThemeSwitch from './ThemeSwitch';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import SearchBar from './SearchBar';
+import User from '@/components/User.js';
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
     const pathname = usePathname();
     const isActive = (path) => pathname === path;
+    const [userVisible, setUserVisible] = useState(false);
+    const [loading, setLoading] = useState(true); // Added loading state
+    const token = Cookies.get('authToken');
+
+    useEffect(() => {
+        if (token) {
+            setUserVisible(true); // User is logged in, show user data
+        } else {
+            setUserVisible(false); // No token, hide user data
+        }
+        setLoading(false); // Set loading to false after checking token
+    }, [token]);
 
     const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
     const [isDropdownVisible, setIsDropdownVisible] = useState(false); // State for dropdown visibility
@@ -39,6 +53,11 @@ const Navbar = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    // Render the navbar only when loading is false
+    if (loading) {
+        return null; // or a loading spinner if preferred
+    }
 
 return (
     <nav className="w-[100%] mx-auto px-3 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none">
@@ -234,13 +253,16 @@ return (
                 <span>Pricing</span>
             </Link>
         </div>
-        <div className="w-max flex items-center gap-1">
-            <Link href="/login" className="px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-sm text-primaryButton hover:bg-primaryText/10 rounded-full">
+        <div className="w-max relative flex items-center gap-1">
+            <Link href="/login" className={` ${userVisible? 'hidden' : 'visible px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-sm text-primaryButton hover:bg-primaryText/10 rounded-full'} `}>
                 <span>Login</span>
             </Link> 
-            <Link href="/register" className="px-4 py-2 max-sm:px-[4vw] max-sm:text-[3vw] text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full">
+            <Link href="/register" className={` ${userVisible? 'hidden' : 'visible px-4 py-2 max-sm:px-[4vw] max-sm:text-[3vw] text-sm text-primaryButtonText bg-primaryButtonBg hover:bg-primaryButtonBg/90 rounded-full'}`}>
                 <span>Create Free Account</span>
             </Link>
+            <div className={`${userVisible ? 'visible' : 'hidden'} flex flex-col ga-y-4 items-center`}>
+                <User/>
+            </div>
             <ThemeSwitch/>
         </div>
     </nav>

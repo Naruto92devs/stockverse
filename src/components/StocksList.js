@@ -118,6 +118,35 @@ const StocksList = () => {
     };
 
 
+    const handleSubmitHistory = async (symbol) => {
+        try {
+            handleResultClick(symbol);
+            const response = await axios.post('https://devsalman.tech/search-history', {
+                symbol,
+            }, {
+                withCredentials: true,
+            });
+    
+            const data = response.data;
+            console.log(data);
+            if (response.status === 207) {
+                console.log(response.data.symbol);
+            } else {
+                setError(data.message || 'Something went wrong');
+                setLoading(false);
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                setError(error.response.data.message || 'Something went wrong');
+            } else {
+                setError('An error occurred. Please try again.');
+                setLoading(false);
+            }
+            console.error('Error during watchlist submission:', error);
+        }
+    };
+
+
     return (
         <div className="w-full h-full shadow-lg bg-background my-[40px] max-sm:mt-0 rounded-xl">
             <div className="w-full flex justify-between bg-mobNavBg py-3 px-3 max-sm:px-1.5 border-b-2 border-stockListHeading/20">
@@ -138,7 +167,7 @@ const StocksList = () => {
                     <div key={stock.symbol} className="w-full items-center flex justify-between py-2 px-3 max-sm:px-1.5">
                         <div className="cursor-pointer w-[27%] max-sm:w-[22%] flex gap-x-2 items-center min-w-max font-sansMedium text-sm max-sm:text-[3vw] text-primaryText">
                             <Logo siteUrl={stock.siteUrl} symbol={stock.symbol} alt={stock.name} size={32} className="w-8 h-8 mr-2 max-sm:mr-1.5 rounded-full" />
-                            <ul onClick={() => handleResultClick(stock.symbol)} className="flex items-center gap-x-1 max-xl:flex-col max-xl:items-start">
+                            <ul onClick={() => handleSubmitHistory(stock.symbol)} className="flex items-center gap-x-1 max-xl:flex-col max-xl:items-start">
                                 <li>{stock.symbol}</li>
                                 <li className="text-xs max-lg:hidden">({stock.name})</li>
                             </ul>

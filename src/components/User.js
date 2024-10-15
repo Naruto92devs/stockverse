@@ -2,11 +2,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import LogoutButton from './logout';
 
 export default function User() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [userInfo, setUserInfo] = useState(null);  // Initialize as null, not true
+    const [userInfoVisible, setUserInfoVisible] = useState(false);
     const token = Cookies.get('authToken');
 
     // Load userInfo from localStorage on mount
@@ -55,21 +57,47 @@ export default function User() {
         fetchUser();
     }, [token]);
 
+    // Function to extract initials
+    const getInitials = (fullname) => {
+        const nameArray = fullname.split(' ');
+        const initials = nameArray.map(name => name[0]).join('');
+        return initials.toUpperCase(); // Convert to uppercase
+    };
+
+    const toggleDropdown = () => {
+        setUserInfoVisible(!userInfoVisible); // Toggle the dropdown
+    };
+
+    // Handle logout: Reset user info and hide user data
+    const handleLogout = () => {
+        setUserInfo(null);  // Reset user info to null
+        setUserInfoVisible(false);  // Hide dropdown
+    };
+
     if (loading) {
-        return <div className="text-center text-gray-600">Loading user data...</div>;
+        return <div className="cursor-pointer bg-background border-[.125rem] border-primaryText rounded-full w-10 h-10 card__skeleton flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText"></div>;
     }
 
     if (!userInfo) {  // Check if userInfo is null
-        return <div className="text-center text-red-600">No user data found</div>;
+        return <div className="cursor-pointer bg-background border-[.125rem] border-primaryText rounded-full w-10 h-10 card__skeleton flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText">E</div>;
     }
 
     return (
-        <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 mt-10">
-            <h1 className="text-2xl font-semibold text-gray-800 mb-4">User Information</h1>
+        <div className="flex flex-col relative">
+        {/* Profile picture div */}
+        <div className="flex items-center gap-2">
+            <p className="text-sm px-4 py-2 bg-primaryText/10 rounded font-sansMedium">{userInfo.user.fullname}</p>
+            <div onClick={toggleDropdown} className="cursor-pointer bg-background border-[.125rem] border-gray-500 rounded-full w-10 h-10 flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText">
+                {getInitials(userInfo.user.fullname)} {/* Display the initials */}
+            </div>
+        </div>
+        <div className={`${userInfoVisible? 'visible' : 'hidden'} absolute top-[125%] right-0 max-w-md w-max mx-auto bg-background shadow-md rounded-lg p-6`}>
             <p className="text-gray-600"><strong>Full Name:</strong> {userInfo.user.fullname}</p>
             <p className="text-gray-600"><strong>Email:</strong> <a href={`mailto:${userInfo.user.email}`}>{userInfo.user.email}</a></p>
             <p className="text-gray-600"><strong>Verified:</strong> {userInfo.user.is_verified ? 'Yes' : 'No'}</p>
             <p className="text-gray-600"><strong>User ID:</strong> {userInfo.user.userid}</p>
+            <LogoutButton onLogout={handleLogout}/>
+        </div>
         </div>
     );
 }
