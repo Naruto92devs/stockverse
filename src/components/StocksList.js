@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Image from "next/image";
-// import Loader from './Loader';
+import axios from 'axios';
 import FallbackUI from './FallbackUI';
 import { useRouter } from 'next/navigation'; // Import router for navigation
 import Logo from './Logo';
@@ -51,6 +50,20 @@ const StocksList = () => {
                 formattedData.forEach((stock) => {
                     initialColors[stock.symbol] = 'var(--svg-color)'; // Default color
                 });
+
+                // Retrieve UserInfo from localStorage and update strokeColors based on watchlist
+                const savedUserInfo = localStorage.getItem('UserInfo');
+                if (savedUserInfo) {
+                    const userInfo = JSON.parse(savedUserInfo);
+                    const watchlistSymbols = userInfo.watchlist.map(item => item.symbol);
+
+                    formattedData.forEach((stock) => {
+                        if (watchlistSymbols.includes(stock.symbol)) {
+                            initialColors[stock.symbol] = 'rgba(var(--sell-color))'; // Set to 'sell' color
+                        }
+                    });
+                }
+
                 setStrokeColors(initialColors);
             } catch (error) {
                 console.error("Error fetching stock data:", error);
@@ -65,12 +78,43 @@ const StocksList = () => {
         router.push(`/stocks/${symbol}`); // Navigate to the stock detail page
     };
 
-    // Function to toggle the stroke color for a specific symbol
-    const toggleStrokeColor = (symbol) => {
-        setStrokeColors((prevColors) => ({
-            ...prevColors,
-            [symbol]: prevColors[symbol] === 'var(--svg-color)' ? 'rgba(var(--sell-color))' : 'var(--svg-color)',
-        }));
+    const handleSubmitWatchList = async (symbol) => {
+        try {
+            const response = await axios.post('https://devsalman.tech/watchlist', {
+                symbol,
+            }, {
+                withCredentials: true,
+            });
+    
+            const data = response.data;
+            console.log(data);
+            if (response.status === 207) {
+                console.log(response.data.symbol);
+                // Update stroke color for the specific symbol with the 'sell' color
+                setStrokeColors((prevColors) => ({
+                    ...prevColors,
+                    [response.data.symbol]: 'rgba(var(--sell-color))', // Set the 'sell' color
+                }));
+            } else if (response.status === 200) {
+                console.log(response.data.symbol);
+                // Update stroke color for the specific symbol with the default color
+                setStrokeColors((prevColors) => ({
+                    ...prevColors,
+                    [response.data.symbol]: 'var(--svg-color)', // Set the default color
+                }));
+            } else {
+                setError(data.message || 'Something went wrong');
+                setLoading(false);
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                setError(error.response.data.message || 'Something went wrong');
+            } else {
+                setError('An error occurred. Please try again.');
+                setLoading(false);
+            }
+            console.error('Error during watchlist submission:', error);
+        }
     };
 
 
@@ -113,7 +157,7 @@ const StocksList = () => {
                             height="29"
                             viewBox="0 0 26 29"
                             fill="none"
-                            onClick={() => toggleStrokeColor(stock.symbol)} // Toggle specific color on click
+                            onClick={() => handleSubmitWatchList(stock.symbol)} // Toggle specific color on click
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
