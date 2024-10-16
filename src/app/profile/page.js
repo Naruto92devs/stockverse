@@ -27,7 +27,7 @@ export default function Profile() {
                 router.push('/');
             }
         }
-    }, []);  // Empty array, only run once on mount
+    }, [router]);  // Empty array, only run once on mount
 
     // Load the current view from sessionStorage
     useEffect(() => {
