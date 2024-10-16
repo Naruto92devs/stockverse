@@ -8,8 +8,8 @@ import formatNumber from './FormatNumber';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-const StocksList = () => {
-    const symbols = ['aapl', 'msft', 'goog', 'amzn', 'nvda', 'tsla', 'meta']; // Static array of symbols
+const StocksList = ({ symbols }) => {
+    // const symbols = ['aapl', 'msft', 'goog', 'amzn', 'nvda', 'tsla', 'meta']; // Static array of symbols
     const [stockData, setStockData] = useState([]); // State for stock data
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
