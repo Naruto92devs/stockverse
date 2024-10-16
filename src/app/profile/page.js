@@ -1,11 +1,13 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import ProfileInfo from '@/components/ProfileInfo';
 import ProfileSecurity from '@/components/ProfileSecurity';
 import MembershipInfo from '@/components/MembershipInfo';
 import StocksList from '@/components/StocksList';
 
 export default function Profile() {
+    const router = useRouter();
     const [userInfo, setUserInfo] = useState(null);
     const [symbols, setSymbols] = useState([]);  // Initialize as an empty array
     const [currentView, setCurrentView] = useState(null); // Initialize with null to wait for sessionStorage
@@ -21,6 +23,8 @@ export default function Profile() {
                 // Extract symbols from the watchlist and update the symbols state
                 const watchlistSymbols = parsedUserInfo.watchlist?.map(stock => stock.symbol.toUpperCase()) || [];
                 setSymbols(watchlistSymbols);  // Set symbols with watchlist symbols
+            } else {
+                router.push('/');
             }
         }
     }, []);  // Empty array, only run once on mount
