@@ -100,7 +100,7 @@ export default function Profile() {
                     symbols.length > 0 ? (
                         <StocksList symbols={symbols} />
                     ) : userInfo ? (
-                        <p>You don&apos;t have anything in your watchlist yet.</p>
+                        <p>You don&#39;t have anything in your watchlist yet.</p>
                     ) : (
                         <p>Loading your watchlist...</p>
                     )

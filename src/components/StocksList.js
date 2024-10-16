@@ -72,7 +72,7 @@ const StocksList = ({ symbols }) => {
         };
 
         fetchData(); // Fetch data on component mount
-    }, []); // Empty dependency array means this effect runs once on mount
+    }, [symbols]); // Empty dependency array means this effect runs once on mount
 
     const handleResultClick = (symbol) => {
         router.push(`/stocks/${symbol}`); // Navigate to the stock detail page
