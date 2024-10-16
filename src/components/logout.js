@@ -35,7 +35,7 @@ const LogoutButton = ({ onLogout }) => {
         <div className="flex flex-col items-center">
             <button
                 onClick={handleLogout}
-                className={`text-primaryText py-2 px-4 rounded ${loading ? 'cursor-not-allowed' : ''}`}
+                className={`text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded text-left ${loading ? 'cursor-not-allowed' : ''}`}
                 disabled={loading} // Disable button while loading
             >
                 {loading ? 'Logging out...' : 'Logout'}

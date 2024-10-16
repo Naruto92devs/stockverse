@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import LogoutButton from './logout';
+import Link from 'next/link';
 
 export default function User() {
     const [user, setUser] = useState(null);
@@ -84,20 +85,23 @@ export default function User() {
 
     return (
         <div className="flex flex-col relative">
-        {/* Profile picture div */}
-        <div className="flex items-center gap-2">
-            <p className="text-sm px-4 py-2 bg-primaryText/10 rounded font-sansMedium">{userInfo.user.fullname}</p>
-            <div onClick={toggleDropdown} className="cursor-pointer bg-background border-[.125rem] border-gray-500 rounded-full w-10 h-10 flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText">
-                {getInitials(userInfo.user.fullname)} {/* Display the initials */}
+            {/* Profile picture div */}
+            <div className="flex items-center gap-2">
+                <p className="text-sm px-4 py-2 bg-primaryText/10 rounded font-sansMedium">{userInfo.user.fullname}</p>
+                <div onClick={toggleDropdown} className="cursor-pointer bg-background border-[.125rem] border-gray-500 rounded-full w-10 h-10 flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText">
+                    {getInitials(userInfo.user.fullname)} {/* Display the initials */}
+                </div>
             </div>
-        </div>
-        <div className={`${userInfoVisible? 'visible' : 'hidden'} absolute top-[125%] right-0 max-w-md w-max mx-auto bg-background shadow-md rounded-lg p-6`}>
-            <p className="text-gray-600"><strong>Full Name:</strong> {userInfo.user.fullname}</p>
-            <p className="text-gray-600"><strong>Email:</strong> <a href={`mailto:${userInfo.user.email}`}>{userInfo.user.email}</a></p>
-            <p className="text-gray-600"><strong>Verified:</strong> {userInfo.user.is_verified ? 'Yes' : 'No'}</p>
-            <p className="text-gray-600"><strong>User ID:</strong> {userInfo.user.userid}</p>
-            <LogoutButton onLogout={handleLogout}/>
-        </div>
+            <div className={`${userInfoVisible? 'visible' : 'hidden'} absolute top-[125%] right-0 w-max mx-auto bg-background shadow-md rounded-lg p-2 flex flex-col gap-y-2`}>
+                <Link href="/profile" className="text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded">My Stocks</Link>
+                <Link href="/profile" className="text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded">Manage Account</Link>
+                <Link href="/profile" className="text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded">Get Support</Link>
+                {/* <p className="text-gray-600"><strong>Full Name:</strong> {userInfo.user.fullname}</p>
+                <p className="text-gray-600"><strong>Email:</strong> <a href={`mailto:${userInfo.user.email}`}>{userInfo.user.email}</a></p>
+                <p className="text-gray-600"><strong>Verified:</strong> {userInfo.user.is_verified ? 'Yes' : 'No'}</p>
+                <p className="text-gray-600"><strong>User ID:</strong> {userInfo.user.userid}</p> */}
+                <LogoutButton onLogout={handleLogout}/>
+            </div>
         </div>
     );
 }
