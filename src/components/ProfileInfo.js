@@ -190,7 +190,7 @@ export default function ProfileInfo({userInfo}) {
                                     autoComplete="new-password"
                                     onChange={handlePasswordChange}
                                     placeholder="Enter your password to delete your account"
-                                    pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
+                                    // pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
                                     title="Password must contain at least 1 number, 1 lowercase letter, 1 uppercase letter, 1 special symbol, and be at least 8 characters long."
                                     required
                                     className="w-full text-lg px-4 py-2 border-2 bg-background text-primaryText border-primaryText/10 focus:outline-none focus:border-primaryText"
