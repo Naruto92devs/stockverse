@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { setConfig } from 'next/config';
 
 export default function ProfileInfo({userInfo}) {
 
     const [fullname, setFullname] = useState(userInfo.user.fullname);
     const [loading, setLoading] = useState(false);
+    const [password, setPassword] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState('');
     const [delLoading, setDelLoading] = useState(false);
     const [confirm, SetConfirm] = useState(false);
     const [message, setMessage] = useState(null);
@@ -23,6 +24,10 @@ export default function ProfileInfo({userInfo}) {
     const toggleConfirm = () => {
         SetConfirm(!confirm);
     }
+    
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
 
     const handleUpdateName = async (e) => {
         setLoading(true);
@@ -61,7 +66,9 @@ export default function ProfileInfo({userInfo}) {
         e.preventDefault();
 
         try {
-            const response = await axios.delete('https://devsalman.tech/delete-account',{
+            const response = await axios.post('https://devsalman.tech/delete-account', {
+                password,
+            }, {
                 withCredentials: true,
             });
 
@@ -170,11 +177,34 @@ export default function ProfileInfo({userInfo}) {
                 </div>
                 <div className={`${confirm ? 'visible' : 'hidden'} fixed top-0 left-0 right-0 bottom-0 w-full h-[100vh] flex flex-col items-center justify-center bg-primaryText/60`}>
                     <div className="max-w-[90%] w-max rounded-lg bg-background ">
-                        <div className="md:p-8 p-8 w-full flex flex-col items-center space-y-4">
-                            <p className="text-lg text-primaryText text-center">Are you sure you want to delete your account, this action is not reversible.</p>
+                        <form onSubmit={handleDeleteAccount} className="md:p-8 p-6 w-full flex flex-col items-center space-y-4">
+                            <p className="text-lg text-primaryText text-center">Are you sure you want to delete your account, this action is not reversible. Provide password to conrtinue!</p>
+                            <div className="w-full flex flex-col relative">
+                                <label htmlFor="password" className="text-lg font-Medium text-primaryText">
+                                    Current Password
+                                </label>
+                                <input
+                                    type={passwordVisible ? 'text' : 'password'}
+                                    id="password"
+                                    value={password}
+                                    autoComplete="new-password"
+                                    onChange={handlePasswordChange}
+                                    placeholder="Enter your password to delete your account"
+                                    pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$"
+                                    title="Password must contain at least 1 number, 1 lowercase letter, 1 uppercase letter, 1 special symbol, and be at least 8 characters long."
+                                    required
+                                    className="w-full text-lg px-4 py-2 border-2 bg-background text-primaryText border-primaryText/10 focus:outline-none focus:border-primaryText"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setPasswordVisible(!passwordVisible)}
+                                    className="absolute right-3 top-[2rem] text-3xl text-secondaryHeading focus:outline-none"
+                                >
+                                    {passwordVisible ? '👁️' : '🙈'}
+                                </button>
+                            </div>
                             <div className="flex gap-4 flex-wrap">
                                 <button
-                                    onClick={handleDeleteAccount}
                                     disabled={delLoading}
                                     type="submit"
                                     className="w-max bg-sell text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
@@ -183,14 +213,14 @@ export default function ProfileInfo({userInfo}) {
                                 </button>
                                 <button
                                 onClick={toggleConfirm}
-                                type="submit"
+                                type="cancel"
                                 className="w-max bg-buy text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
                                 >
                                     Cancel
                                 </button>
                             </div>
                             {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
