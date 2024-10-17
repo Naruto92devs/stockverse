@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import { setConfig } from 'next/config';
 
 export default function ProfileInfo({userInfo}) {
 
     const [fullname, setFullname] = useState(userInfo.user.fullname);
     const [loading, setLoading] = useState(false);
+    const [delLoading, setDelLoading] = useState(false);
+    const [confirm, SetConfirm] = useState(false);
     const [message, setMessage] = useState(null);
+    const router = useRouter();
 
     // Function to extract initials
     const getInitials = (fullname) => {
@@ -13,6 +19,10 @@ export default function ProfileInfo({userInfo}) {
         const initials = nameArray.map(name => name[0]).join('');
         return initials.toUpperCase(); // Convert to uppercase
     };
+
+    const toggleConfirm = () => {
+        SetConfirm(!confirm);
+    }
 
     const handleUpdateName = async (e) => {
         setLoading(true);
@@ -38,6 +48,41 @@ export default function ProfileInfo({userInfo}) {
             if (error.response && error.response.data) {
                 setMessage(error.response.data.message || 'Something went wrong');
                 setLoading(false);
+            } else {
+                setMessage('An error occurred. Please try again.');
+                setLoading(false);
+            }
+            console.error('Error during signup:', error);
+        }
+    };
+
+    const handleDeleteAccount = async (e) => {
+        setDelLoading(true);
+        e.preventDefault();
+
+        try {
+            const response = await axios.delete('https://devsalman.tech/delete-account',{
+                withCredentials: true,
+            });
+
+            const data = response.data;
+            console.log(data);
+            if (response.status === 207) {
+                setDelLoading(false);
+                SetConfirm(false);
+                setMessage(data.message);
+                Cookies.remove('authToken');
+                localStorage.removeItem('UserInfo');
+                router.push('/');
+            } else {
+                setMessage(data.error || 'Something went wrong');
+                setDelLoading(false);
+                SetConfirm(false);
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                setMessage(error.response.data.message || 'Something went wrong');
+                setDelLoading(false);
             } else {
                 setMessage('An error occurred. Please try again.');
                 setLoading(false);
@@ -101,6 +146,52 @@ export default function ProfileInfo({userInfo}) {
                         </div>
                         {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
                     </form>
+                </div>
+            </div>
+            <div className="md:border-t-2 md:border-dashed md:border-primaryText/20 py-4 md:py-10 mx-auto xl:container md:gap-y-8 gap-y-4 flex max-lg:flex-col items-start justify-between">
+                <div className="flex flex-col lg:w-[35%] w-full">
+                    <h1 className="text-primaryText max-sm:text-2xl text-xl font-sansMedium">Delete Account</h1>
+                    <p>Permanently delete your account.</p>
+                </div>
+                <div className="lg:w-[60%] w-full max-md:border-t-2 max-md:border-dashed max-md:border-primaryText/20 max-md:pt-6  md:bg-background md:shadow-xl flex flex-col items-start gap-y-4">
+                    <div className="md:p-8 w-full flex flex-col space-y-4">
+                        
+                        <p className="text-lg text-primaryText">Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
+                        <button
+                            onClick={toggleConfirm}
+                            disabled={delLoading}
+                            type="submit"
+                            className="w-max bg-sell text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
+                        >
+                            {delLoading ? 'Deleting Account...' : 'Delete Account'}
+                        </button>
+                        {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+                    </div>
+                </div>
+                <div className={`${confirm ? 'visible' : 'hidden'} fixed top-0 left-0 right-0 bottom-0 w-full h-[100vh] flex flex-col items-center justify-center bg-primaryText/60`}>
+                    <div className="max-w-[90%] w-max rounded-lg bg-background ">
+                        <div className="md:p-8 p-8 w-full flex flex-col items-center space-y-4">
+                            <p className="text-lg text-primaryText text-center">Are you sure you want to delete your account, this action is not reversible.</p>
+                            <div className="flex gap-4 flex-wrap">
+                                <button
+                                    onClick={handleDeleteAccount}
+                                    disabled={delLoading}
+                                    type="submit"
+                                    className="w-max bg-sell text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
+                                >
+                                    {delLoading ? 'Deleting Account...' : 'Confirm'}
+                                </button>
+                                <button
+                                onClick={toggleConfirm}
+                                type="submit"
+                                className="w-max bg-buy text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                            {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
