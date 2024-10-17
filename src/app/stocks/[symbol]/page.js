@@ -115,6 +115,8 @@ export default function StockDetails() {
         }
     }, [filter]);
 
+    
+
     // Function to handle filter change
     const handleFilterChange = (newFilter) => {
         setFilter(newFilter);

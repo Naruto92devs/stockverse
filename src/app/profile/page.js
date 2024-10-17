@@ -63,8 +63,8 @@ export default function Profile() {
                     <h1 className="text-secondaryHeading max-sm:text-3xl text-6xl font-sansSemibold">Settings</h1>
                 </div>
             </div>
-            <div className="md:px-6 bg-primaryText/10 overflow-x-scroll scrollbar-hide">
-                <div className="flex mx-auto xl:container w-max">
+            <div className="w-full justify-start md:px-6 bg-primaryText/10 overflow-x-scroll scrollbar-hide">
+                <div className="flex justify-start mx-auto xl:container w-max">
                     <div
                         className={`cursor-pointer px-10 max-xl:px-6 max-sm:px-4 py-3 text-base ${currentView === 'Profile' ? 'border-article/100 bg-background' : 'border-article/0'} hover:bg-background text-primaryText font-sansMedium border-b-4`}
                         onClick={() => handleViewChange('Profile')}
@@ -93,7 +93,7 @@ export default function Profile() {
             </div>
             <div className="w-full h-full flex flex-col items-center py-6 mx-auto xl:container md:px-6 px-3">
                 {/* Conditionally render based on the selected view */}
-                {currentView === 'Profile' && <ProfileInfo />}
+                {currentView === 'Profile' && <ProfileInfo userInfo={userInfo} />}
                 {currentView === 'Security' && <ProfileSecurity />}
                 {currentView === 'Membership' && <MembershipInfo />}
                 {currentView === 'Stocks' && (
