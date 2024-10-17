@@ -30,8 +30,16 @@ export default function Feedback() {
         console.log(data);
         if (response.status === 207) {
             setLoading(false);
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setFeedBack('');
             setMessage(data.message);
         } else {
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setFeedBack('');
             setMessage(data.message || 'Something went wrong');
             setLoading(false);
         }
