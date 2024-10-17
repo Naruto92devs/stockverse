@@ -94,8 +94,8 @@ export default function Profile() {
             <div className="w-full h-full flex flex-col items-center py-6 mx-auto xl:container md:px-6 px-3">
                 {/* Conditionally render based on the selected view */}
                 {currentView === 'Profile' && <ProfileInfo userInfo={userInfo} />}
-                {currentView === 'Security' && <ProfileSecurity />}
-                {currentView === 'Membership' && <MembershipInfo />}
+                {currentView === 'Security' && <ProfileSecurity userInfo={userInfo} />}
+                {currentView === 'Membership' && <MembershipInfo userInfo={userInfo} />}
                 {currentView === 'Stocks' && (
                     symbols.length > 0 ? (
                         <StocksList symbols={symbols} />
