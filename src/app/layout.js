@@ -4,7 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import { ThemeProvider } from '../context/ThemeContext';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import Footer from '@/components/Footer';
+// import Footer from '@/components/Footer';
 import Script from 'next/script';
 
 export default function RootLayout({ children }) {
@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
               <main className="w-[100%] min-h-[100vh] flex flex-col">
                 <Navbar/>
                 {children}
-                <Footer/>
+                {/* <Footer/> */}
               </main>
             </ThemeProvider>
           </NextThemesProvider>

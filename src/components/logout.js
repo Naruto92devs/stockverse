@@ -17,7 +17,7 @@ const LogoutButton = ({ onLogout }) => {
             await axios.post('https://devsalman.tech/logout', {}, { withCredentials: true });
             // Redirect to the login page or home page after successful logout
             Cookies.remove('authToken');
-            localStorage.removeItem('UserInfo')
+            localStorage.removeItem('UserInfo');
             // Call the passed onLogout function to reset state in the User component
             if (onLogout) {
                 onLogout();

@@ -19,6 +19,7 @@ const Navbar = () => {
             setUserVisible(true); // User is logged in, show user data
         } else {
             setUserVisible(false); // No token, hide user data
+            localStorage.removeItem('UserInfo');
         }
         setLoading(false); // Set loading to false after checking token
     }, [token]);

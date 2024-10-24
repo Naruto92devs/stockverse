@@ -12,7 +12,7 @@ import Technical_Analysis from '@/components/TechnicalAnalysis';
 import Historical_Summary from '@/components/Historical_Summary';
 import Historical_Data from '@/components/HistoricalData';
 import Trades from '@/components/Trades';
-import StockVerse_GPT from '@/components/StockverseGpt';
+import StockVerse_GPT from '@/components/StockverseGptChatHistory';
 import Level_2 from '@/components/Level2';
 import SymbolFallBackUI from '@/components/SymbolFallbackUI';
 import SymbolDetailsFallBackUI from '@/components/SymbolDetailsFallbackUI';
