@@ -490,11 +490,13 @@ export default function Stockverse_GPT() {
                     <User/>
                 </div>
                 {/* Chat Navbar end */}
-                <div className='w-full flex flex-col items-center'>
+                <div className='w-full h-full flex flex-col items-center'>
                     {/* Chat Area start */}
-                    <p className="text-3xl">{chatId}</p>
-                    <p className="text-3xl">{question}</p>
-                    <p className="text-3xl">{answer}</p>
+                    <div className='h-[80%] overflow-y-auto flex flex-col justify-end w-[58%] max-xl:w-[65%] max-md:w-[95%] scrollbar-thin'>
+                        <p className="text-3xl">{chatId}</p>
+                        <p className="text-3xl">{question}</p>
+                        <p className="text-3xl">{answer}</p>
+                    </div>
                     {/* Chat Area end */}
                     {/* Input for Questions start */}
                     <form onSubmit={handleSubmitCommand} className="absolute bottom-2 w-[50%] max-xl:w-[65%] max-md:w-[95%] z-10 flex flex-col items-center space-y-4">
