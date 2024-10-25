@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import User from '@/components/User';
 import ThemeSwitch from '@/components/ThemeSwitch';
@@ -11,6 +11,7 @@ export default function Stockverse_GPT() {
     const [userid, setUserid] = useState('');
     const [chatId, setChatId] = useState('');
     const [command, setCommand] = useState('');
+    const textareaRef = useRef(null);
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
     const [chatHistory, setChatHistory] = useState(null);
@@ -43,7 +44,6 @@ export default function Stockverse_GPT() {
     }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
 
     const fetchChatHistory = async () => {
-        setLoading(true);
         try {
             const response = await axios.post('https://devsalman.tech/conversation-history', {
                 userid,  // Ensure userid is passed correctly
@@ -58,11 +58,9 @@ export default function Stockverse_GPT() {
             } else {
                 setMessage(data.message || 'Something went wrong');
             }
-            setLoading(false);
         } catch (error) {
             setMessage('An error occurred. Please try again.');
             console.error('Error fetching chat history:', error);
-            setLoading(false);
         }
     };
 
@@ -107,8 +105,6 @@ export default function Stockverse_GPT() {
     };
 
     const ConversationIdHistory = async (chatId) => {
-        setLoading(true);
-        // e.preventDefault();
     
         try {
             const response = await axios.post('https://devsalman.tech/chat-history', {
@@ -123,15 +119,12 @@ export default function Stockverse_GPT() {
                 console.log(data);
             } else {
                 setMessage(data.message || 'Something went wrong');
-                setLoading(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 setMessage(error.response.data.message || 'Something went wrong');
-                setLoading(false);
             } else {
                 setMessage('An error occurred. Please try again.');
-                setLoading(false);
             }
             console.error('Error during signup:', error);
         }
@@ -166,24 +159,21 @@ export default function Stockverse_GPT() {
                     ...prev,
                     [chatId]: !isFavourite ? 'green' : 'var(--svg-color)'  // Toggle color
                 }));
+                setMessage(data.message || 'Something went wrong');
             } else {
                 setMessage(data.message || 'Something went wrong');
-                setLoading(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 setMessage(error.response.data.message || 'Something went wrong');
-                setLoading(false);
             } else {
                 setMessage('An error occurred. Please try again.');
-                setLoading(false);
             }
             console.error('Error during signup:', error);
         }
     };
     
     const DeleteChatId = async (chatId) => {
-        setLoading(true);  // Start loading
     
         // Optimistically update the UI by removing the chat
         const updatedChatHistory = chatHistory.filter(chat => chat.chat_id !== chatId);
@@ -214,8 +204,6 @@ export default function Stockverse_GPT() {
             } else {
                 setMessage('An error occurred. Please try again.');
             }
-        } finally {
-            setLoading(false);  // Stop loading after request completes
         }
     };
 
@@ -294,6 +282,33 @@ export default function Stockverse_GPT() {
         } else {
             return `${diffDays} Days Ago`;
         }
+    };
+
+    // Text Area height manage automatic funtion
+    useEffect(() => {
+        if (textareaRef.current) {
+          textareaRef.current.style.height = '14px'; // Initial height
+          textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 300)}px`; // Max height 200px
+        }
+    }, [command]);
+
+    // Automatically clear the message after 2 seconds
+    useEffect(() => {
+        if (message) {
+        const timer = setTimeout(() => {
+            setMessage(''); // Clear message after 2 seconds
+        }, 4000);
+
+        // Clean up the timer if message changes or component unmounts
+        return () => clearTimeout(timer);
+        }
+    }, [message]);
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault(); // Prevents a new line
+        handleSubmitCommand(e);
+    }
     };
 
     return (
@@ -424,6 +439,7 @@ export default function Stockverse_GPT() {
 
             {/* Chat canvas start */}
             <div className="flex flex-col items-start justify-between py-2 px-2 gap-4 flex-grow h-[100%]">
+                {/* Chat Navbar start */}
                 <div className='flex items-center justify-end w-full'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
                         <svg onClick={toggleSidebar} className="cursor-pointer" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -473,40 +489,69 @@ export default function Stockverse_GPT() {
                     </svg>
                     <User/>
                 </div>
+                {/* Chat Navbar end */}
                 <div className='w-full flex flex-col items-center'>
+                    {/* Chat Area start */}
                     <p className="text-3xl">{chatId}</p>
                     <p className="text-3xl">{question}</p>
                     <p className="text-3xl">{answer}</p>
-                    <form onSubmit={handleSubmitCommand} className="w-[50%] flex flex-col space-y-4">
-                        <div className="flex flex-col gap-y-8">
-                            <div className="w-full flex flex-col gap-y-2">
-                                <label htmlFor="question" className="text-md font-Medium text-primaryText">
-                                    Question
-                                </label>
-                                <textarea
-                                    id="question"
-                                    autoComplete="off"
-                                    required
-                                    value={command}
-                                    onChange={(e) => setCommand(e.target.value)}
-                                    placeholder="Enter your inquiry"
-                                    className="w-full text-lg px-4 py-2 border-2 bg-background text-primaryText border-primaryText/10 focus:outline-none focus:border-primaryText h-12 resize-none"
-                                />
-                            </div>
-                        </div>
-                        <div className="w-full py-4 flex justify-end">
+                    {/* Chat Area end */}
+                    {/* Input for Questions start */}
+                    <form onSubmit={handleSubmitCommand} className="absolute bottom-2 w-[50%] max-xl:w-[65%] max-md:w-[95%] z-10 flex flex-col items-center space-y-4">
+                        <div className=" w-full rounded-[2rem] py-4 bg-primaryText/10 flex items-center justify-center">
+                            <label htmlFor="question" className="absolute bottom-[0.4rem] left-2 max-sm:left-0">
+                                <svg className='w-12 h-10' width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.90562 13.2484L8.76685 13.3274L8.90562 13.2484Z" fill="var(--svg-color)"/>
+                                <path d="M14.0404 8.58739V4.05323L7.02018 0L0 4.05323V8.26677L8.21174 13.0079L7.02018 13.6958L0 9.64258V14.1767L7.02018 18.23L14.0404 14.1767V9.9632L5.82861 5.22206L7.02018 4.53416L14.0404 8.58739ZM0.555106 4.37385L7.02018 0.640047L13.4852 4.37385V5.74965L7.02018 2.0302L0.555106 5.74965V4.37385ZM0.555106 7.94615V6.71032L9.83758 12.07L8.76685 12.6885L0.555106 7.94735V7.94615ZM13.4864 13.8549L7.02137 17.5887L0.556303 13.8549V12.4791L7.02137 16.2117L13.4864 12.4791V13.8549ZM13.4864 10.2826V11.5185L4.20397 6.15881L5.2747 5.54029L13.4864 10.2814V10.2826ZM5.27351 4.90144L5.13473 4.9816L3.09376 6.16L13.2089 11.9994L7.02018 15.5729L0.555106 11.8391V10.6032L7.02018 14.3359L8.76685 13.3273L8.90562 13.2472L10.9466 12.0688L0.832659 6.22939L7.02018 2.67025L13.4852 6.3897V7.62553L7.02018 3.89292L5.27351 4.90144Z" fill="var(--svg-color)"/>
+                                <path d="M5.27354 4.90149L5.13477 4.98164L5.27354 4.90149Z" fill="var(--svg-color)"/>
+                                <path d="M7.02018 19.4658L0 15.4126V19.9468L7.02018 24L14.0404 19.9468V15.4126L7.02018 19.4658ZM13.4864 19.6261L7.02137 23.3587L0.556303 19.6261V18.2503L7.02137 21.9829L13.4864 18.2503V19.6261ZM13.4864 17.6091L7.02137 21.3417L0.556303 17.6091V16.3733L7.02137 20.1059L13.4864 16.3733V17.6091Z" fill="var(--svg-color)"/>
+                                </svg>
+                            </label>
+                            <textarea
+                            ref={textareaRef}
+                            id="question"
+                            autoComplete="off"
+                            required
+                            value={command}
+                            onChange={(e) => setCommand(e.target.value)}
+                            onKeyDown={handleKeyDown} // Handles Enter/Shift+Enter behavior
+                            placeholder="Message StockVerseGPT"
+                            className="w-[87%] max-xl:w-[75%] text-lg leading-[120%] border-0 bg-primaryText/0 text-primaryText focus:outline-none resize-none overflow-y-auto scrollbar-thin"
+                            style={{ maxHeight: '300px' }} // Max height set here
+                            />
                             <button
                                 disabled={loading}
                                 type="submit"
-                                className="w-max px-4 bg-primaryButtonBg text-base text-primaryButtonText py-2 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
+                                className="absolute bottom-[.45rem] right-2 rounded-full p-1 bg-primaryButtonBg text-primaryButtonText hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
                             >
-                                {loading ? 'Analyzing...' : 'Ask'}
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-2xl"><path fillRule="evenodd" clipRule="evenodd" d="M15.1918 8.90615C15.6381 8.45983 16.3618 8.45983 16.8081 8.90615L21.9509 14.049C22.3972 14.4953 22.3972 15.2189 21.9509 15.6652C21.5046 16.1116 20.781 16.1116 20.3347 15.6652L17.1428 12.4734V22.2857C17.1428 22.9169 16.6311 23.4286 15.9999 23.4286C15.3688 23.4286 14.8571 22.9169 14.8571 22.2857V12.4734L11.6652 15.6652C11.2189 16.1116 10.4953 16.1116 10.049 15.6652C9.60265 15.2189 9.60265 14.4953 10.049 14.049L15.1918 8.90615Z" fill="currentColor"></path></svg>
                             </button>
                         </div>
                     </form>
-                    {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+                    {/* Input for Questions end */}
+                    {message && (
+                        <p className="flex gap-2 h-max text-sm fixed bottom-2 left-2 max-lg:top-16 max-lg:left-2 text-primaryColor p-2 py-2 rounded-lg bg-primaryText border-2 border-primaryColor/10 text-center">
+                        {message}
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            onClick={() => setMessage('')} // Clear the message on click
+                            className="cursor-pointer" // Make it clickable
+                        >
+                            <path
+                            d="M14.19 0H5.81C2.17 0 0 2.17 0 5.81V14.18C0 17.83 2.17 20 5.81 20H14.18C17.82 20 19.99 17.83 19.99 14.19V5.81C20 2.17 17.83 0 14.19 0ZM13.36 12.3C13.65 12.59 13.65 13.07 13.36 13.36C13.21 13.51 13.02 13.58 12.83 13.58C12.64 13.58 12.45 13.51 12.3 13.36L10 11.06L7.7 13.36C7.55 13.51 7.36 13.58 7.17 13.58C6.98 13.58 6.79 13.51 6.64 13.36C6.35 13.07 6.35 12.59 6.64 12.3L8.94 10L6.64 7.7C6.35 7.41 6.35 6.93 6.64 6.64C6.93 6.35 7.41 6.35 7.7 6.64L10 8.94L12.3 6.64C12.59 6.35 13.07 6.35 13.36 6.64C13.65 6.93 13.65 7.41 13.36 7.7L11.06 10L13.36 12.3Z"
+                            fill="var(--opposite-svg-color)"
+                            />
+                        </svg>
+                        </p>
+                    )}
                 </div>
             </div>
+            {/* Chat canvas end */}
+            {/* Theme Switch */}
             <div className='fixed bottom-3 right-3'>
                 <ThemeSwitch/>
             </div>

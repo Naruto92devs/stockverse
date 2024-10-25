@@ -102,7 +102,7 @@ export default function User() {
         <div className="flex flex-col relative">
             {/* Profile picture and username */}
             <div className="flex items-center gap-2">
-                <p className="text-sm px-4 py-2 bg-primaryText/10 rounded font-sansMedium">{userInfo.user.fullname}</p>
+                <p className="text-sm px-4 py-2 bg-primaryText/10 rounded font-sansMedium max-md:hidden">{userInfo.user.fullname}</p>
                 <div onClick={toggleDropdown} className="cursor-pointer bg-background border-[.125rem] border-gray-500 rounded-full w-10 h-10 flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText">
                     {getInitials(userInfo.user.fullname)} {/* Display the initials */}
                 </div>
