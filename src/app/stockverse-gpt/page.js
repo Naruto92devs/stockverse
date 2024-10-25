@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import User from '@/components/User';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 export default function Stockverse_GPT() {
     const [loading, setLoading] = useState(false);
@@ -421,7 +422,7 @@ export default function Stockverse_GPT() {
             </div>
             {/* side bar end */}
 
-            {/* Chat canvas Start */}
+            {/* Chat canvas start */}
             <div className="flex flex-col items-start justify-between py-2 px-2 gap-4 flex-grow h-[100%]">
                 <div className='flex items-center justify-end w-full'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
@@ -505,6 +506,9 @@ export default function Stockverse_GPT() {
                     </form>
                     {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
                 </div>
+            </div>
+            <div className='fixed bottom-3 right-3'>
+                <ThemeSwitch/>
             </div>
         </section>
     );
