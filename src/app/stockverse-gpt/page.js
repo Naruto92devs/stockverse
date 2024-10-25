@@ -296,7 +296,8 @@ export default function Stockverse_GPT() {
     };
 
     return (
-        <section className="flex items-start h-[100dvh] relative ">
+        <section className="flex items-start h-[100dvh] relative">
+            {/* side bar start */}
             {/* web view side bar */}
             <div style={{ width: sidebarHide ? '0' : '18rem', transition: 'width 300ms ease-in-out',}} 
             className={`max-lg:hidden transition-width duration-300 ease-in-out flex flex-col h-[100%] w-[18rem] overflow-x-hidden`}>
@@ -418,6 +419,9 @@ export default function Stockverse_GPT() {
                     </div>
                 </div>
             </div>
+            {/* side bar end */}
+
+            {/* Chat canvas Start */}
             <div className="flex flex-col items-start justify-between py-2 px-2 gap-4 flex-grow h-[100%]">
                 <div className='flex items-center justify-end w-full'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
