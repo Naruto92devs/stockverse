@@ -1,13 +1,24 @@
 // src/app/layout.js
+'use client';
 import { Providers } from './providers';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import { ThemeProvider } from '../context/ThemeContext';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-// import Footer from '@/components/Footer';
+import Footer from '@/components/Footer';
 import Script from 'next/script';
+import { usePathname } from 'next/navigation';
 
 export default function RootLayout({ children }) {
+
+  const pathname = usePathname();
+
+  // Define routes where Navbar and Footer should be hidden
+  const excludedRoutes = ['/stockverse-gpt', '/dashboard'];
+
+  // Check if the current route is in the excluded routes
+  const hideNavbarFooter = excludedRoutes.includes(pathname);
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -52,9 +63,9 @@ export default function RootLayout({ children }) {
           <NextThemesProvider>
             <ThemeProvider>
               <main className="w-[100%] min-h-[100vh] flex flex-col">
-                <Navbar/>
-                {children}
-                {/* <Footer/> */}
+                {!hideNavbarFooter && <Navbar />}
+                  {children}
+                {!hideNavbarFooter && <Footer />}
               </main>
             </ThemeProvider>
           </NextThemesProvider>
