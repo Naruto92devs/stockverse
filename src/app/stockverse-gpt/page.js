@@ -312,7 +312,7 @@ export default function Stockverse_GPT() {
     };
 
     return (
-        <section className="flex items-start h-[100dvh] relative">
+        <section className="flex items-start h-[100svh] overflow-hidden relative scrollbar-hide">
             {/* side bar start */}
             {/* web view side bar */}
             <div style={{ width: sidebarHide ? '0' : '18rem', transition: 'width 300ms ease-in-out',}} 
@@ -438,9 +438,9 @@ export default function Stockverse_GPT() {
             {/* side bar end */}
 
             {/* Chat canvas start */}
-            <div className="flex flex-col items-start justify-start px-2 gap-4 max-w-full flex-grow h-[100dvh] overflow-y-scroll scrollbar-thin">
+            <div className="flex flex-col items-start justify-start gap-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
                 {/* Chat Navbar start */}
-                <div className='sticky top-0 py-3 bg-background flex items-start justify-end w-full h-max'>
+                <div className='sticky top-0 py-3 px-2 bg-background flex items-start justify-end w-full h-max'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
                         <svg onClick={toggleSidebar} className="cursor-pointer" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32.38 4H15.62C8.34 4 4 8.34 4 15.62V32.36C4 39.66 8.34 44 15.62 44H32.36C39.64 44 43.98 39.66 43.98 32.38V15.62C44 8.34 39.66 4 32.38 4ZM34 34.5H14C13.18 34.5 12.5 33.82 12.5 33C12.5 32.18 13.18 31.5 14 31.5H34C34.82 31.5 35.5 32.18 35.5 33C35.5 33.82 34.82 34.5 34 34.5ZM34 25.5H14C13.18 25.5 12.5 24.82 12.5 24C12.5 23.18 13.18 22.5 14 22.5H34C34.82 22.5 35.5 23.18 35.5 24C35.5 24.82 34.82 25.5 34 25.5ZM34 16.5H14C13.18 16.5 12.5 15.82 12.5 15C12.5 14.18 13.18 13.5 14 13.5H34C34.82 13.5 35.5 14.18 35.5 15C35.5 15.82 34.82 16.5 34 16.5Z" fill="var(--svg-color)"/>
@@ -492,12 +492,12 @@ export default function Stockverse_GPT() {
                 {/* Chat Navbar end */}
 
                 {/* Chat Area start */}
-                <div className='w-full xl:px-[20%] md:px-[5%] h-max flex flex-col items-center'>
+                <div className='w-full xl:px-[20%] md:px-[5%] px-2 h-max flex flex-col items-center'>
                     <div className='px-3 flex flex-col justify-end'>
                         <p className="text-3xl">{chatId}</p>
                         <p className="text-3xl">{question}</p>
                         <p className="text-3xl">{answer}</p>
-                        {/* <p className="text-3xl">
+                        <p className="text-3xl">
                             Here’s an essay on cows that includes details on their significance, characteristics, and roles in various cultures.
 
                         Essay on the Cow
@@ -513,12 +513,12 @@ export default function Stockverse_GPT() {
                         The domestication of cows has also impacted human history and settlement. With the advent of agriculture, cows provided a stable food supply, enabling early societies to grow and develop. As animals that could convert grass into milk and meat, they became central to rural economies. This bond between cows and humans has led to many technological advancements in animal husbandry, from selective breeding to modern dairy farming practices, which have helped increase milk production and meat yield significantly.
 
                         In conclusion, the cow is not only an essential agricultural animal but also holds a special place in many cultural traditions. From providing sustenance to symbolizing spiritual values, cows have been pivotal in the development of human civilization. Their contributions to agriculture, economy, and culture make them one of the most cherished animals across the world, and their continued care and respect reflect humanity's dependence on these gentle creatures.
-                        </p> */}
+                        </p>
                     </div>
                     {/* Chat Area end */}
                 </div>
                 {/* Input for Questions start */}
-                <form onSubmit={handleSubmitCommand} className="sticky bottom-0 mt-auto py-3 w-full xl:px-[20%] md:px-[5%] z-10 flex flex-col items-center space-y-4 bg-background">
+                <form onSubmit={handleSubmitCommand} className="sticky bottom-0 mt-auto py-3 px-2 w-full xl:px-[20%] md:px-[5%] z-10 flex flex-col items-center space-y-4 bg-background">
                     <div className="relative w-full rounded-[2rem] py-4 px-10 md:px-14 bg-primaryText/10 flex items-center">
                         <label htmlFor="question" className="absolute bottom-[.4rem] left-2 max-sm:left-0">
                             <svg className='w-12 h-10' width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -551,7 +551,7 @@ export default function Stockverse_GPT() {
                 </form>
                 {/* Input for Questions end */}
                 {message && (
-                    <p className="flex gap-2 h-max text-sm fixed bottom-2 left-2 max-lg:top-16 max-lg:left-2 text-primaryColor p-2 py-2 rounded-lg bg-primaryText border-2 border-primaryColor/10 text-center">
+                    <p className="flex gap-2 h-max text-sm fixed bottom-2 left-2 text-primaryColor p-2 py-2 rounded-lg bg-primaryText border-2 border-primaryColor/10 text-center">
                     {message}
                     <svg
                         width="20"
@@ -572,7 +572,7 @@ export default function Stockverse_GPT() {
             </div>
             {/* Chat canvas end */}
             {/* Theme Switch */}
-            <div className='fixed bottom-3 right-3'>
+            <div className='fixed bottom-4 z-10 right-3'>
                 <ThemeSwitch/>
             </div>
         </section>
