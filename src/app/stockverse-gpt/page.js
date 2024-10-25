@@ -312,7 +312,7 @@ export default function Stockverse_GPT() {
     };
 
     return (
-        <section className="flex items-start h-[100svh] overflow-hidden relative scrollbar-hide">
+        <section className="flex items-start h-[100dvh] overflow-hidden relative scrollbar-hide">
             {/* side bar start */}
             {/* web view side bar */}
             <div style={{ width: sidebarHide ? '0' : '18rem', transition: 'width 300ms ease-in-out',}} 
@@ -440,7 +440,7 @@ export default function Stockverse_GPT() {
             {/* Chat canvas start */}
             <div className="flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
                 {/* Chat Navbar start */}
-                <div className='sticky top-0 py-3 px-2 bg-background flex items-start justify-end w-full h-max'>
+                <div className='sticky top-0 max-lg:fixed py-3 px-2 bg-background flex items-start justify-end w-full h-max'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
                         <svg onClick={toggleSidebar} className="cursor-pointer" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32.38 4H15.62C8.34 4 4 8.34 4 15.62V32.36C4 39.66 8.34 44 15.62 44H32.36C39.64 44 43.98 39.66 43.98 32.38V15.62C44 8.34 39.66 4 32.38 4ZM34 34.5H14C13.18 34.5 12.5 33.82 12.5 33C12.5 32.18 13.18 31.5 14 31.5H34C34.82 31.5 35.5 32.18 35.5 33C35.5 33.82 34.82 34.5 34 34.5ZM34 25.5H14C13.18 25.5 12.5 24.82 12.5 24C12.5 23.18 13.18 22.5 14 22.5H34C34.82 22.5 35.5 23.18 35.5 24C35.5 24.82 34.82 25.5 34 25.5ZM34 16.5H14C13.18 16.5 12.5 15.82 12.5 15C12.5 14.18 13.18 13.5 14 13.5H34C34.82 13.5 35.5 14.18 35.5 15C35.5 15.82 34.82 16.5 34 16.5Z" fill="var(--svg-color)"/>
@@ -492,7 +492,7 @@ export default function Stockverse_GPT() {
                 {/* Chat Navbar end */}
 
                 {/* Chat Area start */}
-                <div className='w-full xl:px-[20%] md:px-[5%] px-2 h-max flex flex-col items-center'>
+                <div className='w-full xl:px-[20%] md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center'>
                     <div className='px-3 flex flex-col justify-end'>
                         <p className="text-3xl">{chatId}</p>
                         <p className="text-3xl">{question}</p>
@@ -518,7 +518,7 @@ export default function Stockverse_GPT() {
                     {/* Chat Area end */}
                 </div>
                 {/* Input for Questions start */}
-                <form onSubmit={handleSubmitCommand} className="sticky bottom-0 mt-auto py-3 px-2 w-full xl:px-[20%] md:px-[5%] z-10 flex flex-col items-center space-y-4 bg-background">
+                <form onSubmit={handleSubmitCommand} className="sticky bottom-0 max-lg:fixed max-lg:bottom-0 max-lg:left-0 mt-auto py-3 px-2 w-full xl:px-[20%] md:px-[5%] z-10 flex flex-col items-center space-y-4 bg-background">
                     <div className="relative w-full rounded-[2rem] py-4 px-10 md:px-14 bg-primaryText/10 flex items-center">
                         <label htmlFor="question" className="absolute bottom-[.4rem] left-2 max-sm:left-0">
                             <svg className='w-12 h-10' width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
