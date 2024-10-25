@@ -312,11 +312,11 @@ export default function Stockverse_GPT() {
     };
 
     return (
-        <section className="flex items-start h-[100dvh] relative">
+        <section className="flex items-start h-[100svh] relative">
             {/* side bar start */}
             {/* web view side bar */}
             <div style={{ width: sidebarHide ? '0' : '18rem', transition: 'width 300ms ease-in-out',}} 
-            className={`max-lg:hidden transition-width duration-300 ease-in-out flex flex-col h-[100%] w-[18rem] overflow-x-hidden`}>
+            className={`max-lg:hidden flex-shrink-0 transition-width duration-300 ease-in-out flex flex-col h-[100%] w-[18rem] overflow-x-hidden`}>
                 <div className="bg-background w-full p-2 flex justify-between">
                     <svg onClick={toggleSidebar} className="cursor-pointer" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32.38 4H15.62C8.34 4 4 8.34 4 15.62V32.36C4 39.66 8.34 44 15.62 44H32.36C39.64 44 43.98 39.66 43.98 32.38V15.62C44 8.34 39.66 4 32.38 4ZM34 34.5H14C13.18 34.5 12.5 33.82 12.5 33C12.5 32.18 13.18 31.5 14 31.5H34C34.82 31.5 35.5 32.18 35.5 33C35.5 33.82 34.82 34.5 34 34.5ZM34 25.5H14C13.18 25.5 12.5 24.82 12.5 24C12.5 23.18 13.18 22.5 14 22.5H34C34.82 22.5 35.5 23.18 35.5 24C35.5 24.82 34.82 25.5 34 25.5ZM34 16.5H14C13.18 16.5 12.5 15.82 12.5 15C12.5 14.18 13.18 13.5 14 13.5H34C34.82 13.5 35.5 14.18 35.5 15C35.5 15.82 34.82 16.5 34 16.5Z" fill="var(--svg-color)"/>
@@ -438,9 +438,9 @@ export default function Stockverse_GPT() {
             {/* side bar end */}
 
             {/* Chat canvas start */}
-            <div className="flex flex-col items-start justify-between py-2 px-2 gap-4 flex-grow h-[100%]">
+            <div className="flex flex-col items-start justify-start px-2 gap-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
                 {/* Chat Navbar start */}
-                <div className='flex items-center justify-end w-full'>
+                <div className='sticky top-0 py-3 bg-background flex items-start justify-end w-full h-max'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
                         <svg onClick={toggleSidebar} className="cursor-pointer" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32.38 4H15.62C8.34 4 4 8.34 4 15.62V32.36C4 39.66 8.34 44 15.62 44H32.36C39.64 44 43.98 39.66 43.98 32.38V15.62C44 8.34 39.66 4 32.38 4ZM34 34.5H14C13.18 34.5 12.5 33.82 12.5 33C12.5 32.18 13.18 31.5 14 31.5H34C34.82 31.5 35.5 32.18 35.5 33C35.5 33.82 34.82 34.5 34 34.5ZM34 25.5H14C13.18 25.5 12.5 24.82 12.5 24C12.5 23.18 13.18 22.5 14 22.5H34C34.82 22.5 35.5 23.18 35.5 24C35.5 24.82 34.82 25.5 34 25.5ZM34 16.5H14C13.18 16.5 12.5 15.82 12.5 15C12.5 14.18 13.18 13.5 14 13.5H34C34.82 13.5 35.5 14.18 35.5 15C35.5 15.82 34.82 16.5 34 16.5Z" fill="var(--svg-color)"/>
@@ -490,67 +490,85 @@ export default function Stockverse_GPT() {
                     <User/>
                 </div>
                 {/* Chat Navbar end */}
-                <div className='w-full h-full flex flex-col items-center'>
-                    {/* Chat Area start */}
-                    <div className='h-[80%] overflow-y-auto flex flex-col justify-end w-[58%] max-xl:w-[65%] max-md:w-[95%] scrollbar-thin'>
+
+                {/* Chat Area start */}
+                <div className='w-full xl:px-[20%] md:px-[5%] h-max flex flex-col items-center'>
+                    <div className='px-3 flex flex-col justify-end'>
                         <p className="text-3xl">{chatId}</p>
                         <p className="text-3xl">{question}</p>
                         <p className="text-3xl">{answer}</p>
+                        {/* <p className="text-3xl">
+                            Here’s an essay on cows that includes details on their significance, characteristics, and roles in various cultures.
+
+                        Essay on the Cow
+
+                        The cow is a domesticated animal known for its importance in agriculture, as a source of milk, meat, and leather, and for its unique role in various cultures worldwide. Often regarded as a symbol of wealth in agrarian societies, cows have provided vital resources for humans for thousands of years. Their calm and docile nature, combined with their adaptability to diverse environments, has made them an invaluable part of rural and agricultural life.
+
+                        Cows belong to the species Bos taurus and are a member of the Bovidae family. They are typically characterized by their large size, broad heads, and hooves, with some breeds sporting horns. Their physical characteristics vary greatly depending on the breed, of which there are hundreds around the world, each adapted to different environments and agricultural needs. For instance, the Holstein breed is renowned for its high milk production, while the Brahman is celebrated for its resistance to high temperatures and pests, making it popular in tropical climates.
+
+                        In agriculture, cows serve numerous functions. Dairy cows provide milk, a staple in human diets rich in calcium and protein, which can be further processed into products like cheese, yogurt, and butter. Meat from cows, known as beef, is a major source of protein and other nutrients in various cuisines worldwide. Additionally, cowhide is processed into leather, which is used in clothing, accessories, and furniture. Even cow dung has utility as a natural fertilizer and, in some regions, as a source of biofuel when dried.
+
+                        In many cultures, especially in India, the cow is viewed with deep respect and even veneration. In Hinduism, cows are considered sacred animals, symbolizing motherly virtues, and are associated with the goddess Kamadhenu, the "divine cow" of prosperity and abundance. As such, cows are protected and cared for, and their milk is used in various religious ceremonies. This reverence towards cows has influenced policies in several regions, where laws prevent the slaughter of these animals, underscoring their cultural significance.
+
+                        The domestication of cows has also impacted human history and settlement. With the advent of agriculture, cows provided a stable food supply, enabling early societies to grow and develop. As animals that could convert grass into milk and meat, they became central to rural economies. This bond between cows and humans has led to many technological advancements in animal husbandry, from selective breeding to modern dairy farming practices, which have helped increase milk production and meat yield significantly.
+
+                        In conclusion, the cow is not only an essential agricultural animal but also holds a special place in many cultural traditions. From providing sustenance to symbolizing spiritual values, cows have been pivotal in the development of human civilization. Their contributions to agriculture, economy, and culture make them one of the most cherished animals across the world, and their continued care and respect reflect humanity's dependence on these gentle creatures.
+                        </p> */}
                     </div>
                     {/* Chat Area end */}
-                    {/* Input for Questions start */}
-                    <form onSubmit={handleSubmitCommand} className="absolute bottom-2 w-[50%] max-xl:w-[65%] max-md:w-[95%] z-10 flex flex-col items-center space-y-4">
-                        <div className=" w-full rounded-[2rem] py-4 bg-primaryText/10 flex items-center justify-center">
-                            <label htmlFor="question" className="absolute bottom-[0.4rem] left-2 max-sm:left-0">
-                                <svg className='w-12 h-10' width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.90562 13.2484L8.76685 13.3274L8.90562 13.2484Z" fill="var(--svg-color)"/>
-                                <path d="M14.0404 8.58739V4.05323L7.02018 0L0 4.05323V8.26677L8.21174 13.0079L7.02018 13.6958L0 9.64258V14.1767L7.02018 18.23L14.0404 14.1767V9.9632L5.82861 5.22206L7.02018 4.53416L14.0404 8.58739ZM0.555106 4.37385L7.02018 0.640047L13.4852 4.37385V5.74965L7.02018 2.0302L0.555106 5.74965V4.37385ZM0.555106 7.94615V6.71032L9.83758 12.07L8.76685 12.6885L0.555106 7.94735V7.94615ZM13.4864 13.8549L7.02137 17.5887L0.556303 13.8549V12.4791L7.02137 16.2117L13.4864 12.4791V13.8549ZM13.4864 10.2826V11.5185L4.20397 6.15881L5.2747 5.54029L13.4864 10.2814V10.2826ZM5.27351 4.90144L5.13473 4.9816L3.09376 6.16L13.2089 11.9994L7.02018 15.5729L0.555106 11.8391V10.6032L7.02018 14.3359L8.76685 13.3273L8.90562 13.2472L10.9466 12.0688L0.832659 6.22939L7.02018 2.67025L13.4852 6.3897V7.62553L7.02018 3.89292L5.27351 4.90144Z" fill="var(--svg-color)"/>
-                                <path d="M5.27354 4.90149L5.13477 4.98164L5.27354 4.90149Z" fill="var(--svg-color)"/>
-                                <path d="M7.02018 19.4658L0 15.4126V19.9468L7.02018 24L14.0404 19.9468V15.4126L7.02018 19.4658ZM13.4864 19.6261L7.02137 23.3587L0.556303 19.6261V18.2503L7.02137 21.9829L13.4864 18.2503V19.6261ZM13.4864 17.6091L7.02137 21.3417L0.556303 17.6091V16.3733L7.02137 20.1059L13.4864 16.3733V17.6091Z" fill="var(--svg-color)"/>
-                                </svg>
-                            </label>
-                            <textarea
-                            ref={textareaRef}
-                            id="question"
-                            autoComplete="off"
-                            required
-                            value={command}
-                            onChange={(e) => setCommand(e.target.value)}
-                            onKeyDown={handleKeyDown} // Handles Enter/Shift+Enter behavior
-                            placeholder="Message StockVerseGPT"
-                            className="w-[87%] max-xl:w-[75%] text-lg leading-[120%] border-0 bg-primaryText/0 text-primaryText focus:outline-none resize-none overflow-y-auto scrollbar-thin"
-                            style={{ maxHeight: '300px' }} // Max height set here
-                            />
-                            <button
-                                disabled={loading}
-                                type="submit"
-                                className="absolute bottom-[.45rem] right-2 rounded-full p-1 bg-primaryButtonBg text-primaryButtonText hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
-                            >
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-2xl"><path fillRule="evenodd" clipRule="evenodd" d="M15.1918 8.90615C15.6381 8.45983 16.3618 8.45983 16.8081 8.90615L21.9509 14.049C22.3972 14.4953 22.3972 15.2189 21.9509 15.6652C21.5046 16.1116 20.781 16.1116 20.3347 15.6652L17.1428 12.4734V22.2857C17.1428 22.9169 16.6311 23.4286 15.9999 23.4286C15.3688 23.4286 14.8571 22.9169 14.8571 22.2857V12.4734L11.6652 15.6652C11.2189 16.1116 10.4953 16.1116 10.049 15.6652C9.60265 15.2189 9.60265 14.4953 10.049 14.049L15.1918 8.90615Z" fill="currentColor"></path></svg>
-                            </button>
-                        </div>
-                    </form>
-                    {/* Input for Questions end */}
-                    {message && (
-                        <p className="flex gap-2 h-max text-sm fixed bottom-2 left-2 max-lg:top-16 max-lg:left-2 text-primaryColor p-2 py-2 rounded-lg bg-primaryText border-2 border-primaryColor/10 text-center">
-                        {message}
-                        <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            onClick={() => setMessage('')} // Clear the message on click
-                            className="cursor-pointer" // Make it clickable
-                        >
-                            <path
-                            d="M14.19 0H5.81C2.17 0 0 2.17 0 5.81V14.18C0 17.83 2.17 20 5.81 20H14.18C17.82 20 19.99 17.83 19.99 14.19V5.81C20 2.17 17.83 0 14.19 0ZM13.36 12.3C13.65 12.59 13.65 13.07 13.36 13.36C13.21 13.51 13.02 13.58 12.83 13.58C12.64 13.58 12.45 13.51 12.3 13.36L10 11.06L7.7 13.36C7.55 13.51 7.36 13.58 7.17 13.58C6.98 13.58 6.79 13.51 6.64 13.36C6.35 13.07 6.35 12.59 6.64 12.3L8.94 10L6.64 7.7C6.35 7.41 6.35 6.93 6.64 6.64C6.93 6.35 7.41 6.35 7.7 6.64L10 8.94L12.3 6.64C12.59 6.35 13.07 6.35 13.36 6.64C13.65 6.93 13.65 7.41 13.36 7.7L11.06 10L13.36 12.3Z"
-                            fill="var(--opposite-svg-color)"
-                            />
-                        </svg>
-                        </p>
-                    )}
                 </div>
+                {/* Input for Questions start */}
+                <form onSubmit={handleSubmitCommand} className="sticky bottom-0 mt-auto py-3 w-full xl:px-[20%] md:px-[5%] z-10 flex flex-col items-center space-y-4 bg-background">
+                    <div className="relative w-full rounded-[2rem] py-4 px-10 md:px-14 bg-primaryText/10 flex items-center">
+                        <label htmlFor="question" className="absolute bottom-[.4rem] left-2 max-sm:left-0">
+                            <svg className='w-12 h-10' width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.90562 13.2484L8.76685 13.3274L8.90562 13.2484Z" fill="var(--svg-color)"/>
+                            <path d="M14.0404 8.58739V4.05323L7.02018 0L0 4.05323V8.26677L8.21174 13.0079L7.02018 13.6958L0 9.64258V14.1767L7.02018 18.23L14.0404 14.1767V9.9632L5.82861 5.22206L7.02018 4.53416L14.0404 8.58739ZM0.555106 4.37385L7.02018 0.640047L13.4852 4.37385V5.74965L7.02018 2.0302L0.555106 5.74965V4.37385ZM0.555106 7.94615V6.71032L9.83758 12.07L8.76685 12.6885L0.555106 7.94735V7.94615ZM13.4864 13.8549L7.02137 17.5887L0.556303 13.8549V12.4791L7.02137 16.2117L13.4864 12.4791V13.8549ZM13.4864 10.2826V11.5185L4.20397 6.15881L5.2747 5.54029L13.4864 10.2814V10.2826ZM5.27351 4.90144L5.13473 4.9816L3.09376 6.16L13.2089 11.9994L7.02018 15.5729L0.555106 11.8391V10.6032L7.02018 14.3359L8.76685 13.3273L8.90562 13.2472L10.9466 12.0688L0.832659 6.22939L7.02018 2.67025L13.4852 6.3897V7.62553L7.02018 3.89292L5.27351 4.90144Z" fill="var(--svg-color)"/>
+                            <path d="M5.27354 4.90149L5.13477 4.98164L5.27354 4.90149Z" fill="var(--svg-color)"/>
+                            <path d="M7.02018 19.4658L0 15.4126V19.9468L7.02018 24L14.0404 19.9468V15.4126L7.02018 19.4658ZM13.4864 19.6261L7.02137 23.3587L0.556303 19.6261V18.2503L7.02137 21.9829L13.4864 18.2503V19.6261ZM13.4864 17.6091L7.02137 21.3417L0.556303 17.6091V16.3733L7.02137 20.1059L13.4864 16.3733V17.6091Z" fill="var(--svg-color)"/>
+                            </svg>
+                        </label>
+                        <textarea
+                        ref={textareaRef}
+                        id="question"
+                        autoComplete="off"
+                        required
+                        value={command}
+                        onChange={(e) => setCommand(e.target.value)}
+                        onKeyDown={handleKeyDown} // Handles Enter/Shift+Enter behavior
+                        placeholder="Message StockVerseGPT"
+                        className="w-full text-lg leading-[120%] border-0 bg-primaryText/0 text-primaryText focus:outline-none resize-none overflow-y-auto scrollbar-thin"
+                        style={{ maxHeight: '300px' }} // Max height set here
+                        />
+                        <button
+                            disabled={loading}
+                            type="submit"
+                            className="absolute bottom-[.45rem] right-2 rounded-full p-1 bg-primaryButtonBg text-primaryButtonText hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
+                        >
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-2xl"><path fillRule="evenodd" clipRule="evenodd" d="M15.1918 8.90615C15.6381 8.45983 16.3618 8.45983 16.8081 8.90615L21.9509 14.049C22.3972 14.4953 22.3972 15.2189 21.9509 15.6652C21.5046 16.1116 20.781 16.1116 20.3347 15.6652L17.1428 12.4734V22.2857C17.1428 22.9169 16.6311 23.4286 15.9999 23.4286C15.3688 23.4286 14.8571 22.9169 14.8571 22.2857V12.4734L11.6652 15.6652C11.2189 16.1116 10.4953 16.1116 10.049 15.6652C9.60265 15.2189 9.60265 14.4953 10.049 14.049L15.1918 8.90615Z" fill="currentColor"></path></svg>
+                        </button>
+                    </div>
+                </form>
+                {/* Input for Questions end */}
+                {message && (
+                    <p className="flex gap-2 h-max text-sm fixed bottom-2 left-2 max-lg:top-16 max-lg:left-2 text-primaryColor p-2 py-2 rounded-lg bg-primaryText border-2 border-primaryColor/10 text-center">
+                    {message}
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        onClick={() => setMessage('')} // Clear the message on click
+                        className="cursor-pointer" // Make it clickable
+                    >
+                        <path
+                        d="M14.19 0H5.81C2.17 0 0 2.17 0 5.81V14.18C0 17.83 2.17 20 5.81 20H14.18C17.82 20 19.99 17.83 19.99 14.19V5.81C20 2.17 17.83 0 14.19 0ZM13.36 12.3C13.65 12.59 13.65 13.07 13.36 13.36C13.21 13.51 13.02 13.58 12.83 13.58C12.64 13.58 12.45 13.51 12.3 13.36L10 11.06L7.7 13.36C7.55 13.51 7.36 13.58 7.17 13.58C6.98 13.58 6.79 13.51 6.64 13.36C6.35 13.07 6.35 12.59 6.64 12.3L8.94 10L6.64 7.7C6.35 7.41 6.35 6.93 6.64 6.64C6.93 6.35 7.41 6.35 7.7 6.64L10 8.94L12.3 6.64C12.59 6.35 13.07 6.35 13.36 6.64C13.65 6.93 13.65 7.41 13.36 7.7L11.06 10L13.36 12.3Z"
+                        fill="var(--opposite-svg-color)"
+                        />
+                    </svg>
+                    </p>
+                )}
             </div>
             {/* Chat canvas end */}
             {/* Theme Switch */}
