@@ -312,7 +312,7 @@ export default function Stockverse_GPT() {
     };
 
     return (
-        <section className="flex items-start h-[100svh] relative">
+        <section className="flex items-start h-[100dvh] relative">
             {/* side bar start */}
             {/* web view side bar */}
             <div style={{ width: sidebarHide ? '0' : '18rem', transition: 'width 300ms ease-in-out',}} 
@@ -438,7 +438,7 @@ export default function Stockverse_GPT() {
             {/* side bar end */}
 
             {/* Chat canvas start */}
-            <div className="flex flex-col items-start justify-start px-2 gap-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
+            <div className="flex flex-col items-start justify-start px-2 gap-4 max-w-full flex-grow h-[100dvh] overflow-y-scroll scrollbar-thin">
                 {/* Chat Navbar start */}
                 <div className='sticky top-0 py-3 bg-background flex items-start justify-end w-full h-max'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
@@ -545,7 +545,7 @@ export default function Stockverse_GPT() {
                             type="submit"
                             className="absolute bottom-[.45rem] right-2 rounded-full p-1 bg-primaryButtonBg text-primaryButtonText hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
                         >
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-2xl"><path fillRule="evenodd" clipRule="evenodd" d="M15.1918 8.90615C15.6381 8.45983 16.3618 8.45983 16.8081 8.90615L21.9509 14.049C22.3972 14.4953 22.3972 15.2189 21.9509 15.6652C21.5046 16.1116 20.781 16.1116 20.3347 15.6652L17.1428 12.4734V22.2857C17.1428 22.9169 16.6311 23.4286 15.9999 23.4286C15.3688 23.4286 14.8571 22.9169 14.8571 22.2857V12.4734L11.6652 15.6652C11.2189 16.1116 10.4953 16.1116 10.049 15.6652C9.60265 15.2189 9.60265 14.4953 10.049 14.049L15.1918 8.90615Z" fill="currentColor"></path></svg>
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon-2xl"><path fillRule="evenodd" clipRule="evenodd" d="M15.1918 8.90615C15.6381 8.45983 16.3618 8.45983 16.8081 8.90615L21.9509 14.049C22.3972 14.4953 22.3972 15.2189 21.9509 15.6652C21.5046 16.1116 20.781 16.1116 20.3347 15.6652L17.1428 12.4734V22.2857C17.1428 22.9169 16.6311 23.4286 15.9999 23.4286C15.3688 23.4286 14.8571 22.9169 14.8571 22.2857V12.4734L11.6652 15.6652C11.2189 16.1116 10.4953 16.1116 10.049 15.6652C9.60265 15.2189 9.60265 14.4953 10.049 14.049L15.1918 8.90615Z" fill="currentColor"></path></svg>
                         </button>
                     </div>
                 </form>
