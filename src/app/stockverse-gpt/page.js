@@ -438,7 +438,7 @@ export default function Stockverse_GPT() {
             {/* side bar end */}
 
             {/* Chat canvas start */}
-            <div className="flex flex-col items-start justify-start gap-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
+            <div className="flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
                 {/* Chat Navbar start */}
                 <div className='sticky top-0 py-3 px-2 bg-background flex items-start justify-end w-full h-max'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
@@ -497,7 +497,7 @@ export default function Stockverse_GPT() {
                         <p className="text-3xl">{chatId}</p>
                         <p className="text-3xl">{question}</p>
                         <p className="text-3xl">{answer}</p>
-                        <p className="text-3xl">
+                        {/* <p className="text-3xl">
                             Here’s an essay on cows that includes details on their significance, characteristics, and roles in various cultures.
 
                         Essay on the Cow
@@ -513,7 +513,7 @@ export default function Stockverse_GPT() {
                         The domestication of cows has also impacted human history and settlement. With the advent of agriculture, cows provided a stable food supply, enabling early societies to grow and develop. As animals that could convert grass into milk and meat, they became central to rural economies. This bond between cows and humans has led to many technological advancements in animal husbandry, from selective breeding to modern dairy farming practices, which have helped increase milk production and meat yield significantly.
 
                         In conclusion, the cow is not only an essential agricultural animal but also holds a special place in many cultural traditions. From providing sustenance to symbolizing spiritual values, cows have been pivotal in the development of human civilization. Their contributions to agriculture, economy, and culture make them one of the most cherished animals across the world, and their continued care and respect reflect humanity's dependence on these gentle creatures.
-                        </p>
+                        </p> */}
                     </div>
                     {/* Chat Area end */}
                 </div>
