@@ -319,8 +319,94 @@
 }
 
 
+/* styles/MarkdownStyles.css */
+.markdown h1,
+.markdown h2,
+.markdown h3
+.markdown h4 {
+  color: var(--primary-text); /* Optional: To make the text stand out */
+}
+
+.markdown h1 {
+  font-size: 2.2rem; /* Larger font size for h1 */
+  font-weight: 900;
+  margin-bottom: 24px;
+}
+
+.markdown h2 {
+  font-size: 1.9rem; /* Adjust as needed */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.markdown h3 {
+  font-size: 1.6rem; /* Adjust as needed */
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.markdown h4 {
+  font-size: 1.4rem; /* Adjust as needed */
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.markdown p {
+  font-size: 1.1rem;
+  list-style: 120%;
+  margin-bottom: 10px;
+  opacity: .6;
+  color: var(--primary-text);
+}
+
+.markdown ul {
+  padding: 2rem 0 2rem 2rem;
+  list-style-type: disc;
+  color: var(--primary-text);
+}
+
+.markdown ol {
+  padding: 2rem 0 2rem 2rem;
+  list-style-type: decimal;
+  color: var(--primary-text);
+}
+
+.markdown li {
+  font-size: 1rem;
+  opacity: 1;
+  font-weight: 400;
+  color: var(--primary-text);
+}
+
+.markdown a {
+  text-decoration: underline;
+  color: rgb(1, 86, 255);
+}
+
+.markdown pre {
+  background-color: rgb(245, 242, 240);
+  padding: 6px;
+  border-radius: 2rem;
+  overflow-x: auto;
+  color: #f8f8f2; /* Light text color for dark background */
+  margin: 16px 0;
+}
+
+.markdown code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+}
+
+/* Optional inline code styling */
+.markdown p code {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
 
 /* Loader Css */
+
 
 /* From Uiverse.io by mobinkakei */ 
 #wifi-loader {

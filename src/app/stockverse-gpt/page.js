@@ -1,5 +1,8 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import axios from 'axios';
 import User from '@/components/User';
 import ThemeSwitch from '@/components/ThemeSwitch';
@@ -15,7 +18,7 @@ export default function Stockverse_GPT() {
     const textareaRef = useRef(null);
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
-    const [chatArea, setChatArea] = useState([]);
+    const [chatCanvas, setChatCanvas] = useState([]);
     const [chatHistory, setChatHistory] = useState(null);
     const [sidebarHide, setSidebarHide] = useState(false);
     const [favouriteStatus, setFavouriteStatus] = useState({}); // Track favorite status for each chat
@@ -45,7 +48,7 @@ export default function Stockverse_GPT() {
         }
     }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
 
-    // UseEffect to run fetchChatHistory only when userid is set
+    // UseEffect to Create chatId automatically
     useEffect(() => {
 
         setLoading(true);
@@ -58,6 +61,18 @@ export default function Stockverse_GPT() {
         }
         if (!chatId && userid) {
             handleCreateNewChat();
+        }
+    }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
+
+    // UseEffect to load ChatCanvas
+    useEffect(() => {
+        const savedChatCanvas = sessionStorage.getItem('chatCanvas');
+
+        if (savedChatCanvas) {
+            setChatCanvas(JSON.parse(savedChatCanvas));
+        }
+        if (!savedChatCanvas && userid) {
+            setChatCanvas([]);
         }
     }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
 
@@ -138,9 +153,13 @@ export default function Stockverse_GPT() {
             });
     
             const data = response.data;
-            console.log(data);
-            if (response.status === 206) {
-                console.log(data);
+            // console.log(data.user);
+            if (response.status === 200) {
+                sessionStorage.setItem('chatCanvas', JSON.stringify(data.user));
+                setChatCanvas(data.user);
+                setChatId(data.user[0].chat_id);
+                sessionStorage.setItem('chatId', data.user[0].chat_id);
+                console.log(chatCanvas);
             } else {
                 setMessage(data.message || 'Something went wrong');
             }
@@ -523,11 +542,40 @@ export default function Stockverse_GPT() {
 
                 {/* Chat Area start */}
                 <div className='w-full xl:px-[20%] md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center'>
-                    <div className='w-full px-3 flex flex-col'>
-                        <p className="text-md self-end py-2 px-4 bg-primaryText/10 rounded-3xl">{question}</p>
-                        <p className="text-base items-start ">{answer}</p>
-                    </div>
-                    <p className={`${responseloading? 'visible' : 'hidden'}`}>Analysing</p>
+                    {chatCanvas.map((chat, index) => (
+                        <div key={index} className="w-full px-3 flex flex-col gap-y-6 py-4">
+                        {/* Question */}
+                        <p className="text-md self-end py-2 px-4 bg-primaryText/10 rounded-3xl">{chat.question}</p>
+                        {/* Answer */}
+                        <p className="items-start markdown">
+                        <ReactMarkdown
+                            components={{
+                            code({ node, inline, className, children, ...props }) {
+                                const match = /language-(\w+)/.exec(className || '');
+                                return !inline && match ? (
+                                <SyntaxHighlighter
+                                    style={atomOneDark}
+                                    language={match[1]}
+                                    PreTag="div"
+                                    {...props}
+                                >
+                                    {String(children).replace(/\n$/, '')}
+                                </SyntaxHighlighter>
+                                ) : (
+                                <code className={className} {...props}>
+                                    {children}
+                                </code>
+                                );
+                            },
+                            }}
+                        >
+                            {chat.answer}
+                        </ReactMarkdown>
+                        </p>
+                        </div>
+                    ))}
+                    {/* Loading indicator */}
+                    <p className={`${responseloading ? 'visible' : 'hidden'}`}>Analysing</p>
                 </div>
                 {/* Chat Area end */}
                 {/* Input for Questions start */}
