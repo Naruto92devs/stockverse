@@ -14,6 +14,7 @@ export default function Stockverse_GPT() {
     const [userInfo, setUserInfo] = useState(null);
     const [userid, setUserid] = useState('');
     const [chatId, setChatId] = useState('');
+    const [activeChatId, setActiveChatId] = useState('');
     const [command, setCommand] = useState('');
     const textareaRef = useRef(null);
     const [question, setQuestion] = useState('');
@@ -64,17 +65,34 @@ export default function Stockverse_GPT() {
         }
     }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
 
-    // UseEffect to load ChatCanvas
     useEffect(() => {
         const savedChatCanvas = sessionStorage.getItem('chatCanvas');
-
         if (savedChatCanvas) {
-            setChatCanvas(JSON.parse(savedChatCanvas));
+            const parsedCanvas = JSON.parse(savedChatCanvas);
+            setChatCanvas(parsedCanvas);
+            setActiveChatId(parsedCanvas[0]?.chat_id); // Use optional chaining for safety
         }
         if (!savedChatCanvas && userid) {
             setChatCanvas([]);
         }
-    }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
+    }, [userid]);
+
+    // Update Active ChatId
+    useEffect(() => {
+        if (chatCanvas) {
+            setActiveChatId(chatCanvas[0]?.chat_id); // Use optional chaining for safety
+        }
+    }, [chatCanvas]);
+
+    // Update Active Chat history
+    useEffect(() => {
+        const savedChatHistory = localStorage.getItem('ChatHistory');
+            
+        if (savedChatHistory) {
+            const parsedUserInfo = JSON.parse(savedChatHistory);
+            setChatHistory(parsedUserInfo);
+        }
+    }, [activeChatId]);
 
     const fetchChatHistory = async () => {
         try {
@@ -163,17 +181,21 @@ export default function Stockverse_GPT() {
                             : chat
                     );
                     sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
+                    fetchChatHistory();
+                    setResponseLoading(false);
                     return updatedCanvas;
                 });
                 setAnswer(response.data.answer);
                 setMessage(response.data.message);
             } else {
                 setMessage(response.data.message || 'Something went wrong');
+                setResponseLoading(false);
             }
     
         } catch (error) {
             setMessage('An error occurred. Please try again.');
             console.error('Error during command submission:', error);
+            setResponseLoading(false);
         } finally {
             setResponseLoading(false);
         }
@@ -195,6 +217,7 @@ export default function Stockverse_GPT() {
                 setChatCanvas(data.user);
                 setChatId(data.user[0].chat_id);
                 sessionStorage.setItem('chatId', data.user[0].chat_id);
+                setActiveChatId(chatId);
                 console.log(chatCanvas);
             } else {
                 setMessage(data.message || 'Something went wrong');
@@ -323,7 +346,9 @@ export default function Stockverse_GPT() {
             <div className='flex flex-col' key={daysAgo}>
                 <h3 className="text-sm text-primaryText font-sansMedium py-1 px-4 bg-primaryText/10 rounded w-max my-4">{daysAgo}</h3>
                 {groupedChats[daysAgo].map(chat => (
-                    <div key={chat.chat_id} className="cursor-pointer p-3 relative flex items-center hover:bg-primaryText/10 rounded-lg w-full">
+                    <div key={chat.chat_id} className={`cursor-pointer p-3 relative flex items-center hover:bg-primaryText/10 rounded-lg w-full ${
+                        chat.chat_id === activeChatId ? 'bg-primaryText/10' : ''
+                    }`}>
                         <div className="flex gap-1 absolute right-3">
                             <svg onClick={() => FavouriteChatId(chat.chat_id)} className="cursor-pointer" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M27.5966 3.99499L27.9932 4.80249C28.1916 5.19915 28.6874 5.56749 29.1266 5.65249L29.6649 5.73749C31.2799 6.00665 31.6624 7.19665 30.5007 8.37249L30.0049 8.86832C29.6791 9.20832 29.4949 9.85999 29.5941 10.3133L29.6649 10.6108C30.1041 12.5658 29.0699 13.3167 27.3699 12.2967L27.0016 12.0842C26.5624 11.8292 25.8541 11.8292 25.4149 12.0842L25.0466 12.2967C23.3324 13.3308 22.2982 12.5658 22.7516 10.6108L22.8224 10.3133C22.9216 9.85999 22.7374 9.20832 22.4116 8.86832L21.9157 8.35832C20.7541 7.18249 21.1366 5.99249 22.7516 5.72332L23.2899 5.63832C23.7149 5.56749 24.2249 5.18499 24.4232 4.78832L24.8199 3.98082C25.5849 2.45082 26.8316 2.45082 27.5966 3.99499Z" fill={getSvgFillColor(chat)}/>
@@ -335,8 +360,8 @@ export default function Stockverse_GPT() {
                             <path d="M23.4105 9.30095C23.1183 8.99661 22.7166 8.82617 22.3026 8.82617H6.91482C6.5009 8.82617 6.08699 8.99661 5.80699 9.30095C5.52699 9.6053 5.36873 10.0192 5.39308 10.4453L6.14786 22.9357C6.28177 24.7862 6.45221 27.0992 10.7009 27.0992H18.5166C22.7653 27.0992 22.9357 24.7983 23.0696 22.9357L23.8244 10.4575C23.8487 10.0192 23.6905 9.6053 23.4105 9.30095ZM16.6296 21.0001H12.5757C12.0766 21.0001 11.6626 20.5862 11.6626 20.087C11.6626 19.5879 12.0766 19.174 12.5757 19.174H16.6296C17.1287 19.174 17.5426 19.5879 17.5426 20.087C17.5426 20.5862 17.1287 21.0001 16.6296 21.0001ZM17.6522 16.1305H11.5653C11.0661 16.1305 10.6522 15.7166 10.6522 15.2175C10.6522 14.7183 11.0661 14.3044 11.5653 14.3044H17.6522C18.1513 14.3044 18.5653 14.7183 18.5653 15.2175C18.5653 15.7166 18.1513 16.1305 17.6522 16.1305Z" fill="var(--svg-color)"/>
                             </svg>
                         </div>
-                        <div className="w-[70%] overflow-x-hidden">
-                            <p onClick={() => ConversationIdHistory(chat.chat_id)} className="text-md text-primaryText/60 font-sansMedium w-max">
+                        <div onClick={() => ConversationIdHistory(chat.chat_id)} className="w-[70%] overflow-x-hidden">
+                            <p className="text-md text-primaryText/60 font-sansMedium w-max">
                                 {chat.title.length > 20 ? `${chat.title.substring(0, 20)}...` : chat.title}
                             </p>
                         </div>
@@ -412,7 +437,9 @@ export default function Stockverse_GPT() {
                                             .filter(chat => chat.favourite && chat.title !== null)  // Filter only favorite chats
                                             .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))  // Sort favorites by date
                                             .map(chat => (
-                                                <div key={chat.chat_id} className="cursor-pointer p-3 relative flex items-center hover:bg-primaryText/10 rounded-lg w-full">
+                                                <div key={chat.chat_id} className={`cursor-pointer p-3 relative flex items-center hover:bg-primaryText/10 rounded-lg w-full ${
+                                                    chat.chat_id === activeChatId ? 'bg-primaryText/10' : ''
+                                                }`}>
                                                     <div className="flex gap-0 absolute right-3">
                                                         <svg onClick={() => FavouriteChatId(chat.chat_id)} className="cursor-pointer" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M27.5966 3.99499L27.9932 4.80249C28.1916 5.19915 28.6874 5.56749 29.1266 5.65249L29.6649 5.73749C31.2799 6.00665 31.6624 7.19665 30.5007 8.37249L30.0049 8.86832C29.6791 9.20832 29.4949 9.85999 29.5941 10.3133L29.6649 10.6108C30.1041 12.5658 29.0699 13.3167 27.3699 12.2967L27.0016 12.0842C26.5624 11.8292 25.8541 11.8292 25.4149 12.0842L25.0466 12.2967C23.3324 13.3308 22.2982 12.5658 22.7516 10.6108L22.8224 10.3133C22.9216 9.85999 22.7374 9.20832 22.4116 8.86832L21.9157 8.35832C20.7541 7.18249 21.1366 5.99249 22.7516 5.72332L23.2899 5.63832C23.7149 5.56749 24.2249 5.18499 24.4232 4.78832L24.8199 3.98082C25.5849 2.45082 26.8316 2.45082 27.5966 3.99499Z" fill={getSvgFillColor(chat)}/>
@@ -424,8 +451,8 @@ export default function Stockverse_GPT() {
                                                         <path d="M23.4105 9.30095C23.1183 8.99661 22.7166 8.82617 22.3026 8.82617H6.91482C6.5009 8.82617 6.08699 8.99661 5.80699 9.30095C5.52699 9.6053 5.36873 10.0192 5.39308 10.4453L6.14786 22.9357C6.28177 24.7862 6.45221 27.0992 10.7009 27.0992H18.5166C22.7653 27.0992 22.9357 24.7983 23.0696 22.9357L23.8244 10.4575C23.8487 10.0192 23.6905 9.6053 23.4105 9.30095ZM16.6296 21.0001H12.5757C12.0766 21.0001 11.6626 20.5862 11.6626 20.087C11.6626 19.5879 12.0766 19.174 12.5757 19.174H16.6296C17.1287 19.174 17.5426 19.5879 17.5426 20.087C17.5426 20.5862 17.1287 21.0001 16.6296 21.0001ZM17.6522 16.1305H11.5653C11.0661 16.1305 10.6522 15.7166 10.6522 15.2175C10.6522 14.7183 11.0661 14.3044 11.5653 14.3044H17.6522C18.1513 14.3044 18.5653 14.7183 18.5653 15.2175C18.5653 15.7166 18.1513 16.1305 17.6522 16.1305Z" fill="var(--svg-color)"/>
                                                         </svg>
                                                     </div>
-                                                    <div className="w-[70%] overflow-x-hidden">
-                                                        <p onClick={() => ConversationIdHistory(chat.chat_id)} className="text-md text-primaryText/60 font-sansMedium w-max">
+                                                    <div onClick={() => ConversationIdHistory(chat.chat_id)} className="w-[70%] overflow-x-hidden">
+                                                        <p className="text-md text-primaryText/60 font-sansMedium w-max">
                                                             {chat.title.length > 20 ? `${chat.title.substring(0, 20)}...` : chat.title}
                                                         </p>
                                                     </div>
@@ -469,7 +496,9 @@ export default function Stockverse_GPT() {
                                             .filter(chat => chat.favourite && chat.title !== null)  // Filter only favorite chats
                                             .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))  // Sort favorites by date
                                             .map(chat => (
-                                                <div key={chat.chat_id} className="cursor-pointer p-3 relative flex items-center hover:bg-primaryText/10 rounded-lg w-full">
+                                                <div key={chat.chat_id} className={`cursor-pointer p-3 relative flex items-center hover:bg-primaryText/10 rounded-lg w-full ${
+                                                    chat.chat_id === activeChatId ? 'bg-primaryText/10' : ''
+                                                }`}>
                                                     <div className="flex gap-1 absolute right-3">
                                                         <svg onClick={() => FavouriteChatId(chat.chat_id)} className="cursor-pointer" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M27.5966 3.99499L27.9932 4.80249C28.1916 5.19915 28.6874 5.56749 29.1266 5.65249L29.6649 5.73749C31.2799 6.00665 31.6624 7.19665 30.5007 8.37249L30.0049 8.86832C29.6791 9.20832 29.4949 9.85999 29.5941 10.3133L29.6649 10.6108C30.1041 12.5658 29.0699 13.3167 27.3699 12.2967L27.0016 12.0842C26.5624 11.8292 25.8541 11.8292 25.4149 12.0842L25.0466 12.2967C23.3324 13.3308 22.2982 12.5658 22.7516 10.6108L22.8224 10.3133C22.9216 9.85999 22.7374 9.20832 22.4116 8.86832L21.9157 8.35832C20.7541 7.18249 21.1366 5.99249 22.7516 5.72332L23.2899 5.63832C23.7149 5.56749 24.2249 5.18499 24.4232 4.78832L24.8199 3.98082C25.5849 2.45082 26.8316 2.45082 27.5966 3.99499Z" fill={getSvgFillColor(chat)}/>
@@ -481,8 +510,8 @@ export default function Stockverse_GPT() {
                                                         <path d="M23.4105 9.30095C23.1183 8.99661 22.7166 8.82617 22.3026 8.82617H6.91482C6.5009 8.82617 6.08699 8.99661 5.80699 9.30095C5.52699 9.6053 5.36873 10.0192 5.39308 10.4453L6.14786 22.9357C6.28177 24.7862 6.45221 27.0992 10.7009 27.0992H18.5166C22.7653 27.0992 22.9357 24.7983 23.0696 22.9357L23.8244 10.4575C23.8487 10.0192 23.6905 9.6053 23.4105 9.30095ZM16.6296 21.0001H12.5757C12.0766 21.0001 11.6626 20.5862 11.6626 20.087C11.6626 19.5879 12.0766 19.174 12.5757 19.174H16.6296C17.1287 19.174 17.5426 19.5879 17.5426 20.087C17.5426 20.5862 17.1287 21.0001 16.6296 21.0001ZM17.6522 16.1305H11.5653C11.0661 16.1305 10.6522 15.7166 10.6522 15.2175C10.6522 14.7183 11.0661 14.3044 11.5653 14.3044H17.6522C18.1513 14.3044 18.5653 14.7183 18.5653 15.2175C18.5653 15.7166 18.1513 16.1305 17.6522 16.1305Z" fill="var(--svg-color)"/>
                                                         </svg>
                                                     </div>
-                                                    <div className="w-[70%] overflow-x-hidden">
-                                                        <p onClick={() => ConversationIdHistory(chat.chat_id)} className="text-md text-primaryText/60 font-sansMedium w-max">
+                                                    <div onClick={() => ConversationIdHistory(chat.chat_id)} className="w-[70%] overflow-x-hidden">
+                                                        <p className="text-md text-primaryText/60 font-sansMedium w-max">
                                                             {chat.title.length > 20 ? `${chat.title.substring(0, 20)}...` : chat.title}
                                                         </p>
                                                     </div>
@@ -533,7 +562,7 @@ export default function Stockverse_GPT() {
             <div className="relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
                 
                 {/* Chat Navbar start */}
-                <div className='sticky top-0 max-lg:fixed py-3 px-2 bg-background flex items-start justify-end w-full h-max'>
+                <div className='sticky z-30 top-0 max-lg:fixed py-3 px-2 bg-background flex items-start justify-end w-full h-max'>
                     <div className={`${sidebarHide ? 'visible' : 'hidden'} max-lg:hidden mr-auto flex gap-2`}>
                     <svg onClick={toggleSidebar} className="w-10 h-10 p-1 rounded-xl cursor-pointer hover:bg-primaryText/10 icon-xl-heavy" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M8.85719 3H15.1428C16.2266 2.99999 17.1007 2.99998 17.8086 3.05782C18.5375 3.11737 19.1777 3.24318 19.77 3.54497C20.7108 4.02433 21.4757 4.78924 21.955 5.73005C22.2568 6.32234 22.3826 6.96253 22.4422 7.69138C22.5 8.39925 22.5 9.27339 22.5 10.3572V13.6428C22.5 14.7266 22.5 15.6008 22.4422 16.3086C22.3826 17.0375 22.2568 17.6777 21.955 18.27C21.4757 19.2108 20.7108 19.9757 19.77 20.455C19.1777 20.7568 18.5375 20.8826 17.8086 20.9422C17.1008 21 16.2266 21 15.1428 21H8.85717C7.77339 21 6.89925 21 6.19138 20.9422C5.46253 20.8826 4.82234 20.7568 4.23005 20.455C3.28924 19.9757 2.52433 19.2108 2.04497 18.27C1.74318 17.6777 1.61737 17.0375 1.55782 16.3086C1.49998 15.6007 1.49999 14.7266 1.5 13.6428V10.3572C1.49999 9.27341 1.49998 8.39926 1.55782 7.69138C1.61737 6.96253 1.74318 6.32234 2.04497 5.73005C2.52433 4.78924 3.28924 4.02433 4.23005 3.54497C4.82234 3.24318 5.46253 3.11737 6.19138 3.05782C6.89926 2.99998 7.77341 2.99999 8.85719 3ZM6.35424 5.05118C5.74907 5.10062 5.40138 5.19279 5.13803 5.32698C4.57354 5.6146 4.1146 6.07354 3.82698 6.63803C3.69279 6.90138 3.60062 7.24907 3.55118 7.85424C3.50078 8.47108 3.5 9.26339 3.5 10.4V13.6C3.5 14.7366 3.50078 15.5289 3.55118 16.1458C3.60062 16.7509 3.69279 17.0986 3.82698 17.362C4.1146 17.9265 4.57354 18.3854 5.13803 18.673C5.40138 18.8072 5.74907 18.8994 6.35424 18.9488C6.97108 18.9992 7.76339 19 8.9 19H9.5V5H8.9C7.76339 5 6.97108 5.00078 6.35424 5.05118ZM11.5 5V19H15.1C16.2366 19 17.0289 18.9992 17.6458 18.9488C18.2509 18.8994 18.5986 18.8072 18.862 18.673C19.4265 18.3854 19.8854 17.9265 20.173 17.362C20.3072 17.0986 20.3994 16.7509 20.4488 16.1458C20.4992 15.5289 20.5 14.7366 20.5 13.6V10.4C20.5 9.26339 20.4992 8.47108 20.4488 7.85424C20.3994 7.24907 20.3072 6.90138 20.173 6.63803C19.8854 6.07354 19.4265 5.6146 18.862 5.32698C18.5986 5.19279 18.2509 5.10062 17.6458 5.05118C17.0289 5.00078 16.2366 5 15.1 5H11.5ZM5 8.5C5 7.94772 5.44772 7.5 6 7.5H7C7.55229 7.5 8 7.94772 8 8.5C8 9.05229 7.55229 9.5 7 9.5H6C5.44772 9.5 5 9.05229 5 8.5ZM5 12C5 11.4477 5.44772 11 6 11H7C7.55229 11 8 11.4477 8 12C8 12.5523 7.55229 13 7 13H6C5.44772 13 5 12.5523 5 12Z" fill="currentColor"></path></svg>
                     <svg onClick={handleCreateNewChat} className="w-10 h-10 p-1 rounded-xl cursor-pointer hover:bg-primaryText/10 icon-xl-heavy" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.6729 3.91287C16.8918 2.69392 18.8682 2.69392 20.0871 3.91287C21.3061 5.13182 21.3061 7.10813 20.0871 8.32708L14.1499 14.2643C13.3849 15.0293 12.3925 15.5255 11.3215 15.6785L9.14142 15.9899C8.82983 16.0344 8.51546 15.9297 8.29289 15.7071C8.07033 15.4845 7.96554 15.1701 8.01005 14.8586L8.32149 12.6785C8.47449 11.6075 8.97072 10.615 9.7357 9.85006L15.6729 3.91287ZM18.6729 5.32708C18.235 4.88918 17.525 4.88918 17.0871 5.32708L11.1499 11.2643C10.6909 11.7233 10.3932 12.3187 10.3014 12.9613L10.1785 13.8215L11.0386 13.6986C11.6812 13.6068 12.2767 13.3091 12.7357 12.8501L18.6729 6.91287C19.1108 6.47497 19.1108 5.76499 18.6729 5.32708ZM11 3.99929C11.0004 4.55157 10.5531 4.99963 10.0008 5.00007C9.00227 5.00084 8.29769 5.00827 7.74651 5.06064C7.20685 5.11191 6.88488 5.20117 6.63803 5.32695C6.07354 5.61457 5.6146 6.07351 5.32698 6.63799C5.19279 6.90135 5.10062 7.24904 5.05118 7.8542C5.00078 8.47105 5 9.26336 5 10.4V13.6C5 14.7366 5.00078 15.5289 5.05118 16.1457C5.10062 16.7509 5.19279 17.0986 5.32698 17.3619C5.6146 17.9264 6.07354 18.3854 6.63803 18.673C6.90138 18.8072 7.24907 18.8993 7.85424 18.9488C8.47108 18.9992 9.26339 19 10.4 19H13.6C14.7366 19 15.5289 18.9992 16.1458 18.9488C16.7509 18.8993 17.0986 18.8072 17.362 18.673C17.9265 18.3854 18.3854 17.9264 18.673 17.3619C18.7988 17.1151 18.8881 16.7931 18.9393 16.2535C18.9917 15.7023 18.9991 14.9977 18.9999 13.9992C19.0003 13.4469 19.4484 12.9995 20.0007 13C20.553 13.0004 21.0003 13.4485 20.9999 14.0007C20.9991 14.9789 20.9932 15.7808 20.9304 16.4426C20.8664 17.116 20.7385 17.7136 20.455 18.2699C19.9757 19.2107 19.2108 19.9756 18.27 20.455C17.6777 20.7568 17.0375 20.8826 16.3086 20.9421C15.6008 21 14.7266 21 13.6428 21H10.3572C9.27339 21 8.39925 21 7.69138 20.9421C6.96253 20.8826 6.32234 20.7568 5.73005 20.455C4.78924 19.9756 4.02433 19.2107 3.54497 18.2699C3.24318 17.6776 3.11737 17.0374 3.05782 16.3086C2.99998 15.6007 2.99999 14.7266 3 13.6428V10.3572C2.99999 9.27337 2.99998 8.39922 3.05782 7.69134C3.11737 6.96249 3.24318 6.3223 3.54497 5.73001C4.02433 4.7892 4.78924 4.0243 5.73005 3.54493C6.28633 3.26149 6.88399 3.13358 7.55735 3.06961C8.21919 3.00673 9.02103 3.00083 9.99922 3.00007C10.5515 2.99964 10.9996 3.447 11 3.99929Z" fill="currentColor"></path></svg>
@@ -577,7 +606,7 @@ export default function Stockverse_GPT() {
                 {/* Chat Navbar end */}
 
                 {/* Chat Area start */}
-                <div className='w-full xl:px-[20%] md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center'>
+                <div className='w-full xl:px-[20%] z-0 md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center'>
                     {chatCanvas
                     .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
                     .map((chat, index) => (
