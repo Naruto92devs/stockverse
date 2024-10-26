@@ -105,6 +105,8 @@ export default function Stockverse_GPT() {
             if (response.status === 207) {
                 setChatId(response.data.chat_id);
                 sessionStorage.setItem('chatId', (response.data.chat_id));
+                setChatCanvas([]);
+                sessionStorage.removeItem('chatCanvas');
                 setMessage(response.data.message);
                 setLoading(false);
             } else {
@@ -120,26 +122,60 @@ export default function Stockverse_GPT() {
     };
 
     const handleSubmitCommand = async (e) => {
+        e.preventDefault();
         setResponseLoading(true);
         setQuestion(command);
         setCommand('');
-        e.preventDefault();
+    
+        // Generate a temporary unique ID for tracking the new chat object
+        const tempId = Date.now();
+    
+        // Create the new chat object with an empty answer
+        const newChatObject = {
+            id: tempId,
+            chat_id: chatId,
+            question: command,
+            answer: '', // Initially empty, will update after server response
+            created_at: new Date().toISOString(),
+        };
+    
+        // Add the new chat object to chatCanvas state immediately and update sessionStorage
+        setChatCanvas((prevChatCanvas) => {
+            const updatedCanvas = [...prevChatCanvas, newChatObject];
+            sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
+            return updatedCanvas;
+        });
+    
         try {
-            const response = await axios.post('https://devsalman.tech/stockgpt', { chatId, command }, { withCredentials: true });
+            // Make the API request
+            const response = await axios.post(
+                'https://devsalman.tech/stockgpt',
+                { chatId, command },
+                { withCredentials: true }
+            );
+    
             if (response.status === 207) {
+                // Update the answer in chatCanvas once received from the server
+                setChatCanvas((prevChatCanvas) => {
+                    const updatedCanvas = prevChatCanvas.map((chat) =>
+                        chat.id === tempId
+                            ? { ...chat, answer: response.data.answer }
+                            : chat
+                    );
+                    sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
+                    return updatedCanvas;
+                });
                 setAnswer(response.data.answer);
                 setMessage(response.data.message);
-                setResponseLoading(false);
             } else {
                 setMessage(response.data.message || 'Something went wrong');
-                setResponseLoading(false);
             }
-            setCommand('');
-            setResponseLoading(false);
+    
         } catch (error) {
             setMessage('An error occurred. Please try again.');
-            setResponseLoading(false);
             console.error('Error during command submission:', error);
+        } finally {
+            setResponseLoading(false);
         }
     };
 
@@ -542,7 +578,9 @@ export default function Stockverse_GPT() {
 
                 {/* Chat Area start */}
                 <div className='w-full xl:px-[20%] md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center'>
-                    {chatCanvas.map((chat, index) => (
+                    {chatCanvas
+                    .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+                    .map((chat, index) => (
                         <div key={index} className="w-full px-3 flex flex-col gap-y-6 py-4">
                         {/* Question */}
                         <p className="text-md self-end py-2 px-4 bg-primaryText/10 rounded-3xl">{chat.question}</p>
