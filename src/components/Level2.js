@@ -96,13 +96,13 @@ const Level2 = ({ symbol }) => {
     };
 
     return (
-        <div className="flex flex-col items-center w-auto h-full gap-4">
+        <div className="flex flex-col items-center max-xl:w-full h-full gap-4">
             <div className="w-full flex gap-2 items-center">
                 <p className="max-lg:pl-3 text-base text-primaryText">Select Date:</p>
                 <input onChange={handleDateChange} placeholder="Search" className="input" type="date" />
             </div>
 
-            <div className='flex flex-wrap gap-8 lg:w-max'>
+            <div className='flex flex-wrap gap-8 lg:w-max max-xl:w-full'>
                 <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">
 
                     {/* <input placeholder="Search" className="input" type="date" /> */}
