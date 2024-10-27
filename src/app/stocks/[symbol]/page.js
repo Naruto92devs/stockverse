@@ -317,7 +317,7 @@ export default function StockDetails() {
                 </div>
 
                 {/* Render content based on filter */}
-                <div className="w-full h-full pt-2">
+                <div className="w-full h-full pt-2 flex flex-col items-start">
                     {(() => {
                         switch (filter) {
                             case 'chart':
