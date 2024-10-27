@@ -95,136 +95,138 @@ const Insider_Transactions = ({ symbol }) => {
     }, [symbol]); // Refetch when symbol changes
     
     return (
-        <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">
-            {/* Columns */}
-            <div ref={scrollRef} className="flex max-w-full w-max max-h-[550px] overflow-y-auto">
+        <div className='w-full'>
+            <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">
+                {/* Columns */}
+                <div ref={scrollRef} className="flex max-w-full w-max max-h-[550px] overflow-y-auto">
 
-                {/* executive Column */}
-                <div className="min-w-max w-[15rem] sticky top-0 left-0 z-[2] h-max  bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
-                    {/* Header for Stock Column */}
-                    <div className="sticky top-0 left-0 py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
-                    Executive
+                    {/* executive Column */}
+                    <div className="min-w-max w-[15rem] sticky top-0 left-0 z-[2] h-max  bg-background flex flex-col border-y-[1px] border-r-[1px] border-primaryText/10">
+                        {/* Header for Stock Column */}
+                        <div className="sticky top-0 left-0 py-3 px-3 bg-mobNavBg font-sansMedium text-sm text-mobNavLink border-b-[1px] border-primaryText/10">
+                        Executive
+                        </div>
+                        {/* Transaction Rows */}
+                        {loading || !transactions || transactions.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            transactions.map((transaction, index) => (
+                                <div key={index} className="w-full cursor-pointer flex items-center gap-x-2 py-3 px-3 group border-b-[1px] border-primaryText/10">
+                                    <ul className="w-full">
+                                        <li className="text-xs w-full text-center py-1 px-2 bg-primaryText/10 rounded-md group-hover:bg-article group-hover:text-mobNavLink">{transaction.executive}</li>
+                                    </ul>
+                                </div>
+                            ))
+                        )}
                     </div>
-                    {/* Transaction Rows */}
-                    {loading || !transactions || transactions.length === 0 ? (
-                        <GainerFallbackUI/>
-                    ) : (
-                        transactions.map((transaction, index) => (
-                            <div key={index} className="w-full cursor-pointer flex items-center gap-x-2 py-3 px-3 group border-b-[1px] border-primaryText/10">
-                                <ul className="w-full">
-                                    <li className="text-xs w-full text-center py-1 px-2 bg-primaryText/10 rounded-md group-hover:bg-article group-hover:text-mobNavLink">{transaction.executive}</li>
-                                </ul>
-                            </div>
-                        ))
-                    )}
-                </div>
 
-                {/* Shares Column */}
-                <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
-                    {/* Header */}
-                    <div className="sticky top-0 left-0 pl-2 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                        Shares
+                    {/* Shares Column */}
+                    <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 pl-2 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Shares
+                        </div>
+                        {/* Rows */}
+                        {loading || !transactions || transactions.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            transactions.map((transaction, index) => (
+                                <div key={index} className="text-base pl-2 py-3 border-b-[1px] border-primaryText/10">
+                                    {transaction.shares}
+                                </div>
+                            ))
+                        )}
                     </div>
-                    {/* Rows */}
-                    {loading || !transactions || transactions.length === 0 ? (
-                        <GainerFallbackUI/>
-                    ) : (
-                        transactions.map((transaction, index) => (
-                            <div key={index} className="text-base pl-2 py-3 border-b-[1px] border-primaryText/10">
-                                {transaction.shares}
-                            </div>
-                        ))
-                    )}
-                </div>
 
-                {/* Share Price Column */}
-                <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
-                    {/* Header */}
-                    <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                        Share Price
+                    {/* Share Price Column */}
+                    <div className="flex flex-col min-w-[8rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Share Price
+                        </div>
+                        {/* Rows */}
+                        {loading || !transactions || transactions.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            transactions.map((transaction, index) => (
+                                <div key={index} className="text-base py-3 border-b-[1px] border-primaryText/10 text-primaryText">
+                                    {transaction.sharePrice}
+                                </div>
+                            ))
+                        )}
                     </div>
-                    {/* Rows */}
-                    {loading || !transactions || transactions.length === 0 ? (
-                        <GainerFallbackUI/>
-                    ) : (
-                        transactions.map((transaction, index) => (
-                            <div key={index} className="text-base py-3 border-b-[1px] border-primaryText/10 text-primaryText">
-                                {transaction.sharePrice}
-                            </div>
-                        ))
-                    )}
-                </div>
 
-                {/* acquisitionOrDisposal Column */}
-                <div className="flex flex-col min-w-[12rem] h-max text-left border-y-[1px] border-primaryText/10">
-                    {/* Header */}
-                    <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                    Acquisition Or Disposal
+                    {/* acquisitionOrDisposal Column */}
+                    <div className="flex flex-col min-w-[12rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                        Acquisition Or Disposal
+                        </div>
+                        {/* Rows */}
+                        {loading || !transactions || transactions.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            transactions.map((transaction, index) => (
+                                <div key={index} className="text-base py-3 border-b-[1px] border-primaryText/10 text-primaryText">
+                                    {transaction.acquisitionOrDisposal}
+                                </div>
+                            ))
+                        )}
                     </div>
-                    {/* Rows */}
-                    {loading || !transactions || transactions.length === 0 ? (
-                        <GainerFallbackUI/>
-                    ) : (
-                        transactions.map((transaction, index) => (
-                            <div key={index} className="text-base py-3 border-b-[1px] border-primaryText/10 text-primaryText">
-                                {transaction.acquisitionOrDisposal}
-                            </div>
-                        ))
-                    )}
-                </div>
 
-                {/* Transaction Date Column */}
-                <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
-                    {/* Header */}
-                    <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                        Transaction Date
+                    {/* Transaction Date Column */}
+                    <div className="flex flex-col min-w-[10rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Transaction Date
+                        </div>
+                        {/* Rows */}
+                        {loading || !transactions || transactions.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            transactions.map((transaction, index) => (
+                                <div key={index} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                    {transaction.transactionDate}
+                                </div>
+                            ))
+                        )}
                     </div>
-                    {/* Rows */}
-                    {loading || !transactions || transactions.length === 0 ? (
-                        <GainerFallbackUI/>
-                    ) : (
-                        transactions.map((transaction, index) => (
-                            <div key={index} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
-                                {transaction.transactionDate}
-                            </div>
-                        ))
-                    )}
-                </div>
 
-                {/* Executive Title Column */}
-                <div className="flex flex-col min-w-max w-[15rem] h-max text-left border-y-[1px] border-primaryText/10">
-                    {/* Header */}
-                    <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                        Executive Title
+                    {/* Executive Title Column */}
+                    <div className="flex flex-col min-w-max w-[15rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Executive Title
+                        </div>
+                        {/* Rows */}
+                        {loading || !transactions || transactions.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            transactions.map((transaction, index) => (
+                                <div key={index} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                    {transaction.executiveTitle}
+                                </div>
+                            ))
+                        )}
                     </div>
-                    {/* Rows */}
-                    {loading || !transactions || transactions.length === 0 ? (
-                        <GainerFallbackUI/>
-                    ) : (
-                        transactions.map((transaction, index) => (
-                            <div key={index} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
-                                {transaction.executiveTitle}
-                            </div>
-                        ))
-                    )}
-                </div>
 
-                {/* security Type Column */}
-                <div className="flex flex-col min-w-max w-[15rem] h-max text-left border-y-[1px] border-primaryText/10">
-                    {/* Header */}
-                    <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
-                        Security Type
+                    {/* security Type Column */}
+                    <div className="flex flex-col min-w-max w-[15rem] h-max text-left border-y-[1px] border-primaryText/10">
+                        {/* Header */}
+                        <div className="sticky top-0 left-0 py-3 pl-2 font-sansMedium text-sm bg-mobNavBg text-mobNavLink border-b-[1px] border-primaryText/10">
+                            Security Type
+                        </div>
+                        {/* Rows */}
+                        {loading || !transactions || transactions.length === 0 ? (
+                            <GainerFallbackUI/>
+                        ) : (
+                            transactions.map((transaction, index) => (
+                                <div key={index} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
+                                    {transaction.securityType}
+                                </div>
+                            ))
+                        )}
                     </div>
-                    {/* Rows */}
-                    {loading || !transactions || transactions.length === 0 ? (
-                        <GainerFallbackUI/>
-                    ) : (
-                        transactions.map((transaction, index) => (
-                            <div key={index} className="text-base py-3 pl-2 border-b-[1px] border-primaryText/10">
-                                {transaction.securityType}
-                            </div>
-                        ))
-                    )}
                 </div>
             </div>
         </div>

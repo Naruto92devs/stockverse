@@ -102,7 +102,7 @@ const Level2 = ({ symbol }) => {
                 <input onChange={handleDateChange} placeholder="Search" className="input" type="date" />
             </div>
 
-            <div className='flex flex-wrap gap-8 lg:w-max max-xl:w-full'>
+            <div className='flex flex-wrap gap-12 lg:w-max max-xl:w-full'>
                 <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">
 
                     {/* <input placeholder="Search" className="input" type="date" /> */}

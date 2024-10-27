@@ -104,7 +104,7 @@ const Earnings_Calendar = ({ symbol }) => {
     };
     
     return (
-            
+            <div className='w-full'>
             <div ref={scrollRef} className="flex-grown cursor-pointer select-none overflow-x-auto">
                 {/* Columns */}
                 <div ref={scrollRef} className="flex max-w-full w-max max-h-[200px] overflow-y-auto">
@@ -205,6 +205,7 @@ const Earnings_Calendar = ({ symbol }) => {
                         )}
                     </div>
                 </div>
+            </div>
             </div>
     );
 }
