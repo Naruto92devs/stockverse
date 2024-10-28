@@ -9,6 +9,7 @@ import StockNews from '@/components/stockNews';
 import Earnings_Calendar from '@/components/EarningsCalendar';
 import Insider_Transactions from '@/components/InsiderTransactions';
 import Technical_Analysis from '@/components/TechnicalAnalysis';
+import Financials from '@/components/Financials';
 import Historical_Summary from '@/components/Historical_Summary';
 import Historical_Data from '@/components/HistoricalData';
 import Trades from '@/components/Trades';
@@ -291,6 +292,12 @@ export default function StockDetails() {
                         Insider Transactions
                     </button>
                     <button
+                        className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'financials' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
+                        onClick={() => handleFilterChange('financials')}
+                    >
+                        Financials
+                    </button>
+                    <button
                         className={`min-w-max px-3 py-1.5 rounded hover:bg-article hover:text-mobNavLink ${filter === 'historical' ? 'bg-article hover:bg-article text-mobNavLink' : 'text-primaryText bg-primaryText/10'}`}
                         onClick={() => handleFilterChange('historical')}
                     >
@@ -339,6 +346,8 @@ export default function StockDetails() {
                                 return <Insider_Transactions symbol={symbol} />;
                             case 'technical-analysis':
                                 return <Technical_Analysis symbol={symbol} />;
+                            case 'financials':
+                                return <Financials symbol={symbol} />;
                             case 'historical':
                                 return (
                                     <div className="w-full h-full flex flex-col gap-y-6">

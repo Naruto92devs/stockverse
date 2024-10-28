@@ -16,7 +16,7 @@ export default function Level_2() {
           <p className="text-base max-sm:text-sm text-secondaryHeading">Unlock a new level of insight with real-time Level 2 data, offering a detailed view of market activity beyond standard quotes. Track bid and ask prices, order book volumes, and identify patterns that reveal buyer and seller interest. Stay ahead with in-depth market transparency and make more informed trading decisions with the granular data trusted by experienced investors.</p>
         </div>
       </div>
-      <div className="w-full p-6 max-sm:px-3 xl:container mx-auto flex flex-col items-center max-lg:items-start gap-4">
+      <div className="w-full p-6 max-sm:px-0 xl:container mx-auto flex flex-col items-center max-lg:items-start gap-4">
         {/* Step 2: Pass symbol and setSymbol to RelativeSearchBar */}
         <RelativeSearchBar symbol={symbol} setSymbol={setSymbol} />
         
