@@ -1,5 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import Cookies from 'js-cookie';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -9,6 +11,7 @@ import ThemeSwitch from '@/components/ThemeSwitch';
 
 export default function Stockverse_GPT() {
     const [loading, setLoading] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     const [responseloading, setResponseLoading] = useState(false);
     const [message, setMessage] = useState('');
     const [userInfo, setUserInfo] = useState(null);
@@ -23,7 +26,19 @@ export default function Stockverse_GPT() {
     const [chatHistory, setChatHistory] = useState(null);
     const [sidebarHide, setSidebarHide] = useState(false);
     const [favouriteStatus, setFavouriteStatus] = useState({}); // Track favorite status for each chat
+    const [isChatEmpty, setIsChatEmpty] = useState(true);
 
+    useEffect(() => {
+        setIsChatEmpty(chatCanvas.length === 0 ? true : false);
+    }, [chatCanvas]);
+
+    useEffect(() => {
+        const token = Cookies.get('authToken');
+        if (!token) {
+            setIsLogin(true);
+        }
+    }, []);
+    
     // Load userInfo and chatHistory from sessionStorage on mount
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -62,6 +77,10 @@ export default function Stockverse_GPT() {
         }
         if (!chatId && userid) {
             handleCreateNewChat();
+        } else if (!chatId && !userid) {
+            setLoading(false);
+        } else {
+            setLoading(false);
         }
     }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
 
@@ -139,11 +158,14 @@ export default function Stockverse_GPT() {
         }
     };
 
-    const handleSubmitCommand = async (e) => {
-        e.preventDefault();
+    const handleSubmitCommand = async (e, inputCommand = null) => {
+        if (e) e.preventDefault(); // Prevent default form behavior if called from form submit
+    
+        const commandToSubmit = inputCommand || command; // Use inputCommand if provided, otherwise use state
+    
         setResponseLoading(true);
-        setQuestion(command);
-        setCommand('');
+        setQuestion(commandToSubmit);
+        setCommand(''); // Clear input field if form submission
     
         // Generate a temporary unique ID for tracking the new chat object
         const tempId = Date.now();
@@ -152,8 +174,8 @@ export default function Stockverse_GPT() {
         const newChatObject = {
             id: tempId,
             chat_id: chatId,
-            question: command,
-            answer: '', // Initially empty, will update after server response
+            question: commandToSubmit,
+            answer: '',
             created_at: new Date().toISOString(),
         };
     
@@ -168,7 +190,7 @@ export default function Stockverse_GPT() {
             // Make the API request
             const response = await axios.post(
                 'https://devsalman.tech/stockgpt',
-                { chatId, command },
+                { chatId, command: commandToSubmit },
                 { withCredentials: true }
             );
     
@@ -176,9 +198,7 @@ export default function Stockverse_GPT() {
                 // Update the answer in chatCanvas once received from the server
                 setChatCanvas((prevChatCanvas) => {
                     const updatedCanvas = prevChatCanvas.map((chat) =>
-                        chat.id === tempId
-                            ? { ...chat, answer: response.data.answer }
-                            : chat
+                        chat.id === tempId ? { ...chat, answer: response.data.answer } : chat
                     );
                     sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
                     fetchChatHistory();
@@ -544,6 +564,26 @@ export default function Stockverse_GPT() {
             </div>
             {/* side bar end */}
 
+            {/* IsLogin popup start*/}
+            <div className={`${isLogin ? 'visible' : 'hidden'} absolute z-50 top-0 left-0 bottom-0 right-0 bg-primaryText/70 flex items-center justify-center`}>
+                <div className='max-w-[90%] w-max p-8 rounded-lg bg-background text-center flex flex-col items-center gap-4'>
+                    <p className="text-lg text-primaryText text-center">Please Login / Create Free Account to Use StockverseGPT</p>
+                    <div className="flex gap-4 flex-wrap">
+                        <Link href='/login'
+                            className="w-max bg-sell text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
+                        >
+                            Login / Create Free Account
+                        </Link>
+                        <Link href='/'
+                        className="w-max bg-buy text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
+                        >
+                            Go to DashBoard
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            {/* IsLogin popup end*/}
+
             {/* Loader start*/}
             <div className={`${loading ? 'visible' : 'hidden'} absolute z-50 top-0 left-0 bottom-0 right-0 bg-primaryText/30 flex items-center justify-center`}>
                 <div id="wifi-loader">
@@ -613,7 +653,45 @@ export default function Stockverse_GPT() {
                 {/* Chat Navbar end */}
 
                 {/* Chat Area start */}
-                <div className='w-full xl:px-[20%] z-0 md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center'>
+                <div className={` ${isChatEmpty? 'visible' : 'hidden'} w-full xl:px-[20%] z-0 px-3 max-lg:pb-[2rem] max-lg:pt-[5rem] h-full flex flex-col gap-1 items-start justify-center`}>
+                        <h1 className='text-primaryText text-4xl font-sansMedium'>Hi there, {userInfo? userInfo.user.fullname : ''} </h1>
+                        <h1 className='text-primaryText text-5xl font-sansSemibold'>What would you like to know?</h1>
+                        <p className='text-lg text-primaryText'>Use one of the most common prompts below or use your own</p>
+                        <div className='w-full flex flex-wrap gap-4 md:justify-start justify-center pt-4'>
+                            <div onClick={() => handleSubmitCommand(null, "What are the top stock picks for this week?")} 
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                                <p>What are the top stock picks for this week?</p>
+                                <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1583 8.23285C16.1583 10.5825 14.2851 12.4666 11.949 12.4666C9.61292 12.4666 7.73974 10.5825 7.73974 8.23285C7.73974 5.88227 9.61292 4 11.949 4C14.2851 4 16.1583 5.88227 16.1583 8.23285ZM11.9491 19.9999C8.51789 19.9999 5.58813 19.456 5.58813 17.2801C5.58813 15.1033 8.49909 14.5396 11.9491 14.5396C15.3803 14.5396 18.31 15.0835 18.31 17.2603C18.31 19.4361 15.3991 19.9999 11.9491 19.9999ZM17.957 8.30938C17.957 9.50719 17.5998 10.623 16.973 11.5507C16.9085 11.6461 16.9658 11.7749 17.0795 11.7947C17.2362 11.8217 17.3983 11.8371 17.5631 11.8416C19.2061 11.8848 20.6808 10.8212 21.0883 9.2199C21.6918 6.84139 19.9198 4.70605 17.6633 4.70605C17.418 4.70605 17.1834 4.73217 16.9551 4.779C16.9237 4.78621 16.8906 4.80062 16.8727 4.82854C16.8512 4.86276 16.8673 4.90869 16.8888 4.93841C17.5666 5.89395 17.957 7.05934 17.957 8.30938ZM20.6781 13.5125C21.7821 13.7295 22.5083 14.1726 22.8092 14.8166C23.0635 15.3452 23.0635 15.9585 22.8092 16.4863C22.3489 17.4851 20.8652 17.8057 20.2886 17.8885C20.1695 17.9065 20.0737 17.803 20.0862 17.6832C20.3808 14.9156 18.0376 13.6034 17.4314 13.3017C17.4054 13.2882 17.4 13.2675 17.4027 13.2549C17.4045 13.2459 17.4153 13.2315 17.435 13.2288C18.7467 13.2045 20.157 13.3846 20.6781 13.5125ZM6.43719 11.8411C6.60194 11.8366 6.76312 11.8222 6.92071 11.7942C7.03442 11.7744 7.09173 11.6456 7.02726 11.5502C6.40048 10.6226 6.04321 9.5067 6.04321 8.30889C6.04321 7.05885 6.43361 5.89347 7.11143 4.93792C7.13292 4.9082 7.14814 4.86227 7.12755 4.82805C7.10964 4.80103 7.07561 4.78572 7.04517 4.77852C6.81595 4.73168 6.58135 4.70557 6.33601 4.70557C4.07959 4.70557 2.30759 6.8409 2.91199 9.21941C3.3194 10.8207 4.79413 11.8843 6.43719 11.8411ZM6.59694 13.2545C6.59962 13.268 6.59425 13.2878 6.56918 13.3022C5.9621 13.6039 3.61883 14.9161 3.91342 17.6828C3.92595 17.8035 3.83104 17.9061 3.71195 17.889C3.13531 17.8062 1.65163 17.4855 1.19139 16.4868C0.936203 15.9581 0.936203 15.3457 1.19139 14.817C1.49225 14.1731 2.21752 13.73 3.32156 13.5121C3.84358 13.3851 5.25294 13.205 6.5656 13.2293C6.5853 13.232 6.59515 13.2464 6.59694 13.2545Z" fill="var(--svg-color)"/>
+                                </svg>
+                            </div>
+                            <div onClick={() => handleSubmitCommand(null, "What are the key factors that affects the stock markets?")} 
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                                <p>What are the key factors that affects the stock markets?</p>
+                                <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.47 16.83L18.86 19.99C18.96 20.82 18.07 21.4 17.36 20.97L13.9 18.91C13.66 18.77 13.6 18.47 13.73 18.23C14.23 17.31 14.5 16.27 14.5 15.23C14.5 11.57 11.36 8.59 7.50002 8.59C6.71002 8.59 5.94002 8.71 5.22002 8.95C4.85002 9.07 4.49002 8.73 4.58002 8.35C5.49002 4.71 8.99002 2 13.17 2C18.05 2 22 5.69 22 10.24C22 12.94 20.61 15.33 18.47 16.83Z" fill="var(--svg-color)"/>
+                                <path d="M13 15.23C13 16.42 12.56 17.52 11.82 18.39C10.83 19.59 9.26 20.36 7.5 20.36L4.89 21.91C4.45 22.18 3.89 21.81 3.95 21.3L4.2 19.33C2.86 18.4 2 16.91 2 15.23C2 13.47 2.94 11.92 4.38 11C5.27 10.42 6.34 10.09 7.5 10.09C10.54 10.09 13 12.39 13 15.23Z" fill="var(--svg-color)"/>
+                                </svg>
+                            </div>
+                            <div onClick={() => handleSubmitCommand(null, "What are the key indicators to watch when predicting stock market trends?")} 
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                                <p>What are the key indicators to watch when predicting stock market trends?</p>
+                                <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 3.5H7C4 3.5 2 5 2 8.5V15.5C2 19 4 20.5 7 20.5H17C20 20.5 22 19 22 15.5V8.5C22 5 20 3.5 17 3.5ZM17.47 9.59L14.34 12.09C13.68 12.62 12.84 12.88 12 12.88C11.16 12.88 10.31 12.62 9.66 12.09L6.53 9.59C6.21 9.33 6.16 8.85 6.41 8.53C6.67 8.21 7.14 8.15 7.46 8.41L10.59 10.91C11.35 11.52 12.64 11.52 13.4 10.91L16.53 8.41C16.85 8.15 17.33 8.2 17.58 8.53C17.84 8.85 17.79 9.33 17.47 9.59Z" fill="var(--svg-color)"/>
+                                </svg>
+                            </div>
+                            <div onClick={() => handleSubmitCommand(null, "How can I build a balanced portfolio for long-term growth?")} 
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                                <p>How can I build a balanced portfolio for long-term growth?</p>
+                                <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.75 3.56V2C16.75 1.59 16.41 1.25 16 1.25C15.59 1.25 15.25 1.59 15.25 2V3.5H8.74999V2C8.74999 1.59 8.40999 1.25 7.99999 1.25C7.58999 1.25 7.24999 1.59 7.24999 2V3.56C4.54999 3.81 3.23999 5.42 3.03999 7.81C3.01999 8.1 3.25999 8.34 3.53999 8.34H20.46C20.75 8.34 20.99 8.09 20.96 7.81C20.76 5.42 19.45 3.81 16.75 3.56Z" fill="var(--svg-color)"/>
+                                <path d="M19 15C16.79 15 15 16.79 15 19C15 19.75 15.21 20.46 15.58 21.06C16.27 22.22 17.54 23 19 23C20.46 23 21.73 22.22 22.42 21.06C22.79 20.46 23 19.75 23 19C23 16.79 21.21 15 19 15ZM21.07 18.57L18.94 20.54C18.8 20.67 18.61 20.74 18.43 20.74C18.24 20.74 18.05 20.67 17.9 20.52L16.91 19.53C16.62 19.24 16.62 18.76 16.91 18.47C17.2 18.18 17.68 18.18 17.97 18.47L18.45 18.95L20.05 17.47C20.35 17.19 20.83 17.21 21.11 17.51C21.39 17.81 21.37 18.28 21.07 18.57Z" fill="var(--svg-color)"/>
+                                <path d="M20 9.83997H4C3.45 9.83997 3 10.29 3 10.84V17C3 20 4.5 22 8 22H12.93C13.62 22 14.1 21.33 13.88 20.68C13.68 20.1 13.51 19.46 13.51 19C13.51 15.97 15.98 13.5 19.01 13.5C19.3 13.5 19.59 13.52 19.87 13.57C20.47 13.66 21.01 13.19 21.01 12.59V10.85C21 10.29 20.55 9.83997 20 9.83997ZM9.21 18.21C9.02 18.39 8.76 18.5 8.5 18.5C8.24 18.5 7.98 18.39 7.79 18.21C7.61 18.02 7.5 17.76 7.5 17.5C7.5 17.24 7.61 16.98 7.79 16.79C7.89 16.7 7.99 16.63 8.12 16.58C8.49 16.42 8.93 16.51 9.21 16.79C9.39 16.98 9.5 17.24 9.5 17.5C9.5 17.76 9.39 18.02 9.21 18.21ZM9.21 14.71C9.16 14.75 9.11 14.79 9.06 14.83C9 14.87 8.94 14.9 8.88 14.92C8.82 14.95 8.76 14.97 8.7 14.98C8.63 14.99 8.56 15 8.5 15C8.24 15 7.98 14.89 7.79 14.71C7.61 14.52 7.5 14.26 7.5 14C7.5 13.74 7.61 13.48 7.79 13.29C8.02 13.06 8.37 12.95 8.7 13.02C8.76 13.03 8.82 13.05 8.88 13.08C8.94 13.1 9 13.13 9.06 13.17C9.11 13.21 9.16 13.25 9.21 13.29C9.39 13.48 9.5 13.74 9.5 14C9.5 14.26 9.39 14.52 9.21 14.71ZM12.71 14.71C12.52 14.89 12.26 15 12 15C11.74 15 11.48 14.89 11.29 14.71C11.11 14.52 11 14.26 11 14C11 13.74 11.11 13.48 11.29 13.29C11.67 12.92 12.34 12.92 12.71 13.29C12.89 13.48 13 13.74 13 14C13 14.26 12.89 14.52 12.71 14.71Z" fill="var(--svg-color)"/>
+                                </svg>
+                            </div>
+                        </div>
+                </div>
+                <div className={` ${isChatEmpty? 'hidden' : 'visible'} w-full xl:px-[20%] z-0 md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center`}>
                     {chatCanvas
                     .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
                     .map((chat, index) => (
@@ -636,8 +714,8 @@ export default function Stockverse_GPT() {
                             (<p className="text-md self-end py-2 px-4 bg-primaryText/10 rounded-3xl">{chat.question}</p>
                             )}
                             {/* Answer */}
-                            <div className='relative flex gap-2 items-start'>
-                                <svg className='w-14 h-8 absolute top-[-.3rem] left-[-3rem]' width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <div className='w-full flex gap-2 items-start'>
+                                {/* <svg className='w-14 h-8' width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="92" height="92" rx="46" fill="#131313"/>
                                 <path d="M52.5386 50.455V50.4586L52.0969 50.712L52.5386 50.455Z" fill="url(#paint0_linear_2321_2655)"/>
                                 <path d="M68.9964 35.5177V20.9895L46.5 8L24 20.9895V34.4932L50.3158 49.6874L46.4964 51.8922L24 38.9027V53.4308L46.5 66.4203L69 53.4308V39.9272L42.6806 24.7329L46.5 22.5282L69 35.5177H68.9964ZM25.7776 22.0177L46.5 10.0527L67.2188 22.0177V26.4272L46.5 14.5093L25.7776 26.4272V22.0177ZM25.7776 33.465V29.5044L55.5253 46.679L52.0933 48.6593L25.7776 33.465ZM67.2188 52.4027L46.5 64.3677L25.7776 52.4027V47.9932L46.4964 59.9545L67.2152 47.9932V52.4027H67.2188ZM67.2188 40.9553V44.9159L37.471 27.7413L40.9031 25.7611L67.2188 40.9553ZM40.9031 23.7084L40.4578 23.9654L33.9159 27.7413L66.3319 46.4545L46.5 57.9055L25.7776 45.9405V41.9799L46.4964 53.9413L52.0933 50.712L52.5386 50.4549L59.0805 46.679L26.6681 27.9658L46.4964 16.5583L67.2152 28.4763V32.4368L46.4964 20.4755L40.8994 23.7047L40.9031 23.7084Z" fill="url(#paint1_linear_2321_2655)"/>
@@ -665,8 +743,11 @@ export default function Stockverse_GPT() {
                                 <stop offset="1" stopColor="#CB3596"/>
                                 </linearGradient>
                                 </defs>
+                                </svg> */}
+                                <svg className='w-[3%] max-sm:w-[5%] h-auto' width="126" height="127" viewBox="0 0 126 127" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M117.569 51.932C120.432 43.3101 119.441 33.8723 114.851 26.0353C107.948 14.0192 94.0759 7.83757 80.5291 10.7417C68.7206 -2.39461 48.5037 -3.46967 35.3683 8.33943C31.1999 12.0879 28.0897 16.8639 26.3514 22.194C17.451 24.0207 9.77046 29.5934 5.27389 37.4876C-1.70281 49.4846 -0.119088 64.6188 9.19031 74.9128C6.31783 83.53 7.29991 92.9702 11.8845 100.81C18.7946 112.83 32.6766 119.012 46.2305 116.103C52.2608 122.894 60.9211 126.759 70.0022 126.706C83.889 126.718 96.1921 117.751 100.432 104.527C109.33 102.698 117.01 97.1253 121.509 89.2335C128.403 77.2579 126.812 62.2047 117.569 51.9344V51.932ZM70.0022 118.425C64.4594 118.434 59.0901 116.491 54.8361 112.935L55.5851 112.512L80.7787 97.965C82.0533 97.2157 82.8403 95.8505 82.8499 94.3711V58.8415L93.5004 65.0041C93.6074 65.0588 93.6811 65.1611 93.7001 65.2776V94.7183C93.6716 107.798 83.0782 118.394 70.0022 118.422V118.425ZM19.068 96.6686C16.2883 91.8689 15.2895 86.2415 16.2502 80.7757L16.9992 81.2253L42.2167 95.7696C43.4865 96.5165 45.063 96.5165 46.3328 95.7696L77.1382 78.0072V90.3086C77.1311 90.4371 77.0669 90.556 76.9646 90.6321L51.4476 105.352C40.1075 111.886 25.6214 108.002 19.0703 96.6686H19.068ZM12.4338 41.7783C15.2325 36.9453 19.6506 33.261 24.9057 31.3749V61.3151C24.8866 62.7874 25.669 64.155 26.9507 64.8828L57.6063 82.5715L46.9557 88.7341C46.8392 88.7959 46.699 88.7959 46.5824 88.7341L21.1153 74.0375C9.79902 67.4777 5.91838 52.9976 12.4338 41.6523V41.7783ZM99.9349 62.1119L69.1794 44.2472L79.8038 38.1107C79.9203 38.0489 80.0606 38.0489 80.1771 38.1107L105.644 52.8311C116.98 59.3743 120.865 73.871 114.323 85.2068C111.57 89.9804 107.24 93.6433 102.077 95.5698V65.6296C102.032 64.1597 101.217 62.823 99.9325 62.1119H99.9349ZM110.536 46.169L109.786 45.7195L84.619 31.0491C83.3397 30.2998 81.756 30.2998 80.4791 31.0491L49.6998 48.8115V36.51C49.6879 36.384 49.7451 36.2579 49.8497 36.1866L75.3167 21.49C86.6687 14.9492 101.174 18.8499 107.713 30.2047C110.476 34.9997 111.475 40.6105 110.538 46.0643V46.1642L110.536 46.169ZM43.8883 67.9748L33.2378 61.8383C33.1308 61.7741 33.0571 61.6623 33.0381 61.5387V32.1717C33.0547 19.0663 43.691 8.45834 56.7907 8.47499C62.3193 8.48213 67.6743 10.4206 71.9259 13.9574L71.1769 14.3808L45.9832 28.9275C44.7087 29.6767 43.9216 31.0419 43.9121 32.5213L43.8883 67.9748ZM49.6737 55.4997L63.3917 47.5913L77.1359 55.4997V71.3166L63.4416 79.2274L49.6998 71.3166L49.6761 55.4997H49.6737Z" fill="var(--svg-color)"/>
                                 </svg>
-                                <p className="items-start markdown">
+                                <p className="w-[90%] items-start markdown">
                                     <ReactMarkdown
                                         components={{
                                         code({ node, inline, className, children, ...props }) {
