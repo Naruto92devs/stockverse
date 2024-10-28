@@ -565,7 +565,7 @@ export default function Stockverse_GPT() {
             {/* side bar end */}
 
             {/* IsLogin popup start*/}
-            <div className={`${isLogin ? 'visible' : 'hidden'} absolute z-50 top-0 left-0 bottom-0 right-0 bg-primaryText/70 flex items-center justify-center`}>
+            <div className={`${isLogin ? 'visible' : 'hidden'} fixed z-50 shadow-lg top-0 left-0 bottom-0 right-0 bg-primaryText/70 flex items-center justify-center`}>
                 <div className='max-w-[90%] w-max p-8 rounded-lg bg-background text-center flex flex-col items-center gap-4'>
                     <p className="text-lg text-primaryText text-center">Please Login / Create Free Account to Use StockverseGPT</p>
                     <div className="flex gap-4 flex-wrap">
@@ -606,7 +606,7 @@ export default function Stockverse_GPT() {
             {/* Loader end*/}
 
             {/* Chat canvas start */}
-            <div className="relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
+            <div className="relative flex flex-col max-lg:pb-[4rem] max-lg:pt-[4rem] items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
                 
                 {/* Chat Navbar start */}
                 <div className='sticky z-20 top-0 max-lg:fixed py-3 px-2 bg-background flex items-start justify-end w-full h-max'>
@@ -653,20 +653,20 @@ export default function Stockverse_GPT() {
                 {/* Chat Navbar end */}
 
                 {/* Chat Area start */}
-                <div className={` ${isChatEmpty? 'visible' : 'hidden'} w-full xl:px-[20%] z-0 px-3 max-lg:pb-[2rem] max-lg:pt-[5rem] h-full flex flex-col gap-1 items-start justify-center`}>
-                        <h1 className='text-primaryText text-4xl font-sansMedium'>Hi there, {userInfo? userInfo.user.fullname : ''} </h1>
-                        <h1 className='text-primaryText text-5xl font-sansSemibold'>What would you like to know?</h1>
+                <div className={` ${isChatEmpty? 'visible' : 'hidden'} w-full xl:px-[20%] z-0 px-3 h-full flex flex-col gap-1 items-start justify-center`}>
+                        <h1 className='text-primaryText text-4xl max-lg:text-xl font-sansMedium'>Hi there, {userInfo? userInfo.user.fullname : ''} </h1>
+                        <h1 className='text-primaryText text-5xl max-lg:text-3xl font-sansSemibold'>What would you like to know?</h1>
                         <p className='text-lg text-primaryText'>Use one of the most common prompts below or use your own</p>
-                        <div className='w-full flex flex-wrap gap-4 md:justify-start justify-center pt-4'>
+                        <div className='w-full flex flex-wrap md:gap-4 max-md:gap-y-4 md:justify-start justify-between pt-4'>
                             <div onClick={() => handleSubmitCommand(null, "What are the top stock picks for this week?")} 
-                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 max-md:w-[48%] py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
                                 <p>What are the top stock picks for this week?</p>
                                 <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1583 8.23285C16.1583 10.5825 14.2851 12.4666 11.949 12.4666C9.61292 12.4666 7.73974 10.5825 7.73974 8.23285C7.73974 5.88227 9.61292 4 11.949 4C14.2851 4 16.1583 5.88227 16.1583 8.23285ZM11.9491 19.9999C8.51789 19.9999 5.58813 19.456 5.58813 17.2801C5.58813 15.1033 8.49909 14.5396 11.9491 14.5396C15.3803 14.5396 18.31 15.0835 18.31 17.2603C18.31 19.4361 15.3991 19.9999 11.9491 19.9999ZM17.957 8.30938C17.957 9.50719 17.5998 10.623 16.973 11.5507C16.9085 11.6461 16.9658 11.7749 17.0795 11.7947C17.2362 11.8217 17.3983 11.8371 17.5631 11.8416C19.2061 11.8848 20.6808 10.8212 21.0883 9.2199C21.6918 6.84139 19.9198 4.70605 17.6633 4.70605C17.418 4.70605 17.1834 4.73217 16.9551 4.779C16.9237 4.78621 16.8906 4.80062 16.8727 4.82854C16.8512 4.86276 16.8673 4.90869 16.8888 4.93841C17.5666 5.89395 17.957 7.05934 17.957 8.30938ZM20.6781 13.5125C21.7821 13.7295 22.5083 14.1726 22.8092 14.8166C23.0635 15.3452 23.0635 15.9585 22.8092 16.4863C22.3489 17.4851 20.8652 17.8057 20.2886 17.8885C20.1695 17.9065 20.0737 17.803 20.0862 17.6832C20.3808 14.9156 18.0376 13.6034 17.4314 13.3017C17.4054 13.2882 17.4 13.2675 17.4027 13.2549C17.4045 13.2459 17.4153 13.2315 17.435 13.2288C18.7467 13.2045 20.157 13.3846 20.6781 13.5125ZM6.43719 11.8411C6.60194 11.8366 6.76312 11.8222 6.92071 11.7942C7.03442 11.7744 7.09173 11.6456 7.02726 11.5502C6.40048 10.6226 6.04321 9.5067 6.04321 8.30889C6.04321 7.05885 6.43361 5.89347 7.11143 4.93792C7.13292 4.9082 7.14814 4.86227 7.12755 4.82805C7.10964 4.80103 7.07561 4.78572 7.04517 4.77852C6.81595 4.73168 6.58135 4.70557 6.33601 4.70557C4.07959 4.70557 2.30759 6.8409 2.91199 9.21941C3.3194 10.8207 4.79413 11.8843 6.43719 11.8411ZM6.59694 13.2545C6.59962 13.268 6.59425 13.2878 6.56918 13.3022C5.9621 13.6039 3.61883 14.9161 3.91342 17.6828C3.92595 17.8035 3.83104 17.9061 3.71195 17.889C3.13531 17.8062 1.65163 17.4855 1.19139 16.4868C0.936203 15.9581 0.936203 15.3457 1.19139 14.817C1.49225 14.1731 2.21752 13.73 3.32156 13.5121C3.84358 13.3851 5.25294 13.205 6.5656 13.2293C6.5853 13.232 6.59515 13.2464 6.59694 13.2545Z" fill="var(--svg-color)"/>
                                 </svg>
                             </div>
                             <div onClick={() => handleSubmitCommand(null, "What are the key factors that affects the stock markets?")} 
-                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 max-md:w-[48%] py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
                                 <p>What are the key factors that affects the stock markets?</p>
                                 <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18.47 16.83L18.86 19.99C18.96 20.82 18.07 21.4 17.36 20.97L13.9 18.91C13.66 18.77 13.6 18.47 13.73 18.23C14.23 17.31 14.5 16.27 14.5 15.23C14.5 11.57 11.36 8.59 7.50002 8.59C6.71002 8.59 5.94002 8.71 5.22002 8.95C4.85002 9.07 4.49002 8.73 4.58002 8.35C5.49002 4.71 8.99002 2 13.17 2C18.05 2 22 5.69 22 10.24C22 12.94 20.61 15.33 18.47 16.83Z" fill="var(--svg-color)"/>
@@ -674,14 +674,14 @@ export default function Stockverse_GPT() {
                                 </svg>
                             </div>
                             <div onClick={() => handleSubmitCommand(null, "What are the key indicators to watch when predicting stock market trends?")} 
-                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 max-md:w-[48%] py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
                                 <p>What are the key indicators to watch when predicting stock market trends?</p>
                                 <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17 3.5H7C4 3.5 2 5 2 8.5V15.5C2 19 4 20.5 7 20.5H17C20 20.5 22 19 22 15.5V8.5C22 5 20 3.5 17 3.5ZM17.47 9.59L14.34 12.09C13.68 12.62 12.84 12.88 12 12.88C11.16 12.88 10.31 12.62 9.66 12.09L6.53 9.59C6.21 9.33 6.16 8.85 6.41 8.53C6.67 8.21 7.14 8.15 7.46 8.41L10.59 10.91C11.35 11.52 12.64 11.52 13.4 10.91L16.53 8.41C16.85 8.15 17.33 8.2 17.58 8.53C17.84 8.85 17.79 9.33 17.47 9.59Z" fill="var(--svg-color)"/>
                                 </svg>
                             </div>
                             <div onClick={() => handleSubmitCommand(null, "How can I build a balanced portfolio for long-term growth?")} 
-                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
+                            className='flex flex-col justify-between gap-4 cursor-pointer w-56 max-md:w-[48%] py-4 px-4 rounded-lg bg-background border-2 border-primaryText/10 shadow-lg'>
                                 <p>How can I build a balanced portfolio for long-term growth?</p>
                                 <svg className='w-8 h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.75 3.56V2C16.75 1.59 16.41 1.25 16 1.25C15.59 1.25 15.25 1.59 15.25 2V3.5H8.74999V2C8.74999 1.59 8.40999 1.25 7.99999 1.25C7.58999 1.25 7.24999 1.59 7.24999 2V3.56C4.54999 3.81 3.23999 5.42 3.03999 7.81C3.01999 8.1 3.25999 8.34 3.53999 8.34H20.46C20.75 8.34 20.99 8.09 20.96 7.81C20.76 5.42 19.45 3.81 16.75 3.56Z" fill="var(--svg-color)"/>
@@ -691,7 +691,7 @@ export default function Stockverse_GPT() {
                             </div>
                         </div>
                 </div>
-                <div className={` ${isChatEmpty? 'hidden' : 'visible'} w-full xl:px-[20%] z-0 md:px-[5%] max-lg:pb-[2rem] max-lg:pt-[5rem] h-max flex flex-col items-center`}>
+                <div className={` ${isChatEmpty? 'hidden' : 'visible'} w-full xl:px-[20%] z-0 md:px-[5%] h-max flex flex-col items-center`}>
                     {chatCanvas
                     .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
                     .map((chat, index) => (
