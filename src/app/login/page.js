@@ -44,7 +44,7 @@ export default function LogIn() {
               }
               // Redirect to dashboard after successful login
               router.push('/');
-          }else if (response.status === 201) {
+          } else if (response.status === 201) {
             const data = response.data;
             console.log(data);
             setError(data.message);
