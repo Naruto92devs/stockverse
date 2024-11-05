@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function ProfileSecurity({userInfo}) {
 
     const [password, setPassword] = useState('');
@@ -33,7 +35,7 @@ export default function ProfileSecurity({userInfo}) {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://devsalman.tech/update-password', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/update-password`, {
                 password,
                 newPassword,
             }, {
@@ -69,7 +71,7 @@ export default function ProfileSecurity({userInfo}) {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://devsalman.tech/toggle-2fa', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/toggle-2fa`, {
                 
             }, {
                 withCredentials: true,

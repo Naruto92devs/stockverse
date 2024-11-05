@@ -6,6 +6,8 @@ import Cookies from 'js-cookie';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function Register() {
     const [username, setUsername] = useState('');
     const [loading, setLoading] = useState(false);
@@ -48,7 +50,7 @@ export default function Register() {
         }
 
         try {
-            const response = await axios.post('https://devsalman.tech/signup', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}https://devsalman.tech/signup`, {
                 username,
                 email,
                 password,
@@ -84,7 +86,7 @@ export default function Register() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://devsalman.tech/auth/verify-otp', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/auth/verify-otp`, {
                 id,
                 OTP,
             }, {

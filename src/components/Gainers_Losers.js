@@ -69,7 +69,7 @@ const Gainers_Losers = ({ stocksType }) => {
         setLoading(true); // Set loading to true when filter changes
         try {
             // Fetch symbols data (gainers, losers, or active stocks)
-            const symbolsResponse = await fetch(`https://api.stockverse.ai/${stocksType}`);
+            const symbolsResponse = await fetch(`${STOCKVERSE_BACK_END}/${stocksType}`);
             if (!symbolsResponse.ok) {
                 throw new Error('Failed to fetch stock symbols');
             }

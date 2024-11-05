@@ -63,7 +63,7 @@ const Historical_Data = ({ symbol }) => {
         const fetchHistoricalData = async () => {
             setLoading(true);
             try {
-                const response = await fetch(`https://api.stockverse.ai/historical-data?filter=${filter}&symbol=${symbol}&interval=1min`);
+                const response = await fetch(`${STOCKVERSE_BACK_END}/historical-data?filter=${filter}&symbol=${symbol}&interval=1min`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch historical data');
                 }

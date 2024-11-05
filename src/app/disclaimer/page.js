@@ -1,4 +1,3 @@
-
 export default function Disclaimer() {
     return (
       <div className="hero py-16 max-md:py-6 w-full">

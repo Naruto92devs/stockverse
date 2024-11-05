@@ -6,6 +6,8 @@ import Cookies from 'js-cookie';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function LogIn() {
 
   const [email, setEmail] = useState('');
@@ -29,7 +31,7 @@ export default function LogIn() {
       setLoading(true);
       e.preventDefault();
       try {
-          const response = await axios.post('https://devsalman.tech/signin', {
+          const response = await axios.post(`${STOCKVERSE_BACK_END}/signin`, {
               email,
               password,
           }, {
@@ -71,7 +73,7 @@ export default function LogIn() {
     e.preventDefault();
 
     try {
-        const response = await axios.post('https://devsalman.tech/auth/verify-otp', {
+        const response = await axios.post(`${STOCKVERSE_BACK_END}/auth/verify-otp`, {
             id,
             OTP,
         }, {
@@ -163,7 +165,7 @@ export default function LogIn() {
             type="submit"
             className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-secondaryHeading transition duration-300"
           >
-            {loading ? 'Signning In...' : 'Sign In'}
+            {loading ? 'Signing In...' : 'Sign In'}
           </button>
           <div className="w-full flex flex-col mt-4 space-y-2">
             <a

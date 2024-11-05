@@ -9,6 +9,8 @@ import axios from 'axios';
 import User from '@/components/User';
 import ThemeSwitch from '@/components/ThemeSwitch';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function Stockverse_GPT() {
     const [loading, setLoading] = useState(false);
     const [isLogin, setIsLogin] = useState(false);
@@ -115,7 +117,7 @@ export default function Stockverse_GPT() {
 
     const fetchChatHistory = async () => {
         try {
-            const response = await axios.post('https://devsalman.tech/conversation-history', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/conversation-history`, {
                 userid,  // Ensure userid is passed correctly
             }, {
                 withCredentials: true,
@@ -138,7 +140,7 @@ export default function Stockverse_GPT() {
         setLoading(true);
         // e.preventDefault();
         try {
-            const response = await axios.post('https://devsalman.tech/add-conversation', { userid }, { withCredentials: true });
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/add-conversation`, { userid }, { withCredentials: true });
             if (response.status === 207) {
                 setChatId(response.data.chat_id);
                 sessionStorage.setItem('chatId', (response.data.chat_id));
@@ -189,7 +191,7 @@ export default function Stockverse_GPT() {
         try {
             // Make the API request
             const response = await axios.post(
-                'https://devsalman.tech/stockgpt',
+                `${STOCKVERSE_BACK_END}/stockgpt`,
                 { chatId, command: commandToSubmit },
                 { withCredentials: true }
             );
@@ -224,7 +226,7 @@ export default function Stockverse_GPT() {
     const ConversationIdHistory = async (chatId) => {
     
         try {
-            const response = await axios.post('https://devsalman.tech/chat-history', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/chat-history`, {
             chatId,
             }, {
                 withCredentials: true,
@@ -259,7 +261,7 @@ export default function Stockverse_GPT() {
         const isFavourite = chat.favourite;  // Get the current favorite status
     
         try {
-            const response = await axios.post('https://devsalman.tech/favourite-chat', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/favourite-chat`, {
             chatId,
             }, {
                 withCredentials: true,
@@ -301,7 +303,7 @@ export default function Stockverse_GPT() {
         const updatedChatHistory = chatHistory.filter(chat => chat.chat_id !== chatId);
     
         try {
-            const response = await axios.post('https://devsalman.tech/delete-chat', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/delete-chat`, {
                 chatId,
             }, {
                 withCredentials: true,

@@ -3,6 +3,8 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function ProfileInfo({userInfo}) {
 
     const [fullname, setFullname] = useState(userInfo.user.fullname);
@@ -34,7 +36,7 @@ export default function ProfileInfo({userInfo}) {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://devsalman.tech/update-username', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/update-username`, {
                 fullname,
             }, {
                 withCredentials: true,
@@ -66,7 +68,7 @@ export default function ProfileInfo({userInfo}) {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://devsalman.tech/delete-account', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/delete-account`, {
                 password,
             }, {
                 withCredentials: true,

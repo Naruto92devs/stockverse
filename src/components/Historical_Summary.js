@@ -3,6 +3,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import GainerFallbackUI from './GainerFallbackUI';
 import formatNumber from './FormatNumber';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 const Historical_Summary = ({ symbol }) => {
     const [historicalData, setHistoricalData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -39,7 +41,7 @@ const Historical_Summary = ({ symbol }) => {
         const fetchHistoricalData = async () => {
             setLoading(true);
             try {
-                const response = await fetch(`https://api.stockverse.ai/historical-data?filter=TIME_SERIES_WEEKLY_ADJUSTED&symbol=${symbol}`);
+                const response = await fetch(`${STOCKVERSE_BACK_END}/historical-data?filter=TIME_SERIES_WEEKLY_ADJUSTED&symbol=${symbol}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch historical data');
                 }

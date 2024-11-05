@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function Feedback() {
 
   const [loading, setLoading] = useState('');
@@ -17,7 +19,7 @@ export default function Feedback() {
     e.preventDefault();
 
     try {
-        const response = await axios.post('https://devsalman.tech/feedback', {
+        const response = await axios.post(`${STOCKVERSE_BACK_END}/feedback`, {
             firstName,
             lastName,
             email,

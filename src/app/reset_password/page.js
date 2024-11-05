@@ -6,6 +6,8 @@ import Cookies from 'js-cookie';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function ResetPasswrod() {
 
 const [email, setEmail] = useState('');
@@ -29,7 +31,7 @@ const handleSubmitForm = async (e) => {
     setLoading(true);
     e.preventDefault();
     try {
-        const response = await axios.post('https://devsalman.tech/forgot-password', {
+        const response = await axios.post(`${STOCKVERSE_BACK_END}/forgot-password`, {
             email,
         }, {
             withCredentials: true, // Include cookies in the request
@@ -63,7 +65,7 @@ setLoading(true);
 e.preventDefault();
 
 try {
-    const response = await axios.post('https://devsalman.tech/reset-password', {
+    const response = await axios.post(`${STOCKVERSE_BACK_END}/reset-password`, {
         id,
         OTP,
         newPassword,
@@ -100,7 +102,7 @@ const resendOTP = async (e) => {
     e.preventDefault();
     
     try {
-        const response = await axios.post('https://devsalman.tech/backup-otp', {
+        const response = await axios.post(`${STOCKVERSE_BACK_END}/backup-otp`, {
             id,
         }, {
             withCredentials: true,

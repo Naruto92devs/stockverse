@@ -5,6 +5,8 @@ import Cookies from 'js-cookie';
 import LogoutButton from './logout';
 import Link from 'next/link';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function User() {
     const [loading, setLoading] = useState(true);
     const [userInfo, setUserInfo] = useState(null);  // Initialize as null
@@ -34,7 +36,7 @@ export default function User() {
                 console.log(token);
             }
 
-            const response = await axios.get('https://devsalman.tech/get-user', {
+            const response = await axios.get(`${STOCKVERSE_BACK_END}/get-user`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

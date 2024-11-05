@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 const LogoutButton = ({ onLogout }) => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -14,7 +16,7 @@ const LogoutButton = ({ onLogout }) => {
         setError('');
 
         try {
-            await axios.post('https://devsalman.tech/logout', {}, { withCredentials: true });
+            await axios.post(`${STOCKVERSE_BACK_END}/logout`, {}, { withCredentials: true });
             // Redirect to the login page or home page after successful logout
             Cookies.remove('authToken');
             localStorage.removeItem('UserInfo');
