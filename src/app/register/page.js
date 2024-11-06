@@ -50,7 +50,7 @@ export default function Register() {
         }
 
         try {
-            const response = await axios.post(`${STOCKVERSE_BACK_END}https://devsalman.tech/signup`, {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/signup`, {
                 username,
                 email,
                 password,
