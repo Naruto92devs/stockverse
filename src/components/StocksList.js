@@ -80,7 +80,7 @@ const StocksList = ({ symbols }) => {
 
     const handleSubmitWatchList = async (symbol) => {
         try {
-            const response = await axios.post('https://devsalman.tech/watchlist', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/watchlist`, {
                 symbol,
             }, {
                 withCredentials: true,
@@ -121,7 +121,7 @@ const StocksList = ({ symbols }) => {
     const handleSubmitHistory = async (symbol) => {
         try {
             handleResultClick(symbol);
-            const response = await axios.post('https://devsalman.tech/search-history', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/search-history`, {
                 symbol,
             }, {
                 withCredentials: true,
