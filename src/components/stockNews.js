@@ -196,7 +196,7 @@ return (
                 // Check if ticker_sentiment exists and has at least one element
     const ticker = item.ticker_sentiment && item.ticker_sentiment.length > 0 ? item.ticker_sentiment[0].ticker : 'N/A';
 
-            return (
+        return (
                 <div key={index} className="news-item shadow-lg p-6 max-md:p-4 bg-primaryText/10 rounded-2xl w-[32.5%] max-xl:w-[49%] max-lg:w-full mb-4 flex flex-col gap-y-4 items-start">
                     {/* Source, Sentiment, Category */}
                     <div className="flex w-full items-center justify-end gap-x-3">
@@ -266,8 +266,8 @@ return (
                         Full Article &#8599;
                         </a>
                     </div>
-                </div>
-            );
+                    </div>
+                    );
             })}
         </div>
 
@@ -280,8 +280,8 @@ return (
             Show More
         </button>
         )}
-    </>
-    )}
-</div>
+        </>
+        )}
+        </div>
 );
 }
