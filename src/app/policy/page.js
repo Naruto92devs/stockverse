@@ -18,7 +18,7 @@ export default function Policy() {
         <p className="text-base text-primaryText"><span className="font-sansSemibold">Communication:</span> To send you updates, newsletters, and other communications that may be of interest. You can opt out of these communications at any time.</p>
         <p className="text-base text-primaryText"><span className="font-sansSemibold">Analytics:</span>To analyze website usage and improve our website and services.</p>
         <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">4. Information Sharing</h2>
-        <p className="text-base text-primaryText"><span className="font-sansSemibold">Third-Party Service Providers:</span> We may share your information with third-party service providers who assist us in operating our website and delivering our services.</p>
+        <p className="text-base text-primaryText">We respect your privacy and are committed to keeping your information secure. We do not share, sell, rent, or trade your personal information with any third parties. Any information collected through our services is used solely for the purpose of providing and improving those services. We do not disclose your information to outside parties under any circumstances, except as required by law.</p>
         <p className="text-base text-primaryText"><span className="font-sansSemibold">Legal Obligations:</span>We may disclose your information if required to do so by law or in response to legal requests.</p>
         <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">5. Your Rights</h2>
         <p className="text-base text-primaryText"><span className="font-sansSemibold">Access:</span> You have the right to request access to the personal information we hold about you.</p>
