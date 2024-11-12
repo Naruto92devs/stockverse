@@ -10,10 +10,9 @@ export default function Terms() {
         <p className="text-base text-primaryText">We reserve the right to modify these Terms at any time. Any changes will be posted on this page, and your continued use of the Platform after any modifications constitute acceptance of the new Terms. It is your responsibility to review the Terms periodically.</p>
         <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">3. Eligibility</h2>
         <p className="text-base text-primaryText">You must be at least 18 years old to use the Platform. By using Stockverse, you confirm that you are at least 18 years of age and that you are legally able to enter into a binding contract.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">4. Use of the Platform</h2>
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">4. Information Sharing</h2>
         <ol className="list-disc pl-8 flex flex-col gap-y-4">
-          <li className="text-base text-primaryText">You are granted a non-exclusive, limited, and revocable license to use the Platform for personal and non-commercial use.</li>
-          <li className="text-base text-primaryText">You may not use the Platform for any unlawful activities or in a way that could harm or damage the Platform or any other user.</li>
+          <li className="text-base text-primaryText">Third-Party Service Providers: We may share your information with third-party service providers who assist us in operating our website and delivering our services.</li>
         </ol>
         <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">5. Account Registration and Security</h2>
         <ol className="list-disc pl-8 flex flex-col gap-y-4">
