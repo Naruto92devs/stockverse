@@ -50,13 +50,13 @@ const BARCHATNEOV = () => {
         <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
             
             <div className="py-12 gap-y-6 flex max-lg:flex-col-reverse max-lg:items-start items-center justify-between">
-                <h1 className="text-6xl font-bold max-sm:text-2xl lg:w-[90%] text-left text-primaryText leading-[130%]">NeoVolta - Small Cap Making Big Promises</h1>
+                <h1 className="text-6xl font-semibold max-sm:text-2xl lg:w-[90%] text-left text-primaryText/70 leading-[130%]">NeoVolta - Small Cap Making Big Promises</h1>
                 {/* <Image className="w-[25%] h-[100%]" width={199} height={46} src='/images/neov-press-release.jpg' alt="iPhone"/> */}
             </div>
             <div className="py-8 border-y-[1px] border-primaryText/20 max-sm:px-3  gap-y-6 flex flex-wrap items-center justify-between">
                 <div className="flex flex-col">
                     <p className="text-base text-primaryText leading-[110%]">News Provided by</p>
-                    <Link href='https://stockverse.com/news' className=" leading-[110%] text-md  text-primaryHeading">Stockverse.com</Link>
+                    <Link className="text-primaryHeading font-bold" href='https://www.barchart.com/news/authors/46/jim-van-meerten'> Jim Van Meerten - Barchat</Link>
                     <p className="text-sm  text-primaryText leading-[110%]">Nov 13, 2024, 08:30 ET</p>
                 </div>
                 <div className="">
@@ -87,46 +87,46 @@ const BARCHATNEOV = () => {
                 </div>
             </div>
             <div className="flex flex-col gap-8 py-4">
-                <h2 className="text-xl font-bold text-primaryText">Summary</h2>
+                <h2 className="text-xl font-bold text-primaryText/70">Summary</h2>
                 <ol className="list-disc pl-8 flex flex-col gap-y-4">
-                    <li className="text-lg font-medium text-primaryText">NeoVolta NEOV has shown exceptional price appreciation, gaining 48.79% since the Trend Seeker buy signal on 11/4, and 87.67% in the last month.</li>
-                    <li className="text-lg font-medium text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
-                    <li className="text-lg font-medium text-primaryText">{`Barchart's technical indicators are highly favorable, showing 100% technical buy signals, a 160.95% gain in the last year, and a Relative Strength Index of 84.62%.`}</li>
-                    <li className="text-lg font-medium text-primaryText">Despite its volatility, NeoVolta is considered undervalued by MorningStar, with a fair value of $8.72, and has a strong buy rating from one Wall Street analyst.</li>
+                    <li className="text-lg text-primaryText">NeoVolta NEOV has shown exceptional price appreciation, gaining 48.79% since the Trend Seeker buy signal on 11/4, and 87.67% in the last month.</li>
+                    <li className="text-lg  text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
+                    <li className="text-lg  text-primaryText">{`Barchart's technical indicators are highly favorable, showing 100% technical buy signals, a 160.95% gain in the last year, and a Relative Strength Index of 84.62%.`}</li>
+                    <li className="text-lg  text-primaryText">Despite its volatility, NeoVolta is considered undervalued by MorningStar, with a fair value of $8.72, and has a strong buy rating from one Wall Street analyst.</li>
                 </ol>
-                <p className="text-lg font-medium text-primaryText leading-[200%]">{`The Chart of the Day belongs to the energy storage company NeoVolta NEOV. I found the stock by using Barchart's powerful screening functions to find stocks with the highest technical buy signals, highest Weighted Alpha, superior current momentum and having a Trend Seeker buy signal then used the Flipchart feature to review the charts for consistent price appreciation. Since the Trend Seeker signaled a buy on 11/4 the stock gained 48.79%.`}</p>
-                <h2 className="text-lg font-bold text-primaryText leading-[200%]">NEOV Price vs Daily Moving Averages</h2>
+                <p className="text-lg  text-primaryText leading-[200%]">{`The Chart of the Day belongs to the energy storage company NeoVolta NEOV. I found the stock by using Barchart's powerful screening functions to find stocks with the highest technical buy signals, highest Weighted Alpha, superior current momentum and having a Trend Seeker buy signal then used the Flipchart feature to review the charts for consistent price appreciation. Since the Trend Seeker signaled a buy on 11/4 the stock gained 48.79%.`}</p>
+                <h2 className="text-lg font-bold text-primaryText/70 leading-[200%]">NEOV Price vs Daily Moving Averages</h2>
                 <Image className="w-[100%] h-[100%]" width={1171} height={465} src='/images/neov-chart.jpeg' alt="NEOV"/>
-                <p className="text-lg font-medium text-primaryText leading-[200%]">NeoVolta Inc. designs, manufactures, and sells energy storage systems in the United States. The company provides NV14, NV14-K, and NV 24 energy storage systems, which stores and uses energy through batteries and an inverter at residential or commercial sites. NeoVolta Inc. markets and sells its products directly to certified solar installers and solar equipment distributors. The company was founded in 2018 and is headquartered in Poway, California. </p>
-                <p className="text-lg font-medium text-primaryText text-left">Barchart&#39;s Opinion Trading systems are listed below. Please note that the Barchart Opinion indicators are updated live during the session every 20 minutes and can therefore change during the day as the market fluctuates. The indicator numbers shown below therefore may not match what you see live on the <Link href='https://www.barchart.com/news/chart-of-the-day?source=content_type:react%7Cfirst_level_url:article%7Csection:main_content%7Cbutton:body_link' className="text-primaryHeading font-bold"> Barchart.com</Link> website when you read this report.</p>
-                <h2 className="text-xl font-bold text-primaryText leading-[200%]">Barchart Technical Indicators:</h2>
+                <p className="text-lg  text-primaryText leading-[200%]">NeoVolta Inc. designs, manufactures, and sells energy storage systems in the United States. The company provides NV14, NV14-K, and NV 24 energy storage systems, which stores and uses energy through batteries and an inverter at residential or commercial sites. NeoVolta Inc. markets and sells its products directly to certified solar installers and solar equipment distributors. The company was founded in 2018 and is headquartered in Poway, California. </p>
+                <p className="text-lg  text-primaryText text-left">Barchart&#39;s Opinion Trading systems are listed below. Please note that the Barchart Opinion indicators are updated live during the session every 20 minutes and can therefore change during the day as the market fluctuates. The indicator numbers shown below therefore may not match what you see live on the <Link href='https://www.barchart.com/news/chart-of-the-day?source=content_type:react%7Cfirst_level_url:article%7Csection:main_content%7Cbutton:body_link' className="text-primaryHeading font-bold"> Barchart.com</Link> website when you read this report.</p>
+                <h2 className="text-xl font-bold text-primaryText/70 leading-[200%]">Barchart Technical Indicators:</h2>
                 <ol className="list-disc pl-8 flex flex-col gap-y-4">
-                    <li className="text-lg font-medium text-primaryText">100% technical buy signals</li>
-                    <li className="text-lg font-medium text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
-                    <li className="text-lg font-medium text-primaryText">116.02+ Weighted Alpha</li>
-                    <li className="text-lg font-medium text-primaryText">160.95% gain in the last year</li>
-                    <li className="text-lg font-medium text-primaryText">Trend Seeker buy signal</li>
-                    <li className="text-lg font-medium text-primaryText">1.99 - 60 month Beta</li>
-                    <li className="text-lg font-medium text-primaryText">Above its 20, 50 and 100 day moving averages</li>
-                    <li className="text-lg font-medium text-primaryText">15 new highs and up 87.67% in the last month</li>
-                    <li className="text-lg font-medium text-primaryText">Relative Strength Index 84.62%</li>
-                    <li className="text-lg font-medium text-primaryText">Technical support level at $4.59</li>
-                    <li className="text-lg font-medium text-primaryText">Recently traded at $5.41 with 50 day moving average of $3.29</li>
+                    <li className="text-lg  text-primaryText">100% technical buy signals</li>
+                    <li className="text-lg  text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
+                    <li className="text-lg  text-primaryText">116.02+ Weighted Alpha</li>
+                    <li className="text-lg  text-primaryText">160.95% gain in the last year</li>
+                    <li className="text-lg  text-primaryText">Trend Seeker buy signal</li>
+                    <li className="text-lg  text-primaryText">1.99 - 60 month Beta</li>
+                    <li className="text-lg  text-primaryText">Above its 20, 50 and 100 day moving averages</li>
+                    <li className="text-lg  text-primaryText">15 new highs and up 87.67% in the last month</li>
+                    <li className="text-lg  text-primaryText">Relative Strength Index 84.62%</li>
+                    <li className="text-lg  text-primaryText">Technical support level at $4.59</li>
+                    <li className="text-lg  text-primaryText">Recently traded at $5.41 with 50 day moving average of $3.29</li>
                 </ol>
                 <h2 className="text-xl font-bold text-primaryText leading-[200%]">Fundamental Factors:</h2>
                 <ol className="list-disc pl-8 flex flex-col gap-y-4">
-                    <li className="text-lg font-medium text-primaryText">Market Cap $164 million</li>
-                    <li className="text-lg font-medium text-primaryText">Revenue expected to grow 244.00% this year and another 72.60% next year</li>
-                    <li className="text-lg font-medium text-primaryText">Earnings are estimated to increase 28.60% this year, and an additional 120.00% next year </li>
+                    <li className="text-lg  text-primaryText">Market Cap $164 million</li>
+                    <li className="text-lg  text-primaryText">Revenue expected to grow 244.00% this year and another 72.60% next year</li>
+                    <li className="text-lg  text-primaryText">Earnings are estimated to increase 28.60% this year, and an additional 120.00% next year </li>
                 </ol>
                 <h2 className="text-xl font-bold text-primaryText leading-[200%]">Analysts and Investor Sentiment -- I don&#39;t buy stocks because everyone else is buying but I do realize that if major firms and investors are dumping a stock it&#39;s hard to make money swimming against the tide:</h2>
                 <ol className="list-disc pl-8 flex flex-col gap-y-4">
-                    <li className="text-lg font-medium text-primaryText">Wall Street analyst gave 1 strong buy</li>
-                    <li className="text-lg font-medium text-primaryText">MorningStar gives the stock its average rating of 3 with a fair value of $8.72 or 43% under valued</li>
-                    <li className="text-lg font-medium text-primaryText">Only 437 investors monitor the stock on Seeking Alpha</li>
+                    <li className="text-lg  text-primaryText">Wall Street analyst gave 1 strong buy</li>
+                    <li className="text-lg  text-primaryText">MorningStar gives the stock its average rating of 3 with a fair value of $8.72 or 43% under valued</li>
+                    <li className="text-lg  text-primaryText">Only 437 investors monitor the stock on Seeking Alpha</li>
                 </ol>
-                <p className="text-lg font-medium text-primaryText text-left">Additional disclosure: The Barchart Chart of the Day highlights stocks that are experiencing exceptional current price appreciation. They are not intended to be buy recommendations as these stocks are extremely volatile and speculative. Should you decide to add one of these stocks to your investment portfolio it is highly suggested you follow a predetermined diversification and moving stop loss discipline that is consistent with your personal investment risk tolerance and reevaluate your stop losses at least on a weekly basis.</p>
-                <p className="text-lg font-medium text-primaryText text-left">On the date of publication, <Link className="text-primaryHeading font-bold underline" href='https://www.barchart.com/news/authors/46/jim-van-meerten'> Jim Van Meerten </Link> did not have (either directly or indirectly) positions in any of the securities mentioned in this article. All information and data in this article is solely for informational purposes. For more information please view the Barchart Disclosure Policy <Link className="text-primaryHeading font-bold underline" href='/policy'> here.</Link></p>
+                <p className="text-lg  text-primaryText text-left">Additional disclosure: The Barchart Chart of the Day highlights stocks that are experiencing exceptional current price appreciation. They are not intended to be buy recommendations as these stocks are extremely volatile and speculative. Should you decide to add one of these stocks to your investment portfolio it is highly suggested you follow a predetermined diversification and moving stop loss discipline that is consistent with your personal investment risk tolerance and reevaluate your stop losses at least on a weekly basis.</p>
+                <p className="text-lg  text-primaryText text-left">On the date of publication, <Link className="text-primaryHeading font-bold underline" href='https://www.barchart.com/news/authors/46/jim-van-meerten'> Jim Van Meerten </Link> did not have (either directly or indirectly) positions in any of the securities mentioned in this article. All information and data in this article is solely for informational purposes. For more information please view the Barchart Disclosure Policy <Link className="text-primaryHeading font-bold underline" href='/policy'> here.</Link></p>
             </div>
         </div>
     );
