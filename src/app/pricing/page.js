@@ -1,21 +1,39 @@
 'use client';
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
+import axios from 'axios';
 
 export default function Membership() {
   const [billingCycle, setBillingCycle] = useState("monthly");
+  const router = useRouter();
 
   const plans = {
     monthly: {
-      free: { price: "Free/mo", oldPrice: "$8.99", label: "Get Started" },
-      standard: { price: "$29.99/mo", oldPrice: "$39.99", label: "Buy Now" },
-      premium: { price: "$49.99/mo", oldPrice: "$69.99", label: "Buy Now" },
+      free: { price: "$29.99/mo", priceId: "price_1QKzQKBi8ZwCbxPYENlEObFO", oldPrice: "$49.99", label: "Get Started" },
+      standard: { price: "$79.99/mo", priceId: "price_1QL7KlBi8ZwCbxPYAIj7I8qR", oldPrice: "$99.99", label: "Buy Now" },
+      premium: { price: "$129.99/mo", priceId: "price_1QL7LGBi8ZwCbxPYkD7AbUAn", oldPrice: "$149.99", label: "Buy Now" },
     },
     yearly: {
-      free: { price: "Free/yr", oldPrice: "$100.99", label: "Get Started" },
-      standard: { price: "$149.99/yr", oldPrice: "$359.99", label: "Buy Now" },
-      premium: { price: "$249.99/yr", oldPrice: "$599.99", label: "Buy Now" },
+      free: { price: "$299.99/yr", priceId: "price_1QL7M3Bi8ZwCbxPYywOXZXfu", oldPrice: "$499.99", label: "Get Started" },
+      standard: { price: "$959.99/yr", priceId: "price_1QL7MbBi8ZwCbxPYXUPIwSP4", oldPrice: "$1199.99", label: "Buy Now" },
+      premium: { price: "$1549.99/yr", priceId: "price_1QL7N0Bi8ZwCbxPYgABGayxb", oldPrice: "$1799.99", label: "Buy Now" },
     },
+  };
+
+  
+  const handleCheckout = async (priceId) => {
+    try {
+      const response = await axios.post('http://localhost:4848/create-checkout-session', { priceId }, {withCredentials:true,});
+      const data = response.data;
+      if (data.clientSecret) {
+        router.push(`/checkout?clientSecret=${data.clientSecret}`);
+      } else {
+        console.error(data.error);
+      }
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+    }
   };
 
   return (
@@ -55,9 +73,9 @@ export default function Membership() {
             <p className="text-3xl font-sansBold text-primaryText">{plans[billingCycle].free.price}</p>
             <p className="text-lg text-primaryText/70 line-through">{plans[billingCycle].free.oldPrice}</p>
           </div>
-          <Link href='/register' className="w-full block hover:bg-primaryText/10 hover:text-primaryText font-sansMedium text-center bg-primaryButtonBg text-primaryButtonText py-3 px-4">
+          <div onClick={() => handleCheckout(plans[billingCycle].free.priceId)} className="cursor-pointer w-full block hover:bg-primaryText/10 hover:text-primaryText font-sansMedium text-center bg-primaryButtonBg text-primaryButtonText py-3 px-4">
             {plans[billingCycle].free.label}
-          </Link>
+          </div>
           <ul className="mt-8 text-base space-y-4">
             <li className="flex items-center gap-x-2">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +135,7 @@ export default function Membership() {
             <p className="text-3xl font-sansBold text-mobNavLink">{plans[billingCycle].standard.price}</p>
             <p className="text-lg text-mobNavLink/80 line-through">{plans[billingCycle].standard.oldPrice}</p>
           </div>
-          <button className="w-full hover:bg-primaryText/10 hover:text-mobNavLink font-sansMedium text-center bg-mobNavLink text-secondaryHeading py-3 px-4">
+          <button onClick={() => handleCheckout(plans[billingCycle].standard.priceId)} className="w-full hover:bg-primaryText/10 hover:text-mobNavLink font-sansMedium text-center bg-mobNavLink text-secondaryHeading py-3 px-4">
             {plans[billingCycle].standard.label}
           </button>
           <ul className="mt-8 text-base space-y-4 text-mobNavLink">
@@ -179,7 +197,7 @@ export default function Membership() {
             <p className="text-3xl font-sansBold text-primaryText">{plans[billingCycle].premium.price}</p>
             <p className="text-lg text-primaryText/70 line-through">{plans[billingCycle].premium.oldPrice}</p>
           </div>
-          <button className="w-full hover:bg-primaryText/10 hover:text-primaryText font-sansMedium text-center bg-primaryButtonBg text-primaryButtonText py-3 px-4">
+          <button onClick={() => handleCheckout(plans[billingCycle].premium.priceId)} className="w-full hover:bg-primaryText/10 hover:text-primaryText font-sansMedium text-center bg-primaryButtonBg text-primaryButtonText py-3 px-4">
             {plans[billingCycle].premium.label}
           </button>
           <ul className="mt-8 text-base space-y-4">
