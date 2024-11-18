@@ -1,23 +1,24 @@
-import React, { useCallback, useEffect, useState } from 'react';
+'use client';
+
+import React, { useEffect, useState, useCallback } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
-import { useSearchParams } from 'next/navigation';
 
 const stripePromise = loadStripe("pk_test_51Q1WqmBi8ZwCbxPYF8L4kukHUVVARusHQfJt633Avj0O7tlya6qhXSf2lgonDR46dUL7o6PWrNVNr8V5cyMLhflq006kkjw0LS");
 
 const CheckoutForm = () => {
-    const searchParams = useSearchParams();
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
-        const queryClientSecret = searchParams.get('clientSecret');
+        const queryParams = new URLSearchParams(window.location.search);
+        const queryClientSecret = queryParams.get('clientSecret');
         if (queryClientSecret) {
             setClientSecret(queryClientSecret);
         }
-    }, [searchParams]);
+    }, []);
 
     const options = useCallback(() => ({
-        clientSecret
+        clientSecret,
     }), [clientSecret]);
 
     return (
