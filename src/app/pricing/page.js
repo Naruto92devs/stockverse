@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import axios from 'axios';
 
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
 export default function Membership() {
   const [billingCycle, setBillingCycle] = useState("monthly");
   const router = useRouter();
@@ -24,7 +26,7 @@ export default function Membership() {
   
   const handleCheckout = async (priceId) => {
     try {
-      const response = await axios.post('http://localhost:4848/create-checkout-session', { priceId }, {withCredentials:true,});
+      const response = await axios.post(`${STOCKVERSE_BACK_END}/create-checkout-session`, { priceId }, {withCredentials:true,});
       const data = response.data;
       if (data.clientSecret) {
         router.push(`/checkout?clientSecret=${data.clientSecret}`);
