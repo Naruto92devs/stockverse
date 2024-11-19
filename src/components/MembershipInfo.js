@@ -7,12 +7,12 @@ export default function MembershipInfo() {
 
     const plans = {
         price_free: { price: "$0.00/Monthly", oldPrice: "$9.99", label: "Free" },
-        price_1QKzQKBi8ZwCbxPYENlEObFO: { price: "$29.99/Monthly", oldPrice: "$49.99", label: "Basic" },
-        price_1QL7KlBi8ZwCbxPYAIj7I8qR: { price: "$79.99/Monthly", oldPrice: "$99.99", label: "Standard" },
-        price_1QL7LGBi8ZwCbxPYkD7AbUAn: { price: "$129.99/Monthly", oldPrice: "$149.99", label: "Premium" },
-        price_1QL7M3Bi8ZwCbxPYywOXZXfu: { price: "$299.99/Yearly", oldPrice: "$499.99", label: "Basic" },
-        price_1QL7MbBi8ZwCbxPYXUPIwSP4: { price: "$959.99/Yearly", oldPrice: "$1199.99", label: "Standard" },
-        price_1QL7N0Bi8ZwCbxPYgABGayxb: { price: "$1549.99/Yearly", oldPrice: "$1799.99", label: "Premium" },
+        price_1QMSAIBi8ZwCbxPYXKZFxfFk: { price: "$29.99/Monthly", oldPrice: "$49.99", label: "Basic" },
+        price_1QMSALBi8ZwCbxPY90cWxOs8: { price: "$79.99/Monthly", oldPrice: "$99.99", label: "Standard" },
+        price_1QMSANBi8ZwCbxPYrNWX1v9k: { price: "$129.99/Monthly", oldPrice: "$149.99", label: "Premium" },
+        price_1QMSAPBi8ZwCbxPY5rlGmPjA: { price: "$299.99/Yearly", oldPrice: "$499.99", label: "Basic" },
+        price_1QMSARBi8ZwCbxPYtXfSl80D: { price: "$959.99/Yearly", oldPrice: "$1199.99", label: "Standard" },
+        price_1QMSASBi8ZwCbxPY8hAWCmSn: { price: "$1549.99/Yearly", oldPrice: "$1799.99", label: "Premium" },
     };
 
     // Helper to format the expiration date

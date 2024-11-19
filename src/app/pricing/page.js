@@ -12,14 +12,14 @@ export default function Membership() {
 
   const plans = {
     monthly: {
-      free: { price: "$29.99/mo", priceId: "price_1QKzQKBi8ZwCbxPYENlEObFO", oldPrice: "$49.99", label: "Get Started" },
-      standard: { price: "$79.99/mo", priceId: "price_1QL7KlBi8ZwCbxPYAIj7I8qR", oldPrice: "$99.99", label: "Buy Now" },
-      premium: { price: "$129.99/mo", priceId: "price_1QL7LGBi8ZwCbxPYkD7AbUAn", oldPrice: "$149.99", label: "Buy Now" },
+      free: { price: "$29.99/mo", priceId: "price_1QMSAIBi8ZwCbxPYXKZFxfFk", oldPrice: "$49.99", label: "Get Started" },
+      standard: { price: "$79.99/mo", priceId: "price_1QMSALBi8ZwCbxPY90cWxOs8", oldPrice: "$99.99", label: "Buy Now" },
+      premium: { price: "$129.99/mo", priceId: "price_1QMSANBi8ZwCbxPYrNWX1v9k", oldPrice: "$149.99", label: "Buy Now" },
     },
     yearly: {
-      free: { price: "$299.99/yr", priceId: "price_1QL7M3Bi8ZwCbxPYywOXZXfu", oldPrice: "$499.99", label: "Get Started" },
-      standard: { price: "$959.99/yr", priceId: "price_1QL7MbBi8ZwCbxPYXUPIwSP4", oldPrice: "$1199.99", label: "Buy Now" },
-      premium: { price: "$1549.99/yr", priceId: "price_1QL7N0Bi8ZwCbxPYgABGayxb", oldPrice: "$1799.99", label: "Buy Now" },
+      free: { price: "$299.99/yr", priceId: "price_1QMSAPBi8ZwCbxPY5rlGmPjA", oldPrice: "$499.99", label: "Get Started" },
+      standard: { price: "$959.99/yr", priceId: "price_1QMSARBi8ZwCbxPYtXfSl80D", oldPrice: "$1199.99", label: "Buy Now" },
+      premium: { price: "$1549.99/yr", priceId: "price_1QMSASBi8ZwCbxPY8hAWCmSn", oldPrice: "$1799.99", label: "Buy Now" },
     },
   };
 

@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
 
-const stripePromise = loadStripe("pk_test_51Q1WqmBi8ZwCbxPYF8L4kukHUVVARusHQfJt633Avj0O7tlya6qhXSf2lgonDR46dUL7o6PWrNVNr8V5cyMLhflq006kkjw0LS");
+const stripePromise = loadStripe("pk_live_51Q1WqmBi8ZwCbxPYOcXMnuKsPMWARV8T0WsBhkPrVvwrSaC7EncwnSQvFtG0qc4wOQ0J3QUjamlZHPY99kSqcJAv00YF67z5sO");
 
 const CheckoutForm = () => {
     const [clientSecret, setClientSecret] = useState('');
