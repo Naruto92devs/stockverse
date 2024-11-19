@@ -20,6 +20,7 @@ const LogoutButton = ({ onLogout }) => {
             // Redirect to the login page or home page after successful logout
             Cookies.remove('authToken');
             localStorage.removeItem('UserInfo');
+            sessionStorage.removeItem('MembershipStatus');
             // Call the passed onLogout function to reset state in the User component
             if (onLogout) {
                 onLogout();

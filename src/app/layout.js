@@ -8,6 +8,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
+import { MembershipProvider } from '../context/MembershipContext';
 
 export default function RootLayout({ children }) {
 
@@ -58,18 +59,19 @@ export default function RootLayout({ children }) {
           height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
-        
-        <Providers>
-          <NextThemesProvider>
-            <ThemeProvider>
-              <main className="w-[100%] min-h-[100vh] flex flex-col">
-                {!hideNavbarFooter && <Navbar />}
-                  {children}
-                {!hideNavbarFooter && <Footer />}
-              </main>
-            </ThemeProvider>
-          </NextThemesProvider>
-        </Providers>
+        <MembershipProvider>
+          <Providers>
+            <NextThemesProvider>
+              <ThemeProvider>
+                <main className="w-[100%] min-h-[100vh] flex flex-col">
+                  {!hideNavbarFooter && <Navbar />}
+                    {children}
+                  {!hideNavbarFooter && <Footer />}
+                </main>
+              </ThemeProvider>
+            </NextThemesProvider>
+          </Providers>
+        </MembershipProvider>
         <Script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SNDh4K"></Script>
       </body>
     </html>
