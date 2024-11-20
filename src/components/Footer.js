@@ -78,12 +78,14 @@ export default function Footer () {
                 </div>
                 <div className="flex border-t-2 border-mobNavLink justify-between py-4 items-start max-md:flex-col max-md:gap-y-3">
                     <p className="text-base max-sm:text-[3.5vw] font-sansMedium text-mobNavLink/80">© 2024 Stockverse, All right reserved.</p>
-                    <div className="flex items-end gap-x-4 max-sm:gap-x-2">
+                    <div className="flex flex-wrap items-end gap-4 max-sm:gap-x-2">
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/disclaimer'>Disclaimer</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70" href='/disclaimer'>.</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/terms'>Terms of Service</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70" href='/terms'>.</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/policy'>Privacy Policy</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70" href='/refund-policy'>.</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-Medium text-mobNavLink/70 hover:underline hover:text-mobNavLink/100" href='/refund-policy'>Refund Policy</Link>
                     </div>
                 </div>
             </div>
