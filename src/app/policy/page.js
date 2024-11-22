@@ -97,6 +97,8 @@ export default function Policy() {
         <p className="text-base text-primaryText">You have the right to delete or request that We assist in deleting the Personal Data that We have collected about You.</p>
         <p className="text-base text-primaryText">Our Service may give You the ability to delete certain information about You from within the Service.</p>
         <p className="text-base text-primaryText">Please note, however, that We may need to retain certain information when we have a legal obligation or lawful basis to do so.</p>
+        <p className="text-base text-primaryText">For information about deletion & removal of personal information, please see: <a className="text-primaryHeading" href="/guide/delete-account">Steps to Delete Your Stockverse Account</a></p>
+        
         <p className="text-lg text-primaryText font-sansSemibold">Disclosure of Your Personal Data</p>
         <p className="text-base text-primaryText font-sansSemibold">Business Transactions</p>
         <p className="text-base text-primaryText">If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.</p>
