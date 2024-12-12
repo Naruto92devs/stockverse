@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from 'next/head';
 
-const Noev = () => {
+const PRESSRELEASENEOV = () => {
 
-    const pressReleaseUrl = `https://stockverse.com/december-pick/neov`; // The current URL
+    const pressReleaseUrl = `https://stockverse.com/press-release/neov`; // The current URL
 
     const handleFacebookShare = () => {
         const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pressReleaseUrl)}`;
@@ -50,14 +50,14 @@ const Noev = () => {
         <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
             
             <div className="py-12 gap-y-6 flex max-lg:flex-col-reverse max-lg:items-start items-center justify-between">
-                <h1 className="text-5xl font-serif font-medium max-sm:text-2xl  text-left text-primaryText/70 lg:w-[70%] leading-[130%]">{`How one bright stock couldn’t have planned their surge at a better time. NASDAQ: NEOV`}</h1>
+                <h1 className="text-5xl font-serif font-medium max-sm:text-2xl  text-left text-primaryText/70 lg:w-[70%] leading-[130%]">NeoVolta and Expion360 Announce LOI to Advance Battery Manufacturing and Product Design</h1>
                 <Image className="w-[25%] h-[100%]" width={199} height={46} src='/images/neov-press-release.jpg' alt="iPhone"/>
             </div>
             <div className="py-8 border-y-[1px] border-primaryText/20 max-sm:px-3  gap-y-6 flex flex-wrap items-center justify-between">
                 <div className="flex flex-col">
                     <p className="text-base text-primaryText leading-[110%]">News Provided by</p>
                     <Link href='https://stockverse.com/news' className=" leading-[110%] text-md  text-primaryHeading">Stockverse.com</Link>
-                    <p className="text-sm  text-primaryText leading-[110%]">Nov 13, 2024, 08:30 ET</p>
+                    <p className="text-sm  text-primaryText leading-[110%]">Dec 11, 2024, 08:30 ET</p>
                 </div>
                 <div className="">
                     <p className="text-base  text-primaryText leading-[110%]">SHARE THIS ARTICLE</p>
@@ -87,120 +87,39 @@ const Noev = () => {
                 </div>
             </div>
             <div className="flex flex-col gap-8 py-4">
-                <h2 className="text-lg text-primaryText font-sansSemibold">Dear Investor,</h2>
-                <p className="text-base text-primaryText leading-[200%]">{`We’ve seen mind boggling innovations throughout the United States, and the world over the past few decades — to the point our day-to-day lives are completely different. `}</p>
-                <p className="text-lg text-primaryText leading-[200%]">Today:</p>
-                <ol className="list-disc pl-8 flex flex-col gap-y-4">
-                    <li className="text-lg text-primaryText">We walk around with a world of information in our pockets</li>
-                    <li className="text-lg text-primaryText">{`Big businesses are started in people’s homes`}</li>
-                    <li className="text-lg text-primaryText">{`Artificial Intelligence is used regularly to improve our lives`}</li>
-                </ol>
-                <p className="text-md text-primaryText leading-[150%]">{`Today’s everyday life would be nearly unrecognizable just a few decades back. All thanks to cutting-edge technologies. And with a growing reliance on technology, has created a dependence for consistent, and affordable energy sourcing.`}</p>
-                <p className="text-md text-primaryText leading-[150%]">{`… and given shifts in impending climate change and other environmental variables, there’s been a long-standing push to evolve from conventional energy sourcing.`}</p>
-                <p className="text-md text-primaryText leading-[150%]">{`The once heavily contested industry has seen a US-based Solar Generation Growth of 723% (and climbing) since 2014, according to Climate Central. This jolt in growth has reshaped the national economy, as well as how we see renewable energy.`}</p>
-                <p className="text-md text-primaryText leading-[150%]">{`American households once reliant on gas, oil, or expensive for-profit utility companies now have affordable, eco-friendly alternative methods for powering their homes and lifestyles.`}</p>
-                <p className="text-md text-primaryText leading-[150%]">And according to the US Energy Information Administration,<span className="underline"> US-based power generation is projected to grow 75%</span>, from 163 billion kilowatt hours in 2023, to 286 billion kilowatt hours in 2025.</p>
-                <p className="text-md text-primaryText leading-[150%]">This has created a massive BOOM in solar sales, jobs and beyond.</p>
-                <ol className="list-disc pl-8 flex flex-col gap-y-4">
-                    <li className="text-lg text-primaryText">Solar deployments have seen an average annual growth rate of 25%</li>
-                    <li className="text-lg text-primaryText">{`55% of all new electric capacity added to the grid in 2023, came from solar`}</li>
-                    <li className="text-lg text-primaryText">{`And over 18% of the US’s solar capacity has a corporate offtaker.`}</li>
-                </ol>
-                <p className="text-md text-primaryText leading-[150%]">That’s one reason why major US corporations like Meta, Amazon, Google, Apple and Walmart are investing in solar at record levels, according to SEIA reports.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">In response to this high-in-demand use of alternative energy, companies around the country (and world) are racing to produce the best panels, inverters, mounting systems, trackers, batteries and more — all to be seen as the standard that powers-up the United States.</p>
-
-                <h3 className="text-lg text-primaryText font-sansSemibold">Solar Living, Post-NEM 3.0</h3>
-                <p className="text-md text-primaryText leading-[150%]">NEM 3.0, or Net Energy Metering 3.0 was officially passed via an unanimous CPUC (California Public Utilities Commission) vote, as of December 15th, 2022.</p>
-                <p className="text-md text-primaryText leading-[150%]">As a result, California-based homeowners with solar paid up to 75% less in monthly electric bills.</p>
-                <p className="text-md text-primaryText leading-[150%]">NEM 3.0 also led to decreasing export rates, allowing for home solar systems to pay for themselves faster, despite increasing upfront costs, creating a boom in home installations.</p>
-                <p className="text-md text-primaryText leading-[150%]">And thanks to 2022’s passing of the Inflation Reduction Act, and the millions in tax credits that came with it, we’ve seen significant improvements in baseline projections for the solar industry for the foreseeable future.</p>
-                <p className="text-md text-primaryText leading-[150%]">Based on SEIA’s projections, solar deployment will see a 46% boost over the next 5 years alone, relative to pre-IRA projections.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">But the big news is in the battery systems…</p>
-                <h3 className="text-lg text-primaryText font-sansSemibold">New Battery Systems Make or Break Solar Investments</h3>
-                <p className="text-md text-primaryText leading-[150%]">With homeowners looking to rely less on the grid, more and more people are setting their sights on the best, more reliable battery systems.</p>
-                <p className="text-md text-primaryText leading-[150%]">This comes down to direct savings, better coverage in the event of hazardous weather, and the option to sell-back excess energy to the grid.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">Between decreasing reliability from the grid and a growing trend of unprecedented storms along the US’ east coast, there has been an added sense of urgency for homeowners to have backup systems in the event of brownouts, blackouts, and weather-related power outages.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">That’s why manufacturers are racing to produce the most secure and durable battery systems with the highest nominal capacities. Yet, in a sea of competition, one company has clearly stood out as the brightest.</p>
-
-                <h3 className="text-lg text-primaryText font-sansSemibold">Introducing NeoVolta (NEOV): The Stock Leading the Charge in Solar Energy Storage</h3>
-                <p className="text-md text-primaryText leading-[150%]">NeoVolta (NEOV) is a publicly-traded solar battery company leading the solar industry with best-in-class battery systems.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">As the solar industry continues to gain traction around the nation, battery systems will be the main focus for consumers and investors alike. Stronger, more reliable battery systems will define solar’s inherent value, in the eyes of coastal and mainland Americans.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">“Will I be able to store enough power for my home?”</p>
-                <p className="text-md text-primaryText leading-[150%]">“Will climate change impact the effectiveness of solar?”</p>
-                <p className="text-md text-primaryText leading-[150%]">“Will solar equipment be able to withstand harsh storms?”</p>
-
-                <p className="text-md text-primaryText leading-[150%]">These are all questions consumers are, and will be asking, when it comes time to invest in the future of their home’s energy production. And the answer to these questions comes from the leader in solar batteries…</p>
-
-                <h3 className="text-lg text-primaryText font-sansSemibold">Led By Proven Experience</h3>
-                <p className="text-md text-primaryText leading-[150%]">NeoVolta is led by CEO Ardes Johnson. Johnson is known for his work at Tesla, Meyer Burger Americas, SolarWorld Americas, and General Electric. Johnson launched the PowerWall and PowerPack partner channel programs, which secured an 80 MWh storage contract with southern California Edison during his time at Tesla.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">As the President and General Manager at Meyer Burger Americas, Johnson oversaw a $1,000,000,000 backlog and scaled manufacturing to 2 gigawatts annually within just 90 days.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">With his experience with said solar giants, many believe Johnson will have a competitive edge, when it comes to forming lasting strategic partnerships that supercharge NeoVolta ahead of its competition. In other words, there is no better man to steer the solar ship!</p>
-
-                <h3 className="text-lg text-primaryText font-sansSemibold">An Ever-Expanding Dealer Network</h3>
-                <p className="text-md text-primaryText leading-[150%]">NeoVolta recently secured a $1,400,000 purchase order from National Renewable Energy Partners (NREP) for 150 NV14 energy storage systems. As part of this deal, NeoVolta’s dealer network is expected to expand to Ohio, Texas, Connecticut, Indiana, and Pennsylvania. And with this momentum, more can follow suit.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">“Today marks a significant milestone for NeoVolta as we secure a $1.4 million deal with National Renewable Energy Partners. This partnership not only expands our dealer network into key states like Ohio, Texas, and Connecticut but also reinforces our commitment to empowering homeowners with innovative solar energy storage solutions. Together, we are shaping a more sustainable future,”  — Ardes Johnson, NeoVolta CEO</p>
-
-                <h3 className="text-lg text-primaryText font-sansSemibold">Uncle Sam Approves: $250M Loan From The US Department of Energy</h3>
-                <p className="text-md text-primaryText leading-[150%]">As of November, 2024, NeoVolta successfully secured a $250,000,000 loan from the US Department of Energy (DOE), via the Title 17 Loan Program. These funds were immediately allocated towards establishing a state-of-the-art manufacturing facility, as well as regional deployment centers around the country.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">This low-interest loan will enable NeoVolta to create 150+ high-paying jobs, and work in complete compliance with 2022’s Inflation Reduction Act (IRA), ensuring domestic codification.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">This initiative has received bipartisan support, including cited optimism from President-Elect Trump’s pro-solar energy stance.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">The result: NeoVolta received economic development offers from 23 states — offers that are currently under review by their executive team.</p>
-
-                <h3 className="text-lg text-primaryText font-sansSemibold">A Glance into the Future</h3>
-                <p className="text-md text-primaryText leading-[150%]">At this point, the quest for renewable energy is inevitable. With a rise in solar, we’re seeing:</p>
-                <ul className="list-disc pl-8">
-                    <li className="text-md text-primaryText leading-[150%]">an increase in jobs that experts project will only increase with time</li>
-                    <li className="text-md text-primaryText leading-[150%]">more interest in green environmental initiatives</li>
-                    <li className="text-md text-primaryText leading-[150%]">a conflict-free, bipartisan effort to invest in the future of energy production</li>
-                </ul>
-
-                <p className="text-md text-primaryText leading-[150%]">Every investor knows solar is the future of home energy, but the question is, which company will lead the charge?</p>
-
-                <p className="text-md text-primaryText leading-[150%]">{`The truth is, there’s no single way to look at this.`}</p>
-
-                <p className="text-md text-primaryText leading-[150%]">The solar company(s) that go on to lead the industry will do so because of their cutting-edge batteries and technology, as well as support from local and national governmental institutions.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">{`And as investors, it’s our job to consider the odds, considering what we know, and what experts are projecting.`}</p>
-
-                <h3 className="text-lg text-primaryText font-sansSemibold">Expert Investors Are Closely Watching NeoVolta (NEOV)</h3>
-                <p className="text-md text-primaryText leading-[150%]">As previously mentioned, there are a plethora of economic, governmental and environmental factors that will decide the future of solar.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">In the case of NeoVolta, the stars are beginning to align.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">{`Over the last few years, we’ve seen one solar company make massive strides that have garnered bipartisan support, a commitment to clean energy and an industry-leading standard in growth and strategic partnerships.`}</p>
-
-                <p className="text-md text-primaryText leading-[150%]">{`Those accomplishments aside: Regardless of the direct trajectory of the solar industry, battery systems will be at the heart of every move. And we haven't found a more promising company or investment opportunity.`}</p>
-
-                <p className="text-md text-primaryText leading-[150%]">As the solar industry spreads throughout the country, so will NeoVolta. For those that see a bright future in solar and see how NeoVolta is leading the charge, now is the time to take a closer look.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">{`As we’ve already detailed, the expansion of the solar industry is inevitable at this point. And based on trends and consumer reports, experts are looking at solar companies producing the best, more reliable batteries designed to keep households powered, regardless of climate.`}</p>
-
-                <p className="text-md text-primaryText leading-[150%]">Given their extensive industry leadership, current position and cutting-edge products — we believe NeoVolta is, without a doubt, the solar stock to consider adding to your portfolio for 2025.</p>
-
-                <p className="text-md text-primaryText leading-[150%]">Consider joining our membership too.</p>
-                <p className="text-md text-primaryText leading-[150%]">Happy investing,</p>
-                <p className="text-md text-primaryText leading-[150%]">mark w/ stockverse</p>
-                <p className="text-2xl font-sansSemibold text-primaryText text-center leading-[150%]">Research NEOV Today</p>
-                <p className="text-4xl font-sansSemibold text-primaryText text-center leading-[150%]">Add <span className="text-buy"> NEOV</span> to your watchlist today</p>
-                <div className="flex flex-wrap justify-center gap-8">
-                    <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=neov&rsO=new'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/article-link.jpeg" alt="logo"></img></Link>
-                    <Link href='https://www.schwab.com/'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/charles.jpeg" alt="logo"></img></Link>
-                    <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=NEOV'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/fedelity.jpeg" alt="logo"></img></Link>
-                    <Link href='https://www.td.com/us/en/personal-banking'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/td.jpeg" alt="logo"></img></Link>
+                <p className="text-base text-primaryText leading-[200%]">SAN DIEGO, Dec. 11, 2024 (GLOBE NEWSWIRE) -- NeoVolta Inc. (Nasdaq: NEOV) (“NeoVolta”), a leading innovator in energy storage solutions, is excited to announce the execution of a non-binding letter of intent (“LOI”) with Expion360 Inc. (Nasdaq: XPON) (“Expion360”), a renowned expert in battery design and engineering, and an industry leader in lithium-ion battery power storage solutions. The LOI provides the framework for a potential collaboration that aims to leverage the parties’ shared resources to engineer a state-of-the-art battery manufacturing facility and develop innovative lithium-ion battery cell and module product designs, marking a significant milestone in the production of American-made batteries.</p>
+                <p className="text-base text-primaryText leading-[200%]">If the parties proceed with a formal engagement under the LOI, Expion360 intends to contribute its expertise in design and engineering, while NeoVolta plans to provide the necessary capital and manpower. ​Together, the companies expect to bring high-performance, sustainable energy storage solutions to the market to address the growing demand for efficient energy management in both residential and commercial applications.</p>
+                <p className="text-base text-primaryText leading-[200%]">Recently NeoVolta completed phase one of its loan application for $250 million from the U.S. Department of Energy (DOE) Title 17 Loan Program (LPO), and has been approved to proceed with phase two, consisting of technical due diligence. To meet domestic content requirements for commercial grade Battery Electric Storage Systems (BESS) and other components, NeoVolta must establish a state-of-the-art manufacturing facility that can accommodate more than 150 high-paid employees. Domestic content requirements for the entire industry were codified in the bipartisan Inflation Reduction Act (IRA) in 2022, and President-elect Trump has continued to promote American production throughout his transition announcements.</p>
+                <p className="text-base text-primaryText leading-[200%]">{`“We are thrilled to join forces with Expion360. This collaboration aligns perfectly with our mission to drive progress in renewable energy and enhance how the world stores and uses power. By taking this initial step to combine our strengths, we are confident we can deliver cutting-edge energy storage solutions that meet the highest standards of performance and reliability,” said Ardes Johnson, CEO of NeoVolta.`}</p>
+                <p className="text-base text-primaryText text-left">{`“Partnering with NeoVolta is a significant step forward for Expion360. We believe our expertise in battery design and engineering, coupled with NeoVolta’s resources and commitment to innovation, will enable us to create exceptional products that will set new benchmarks in the industry. ​We look forward to seeing the impact of our collaboration on the future of clean energy,” said Brian Schaffner, CEO of Expion360.`}</p>
+                <p className="text-base text-primaryText leading-[200%]">{`The LOI underscores the commitment of both companies to advance the future of clean energy through innovation and collaboration. ​As they work together to bring their American-made batteries to fruition, NeoVolta and Expion360 plan to make a lasting impact on the energy storage industry.`}</p>
+                <h2 className="text-2xl font-sansMedium text-primaryText leading-[200%]">About NeoVolta</h2>
+                <p className="text-base text-primaryText leading-[200%]">{`NeoVolta is dedicated to providing reliable, sustainable, and high-performance energy storage systems. With a focus on cutting-edge technology and strategic partnerships, NeoVolta is committed to driving progress in renewable energy and enhancing how the world stores and uses power.`} </p>
+                <h2 className="text-2xl font-sansMedium text-primaryText leading-[200%]">About Expion360</h2>
+                <p className="text-base text-primaryText leading-[200%]">{`Expion360 is an industry leader in premium lithium iron phosphate (LiFePO4) batteries and accessories for recreational vehicles and marine applications, with residential and industrial applications under development. On December 19, 2023, the Company announced its entrance into the home energy storage market with the introduction of two premium LiFePO4 battery storage systems that enable residential and small business customers to create their own stable micro-energy grid and lessen the impact of increasing power fluctuations and outages.`} </p>
+                <p className="text-base text-primaryText leading-[200%]">The {`Company’s`} lithium-ion batteries feature half the weight of standard lead-acid batteries while delivering three times the power and ten times the number of charging cycles. Expion360 batteries also feature better construction and reliability compared to other lithium-ion batteries on the market due to their superior design and quality materials. Specially reinforced, fiberglass-infused, premium ABS and solid mechanical connections help provide top performance and safety. With Expion360 batteries, adventurers can enjoy the most beautiful and remote places on Earth even longer. The Company is headquartered in Redmond, Oregon. Expion360 lithium-ion batteries are available today through more than 300 dealers, wholesalers, private-label customers, and OEMs across the country. To learn more about the Company, visit <Link href='https://expion360.com'> Expion360.com.</Link></p>
+                <h2 className="text-2xl font-sansMedium text-primaryText leading-[200%]">Forward-Looking Statements and Safe Harbor Notice</h2>
+                <p className="text-base text-primaryText leading-[200%]">{`This press release contains certain forward-looking statements within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended, which statements are subject to considerable risks and uncertainties. The Company intends such forward-looking statements to be covered by the safe harbor provisions contained in the Private Securities Litigation Reform Act of 1995. All statements other than statements of historical facts included in this press release, including statements about our beliefs and expectations, are "forward-looking statements" and should be evaluated as such. Examples of such forward-looking statements include statements that use forward-looking words such as "projected," "expect," "possibility,” “believe,” “aim,” “goal,” “plan,” and "anticipate," or similar expressions. Forward-looking statements included in this press release include, but are not limited to, statements relating to NeoVolta’s and Expion360’s future development plans, growth prospects, and market opportunity; the contemplated collaboration between the parties, including the development of a manufacturing facility and product designs; NeoVolta’s ability to comply with regulatory requirements and obtain necessary approvals; and the impact of any collaboration between the parties on the energy storage industry. Forward-looking statements are subject to and involve risks, uncertainties, and assumptions that may cause the Company’s actual results, performance or achievements to be materially different from any future results, performance or achievements predicted, assumed or implied by such forward-looking statements.`}</p>
+                <div className="flex flex-col gap-1">
+                    <p className="text-lg font-sansMedium text-primaryText leading-[200%]">{`NeoVolta Contact:`}</p>
+                    <p className="text-base text-primaryText leading-[120%]">{`Kate Countryman`}</p>
+                    <p className="text-base text-primaryText leading-[120%]">{`858-239-2349`}</p>
+                    <p className="text-base text-primaryHeading leading-[120%]"><Link href='mailto:press@neovolta.com'>press@neovolta.com</Link></p>
                 </div>
-                <div className="klaviyo-form-UyiDsy"></div>
+                <div className="flex flex-col gap-1">
+                    <p className="text-lg font-sansMedium text-primaryText leading-[200%]">{`Expion360 Contact:`}</p>
+                    <p className="text-base text-primaryText leading-[120%]">{`Brian Schaffner, CEO`}</p>
+                    <p className="text-base text-primaryText leading-[120%]">{`541-797-6714`}</p>
+                    <p className="text-base text-primaryHeading leading-[120%]"><Link href='https://expion360.com/pages/contact'>Email Contact</Link></p>
+                </div>
+                <div className="flex flex-col gap-1">
+                    <p className="text-lg font-sansMedium text-primaryText leading-[200%]">{`External Investor Relations:`}</p>
+                    <p className="text-base text-primaryText leading-[120%]">{`Chris Tyson, Executive Vice President`}</p>
+                    <p className="text-base text-primaryText leading-[120%]">{`MZ Group - MZ North America`}</p>
+                    <p className="text-base text-primaryText leading-[120%]">{`949-491-8235`}</p>
+                    <p className="text-base text-primaryHeading leading-[120%]"><Link href='mailto:XPON@mzgroup.us'>XPON@mzgroup.us</Link></p>
+                    <p className="text-base text-primaryHeading leading-[120%]"><Link href='https://www.mzgroup.us/'>www.mzgroup.us</Link></p>
+                </div>
             </div>
             <div className="py-6 max-md:py-6 px-3 max-sm:px-3 mx-auto xl:container gap-y-8 max-sm:gap-y-3 flex flex-col items-center justify-center">
                 <div className="w-full border-t-2 border-buy py-4">
@@ -266,4 +185,4 @@ const Noev = () => {
     );
 }
 
-export default Noev;
+export default PRESSRELEASENEOV;
