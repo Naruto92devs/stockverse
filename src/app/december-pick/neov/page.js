@@ -50,7 +50,7 @@ const Noev = () => {
         <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
             
             <div className="py-12 gap-y-6 flex max-lg:flex-col-reverse max-lg:items-start items-center justify-between">
-                <h1 className="text-5xl font-serif font-medium max-sm:text-2xl  text-left text-primaryText/70 lg:w-[70%] leading-[130%]">{`How one bright stock couldn’t have planned their surge at a better time.`}</h1>
+                <h1 className="text-5xl font-serif font-medium max-sm:text-2xl  text-left text-primaryText/70 lg:w-[70%] leading-[130%]">{`How one bright stock couldn’t have planned their surge at a better time. NASDAQ: NEOV`}</h1>
                 <Image className="w-[25%] h-[100%]" width={199} height={46} src='/images/neov-press-release.jpg' alt="iPhone"/>
             </div>
             <div className="py-8 border-y-[1px] border-primaryText/20 max-sm:px-3  gap-y-6 flex flex-wrap items-center justify-between">
