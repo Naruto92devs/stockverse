@@ -190,6 +190,8 @@ const Noev = () => {
                 <p className="text-md text-primaryText leading-[150%]">Given their extensive industry leadership, current position and cutting-edge products — we believe NeoVolta is, without a doubt, the solar stock to consider adding to your portfolio for 2025.</p>
 
                 <p className="text-md text-primaryText leading-[150%]">Consider joining our membership too.</p>
+                <p className="text-md text-primaryText leading-[150%]">Happy investing,</p>
+                <p className="text-md text-primaryText leading-[150%]">mark w/ stockverse</p>
 
                 <div className="klaviyo-form-UyiDsy"></div>
             </div>
@@ -212,6 +214,9 @@ const Noev = () => {
                     </p>
                     <p className="text-xs leading-[180%] text-center text-primaryText">
                     •⁠  *Cadrenal Therapeutics:* We have been compensated up to $100,000 to run a 60-day marketing campaign for Cadrenal Therapeutics starting on August 8, 2024.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    •⁠  *NeoVolta Inc:*  Relqo Media LLC Has been compensated $200,000 USD Starting 11/11/2024 to run a 30 day marketing campaign for Neovolta Inc. Relqo Media LLC owns 0 shares and does not plan to purchase or sell during this campaign.
                     </p>
                     <p className="text-xs leading-[180%] text-center text-primaryText">
                     The compensation for these campaigns is provided by Penzance LLC, which pays us to advertise on behalf of the companies. We may sell the securities mentioned in our communications at any time without prior notice, which may impact share prices. This compensation creates a significant conflict of interest, and as such, all content on these platforms should be considered as commercial advertisement only.

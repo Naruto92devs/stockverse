@@ -106,6 +106,66 @@ const PRESSRELEASENEOV = () => {
                     {/* <p className="text-base text-primaryHeading leading-[200%]"><Link href='mailto:press@cadrenal.com'>press@cadrenal.com</Link></p> */}
                 </div>
             </div>
+            <div className="py-6 max-md:py-6 px-3 max-sm:px-3 mx-auto xl:container gap-y-8 max-sm:gap-y-3 flex flex-col items-center justify-center">
+                <div className="w-full border-t-2 border-buy py-4">
+                    <h1 className="text-primaryText mb-4 text-center font-sansSemibold text-2xl">Disclaimer</h1>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                        *Ownership and Operation:*
+                        This website, including stockverse.ai, stockverse.io, and any associated social media accounts such as Twitter (@stockverseai), is owned, operated, and edited by StockVerse, a Wyoming Limited Liability Company (“LLC“). Any references to “we,” “our,” or “us” refer to StockVerse.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *Purpose:* These websites and social media accounts, and the content provided therein, are for informational and entertainment purposes only. We are in the business of marketing, advertising, and bringing brand awareness to small public companies. The content on these platforms is a paid advertisement and should not be interpreted as a recommendation or offer to buy or sell securities. 
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *Compensation Disclosure:*
+                        StockVerse receives financial compensation for marketing and promotional services from the companies featured on these platforms. This compensation may include cash payments, stock options, or other forms of consideration, and may influence the content provided. The specific compensation details for our campaigns include:
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    •⁠  *SRM Entertainment:* We have been compensated up to $250,000 to run a marketing campaign for SRM Entertainment from March to October 2024.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    •⁠  *Cadrenal Therapeutics:* We have been compensated up to $100,000 to run a 60-day marketing campaign for Cadrenal Therapeutics starting on August 8, 2024.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    •⁠  *NeoVolta Inc:*  Relqo Media LLC Has been compensated $200,000 USD Starting 11/11/2024 to run a 30 day marketing campaign for Neovolta Inc. Relqo Media LLC owns 0 shares and does not plan to purchase or sell during this campaign.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    The compensation for these campaigns is provided by Penzance LLC, which pays us to advertise on behalf of the companies. We may sell the securities mentioned in our communications at any time without prior notice, which may impact share prices. This compensation creates a significant conflict of interest, and as such, all content on these platforms should be considered as commercial advertisement only.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *No Investment Advice:*
+                        StockVerse, including its owners, editors, and affiliates, are not registered or licensed in any jurisdiction to provide financial, investment, or legal advice. The content on these platforms does not constitute financial, legal, or investment advice and should not be relied upon as such. Always consult with a licensed financial professional before making any investment decisions.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *Risk Acknowledgment:*
+                        Investing in stocks, especially penny stocks, involves a high degree of risk and may not be suitable for all investors. The possibility exists that you could sustain a loss of some or all of your initial investment. You should only invest money that you can afford to lose. Past performance is not necessarily indicative of future results, and individual results may vary.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *Forward-Looking Statements:*
+                        These platforms may contain forward-looking statements based on current expectations. These statements involve risks and uncertainties that could cause actual results to differ materially from those expressed or implied. We do not undertake any obligation to update these forward-looking statements.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *Jurisdiction and Governing Law:*
+                        This disclaimer and any disputes arising out of or in connection with it shall be governed by and construed in accordance with the laws of the State of Wyoming, without regard to its conflict of laws principles. Any legal actions or proceedings arising under this disclaimer shall be brought exclusively in the courts of Wyoming.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *Limitation of Liability:*
+                        StockVerse, its owners, editors, employees, and affiliates assume no responsibility for any errors or omissions in the content on these platforms. We shall not be liable for any direct, indirect, incidental, or consequential damages, including but not limited to, loss of profits, trading losses, or damages that may result from the use of or reliance on information provided on these websites or social media accounts.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *Third-Party Links and Content:*
+                        These platforms may contain links to third-party websites or resources. StockVerse is not responsible for the content, accuracy, or availability of such external sites or resources. The inclusion of any link does not imply endorsement by StockVerse of the site or any association with its operators.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                    *User Consent:*
+                        By using these platforms, you acknowledge that you have read, understood, and agree to be bound by the terms of this disclaimer. If you do not agree with these terms, you should not use these websites or social media accounts.
+                    </p>
+                    <p className="text-xs leading-[180%] text-center text-primaryText">
+                        *Changes to Disclaimer:*
+                        StockVerse reserves the right to update or modify this disclaimer at any time without prior notice. Users are responsible for reviewing this disclaimer periodically for changes. Continued use of these platforms after any changes constitutes acceptance of those changes.
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }
