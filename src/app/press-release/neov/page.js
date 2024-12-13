@@ -142,7 +142,7 @@ const PRESSRELEASENEOV = () => {
                     •⁠  *Cadrenal Therapeutics:* We have been compensated up to $100,000 to run a 60-day marketing campaign for Cadrenal Therapeutics starting on August 8, 2024.
                     </p>
                     <p className="text-xs leading-[180%] text-center text-primaryText">
-                    •⁠  *NeoVolta Inc:*  Relqo Media LLC Has been compensated $200,000 USD Starting 11/11/2024 to run a 30 day marketing campaign for Neovolta Inc. Relqo Media LLC owns 0 shares and does not plan to purchase or sell during this campaign.
+                    •⁠  *NeoVolta Inc:*  Relqo Media LLC Has been compensated $400,000 USD Starting 11/11/2024 to run a 60 day marketing campaign for Neovolta Inc. Relqo Media LLC owns 0 shares and does not plan to purchase or sell during this campaign.
                     </p>
                     <p className="text-xs leading-[180%] text-center text-primaryText">
                     The compensation for these campaigns is provided by Penzance LLC, which pays us to advertise on behalf of the companies. We may sell the securities mentioned in our communications at any time without prior notice, which may impact share prices. This compensation creates a significant conflict of interest, and as such, all content on these platforms should be considered as commercial advertisement only.
