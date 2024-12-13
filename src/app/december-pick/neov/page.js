@@ -50,7 +50,7 @@ const Noev = () => {
         <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
             
             <div className="py-12 gap-y-6 flex max-lg:flex-col-reverse max-lg:items-start items-center justify-between">
-                <h1 className="text-5xl font-serif font-medium max-sm:text-2xl  text-left text-primaryText lg:w-[70%] leading-[130%]">How one bright stock {`couldn’t`} have planned their surge at a better time. NASDAQ: <span style={{fontWeight: 900}}>NEOV</span></h1>
+                <h1 className="text-5xl font-serif font-medium max-sm:text-2xl  text-left text-primaryText lg:w-[70%] leading-[130%]">How One Bright Stock {`Couldn’t`} Have Planned Their Surge At A Better Time. NASDAQ: <span style={{fontWeight: 900}}>NEOV</span></h1>
                 <Image className="w-[25%] h-[100%]" width={199} height={46} src='/images/neov-press-release.jpg' alt="iPhone"/>
             </div>
             <div className="py-8 border-y-[1px] border-primaryText/20 max-sm:px-3  gap-y-6 flex flex-wrap items-center justify-between">
@@ -181,13 +181,13 @@ const Noev = () => {
 
                 <p className="text-md text-primaryText leading-[150%]">{`Over the last few years, we’ve seen one solar company make massive strides that have garnered bipartisan support, a commitment to clean energy and an industry-leading standard in growth and strategic partnerships.`}</p>
 
-                <p className="text-md text-primaryText leading-[150%]">{`Those accomplishments aside: Regardless of the direct trajectory of the solar industry, battery systems will be at the heart of every move. And we haven't found a more promising company or investment opportunity.`}</p>
+                <p className="text-md text-primaryText leading-[150%]">{`Those accomplishments aside: Regardless of the direct trajectory of the solar industry, battery systems will be at the heart of every move. And we haven't found a more promising company.`}</p>
 
                 <p className="text-md text-primaryText leading-[150%]">As the solar industry spreads throughout the country, so will NeoVolta. For those that see a bright future in solar and see how NeoVolta is leading the charge, now is the time to take a closer look.</p>
 
                 <p className="text-md text-primaryText leading-[150%]">{`As we’ve already detailed, the expansion of the solar industry is inevitable at this point. And based on trends and consumer reports, experts are looking at solar companies producing the best, more reliable batteries designed to keep households powered, regardless of climate.`}</p>
 
-                <p className="text-md text-primaryText leading-[150%]">Given their extensive industry leadership, current position and cutting-edge products — we believe NeoVolta is, without a doubt, the solar stock to consider adding to your portfolio for 2025.</p>
+                <p className="text-md text-primaryText leading-[150%]">Given their extensive industry leadership, current position and cutting-edge products — we believe NeoVolta is, without a doubt, the solar stock to consider adding to your watchlist for 2025.</p>
 
                 <p className="text-md text-primaryText leading-[150%]">Consider joining our membership too.</p>
                 <p className="text-md text-primaryText leading-[150%]">Happy investing,</p>
