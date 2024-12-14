@@ -191,9 +191,9 @@ const Noev = () => {
 
                 <p className="text-md text-primaryText leading-[150%]">Consider joining our membership too.</p>
                 <p className="text-md text-primaryText leading-[150%]">Happy investing,</p>
-                <p className="text-md text-primaryText leading-[150%]">mark w/ stockverse</p>
+                <p className="text-md text-primaryText leading-[150%]">Mark w/ StockVerse</p>
                 <p className="text-2xl font-sansSemibold text-primaryText text-center leading-[150%]">Research NEOV Today</p>
-                <p className="text-4xl font-sansSemibold text-primaryText text-center leading-[150%]">Add <span className="text-buy"> NEOV</span> to your watchlist today</p>
+                <p className="text-4xl font-sansSemibold text-primaryText text-center leading-[150%]">Add <span className="text-buy"> NEOV</span> To Your Watchlist Today</p>
                 <div className="flex flex-wrap justify-center gap-8">
                     <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=neov&rsO=new'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/article-link.jpeg" alt="logo"></img></Link>
                     <Link href='https://www.schwab.com/'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/charles.jpeg" alt="logo"></img></Link>
