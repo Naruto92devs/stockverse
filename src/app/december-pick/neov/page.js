@@ -194,11 +194,12 @@ const Noev = () => {
                 <p className="text-md text-primaryText leading-[150%]">Mark w/ StockVerse</p>
                 <p className="text-2xl font-sansSemibold text-primaryText text-center leading-[150%]">Research NEOV Today</p>
                 <p className="text-4xl font-sansSemibold text-primaryText text-center leading-[150%]">Add <span className="text-buy"> NEOV</span> To Your Watchlist Today</p>
-                <div className="flex flex-wrap justify-center gap-8">
-                    <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=neov&rsO=new'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/article-link.jpeg" alt="logo"></img></Link>
-                    <Link href='https://www.schwab.com/'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/charles.jpeg" alt="logo"></img></Link>
-                    <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=NEOV'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/fedelity.jpeg" alt="logo"></img></Link>
-                    <Link href='https://www.td.com/us/en/personal-banking'><img className="border-4 rounded-xl p-4 shadow-2xl" src="/images/td.jpeg" alt="logo"></img></Link>
+                <div className="flex flex-wrap justify-center gap-4">
+                    <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=neov&rsO=new'><img className="w-14 rounded-xl shadow-xl" src="/images/article-link.jpeg" alt="logo"></img></Link>
+                    <Link href='https://robinhood.com/us/en/stocks/neov/'><img className="w-14 rounded-xl shadow-xl" src="/images/robinhood_logo.png" alt="logo"></img></Link>
+                    <Link href='https://www.schwab.com/'><img className="w-14 rounded-xl shadow-xl" src="/images/charles.jpeg" alt="logo"></img></Link>
+                    <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=NEOV'><img className="w-14 rounded-xl shadow-xl" src="/images/fedelity.jpeg" alt="logo"></img></Link>
+                    <Link href='https://www.td.com/us/en/personal-banking'><img className="w-14 rounded-xl shadow-xl" src="/images/td.jpeg" alt="logo"></img></Link>
                 </div>
                 <div className="klaviyo-form-UyiDsy"></div>
             </div>
