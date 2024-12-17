@@ -212,10 +212,7 @@ export default function LogIn() {
           One Stop Shop <br></br>
           <span className='text-primaryMain'> Everything Stocks</span>
         </h1>
-        {/* <Image className='self-end w-[90%] h-[85%]' width={56} height={56} src='/images/chart.png' alt='logo'></Image> */}
-        <img src='/images/chart.png' alt='login'
-          className='self-end md:w-[80%] w-[90%] '
-        ></img>
+        <Image className='self-end md:w-[80%] w-[90%] ' width={1274} height={1274} src='/images/chart.png' alt='Dashbord'></Image>
       </div>
 
       {/* OTP VERIFICATION POPUP */}
