@@ -110,11 +110,11 @@ export default function LogIn() {
   };
 
   return (
-    <div className="w-full xl:flex xl:h-[100vh]">
+    <div className="w-full lg:flex max-lg:flex-col xl:min-h-[100vh]">
       
-      <div className={` ${VerifyOTP ? 'hidden' : 'flex'} xl:w-[50%] px-6 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
+      <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] px-6 max-lg:py-24 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
         <Image width={56} height={56} src='/images/logo.png' alt='logo'></Image>
-        <h1 className="text-4xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome back! 👋</h1>
+        <h1 className="text-4xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome back!</h1>
         <p className="text-lg mb-8 max-md:mb-4 leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
           welcome back! Please enter your details.
         </p>
@@ -206,15 +206,15 @@ export default function LogIn() {
 
       <div
         style={{ backgroundImage: 'url(/images/login_page_pic.jpg)'}}
-        className={` ${VerifyOTP ? 'hidden' : 'flex'} relative xl:w-[50%] flex flex-col justify-end pt-24 bg-cover bg-center bg-no-repeat`}
+        className={` ${VerifyOTP ? 'hidden' : 'flex'} relative lg:w-[50%] flex flex-col justify-end pt-12 gap-y-12 bg-cover bg-center bg-no-repeat`}
       >
-        <h1 className='absolute top-12 left-12 font-sansMedium text-[4vw] leading-[100%] text-primaryTextColor'>
+        <h1 className='pl-12 font-sansMedium xl:text-6xl md:text-5xl text-4xl leading-[100%] text-primaryTextColor'>
           One Stop Shop <br></br>
           <span className='text-primaryMain'> Everything Stocks</span>
         </h1>
         {/* <Image className='self-end w-[90%] h-[85%]' width={56} height={56} src='/images/chart.png' alt='logo'></Image> */}
-        <img src='/images/chart.png' alt='login' 
-          className='self-end w-[90%] h-[85%] '
+        <img src='/images/chart.png' alt='login'
+          className='self-end md:w-[80%] w-[90%] '
         ></img>
       </div>
 
