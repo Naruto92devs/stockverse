@@ -29,6 +29,16 @@ module.exports = {
       sell: "rgba(var(--sell-color))",
       alertsBg: "rgba(var(--alerts-bg))",
       background: "rgba(var(--background))",
+      
+
+      // new design varialbles
+      white: "rgba(var(--white))",
+      black: "rgba(var(--black))",
+      primaryMain: "rgba(var(--primary-main))",
+      primaryTextColor: "rgba(var(--primary-text))",
+      primaryBg: "rgba(var(--primary-bg))",
+      
+
     },
     extend: {
       fontFamily: {

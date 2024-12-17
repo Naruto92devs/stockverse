@@ -54,7 +54,15 @@
   --alerts-bg: 119,222,182;
 }
 
-.dark {
+:root {
+  --primary-main: 99, 79, 247;
+  --primary-text: 0, 0, 0;
+  --primary-bg: 255, 255, 255;
+  --white: 255, 255, 255;
+  --black: 0, 0, 0;
+}
+
+/* .dark {
   --opposite-svg-color: rgb(0, 0, 0);
   --svg-color: rgb(255, 255, 255);
   --primary-color:  0, 0, 0;
@@ -76,7 +84,7 @@
   --sell-color: 235, 0, 27;
   --theme-color: dark;
   --alerts-bg: 119,222,182;
-}
+} */
 
 .moon {
   fill: #070D3F;
