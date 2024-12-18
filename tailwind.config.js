@@ -35,8 +35,10 @@ module.exports = {
       white: "rgba(var(--white))",
       black: "rgba(var(--black))",
       primaryMain: "rgba(var(--primary-main))",
+      heading: "rgba(var(--heading-main))",
       primaryTextColor: "rgba(var(--primary-text))",
       primaryBg: "rgba(var(--primary-bg))",
+      darkBlue: "rgba(var(--dark-blue))",
       
 
     },
@@ -56,7 +58,11 @@ module.exports = {
         sansVariableItalic: ['GeneralSans-VariableItalic', 'sans-serif'],
       },
       backgroundImage: {
-        'heroBg': "url('/images/main_bg.webp')",
+        'heroBg': "url('/images/hero_bg.png')",
+        'searchBg': "url('/images/features_search_bg.png')",
+        'realtimeBg': "url('/images/features_realtime_bg.png')",
+        'joinBg': "url('/images/join_bg.jpg')",
+        // old images
         'loginBg': "url('/images/login_bg.webp')",
         'newsBg': "url('/images/news_bg.webp')",
         'articleBg': "url('/images/Image_not_available.png')",

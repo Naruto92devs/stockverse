@@ -112,7 +112,7 @@ export default function LogIn() {
   return (
     <div className="w-full lg:flex max-lg:flex-col xl:min-h-[100vh]">
       
-      <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] px-6 max-lg:py-24 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
+      <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] px-6 max-lg:py-20 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
         <Image width={56} height={56} src='/images/logo.png' alt='logo'></Image>
         <h1 className="text-4xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome back!</h1>
         <p className="text-lg mb-8 max-md:mb-4 leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
