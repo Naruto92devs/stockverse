@@ -24,6 +24,7 @@ const Navbar = () => {
     const [isNavbarVisible, setisNavbarVisible] = useState(false); // State for navbar visibility
     const NavRef = useRef(null); // Ref to track dropdown container
     const dropdownRef = useRef(null); // Ref to track dropdown container
+    const toggleButtonRef = useRef(null); // Ref for the toggle button
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible); // Toggle the dropdown
@@ -39,8 +40,14 @@ const Navbar = () => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsDropdownVisible(false);
             }
-            if (NavRef.current && !NavRef.current.contains(event.target)) {
+            if (
+                NavRef.current &&
+                !NavRef.current.contains(event.target) &&
+                toggleButtonRef.current &&
+                !toggleButtonRef.current.contains(event.target)
+            ) {
                 setisNavbarVisible(false);
+                // setIsDropdownVisible(false);
             }
         };
 
@@ -127,7 +134,7 @@ return (
                 </div>
             </div>
             {/* nav toggle buton */}
-            <div onClick={toggleNav} className="cursor-pointer md:hidden relative z-20 flex w-max mr-2">
+            <div onClick={toggleNav} ref={toggleButtonRef} className="cursor-pointer md:hidden relative z-20 flex w-max mr-2">
                 <Image className={`${isNavbarVisible? 'hidden' : 'visible'}`} src="/images/nav_close.png" width={32} height={32} alt='Stockverse Logo' />
                 <Image className={`${isNavbarVisible? 'visible' : 'hidden'}`} src="/images/nav_open.png" width={32} height={32} alt='Stockverse Logo' />
             </div>

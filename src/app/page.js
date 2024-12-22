@@ -67,7 +67,7 @@ export default function Home() {
         {/* ----------second section---------- */}
         <section className='w-full px-6 max-sm:px-3 mx-auto xl:container lg:pt-14 flex flex-col items-center gap-y-4 max-md:gap-y-8'>
           <h1 className='font-sansMedium xl:w-[50%] lg:w-[60%] md:w-[50%] w-full 2xl:text-6xl lg:text-5xl text-3xl text-center text-primaryTextColor'>Find the <span className='hero_h2'>Most Suitable</span> Stock for you to buy now</h1>
-          <Image className='w-full' src="/images/hero_about_chart.png" width={2400} height={1550} alt='Stockverse Logo' />
+          <Image className='w-[85%]' src="/images/hero_about_chart.png" width={2400} height={1550} alt='Stockverse Logo' />
           <h2 className="text-xl font-sansmedium mb-4">Payment Methods</h2>
           <div className="flex flex-wrap justify-center gap-14 max-md:gap-8">
             <svg width="44" height="28" viewBox="0 0 44 28" fill="none" xmlns="http://www.w3.org/2000/svg">
