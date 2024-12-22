@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      <div className="hero pt-24 max-sm:pt-12 pb-0 w-full bg-heroBg bg-no-repeat bg-cover bg-top-left">
+      <div className="hero pt-24 max-sm:pt-20 pb-0 w-full bg-heroBg bg-no-repeat bg-cover bg-top-left">
         {/* ----------hero section---------- */}
         <section className='w-full px-6 max-sm:px-3 mx-auto xl:container h-full flex max-md:flex-col items-center gap-y-4'>
           <div className='md:w-[50%] flex flex-col items-start w-full max-md:py-4 gap-y-4'>

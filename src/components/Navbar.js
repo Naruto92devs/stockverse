@@ -39,6 +39,9 @@ const Navbar = () => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsDropdownVisible(false);
             }
+            if (NavRef.current && !NavRef.current.contains(event.target)) {
+                setisNavbarVisible(false);
+            }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
@@ -58,8 +61,9 @@ return (
             <Link href='/' className="relative z-20 flex w-max mr-2">
                 <Image className='' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' />
             </Link>
-            {/* nav dropdown start */}
-            <div className={`${isNavbarVisible? 'max-md:translate-y-[0px]' : 'max-md:translate-y-[-900px]'} transition duration-300 ease-in-out max-md:overflow-hidden z-10 min-w-max flex items-center gap-0.5  max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:flex-col max-md:gap-2 max-md:bg-primaryBg max-md:items-start max-md:p-4 max-md:pt-20 max-md:rounded-b-3xl max-md:shadow-2xl`}>
+            {/* nav mob start */}
+            <div className={`${isNavbarVisible? 'max-md:translate-y-[0px]' : 'max-md:translate-y-[-900px]'} transition duration-300 ease-in-out max-md:overflow-hidden z-10 min-w-max flex items-center gap-0.5  max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:flex-col max-md:gap-2 max-md:bg-primaryBg max-md:items-start max-md:p-4 max-md:pt-20 max-md:rounded-b-3xl max-md:shadow-2xl`} aria-expanded="true" aria-haspopup="true" ref={NavRef}>
+                {/* nav dropdown start */}
                 <div className={`max-md:w-full cursor-pointer relative group`} onClick={toggleDropdown} id="menu-button" aria-expanded="true" aria-haspopup="true" ref={dropdownRef}>
                         <span className={`max-md:w-full px-4 max-xl:px-2 py-2 rounded-lg cursor-pointer relative group flex items-center gap-0.5 hover:bg-primaryMain/10 ${isDropdownVisible? 'bg-primaryMain/10' : ''}`}>
                             Market
@@ -67,7 +71,7 @@ return (
                             <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
                             </svg>
                         </span>
-                        <div className={`relative md:absolute md:top-[100%] md:left-0 md:p-2 py-2 mt-2 max-md:shadow-none max-md:w-full w-48 bg-primaryBg rounded-lg shadow-xl max-md:gap-y-4 max-lg:mt-0 transition duration-300 ease-in-out overflow-hidden ${isDropdownVisible ? 'md:opacity-100 visible' : 'md:opacity-0 md:invisible hidden'}`}>
+                        <div onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} className={`relative md:absolute md:top-[100%] md:left-0 md:p-2 py-2 mt-2 max-md:shadow-none max-md:w-full w-48 bg-primaryBg rounded-lg shadow-xl max-md:gap-y-4 max-lg:mt-0 transition duration-300 ease-in-out overflow-hidden ${isDropdownVisible ? 'md:opacity-100 visible' : 'md:opacity-0 md:invisible hidden'}`}>
                             <Link href="/gainers&losers">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Gainers / Losers</span>
                             </Link>
@@ -85,28 +89,30 @@ return (
                             </Link>
                         </div>
                 </div>
-                <Link href='/cvkd' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+                {/* nav dropdown end*/}
+                
+                <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/cvkd' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                     Stock Picks
                 </Link>
-                <Link href='/news' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+                <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/news' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                     News
                 </Link>
-                <Link href='/stockverse-gpt' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+                <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/stockverse-gpt' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                     StockVerse GPT
                 </Link>
-                <Link href='/pricing' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+                <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/pricing' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                     Pricing
                 </Link>
                 <div className='pt-6 md:hidden flex flex-wrap gap-4 w-full text-center'>
-                    <Link href="/login" className={` ${userVisible? 'hidden' : 'visible w-[47%] px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-sm text-primaryTextColorColor font-sansMedium bg-black/10 hover:bg-primaryMain/10 rounded-lg'} `}>
+                    <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href="/login" className={` ${userVisible? 'hidden' : 'visible w-[47%] px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-sm text-primaryTextColorColor font-sansMedium bg-black/10 hover:bg-primaryMain/10 rounded-lg'} `}>
                         Login
                     </Link> 
-                    <Link href="/register" className={` ${userVisible? 'hidden' : 'visible w-[47%] px-4 py-2 max-sm:px-[4vw] max-sm:text-[3vw] text-sm text-white font-sansMedium bg-darkBlue hover:bg-primaryMain rounded-lg transition duration-300'}`}>
+                    <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href="/register" className={` ${userVisible? 'hidden' : 'visible w-[47%] px-4 py-2 max-sm:px-[4vw] max-sm:text-[3vw] text-sm text-white font-sansMedium bg-darkBlue hover:bg-primaryMain rounded-lg transition duration-300'}`}>
                         Create Account
                     </Link>
                 </div>
             </div>
-            {/* nav dropdown end */}
+            {/* nav mob end */}
             <div className="max-md:hidden w-max relative flex items-center gap-1">
                 <Link href="/login" className={` ${userVisible? 'hidden' : 'visible px-4 py-2 max-sm:px-[4vw] max-sm:text-[3.5vw] text-sm text-primaryTextColorColor font-sansMedium bg-white hover:bg-primaryMain/10 rounded-lg'} `}>
                     Login
