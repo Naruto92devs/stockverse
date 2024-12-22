@@ -62,6 +62,7 @@ module.exports = {
         'searchBg': "url('/images/features_search_bg.png')",
         'realtimeBg': "url('/images/features_realtime_bg.png')",
         'joinBg': "url('/images/join_bg.jpg')",
+        'profileBg': 'radial-gradient(100% 100% at 50% 0%, #8B77FF 0%, #634FF7 100%)',
         // old images
         'loginBg': "url('/images/login_bg.webp')",
         'newsBg': "url('/images/news_bg.webp')",

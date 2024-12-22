@@ -57,10 +57,10 @@ export default function User() {
         }
     };
 
-    // Function to extract initials
+    // Function to extract up to 2 initials
     const getInitials = (fullname) => {
-        const nameArray = fullname.split(' ');
-        const initials = nameArray.map(name => name[0]).join('');
+        const nameArray = fullname.trim().split(' ').filter(Boolean); // Remove extra spaces
+        const initials = nameArray.slice(0, 2).map(name => name[0]).join('');
         return initials.toUpperCase(); // Convert to uppercase
     };
 
@@ -92,28 +92,28 @@ export default function User() {
 
     // Display loading skeleton while fetching data
     if (loading) {
-        return <div className="cursor-pointer bg-background border-[.125rem] border-primaryText rounded-full w-10 h-10 card__skeleton flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText"></div>;
+        return <div className="cursor-pointer bg-profileBg rounded-full w-9 h-9 flex items-center justify-center text-lg font-sansMedium text-white"></div>;
     }
 
     // If userInfo is not available, show default fallback
     if (!userInfo) {
-        return <div className="cursor-pointer bg-background border-[.125rem] border-primaryText rounded-full w-10 h-10 card__skeleton flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText">E</div>;
+        return <div className="cursor-pointer bg-profileBg rounded-full w-9 h-9 flex items-center justify-center text-lg font-sansMedium text-white">❌</div>;
     }
 
     return (
         <div className="flex flex-col relative">
             {/* Profile picture and username */}
             <div className="flex items-center gap-2">
-                <p className="text-sm px-4 py-2 bg-primaryText/10 rounded font-sansMedium max-md:hidden">{userInfo.user.fullname}</p>
-                <div onClick={toggleDropdown} className="cursor-pointer bg-background border-[.125rem] border-gray-500 rounded-full w-10 h-10 flex items-center justify-center text-xl font-sansRegular font-bold text-primaryText">
+                <p className="text-sm px-4 py-2 bg-primaryMain/10 rounded-lg font-sansMedium">{userInfo.user.fullname.trim().split(' ').slice(0, 2).join(' ')}</p>
+                <div onClick={toggleDropdown} className="cursor-pointer bg-profileBg rounded-full w-9 h-9 flex items-center justify-center text-lg font-sansMedium text-white">
                     {getInitials(userInfo.user.fullname)} {/* Display the initials */}
                 </div>
             </div>
             <div className={`${userInfoVisible ? 'visible' : 'hidden'} absolute z-10 top-[125%] right-0 w-max mx-auto bg-background shadow-md rounded-lg p-2 flex flex-col gap-y-2`}>
-                <Link href="/" className="text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded">Dashboard</Link>
-                <Link onClick={showWatchList} href="/profile" className="text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded">My Stocks</Link>
-                <Link onClick={showProfile} href="/profile" className="text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded">Manage Account</Link>
-                <Link href="/feedback" className="text-base relative font-sansMedium text-primaryText w-[100%] px-4 pr-12 py-2 hover:bg-primaryText/10 rounded">Get Support</Link>
+                <Link href="/" className="text-base relative font-sansMedium text-primaryTextColorColor w-full px-4 pr-12 py-2 hover:bg-primaryMain/10 rounded-lg">Dashboard</Link>
+                <Link onClick={showWatchList} href="/profile" className="text-base relative font-sansMedium text-primaryTextColor w-[100%] px-4 pr-12 py-2 hover:bg-primaryMain/10 rounded-lg">My Stocks</Link>
+                <Link onClick={showProfile} href="/profile" className="text-base relative font-sansMedium text-primaryTextColor w-[100%] px-4 pr-12 py-2 hover:bg-primaryMain/10 rounded-lg">Manage Account</Link>
+                <Link href="/feedback" className="text-base relative font-sansMedium text-primaryTextColor w-[100%] px-4 pr-12 py-2 hover:bg-primaryMain/10 rounded-lg">Get Support</Link>
                 <LogoutButton onLogout={handleLogout}/>
             </div>
         </div>
