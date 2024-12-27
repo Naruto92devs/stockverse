@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import axios from 'axios';
-import User from '@/components/User';
+import User from '@/components/ProfileLogo';
 import ThemeSwitch from '@/components/ThemeSwitch';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;

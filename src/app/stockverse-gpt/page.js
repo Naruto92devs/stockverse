@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import axios from 'axios';
-import User from '@/components/User';
+import User from '@/components/ProfileLogo';
 import ThemeSwitch from '@/components/ThemeSwitch';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -50,7 +50,7 @@ export default function Stockverse_GPT() {
             if (savedUserInfo) {
                 const parsedUserInfo = JSON.parse(savedUserInfo);
                 setUserInfo(parsedUserInfo);
-                setUserid(parsedUserInfo.user.userid);
+                setUserid(parsedUserInfo.userid);
             }
 
             if (savedChatHistory) {
@@ -656,7 +656,7 @@ export default function Stockverse_GPT() {
 
                 {/* Chat Area start */}
                 <div className={` ${isChatEmpty? 'visible' : 'hidden'} w-full xl:px-[20%] z-0 px-3 h-full flex flex-col gap-1 items-start justify-center`}>
-                        <h1 className='text-primaryText text-4xl max-lg:text-xl font-sansMedium'>Hi there, {userInfo? userInfo.user.fullname : ''} </h1>
+                        <h1 className='text-primaryText text-4xl max-lg:text-xl font-sansMedium'>Hi there, {userInfo? userInfo.fullname : ''} </h1>
                         <h1 className='text-primaryText text-5xl max-lg:text-3xl font-sansSemibold'>What would you like to know?</h1>
                         <p className='text-lg text-primaryText'>Use one of the most common prompts below or use your own</p>
                         <div className='w-full flex flex-wrap md:gap-4 max-md:gap-y-4 md:justify-start justify-between pt-4'>

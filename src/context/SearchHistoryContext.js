@@ -4,17 +4,17 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const MembershipContext = createContext();
+const SearchHistoryContext = createContext();
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export const MembershipProvider = ({ children }) => {
-    const [membership, setMembership] = useState(null);
+export const SearchHistoryProvider = ({ children }) => {
+    const [history, setHistory] = useState(null);
     const [loading, setLoading] = useState(true);
     
     const token = Cookies.get('authToken');
 
-    const fetchMembership = async () => {
+    const fetchSearchHistory = async () => {
         const token = Cookies.get('authToken');
         if (!token) {
             setLoading(false);
@@ -22,14 +22,14 @@ export const MembershipProvider = ({ children }) => {
         }
 
         try {
-            const response = await axios.get(`${STOCKVERSE_BACK_END}/membership_info`, {
+            const response = await axios.get(`${STOCKVERSE_BACK_END}/get-user-history`, {
                 headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
 
             if (response.status === 200) {
-                localStorage.setItem('MembershipInfo', JSON.stringify(response.data));
-                setMembership(response.data);
+                localStorage.setItem('SearchHistory', JSON.stringify(response.data));
+                setHistory(response.data);
             }
         } catch (error) {
             console.error('Error fetching user:', error);
@@ -39,24 +39,24 @@ export const MembershipProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const savedMembershipInfo = localStorage.getItem('MembershipInfo');
-        if (savedMembershipInfo && token) {
-            setMembership(JSON.parse(savedMembershipInfo));
+        const savedSearchHistory = localStorage.getItem('SearchHistory');
+        if (savedSearchHistory && token) {
+            setHistory(JSON.parse(savedSearchHistory));
             setLoading(false);
         } else if (token) {
-            fetchMembership();
+            fetchSearchHistory();
         } else {
-            setMembership(null);
-            localStorage.removeItem('MembershipInfo');
+            setHistory(null);
+            localStorage.removeItem('SearchHistory');
             setLoading(false);
         }
     }, [token]);
 
     return (
-        <MembershipContext.Provider value={{ membership: membership, loading, fetchMembership: fetchMembership, setMembership: setMembership }}>
+        <SearchHistoryContext.Provider value={{ history: history, loading, fetchSearchHistory: fetchSearchHistory, setHistory: setHistory }}>
             {children}
-        </MembershipContext.Provider>
+        </SearchHistoryContext.Provider>
     );
 };
 
-export const useMembership = () => useContext(MembershipContext);
+export const useSearchHistory = () => useContext(SearchHistoryContext);

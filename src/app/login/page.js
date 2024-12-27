@@ -48,7 +48,6 @@ export default function LogIn() {
               router.push('/');
           } else if (response.status === 201) {
             const data = response.data;
-            console.log(data);
             setError(data.message);
             setid(data.id);
             setLoading(false);

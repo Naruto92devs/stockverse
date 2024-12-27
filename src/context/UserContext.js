@@ -4,17 +4,17 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const MembershipContext = createContext();
+const UserContext = createContext();
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export const MembershipProvider = ({ children }) => {
-    const [membership, setMembership] = useState(null);
+export const UserProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     
     const token = Cookies.get('authToken');
 
-    const fetchMembership = async () => {
+    const fetchUser = async () => {
         const token = Cookies.get('authToken');
         if (!token) {
             setLoading(false);
@@ -22,14 +22,14 @@ export const MembershipProvider = ({ children }) => {
         }
 
         try {
-            const response = await axios.get(`${STOCKVERSE_BACK_END}/membership_info`, {
+            const response = await axios.get(`${STOCKVERSE_BACK_END}/get-user`, {
                 headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
 
             if (response.status === 200) {
-                localStorage.setItem('MembershipInfo', JSON.stringify(response.data));
-                setMembership(response.data);
+                localStorage.setItem('UserInfo', JSON.stringify(response.data));
+                setUser(response.data);
             }
         } catch (error) {
             console.error('Error fetching user:', error);
@@ -39,24 +39,24 @@ export const MembershipProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const savedMembershipInfo = localStorage.getItem('MembershipInfo');
-        if (savedMembershipInfo && token) {
-            setMembership(JSON.parse(savedMembershipInfo));
+        const savedUserInfo = localStorage.getItem('UserInfo');
+        if (savedUserInfo && token) {
+            setUser(JSON.parse(savedUserInfo));
             setLoading(false);
         } else if (token) {
-            fetchMembership();
+            fetchUser();
         } else {
-            setMembership(null);
-            localStorage.removeItem('MembershipInfo');
-            setLoading(false);
+          setUser(null);
+          localStorage.removeItem('UserInfo');
+          setLoading(false);
         }
     }, [token]);
 
     return (
-        <MembershipContext.Provider value={{ membership: membership, loading, fetchMembership: fetchMembership, setMembership: setMembership }}>
+        <UserContext.Provider value={{ user, loading, fetchUser, setUser }}>
             {children}
-        </MembershipContext.Provider>
+        </UserContext.Provider>
     );
 };
 
-export const useMembership = () => useContext(MembershipContext);
+export const useUser = () => useContext(UserContext);
