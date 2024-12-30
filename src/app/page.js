@@ -2,6 +2,7 @@
 import Link from 'next/link.js';
 import Image from 'next/image.js';
 import { useEffect, useState } from 'react';
+import LogoutButton from '@/components/logout';
 import React from 'react';
 
 export default function Home() {
@@ -60,6 +61,7 @@ export default function Home() {
             <h1 className='font-sansMedium xl:mb-4 2xl:text-8xl lg:text-6xl text-4xl text-primaryTextColor'>One Stop Shop <span className='hero_h1'>Everything</span> <span className='text-heading'> Stocks</span></h1>
             <p className='font-sansRegular text-lg text-primaryTextColor xl:w-[60%]'>Discover real-time stock data, personalized insights, and AI-driven recommendations tailored to your trading style</p>
             <Link className='py-2 px-4 bg-primaryMain hover:bg-primaryMain/80 rounded-lg text-white text-md font-sansMedium' href='/register'>Get started for free</Link>
+            <LogoutButton/>
           </div>
           <div className='md:w-[50%] w-full'>
             <Image className='w-full' src="/images/hero_img.png" width={660} height={493} alt='Stockverse Logo' />
