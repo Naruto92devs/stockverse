@@ -117,6 +117,9 @@ return (
                     <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href="/register" className={` ${userVisible? 'hidden' : 'visible w-[47%] px-4 py-2 max-sm:px-[4vw] max-sm:text-[3vw] text-sm text-white font-sansMedium bg-darkBlue hover:bg-primaryMain rounded-lg transition duration-300'}`}>
                         Create Account
                     </Link>
+                    <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href="/dashboard" className={` ${userVisible? 'visible w-full px-4 py-2 max-sm:px-[4vw] max-sm:text-[3vw] text-sm text-white font-sansMedium bg-darkBlue hover:bg-primaryMain rounded-lg transition duration-300' : 'hidden'}`}>
+                        DashBoard
+                    </Link>
                 </div>
             </div>
             {/* nav mob end */}

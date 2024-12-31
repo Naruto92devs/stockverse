@@ -46,9 +46,11 @@
   color: transparent;
 }
 
-img {
-  -webkit-user-select: none !important;
-  user-select: none !important;
+/* styles.css */
+@media (min-width: 768px) {
+  .transition-width {
+    transition: width 300ms ease-in-out;
+  }
 }
 
 .white {

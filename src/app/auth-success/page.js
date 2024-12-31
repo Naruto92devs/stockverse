@@ -17,7 +17,7 @@ export default function AuthSuccess() {
         }
 
         // Redirect to dashboard or home
-        router.push('/');
+        router.push('/dashboard');
     }, [router]);
 
     return <div className="container mx-auto pt-8 text-center">Redirecting...</div>;

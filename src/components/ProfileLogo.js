@@ -22,7 +22,7 @@ export default function User() {
     return (
         <div className="flex flex-col relative">
             <div className="flex items-center gap-2">
-                <p className="text-sm px-4 py-2 bg-primaryMain/10 rounded-lg font-sansMedium">
+                <p className="max-md:hidden text-sm px-4 py-2 bg-primaryMain/10 rounded-lg font-sansMedium">
                     {user.fullname.trim().split(' ').slice(0, 2).join(' ')}
                 </p>
                 <div className="cursor-pointer bg-profileBg rounded-full w-9 h-9 flex items-center justify-center text-lg font-sansMedium text-white">

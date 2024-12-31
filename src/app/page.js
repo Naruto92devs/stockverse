@@ -4,8 +4,21 @@ import Image from 'next/image.js';
 import { useEffect, useState } from 'react';
 import LogoutButton from '@/components/logout';
 import React from 'react';
+import Cookies from 'js-cookie';
 
 export default function Home() {
+
+  const token = Cookies.get('authToken');
+  const [userVisible, setUserVisible] = useState(false);
+  
+  useEffect(() => {
+      if (token) {
+          setUserVisible(true); // User is logged in, show user data
+      } else {
+          setUserVisible(false); // No token, hide user data
+          localStorage.removeItem('UserInfo');
+      }
+  }, [token]);
 
 
   const faqData = [
@@ -60,7 +73,7 @@ export default function Home() {
           <div className='md:w-[50%] flex flex-col items-start w-full max-md:py-4 gap-y-4'>
             <h1 className='font-sansMedium xl:mb-4 2xl:text-8xl lg:text-6xl text-4xl text-primaryTextColor'>One Stop Shop <span className='hero_h1'>Everything</span> <span className='text-heading'> Stocks</span></h1>
             <p className='font-sansRegular text-lg text-primaryTextColor xl:w-[60%]'>Discover real-time stock data, personalized insights, and AI-driven recommendations tailored to your trading style</p>
-            <Link className='py-2 px-4 bg-primaryMain hover:bg-primaryMain/80 rounded-lg text-white text-md font-sansMedium' href='/register'>Get started for free</Link>
+            <Link className='py-2 px-4 bg-primaryMain hover:bg-primaryMain/80 rounded-lg text-white text-md font-sansMedium' href='/register'>{`${userVisible? 'Dashboard' : 'Get started for free'}`}</Link>
             <LogoutButton/>
           </div>
           <div className='md:w-[50%] w-full'>
