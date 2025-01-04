@@ -19,12 +19,12 @@ export default function DashBoard() {
         <section className="w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide">
             {/* Nav bar start */}
             <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
-              <div className={`flex-shrink-0 relative flex items-center justify-between ${sidebarHide? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>
-                <Link href='/' className="cursor-pointer flex items-center gap-2">
+              <div onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between ${sidebarHide? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>
+                <div className="cursor-pointer flex items-center gap-2">
                     <Image src="/images/favicon.png" width={48} height={48} alt='Stockverse Logo' />
                     <p className={`max-md:hidden font-sansMedium text-primaryTextColor text-xl ${sidebarHide? 'hidden' : 'visible'}`}>StockVerse</p>
-                </Link>
-                <Image className={`cursor-pointer transition-transform duration-300 ${sidebarHide ? 'md:rotate-180 rotate-0' : 'md:rotate-0 rotate-180'}`} onClick={toggleSidebar} src="/images/sidebar_toggle.png" width={36} height={36} alt='Stockverse Logo' />
+                </div>
+                <Image className={`cursor-pointer transition-transform duration-300 ${sidebarHide ? 'md:rotate-180 rotate-0' : 'md:rotate-0 rotate-180'}`} src="/images/sidebar_toggle.png" width={36} height={36} alt='Stockverse Logo' />
               </div>
               <div className="flex-grow xl:ml-4 lg:max-w-[20rem] relative">
                 <Image className="absolute top-2.5 left-3" src='/images/search.svg' width={18} height={18} alt="search logo"></Image>
@@ -46,7 +46,7 @@ export default function DashBoard() {
                 Stock Picks
               </Link>
               <Link href='/pricing' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
-                Alerts
+                Newsletter
               </Link>
               <Link href='/pricing' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                 Pricing
