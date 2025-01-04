@@ -65,7 +65,7 @@ export default function DashBoard() {
         <section className="w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide">
             {/* Nav bar start */}
             <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
-              <div onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between ${sidebarHide? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>
+              <div onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>
                 <div className="cursor-pointer flex items-center gap-2">
                     <Image src="/images/favicon.png" width={48} height={48} alt='Stockverse Logo' />
                     <p className={`max-md:hidden font-sansMedium text-primaryTextColor text-xl ${sidebarHide? 'hidden' : 'visible'}`}>StockVerse</p>
