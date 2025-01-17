@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
+import SearchBar from "@/components/SearchBar";
 
 export default function DashBoard() {
 
@@ -16,6 +17,8 @@ export default function DashBoard() {
   const [sidebarHide, setSidebarHide] = useState(false);
   // State to indicate whether the initial check is done
   const [isInitialized, setIsInitialized] = useState(false);
+  // State to manage searchbar visibility
+  const [isSearchBar, setIsSearchBar] = useState(false);
 
   useEffect(() => {
     // Check if a value exists in sessionStorage
@@ -72,7 +75,7 @@ export default function DashBoard() {
                 </div>
                 <Image className={`cursor-pointer transition-transform duration-300 ${sidebarHide ? 'md:rotate-180 rotate-0' : 'md:rotate-0 rotate-180'}`} src="/images/sidebar_toggle.png" width={36} height={36} alt='Stockverse Logo' />
               </div>
-              <div className="flex-grow xl:ml-4 lg:max-w-[20rem] relative">
+              <div onClick={() => setIsSearchBar(true)}  className="flex-grow xl:ml-4 lg:max-w-[20rem] relative">
                 <Image className="absolute top-2.5 left-3" src='/images/search.svg' width={18} height={18} alt="search logo"></Image>
                 <input
                   type="email"
@@ -84,6 +87,7 @@ export default function DashBoard() {
                   className="w-full text-sm px-2 pl-10 py-2 border bg-primaryBg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none"
                 />
               </div>
+              <SearchBar isVisible={isSearchBar} />
               <Link href='/pricing' className="max-lg:hidden flex items-center gap-2 px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                 StockVerse Gpt 
                 {/* <span className="-rotate-45">&rarr;</span> */}

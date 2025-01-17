@@ -248,7 +248,6 @@ export default function LogIn() {
           </form>
           {error && <p className="text-red-500 text-center mt-4">{error}</p>}
       </div>
-
     </div>
   );
 }

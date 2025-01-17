@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
-import User from '@/components/ProfileLogo.js';
 import Cookies from 'js-cookie';
 
 const Navbar = () => {
