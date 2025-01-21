@@ -109,6 +109,7 @@ export default function DashBoard() {
             {/* Nav bar end */}
             <div className="w-full h-full flex-grow flex items-start">
               {/* side bar start */}
+              <Suspense fallback={<div>Loading...</div>}>
                 <aside className={`transition-width flex-shrink-0 overflow-x-hidden py-4 pb-20 flex flex-col h-full border-r border-black/5 bg-primaryBg z-10 overflow-y-scroll scrollbar-thin max-md:absolute transition duration-300 ease-in-out ${sidebarHide? 'w-[4rem] max-md:w-max max-md:translate-x-[0]' : 'md:w-[16rem] max-md:w-max max-md:translate-x-[-900px]'}`}>
                     <div title="Chart View" onClick={() => updateUrl(undefined, 'chart')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'chart'? 'border-primaryMain' : 'border-white'}`}>
                       <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -222,6 +223,7 @@ export default function DashBoard() {
                       </div>
                     </div>
                 </aside>
+              </Suspense>
               {/* side bar end */}
 
                 {/* Dashboard Area */}
