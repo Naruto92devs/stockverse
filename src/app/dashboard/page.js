@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import SearchBar from "@/components/SearchBar";
-import { Suspense } from "react";
 
 export default function DashBoard() {
 
@@ -66,7 +65,6 @@ export default function DashBoard() {
   };
 
     return (
-      <Suspense fallback={<div>Loading...</div>}>
         <section className="w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide">
             {/* Nav bar start */}
             <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
@@ -282,6 +280,5 @@ export default function DashBoard() {
                 {/* Dashboard Area */}
             </div>
         </section>
-      </Suspense>
     );
 }
