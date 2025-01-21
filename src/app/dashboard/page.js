@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import SearchBar from "@/components/SearchBar";
+import { Suspense } from "react";
 
 export default function DashBoard() {
 
@@ -223,61 +224,63 @@ export default function DashBoard() {
                 </aside>
               {/* side bar end */}
 
-              {/* Dashboard Area */}
-                <div className="p-3 relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
-                  {/* View Case sensitive data that changes */}
-                  {(() => {
-                    switch (view) {
-                      case 'chart':
-                          return (
-                              <h1 className="text-3xl">Chart</h1>
-                          );
-                      case 'gainers_losers':
-                          return (
-                            <h1 className="text-3xl">gainers_losers</h1>
-                          ) ;
-                      case 'news':
-                          return (
-                            <h1 className="text-3xl">News</h1>
-                          );
-                      case 'technical_analysis':
-                          return (
-                            <h1 className="text-3xl">technical_analysis</h1>
-                          );
-                      case 'earnings_calendar':
-                          return (
-                            <h1 className="text-3xl">earnings_calendar</h1>
-                          );
-                      case 'insider_transactions':
-                          return (
-                            <h1 className="text-3xl">insider-transaction</h1>
-                          );
-                      case 'historical':
-                          return (
-                            <h1 className="text-3xl">historical</h1>
-                          );
-                      case 'watchlist':
-                          return (
-                            <h1 className="text-3xl">watchlist</h1>
-                          );
-                      case 'trades':
-                          return (
-                            <h1 className="text-3xl">trades</h1>
-                          );
-                      case 'level2':
-                        return (
-                          <h1 className="text-3xl">level2</h1>
-                        );
-                      case 'stockverse-gpt':
-                          return (
-                            <h1 className="text-3xl">stockverse-gpt</h1>
-                          );
-                      default:
-                          return null;
-                    }
-                  })()}
-                </div>
-              {/* Dashboard Area */}
+                {/* Dashboard Area */}
+                  <div className="p-3 relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
+                    <Suspense fallback={<div>Loading...</div>}>
+                      {/* View Case sensitive data that changes */}
+                      {(() => {
+                        switch (view) {
+                          case 'chart':
+                              return (
+                                  <h1 className="text-3xl">Chart</h1>
+                              );
+                          case 'gainers_losers':
+                              return (
+                                <h1 className="text-3xl">gainers_losers</h1>
+                              ) ;
+                          case 'news':
+                              return (
+                                <h1 className="text-3xl">News</h1>
+                              );
+                          case 'technical_analysis':
+                              return (
+                                <h1 className="text-3xl">technical_analysis</h1>
+                              );
+                          case 'earnings_calendar':
+                              return (
+                                <h1 className="text-3xl">earnings_calendar</h1>
+                              );
+                          case 'insider_transactions':
+                              return (
+                                <h1 className="text-3xl">insider-transaction</h1>
+                              );
+                          case 'historical':
+                              return (
+                                <h1 className="text-3xl">historical</h1>
+                              );
+                          case 'watchlist':
+                              return (
+                                <h1 className="text-3xl">watchlist</h1>
+                              );
+                          case 'trades':
+                              return (
+                                <h1 className="text-3xl">trades</h1>
+                              );
+                          case 'level2':
+                            return (
+                              <h1 className="text-3xl">level2</h1>
+                            );
+                          case 'stockverse-gpt':
+                              return (
+                                <h1 className="text-3xl">stockverse-gpt</h1>
+                              );
+                          default:
+                              return null;
+                        }
+                      })()}
+                    </Suspense>
+                  </div>
+                {/* Dashboard Area */}
             </div>
         </section>
     );
