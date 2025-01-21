@@ -9,7 +9,6 @@ import { MembershipProvider } from '../context/MembershipContext';
 import { UserProvider } from '@/context/UserContext';
 import { WatchlishProvider } from '@/context/WatchlistContext';
 import { SearchHistoryProvider } from '@/context/SearchHistoryContext';
-import { Suspense } from "react";
 
 export default function RootLayout({ children }) {
 
@@ -64,13 +63,11 @@ export default function RootLayout({ children }) {
           <MembershipProvider>
             <WatchlishProvider>
               <SearchHistoryProvider>
-                <Suspense fallback={<div>Loading...</div>}>
                 <main className="w-[100%] min-h-[100vh] flex flex-col bg-primaryBg">
                   {!hideNavbarFooter && <Navbar />}
                     {children}
                   {!hideNavbarFooter && <Footer />}
                 </main>
-                </Suspense>
               </SearchHistoryProvider>
             </WatchlishProvider>
           </MembershipProvider>

@@ -6,8 +6,17 @@ import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import SearchBar from "@/components/SearchBar";
+import { Suspense } from "react";
 
-export default function DashBoard() {
+export default function DashBoard () {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DashboardContent/>
+    </Suspense>
+  )
+}
+
+function DashboardContent () {
 
   const token = Cookies.get("authToken");
   const searchParams = useSearchParams();
