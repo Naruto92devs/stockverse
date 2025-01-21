@@ -4,7 +4,7 @@ const CVKD = () => {
   return (
     <div className='w-full h-[100vh]'>
       <iframe
-        src="https://top.stockverse.ai/cvkd" // Replace with the URL you want to embed
+        src="https://cvkd.netlify.app/" // Replace with the URL you want to embed
         className='w-full h-full border-none'
         title="Embedded Website"
       />
