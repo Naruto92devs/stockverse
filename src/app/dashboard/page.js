@@ -67,6 +67,7 @@ export default function DashBoard() {
 
     return (
         <section className="w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide">
+          <Suspense fallback={<div>Loading...</div>}>
             {/* Nav bar start */}
             <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
               <div title="Toggel Sidebar" onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>
@@ -109,7 +110,6 @@ export default function DashBoard() {
             {/* Nav bar end */}
             <div className="w-full h-full flex-grow flex items-start">
               {/* side bar start */}
-              <Suspense fallback={<div>Loading...</div>}>
                 <aside className={`transition-width flex-shrink-0 overflow-x-hidden py-4 pb-20 flex flex-col h-full border-r border-black/5 bg-primaryBg z-10 overflow-y-scroll scrollbar-thin max-md:absolute transition duration-300 ease-in-out ${sidebarHide? 'w-[4rem] max-md:w-max max-md:translate-x-[0]' : 'md:w-[16rem] max-md:w-max max-md:translate-x-[-900px]'}`}>
                     <div title="Chart View" onClick={() => updateUrl(undefined, 'chart')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'chart'? 'border-primaryMain' : 'border-white'}`}>
                       <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -223,12 +223,10 @@ export default function DashBoard() {
                       </div>
                     </div>
                 </aside>
-              </Suspense>
               {/* side bar end */}
 
                 {/* Dashboard Area */}
                   <div className="p-3 relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
-                    <Suspense fallback={<div>Loading...</div>}>
                       {/* View Case sensitive data that changes */}
                       {(() => {
                         switch (view) {
@@ -280,10 +278,10 @@ export default function DashBoard() {
                               return null;
                         }
                       })()}
-                    </Suspense>
                   </div>
                 {/* Dashboard Area */}
             </div>
+          </Suspense>
         </section>
     );
 }
