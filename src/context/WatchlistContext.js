@@ -46,9 +46,9 @@ export const WatchlishProvider = ({ children }) => {
         } else if (token) {
             fetchWatchlist();
         } else {
-          setWatchlist(null);
-          localStorage.removeItem('Watchlist');
-          setLoading(false);
+            setWatchlist(null);
+            localStorage.removeItem('Watchlist');
+            setLoading(false);
         }
     }, [token]);
 

@@ -46,9 +46,9 @@ export const UserProvider = ({ children }) => {
         } else if (token) {
             fetchUser();
         } else {
-          setUser(null);
-          localStorage.removeItem('UserInfo');
-          setLoading(false);
+            setUser(null);
+            localStorage.removeItem('UserInfo');
+            setLoading(false);
         }
     }, [token]);
 
