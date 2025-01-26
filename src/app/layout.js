@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
             </WatchlishProvider>
           </MembershipProvider>
         </UserProvider>
-        <Script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SNDh4K"></Script>
+        {/* <Script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SNDh4K"></Script> */}
       </body>
     </html>
   )

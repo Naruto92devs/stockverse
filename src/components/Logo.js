@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const LOGO_API_TOKEN = 'pk_GpgWOqB2R1qdEWrvsnD45w';
 const LOGO_API_BASE = 'https://img.logo.dev';
 
-const Logo = ({ siteUrl, symbol, size = 200, alt = 'Company Logo', className = '' }) => {
-    // Clean up the siteUrl by removing https://, www., or https://www.
-    const cleanedDomain = siteUrl
-        ? siteUrl.replace(/^(https?:\/\/)?(www\.)?/, '') // Remove the prefixes
-        : '';
-
+const Logo = ({ symbol, size, alt = 'Company Logo', className = '' }) => {
+    const [imgSrc, setImgSrc] = useState('');
+    
     // Construct the full logo URL
-    const logoUrl = `${LOGO_API_BASE}/${cleanedDomain}?token=${LOGO_API_TOKEN}`;
+    const getLogoUrl = (symbol) =>
+        `${LOGO_API_BASE}/ticker/${symbol}?token=${LOGO_API_TOKEN}&retina=true`;
 
     // Create a fallback URL based on the first letter of the symbol
-    const fallbackUrl = `/images/Brands/${symbol[0].toUpperCase()}.jpeg`;
+    const getFallbackUrl = (symbol) =>
+        `/images/Brands/${symbol[0].toUpperCase()}.jpeg`;
 
-    // State to manage the image source
-    const [imgSrc, setImgSrc] = useState(logoUrl);
+    useEffect(() => {
+        // Update the logo URL whenever the symbol changes
+        setImgSrc(getLogoUrl(symbol));
+    }, [symbol]);
 
     return (
         <Image
@@ -28,7 +29,7 @@ const Logo = ({ siteUrl, symbol, size = 200, alt = 'Company Logo', className = '
             className={className} // Apply the passed className
             onError={() => {
                 // If the logo URL fails, switch to the fallback URL
-                setImgSrc(fallbackUrl);
+                setImgSrc(getFallbackUrl(symbol));
             }}
         />
     );

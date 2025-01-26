@@ -27,7 +27,7 @@ function DashboardContent () {
   // State to indicate whether the initial check is done
   const [isInitialized, setIsInitialized] = useState(false);
   // State to manage searchbar visibility
-  const [isSearchBar, setIsSearchBar] = useState(false);
+  const [isSearchBar, setIsSearchBar] = useState(true);
 
   useEffect(() => {
     // Check if a value exists in sessionStorage
@@ -96,7 +96,7 @@ function DashboardContent () {
                   className="w-full text-sm px-2 pl-10 py-2 border bg-primaryBg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none"
                 />
               </div>
-              <SearchBar isVisible={isSearchBar} />
+              <SearchBar isVisible={isSearchBar} setIsvisible={setIsSearchBar} />
               <Link href='/pricing' className="max-lg:hidden flex items-center gap-2 px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                 StockVerse Gpt 
                 {/* <span className="-rotate-45">&rarr;</span> */}
