@@ -96,7 +96,7 @@ function DashboardContent () {
                   className="w-full text-sm px-2 pl-10 py-2 border bg-primaryBg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none"
                 />
               </div>
-              <SearchBar isVisible={isSearchBar} setIsvisible={setIsSearchBar} />
+              <SearchBar isVisible={isSearchBar} setIsvisible={setIsSearchBar} updateUrl={updateUrl} />
               <Link href='/pricing' className="max-lg:hidden flex items-center gap-2 px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                 StockVerse Gpt 
                 {/* <span className="-rotate-45">&rarr;</span> */}
@@ -239,7 +239,10 @@ function DashboardContent () {
                         switch (view) {
                           case 'chart':
                               return (
-                                  <h1 className="text-3xl">Chart</h1>
+                                  <div>
+                                    <h1 className="text-3xl">Chart</h1>
+                                    <h1 className="text-3xl">{symbol}</h1>
+                                  </div>
                               );
                           case 'gainers_losers':
                               return (
