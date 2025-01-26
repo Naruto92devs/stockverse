@@ -1,11 +1,10 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
 import axios from 'axios';
 import Image from 'next/image';
 import Logo from './Logo';
 
-const stocks = [
+const initialStocks = [
     { "1. symbol": "GOOG", "2. name": "Alphabet Inc." },
     { "1. symbol": "AMZN", "2. name": "Amazon.com Inc." },
     { "1. symbol": "META", "2. name": "Meta Platforms Inc." },
@@ -17,12 +16,11 @@ const stocks = [
     { "1. symbol": "AMD", "2. name": "Advanced Micro Devices Inc." },
 ];
 
-
 export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
+    const [stocks, setStocks] = useState(initialStocks);
     const [loading, setLoading] = useState(false);
-    const [showResults, setShowResults] = useState(false);
     const [noResults, setNoResults] = useState(false);
     const searchBarRef = useRef(null);
     const requestIdRef = useRef(0);
@@ -34,24 +32,48 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                 const currentRequestId = ++requestIdRef.current;
                 setLoading(true);
                 try {
-                    const response = await fetch(`/api/search?keyword=${query}`);
-                    if (!response.ok) {
+                    // Fetch data from the current search API
+                    const searchResponse = await fetch(`/api/search?keyword=${query}`);
+                    if (!searchResponse.ok) {
                         throw new Error('Network response was not ok');
                     }
-                    const data = await response.json();
+                    const searchData = await searchResponse.json();
+    
+                    // Filter results from the search API
+                    const filteredResults = searchData.bestMatches.filter(
+                        result =>
+                            !result['1. symbol'].includes('.') && // Remove symbols with periods
+                            !result['2. name'].toLowerCase().includes('warrant') && // Remove companies with "warrant" in their name
+                            !(result['1. symbol'].endsWith('X')) // Remove symbols where "X" is the fifth letter
+                    );
+    
+                    // Extract tickers for the Polygon API
+                    const tickers = filteredResults.map(result => result['1. symbol']).join(',');
+    
+                    // Fetch data from the Polygon API
+                    const polygonResponse = await fetch(
+                        `https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers?tickers=${tickers}&include_otc=true&apiKey=9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy`
+                    );
+                    if (!polygonResponse.ok) {
+                        throw new Error('Polygon API response was not ok');
+                    }
+                    const polygonData = await polygonResponse.json();
+    
+                    // Combine data from both APIs
                     if (currentRequestId === requestIdRef.current) {
-                        if (data.bestMatches) {
-                            const filteredResults = data.bestMatches.filter(
-                                result =>
-                                    !result['1. symbol'].includes('.') && // Remove symbols with periods
-                                    !result['2. name'].toLowerCase().includes('warrant') && // Remove companies with "warrant" in their name
-                                    !(result['1. symbol'].endsWith('X')) // Remove symbols where "X" is the fifth letter
+                        const combinedResults = filteredResults.map(result => {
+                            const tickerData = polygonData.tickers.find(
+                                ticker => ticker.ticker === result['1. symbol']
                             );
-                            setResults(filteredResults);
-                            setNoResults(filteredResults.length === 0);
-                        } else {
-                            setNoResults(true);
-                        }
+                            return {
+                                ...result,
+                                todaysChangePerc: tickerData?.todaysChangePerc ? parseFloat(tickerData?.todaysChangePerc).toFixed(2) : 'N/A',
+                                closingPrice: tickerData?.day?.c ? parseFloat(tickerData?.day?.c).toFixed(2) : 'N/A',
+                            };
+                        });
+    
+                        setResults(combinedResults);
+                        setNoResults(combinedResults.length === 0);
                     }
                 } catch (error) {
                     console.error('Error fetching data:', error);
@@ -65,9 +87,41 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                 }
             }
         };
-
+    
         fetchData();
     }, [query]);
+
+    useEffect(() => {
+        const updateStocks = async () => {
+            try {
+                const symbols = initialStocks.map(stock => stock["1. symbol"]).join(",");
+                const response = await fetch(`https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers?tickers=${symbols}&apiKey=9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy`);
+                const data = await response.json();
+
+                if (data.status === "OK") {
+                    const updatedStocks = initialStocks.map(stock => {
+                        const matchingTicker = data.tickers.find(ticker => ticker.ticker === stock["1. symbol"]);
+                        return {
+                            ...stock,
+                            todaysChangePerc: matchingTicker?.todaysChangePerc?.toFixed(2) || "N/A", // Add percentage or "N/A"
+                        };
+                    });
+                    setStocks(updatedStocks);
+                } else {
+                    console.error("Failed to fetch stock data:", data);
+                }
+            } catch (error) {
+                console.error("Error updating stocks:", error);
+            }
+        };
+
+        // Fetch data immediately and then every 10 seconds
+        updateStocks();
+        const intervalId = setInterval(updateStocks, 10000);
+
+        // Clean up the interval on component unmount
+        return () => clearInterval(intervalId);
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -99,7 +153,6 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
         setQuery(value.toUpperCase());
         if (value.length < 1) {
             setResults([]);
-            setShowResults(false);
             setNoResults(false);
         }
     };
@@ -188,8 +241,11 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                                     <div onClick={() => handleSearchClick(result['1. symbol'], undefined)} className='flex items-center gap-2 cursor-pointer'>
                                         <Logo symbol={result['1. symbol']} alt={result['2. name']} size={300} className="w-10 h-10 rounded-lg shadow" />
                                         <div className="sm:text-md text-base font-sansMedium text-primaryTextColor">{result['1. symbol']}</div>
-                                        <div className={`flex items-center gap-1 sm:text-sm text-xs font-sansMedium px-2 py-[2px] rounded-full ${parseFloat(1.22) >= 0 ? 'text-buy bg-buy/5' : 'text-sell bg-sell/5'}`}>
-                                            +1.22%
+                                        {/* <div className='flex flex-col items-end pl-2'>
+                                            <div className="text-sm font-sansMedium text-primaryTextColor">${result.closingPrice}</div>
+                                        </div> */}
+                                        <div className={`flex items-center gap-1 sm:text-sm text-xs font-sansMedium px-2 py-[1px] rounded-full ${result.todaysChangePerc >= 0 ? 'text-buy bg-buy/5' : 'text-sell bg-sell/5'}`}>
+                                            { result.todaysChangePerc !== 'N/A' ? `${result.todaysChangePerc}%` : result.todaysChangePerc}
                                         </div>
                                     </div>
                                     <div className='flex items-center gap-2'>
@@ -227,8 +283,8 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                             <div onClick={() => handleSearchClick(stock['1. symbol'], undefined)} className='flex items-center gap-2 cursor-pointer'>
                                 <Logo symbol={stock['1. symbol']} alt={stock['2. name']} size={300} className="w-10 h-10 rounded-lg shadow" />
                                 <div className="sm:text-md text-base font-sansMedium text-primaryTextColor">{stock['1. symbol']}</div>
-                                <div className={`flex items-center gap-1 sm:text-sm text-xs font-sansMedium px-2 py-[2px] rounded-full ${parseFloat(1.22) >= 0 ? 'text-buy bg-buy/5' : 'text-sell bg-sell/5'}`}>
-                                    +1.22%
+                                <div className={`flex items-center gap-1 sm:text-sm text-xs font-sansMedium px-2 py-[1px] rounded-full ${stock.todaysChangePerc >= 0 ? 'text-buy bg-buy/5' : 'text-sell bg-sell/5'}`}>
+                                    { stock.todaysChangePerc !== 'N/A' ? `${stock.todaysChangePerc}%` : stock.todaysChangePerc}
                                 </div>
                             </div>
                             <div className='flex items-center gap-2'>

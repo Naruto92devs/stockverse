@@ -27,7 +27,7 @@ function DashboardContent () {
   // State to indicate whether the initial check is done
   const [isInitialized, setIsInitialized] = useState(false);
   // State to manage searchbar visibility
-  const [isSearchBar, setIsSearchBar] = useState(true);
+  const [isSearchBar, setIsSearchBar] = useState(false);
 
   useEffect(() => {
     // Check if a value exists in sessionStorage
