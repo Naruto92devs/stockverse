@@ -8,7 +8,7 @@ const UserContext = createContext();
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export const UserProvider = ({ children }) => {
+export const UserInfoProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     

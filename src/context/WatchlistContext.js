@@ -8,7 +8,7 @@ const WatchlistContext = createContext();
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export const WatchlishProvider = ({ children }) => {
+export const WatchlistProvider = ({ children }) => {
     const [watchlist, setWatchlist] = useState(null);
     const [loading, setLoading] = useState(true);
     

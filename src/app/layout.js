@@ -5,10 +5,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
-import { MembershipProvider } from '../context/MembershipContext';
-import { UserProvider } from '@/context/UserContext';
-import { WatchlishProvider } from '@/context/WatchlistContext';
-import { SearchHistoryProvider } from '@/context/SearchHistoryContext';
+import UserProvider from './userProvider';
+import DashboardProvider from './dashboardProvider';
 
 export default function RootLayout({ children }) {
 
@@ -59,19 +57,15 @@ export default function RootLayout({ children }) {
           height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
-        <UserProvider>
-          <MembershipProvider>
-            <WatchlishProvider>
-              <SearchHistoryProvider>
-                <main className="w-[100%] min-h-[100vh] flex flex-col bg-primaryBg">
-                  {!hideNavbarFooter && <Navbar />}
-                    {children}
-                  {!hideNavbarFooter && <Footer />}
-                </main>
-              </SearchHistoryProvider>
-            </WatchlishProvider>
-          </MembershipProvider>
-        </UserProvider>
+              <UserProvider>
+                <DashboardProvider>
+                  <main className="w-[100%] min-h-[100vh] flex flex-col bg-primaryBg">
+                    {!hideNavbarFooter && <Navbar />}
+                      {children}
+                    {!hideNavbarFooter && <Footer />}
+                  </main>
+                </DashboardProvider>
+              </UserProvider>
         {/* <Script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SNDh4K"></Script> */}
       </body>
     </html>

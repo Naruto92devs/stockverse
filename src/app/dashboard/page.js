@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import ProfileLogo from "@/components/ProfileLogo"
 import { useSearchParams, useRouter } from "next/navigation";
+import { useSymbol } from '@/context/SymbolContext';
+import Earnings_Calendar from "@/components/EarningsCalendar";
 import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
@@ -21,6 +23,16 @@ function DashboardContent () {
   const token = Cookies.get("authToken");
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { setSymbol } = useSymbol();
+
+  // Get query parameters directly from useSearchParams
+  const symbol = searchParams.get('symbol') || 'aapl';
+  const view = searchParams.get('view') || 'chart';
+
+  // Sync symbol from search params to global context
+  useEffect(() => {
+    setSymbol(symbol);
+  }, [symbol, setSymbol]);
 
   // State to manage sidebar visibility
   const [sidebarHide, setSidebarHide] = useState(false);
@@ -43,6 +55,7 @@ function DashboardContent () {
     setIsInitialized(true);
   }, []);
 
+  // Function to update the Sidebar
   const toggleSidebar = () => {
     setSidebarHide((prev) => {
       const newState = !prev;
@@ -51,26 +64,18 @@ function DashboardContent () {
     });
   };
 
+  // Render nothing or a placeholder while checking sessionStorage
   if (!isInitialized) {
-    // Render nothing or a placeholder while checking sessionStorage
     return null; // You can return a loader or skeleton if needed
   }
-
-  // Get query parameters directly from useSearchParams
-  const symbol = searchParams.get('symbol') || 'aapl';
-  const view = searchParams.get('view') || 'chart';
-
 
   // Function to update the URL while retaining existing values
   const updateUrl = (newSymbol, newView) => {
     const params = new URLSearchParams(searchParams); // Start with current params
+    if (newSymbol) params.set('symbol', newSymbol);
+    if (newView) params.set('view', newView);
 
-    // Update or retain values
-    if (newSymbol !== undefined) params.set('symbol', newSymbol || currentSymbol);
-    if (newView !== undefined) params.set('view', newView || currentView);
-
-    const newUrl = `/dashboard?${params.toString()}`;
-    router.push(newUrl); // Use replace if you don't want to add to history
+    router.push(`/dashboard?${params.toString()}`);
   };
 
     return (
@@ -258,7 +263,7 @@ function DashboardContent () {
                               );
                           case 'earnings_calendar':
                               return (
-                                <h1 className="text-3xl">earnings_calendar</h1>
+                                <Earnings_Calendar symbol={symbol}/>
                               );
                           case 'insider_transactions':
                               return (
