@@ -26,7 +26,7 @@ function DashboardContent () {
   const { setSymbol } = useSymbol();
 
   // Get query parameters directly from useSearchParams
-  const symbol = searchParams.get('symbol') || 'aapl';
+  const symbol = searchParams.get('symbol') || 'AAPL';
   const view = searchParams.get('view') || 'chart';
 
   // Sync symbol from search params to global context

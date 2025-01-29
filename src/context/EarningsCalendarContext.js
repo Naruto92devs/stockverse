@@ -4,23 +4,30 @@ import { useSymbol } from './SymbolContext'; // Import the global SymbolContext
 
 const EarningsCalendarContext = createContext();
 
-export const EarningsCalendarProvider = ({ children, horizon = '12month' }) => {
+export const EarningsCalendarProvider = ({children}) => {
     const { symbol } = useSymbol(); // Access the global symbol
+    const [horizon, setHorizon] = useState('12month');
     const [earnings, setEarnings] = useState(null);
-    console.log(earnings);
 
-    const fetchEarningsCalendar = async (currentSymbol, currentHorizon = '12month') => {
+    const fetchEarningsCalendar = async (currentSymbol = symbol, currentHorizon = horizon) => {
         try {
             const response = await axios.get(
                 `${process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END}/earnings-calendar?symbol=${currentSymbol}&horizon=${currentHorizon}`
             );
             if (response.status === 200) {
                 setEarnings(response.data);
+                console.log(earnings);
             }
         } catch (error) {
             console.error('Error fetching earnings calendar:', error);
         }
     };
+
+    useEffect(() => {
+        if (symbol && (!earnings)) {
+            fetchEarningsCalendar(symbol, horizon);
+        }
+    }, [earnings]);
 
     useEffect(() => {
         if (symbol) {
@@ -29,7 +36,7 @@ export const EarningsCalendarProvider = ({ children, horizon = '12month' }) => {
     }, [symbol, horizon]);
 
     return (
-        <EarningsCalendarContext.Provider value={{ earnings, fetchEarningsCalendar }}>
+        <EarningsCalendarContext.Provider value={{ earnings, setHorizon, setEarnings, fetchEarningsCalendar }}>
             {children}
         </EarningsCalendarContext.Provider>
     );
