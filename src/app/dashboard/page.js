@@ -79,7 +79,7 @@ function DashboardContent () {
   };
 
     return (
-        <section className="w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide">
+        <section className="bg-dashboardBg w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide">
             {/* Nav bar start */}
             <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
               <div title="Toggel Sidebar" onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>
@@ -148,13 +148,13 @@ function DashboardContent () {
                       </svg>
                       <p className={`font-sansMedium text-md ${view === 'news'? 'text-primaryMain' : 'text-primaryTextColor'}`}>News</p>
                     </div>
-                    <div title="Technical Analysis" onClick={() => updateUrl(undefined, 'technical_analysis')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'technical_analysis'? 'border-primaryMain' : 'border-white'}`}>
+                    <div title="Ipo Calendar" onClick={() => updateUrl(undefined, 'ipo_calendar')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'ipo_calendar'? 'border-primaryMain' : 'border-white'}`}>
                       <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" clipRule="evenodd" d="M13.5 6.75C13.9142 6.75 14.25 7.08579 14.25 7.5V15C14.25 15.4142 13.9142 15.75 13.5 15.75C13.0858 15.75 12.75 15.4142 12.75 15V7.5C12.75 7.08579 13.0858 6.75 13.5 6.75Z" stroke={view === 'technical_analysis' ? 'rgba(var(--primary-main))' : 'black'}/>
-                      <path fillRule="evenodd" clipRule="evenodd" d="M4.5 9.75C4.91421 9.75 5.25 10.0858 5.25 10.5V15C5.25 15.4142 4.91421 15.75 4.5 15.75C4.08579 15.75 3.75 15.4142 3.75 15V10.5C3.75 10.0858 4.08579 9.75 4.5 9.75Z" stroke={view === 'technical_analysis' ? 'rgba(var(--primary-main))' : 'black'}/>
-                      <path fillRule="evenodd" clipRule="evenodd" d="M9 2.25C9.41421 2.25 9.75 2.58579 9.75 3V15C9.75 15.4142 9.41421 15.75 9 15.75C8.58579 15.75 8.25 15.4142 8.25 15V3C8.25 2.58579 8.58579 2.25 9 2.25Z" stroke={view === 'technical_analysis' ? 'rgba(var(--primary-main))' : 'black'}/>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M13.5 6.75C13.9142 6.75 14.25 7.08579 14.25 7.5V15C14.25 15.4142 13.9142 15.75 13.5 15.75C13.0858 15.75 12.75 15.4142 12.75 15V7.5C12.75 7.08579 13.0858 6.75 13.5 6.75Z" stroke={view === 'ipo_calendar' ? 'rgba(var(--primary-main))' : 'black'}/>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M4.5 9.75C4.91421 9.75 5.25 10.0858 5.25 10.5V15C5.25 15.4142 4.91421 15.75 4.5 15.75C4.08579 15.75 3.75 15.4142 3.75 15V10.5C3.75 10.0858 4.08579 9.75 4.5 9.75Z" stroke={view === 'ipo_calendar' ? 'rgba(var(--primary-main))' : 'black'}/>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M9 2.25C9.41421 2.25 9.75 2.58579 9.75 3V15C9.75 15.4142 9.41421 15.75 9 15.75C8.58579 15.75 8.25 15.4142 8.25 15V3C8.25 2.58579 8.58579 2.25 9 2.25Z" stroke={view === 'ipo_calendar' ? 'rgba(var(--primary-main))' : 'black'}/>
                       </svg>
-                      <p className={`font-sansMedium text-md ${view === 'technical_analysis'? 'text-primaryMain' : 'text-primaryTextColor'}`}>Technical Analysis</p>
+                      <p className={`font-sansMedium text-md ${view === 'ipo_calendar'? 'text-primaryMain' : 'text-primaryTextColor'}`}>IPO Calendar</p>
                     </div>
                     <div title="Earnings Calendar" onClick={() => updateUrl(undefined, 'earnings_calendar')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'earnings_calendar'? 'border-primaryMain' : 'border-white'}`}>
                       <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -238,7 +238,7 @@ function DashboardContent () {
               {/* side bar end */}
 
                 {/* Dashboard Area */}
-                  <div className="p-3 relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
+                  <div className="relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
                       {/* View Case sensitive data that changes */}
                       {(() => {
                         switch (view) {
@@ -257,9 +257,9 @@ function DashboardContent () {
                               return (
                                 <h1 className="text-3xl">News</h1>
                               );
-                          case 'technical_analysis':
+                          case 'ipo_calendar':
                               return (
-                                <h1 className="text-3xl">technical_analysis</h1>
+                                <h1 className="text-3xl">Ipo Calendar</h1>
                               );
                           case 'earnings_calendar':
                               return (

@@ -38,6 +38,7 @@ module.exports = {
       heading: "rgba(var(--heading-main))",
       primaryTextColor: "rgba(var(--primary-text))",
       primaryBg: "rgba(var(--primary-bg))",
+      dashboardBg: "rgba(var(--dasboard-bg))",
       darkBlue: "rgba(var(--dark-blue))",
       
 
@@ -58,22 +59,16 @@ module.exports = {
         sansVariableItalic: ['GeneralSans-VariableItalic', 'sans-serif'],
       },
       backgroundImage: {
+        // loader bg
+        'loaderBg': "url('/images/loader_bg.jpg')",
+        // hero page bg
         'heroBg': "url('/images/hero_bg.png')",
         'searchBg': "url('/images/features_search_bg.png')",
         'realtimeBg': "url('/images/features_realtime_bg.png')",
         'joinBg': "url('/images/join_bg.jpg')",
+        // background gradients
         'profileBg': 'radial-gradient(100% 100% at 50% 0%, #8B77FF 0%, #634FF7 100%)',
         'upgradeBg': 'linear-gradient(121.78deg, #2713A5 7.6%, #634FF7 92.4%)',
-        // old images
-        'loginBg': "url('/images/login_bg.webp')",
-        'newsBg': "url('/images/news_bg.webp')",
-        'articleBg': "url('/images/Image_not_available.png')",
-        'stocksBg': "url('/images/stocks_bg.webp')",
-        'membershipBg': "url('/images/membership_bg.webp')",
-        'membershipPkg': "url('/images/membership_package_bg.jpg')",
-        'heroGradient': 'linear-gradient(135deg, #f3f4f6 0%, #e0e4ff 50%, #d9d7f1 100%)',
-        'heroGradientDark': 'linear-gradient(135deg, #1e3a5f 0%, #1f4e59 50%, #342e56 100%)',
-        'stockverseGradient': 'radial-gradient(circle at top, #ffffff, rgba(255, 215, 0, 0.8), #000000 80%)', // white, gold, black
       },
     },
   },

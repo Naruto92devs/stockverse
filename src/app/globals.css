@@ -17,6 +17,7 @@
   --heading-main: 25, 13, 244;
   --primary-text: 0, 0, 0;
   --primary-bg: 255, 255, 255;
+  --dasboard-bg: 245, 245, 245;
   --buy-color: 0, 171, 48;
   --sell-color: 235, 0, 27;
   --dark-blue: 9, 14, 18;
@@ -43,6 +44,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+}
+
+.dashboard_symbol_heading {
+  background: var(--Brand-Color-Primary-Gradient, linear-gradient(180deg, #7D76FD 0%, #72BDD5 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
@@ -75,41 +84,6 @@
   --sell-color: 235, 0, 27;
   --theme-color: light;
   --alerts-bg: 119,222,182;
-}
-
-
-/* .dark {
-  --opposite-svg-color: rgb(0, 0, 0);
-  --svg-color: rgb(255, 255, 255);
-  --primary-color:  0, 0, 0;
-  --mob-nav-bg: 0, 0, 0;
-  --mob-nav-link: 255, 255, 255;
-  --secondary-color: 255, 255, 255;
-  --background: 32, 32, 32;
-  --primary-text: 245, 245, 245;
-  --primary-text-hover: 0, 0, 0;
-  --primary-button-text: 0, 0, 0;
-  --primary-button-bg: 245, 245, 245;
-  --primary-heading-color: 1, 30, 247;
-  --secondary-heading-color: 0, 0, 0;
-  --submit-button: 24, 73, 169;
-  --article-button: 125, 80, 255;
-  --article-neutral-button: 24, 119, 242;
-  --footer-bg: 32,32,32;
-  --buy-color: 0, 171, 48;
-  --sell-color: 235, 0, 27;
-  --theme-color: dark;
-  --alerts-bg: 119,222,182;
-} */
-
-.moon {
-  fill: #070D3F;
-}
-
-@media(max-width:1023px) {
-  .moon {
-    fill: white;
-  }
 }
 
 .input {
@@ -766,5 +740,109 @@
 
   81% {
     box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+}
+
+/* From Uiverse.io by G4b413l dashboard content loader*/ 
+.three-body {
+  --uib-size: 35px;
+  --uib-speed: 0.8s;
+  --uib-color: #5D3FD3;
+  position: relative;
+  display: inline-block;
+  height: var(--uib-size);
+  width: var(--uib-size);
+  animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
+}
+
+  .three-body__dot {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+}
+
+  .three-body__dot:after {
+  content: '';
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: var(--uib-color);
+  border-radius: 50%;
+}
+
+  .three-body__dot:nth-child(1) {
+  bottom: 5%;
+  left: 0;
+  transform: rotate(60deg);
+  transform-origin: 50% 85%;
+}
+
+  .three-body__dot:nth-child(1)::after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite ease-in-out;
+  animation-delay: calc(var(--uib-speed) * -0.3);
+}
+
+  .three-body__dot:nth-child(2) {
+  bottom: 5%;
+  right: 0;
+  transform: rotate(-60deg);
+  transform-origin: 50% 85%;
+}
+
+  .three-body__dot:nth-child(2)::after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite
+      calc(var(--uib-speed) * -0.15) ease-in-out;
+}
+
+  .three-body__dot:nth-child(3) {
+  bottom: -5%;
+  left: 0;
+  transform: translateX(116.666%);
+}
+
+  .three-body__dot:nth-child(3)::after {
+  top: 0;
+  left: 0;
+  animation: wobble2 var(--uib-speed) infinite ease-in-out;
+}
+
+  @keyframes spin78236 {
+  0% {
+    transform: rotate(0deg);
+}
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  @keyframes wobble1 {
+  0%,
+    100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-66%) scale(0.65);
+    opacity: 0.8;
+  }
+}
+
+  @keyframes wobble2 {
+  0%,
+    100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(66%) scale(0.65);
+    opacity: 0.8;
   }
 }
