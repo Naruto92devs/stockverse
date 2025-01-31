@@ -59,9 +59,7 @@ module.exports = {
         sansVariableItalic: ['GeneralSans-VariableItalic', 'sans-serif'],
       },
       backgroundImage: {
-        // loader bg
         'loaderBg': "url('/images/loader_bg.jpg')",
-        // hero page bg
         'heroBg': "url('/images/hero_bg.png')",
         'searchBg': "url('/images/features_search_bg.png')",
         'realtimeBg': "url('/images/features_realtime_bg.png')",

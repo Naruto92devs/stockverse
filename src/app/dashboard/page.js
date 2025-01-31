@@ -9,6 +9,7 @@ import Image from "next/image";
 import Cookies from "js-cookie";
 import SearchBar from "@/components/SearchBar";
 import { Suspense } from "react";
+import MainLoader from "@/loaders&errors_UI/mian_loader";
 
 export default function DashBoard () {
   return (
@@ -80,6 +81,7 @@ function DashboardContent () {
 
     return (
         <section className="bg-dashboardBg w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide">
+            <MainLoader/>
             {/* Nav bar start */}
             <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
               <div title="Toggel Sidebar" onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>

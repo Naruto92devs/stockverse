@@ -3,8 +3,8 @@ import '../../public/css/loading.css';
 export default function Loading() {
   return (
     // <!-- From Uiverse.io by Juanes200122 --> 
-    <div class="container_SevMini">
-      <div class="SevMini">
+    <div className="container_SevMini">
+      <div className="SevMini">
         <svg
           width="74"
           height="90"
@@ -162,7 +162,7 @@ export default function Loading() {
           ></path>
         </svg>
       </div>
-      <div class="Ghost">
+      <div className="Ghost">
         <svg
           width="60"
           height="36"
