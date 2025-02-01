@@ -4,12 +4,13 @@ import { useEarningsCalendar } from '@/context/EarningsCalendarContext';
 import DataNotAvailable from '@/loaders&errors_UI/dataUnavailable';
 import RequestError from '@/loaders&errors_UI/requestError';
 import Loading from '@/loaders&errors_UI/loading';
+import MainLoader from "@/loaders&errors_UI/mian_loader";
 
 const Earnings_Calendar = ({symbol}) => {
     const { earnings, loading, horizon, error, setHorizon, setEarnings, fetchEarningsCalendar } = useEarningsCalendar(); // Access earnings directly
 
     if (!earnings && loading) {
-        return <div>Loading...</div>; // Handle loading or invalid data state
+        return <MainLoader/>; // Handle loading or invalid data state
     }
 
     const changeHorizon = (horizon) => {
