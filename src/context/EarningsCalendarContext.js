@@ -21,7 +21,7 @@ export const EarningsCalendarProvider = ({ children }) => {
             }
 
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END}/earnings-calendar?symbol=${currentSymbol}&horizon=${currentHorizon}`
+                `${process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END}/earning-calendar?symbol=${currentSymbol}&horizon=${currentHorizon}`
             );
 
             if (response.status === 200 && Array.isArray(response.data) && response.data.length > 0) {
