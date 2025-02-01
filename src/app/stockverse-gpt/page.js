@@ -779,7 +779,6 @@ export default function Stockverse_GPT() {
                     ))}
                     <div className={` ${responseloading ? 'visible' : 'hidden'} flex justify-start`}>
                         {/* From Uiverse.io by kennyotsu */}
-                        <div className={` cardloader`}>
                             <div className="loader">
                                 <p>Please wait</p>
                                 <div className="words">
@@ -790,7 +789,6 @@ export default function Stockverse_GPT() {
                                 <span className="word">analyzing</span>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
                 {/* Chat Area end */}
