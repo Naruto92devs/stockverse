@@ -43,12 +43,26 @@ export const EarningsCalendarProvider = ({ children }) => {
         }
     };
 
+    useEffect(() => {
+        if (symbol && (!earnings)) {
+            fetchEarningsCalendar(symbol, horizon);
+        }
+    }, [earnings]);
+
+    // Trigger initial fetch on symbol or horizon change
+    useEffect(() => {
+        if (symbol) {
+            setEarnings(null);
+            fetchEarningsCalendar(symbol);
+        }
+    }, [symbol]);
+
     // Trigger initial fetch on symbol or horizon change
     useEffect(() => {
         if (symbol) {
             fetchEarningsCalendar(symbol, horizon);
         }
-    }, [symbol, horizon]);
+    }, [horizon]);
 
     // Background fetch every 10 seconds
     useEffect(() => {
