@@ -73,7 +73,7 @@ export const EarningsCalendarProvider = ({ children }) => {
             if (symbol) {
                 fetchEarningsCalendar(symbol, horizon, true); // Pass true for background fetch
             }
-        }, 10000);
+        }, 5 * 60 * 1000);
 
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps

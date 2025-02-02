@@ -7,7 +7,7 @@ import Loading from '@/loaders&errors_UI/loading';
 import MainLoader from "@/loaders&errors_UI/mian_loader";
 
 const Earnings_Calendar = ({symbol}) => {
-    const { earnings, loading, horizon, error, setHorizon, setEarnings, fetchEarningsCalendar } = useEarningsCalendar(); // Access earnings directly
+    const { earnings, loading, horizon, error, setHorizon, } = useEarningsCalendar(); // Access earnings directly
 
     if (!earnings && loading) {
         return <MainLoader/>; // Handle loading or invalid data state
@@ -15,10 +15,6 @@ const Earnings_Calendar = ({symbol}) => {
 
     const changeHorizon = (horizon) => {
         setHorizon(horizon);
-    };
-
-    const resetEarnings = () => {
-        setEarnings(null); // Clear earnings
     };
 
     return (

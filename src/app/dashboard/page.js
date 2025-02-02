@@ -4,6 +4,7 @@ import ProfileLogo from "@/components/ProfileLogo"
 import { useSearchParams, useRouter } from "next/navigation";
 import { useSymbol } from '@/context/SymbolContext';
 import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
+import InsiderTransactions from "./components/InsiderTransactions";
 import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
@@ -269,7 +270,7 @@ function DashboardContent () {
                               );
                           case 'insider_transactions':
                               return (
-                                <h1 className="text-3xl">insider-transaction</h1>
+                                <InsiderTransactions symbol={symbol} />
                               );
                           case 'historical':
                               return (
