@@ -123,9 +123,9 @@ function DashboardContent () {
               </div>
             </nav>
             {/* Nav bar end */}
-            <div className="w-full h-full flex-grow flex items-start">
+            <div className="w-full flex-1 min-h-0 flex items-start">
               {/* side bar start */}
-                <aside className={`transition-width flex-shrink-0 overflow-x-hidden py-4 pb-20 flex flex-col h-full border-r border-black/5 bg-primaryBg z-10 overflow-y-scroll scrollbar-thin max-md:absolute transition duration-300 ease-in-out ${sidebarHide? 'w-[4rem] max-md:w-max max-md:translate-x-[0]' : 'md:w-[16rem] max-md:w-max max-md:translate-x-[-900px]'}`}>
+                <aside className={`transition-width flex-shrink-0 overflow-x-hidden py-4 flex flex-col h-full border-r border-black/5 bg-primaryBg z-10 overflow-y-scroll scrollbar-thin max-md:absolute transition duration-300 ease-in-out ${sidebarHide? 'w-[4rem] max-md:w-max max-md:translate-x-[0]' : 'md:w-[16rem] max-md:w-max max-md:translate-x-[-900px]'}`}>
                     <div title="Chart View" onClick={() => updateUrl(undefined, 'chart')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'chart'? 'border-primaryMain' : 'border-white'}`}>
                       <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clipPath="url(#clip0_19260_6154)">
@@ -225,7 +225,7 @@ function DashboardContent () {
                         </svg>
                         <p className={`font-sansMedium text-md ${view === 'help'? 'text-primaryMain' : 'text-primaryTextColor'}`}>Help Center</p>
                       </div>
-                      <div title="Upgrade Plan" className={`w-full px-3 pt-4 ${sidebarHide? 'md:hidden' : 'md:visible'}`}>
+                      <div title="Upgrade Plan" className={`w-full px-3 pt-4 max-lg:mb-20 ${sidebarHide? 'md:hidden' : 'md:visible'}`}>
                         <div className="w-full bg-primaryMain/10 p-2 rounded-xl">
                           <div className="w-full flex flex-col gap-4 justify-center bg-upgradeBg px-2 py-4 rounded-lg">
                             <div className="w-full flex items-center gap-2">
@@ -241,7 +241,7 @@ function DashboardContent () {
               {/* side bar end */}
 
                 {/* Dashboard Area */}
-                  <div className="relative flex flex-col items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-scroll scrollbar-thin">
+                  <div className="relative flex flex-col items-center flex-grow max-w-full h-full overflow-y-scroll scrollbar-thin">
                       {/* View Case sensitive data that changes */}
                       {(() => {
                         switch (view) {
