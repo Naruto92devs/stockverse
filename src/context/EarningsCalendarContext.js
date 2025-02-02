@@ -47,6 +47,7 @@ export const EarningsCalendarProvider = ({ children }) => {
         if (symbol && (!earnings)) {
             fetchEarningsCalendar(symbol, horizon);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [earnings]);
 
     // Trigger initial fetch on symbol or horizon change
@@ -55,6 +56,7 @@ export const EarningsCalendarProvider = ({ children }) => {
             setEarnings(null);
             fetchEarningsCalendar(symbol);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [symbol]);
 
     // Trigger initial fetch on symbol or horizon change
@@ -62,6 +64,7 @@ export const EarningsCalendarProvider = ({ children }) => {
         if (symbol) {
             fetchEarningsCalendar(symbol, horizon);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [horizon]);
 
     // Background fetch every 10 seconds
@@ -72,7 +75,8 @@ export const EarningsCalendarProvider = ({ children }) => {
             }
         }, 10000);
 
-        return () => clearInterval(interval); // Cleanup interval on component unmount
+        return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [symbol, horizon]);
 
     return (

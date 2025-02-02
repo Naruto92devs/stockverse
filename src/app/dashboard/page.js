@@ -3,15 +3,14 @@ import { lazy, Suspense, useState, useEffect } from "react";
 import ProfileLogo from "@/components/ProfileLogo"
 import { useSearchParams, useRouter } from "next/navigation";
 import { useSymbol } from '@/context/SymbolContext';
-// import Earnings_Calendar from "@/components/EarningsCalendar";
+import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
 import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import SearchBar from "@/components/SearchBar";
-// import { Suspense } from "react";
 import MainLoader from "@/loaders&errors_UI/mian_loader";
 
-const Earnings_Calendar = lazy(() => import("@/components/EarningsCalendar"));
+// const Earnings_Calendar = lazy(() => import("@/components/EarningsCalendar"));
 
 export default function DashBoard () {
   return (
@@ -266,9 +265,7 @@ function DashboardContent () {
                               );
                           case 'earnings_calendar':
                               return (
-                                <Suspense fallback={<MainLoader />}>
                                   <Earnings_Calendar symbol={symbol} />
-                                </Suspense>
                               );
                           case 'insider_transactions':
                               return (
