@@ -7,8 +7,6 @@ import axios from 'axios';
 import formatNumber from '@/components/FormatNumber';
 import Chart from '@/components/Chart'; // Assuming you have a separate component for TradingView
 import StockNews from '@/components/stockNews';
-import Earnings_Calendar from '@/app/dashboard/components/EarningsCalendar';
-import Insider_Transactions from '@/components/InsiderTransactions';
 import Technical_Analysis from '@/components/TechnicalAnalysis';
 import Financials from '@/components/Financials';
 import Historical_Summary from '@/components/Historical_Summary';
@@ -399,10 +397,6 @@ export default function StockDetails() {
                                         <StockNews symbol={symbol} />
                                     </div>
                                 ) ;
-                            case 'earnings-calendar':
-                                return <Earnings_Calendar symbol={symbol} />;
-                            case 'insider-transactions':
-                                return <Insider_Transactions symbol={symbol} />;
                             case 'technical-analysis':
                                 return <Technical_Analysis symbol={symbol} />;
                             case 'financials':
