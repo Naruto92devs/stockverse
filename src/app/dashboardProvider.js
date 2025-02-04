@@ -3,20 +3,23 @@ import { InsiderTransactionsProvider } from '@/context/InsiderTransactionsContex
 import { SymbolProvider } from '@/context/SymbolContext';
 import { HistoricalSummaryProvider } from '@/context/HistoricalSummaryContext';
 import { HistoricalDataProvider } from '@/context/HistoricalDataContext';
+import { TradesProvider } from '@/context/TradesContext';
 
 const DashboardProvider = ({ children }) => {
     return (
         <SymbolProvider> 
             {/* Wrap everything in SymbolProvider to ensure global access to symbol */}
-            <HistoricalDataProvider>
-                <HistoricalSummaryProvider>
-                    <InsiderTransactionsProvider>
-                        <EarningsCalendarProvider> 
-                            {children}
-                        </EarningsCalendarProvider>
-                    </InsiderTransactionsProvider>
-                </HistoricalSummaryProvider>
-            </HistoricalDataProvider>
+            <TradesProvider>
+                <HistoricalDataProvider>
+                    <HistoricalSummaryProvider>
+                        <InsiderTransactionsProvider>
+                            <EarningsCalendarProvider> 
+                                {children}
+                            </EarningsCalendarProvider>
+                        </InsiderTransactionsProvider>
+                    </HistoricalSummaryProvider>
+                </HistoricalDataProvider>
+            </TradesProvider>
         </SymbolProvider>
     );
 };

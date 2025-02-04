@@ -6,6 +6,7 @@ import { useSymbol } from '@/context/SymbolContext';
 import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
 import InsiderTransactions from "./components/InsiderTransactions";
 import Historical_Summary from "@/app/dashboard/components/Historical";
+import Trades from "@/app/dashboard/components/Trades";
 import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
@@ -277,13 +278,13 @@ function DashboardContent () {
                               return (
                                 <Historical_Summary symbol={symbol}/>
                               );
-                          case 'watchlist':
-                              return (
-                                <h1 className="text-3xl">watchlist</h1>
-                              );
-                          case 'trades':
-                              return (
-                                <h1 className="text-3xl">trades</h1>
+                              case 'watchlist':
+                                return (
+                                  <h1 className="text-3xl">watchlist</h1>
+                                );
+                                case 'trades':
+                                  return (
+                                  <Trades symbol={symbol}/>
                               );
                           case 'level2':
                             return (

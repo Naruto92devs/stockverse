@@ -100,7 +100,7 @@ const Historical = ({ symbol }) => {
                 </h1>
 
                 {/* Summary Start */}
-                    <div className='flex pt-4 justify-center w-full gap-4 overflow-x-auto overflow-y-hidden scrollbar-thin'>
+                    <div className='flex pt-4 max-w-full w-max gap-4 overflow-x-auto overflow-y-hidden scrollbar-thin'>
                         {historicalSummary &&
                             Object.entries(historicalSummary).map(([label, data]) => (
                                 <div className='px-4 py-4 rounded-lg shadow-lg bg-primaryBg' key={label}>
@@ -126,8 +126,8 @@ const Historical = ({ symbol }) => {
                 {/* Summary End */}
                 
                 {/* Response Data Table Start */}
-                    <div className='w-full pt-8 flex justify-between items-center'>
-                        <h2 className='font-sansMedium md:text-2xl text-xl text-center'>
+                    <div className='w-full pt-8 flex md:justify-between items-center'>
+                        <h2 className='max-md:hidden font-sansMedium md:text-2xl text-xl text-center'>
                             Detailed History
                         </h2>
                         {/* Filter Dropdown */}
@@ -299,7 +299,7 @@ const Historical = ({ symbol }) => {
 
             {/* Loader Start */}
             {loading && (
-                <div className='absolute z-5 w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
+                <div className='absolute z-[7] w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
                     <Loading />
                 </div>
             )}
