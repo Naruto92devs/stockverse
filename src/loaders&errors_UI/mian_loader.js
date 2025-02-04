@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 
-export default function MainLoader() {
+export default function MainLoader({Zindex}) {
   return (
     <section 
     style={{backgroundImage: "url('/images/loader_bg.jpg')",}} 
-    className="z-20 bg-cover bg-no-repeat bg-right-bottom absolute w-full h-[100svh] top-0 left-0 bottom-0 right-0 flex flex-col gap-2 items-center justify-center text-center"
+    className={`z-${Zindex} bg-cover bg-no-repeat bg-right-bottom absolute w-full h-[100svh] top-0 left-0 bottom-0 right-0 flex flex-col gap-2 items-center justify-center text-center`}
     >
       <div className="flex gap-4 items-center rounded-xl">
         <div className="loader__skeleton w-16 h-16 flex items-center justify-center">

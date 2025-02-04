@@ -48,6 +48,10 @@ const InsiderTransactions = ({ symbol }) => {
         }
     }, [currentPage]);
 
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [transactions, symbol]);
+
     // Divide transactions into chunks of PAGE_SIZE
     const paginatedData = useMemo(() => {
         if (!transactions || transactions.length === 0) return [];
@@ -70,7 +74,7 @@ const InsiderTransactions = ({ symbol }) => {
     };
 
     if (!transactions && loading) {
-        return <MainLoader />; // Handle loading state
+        return <MainLoader Zindex={10} />; // Handle loading state
     }
 
     return (
@@ -231,7 +235,7 @@ const InsiderTransactions = ({ symbol }) => {
 
             {/* Loader Start */}
             {loading && (
-                <div className='absolute z-10 w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
+                <div className='absolute z-5 w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
                     <Loading />
                 </div>
             )}

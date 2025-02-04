@@ -10,7 +10,7 @@ const Earnings_Calendar = ({symbol}) => {
     const { earnings, loading, horizon, error, setHorizon, } = useEarningsCalendar(); // Access earnings directly
 
     if (!earnings && loading) {
-        return <MainLoader/>; // Handle loading or invalid data state
+        return <MainLoader Zindex={10}/>; // Handle loading or invalid data state
     }
 
     const changeHorizon = (horizon) => {
@@ -108,7 +108,7 @@ const Earnings_Calendar = ({symbol}) => {
 
             {/* Loader Start */}
             {loading && (
-                <div className='absolute w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
+                <div className='absolute z-5 w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
                     <Loading/>
                 </div>
             )}

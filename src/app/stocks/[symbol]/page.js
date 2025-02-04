@@ -9,8 +9,6 @@ import Chart from '@/components/Chart'; // Assuming you have a separate componen
 import StockNews from '@/components/stockNews';
 import Technical_Analysis from '@/components/TechnicalAnalysis';
 import Financials from '@/components/Financials';
-import Historical_Summary from '@/components/Historical_Summary';
-import Historical_Data from '@/components/HistoricalData';
 import Trades from '@/components/Trades';
 import StockVerse_GPT from '@/components/StockverseGptSidebar';
 import Level_2 from '@/components/Level2';
@@ -404,8 +402,6 @@ export default function StockDetails() {
                             case 'historical':
                                 return (
                                     <div className="w-full h-full flex flex-col gap-y-6">
-                                        <Historical_Summary symbol={symbol} />
-                                        <Historical_Data symbol={symbol} />
                                     </div>
                                 );
                             case 'trades':

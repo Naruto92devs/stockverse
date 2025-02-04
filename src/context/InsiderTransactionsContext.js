@@ -24,7 +24,7 @@ export const InsiderTransactionsProvider = ({ children }) => {
             );
 
             if (response.status === 200 && Array.isArray(response.data.data) && response.data.data.length > 0) {
-              setTransactions(response.data.data); // Corrected: Setting the actual array
+                setTransactions(response.data.data); // Corrected: Setting the actual array
                 setError(false);
             } else {
                 setTransactions([]); // If no data, set an empty array

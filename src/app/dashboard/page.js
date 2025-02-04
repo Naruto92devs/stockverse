@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useSymbol } from '@/context/SymbolContext';
 import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
 import InsiderTransactions from "./components/InsiderTransactions";
+import Historical_Summary from "@/app/dashboard/components/Historical";
 import Link from "next/link";
 import Image from "next/image";
 import Cookies from "js-cookie";
@@ -15,7 +16,7 @@ import MainLoader from "@/loaders&errors_UI/mian_loader";
 
 export default function DashBoard () {
   return (
-    <Suspense fallback={<MainLoader/>}>
+    <Suspense fallback={<MainLoader Zindex={40}/>}>
       <DashboardContent/>
     </Suspense>
   )
@@ -274,7 +275,7 @@ function DashboardContent () {
                               );
                           case 'historical':
                               return (
-                                <h1 className="text-3xl">historical</h1>
+                                <Historical_Summary symbol={symbol}/>
                               );
                           case 'watchlist':
                               return (
