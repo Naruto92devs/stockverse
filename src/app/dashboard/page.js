@@ -5,6 +5,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useSymbol } from '@/context/SymbolContext';
 import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
 import InsiderTransactions from "./components/InsiderTransactions";
+import IPOsCalendar from "./components/IposCalendar";
+import Level2 from "./components/Level2";
 import Historical_Summary from "@/app/dashboard/components/Historical";
 import Trades from "@/app/dashboard/components/Trades";
 import Link from "next/link";
@@ -264,7 +266,7 @@ function DashboardContent () {
                               );
                           case 'ipo_calendar':
                               return (
-                                <h1 className="text-3xl">Ipo Calendar</h1>
+                                <IPOsCalendar/>
                               );
                           case 'earnings_calendar':
                               return (
@@ -288,7 +290,7 @@ function DashboardContent () {
                               );
                           case 'level2':
                             return (
-                              <h1 className="text-3xl">level2</h1>
+                              <Level2 symbol={symbol}/>
                             );
                           case 'stockverse-gpt':
                               return (

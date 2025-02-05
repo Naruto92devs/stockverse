@@ -4,6 +4,7 @@ import { SymbolProvider } from '@/context/SymbolContext';
 import { HistoricalSummaryProvider } from '@/context/HistoricalSummaryContext';
 import { HistoricalDataProvider } from '@/context/HistoricalDataContext';
 import { TradesProvider } from '@/context/TradesContext';
+import { IPOsProvider } from '@/context/IposContext';
 
 const DashboardProvider = ({ children }) => {
     return (
@@ -14,7 +15,9 @@ const DashboardProvider = ({ children }) => {
                     <HistoricalSummaryProvider>
                         <InsiderTransactionsProvider>
                             <EarningsCalendarProvider> 
-                                {children}
+                                <IPOsProvider>
+                                    {children}
+                                </IPOsProvider>
                             </EarningsCalendarProvider>
                         </InsiderTransactionsProvider>
                     </HistoricalSummaryProvider>

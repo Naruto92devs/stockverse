@@ -235,7 +235,7 @@ const InsiderTransactions = ({ symbol }) => {
 
             {/* Loader Start */}
             {loading && (
-                <div className='absolute z-[7] w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
+                <div className='fixed z-[7] w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
                     <Loading />
                 </div>
             )}
