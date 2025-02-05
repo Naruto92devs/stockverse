@@ -6,6 +6,7 @@ import { useSymbol } from '@/context/SymbolContext';
 import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
 import InsiderTransactions from "./components/InsiderTransactions";
 import IPOsCalendar from "./components/IposCalendar";
+import TopGainersLosers from "./components/TopGainers&Losers";
 import Level2 from "./components/Level2";
 import Historical_Summary from "@/app/dashboard/components/Historical";
 import Trades from "@/app/dashboard/components/Trades";
@@ -258,7 +259,7 @@ function DashboardContent () {
                               );
                           case 'gainers_losers':
                               return (
-                                <h1 className="text-3xl">gainers_losers</h1>
+                                <TopGainersLosers symbol={symbol}/>
                               ) ;
                           case 'news':
                               return (

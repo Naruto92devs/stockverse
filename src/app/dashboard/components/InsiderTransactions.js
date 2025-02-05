@@ -101,12 +101,12 @@ const InsiderTransactions = ({ symbol }) => {
                     <div className='flex w-full overflow-auto scrollbar-thin'>
                         {/* Executive Name Column */}
                         <div className='flex flex-col items-center h-max w-[20%] min-w-max'>
-                            <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                            <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                 Executive
                             </div>
                             {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((transaction, index) => (
                                 <div className='w-full pl-1' key={`${transaction.ticker}-${index}`}>
-                                    <div className='p-3 text-sm border-b border-black/5'>
+                                    <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                         {transaction.executive || 'N/A'}
                                     </div>
                                 </div>
@@ -115,12 +115,12 @@ const InsiderTransactions = ({ symbol }) => {
 
                         {/* Shares Transacted Column */}
                         <div className='flex flex-col items-center h-max w-[10%] min-w-max'>
-                            <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                            <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                 Shares
                             </div>
                             {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((transaction, index) => (
                                 <div className='w-full' key={`${transaction.ticker}-${index}`}>
-                                    <div className='p-3 text-sm border-b border-black/5'>
+                                    <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                         {transaction.shares || 'N/A'}
                                     </div>
                                 </div>
@@ -129,12 +129,12 @@ const InsiderTransactions = ({ symbol }) => {
 
                         {/* Share Price Column */}
                         <div className='flex flex-col items-center h-max w-[10%] min-w-max'>
-                            <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                            <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                 Share Price
                             </div>
                             {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((transaction, index) => (
                                 <div className='w-full' key={`${transaction.ticker}-${index}`}>
-                                    <div className='p-3 text-sm border-b border-black/5'>
+                                    <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                         {transaction.share_price ? `$${transaction.share_price}` : 'N/A'}
                                     </div>
                                 </div>
@@ -143,12 +143,12 @@ const InsiderTransactions = ({ symbol }) => {
 
                         {/* Acquisition/Disposal Column */}
                         <div className='flex flex-col items-center h-max w-[15%] min-w-max'>
-                            <div className='w-full sticky top-0 z-[2] text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                            <div className='w-full font-sansMedium sticky top-0 z-[2] text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                             Acquisition or Disposal
                             </div>
                             {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((transaction, index) => (
                                 <div className='w-full text-center' key={`${transaction.ticker}-${index}`}>
-                                    <div className='p-3 text-sm border-b border-black/5'>
+                                    <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                         {transaction.acquisition_or_disposal || 'N/A'}
                                     </div>
                                 </div>
@@ -157,12 +157,12 @@ const InsiderTransactions = ({ symbol }) => {
 
                         {/* Transaction Date Column */}
                         <div className='flex flex-col items-start h-max w-[15%] min-w-max'>
-                            <div className='w-full sticky top-0 z-[2] text-base text-primaryTextColor/60 bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                            <div className='w-full font-sansMedium sticky top-0 z-[2] text-base text-primaryTextColor/60 bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                 Transaction Date
                             </div>
                             {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((transaction, index) => (
                                 <div className='w-full' key={`${transaction.ticker}-${index}`}>
-                                    <div className='p-3 text-sm border-b border-black/5'>
+                                    <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                         {transaction.transaction_date && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(transaction.transaction_date.trim()) 
                                             ? transaction.transaction_date.trim() 
                                             : 'N/A'}
@@ -173,12 +173,12 @@ const InsiderTransactions = ({ symbol }) => {
 
                         {/* Executive Title Column */}
                         <div className='flex flex-col items-center h-max w-[15%] min-w-max'>
-                            <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                            <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                 Executive Title
                             </div>
                             {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((transaction, index) => (
                                 <div className='w-full' key={`${transaction.ticker}-${index}`}>
-                                    <div className='p-3 text-sm border-b border-black/5'>
+                                    <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                         {transaction.executive_title || 'N/A'}
                                     </div>
                                 </div>
@@ -187,12 +187,12 @@ const InsiderTransactions = ({ symbol }) => {
 
                         {/* Security Type Column */}
                         <div className='flex flex-col items-center h-max w-[15%] min-w-max'>
-                            <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                            <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                 Security Type
                             </div>
                             {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((transaction, index) => (
                                 <div className='w-full pr-1' key={`${transaction.ticker}-${index}`}>
-                                    <div className='p-3 text-sm border-b border-black/5'>
+                                    <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                         {transaction.security_type || 'N/A'}
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@ const InsiderTransactions = ({ symbol }) => {
                         <div className='px-4 pt-4 bg-primaryBg w-full flex justify-between items-center gap-4'>
                             {/* Previous Button */}
                             <button 
-                                className='px-3 py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
+                                className='px-3 font-sansMedium py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
                                 disabled={currentPage === 1} 
                                 onClick={() => goToPage(currentPage - 1)}
                             >
@@ -219,7 +219,7 @@ const InsiderTransactions = ({ symbol }) => {
                                         <button 
                                             key={index} 
                                             ref={currentPage === index + 1 ? activeButtonRef : null}
-                                            className={`px-3 py-1 rounded-full text-black ${
+                                            className={`px-3 font-sansMedium py-0.5 rounded-full text-black ${
                                                 currentPage === index + 1 ? 'text-primaryMain bg-primaryMain/10' : ''
                                             }`} 
                                             onClick={() => goToPage(index + 1)}
@@ -232,7 +232,7 @@ const InsiderTransactions = ({ symbol }) => {
                             
                             {/* Next Button */}
                             <button 
-                                className='px-3 py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
+                                className='px-3 font-sansMedium py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
                                 disabled={currentPage === totalPages} 
                                 onClick={() => goToPage(currentPage + 1)}
                             >

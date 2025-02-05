@@ -24,13 +24,13 @@ const Earnings_Calendar = ({symbol}) => {
                 <h1 className='font-sansMedium md:text-3xl text-2xl text-center'>Earnings Calendar for <span className='dashboard_symbol_heading'>{symbol}</span></h1>
                 {/* filters Start */}
                 <div className='flex items-center gap-2'>
-                    <div onClick={() => changeHorizon('3month')} className={`bg-primaryBg border border-primaryMain/10 rounded-full text-sm text-primaryTextColor py-1 px-4 cursor-pointer ${horizon === '3month' ? 'bg-primaryMain text-white' : ''}`}>
+                    <div onClick={() => changeHorizon('3month')} className={`bg-primaryBg font-sansMedium border border-primaryMain/10 rounded-full text-sm text-primaryTextColor py-1 px-4 cursor-pointer ${horizon === '3month' ? 'bg-primaryMain text-white' : ''}`}>
                         3 Months
                     </div>
-                    <div onClick={() => changeHorizon('6month')} className={`bg-primaryBg border border-primaryMain/10 rounded-full text-sm text-primaryTextColor py-1 px-4 cursor-pointer ${horizon === '6month' ? 'bg-primaryMain text-white' : ''}`}>
+                    <div onClick={() => changeHorizon('6month')} className={`bg-primaryBg font-sansMedium border border-primaryMain/10 rounded-full text-sm text-primaryTextColor py-1 px-4 cursor-pointer ${horizon === '6month' ? 'bg-primaryMain text-white' : ''}`}>
                         6 Months
                     </div>
-                    <div onClick={() => changeHorizon('12month')} className={`bg-primaryBg border border-primaryMain/10 rounded-full text-sm text-primaryTextColor py-1 px-4 cursor-pointer ${horizon === '12month' ? 'bg-primaryMain text-white' : ''}`}>
+                    <div onClick={() => changeHorizon('12month')} className={`bg-primaryBg font-sansMedium border border-primaryMain/10 rounded-full text-sm text-primaryTextColor py-1 px-4 cursor-pointer ${horizon === '12month' ? 'bg-primaryMain text-white' : ''}`}>
                         12 Months
                     </div>
                 </div>
@@ -39,12 +39,12 @@ const Earnings_Calendar = ({symbol}) => {
                 <div className='flex overflow-x-auto overflow-y-hidden w-full bg-primaryBg py-4 rounded-xl scrollbar-thin'>
                     {/* Stock Name Column*/}
                     <div className='flex flex-col items-start w-[40%] min-w-max'>
-                        <div className='w-full text-base text-primaryTextColor/60 bg-dashboardBg px-4 py-3 border border-x-0 border-black/5'>
+                        <div className='w-full text-base font-sansMedium text-primaryTextColor/60 bg-dashboardBg px-4 py-3 border border-x-0 border-black/5'>
                             Stock Name
                         </div>
                         {earnings && earnings.map((stock, index) => (
                             <div className='w-full pl-1' key={`${stock.symbol}-${index}`}>
-                                <div className='p-3 text-sm border-b border-black/5'>
+                                <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                     ({stock.name.length > 8 ? stock.name.substring(0, 30) : stock.name || 'N/A'})
                                 </div>
                             </div>
@@ -52,12 +52,12 @@ const Earnings_Calendar = ({symbol}) => {
                     </div>
                     {/* Estimated Profit Column*/}
                     <div className='flex flex-col items-center w-[15%] min-w-max'>
-                        <div className='w-full text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                        <div className='w-full font-sansMedium text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                             Estimated Profit
                         </div>
                         {earnings && earnings.map((stock, index) => (
                             <div className='w-full text-center' key={`${stock.symbol}-${index}`}>
-                                <div className='p-3 text-sm border-b border-black/5'>
+                                <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                     {stock.estimate ? `$${stock.estimate}` : 'N/A'}
                                 </div>
                             </div>
@@ -65,12 +65,12 @@ const Earnings_Calendar = ({symbol}) => {
                     </div>
                     {/* Report Due Column*/}
                     <div className='flex flex-col items-center w-[15%] min-w-max'>
-                        <div className='w-full text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                        <div className='w-full font-sansMedium text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                             Report Due
                         </div>
                         {earnings && earnings.map((stock, index) => (
                             <div className='w-full text-center' key={`${stock.symbol}-${index}`}>
-                                <div className='p-3 text-sm border-b border-black/5'>
+                                <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                     {stock.reportDate || 'N/A'}
                                 </div>
                             </div>
@@ -78,12 +78,12 @@ const Earnings_Calendar = ({symbol}) => {
                     </div>
                     {/* Fiscal Ending Column*/}
                     <div className='flex flex-col items-center w-[15%] min-w-max'>
-                        <div className='w-full text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                        <div className='w-full font-sansMedium text-center text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                             Fiscal Ending
                         </div>
                         {earnings && earnings.map((stock, index) => (
                             <div className='w-full text-center' key={`${stock.symbol}-${index}`}>
-                                <div className='p-3 text-sm border-b border-black/5'>
+                                <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                     {stock.fiscalDateEnding || 'N/A'}
                                 </div>
                             </div>
@@ -91,12 +91,12 @@ const Earnings_Calendar = ({symbol}) => {
                     </div>
                     {/* Currency Column*/}
                     <div className='flex flex-col items-start w-[15%] min-w-max'>
-                        <div className='w-full text-base text-center text-primaryTextColor/60 bg-dashboardBg px-4 py-3 border border-x-0 border-black/5'>
+                        <div className='w-full font-sansMedium text-base text-center text-primaryTextColor/60 bg-dashboardBg px-4 py-3 border border-x-0 border-black/5'>
                             Currency
                         </div>
                         {earnings && earnings.map((stock, index) => (
                             <div className='w-full text-center pr-1' key={`${stock.symbol}-${index}`}>
-                                <div className='p-3 text-sm border-b border-black/5'>
+                                <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                     {stock.currency || 'N/A'}
                                 </div>
                             </div>

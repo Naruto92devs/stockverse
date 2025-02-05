@@ -125,13 +125,13 @@ const Trades = ({ symbol }) => {
                         <div className='flex w-full overflow-auto scrollbar-thin'>
                             {/* Exchange Column */}
                             <div className='flex flex-col h-max w-[20%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Excahnge
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full pl-1' key={`${trade.id}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
-                                          {exchangeMapping[trade.exchange] || 'Unknown Exchange'}
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
+                                            {exchangeMapping[trade.exchange] || 'Unknown Exchange'}
                                         </div>
                                     </div>
                                 ))}
@@ -139,12 +139,12 @@ const Trades = ({ symbol }) => {
 
                             {/* Price Transacted Column */}
                             <div className='flex flex-col h-max w-[10%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Price
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full' key={`${trade.id}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {trade.price ? `$${trade.price}` : 'N/A'}
                                         </div>
                                     </div>
@@ -153,12 +153,12 @@ const Trades = ({ symbol }) => {
 
                             {/* Size Price Column */}
                             <div className='flex flex-col items-center h-max w-[10%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Size
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full' key={`${trade.id}-${index}`}>
-                                        <div className={`p-3 text-sm border-b border-black/5`}>
+                                        <div className={`p-3 font-sansMedium text-sm border-b border-black/5`}>
                                             {trade.size ? trade.size : 'N/A'}
                                         </div>
                                     </div>
@@ -167,17 +167,17 @@ const Trades = ({ symbol }) => {
 
                             {/* Buy/Sell Column */}
                             <div className='flex flex-col h-max w-[15%] min-w-max'>
-                                <div className='w-full sticky text-center top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
-                                  Buy/Sell
+                                <div className='w-full font-sansMedium sticky text-center top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    Buy/Sell
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full' key={`${trade.id}-${index}`}>
-                                        <div className='p-3 text-center text-sm border-b border-black/5'>
-                                          {quote && (
+                                        <div className='p-3 font-sansMedium text-center text-sm border-b border-black/5'>
+                                            {quote && (
                                             <div>
                                                 {determineBuyOrSell(trade.price, quote.p, quote.P)}
-                                              </div>
-                                          )}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 ))}
@@ -185,12 +185,12 @@ const Trades = ({ symbol }) => {
 
                             {/* Num Column */}
                             <div className='flex flex-col h-max w-[15%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Num
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full' key={`${trade.id}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {trade.id ? `$${trade.id}` : 'N/A'}
                                         </div>
                                     </div>
@@ -199,13 +199,13 @@ const Trades = ({ symbol }) => {
 
                             {/* Tape Column */}
                             <div className='flex flex-col h-max w-[15%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Tape
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full' key={`${trade.id}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
-                                          {tapeMapping[trade.tape] || 'N/A'}
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
+                                            {tapeMapping[trade.tape] || 'N/A'}
                                         </div>
                                     </div>
                                 ))}
@@ -213,13 +213,13 @@ const Trades = ({ symbol }) => {
 
                             {/* Timestamp Column */}
                             <div className='flex flex-col h-max w-[15%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Timestamp
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full' key={`${trade.id}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
-                                          {convertTimestamp(trade.participant_timestamp)}
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
+                                            {convertTimestamp(trade.participant_timestamp)}
                                         </div>
                                     </div>
                                 ))}
@@ -231,7 +231,7 @@ const Trades = ({ symbol }) => {
                             <div className='px-4 pt-4 bg-primaryBg w-full flex justify-between items-center gap-4'>
                                 {/* Previous Button */}
                                 <button 
-                                    className='px-3 py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
+                                    className='px-3 font-sansMedium py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
                                     disabled={currentPage === 1} 
                                     onClick={() => goToPage(currentPage - 1)}
                                 >
@@ -245,7 +245,7 @@ const Trades = ({ symbol }) => {
                                             <button 
                                                 key={index} 
                                                 ref={currentPage === index + 1 ? activeButtonRef : null}
-                                                className={`px-3 py-1 rounded-full text-black ${
+                                                className={`px-3 font-sansMedium py-0.5 rounded-full text-black ${
                                                     currentPage === index + 1 ? 'text-primaryMain bg-primaryMain/10' : ''
                                                 }`} 
                                                 onClick={() => goToPage(index + 1)}
@@ -258,7 +258,7 @@ const Trades = ({ symbol }) => {
                                 
                                 {/* Next Button */}
                                 <button 
-                                    className='px-3 py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
+                                    className='px-3 py-1 font-sansMedium text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
                                     disabled={currentPage === totalPages} 
                                     onClick={() => goToPage(currentPage + 1)}
                                 >

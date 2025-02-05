@@ -167,12 +167,12 @@ const Historical = ({ symbol }) => {
                         <div className='flex w-full overflow-auto scrollbar-thin'>
                             {/* dateTime Column */}
                             <div className='flex flex-col h-max w-[20%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Date
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((row, index) => (
                                     <div className='w-full pl-1' key={`${row.dateTime}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {row.dateTime || 'N/A'}
                                         </div>
                                     </div>
@@ -181,12 +181,12 @@ const Historical = ({ symbol }) => {
 
                             {/* Close Transacted Column */}
                             <div className='flex flex-col h-max w-[15%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Close
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((row, index) => (
                                     <div className='w-full' key={`${row.dateTime}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {row.close ? `$${row.close}` : 'N/A'}
                                         </div>
                                     </div>
@@ -195,12 +195,12 @@ const Historical = ({ symbol }) => {
 
                             {/* Change % Price Column */}
                             <div className='flex flex-col items-center h-max w-[12.5%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Change %
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((row, index) => (
                                     <div className='w-full' key={`${row.dateTime}-${index}`}>
-                                        <div className={`p-3 text-sm border-b border-black/5 ${row.changePercentage >= 0 ? 'text-buy pl-4' : 'text-sell'}`}>
+                                        <div className={`p-3 font-sansMedium text-sm border-b border-black/5 ${row.changePercentage >= 0 ? 'text-buy pl-4' : 'text-sell'}`}>
                                             {row.changePercentage ? `${row.changePercentage}%` : 'N/A'}
                                         </div>
                                     </div>
@@ -209,12 +209,12 @@ const Historical = ({ symbol }) => {
 
                             {/* Open Column */}
                             <div className='flex flex-col h-max w-[12.5%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Open
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((row, index) => (
                                     <div className='w-full' key={`${row.dateTime}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {row.open ? `$${row.open}` : 'N/A'}
                                         </div>
                                     </div>
@@ -223,12 +223,12 @@ const Historical = ({ symbol }) => {
 
                             {/* High Column */}
                             <div className='flex flex-col h-max w-[12.5%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     High
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((row, index) => (
                                     <div className='w-full' key={`${row.dateTime}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {row.high ? `$${row.high}` : 'N/A'}
                                         </div>
                                     </div>
@@ -237,12 +237,12 @@ const Historical = ({ symbol }) => {
 
                             {/* Low Column */}
                             <div className='flex flex-col h-max w-[12.5%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Low
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((row, index) => (
                                     <div className='w-full' key={`${row.dateTime}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {row.low ? `$${row.low}` : 'N/A'}
                                         </div>
                                     </div>
@@ -251,12 +251,12 @@ const Historical = ({ symbol }) => {
 
                             {/* Volume Column */}
                             <div className='flex flex-col h-max w-[15%] min-w-max'>
-                                <div className='w-full sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Volume
                                 </div>
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((row, index) => (
                                     <div className='w-full pr-1' key={`${row.dateTime}-${index}`}>
-                                        <div className='p-3 text-sm border-b border-black/5'>
+                                        <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
                                             {row.volume || 'N/A'}
                                         </div>
                                     </div>
@@ -269,7 +269,7 @@ const Historical = ({ symbol }) => {
                             <div className='px-4 pt-4 bg-primaryBg w-full flex justify-between items-center gap-4'>
                                 {/* Previous Button */}
                                 <button 
-                                    className='px-3 py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
+                                    className='px-3 py-1 font-sansMedium text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
                                     disabled={currentPage === 1} 
                                     onClick={() => goToPage(currentPage - 1)}
                                 >
@@ -283,7 +283,7 @@ const Historical = ({ symbol }) => {
                                             <button 
                                                 key={index} 
                                                 ref={currentPage === index + 1 ? activeButtonRef : null}
-                                                className={`px-3 py-1 rounded-full text-black ${
+                                                className={`px-3 py-0.5 rounded-full text-black font-sansMedium ${
                                                     currentPage === index + 1 ? 'text-primaryMain bg-primaryMain/10' : ''
                                                 }`} 
                                                 onClick={() => goToPage(index + 1)}
@@ -296,7 +296,7 @@ const Historical = ({ symbol }) => {
                                 
                                 {/* Next Button */}
                                 <button 
-                                    className='px-3 py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
+                                    className='px-3 font-sansMedium py-1 text-white bg-primaryMain rounded-md disabled:text-black disabled:bg-primaryMain/10' 
                                     disabled={currentPage === totalPages} 
                                     onClick={() => goToPage(currentPage + 1)}
                                 >
