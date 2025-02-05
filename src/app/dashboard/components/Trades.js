@@ -34,7 +34,7 @@ const usePageSize = () => {
 
 const Trades = ({ symbol }) => {
 
-    const { trades, quote, loading, selectedDate, setSelectedDate, error } = useTrades(); // Get trades data from context
+    const { trades, quote, loading, selectedDate, setSelectedDate, error, fetchTrades } = useTrades(); // Get trades data from context
     const [currentPage, setCurrentPage] = useState(1);
     const containerRef = useRef(null);
     const activeButtonRef = useRef(null);
@@ -54,6 +54,19 @@ const Trades = ({ symbol }) => {
     useEffect(() => {
         setCurrentPage(1);
     }, [trades, symbol]);
+
+    
+    // Background fetch every 5 minutes
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (symbol) {
+                fetchTrades(symbol, true);
+            }
+        }, 3 * 1000);
+
+        return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [symbol]);
     
     // Divide transactions into chunks of PAGE_SIZE
     const paginatedData = useMemo(() => {

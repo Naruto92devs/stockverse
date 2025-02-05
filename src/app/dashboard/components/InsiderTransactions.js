@@ -31,11 +31,23 @@ const usePageSize = () => {
 };
 
 const InsiderTransactions = ({ symbol }) => {
-    const { transactions, loading, error } = useInsiderTransactions(); // Access insider transactions directly
+    const { transactions, loading, error, fetchInsiderTransactions } = useInsiderTransactions(); // Access insider transactions directly
     const [currentPage, setCurrentPage] = useState(1);
     const containerRef = useRef(null);
     const activeButtonRef = useRef(null);
     const PAGE_SIZE = usePageSize(); // Get dynamic page size
+
+    // Background fetch every 5 minutes
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (symbol) {
+                fetchInsiderTransactions(symbol, true);
+            }
+        }, 20 * 1000);
+
+        return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [symbol]);
 
     useEffect(() => {
         // Scroll to the active button

@@ -35,14 +35,26 @@ const usePageSize = () => {
 
 const Historical = ({ symbol }) => {
 
-    const { historicalSummary, summaryLoading, summaryError } = useHistoricalSummary(); // Fix destructuring
-    const { historicalData, loading, filter, setFilter, error } = useHistoricalData(); // Fix destructuring
+    const { historicalSummary, summaryLoading,} = useHistoricalSummary(); // Fix destructuring
+    const { historicalData, loading, filter, setFilter, error, fetchHistoricalData } = useHistoricalData(); // Fix destructuring
     const [currentPage, setCurrentPage] = useState(1);
     const containerRef = useRef(null);
     const activeButtonRef = useRef(null);
     const PAGE_SIZE = usePageSize(); // Get dynamic page size
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const dropdownRef = useRef(null);
+
+    // Background fetch every 5 minutes
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (symbol) {
+                fetchHistoricalData(symbol, true);
+            }
+        }, 60 * 1000);
+
+        return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [symbol]);
 
     useEffect(() => {
         // Scroll to the active button
