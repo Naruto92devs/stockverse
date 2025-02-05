@@ -140,8 +140,7 @@ const TopGainersLosers = ({ symbol }) => {
                                                 <div className=''>
                                                     <h2 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
                                                     <p className='textr-xs font-sansRegular leading-[100%] text-primaryTextColor/60'>
-                                                        {stock.name.split(" ")[0]}
-                                                        {/* {stock.name.split(" ").slice(0, 2).join(" ")} */}
+                                                        {stock.name ? (stock.name.includes(" ") ? stock.name.split(" ")[0] : stock.name) : "Undefined"}
                                                     </p>
                                                 </div>
                                             </div>
@@ -253,8 +252,7 @@ const TopGainersLosers = ({ symbol }) => {
                                                 <div className=''>
                                                     <h2 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
                                                     <p className='textr-xs font-sansRegular leading-[100%] text-primaryTextColor/60'>
-                                                        {stock.name.split(" ")[0]}
-                                                        {/* {stock.name.split(" ").slice(0, 2).join(" ")} */}
+                                                        {stock.name ? (stock.name.includes(" ") ? stock.name.split(" ")[0] : stock.name) : "Undefined"}
                                                     </p>
                                                 </div>
                                             </div>
