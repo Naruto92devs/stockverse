@@ -13,9 +13,9 @@ const usePageSize = () => {
     useEffect(() => {
         const updatePageSize = () => {
             if (window.matchMedia('(min-width: 2048px)').matches) {
-                setPageSize(13); // XL screens
+                setPageSize(15); // XL screens
             } else if (window.matchMedia('(min-width: 1560px)').matches) {
-                setPageSize(9); // LG screens
+                setPageSize(11); // LG screens
             } else if (window.matchMedia('(min-width: 768px)').matches) {
                 setPageSize(7); // LG screens
             } else {
@@ -72,7 +72,7 @@ const WatchList = ({ setIsvisible }) => {
 
     // Change page handler
     const addWatchlist = () => {
-      setIsvisible(true);
+        setIsvisible(true);
     };
 
     if (!watchlist && loading) {
@@ -142,7 +142,7 @@ const WatchList = ({ setIsvisible }) => {
                                       <div className='w-full' key={`${stock.ticker}-${index}`}>
                                           <div className={`flex px-1 py-4 border-b border-black/5`}>
                                               <div className={`px-3 py-1.5 leading-[119%] font-sansMedium rounded-full text-md border-b border-black/5 ${stock.todaysChangePerc >= 0 ? 'text-buy bg-buy/10' : 'text-sell bg-sell/10'}`}>
-                                                {stock.todaysChangePerc ? stock.todaysChangePerc >= 0 ? `+${stock.todaysChangePerc}%` : `${stock.todaysChangePerc}%` : 'N/A'}
+                                                {stock.todaysChangePerc ? stock.todaysChangePerc >= 0 ? `+${stock.todaysChangePerc.toFixed(2)}%` : `${stock.todaysChangePerc.toFixed(2)}%` : 'N/A'}
                                               </div>
                                           </div>
                                       </div>

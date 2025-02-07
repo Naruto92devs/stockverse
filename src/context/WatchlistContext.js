@@ -79,7 +79,7 @@ export const WatchlistProvider = ({ children }) => {
                     marketCap: companyInfo.market_cap ? formatNumber(companyInfo.market_cap) : null, // Market capitalization
                     price: tickerInfo.prevDay?.c || 0, // Previous day closing price
                     volume: formatNumber(tickerInfo.prevDay?.v) || 0, // Volume
-                    todaysChangePerc: tickerInfo.todaysChangePerc.toFixed(2) || 0, // Percentage change today
+                    todaysChangePerc: tickerInfo.todaysChangePerc || 0, // Percentage change today
                     todaysChange: tickerInfo.todaysChange || 0, // Absolute change today
                     logoUrl: companyInfo.branding?.logo_url || null, // Logo URL
                     iconUrl: companyInfo.branding?.icon_url || null, // Icon URL
@@ -100,7 +100,10 @@ export const WatchlistProvider = ({ children }) => {
         const savedWatchlist = localStorage.getItem('Watchlist');
         if (savedWatchlist && token) {
             // Load from local storage and fetch detailed data
-            const tickers = JSON.parse(savedWatchlist).map(item => item.symbol.toUpperCase());
+            const tickers = JSON.parse(savedWatchlist)
+            .map(item => item.symbol.toUpperCase())
+            .sort((a, b) => a.localeCompare(b));
+            
             fetchWatchlistData(tickers);
         } else if (token) {
             // Fetch from backend if no local storage data
