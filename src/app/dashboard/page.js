@@ -7,6 +7,7 @@ import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
 import InsiderTransactions from "./components/InsiderTransactions";
 import IPOsCalendar from "./components/IposCalendar";
 import TopGainersLosers from "./components/TopGainers&Losers";
+import WatchList from "./components/Watchlist";
 import Level2 from "./components/Level2";
 import Historical_Summary from "@/app/dashboard/components/Historical";
 import Trades from "@/app/dashboard/components/Trades";
@@ -283,7 +284,7 @@ function DashboardContent () {
                               );
                               case 'watchlist':
                                 return (
-                                  <h1 className="text-3xl">watchlist</h1>
+                                  <WatchList setIsvisible={setIsSearchBar}/>
                                 );
                                 case 'trades':
                                   return (

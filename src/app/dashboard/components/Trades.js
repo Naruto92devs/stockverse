@@ -53,7 +53,7 @@ const Trades = ({ symbol }) => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [trades, symbol]);
+    }, [setSelectedDate, symbol]);
 
     
     // Background fetch every 5 minutes

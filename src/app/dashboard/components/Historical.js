@@ -69,7 +69,7 @@ const Historical = ({ symbol }) => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [historicalData, symbol]);
+    }, [symbol]);
     
     // Divide transactions into chunks of PAGE_SIZE
     const paginatedData = useMemo(() => {

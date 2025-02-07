@@ -222,10 +222,10 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                         className="w-full text-md px-2 pl-10 py-2 border bg-primaryBg font-sansMedium text-primaryTextColor border-primaryTextColor/10 rounded-xl focus:outline-none"
                     />
                 </div>
-                <ul className="relative flex flex-col bg-primaryBg px-4 max-sm:px-3 rounded-xl min-h-[35vh] lg:max-h-[45vh] max-h-[57vh] overflow-y-auto scrollbar-thin">
+                <ul className={`${loading ? 'overflow-y-hidden' : 'overflow-y-auto'} relative flex flex-col bg-primaryBg px-4 max-sm:px-3 rounded-xl min-h-[35vh] lg:max-h-[45vh] max-h-[57vh] scrollbar-thin`}>
                     {/* Loader Start */}
                     <div 
-                    className={`${loading ? 'visible' : 'hidden'} absolute top-0 left-0 right-0 bottom-0 w-full flex md:items-center justify-center max-md:pt-[30%] backdrop-blur-[2px] bg-black/20`}
+                    className={`${loading ? 'visible' : 'hidden'} absolute top-0 left-0 right-0 bottom-0 w-full rounded-xl min-h-[35vh] lg:max-h-[45vh] max-h-[57vh] flex md:items-center justify-center max-md:pt-[15%] backdrop-blur-[2px] bg-black/20`}
                     >
                         <div class="typewriter">
                             <div class="slide"><i></i></div>
@@ -258,7 +258,7 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                                 Best Matches
                             </div>
                             {results.map((result) => {
-                                const isInWatchlist = watchlist?.some((item) => item.symbol === result['1. symbol']);
+                                const isInWatchlist = watchlist?.some((item) => item.ticker === result['1. symbol']);
                                 return (
                                     <li
                                         key={result['1. symbol']}
@@ -304,7 +304,7 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                     </div>
                     {stocks.map((stock) => {
 
-                        const isInWatchlist = watchlist?.some((item) => item.symbol === stock['1. symbol']);
+                        const isInWatchlist = watchlist?.some((item) => item.ticker === stock['1. symbol']);
                         return (
                         <li
                             key={stock['1. symbol']}

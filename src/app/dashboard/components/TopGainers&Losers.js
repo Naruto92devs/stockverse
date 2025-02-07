@@ -31,7 +31,7 @@ const usePageSize = () => {
     return pageSize;
 };
 
-const TopGainersLosers = ({ symbol }) => {
+const TopGainersLosers = () => {
     const { gainers, losers, loading, error } = useGainersLosers();
     const [gainersCurrentPage, setGainersCurrentPage] = useState(1);
     const [losersCurrentPage, setLosersCurrentPage] = useState(1);
@@ -65,7 +65,7 @@ const TopGainersLosers = ({ symbol }) => {
 
     useEffect(() => {
         setLosersCurrentPage(1);
-    }, [gainers, symbol]);
+    }, [gainers]);
 
     // Divide transactions into chunks of PAGE_SIZE
     const gainersPaginatedData = useMemo(() => {
@@ -119,7 +119,7 @@ const TopGainersLosers = ({ symbol }) => {
                 <h1 className='font-sansMedium md:text-3xl text-2xl text-center'>
                     Top Gainers And Losers
                 </h1>
-                <p className='text-md font-sansRegular text-primaryTextColor xl:w-[35%] lg:w-[60%] text-center'>Discover real-time stock data, personalized insights, and AI-driven recommendations tailored to your trading style</p>
+                <p className='text-md font-sansRegular text-primaryTextColor 2xl:w-[35%] lg:w-[50%] text-center'>Discover real-time stock data, personalized insights, and AI-driven recommendations tailored to your trading style</p>
 
                 {/* Response Data Table Start */}
                 <div className='w-full flex pt-8 lg:flex-row flex-col justify-between lg:gap-0 gap-8'>

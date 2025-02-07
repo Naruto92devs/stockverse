@@ -62,7 +62,7 @@ const InsiderTransactions = ({ symbol }) => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [transactions, symbol]);
+    }, [symbol]);
 
     // Divide transactions into chunks of PAGE_SIZE
     const paginatedData = useMemo(() => {
