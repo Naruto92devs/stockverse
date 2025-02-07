@@ -62,11 +62,11 @@ const Trades = ({ symbol }) => {
             if (symbol) {
                 fetchTrades(symbol, true);
             }
-        }, 3 * 1000);
+        }, 10 * 1000);
 
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [symbol]);
+    }, [symbol, selectedDate]);
     
     // Divide transactions into chunks of PAGE_SIZE
     const paginatedData = useMemo(() => {
@@ -191,7 +191,7 @@ const Trades = ({ symbol }) => {
                                 {paginatedData.length > 0 && paginatedData[currentPage - 1]?.map((trade, index) => (
                                     <div className='w-full' key={`${trade.id}-${index}`}>
                                         <div className='p-3 font-sansMedium text-sm border-b border-black/5'>
-                                            {trade.id ? `$${trade.id}` : 'N/A'}
+                                            {trade.sequence_number ? `${trade.sequence_number}` : 'N/A'}
                                         </div>
                                     </div>
                                 ))}

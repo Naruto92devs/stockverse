@@ -19,9 +19,9 @@ export const TradesProvider = ({ children }) => {
       let day = today.getDay(); // 0 = Sunday, 6 = Saturday
 
       if (day === 6) {
-          today.setDate(today.getDate() - 1); // Move to Friday
+        today.setDate(today.getDate() - 1); // Move to Friday
       } else if (day === 0) {
-          today.setDate(today.getDate() - 2); // Move to Friday
+        today.setDate(today.getDate() - 2); // Move to Friday
       }
 
       return today.toISOString().split('T')[0]; // Format as YYYY-MM-DD
@@ -44,12 +44,7 @@ export const TradesProvider = ({ children }) => {
             }
 
             const sanitizedSymbol = sanitizeSymbol(currentSymbol);
-            let apiUrl = `https://api.polygon.io/v3/trades/${sanitizedSymbol}?limit=1000&apiKey=9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy`;
-
-            // Append timestamp if a date is selected
-            if (selectedDate) {
-                apiUrl += `&timestamp=${selectedDate}`;
-            }
+            let apiUrl = `https://api.polygon.io/v3/trades/${sanitizedSymbol}?timestamp=${selectedDate}&limit=1000&apiKey=9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy`;
 
             const { data: tradeResponse } = await axios.get(apiUrl);
             setTrades(tradeResponse.results || []); // Ensure trades is an array
@@ -98,7 +93,7 @@ export const TradesProvider = ({ children }) => {
 
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [symbol]);
+    }, [symbol, selectedDate]);
 
 
     useEffect(() => {
