@@ -231,7 +231,11 @@ const WatchList = ({ setIsvisible }) => {
             )}
             {/* Loader End */}
 
-            {!error && watchlist.length === 0 && !loading && (
+            {!error && watchlist && watchlist.length === 0 && !loading && (
+                <DataNotAvailable />
+            )}
+
+            {!error && !watchlist && !loading && (
                 <DataNotAvailable />
             )}
 
