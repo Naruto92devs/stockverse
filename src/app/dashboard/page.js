@@ -16,6 +16,7 @@ import Image from "next/image";
 import Cookies from "js-cookie";
 import SearchBar from "@/components/SearchBar";
 import MainLoader from "@/loaders&errors_UI/mian_loader";
+import Home from "./components/Chart";
 
 // const Earnings_Calendar = lazy(() => import("@/components/EarningsCalendar"));
 
@@ -253,10 +254,7 @@ function DashboardContent () {
                         switch (view) {
                           case 'chart':
                               return (
-                                  <div>
-                                    <h1 className="text-3xl">Chart</h1>
-                                    <h1 className="text-3xl">{symbol}</h1>
-                                  </div>
+                                    <Home ticker={symbol}/>
                               );
                           case 'gainers_losers':
                               return (
