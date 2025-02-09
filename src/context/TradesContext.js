@@ -15,18 +15,18 @@ export const TradesProvider = ({ children }) => {
 
     // Function to get the latest trading day (skip weekends)
     function getLatestTradingDay() {
-      const today = new Date();
-      let day = today.getDay(); // 0 = Sunday, 6 = Saturday
+        const today = new Date();
+        let day = today.getDay(); // 0 = Sunday, 6 = Saturday
 
-      if (day === 6) {
-        today.setDate(today.getDate() - 1); // Move to Friday
-      } else if (day === 0) {
-        today.setDate(today.getDate() - 2); // Move to Friday
-      }
+        if (day === 6) {
+            today.setDate(today.getDate() - 1); // Move to Friday
+        } else if (day === 0) {
+            today.setDate(today.getDate() - 2); // Move to Friday
+        }
 
-      return today.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+        return today.toISOString().split('T')[0]; // Format as YYYY-MM-DD
     }
-    
+
     // Function to sanitize the stock symbol
     const sanitizeSymbol = (inputSymbol) => {
         return inputSymbol?.trim().toUpperCase();
@@ -97,8 +97,8 @@ export const TradesProvider = ({ children }) => {
 
 
     useEffect(() => {
-      console.log("Updated quote:", quote);
-  }, [quote]);
+        console.log("Updated quote:", quote);
+    }, [quote]);
     return (
         <TradesContext.Provider
             value={{

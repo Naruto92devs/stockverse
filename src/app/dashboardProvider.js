@@ -6,26 +6,29 @@ import { HistoricalDataProvider } from '@/context/HistoricalDataContext';
 import { TradesProvider } from '@/context/TradesContext';
 import { IPOsProvider } from '@/context/IposContext';
 import { GainersLosersProvider } from '@/context/GainersLosersContext';
+import { TickerDetailsProvider } from '@/context/TickerDetailsContext';
 
 const DashboardProvider = ({ children }) => {
+    {/* Wrap everything in SymbolProvider to ensure global access to symbol */}
     return (
         <SymbolProvider> 
-            {/* Wrap everything in SymbolProvider to ensure global access to symbol */}
-            <TradesProvider>
-                <HistoricalDataProvider>
-                    <HistoricalSummaryProvider>
-                        <InsiderTransactionsProvider>
-                            <EarningsCalendarProvider> 
-                                <IPOsProvider>
-                                    <GainersLosersProvider>
-                                        {children}
-                                    </GainersLosersProvider>
-                                </IPOsProvider>
-                            </EarningsCalendarProvider>
-                        </InsiderTransactionsProvider>
-                    </HistoricalSummaryProvider>
-                </HistoricalDataProvider>
-            </TradesProvider>
+            <TickerDetailsProvider>
+                <TradesProvider>
+                    <HistoricalDataProvider>
+                        <HistoricalSummaryProvider>
+                            <InsiderTransactionsProvider>
+                                <EarningsCalendarProvider> 
+                                    <IPOsProvider>
+                                        <GainersLosersProvider>
+                                                        {children}
+                                        </GainersLosersProvider>
+                                    </IPOsProvider>
+                                </EarningsCalendarProvider>
+                            </InsiderTransactionsProvider>
+                        </HistoricalSummaryProvider>
+                    </HistoricalDataProvider>
+                </TradesProvider>
+            </TickerDetailsProvider>
         </SymbolProvider>
     );
 };

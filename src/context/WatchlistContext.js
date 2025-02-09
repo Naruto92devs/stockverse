@@ -114,6 +114,7 @@ export const WatchlistProvider = ({ children }) => {
             localStorage.removeItem('Watchlist');
             setLoading(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token]);
 
     return (
