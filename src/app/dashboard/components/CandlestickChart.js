@@ -647,6 +647,8 @@ export default function CandlestickChart() {
       wickDownColor: "#ef5350",
     });
 
+    newChart.timeScale().fitContent();
+
     newCandlestickSeries.setData(seriesesData[selectedInterval]);
     setChart(newChart);
     setCandlestickSeries(newCandlestickSeries);

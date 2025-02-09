@@ -489,7 +489,7 @@ export default function LineChart() {
   const chartContainerRef = useRef(null);
   const [chart, setChart] = useState(null);
   const [lineSeries, setLineSeries] = useState(null);
-  const [selectedInterval, setSelectedInterval] = useState("1D");
+  const [selectedInterval, setSelectedInterval] = useState("1Y");
 
   useEffect(() => {
     if (!chartContainerRef.current) return;
@@ -504,11 +504,13 @@ export default function LineChart() {
     });
 
     const newLineSeries = newChart.addLineSeries({
-      color: intervalColors["1D"],
+      color: intervalColors["1Y"],
       lineWidth: 2,
     });
 
-    newLineSeries.setData(seriesesData["1D"]);
+    newChart.timeScale().fitContent();
+
+    newLineSeries.setData(seriesesData["1Y"]);
     setChart(newChart);
     setLineSeries(newLineSeries);
 
@@ -525,6 +527,7 @@ export default function LineChart() {
 
   const setChartInterval = (interval) => {
     if (lineSeries) {
+      chart.timeScale().fitContent();
       lineSeries.setData(seriesesData[interval]);
       lineSeries.applyOptions({ color: intervalColors[interval] });
     }
@@ -535,8 +538,17 @@ export default function LineChart() {
     <div>
       <div ref={chartContainerRef} style={{ width: "100%", height: "300px" }} />
       <div className="buttons-container">
-        {Object.keys(seriesesData).map((interval) => (
+        {/* {Object.keys(seriesesData).map((interval) => (
           <button key={interval} onClick={() => setChartInterval(interval)}>
+            {interval}
+          </button>
+        ))} */}
+        {Object.keys(seriesesData).map((interval) => (
+          <button
+            key={interval}
+            onClick={() => setChartInterval(interval)}
+            className={selectedInterval === interval ? "active" : ""}
+          >
             {interval}
           </button>
         ))}
@@ -558,8 +570,9 @@ export default function LineChart() {
         button:hover {
           background: #d9e1f2;
         }
-        button:active {
-          background: #c4cde6;
+        .active {
+        background: #2962FF;
+        color: white;
         }
       `}</style>
     </div>

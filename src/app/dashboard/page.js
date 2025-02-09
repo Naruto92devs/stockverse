@@ -16,13 +16,11 @@ import Image from "next/image";
 import Cookies from "js-cookie";
 import SearchBar from "@/components/SearchBar";
 import MainLoader from "@/loaders&errors_UI/mian_loader";
-import Home from "./components/Chart";
 // import CandlestickChart from "./components/CandlestickChart";
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 
-const CandlestickChart = dynamic(() => import('./components/CandlestickChart'), { ssr: false });
-const LineChart = dynamic(() => import('./components/LineChart'), { ssr: false });
-
+// const CandlestickChart = dynamic(() => import('./components/CandlestickChart'), { ssr: false });
+// const LineChart = dynamic(() => import('./components/LineChart'), { ssr: false });
 // const Earnings_Calendar = lazy(() => import("@/components/EarningsCalendar"));
 
 export default function DashBoard () {
@@ -260,9 +258,7 @@ function DashboardContent () {
                           case 'chart':
                               return (
                                 <div className="w-full">
-                                  {/* <Home ticker={symbol}/> */}
-                                  <CandlestickChart ticker={symbol} />
-                                  <LineChart ticker={symbol} />
+                                  
                                 </div>
                               );
                           case 'gainers_losers':
