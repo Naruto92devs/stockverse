@@ -227,10 +227,10 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                     <div 
                     className={`${loading ? 'visible' : 'hidden'} absolute top-0 left-0 right-0 bottom-0 w-full rounded-xl min-h-[35vh] lg:max-h-[45vh] max-h-[57vh] flex md:items-center justify-center max-md:pt-[15%] backdrop-blur-[2px] bg-black/20`}
                     >
-                        <div class="typewriter">
-                            <div class="slide"><i></i></div>
-                            <div class="paper"></div>
-                            <div class="keyboard"></div>
+                        <div className="typewriter">
+                            <div className="slide"><i></i></div>
+                            <div className="paper"></div>
+                            <div className="keyboard"></div>
                         </div>
                     </div>
                     {/* Loader End */}

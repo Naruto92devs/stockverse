@@ -10,6 +10,7 @@ const nextConfig = {
             },
         ]  // Add 'logo.clearbit.com' to the list of allowed domains
     },
+    // productionBrowserSourceMaps: true,
 };
 
 export default nextConfig;

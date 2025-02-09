@@ -5,7 +5,7 @@ const LOGO_API_TOKEN = 'pk_GpgWOqB2R1qdEWrvsnD45w';
 const LOGO_API_BASE = 'https://img.logo.dev';
 
 const Logo = ({ symbol, size, alt = 'Company Logo', className = '' }) => {
-    const [imgSrc, setImgSrc] = useState('');
+    const [imgSrc, setImgSrc] = useState('/images/favicon.png');
     
     // Construct the full logo URL
     const getLogoUrl = (symbol) =>

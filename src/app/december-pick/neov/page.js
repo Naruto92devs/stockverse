@@ -127,7 +127,7 @@ const Noev = () => {
                 <p className="text-md text-primaryText leading-[150%]">That’s why manufacturers are racing to produce the most secure and durable battery systems with the highest nominal capacities. Yet, in a sea of competition, one company has clearly stood out as the brightest.</p>
 
                 <h3 className="text-lg text-primaryText font-sansSemibold">Introducing NeoVolta (NEOV): The Stock Leading the Charge in Solar Energy Storage</h3>
-                <p className="text-md text-primaryText leading-[150%]">NeoVolta (NEOV) is a publicly-traded solar battery company leading the solar industry with best-in-class battery systems.</p>
+                <p className="text-md text-primaryText leading-[150%]">{`NeoVolta (NEOV) is a publicly-traded solar battery company leading the solar industry with best-in-class battery systems.`}</p>
 
                 <p className="text-md text-primaryText leading-[150%]">As the solar industry continues to gain traction around the nation, battery systems will be the main focus for consumers and investors alike. Stronger, more reliable battery systems will define solar’s inherent value, in the eyes of coastal and mainland Americans.</p>
 
