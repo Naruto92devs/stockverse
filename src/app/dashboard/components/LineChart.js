@@ -479,51 +479,78 @@ const seriesesData = {
 };
 
 const intervalColors = {
-  "1D": "#2962FF",
-  "1W": "rgb(225, 87, 90)",
-  "1M": "rgb(242, 142, 44)",
-  "1Y": "rgb(164, 89, 209)",
+  "1D": "#634FF7",
+  "1W": "3634FF7",
+  "1M": "#634FF7",
+  "1Y": "#634FF7",
 };
 
-export default function LineChart() {
+export default function LineChart({watchlistHide, isSearchBar}) {
   const chartContainerRef = useRef(null);
   const [chart, setChart] = useState(null);
   const [lineSeries, setLineSeries] = useState(null);
-  const [selectedInterval, setSelectedInterval] = useState("1Y");
+  const [selectedInterval, setSelectedInterval] = useState("1D");
 
   useEffect(() => {
     if (!chartContainerRef.current) return;
 
+    // Initialize the chart
     const newChart = createChart(chartContainerRef.current, {
       width: chartContainerRef.current.clientWidth,
-      height: 300,
+      height: chartContainerRef.current.clientHeight,
       layout: {
         textColor: "black",
         background: { type: "solid", color: "white" },
       },
+      grid: {
+        vertLines: {
+          color: "#e0e0e0",
+          style: 3, // Dashed lines
+        },
+        horzLines: {
+          color: "#e0e0e0",
+          style: 3, // Dashed lines
+        },
+      }
     });
 
-    const newLineSeries = newChart.addLineSeries({
-      color: intervalColors["1Y"],
-      lineWidth: 2,
+    // const newLineSeries = newChart.addLineSeries({
+    //   color: intervalColors["1Y"],
+    //   lineWidth: 2,
+    // });
+
+    // Add area series with gradient
+    const newAreaSeries = newChart.addAreaSeries({
+      lineColor: "#634FF7", // Line color
+      lineWidth: 2, // Line thickness
+      topColor: "rgba(41, 98, 255, 0.4)", // Gradient start
+      bottomColor: "rgba(41, 98, 255, 0.1)", // Gradient end
     });
 
     newChart.timeScale().fitContent();
+    newAreaSeries.setData(seriesesData["1D"]);
 
-    newLineSeries.setData(seriesesData["1Y"]);
     setChart(newChart);
-    setLineSeries(newLineSeries);
+    setLineSeries(newAreaSeries);
 
-    const handleResize = () => {
-      newChart.applyOptions({ width: chartContainerRef.current.clientWidth });
-    };
-    window.addEventListener("resize", handleResize);
+    // Resize observer to watch for changes in the DOM
+    const resizeObserver = new ResizeObserver(() => {
+      if (chartContainerRef.current) {
+          newChart.applyOptions({
+            width: chartContainerRef.current.clientWidth,
+            height: chartContainerRef.current.clientHeight,
+          });
+          newChart.timeScale().fitContent();
+        }
+      });
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      newChart.remove();
-    };
-  }, []);
+      resizeObserver.observe(chartContainerRef.current);
+
+      return () => {
+        resizeObserver.disconnect();
+        newChart.remove();
+      };
+    }, []);
 
   const setChartInterval = (interval) => {
     if (lineSeries) {
@@ -535,9 +562,8 @@ export default function LineChart() {
   };
 
   return (
-    <div>
-      <div ref={chartContainerRef} style={{ width: "100%", height: "300px" }} />
-      <div className="buttons-container">
+    <div className="w-full pt-2 min-h-[490px] flex-grow flex flex-col items-start gap-2 overflow-hidden">
+      <div className="buttons-container flex-none">
         {/* {Object.keys(seriesesData).map((interval) => (
           <button key={interval} onClick={() => setChartInterval(interval)}>
             {interval}
@@ -553,6 +579,7 @@ export default function LineChart() {
           </button>
         ))}
       </div>
+      <div ref={chartContainerRef} className="w-full flex-grow" />
       <style jsx>{`
         .buttons-container {
           display: flex;

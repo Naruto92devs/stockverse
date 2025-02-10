@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { createChart } from "lightweight-charts";
+import { createChart, CrosshairMode, LineStyle } from "lightweight-charts";
 
 const seriesesData = {
   "1D": [
@@ -620,6 +620,7 @@ export default function CandlestickChart() {
   const chartContainerRef = useRef(null);
   const [chart, setChart] = useState(null);
   const [candlestickSeries, setCandlestickSeries] = useState(null);
+  const [areaSeries, setAreaSeries] = useState(null);
   const [selectedInterval, setSelectedInterval] = useState("1Y");
 
   useEffect(() => {
@@ -633,48 +634,115 @@ export default function CandlestickChart() {
         background: { type: "solid", color: "white" },
       },
       grid: {
-        vertLines: { color: "#e0e3eb" },
-        horzLines: { color: "#e0e3eb" },
+        vertLines: {
+          color: "#e0e0e0",
+          style: 3, // Dashed lines
+        },
+        horzLines: {
+          color: "#e0e0e0",
+          style: 3, // Dashed lines
+        },
       },
     });
 
     const newCandlestickSeries = newChart.addCandlestickSeries({
-      upColor: "#26a69a",
-      downColor: "#ef5350",
-      borderUpColor: "#26a69a",
-      borderDownColor: "#ef5350",
-      wickUpColor: "#26a69a",
-      wickDownColor: "#ef5350",
+      upColor: "#634FF7",
+      downColor: "#FF0004",
+      borderUpColor: "#634FF7",
+      borderDownColor: "#FF0004",
+      wickUpColor: "#634FF7",
+      wickDownColor: "#FF0004",
+      borderVisible: false,
+    });
+
+    const newAreaSeries = newChart.addAreaSeries({
+      lastValueVisible: false, // hide the last value marker for this series
+      crosshairMarkerVisible: false, // hide the crosshair marker for this series
+      topColor: "rgba(99, 79, 247, 0.4)", // Gradient top color
+      bottomColor: "rgba(99, 79, 247, 0.1)", // Gradient bottom color
+      lineColor: "rgba(99, 79, 247, 0)", // Line color
+      lineWidth: 0.1,
+    });
+
+    // Adjust the options for the priceScale of the candlestickSeries
+    newCandlestickSeries.priceScale().applyOptions({
+      autoScale: false, // disables auto scaling based on visible content
+      scaleMargins: {
+        top: 0.1, // 10% margin at the top
+        bottom: 0.2, // 20% margin at the bottom
+      },
+    });
+
+    // Inside useEffect:
+    newChart.applyOptions({
+      crosshair: {
+        // Change mode from default 'magnet' to 'normal'.
+        mode: CrosshairMode.Normal,
+
+        // Vertical crosshair line (showing Date in Label)
+        vertLine: {
+          width: 8,
+          color: '#C3BCDB44',
+          style: LineStyle.Solid,
+          labelBackgroundColor: '#9B7DFF',
+        },
+
+        // Horizontal crosshair line (showing Price in Label)
+        horzLine: {
+          color: '#9B7DFF',
+          labelBackgroundColor: '#9B7DFF',
+        },
+      },
     });
 
     newChart.timeScale().fitContent();
 
     newCandlestickSeries.setData(seriesesData[selectedInterval]);
+    newAreaSeries.setData(
+      seriesesData[selectedInterval].map((point) => ({
+        time: point.time,
+        value: (point.close + point.open) / 2, // Center of each candlestick
+      }))
+    );
+
     setChart(newChart);
     setCandlestickSeries(newCandlestickSeries);
+    setAreaSeries(newAreaSeries);
 
-    const handleResize = () => {
-      newChart.applyOptions({ width: chartContainerRef.current.clientWidth });
-    };
+    // Resize observer to watch for changes in the DOM
+    const resizeObserver = new ResizeObserver(() => {
+      if (chartContainerRef.current) {
+          newChart.applyOptions({
+            width: chartContainerRef.current.clientWidth,
+            height: chartContainerRef.current.clientHeight,
+          });
+          newChart.timeScale().fitContent();
+        }
+      });
 
-    window.addEventListener("resize", handleResize);
+      resizeObserver.observe(chartContainerRef.current);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      newChart.remove();
-    };
+      return () => {
+        resizeObserver.disconnect();
+        newChart.remove();
+      };
   }, []);
 
   const setChartInterval = (interval) => {
-    if (candlestickSeries) {
-      candlestickSeries.setData(seriesesData[interval]);
+    if (candlestickSeries && areaSeries) {
+      candlestickSeries.setData(seriesesData[interval]); // Update candlestick data
+      areaSeries.setData(
+        seriesesData[interval].map((point) => ({
+          time: point.time,
+          value: (point.high + point.low) / 2, // Recalculate area series data
+        }))
+      );
     }
     setSelectedInterval(interval);
   };
 
   return (
-    <div>
-      <div ref={chartContainerRef} style={{ width: "100%", height: "400px" }} />
+    <div className="w-full pt-2 min-h-[490px] flex-grow flex flex-col items-start gap-2 overflow-hidden">
       <div className="buttons-container">
         {Object.keys(seriesesData).map((interval) => (
           <button
@@ -686,6 +754,7 @@ export default function CandlestickChart() {
           </button>
         ))}
       </div>
+      <div ref={chartContainerRef} className="w-full flex-grow" />
       <style jsx>{`
         .buttons-container {
           display: flex;
