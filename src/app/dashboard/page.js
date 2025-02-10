@@ -305,7 +305,7 @@ function DashboardContent() {
             switch (view) {
               case 'chart':
                 return (
-                  <ChartView symbol={symbol} setWatchlistHide={setWatchlistHide} />
+                  <ChartView symbol={symbol} watchlistHide={watchlistHide} setWatchlistHide={setWatchlistHide} />
                 );
               case 'gainers_losers':
                 return (

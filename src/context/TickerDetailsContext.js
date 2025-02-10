@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useSymbol } from "./SymbolContext"; // Import global symbol context
+import formatNumber from "@/components/FormatNumber";
 
 const TickerDetailsContext = createContext();
 
@@ -12,6 +13,35 @@ export const TickerDetailsProvider = ({ children }) => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [backgroundRefreshing, setBackgroundRefreshing] = useState(false);
+
+    const typeDescriptions = {
+        CS: "Common Stock",
+        PFD: "Preferred Stock",
+        WARRANT: "Warrant",
+        RIGHT: "Rights",
+        BOND: "Corporate Bond",
+        ETF: "Exchange Traded Fund",
+        ETN: "Exchange Traded Note",
+        ETV: "Exchange Traded Vehicle",
+        SP: "Structured Product",
+        ADRC: "American Depository Receipt Common",
+        ADRP: "American Depository Receipt Preferred",
+        ADRW: "American Depository Receipt Warrants",
+        ADRR: "American Depository Receipt Rights",
+        FUND: "Fund",
+        BASKET: "Basket",
+        UNIT: "Unit",
+        LT: "Liquidating Trust",
+        OS: "Ordinary Shares",
+        GDR: "Global Depository Receipts",
+        OTHER: "Other Security Type",
+        NYRS: "New York Registry Shares",
+        AGEN: "Agency Bond",
+        EQLK: "Equity Linked Bond",
+        ETS: "Single-security ETF"
+    };
+
+    const getTypeDescription = (typeCode) => typeDescriptions[typeCode] || "Unknown Type";
 
     // Fetch ticker details
     const fetchTickerDetails = async (currentSymbol = symbol, isBackground = false) => {
@@ -39,11 +69,12 @@ export const TickerDetailsProvider = ({ children }) => {
                     todaysChangePerc: snapshotData.todaysChangePerc,
                     todaysChange: snapshotData.todaysChange,
                     closePrice: snapshotData.day?.c,
-                    volume: snapshotData.day?.v,
+                    volume: formatNumber(snapshotData.day?.v),
                     name: referenceData.name,
-                    type: referenceData.type,
-                    market_cap: referenceData.market_cap,
+                    type: getTypeDescription(referenceData.type),
+                    market_cap: formatNumber(referenceData.market_cap),
                     description: referenceData.description,
+                    exchange: referenceData.primary_exchange,
                     sic_description: referenceData.sic_description,
                     icon_url: referenceData.branding?.icon_url,
                     share_class_shares_outstanding: referenceData.share_class_shares_outstanding
