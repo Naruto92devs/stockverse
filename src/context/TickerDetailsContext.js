@@ -48,46 +48,59 @@ export const TickerDetailsProvider = ({ children }) => {
         try {
             if (!isBackground) setLoading(true);
             else setBackgroundRefreshing(true);
-
-            // Fetch snapshot data (price, volume, change)
+    
+            // API URLs
             const snapshotUrl = `https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers/${currentSymbol}?apiKey=${process.env.NEXT_PUBLIC_POLYGON_API_KEY}`;
-
-            // Fetch reference data (company info)
             const referenceUrl = `https://api.polygon.io/v3/reference/tickers/${currentSymbol}?apiKey=${process.env.NEXT_PUBLIC_POLYGON_API_KEY}`;
-
-            const [snapshotResponse, referenceResponse] = await Promise.all([
-                axios.get(snapshotUrl),
-                axios.get(referenceUrl)
-            ]);
-
-            if (snapshotResponse.status === 200 && referenceResponse.status === 200) {
-                const snapshotData = snapshotResponse.data.ticker;
-                const referenceData = referenceResponse.data.results;
-
-                const extractedData = {
-                    ticker: snapshotData.ticker,
-                    todaysChangePerc: snapshotData.todaysChangePerc,
-                    todaysChange: snapshotData.todaysChange,
-                    closePrice: snapshotData.day?.c,
-                    volume: formatNumber(snapshotData.day?.v),
-                    name: referenceData.name,
-                    type: getTypeDescription(referenceData.type),
-                    market_cap: formatNumber(referenceData.market_cap),
-                    description: referenceData.description,
-                    exchange: referenceData.primary_exchange,
-                    sic_description: referenceData.sic_description,
-                    icon_url: referenceData.branding?.icon_url,
-                    share_class_shares_outstanding: referenceData.share_class_shares_outstanding
-                };
-
-                setTickerDetails(extractedData);
-                setError(false);
-            } else {
-                setTickerDetails(null);
-                setError(true);
+    
+            let snapshotData = null;
+            let referenceData = null;
+    
+            // Fetch data with independent error handling
+            try {
+                const snapshotResponse = await axios.get(snapshotUrl);
+                if (snapshotResponse.status === 200) {
+                    snapshotData = snapshotResponse.data.ticker;
+                }
+            } catch (error) {
+                console.warn("Snapshot API error:", error.message);
             }
+    
+            try {
+                const referenceResponse = await axios.get(referenceUrl);
+                if (referenceResponse.status === 200) {
+                    referenceData = referenceResponse.data.results;
+                }
+            } catch (error) {
+                console.warn("Reference API error:", error.message);
+            }
+    
+            // If both APIs fail, show error
+            if (!snapshotData && !referenceData) {
+                setError(true);
+                setTickerDetails(null);
+                return;
+            }
+    
+            // Extract data safely
+            const extractedData = {
+                ticker: snapshotData?.ticker || referenceData?.ticker || currentSymbol,
+                todaysChangePerc: snapshotData?.todaysChangePerc ? snapshotData.todaysChangePerc.toFixed(2) : 'N/A',
+                todaysChange: snapshotData?.todaysChange ? snapshotData.todaysChange.toFixed(2) : 'N/A',
+                closePrice: snapshotData?.day?.c ? `$${snapshotData.day.c}` : 'N/A',
+                volume: snapshotData?.day?.v ? `$${formatNumber(snapshotData.day.v)}` : "N/A",
+                name: referenceData?.name || 'Undefined',
+                type: referenceData?.type ? getTypeDescription(referenceData.type) : 'Undefined',
+                market_cap: referenceData?.market_cap ? `$${formatNumber(referenceData.market_cap)}` : 'N/A',
+                description: referenceData?.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                exchange: referenceData?.primary_exchange || 'Unknown',
+                sic_description: referenceData?.sic_description || 'N/A',
+            };
+    
+            setTickerDetails(extractedData);
+            setError(false);
         } catch (error) {
-            console.error("Error fetching ticker details:", error);
+            console.error("Unexpected error:", error);
             setError(true);
             setTickerDetails(null);
         } finally {
