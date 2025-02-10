@@ -7,7 +7,6 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import axios from 'axios';
 import User from '@/components/ProfileLogo';
-import ThemeSwitch from '@/components/ThemeSwitch';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
@@ -847,9 +846,6 @@ export default function Stockverse_GPT() {
             </div>
             {/* Chat canvas end */}
             {/* Theme Switch start */}
-            <div className='fixed bottom-4 z-10 right-3'>
-                <ThemeSwitch/>
-            </div>
             {/* Theme Switch end */}
         </section>
     );
