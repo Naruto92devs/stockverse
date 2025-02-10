@@ -31,7 +31,7 @@ const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
             <h1 className="text-black/60 font-sansRegular text-base">{tickerDetails?.ticker} PRICE</h1>
             <div className="flex gap-2 items-center">
               <h2 className="text-black font-sansMedium text-xl">{tickerDetails?.closePrice}</h2>
-              <h2 className={`${tickerDetails?.todaysChangePerc >= 0 ? 'text-buy' : 'text-sell'} font-sansMedium text-sm`}>{tickerDetails?.todaysChangePerc}</h2>
+              <h2 className={`${tickerDetails?.todaysChangePerc >= 0 ? 'text-buy' : 'text-sell'} font-sansMedium text-sm`}>{tickerDetails?.todaysChangePerc >= 0 && tickerDetails?.todaysChangePerc !== 'N/A' ? `+${tickerDetails?.todaysChangePerc}%` : `${tickerDetails?.todaysChangePerc}%` || tickerDetails?.todaysChangePerc}</h2>
             </div>
           </div>
           <div className="flex items-center gap-2">

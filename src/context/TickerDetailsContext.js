@@ -85,7 +85,7 @@ export const TickerDetailsProvider = ({ children }) => {
             // Extract data safely
             const extractedData = {
                 ticker: snapshotData?.ticker || referenceData?.ticker || currentSymbol,
-                todaysChangePerc: snapshotData?.todaysChangePerc ? snapshotData.todaysChangePerc >= 0 ? `+${snapshotData.todaysChangePerc.toFixed(2)}%` : `-${snapshotData.todaysChangePerc.toFixed(2)}%` : 'N/A',
+                todaysChangePerc: snapshotData?.todaysChangePerc ? snapshotData.todaysChangePerc.toFixed(2) : 'N/A',
                 todaysChange: snapshotData?.todaysChange ? snapshotData?.todaysChange.toFixed(2) : 'N/A',
                 closePrice: snapshotData?.prevDay?.c ? `$${snapshotData?.prevDay.c}` : 'N/A',
                 volume: snapshotData?.prevDay?.v ? `$${formatNumber(snapshotData?.prevDay.v)}` : "N/A",
