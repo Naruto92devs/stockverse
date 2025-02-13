@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useSymbol } from '@/context/SymbolContext';
 import { useWatchlist } from '@/context/WatchlistContext';
 import ChartView from "./components/ChartView";
+import News from "./components/news";
 import Earnings_Calendar from "@/app/dashboard/components/EarningsCalendar";
 import InsiderTransactions from "./components/InsiderTransactions";
 import IPOsCalendar from "./components/IposCalendar";
@@ -143,12 +144,12 @@ function DashboardContent() {
     <section className={`${view === 'chart' ? 'bg-primaryBg' : ''}bg-dashboardBg w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide`}>
       {/* Nav bar start */}
       <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
-        <div title="Toggel Sidebar" onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide ? 'md:w-[5.5rem] w-max' : 'md:w-[15rem] w-max'}`}>
+        <div title="Toggel Sidebar" onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide ? 'lg:w-[5.5rem] w-max' : 'lg:w-[15rem] w-max'}`}>
           <div className="cursor-pointer flex items-center gap-2">
             <Image src="/images/favicon.png" width={48} height={48} alt='Stockverse Logo' />
-            <p className={`max-md:hidden font-sansMedium text-primaryTextColor text-xl ${sidebarHide ? 'hidden' : 'visible'}`}>StockVerse</p>
+            <p className={`max-lg:hidden font-sansMedium text-primaryTextColor text-xl ${sidebarHide ? 'hidden' : 'visible'}`}>StockVerse</p>
           </div>
-          <Image className={`cursor-pointer transition-transform duration-300 ${sidebarHide ? 'md:rotate-180 rotate-0' : 'md:rotate-0 rotate-180'}`} src="/images/sidebar_toggle.png" width={36} height={36} alt='Stockverse Logo' />
+          <Image className={`cursor-pointer transition-transform duration-300 ${sidebarHide ? 'lg:rotate-180 rotate-0' : 'lg:rotate-0 rotate-180'}`} src="/images/sidebar_toggle.png" width={36} height={36} alt='Stockverse Logo' />
         </div>
         <div onClick={() => setIsSearchBar(true)} className="flex-grow xl:ml-4 lg:max-w-[20rem] relative">
           <Image className="absolute top-2.5 left-3" src='/images/search.svg' width={18} height={18} alt="search logo"></Image>
@@ -183,7 +184,7 @@ function DashboardContent() {
       {/* Nav bar end */}
       <div className="w-full flex-1 min-h-0 flex items-start">
         {/* side bar start */}
-        <aside className={`transition-width flex-shrink-0 overflow-x-hidden py-4 flex flex-col h-full border-r border-black/5 bg-primaryBg z-10 overflow-y-scroll scrollbar-thin max-md:absolute transition duration-300 ease-in-out ${sidebarHide ? 'w-[4rem] max-md:w-max max-md:translate-x-[0]' : 'md:w-[16rem] max-md:w-max max-md:translate-x-[-900px]'}`}>
+        <aside className={`transition-width flex-shrink-0 overflow-x-hidden py-4 flex flex-col h-full border-r border-black/5 bg-primaryBg z-10 overflow-y-scroll scrollbar-thin max-lg:absolute transition duration-300 ease-in-out ${sidebarHide ? 'w-[4rem] max-lg:w-max max-lg:translate-x-[0]' : 'lg:w-[16rem] max-lg:w-max max-lg:translate-x-[-900px]'}`}>
           <div title="Chart View" onClick={() => updateUrl(undefined, 'chart')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'chart' ? 'border-primaryMain' : 'border-white'}`}>
             <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_19260_6154)">
@@ -283,7 +284,7 @@ function DashboardContent() {
               </svg>
               <p className={`font-sansMedium text-md ${view === 'help' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Help Center</p>
             </div>
-            <div title="Upgrade Plan" className={`w-full px-3 pt-4 max-lg:mb-20 ${sidebarHide ? 'md:hidden' : 'md:visible'}`}>
+            <div title="Upgrade Plan" className={`w-full px-3 pt-4 max-lg:mb-20 ${sidebarHide ? 'lg:hidden' : 'lg:visible'}`}>
               <div className="w-full bg-primaryMain/10 p-2 rounded-xl">
                 <div className="w-full flex flex-col gap-4 justify-center bg-upgradeBg px-2 py-4 rounded-lg">
                   <div className="w-full flex items-center gap-2">
@@ -313,7 +314,7 @@ function DashboardContent() {
                 );
               case 'news':
                 return (
-                  <h1 className="text-3xl">News</h1>
+                  <News/>
                 );
               case 'ipo_calendar':
                 return (
@@ -354,7 +355,7 @@ function DashboardContent() {
         </div>
         {/* Dashboard Area */}
 
-        {/* side bar start */}
+        {/* watchlist side bar start */}
         <aside className={`transition-width flex-shrink-0 overflow-x-hidden flex flex-col h-full border-l border-black/5 bg-primaryBg z-10 max-lg:pb-20 overflow-y-scroll scrollbar-thin max-lg:absolute max-lg:top-15 max-lg:right-0 transition duration-300 ease-in-out ${watchlistHide ? 'w-0 max-lg:w-max max-lg:translate-x-[0]' : 'lg:w-[18rem] max-lg:w-max max-lg:translate-x-[900px]'} ${view === 'chart' ? 'visible' : 'hidden'}`}>
           <div className='min-w-full sticky top-0 bg-primaryBg w-max flex justify-between max-lg:gap-8 items-center p-3 border-b border-black/5'>
             <h1 className='font-sansMedium text-lg sm:text-lg text-primaryTextColor'>My watchlist</h1>
@@ -383,7 +384,7 @@ function DashboardContent() {
             </div>
           ))}
         </aside>
-        {/* side bar end */}
+        {/* watchlist side bar end */}
       </div>
     </section>
   );
