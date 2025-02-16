@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   // Define routes where Navbar and Footer should be hidden
-  const excludedRoutes = ['/stockverse-gpt', '/dashboard', '/login', '/register'];
+  const excludedRoutes = ['/stockverse-gpt', '/dashboard', '/login', '/register', '/'];
 
   // Check if the current route is in the excluded routes
   const hideNavbarFooter = excludedRoutes.includes(pathname);
@@ -60,7 +60,9 @@ export default function RootLayout({ children }) {
               <UserProvider>
                 <DashboardProvider>
                   <main className="w-[100%] min-h-[100vh] flex flex-col bg-primaryBg">
-                    {!hideNavbarFooter && <Navbar />}
+                    <div className='w-full bg-primaryBg'>
+                      {!hideNavbarFooter && <Navbar />}
+                    </div>
                       {children}
                     {!hideNavbarFooter && <Footer />}
                   </main>

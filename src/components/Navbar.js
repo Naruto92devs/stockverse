@@ -62,7 +62,7 @@ const Navbar = () => {
     }
 
 return (
-    <nav className="w-full absolute top-0 left-0">
+    <nav className="w-full">
         <div className=' w-full mx-auto px-3 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none'>
             <Link href='/' className="relative z-20 flex w-max mr-2">
                 <Image className='' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' />

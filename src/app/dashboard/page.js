@@ -208,14 +208,14 @@ function DashboardContent() {
           />
         </div>
         <SearchBar isVisible={isSearchBar} setIsvisible={setIsSearchBar} updateUrl={updateUrl} />
-        <Link href='/pricing' className="max-lg:hidden flex items-center gap-2 px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+        <Link href='/stockversegpt' className="max-lg:hidden flex items-center gap-2 px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
           StockVerse Gpt
           {/* <span className="-rotate-45">&rarr;</span> */}
         </Link>
-        <Link href='/pricing' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+        <Link href='/cvkd' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
           Stock Picks
         </Link>
-        <Link href='/pricing' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+        <Link href='' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
           Newsletter
         </Link>
         <Link href='/pricing' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">

@@ -1,4 +1,6 @@
 'use client';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Link from 'next/link.js';
 import Image from 'next/image.js';
 import { useEffect, useState } from 'react';
@@ -67,9 +69,10 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      <div className="hero pt-24 max-sm:pt-20 pb-0 w-full bg-heroBg bg-no-repeat bg-cover bg-top-left">
+      <div className="hero pb-0 w-full bg-heroBg bg-no-repeat bg-cover bg-top-left">
+        <Navbar/>
         {/* ----------hero section---------- */}
-        <section className='w-full px-6 max-sm:px-3 mx-auto xl:container h-full flex max-md:flex-col items-center gap-y-4'>
+        <section className='w-full pt-20 max-sm:pt-16 px-6 max-sm:px-3 mx-auto xl:container h-full flex max-md:flex-col items-center gap-y-4'>
           <div className='md:w-[50%] flex flex-col items-start w-full max-md:py-4 gap-y-4'>
             <h1 className='font-sansMedium xl:mb-4 2xl:text-8xl lg:text-6xl text-4xl text-primaryTextColor'>One Stop Shop <span className='hero_h1'>Everything</span> <span className='text-heading'> Stocks</span></h1>
             <p className='font-sansRegular text-lg text-primaryTextColor xl:w-[60%]'>Discover real-time stock data, personalized insights, and AI-driven recommendations tailored to your trading style</p>
@@ -278,6 +281,7 @@ export default function Home() {
           <Link className='py-2 px-4 bg-primaryMain hover:bg-primaryMain/80 rounded-lg text-white text-md font-sansMedium' href='/register'>Get started for free</Link>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 }
