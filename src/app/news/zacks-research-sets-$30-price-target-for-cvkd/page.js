@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import Disclaimer from "@/components/Article_disclaimer";
 
 const CVKD = () => {
     return (
-        <div className="w-full h-full">
-            <div className="p-6 max-sm:px-3 mx-auto xl:container lg:px-[20%] gap-y-6 flex flex-col items-start justify-center">
+        <div className="w-full h-full p-6 max-sm:px-3 mx-auto xl:container lg:px-[20%]">
+            <div className=" gap-y-6 flex flex-col items-start justify-center">
                 <svg className="w-54 h-16 self-center" width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_379_19)">
                     <path d="M17.57 26.1401L17.3 26.2901L17.57 26.1401Z" fill="var(--svg-color)"/>
@@ -48,44 +49,7 @@ const CVKD = () => {
                 </div>
             </div>
             {/* Disclaimer */}
-            <div className="p-6 max-sm:p-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
-            <h1 className="text-3xl font-sansSemibold text-primaryText">Disclaimer</h1>
-        <p className="text-lg font-sansMedium text-primaryText">
-          Effective Date: [August, 2024]
-        </p>
-        <p className="text-base text-primaryText">This website, including stockverse.ai, stockverse.io, stockverse.com, and any associated social media accounts such as Twitter (@stockverseai), is owned, operated, and edited by Relqo Media LLC, a Wyoming Limited Liability Company (“LLC”). All references to “we,” “our,” or “us” within this disclaimer refer to Relqo Media LLC.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Purpose</h2>
-        <p className="text-base text-primaryText">These websites, social media accounts, and all associated content are provided for informational and entertainment purposes only. Relqo Media LLC engages in marketing, advertising, and brand awareness for small-cap public companies. The content, including articles, emails, tweets, and other communications across our platforms, is classified as paid advertisements and should not be considered an offer, recommendation, or solicitation to buy or sell securities. Readers and users should not rely on the information provided as a basis for making investment decisions.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Compensation Disclosure</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC is compensated for its promotional services, and this compensation may include cash payments, stock options, or other financial consideration from the companies we feature. The compensation received directly impacts the content presented on our platforms and creates a significant conflict of interest.</p>
-        <p className="text-base text-primaryText"><span className="font-sansSemibold">SRM Entertainment:</span> Relqo Media LLC has been compensated up to $250,000 to conduct a marketing campaign for SRM Entertainment between March and October 2024.</p>
-        <p className="text-base text-primaryText"><span className="font-sansSemibold">Cadrenal Therapeutics:</span> Relqo Media LLC has been compensated $50,000 per week since August 8, 2024, to run a 150-day marketing campaign for Cadrenal Therapeutics. This payment will continue until January 1st , 2024, bringing the total compensation to $500,000.</p>
-        <p className="text-base text-primaryText"><span className="font-sansSemibold">NeoVolta Inc:</span> Relqo Media LLC Has been compensated $400,000 USD  Starting 11/11/2024 to run a 60 day marketing campaign for Neovolta Inc. Relqo Media LLC owns 0 shares and does not plan to purchase or sell during this campaign. </p>
-        <p className="text-base text-primaryText">These compensation agreements are facilitated through Penzance LLC, which provides financial consideration for marketing these securities. Relqo Media LLC reserves the right to sell any of the securities mentioned at any time, potentially influencing the stock price. Given this conflict of interest, all content should be viewed as commercial advertisement and not unbiased analysis.</p>
-        
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">No Investment Advice</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC, its officers, employees, and affiliates, are not registered investment advisors or brokers and are not licensed to provide financial, investment, legal, or tax advice. The information provided is strictly for informational purposes and should not be interpreted as personalized investment advice. Always consult a licensed professional for any financial or investment-related decisions.</p>
-        <p className="text-base text-primaryText">Investors should be aware that investing in stocks, especially penny stocks, is highly speculative and involves substantial risk, including the potential loss of some or all of your investment. Do not Buy or sell based off this page. </p>
-        
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Risk Acknowledgment</h2>
-        <p className="text-base text-primaryText">The content featured on these platforms involves high-risk securities, including penny stocks. These securities may be volatile and illiquid, making it difficult to buy or sell positions. The possibility exists that you may lose some or all of your investment, and you should only invest funds you can afford to lose. Past performance is not indicative of future results, and individual results may vary significantly.</p>
-        
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Forward-Looking Statements</h2>
-        <p className="text-base text-primaryText">Certain statements on our websites, social media accounts, and communications may contain forward-looking statements based on current expectations, estimates, and projections. These statements may involve risks, uncertainties, and assumptions that could cause actual results to differ materially from those expressed or implied. Relqo Media LLC undertakes no obligation to update or revise any forward-looking statements after their publication, even if new information or future events make these statements inaccurate or outdated.</p>
-        
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Jurisdiction and Governing Law</h2>
-        <p className="text-base text-primaryText">This disclaimer, along with any disputes arising from its content or use of our websites and social media platforms, shall be governed by the laws of the State of Wyoming, without regard to conflict of law principles. All legal actions arising out of or connected with this disclaimer must be brought exclusively in Wyoming state or federal courts.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Limitation of Liability</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC, its officers, directors, employees, and affiliates shall not be held liable for any direct, indirect, incidental, special, or consequential damages arising from the use or inability to use the content provided on these platforms. This includes, but is not limited to, trading losses, lost profits, and damages resulting from inaccuracies, omissions, or misinterpretations of the information provided.</p>
-        <p className="text-base text-primaryText">While we make every effort to ensure the accuracy of the information provided, Relqo Media LLC cannot guarantee that the information is free from errors or omissions. We strongly encourage all users to conduct their own research and consult with licensed professionals before making any investment decisions.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Third-Party Links and Content</h2>
-        <p className="text-base text-primaryText">These platforms may contain links to external websites, articles, and other third-party content. Relqo Media LLC does not endorse, control, or verify the accuracy or reliability of any third-party content, and the inclusion of such links does not imply any form of association or endorsement. Users access these links at their own risk.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">User Consent</h2>
-        <p className="text-base text-primaryText">By accessing and using stockverse.ai, stockverse.io, stockverse.com, or any associated social media platforms, users acknowledge that they have read, understood, and agree to be bound by the terms and conditions set forth in this disclaimer. If you do not agree to these terms, you must discontinue use of the platforms immediately.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Changes to Disclaimer</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC reserves the right to amend or modify this disclaimer at any time, without prior notice. Any changes will be effective immediately upon posting to the websites or social media platforms. Users are responsible for periodically reviewing the disclaimer for updates, and continued use of the platforms constitutes acceptance of any changes.</p>
-        <p className="text-base text-primaryText">The information provided in this content, including but not limited to references to Cadrenal Therapeutics (CVKD), Tecarfarin, clinical trials, market projections, and FDA approvals, is for informational purposes only. Relqo Media LLC, the owner and operator of Stockverse.com, does not guarantee the accuracy, completeness, or reliability of the information provided.</p>
-            </div>
+            <Disclaimer/>
         </div>
     );
 }
