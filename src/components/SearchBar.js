@@ -47,8 +47,8 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                     const filteredResults = searchData.bestMatches.filter(
                         result =>
                             !result['1. symbol'].includes('.') && // Remove symbols with periods
-                            !result['2. name'].toLowerCase().includes('warrant') && // Remove companies with "warrant" in their name
-                            !(result['1. symbol'].endsWith('X')) // Remove symbols where "X" is the fifth letter
+                            !result['2. name'].toLowerCase().includes('warrant') // Remove companies with "warrant" in their name
+                            // (result['1. symbol'].endsWith('X')) // Remove symbols where "X" is the fifth letter
                     );
     
                     // Extract tickers for the Polygon API

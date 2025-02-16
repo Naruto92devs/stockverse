@@ -25,12 +25,14 @@ export const NewsProvider = ({ children }) => {
 
             if (response.status === 200 && Array.isArray(response.data.results)) {
                 const formattedNews = response.data.results.map(article => ({
+                    id: article.id || 'N/A',
                     publisher_name: article.publisher?.name || 'N/A',
                     publisher_homepage: article.publisher?.homepage_url || 'N/A',
                     publisher_logo: article.publisher?.logo_url || 'N/A',
+                    favicon_url: article.publisher?.favicon_url || '/images/favicon.png',
                     title: article.title || 'N/A',
                     author: article.author || 'N/A',
-                    published_utc: article.published_utc || 'N/A',
+                    published_utc: article.published_utc? new Date(article.published_utc).toLocaleDateString("en-US", {month: "short", day: "2-digit", year: "numeric",}) : 'N/A',
                     article_url: article.article_url || 'N/A',
                     image_url: article.image_url || 'N/A',
                     description: article.description || 'N/A'

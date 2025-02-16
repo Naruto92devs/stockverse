@@ -64,18 +64,62 @@ function DashboardContent() {
   // State to manage searchbar visibility
   const [isSearchBar, setIsSearchBar] = useState(false);
 
+  // useEffect(() => {
+  //   // Check if a value exists in sessionStorage
+  //   const storedSidebarState = sessionStorage.getItem("sidebarHide");
+  //   if (storedSidebarState !== null) {
+  //     setSidebarHide(storedSidebarState === "true"); // Convert string to boolean
+  //   } else {
+  //     sessionStorage.setItem("sidebarHide", "false"); // Default value
+  //     setSidebarHide(false);
+  //   }
+
+  //   // Mark initialization as complete
+  //   setIsInitialized(true);
+  // }, []);
+
   useEffect(() => {
-    // Check if a value exists in sessionStorage
+    // Check sessionStorage first
     const storedSidebarState = sessionStorage.getItem("sidebarHide");
+
     if (storedSidebarState !== null) {
-      setSidebarHide(storedSidebarState === "true"); // Convert string to boolean
+      setSidebarHide(storedSidebarState === "true"); // Override with sessionStorage
     } else {
-      sessionStorage.setItem("sidebarHide", "false"); // Default value
-      setSidebarHide(false);
+      // Apply media query conditions if sessionStorage is empty
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth >= 1536) {
+        setSidebarHide(false);
+      } else if (screenWidth >= 1024) {
+        setSidebarHide(true);
+      } else {
+        setSidebarHide(false);
+      }
+
+      // Store the default value in sessionStorage
+      sessionStorage.setItem("sidebarHide", sidebarHide.toString());
     }
 
-    // Mark initialization as complete
     setIsInitialized(true);
+  }, []);
+
+  useEffect(() => {
+    // Listen for window resize and update the sidebar state dynamically
+    const handleResize = () => {
+      if (sessionStorage.getItem("sidebarHide") === null) {
+        const screenWidth = window.innerWidth;
+        if (screenWidth >= 1536) {
+          setSidebarHide(false);
+        } else if (screenWidth >= 1024) {
+          setSidebarHide(true);
+        } else {
+          setSidebarHide(false);
+        }
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -314,7 +358,7 @@ function DashboardContent() {
                 );
               case 'news':
                 return (
-                  <News/>
+                  <News symbol={symbol} updateUrl={updateUrl}/>
                 );
               case 'ipo_calendar':
                 return (
