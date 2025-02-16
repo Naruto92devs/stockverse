@@ -11,13 +11,13 @@ const usePageSize = () => {
   useEffect(() => {
       const updatePageSize = () => {
           if (window.matchMedia('(min-width: 2048px)').matches) {
-              setPageSize(15); // XL screens
+              setPageSize(10); // XL screens
           } else if (window.matchMedia('(min-width: 1560px)').matches) {
-              setPageSize(15); // LG screens
+              setPageSize(5); // LG screens
           } else if (window.matchMedia('(min-width: 768px)').matches) {
-              setPageSize(15); // LG screens
+              setPageSize(5); // LG screens
           } else {
-              setPageSize(15); // Default for smaller screens
+              setPageSize(5); // Default for smaller screens
           }
       };
 

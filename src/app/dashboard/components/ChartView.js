@@ -34,7 +34,7 @@ const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
               <h2 className={`${tickerDetails?.todaysChangePerc >= 0 ? 'text-buy' : 'text-sell'} font-sansMedium text-sm`}>{tickerDetails?.todaysChangePerc >= 0 && tickerDetails?.todaysChangePerc !== 'N/A' ? `+${tickerDetails?.todaysChangePerc}%` : `${tickerDetails?.todaysChangePerc}%` || tickerDetails?.todaysChangePerc}</h2>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {/* Full Screen Chart */}
             <button onClick={toggleChartScreen} className={`px-3 py-1.5 rounded-lg bg-primaryBg shadow ${chart === "line" ? "" : ""}`}>
                 <Image width={24} height={24} src='/images/expandchart.svg' alt='Line'/>
