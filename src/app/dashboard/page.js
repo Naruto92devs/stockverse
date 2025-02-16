@@ -322,12 +322,12 @@ function DashboardContent() {
               </svg>
               <p className={`font-sansMedium text-md ${view === 'settings' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Settings</p>
             </div>
-            <div title="Help Center" onClick={() => updateUrl(undefined, 'help')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'help' ? 'border-primaryMain' : 'border-white'}`}>
+            <Link href='/help-center' title="Help Center" className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'help' ? 'border-primaryMain' : 'border-white'}`}>
               <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.75 13.5V9C15.75 5.27208 12.7279 2.25 9 2.25C5.27208 2.25 2.25 5.27208 2.25 9V13.5M4.125 15.75C3.08947 15.75 2.25 14.9105 2.25 13.875V12.375C2.25 11.3395 3.08947 10.5 4.125 10.5C5.16053 10.5 6 11.3395 6 12.375V13.875C6 14.9105 5.16053 15.75 4.125 15.75ZM13.875 15.75C12.8395 15.75 12 14.9105 12 13.875V12.375C12 11.3395 12.8395 10.5 13.875 10.5C14.9105 10.5 15.75 11.3395 15.75 12.375V13.875C15.75 14.9105 14.9105 15.75 13.875 15.75Z" stroke={view === 'help' ? 'rgba(var(--primary-main))' : 'black'} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <p className={`font-sansMedium text-md ${view === 'help' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Help Center</p>
-            </div>
+            </Link>
             <div title="Upgrade Plan" className={`w-full px-3 pt-4 max-lg:mb-20 ${sidebarHide ? 'lg:hidden' : 'lg:visible'}`}>
               <div className="w-full bg-primaryMain/10 p-2 rounded-xl">
                 <div className="w-full flex flex-col gap-4 justify-center bg-upgradeBg px-2 py-4 rounded-lg">
