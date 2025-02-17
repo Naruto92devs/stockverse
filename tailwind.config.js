@@ -60,6 +60,7 @@ module.exports = {
       },
       backgroundImage: {
         'loaderBg': "url('/images/loader_bg.jpg')",
+        'stockversegptBg': "url('/images/stockversegpt_bg.jpg')",
         'heroBg': "url('/images/hero_bg.png')",
         'searchBg': "url('/images/features_search_bg.png')",
         'realtimeBg': "url('/images/features_realtime_bg.png')",
