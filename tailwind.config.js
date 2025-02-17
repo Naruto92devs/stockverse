@@ -8,29 +8,6 @@ module.exports = {
   darkMode: 'class', // Enable dark mode
   theme: {
     colors: {
-      themeColor: "var(--theme-color)",
-      svgColor: "var(--svg-color)",
-      oppositeSvgColor: "var(--opposite-svg-color)",
-      mobNavBg: "rgba(var(--mob-nav-bg))",
-      mobNavLink: "rgba(var(--mob-nav-link))",
-      primaryColor: "rgba(var(--primary-color))",
-      secondaryColor: "rgba(var(--secondary-color))",
-      primaryText: "rgba(var(--primary-text))",
-      primaryTextHover: "rgba(var(--primary-text-hover))",
-      primaryButtonText: "rgba(var(--primary-button-text))",
-      primaryButtonBg: "rgba(var(--primary-button-bg))",
-      primaryHeading: "rgba(var(--primary-heading-color))",
-      secondaryHeading: "rgba(var(--secondary-heading-color))",
-      submit: "rgba(var(--submit-button))",
-      article: "rgba(var(--article-button))",
-      articleNeutral: "rgba(var(--article-neutral-button))",
-      footerBg: "rgba(var(--footer-bg))",
-      buy: "rgba(var(--buy-color))",
-      sell: "rgba(var(--sell-color))",
-      alertsBg: "rgba(var(--alerts-bg))",
-      background: "rgba(var(--background))",
-      
-
       // new design varialbles
       white: "rgba(var(--white))",
       black: "rgba(var(--black))",
@@ -40,8 +17,6 @@ module.exports = {
       primaryBg: "rgba(var(--primary-bg))",
       dashboardBg: "rgba(var(--dasboard-bg))",
       darkBlue: "rgba(var(--dark-blue))",
-      
-
     },
     extend: {
       fontFamily: {

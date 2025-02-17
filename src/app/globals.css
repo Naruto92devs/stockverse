@@ -41,21 +41,81 @@
 /* From Uiverse.io by kennyotsu */ 
 
 .loader {
+  color: rgb(124, 124, 124);
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  height: 60px;
+  justify-content: flex-start;
 }
 
 .words {
-  display: flex;
-  gap: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg-color) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--bg-color) 90%
+  );
+  z-index: 20;
 }
 
 .word {
-  animation: blink 1.5s infinite;
+  display: block;
+  height: 100%;
+  /* padding-left: 6px; */
+  color: #000000;
+  animation: spin_4991 5s infinite;
 }
 
-@keyframes blink {
-  50% { opacity: 0.3; }
+@keyframes spin_4991 {
+  10% {
+    -webkit-transform: translateY(-102%);
+    transform: translateY(-102%);
+  }
+
+  25% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  35% {
+    -webkit-transform: translateY(-202%);
+    transform: translateY(-202%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+
+  60% {
+    -webkit-transform: translateY(-302%);
+    transform: translateY(-302%);
+  }
+
+  75% {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+  }
+
+  85% {
+    -webkit-transform: translateY(-402%);
+    transform: translateY(-402%);
+  }
+
+  100% {
+    -webkit-transform: translateY(-400%);
+    transform: translateY(-400%);
+  }
 }
 
 /* Main Loader End */
@@ -97,30 +157,6 @@
   .transition-width {
     transition: width 300ms ease-in-out;
   }
-}
-
-.white {
-  --svg-color: rgb(0, 0, 0);
-  --opposite-svg-color: rgb(255, 255, 255);
-  --mob-nav-bg: 29, 41, 57;
-  --mob-nav-link: 255, 255, 255;
-  --primary-color: 255, 255, 255;
-  --secondary-color: 29, 41, 57;
-  --background: 255, 255, 255;
-  --primary-text: 0, 0, 0;
-  --primary-text-hover: 255, 255, 255;
-  --primary-button-text: 255, 255, 255;
-  --primary-button-bg: 29, 41, 57;
-  --primary-heading-color: 1, 30, 247;
-  --secondary-heading-color: 0, 0, 0;
-  --submit-button: 24, 73, 169;
-  --article-button: 125, 80, 255;
-  --article-neutral-button: 24, 119, 242;
-  --footer-bg: 12, 30, 165;
-  --buy-color: 0, 171, 48;
-  --sell-color: 235, 0, 27;
-  --theme-color: light;
-  --alerts-bg: 119,222,182;
 }
 
 
