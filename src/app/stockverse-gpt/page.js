@@ -12,6 +12,8 @@ import Image from 'next/image';
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 export default function Stockverse_GPT() {
+    const [loadingText, setLoadingText] = useState('');
+    const loadingMessages = ["Searching...", "Thinking...", "Analyzing...", "Processing...", "Almost there..."];
     const [loading, setLoading] = useState(false);
     const [isLogin, setIsLogin] = useState(false);
     const [responseloading, setResponseLoading] = useState(false);
@@ -21,8 +23,8 @@ export default function Stockverse_GPT() {
     const [chatId, setChatId] = useState('');
     const [activeChatId, setActiveChatId] = useState('');
     const [command, setCommand] = useState('');
-    const newchattextareaRef = useRef(null);
     const textareaRef = useRef(null);
+    const chatCanvasRef = useRef(null);
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
     const [chatCanvas, setChatCanvas] = useState([]);
@@ -32,7 +34,31 @@ export default function Stockverse_GPT() {
     const [isChatEmpty, setIsChatEmpty] = useState(true);
 
     useEffect(() => {
+        let index = 0;
+        let interval;
+    
+        if (responseloading) {
+            setLoadingText(loadingMessages[index]);
+            interval = setInterval(() => {
+                index = (index + 1) % loadingMessages.length;
+                setLoadingText(loadingMessages[index]);
+            }, 1000);
+        } else {
+            clearInterval(interval);
+            setLoadingText('');
+        }
+    
+        return () => clearInterval(interval);
+    }, [responseloading]);
+
+    useEffect(() => {
         setIsChatEmpty(chatCanvas.length === 0 ? true : false);
+    }, [chatCanvas]);
+
+    useEffect(() => {
+        if (chatCanvasRef.current) {
+            chatCanvasRef.current.scrollTop = chatCanvasRef.current.scrollHeight;
+        }
     }, [chatCanvas]);
 
     useEffect(() => {
@@ -162,18 +188,15 @@ export default function Stockverse_GPT() {
     };
 
     const handleSubmitCommand = async (e, inputCommand = null) => {
-        if (e) e.preventDefault(); // Prevent default form behavior if called from form submit
-    
-        const commandToSubmit = inputCommand || command; // Use inputCommand if provided, otherwise use state
-    
+        if (e) e.preventDefault(); 
+        
+        const commandToSubmit = inputCommand || command; 
         setResponseLoading(true);
         setQuestion(commandToSubmit);
-        setCommand(''); // Clear input field if form submission
+        setCommand(''); 
     
-        // Generate a temporary unique ID for tracking the new chat object
         const tempId = Date.now();
     
-        // Create the new chat object with an empty answer
         const newChatObject = {
             id: tempId,
             chat_id: chatId,
@@ -182,7 +205,6 @@ export default function Stockverse_GPT() {
             created_at: new Date().toISOString(),
         };
     
-        // Add the new chat object to chatCanvas state immediately and update sessionStorage
         setChatCanvas((prevChatCanvas) => {
             const updatedCanvas = [...prevChatCanvas, newChatObject];
             sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
@@ -190,7 +212,6 @@ export default function Stockverse_GPT() {
         });
     
         try {
-            // Make the API request
             const response = await axios.post(
                 `${STOCKVERSE_BACK_END}/stockgpt`,
                 { chatId, command: commandToSubmit },
@@ -198,18 +219,9 @@ export default function Stockverse_GPT() {
             );
     
             if (response.status === 207) {
-                // Update the answer in chatCanvas once received from the server
-                setChatCanvas((prevChatCanvas) => {
-                    const updatedCanvas = prevChatCanvas.map((chat) =>
-                        chat.id === tempId ? { ...chat, answer: response.data.answer } : chat
-                    );
-                    sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
-                    fetchChatHistory();
-                    setResponseLoading(false);
-                    return updatedCanvas;
-                });
-                setAnswer(response.data.answer);
-                setMessage(response.data.message);
+                typeAnswer(tempId, response.data.answer); // Trigger typing effect
+                fetchChatHistory();
+                setResponseLoading(false);
             } else {
                 setMessage(response.data.message || 'Something went wrong');
                 setResponseLoading(false);
@@ -217,13 +229,76 @@ export default function Stockverse_GPT() {
     
         } catch (error) {
             setMessage('An error occurred. Please try again.');
-            console.error('Error during command submission:', error);
-            setResponseLoading(false);
-        } finally {
             setResponseLoading(false);
         }
     };
 
+    // const typeAnswer = (chatId, fullText) => {
+    //     let index = 0;
+    //     const speed = 20; // Typing speed in milliseconds
+    
+    //     setChatCanvas((prevChatCanvas) =>
+    //         prevChatCanvas.map((chat) =>
+    //             chat.id === chatId ? { ...chat, answer: '' } : chat
+    //         )
+    //     );
+    
+    //     const interval = setInterval(() => {
+    //         setChatCanvas((prevChatCanvas) => {
+    //             const updatedCanvas = prevChatCanvas.map((chat) =>
+    //                 chat.id === chatId
+    //                     ? { ...chat, answer: fullText.substring(0, index) }
+    //                     : chat
+    //             );
+    
+    //             sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas)); // Save updated chat history to sessionStorage
+    
+    //             return updatedCanvas;
+    //         });
+    
+    //         if (index >= fullText.length) {
+    //             clearInterval(interval);
+    //         } else {
+    //             index++;
+    //         }
+    //     }, speed);
+    // };
+
+    const typeAnswer = (chatId, fullText) => {
+        let index = 0;
+        const speed = 20; // Typing speed in milliseconds
+    
+        setChatCanvas((prevChatCanvas) =>
+            prevChatCanvas.map((chat) =>
+                chat.id === chatId ? { ...chat, answer: '' } : chat
+            )
+        );
+    
+        const interval = setInterval(() => {
+            setChatCanvas((prevChatCanvas) => {
+                const updatedCanvas = prevChatCanvas.map((chat) =>
+                    chat.id === chatId
+                        ? { ...chat, answer: fullText.substring(0, index) }
+                        : chat
+                );
+    
+                sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
+    
+                // Scroll to the bottom during typing
+                if (chatCanvasRef.current) {
+                    chatCanvasRef.current.scrollTop = chatCanvasRef.current.scrollHeight;
+                }
+    
+                return updatedCanvas;
+            });
+    
+            if (index >= fullText.length) {
+                clearInterval(interval);
+            } else {
+                index++;
+            }
+        }, speed);
+    };
     const ConversationIdHistory = async (chatId) => {
     
         try {
@@ -358,14 +433,6 @@ export default function Stockverse_GPT() {
 
     // Text Area height manage automatic funtion
     useEffect(() => {
-        if (newchattextareaRef.current) {
-          newchattextareaRef.current.style.height = '14px'; // Initial height
-          newchattextareaRef.current.style.height = `${Math.min(newchattextareaRef.current.scrollHeight, 300)}px`; // Max height 200px
-        }
-    }, [command]);
-
-    // Text Area height manage automatic funtion
-    useEffect(() => {
         if (textareaRef.current) {
             textareaRef.current.style.height = '14px'; // Initial height
             textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 300)}px`; // Max height 200px
@@ -441,7 +508,7 @@ export default function Stockverse_GPT() {
             </div>
 
             {/* Chat canvas start */}
-            <div className="bg-stockversegptBg bg-cover bg-top-right relative flex flex-col max-lg:pb-[4rem] max-lg:pt-[4rem] items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-auto scrollbar-thin">
+            <div ref={chatCanvasRef}  className="bg-stockversegptBg bg-cover bg-top-right relative flex flex-col max-lg:pb-[4rem] max-lg:pt-[4rem] items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-auto scrollbar-thin">
                 
                 {/* Chat Navbar start */}
                 <div className='max-md:bg-white sticky z-10 top-0 max-lg:fixed py-3 px-2 flex items-center justify-end w-full h-max'>
@@ -506,7 +573,7 @@ export default function Stockverse_GPT() {
                     )}
                 </div>
                 
-                <div className={` ${isChatEmpty? 'hidden' : 'visible'} w-full relative xl:w-[800px] md:w-[750px] z-0 sm:px-8 px-3 self-center h-max flex flex-col items-center`}>
+                <div className={` ${isChatEmpty? 'hidden' : 'visible'} w-full relative xl:w-[800px] md:w-[750px] z-0 sm:px-8 px-3 self-center h-max flex flex-col`}>
                     {chatCanvas
                     .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
                     .map((chat, index) => (
@@ -562,21 +629,12 @@ export default function Stockverse_GPT() {
                             </div>
                         </div>
                     ))}
-                    <div className={` ${responseloading ? 'visible' : 'hidden'} flex justify-start`}>
-                        {/* From Uiverse.io by kennyotsu */}
-                            <div className="loader">
-                                <p>Please wait</p>
-                                <div className="words">
-                                <span className="word">processing</span>
-                                <span className="word">understanding</span>
-                                <span className="word">searching</span>
-                                <span className="word">thinking</span>
-                                <span className="word">analyzing</span>
-                                </div>
-                            </div>
+                    <div className={` ${responseloading ? 'visible' : 'hidden'} flex justify-start pl-12 -mt-10`}>
+                        <p className="text-lg text-black/60">{loadingText}</p>
                     </div>
                 </div>
                 {/* Chat Area end */}
+
                 {/* Input for Questions start */}
                 {!isChatEmpty && (
                     <form onSubmit={handleSubmitCommand} className={`${isChatEmpty? 'hidden' : 'visible'} xl:w-[800px] md:w-[750px] z-0 sm:px-8 px-3 self-center sticky bottom-0 max-lg:fixed max-lg:bottom-0 max-lg:left-0 mt-auto py-3 w-full z-10 flex flex-col items-center space-y-4`}>
