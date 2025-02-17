@@ -49,7 +49,7 @@ export default function LineChart({ loading, data, fullScreen, selectedInterval 
       },
     });
 
-    newChart.timeScale().fitContent();
+    // newChart.timeScale().fitContent();
     setChart(newChart);
     setLineSeries(newLineSeries);
 
@@ -60,7 +60,7 @@ export default function LineChart({ loading, data, fullScreen, selectedInterval 
           width: chartContainerRef.current.clientWidth,
           height: chartContainerRef.current.clientHeight,
         });
-        newChart.timeScale().fitContent();
+        // newChart.timeScale().fitContent();
       }
     });
 

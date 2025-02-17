@@ -40,11 +40,11 @@ export default function CandlestickChart({ loading, data, fullScreen, selectedIn
     });
 
     const newCandlestickSeries = newChart.addCandlestickSeries({
-      upColor: "#634FF7",
+      upColor: "#00C805",
       downColor: "#FF0004",
-      borderUpColor: "#634FF7",
+      borderUpColor: "#00C805",
       borderDownColor: "#FF0004",
-      wickUpColor: "#634FF7",
+      wickUpColor: "#00C805",
       wickDownColor: "#FF0004",
       borderVisible: false,
     });
@@ -52,9 +52,9 @@ export default function CandlestickChart({ loading, data, fullScreen, selectedIn
     const newAreaSeries = newChart.addAreaSeries({
       lastValueVisible: false,
       crosshairMarkerVisible: false,
-      topColor: "rgba(99, 79, 247, 0.4)",
-      bottomColor: "rgba(99, 79, 247, 0.1)",
-      lineColor: "rgba(99, 79, 247, 0)",
+      topColor: "rgba(99, 79, 247, 0)",
+      bottomColor: "rgba(99, 79, 247, 0)", // o.4 here
+      lineColor: "rgba(99, 79, 247, 0)", // o.1 here
       lineWidth: 0.1,
     });
 
@@ -66,7 +66,7 @@ export default function CandlestickChart({ loading, data, fullScreen, selectedIn
       },
     });
 
-    newChart.timeScale().fitContent();
+    // newChart.timeScale().fitContent();
     setChart(newChart);
     setCandlestickSeries(newCandlestickSeries);
     setAreaSeries(newAreaSeries);
@@ -78,7 +78,7 @@ export default function CandlestickChart({ loading, data, fullScreen, selectedIn
           width: chartContainerRef.current.clientWidth,
           height: chartContainerRef.current.clientHeight,
         });
-        newChart.timeScale().fitContent();
+        // newChart.timeScale().fitContent();
       }
     });
 
