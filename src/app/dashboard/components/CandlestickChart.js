@@ -66,16 +66,19 @@ export default function CandlestickChart({ loading, data, fullScreen, selectedIn
       },
     });
 
+    newChart.timeScale().fitContent();
     setChart(newChart);
     setCandlestickSeries(newCandlestickSeries);
     setAreaSeries(newAreaSeries);
 
+    // Resize observer to adjust chart size dynamically
     const resizeObserver = new ResizeObserver(() => {
       if (chartContainerRef.current) {
         newChart.applyOptions({
           width: chartContainerRef.current.clientWidth,
           height: chartContainerRef.current.clientHeight,
         });
+        newChart.timeScale().fitContent();
       }
     });
 
@@ -85,10 +88,10 @@ export default function CandlestickChart({ loading, data, fullScreen, selectedIn
       resizeObserver.disconnect();
       newChart.remove();
     };
-  }, [fullScreen]);
+  }, [chartContainerRef, fullScreen, selectedInterval]);
 
   useEffect(() => {
-    if (candlestickSeries && areaSeries && data) {
+    if (chart && candlestickSeries && areaSeries && data) {
       const formattedData = formatDataForChart(data);
 
       candlestickSeries.setData(formattedData);
@@ -99,18 +102,17 @@ export default function CandlestickChart({ loading, data, fullScreen, selectedIn
         }))
       );
 
-      // chart.timeScale().fitContent();
       chart.timeScale().scrollToRealTime();
     }
-  }, [data, selectedInterval]);
+  }, [data, selectedInterval, chart, candlestickSeries, areaSeries]);
 
   return (
     <div className="relative w-full min-h-[490px] flex-grow flex flex-col items-start overflow-hidden">
       <div ref={chartContainerRef} className="w-full flex-grow" />
       {loading && (
-          <div className='absolute z-[5] w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
-              <Loading/>
-          </div>
+        <div className="absolute z-[5] w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center">
+          <Loading />
+        </div>
       )}
     </div>
   );

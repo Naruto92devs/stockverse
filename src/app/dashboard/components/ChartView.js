@@ -4,18 +4,19 @@ import LineChart from "./LineChart";
 import CandlestickChart from "./CandlestickChart";
 import { useTickerDetails } from "@/context/TickerDetailsContext";
 import { useChartData } from "@/context/ChartDataContext";
+import MainLoader from "@/loaders&errors_UI/mian_loader";
 import Image from "next/image";
 
 const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
   const [chart, setChart] = useState("line");
-  const [selectedInterval, setSelectedInterval] = useState("1D");
+  const [selectedInterval, setSelectedInterval] = useState(null);
   const { tickerDetails } = useTickerDetails();
-  const { chartData, timeframe, setTimeframe, loading } = useChartData();
+  const { chartData, fetchChartData, timeframe, setTimeframe, loading } = useChartData();
   const [fullScreen, setFullScreen] = useState(false);
 
   const changeInterval = (interval) => {
     setTimeframe(interval);
-    setSelectedInterval(interval);
+    // setSelectedInterval(interval);
   };
 
   const toggleCharts = (value) => {
@@ -26,7 +27,17 @@ const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
     setFullScreen(!fullScreen);
   };
 
+  useEffect(() => {
+    if (timeframe) {
+      setSelectedInterval(timeframe);
+    }
+  }, [timeframe]); // Update selectedInterval whenever timeframe changes
+
   const intervals = ["1D", "5D", "1M", "6M", "1Y", "5Y", "All"]; // Define available intervals
+
+  if (!chartData && loading) {
+      return <MainLoader Zindex={10} />; // Handle loading state
+  }
 
   return (
     <div className="w-full h-full flex flex-col items-start">

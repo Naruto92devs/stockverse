@@ -49,39 +49,42 @@ export default function LineChart({ loading, data, fullScreen, selectedInterval 
       },
     });
 
+    newChart.timeScale().fitContent();
     setChart(newChart);
     setLineSeries(newLineSeries);
 
+    // Resize observer to adjust chart size dynamically
     const resizeObserver = new ResizeObserver(() => {
       if (chartContainerRef.current) {
         newChart.applyOptions({
           width: chartContainerRef.current.clientWidth,
           height: chartContainerRef.current.clientHeight,
         });
+        newChart.timeScale().fitContent();
       }
     });
+
     resizeObserver.observe(chartContainerRef.current);
 
     return () => {
       resizeObserver.disconnect();
       newChart.remove();
     };
-  }, [fullScreen]);
+  }, [chartContainerRef, fullScreen, selectedInterval]);
 
   useEffect(() => {
-    if (lineSeries && data) {
+    if (chart && lineSeries && data) {
       const formattedData = formatDataForChart(data);
       lineSeries.setData(formattedData);
-      // chart.timeScale().fitContent();
       chart.timeScale().scrollToRealTime();
     }
-  }, [data, selectedInterval]);
+  }, [data, selectedInterval, chart, lineSeries]);
 
   return (
     <div className="relative w-full min-h-[490px] flex-grow flex flex-col items-start overflow-hidden">
       <div ref={chartContainerRef} className="w-full flex-grow" />
       {loading && (
-        <div className='absolute z-[5] w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center'>
+        <div className="absolute z-[5] w-full h-full bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center">
           <Loading />
         </div>
       )}
