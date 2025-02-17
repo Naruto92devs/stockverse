@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TickerInfo from "./TickerOverview";
 import LineChart from "./LineChart";
 import CandlestickChart from "./CandlestickChart";
 import { useTickerDetails } from "@/context/TickerDetailsContext";
+import { useChartData } from "@/context/ChartDataContext";
 import Image from "next/image";
 
 const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
   const [chart, setChart] = useState("line");
   const [selectedInterval, setSelectedInterval] = useState("1D");
-  const { tickerDetails, loading, error } = useTickerDetails();
+  const { tickerDetails } = useTickerDetails();
+  const { chartData, timeframe, setTimeframe, loading } = useChartData();
   const [fullScreen, setFullScreen] = useState(false);
+
+  const changeInterval = (interval) => {
+    setTimeframe(interval);
+    setSelectedInterval(interval);
+  };
 
   const toggleCharts = (value) => {
     setChart(value);
@@ -53,7 +60,7 @@ const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
               {intervals.map((interval) => (
                 <button
                   key={interval}
-                  onClick={() => setSelectedInterval(interval)}
+                  onClick={() => changeInterval(interval)}
                   className={`px-3 py-1 rounded-lg text-black font-sansMedium ${selectedInterval === interval ? "bg-primaryBg" : ""}`}
                 >
                   {interval}
@@ -63,8 +70,8 @@ const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
           </div>
         </div>
         {/* Conditional Rendering of Charts */}
-        {chart === "line" && <LineChart ticker={symbol} selectedInterval={selectedInterval} fullScreen={fullScreen} />}
-        {chart === "candle" && <CandlestickChart ticker={symbol} selectedInterval={selectedInterval} fullScreen={fullScreen} />}
+        {chart === "line" && <LineChart loading={loading} data={chartData} selectedInterval={selectedInterval} fullScreen={fullScreen} />}
+        {chart === "candle" && <CandlestickChart loading={loading} data={chartData} selectedInterval={selectedInterval} fullScreen={fullScreen} />}
       </div>
     </div>
   );

@@ -530,6 +530,7 @@ export default function Stockverse_GPT() {
 
                 {/* Chat Area start */}
                 <div className={` ${isChatEmpty? 'visible' : 'hidden'} w-full xl:w-[800px] md:w-[750px] z-0 sm:px-8 px-3 h-full flex flex-col self-center gap-1 items-center justify-center`}>
+                    <Image width={64} height={64} src='/images/stockverse_gpt.png' alt='logo'/>
                     <h1 className='text-primaryTextColor/50 text-4xl max-lg:text-xl font-sansMedium'>Hi, {userInfo? userInfo.fullname : ''} </h1>
                     <h1 className='text-primaryTextColor text-5xl max-lg:text-3xl font-sansMedium'>What would you like to know?</h1>
                     <div className='w-full flex flex-wrap md:gap-4 max-md:gap-y-4 md:justify-center justify-between pt-12'>
