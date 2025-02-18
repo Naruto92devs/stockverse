@@ -859,3 +859,49 @@
     opacity: 0.8;
   }
 }
+
+/* contact css */
+.contact-bg{
+  background: url(/images/contact-bg.png)no-repeat;
+  background-size: 100% 100%;
+}
+.myslide {
+  padding-left: 1rem !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+@media (max-width:1024px) {
+  .myslide {
+    padding-left: 1rem !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+  }
+}
+@media (max-width:768px) {
+  .myslide {
+    padding-left: 1rem !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+  }
+}
+@media (max-width:640px) {
+  .myslide {
+    padding-left: 1rem !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+  }
+}
+
+/* gpt overview page */
+.overview-bg {
+  background: url(/images/overview-bg.png)no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.overview-gradient {
+  background: linear-gradient(91.52deg, #7D76FD 5.95%, #72BDD5 51.29%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
