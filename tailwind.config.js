@@ -34,6 +34,13 @@ module.exports = {
         sansSemiboldItalic: ['GeneralSans-SemiboldItalic', 'sans-serif'],
         sansVariable: ['GeneralSans-Variable', 'sans-serif'],
         sansVariableItalic: ['GeneralSans-VariableItalic', 'sans-serif'],
+        
+        MontserratSemibold : ['Montserrat-semibold'],
+        MontserratRegular : ['Montserrat-regular'],
+        MontserratBold : ['Montserrat-bold'],
+        MontserratMI : ['Montserrat-mi'],
+        MontserratMedium : ['Montserrat-Medium'],
+        syneBold : ['syne-Bold'],
       },
       backgroundImage: {
         'loaderBg': "url('/images/loader_bg.jpg')",
@@ -44,6 +51,7 @@ module.exports = {
         'joinBg': "url('/images/join_bg.jpg')",
         'contactBg': "url('/images/contact_bg.jpg')",
         'contactPowerSectionBg': "url('/images/powerful_bg.png')",
+        'pricingBg': "url('/images/pricing_bg.jpg')",
         // background gradients
         'profileBg': 'radial-gradient(100% 100% at 50% 0%, #8B77FF 0%, #634FF7 100%)',
         'upgradeBg': 'linear-gradient(121.78deg, #2713A5 7.6%, #634FF7 92.4%)',

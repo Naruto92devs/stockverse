@@ -328,6 +328,47 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'Montserrat-semibold';
+  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-regular';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 600 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('/fonts/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-bold';
+  src: url('/fonts/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-mi';
+  src: url('/fonts/Montserrat-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'syne-Bold';
+  src: url('/fonts/syne-bold.otf') format('opentype');
+  font-weight: 700;
+}
+
 
 /* Example custom styles for scrollbar */
 .scrollbar-thin::-webkit-scrollbar {
