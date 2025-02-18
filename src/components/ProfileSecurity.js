@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export default function ProfileSecurity({userInfo}) {
+export default function ProfileSecurity() {
 
     const [password, setPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -14,7 +14,6 @@ export default function ProfileSecurity({userInfo}) {
     const [confirmNewPasswordVisible, setConfirmNewPasswordVisible] = useState(false);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState(null);
-    const [enable, setEnable] = useState(false);
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
@@ -49,43 +48,6 @@ export default function ProfileSecurity({userInfo}) {
                 setPassword('');
                 setNewPassword('');
                 setConfirmNewPassword('');
-                setMessage(data.message);
-            } else {
-                setMessage(data.error || 'Something went wrong');
-                setLoading(false);
-            }
-        } catch (error) {
-            if (error.response && error.response.data) {
-                setMessage(error.response.data.message || 'Something went wrong');
-                setLoading(false);
-            } else {
-                setMessage('An error occurred. Please try again.');
-                setLoading(false);
-            }
-            console.error('Error during signup:', error);
-        }
-    };
-
-    const handleEnable2FA = async (e) => {
-        setLoading(true);
-        e.preventDefault();
-
-        try {
-            const response = await axios.post(`${STOCKVERSE_BACK_END}/toggle-2fa`, {
-                
-            }, {
-                withCredentials: true,
-            });
-
-            const data = response.data;
-            console.log(data);
-            if (response.status === 207) {
-                setLoading(false);
-                setEnable(true);
-                setMessage(data.message);
-            } else if (response.status === 206) {
-                setLoading(false);
-                setEnable(false);
                 setMessage(data.message);
             } else {
                 setMessage(data.error || 'Something went wrong');
@@ -194,27 +156,6 @@ export default function ProfileSecurity({userInfo}) {
                                 {loading ? 'Updating...' : 'Save'}
                             </button>
                         </div>
-                        {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
-                    </form>
-                </div>
-            </div>
-            <div className="md:border-t-2 md:border-dashed md:border-primaryText/20 py-4 md:py-10 mx-auto xl:container md:gap-y-8 gap-y-4 flex max-lg:flex-col items-start justify-between">
-                <div className="flex flex-col lg:w-[35%] w-full">
-                    <h1 className="text-primaryText max-sm:text-2xl text-xl font-sansMedium">Two Factor Authentication</h1>
-                    <p>Add additional security to your account using two factor authentication.</p>
-                </div>
-                <div className="lg:w-[60%] w-full max-md:border-t-2 max-md:border-dashed max-md:border-primaryText/20 max-md:pt-6  md:bg-background md:shadow-xl flex flex-col items-start gap-y-4">
-                    <form onSubmit={handleEnable2FA} className="md:p-8 w-full flex flex-col space-y-4">
-                        
-                        <p className="text-xl font-sansMedium text-primaryText"> {enable ? 'Two factor authentication is Already enabled.' : 'You have not enabled two factor authentication.'}</p>
-                        <p className="text-base text-primaryText">When two factor authentication is enabled, you will be prompted for a secure, random OTP during authentication. You may retrieve this OTP from your Email.</p>
-                        <button
-                            disabled={loading}
-                            type="submit"
-                            className="w-max bg-primaryButtonBg text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
-                        >
-                            {loading ? 'Updating...' : enable ? 'Disable 2FA' : 'Enable 2FA'}
-                        </button>
                         {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
                     </form>
                 </div>
