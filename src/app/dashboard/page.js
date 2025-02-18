@@ -22,6 +22,7 @@ import SearchBar from "@/components/SearchBar";
 import MainLoader from "@/loaders&errors_UI/mian_loader";
 import Logo from '@/components/Logo';
 import axios from 'axios';
+import LogInPopup from "@/components/loginPopup";
 // import CandlestickChart from "./components/CandlestickChart";
 // import dynamic from 'next/dynamic';
 
@@ -174,6 +175,7 @@ function DashboardContent() {
 
   return (
     <section className={`${view === 'chart' ? 'bg-primaryBg' : ''}bg-dashboardBg w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide`}>
+      {/* <LogInPopup/> */}
       {/* Nav bar start */}
       <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
         <div title="Toggel Sidebar" onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide ? 'lg:w-[5.5rem] w-max' : 'lg:w-[15rem] w-max'}`}>

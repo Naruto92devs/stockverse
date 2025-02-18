@@ -1,14 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export default function LogIn() {
+export default function LogInPopup() {
 
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,14 +17,14 @@ export default function LogIn() {
   const [OTP, setOTP] = useState('');
   const [VerifyOTP, setVerifyOTP] = useState(false);
   const [id, setid] = useState(null);
-  const router = useRouter();
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    const token = Cookies.get('authToken');
-    if (token) {
-        router.push('/dashboard'); // Redirect to dashboard if already logged in
-    }
-}, [router]);
+      const token = Cookies.get('authToken');
+      if (!token) {
+          setIsLogin(true);
+      }
+  }, []);
 
   const handleSubmitForm = async (e) => {
       setLoading(true);
@@ -40,12 +39,11 @@ export default function LogIn() {
 
           // Check if the response status is 200 (OK)
           if (response.status === 200) {
-              const authToken = response.data.token;
-              if (authToken) {
-                  Cookies.set('authToken', authToken, { expires: 6 / 24 });
-              }
-              // Redirect to dashboard after successful login
-              router.push('/dashboard');
+            const authToken = response.data.token;
+            if (authToken) {
+                Cookies.set('authToken', authToken, { expires: 6 / 24 });
+            }
+            setIsLogin(false);
           } else if (response.status === 201) {
             const data = response.data;
             setError(data.message);
@@ -87,11 +85,6 @@ export default function LogIn() {
             if (authToken) {
                 Cookies.set('authToken', authToken, { expires: 6 / 24 });
             }
-            // Redirect to dashboard after successful login
-            router.push('/');
-            // setError(data.message);
-            // setLoading(false);
-            // router.push('/login');
         } else {
           setError(data.message || 'Something went wrong');
             setLoading(false);
@@ -109,7 +102,7 @@ export default function LogIn() {
   };
 
   return (
-    <div className={`${VerifyOTP ? 'bg-loginBg bg-cover bg-center bg-no-repeat' : ''} w-full lg:flex max-lg:flex-col xl:min-h-[100vh]`}>
+    <div className={`${isLogin ? 'visible' : 'hidden'} z-50 w-full lg:flex max-lg:flex-col xl:min-h-[100vh]`}>
       
       <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] px-6 max-lg:py-20 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
         <Image width={56} height={56} src='/images/logo.png' alt='logo'></Image>

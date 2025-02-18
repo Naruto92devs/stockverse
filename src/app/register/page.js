@@ -5,6 +5,8 @@ import { redirect, useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
 import Image from 'next/image';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css'; // Optional default styles
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
@@ -12,6 +14,7 @@ export default function Register() {
     const [username, setUsername] = useState('');
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('+1');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [OTP, setOTP] = useState('');
@@ -49,11 +52,15 @@ export default function Register() {
             return;
         }
 
+        // Sanitize phone number
+        const sanitizedPhone = phone.replace(/[^\d+]/g, ''); // Keeps digits and the `+` character
+
         try {
             const response = await axios.post(`${STOCKVERSE_BACK_END}/signup`, {
                 username,
                 email,
                 password,
+                phone: `+${sanitizedPhone}`,
             }, {
                 withCredentials: true,
             });
@@ -123,7 +130,7 @@ export default function Register() {
     };
 
     return (
-        <div className="w-full lg:flex max-lg:flex-col xl:min-h-[100vh]">
+        <div className={`${VerifyOTP ? 'bg-loginBg bg-cover bg-center bg-no-repeat' : ''} w-full lg:flex max-lg:flex-col xl:min-h-[100vh]`}>
             <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] px-6 max-lg:py-10 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
                 <Image width={56} height={56} src='/images/logo.png' alt='logo'></Image>
                 <h1 className="text-4xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome!</h1>
@@ -159,6 +166,37 @@ export default function Register() {
                             required
                             className="w-full text-base px-4 py-2 border bg-primary-bg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none focus:border-primaryTextColor"
                         />
+                    </div>
+                    <div className="relative w-full flex flex-col">
+                        <label htmlFor="phone" className="text-base font-sansMedium text-primaryTextColor">
+                            Phone Number
+                        </label>
+                        <PhoneInput
+                            country={'us'} // Default country code
+                            value={phone}
+                            onChange={(value) => setPhone(value)} // Updates phone state with formatted value
+                            inputProps={{
+                                id: 'phone',
+                                required: true,
+                                autoFocus: false,
+                            }}
+                            inputStyle={{
+                                width: '100%',
+                                padding: '10px 10px 10px 50px',
+                                fontSize: '16px',
+                                border: '1px solid rgba(0, 0, 0, 0.1)',
+                                borderRadius: '0.5rem',
+                                backgroundColor: '#FFF', // Adjust this to match your `bg-mobNavLink`
+                                color: '#000', // Matches `text-secondaryHeading`
+                            }}
+                            containerStyle={{
+                                width: '100%',
+                            }}
+                            dropdownStyle={{
+                                borderRadius: '0.5rem',
+                            }}
+                        />
+                        
                     </div>
                     <div className="w-full flex flex-col relative">
                         <label htmlFor="password" className="text-md font-sansMedium text-primaryTextColor">
@@ -267,8 +305,8 @@ export default function Register() {
             </div>
 
             <div
-                style={{ backgroundImage: 'url(/images/login_page_pic.jpg)'}}
-                className={` ${VerifyOTP ? 'hidden' : 'flex'} relative lg:w-[50%] flex flex-col justify-end pt-12 gap-y-12 bg-cover bg-center bg-no-repeat`}
+
+                className={` ${VerifyOTP ? 'hidden' : 'flex'} relative lg:w-[50%] flex flex-col justify-end pt-12 gap-y-12 bg-loginBg bg-cover bg-center bg-no-repeat`}
             >
                 <h1 className='pl-12 font-sansMedium xl:text-6xl md:text-5xl text-4xl leading-[100%] text-primaryTextColor'>
                 One Stop Shop <br></br>
@@ -278,7 +316,7 @@ export default function Register() {
             </div>
 
             {/* OTP VERIFICATION POPUP */}
-            <div className={`${VerifyOTP ? 'flex' : 'hidden'} px-6 max-sm:px-3 lg:min-h-[90vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
+            <div className={`${VerifyOTP ? 'flex' : 'hidden'} px-6 max-sm:px-3 min-h-[100vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
                 <form onSubmit={handleSubmitOTP} className="flex flex-col items-center w-[35%] max-lg:w-[55%] max-sm:w-[90%] space-y-4">
                     <Image src="/images/stockverseLogo.png" width={250} height={57.20} alt='Stockverse Logo' />
                     <div className="p-8 max-sm:px-4 rounded-xl flex flex-col gap-y-8 items-center bg-background shadow-lg">
@@ -303,7 +341,7 @@ export default function Register() {
                         <button
                             disabled={loading}
                             type="submit"
-                            className="w-full bg-submit text-base text-mobNavLink py-2 rounded-lg hover:bg-primaryTextColor transition duration-300"
+                            className="w-full bg-primaryMain text-base text-white py-2 rounded-lg hover:bg-black transition duration-300"
                         >
                             {loading ? 'Verifying...' : 'Submit'}
                         </button>

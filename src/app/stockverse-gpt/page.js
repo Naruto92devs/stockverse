@@ -9,6 +9,7 @@ import axios from 'axios';
 import User from '@/components/ProfileLogo';
 import Image from 'next/image';
 import Loading from '@/loaders&errors_UI/loading';
+import UserSettings from '../dashboard/components/Settings';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
@@ -33,6 +34,7 @@ export default function Stockverse_GPT() {
     const [sidebarHide, setSidebarHide] = useState(false);
     const [favouriteStatus, setFavouriteStatus] = useState({}); // Track favorite status for each chat
     const [isChatEmpty, setIsChatEmpty] = useState(true);
+    const [settings, setSettings] = useState(false);
 
     useEffect(() => {
         let index = 0;
@@ -493,12 +495,12 @@ export default function Stockverse_GPT() {
                 </div>
                 {/* user profile related links */}
                 <div className="mt-auto sticky min-w-full w-max bg-primaryBg bottom-0 left-0 flex flex-col">
-                    <div title="Settings" className={`w-max p-3 pl-4 cursor-pointer flex items-center gap-4`}>
-                    <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.04677 14.5283L7.4851 15.5142C7.61541 15.8076 7.82806 16.057 8.09727 16.232C8.36648 16.4069 8.68069 16.5001 9.00177 16.5C9.32285 16.5001 9.63706 16.4069 9.90627 16.232C10.1755 16.057 10.3881 15.8076 10.5184 15.5142L10.9568 14.5283C11.1128 14.1785 11.3753 13.8869 11.7068 13.695C12.0404 13.5026 12.4263 13.4206 12.8093 13.4608L13.8818 13.575C14.201 13.6088 14.5232 13.5492 14.8093 13.4035C15.0954 13.2578 15.333 13.0322 15.4934 12.7542C15.6541 12.4763 15.7306 12.1577 15.7137 11.8372C15.6969 11.5166 15.5873 11.2079 15.3984 10.9483L14.7634 10.0758C14.5373 9.76285 14.4165 9.38611 14.4184 9C14.4184 8.61494 14.5403 8.23976 14.7668 7.92833L15.4018 7.05583C15.5907 6.79632 15.7002 6.48755 15.7171 6.16701C15.7339 5.84646 15.6574 5.52791 15.4968 5.25C15.3363 4.97193 15.0987 4.74637 14.8126 4.60067C14.5265 4.45497 14.2044 4.3954 13.8851 4.42917L12.8126 4.54333C12.4296 4.58356 12.0437 4.50159 11.7101 4.30917C11.3779 4.11619 11.1154 3.82302 10.9601 3.47167L10.5184 2.48583C10.3881 2.19238 10.1755 1.94304 9.90627 1.76805C9.63706 1.59306 9.32285 1.49995 9.00177 1.5C8.68069 1.49995 8.36648 1.59306 8.09727 1.76805C7.82806 1.94304 7.61541 2.19238 7.4851 2.48583L7.04677 3.47167C6.89147 3.82302 6.62892 4.11619 6.29677 4.30917C5.96318 4.50159 5.57727 4.58356 5.19427 4.54333L4.11844 4.42917C3.79918 4.3954 3.47699 4.45497 3.19092 4.60067C2.90485 4.74637 2.6672 4.97193 2.50677 5.25C2.34614 5.52791 2.26961 5.84646 2.28647 6.16701C2.30333 6.48755 2.41286 6.79632 2.60177 7.05583L3.23677 7.92833C3.46323 8.23976 3.58517 8.61494 3.5851 9C3.58517 9.38506 3.46323 9.76024 3.23677 10.0717L2.60177 10.9442C2.41286 11.2037 2.30333 11.5124 2.28647 11.833C2.26961 12.1535 2.34614 12.4721 2.50677 12.75C2.66736 13.0279 2.90504 13.2534 3.19107 13.399C3.4771 13.5447 3.79921 13.6044 4.11844 13.5708L5.19094 13.4567C5.57394 13.4164 5.95985 13.4984 6.29344 13.6908C6.62683 13.8833 6.89059 14.1765 7.04677 14.5283Z" stroke='black' strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M9.00043 11.25C10.2431 11.25 11.2504 10.2426 11.2504 9C11.2504 7.75736 10.2431 6.75 9.00043 6.75C7.75779 6.75 6.75043 7.75736 6.75043 9C6.75043 10.2426 7.75779 11.25 9.00043 11.25Z" stroke='black' strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <p className={`font-sansMedium text-md text-primaryTextColor`}>Settings</p>
+                    <div onClick={() => setSettings(true)} title="Settings" className={`w-max p-3 pl-4 cursor-pointer flex items-center gap-4`}>
+                        <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.04677 14.5283L7.4851 15.5142C7.61541 15.8076 7.82806 16.057 8.09727 16.232C8.36648 16.4069 8.68069 16.5001 9.00177 16.5C9.32285 16.5001 9.63706 16.4069 9.90627 16.232C10.1755 16.057 10.3881 15.8076 10.5184 15.5142L10.9568 14.5283C11.1128 14.1785 11.3753 13.8869 11.7068 13.695C12.0404 13.5026 12.4263 13.4206 12.8093 13.4608L13.8818 13.575C14.201 13.6088 14.5232 13.5492 14.8093 13.4035C15.0954 13.2578 15.333 13.0322 15.4934 12.7542C15.6541 12.4763 15.7306 12.1577 15.7137 11.8372C15.6969 11.5166 15.5873 11.2079 15.3984 10.9483L14.7634 10.0758C14.5373 9.76285 14.4165 9.38611 14.4184 9C14.4184 8.61494 14.5403 8.23976 14.7668 7.92833L15.4018 7.05583C15.5907 6.79632 15.7002 6.48755 15.7171 6.16701C15.7339 5.84646 15.6574 5.52791 15.4968 5.25C15.3363 4.97193 15.0987 4.74637 14.8126 4.60067C14.5265 4.45497 14.2044 4.3954 13.8851 4.42917L12.8126 4.54333C12.4296 4.58356 12.0437 4.50159 11.7101 4.30917C11.3779 4.11619 11.1154 3.82302 10.9601 3.47167L10.5184 2.48583C10.3881 2.19238 10.1755 1.94304 9.90627 1.76805C9.63706 1.59306 9.32285 1.49995 9.00177 1.5C8.68069 1.49995 8.36648 1.59306 8.09727 1.76805C7.82806 1.94304 7.61541 2.19238 7.4851 2.48583L7.04677 3.47167C6.89147 3.82302 6.62892 4.11619 6.29677 4.30917C5.96318 4.50159 5.57727 4.58356 5.19427 4.54333L4.11844 4.42917C3.79918 4.3954 3.47699 4.45497 3.19092 4.60067C2.90485 4.74637 2.6672 4.97193 2.50677 5.25C2.34614 5.52791 2.26961 5.84646 2.28647 6.16701C2.30333 6.48755 2.41286 6.79632 2.60177 7.05583L3.23677 7.92833C3.46323 8.23976 3.58517 8.61494 3.5851 9C3.58517 9.38506 3.46323 9.76024 3.23677 10.0717L2.60177 10.9442C2.41286 11.2037 2.30333 11.5124 2.28647 11.833C2.26961 12.1535 2.34614 12.4721 2.50677 12.75C2.66736 13.0279 2.90504 13.2534 3.19107 13.399C3.4771 13.5447 3.79921 13.6044 4.11844 13.5708L5.19094 13.4567C5.57394 13.4164 5.95985 13.4984 6.29344 13.6908C6.62683 13.8833 6.89059 14.1765 7.04677 14.5283Z" stroke='black' strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M9.00043 11.25C10.2431 11.25 11.2504 10.2426 11.2504 9C11.2504 7.75736 10.2431 6.75 9.00043 6.75C7.75779 6.75 6.75043 7.75736 6.75043 9C6.75043 10.2426 7.75779 11.25 9.00043 11.25Z" stroke='black' strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <p className={`font-sansMedium text-md text-primaryTextColor`}>Settings</p>
                     </div>
                     <Link href='/help-center' title="Help Center" className={`w-max p-3 pl-4 max-lg:pb-5 cursor-pointer flex items-center gap-4`}>
                     <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -508,6 +510,8 @@ export default function Stockverse_GPT() {
                     </Link>
                 </div>
             </div>
+
+            <UserSettings settings={settings} setSettings={setSettings}/>
 
             {/* Chat canvas start */}
             <div ref={chatCanvasRef}  className="relative bg-stockversegptBg bg-cover bg-top-right relative flex flex-col max-lg:pb-[4rem] max-lg:pt-[4rem] items-start justify-start gap-y-4 max-w-full flex-grow h-[100%] overflow-y-auto scrollbar-thin">
@@ -691,7 +695,7 @@ export default function Stockverse_GPT() {
             {/* Chat canvas end */}
 
             {/* IsLogin popup start*/}
-            <div className={`${isLogin ? 'visible' : 'hidden'} fixed z-50 shadow-lg top-0 left-0 bottom-0 right-0 bg-primaryText/70 flex items-center justify-center`}>
+            {/* <div className={`${isLogin ? 'visible' : 'hidden'} fixed z-50 shadow-lg top-0 left-0 bottom-0 right-0 bg-primaryText/70 flex items-center justify-center`}>
                 <div className='max-w-[90%] w-max p-8 rounded-lg bg-background text-center flex flex-col items-center gap-4'>
                     <p className="text-lg text-primaryText text-center">Please Login / Create Free Account to Use StockverseGPT</p>
                     <div className="flex gap-4 flex-wrap">
@@ -707,7 +711,7 @@ export default function Stockverse_GPT() {
                         </Link>
                     </div>
                 </div>
-            </div>
+            </div> */}
             {/* IsLogin popup end*/}
             
         </section>
