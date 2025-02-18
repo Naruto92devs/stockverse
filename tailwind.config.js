@@ -11,6 +11,8 @@ module.exports = {
       // new design varialbles
       white: "rgba(var(--white))",
       black: "rgba(var(--black))",
+      buy: "rgba(var(--buy-color))",
+      sell: "rgba(var(--sell-color))",
       primaryMain: "rgba(var(--primary-main))",
       heading: "rgba(var(--heading-main))",
       primaryTextColor: "rgba(var(--primary-text))",

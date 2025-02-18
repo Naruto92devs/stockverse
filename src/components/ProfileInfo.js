@@ -6,17 +6,10 @@ const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 export default function ProfileInfo() {
 
-    const { user } = useUser();
+    const { user, fetchUser } = useUser();
     const [fullname, setFullname] = useState(user.fullname);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState(null);
-
-    // Function to extract initials
-    const getInitials = (fullname) => {
-        const nameArray = fullname.split(' ');
-        const initials = nameArray.map(name => name[0]).join('');
-        return initials.toUpperCase(); // Convert to uppercase
-    };
 
     const handleUpdateName = async (e) => {
         setLoading(true);
@@ -34,6 +27,7 @@ export default function ProfileInfo() {
             if (response.status === 207) {
                 setLoading(false);
                 setMessage(data.message);
+                fetchUser();
             } else {
                 setMessage(data.message || 'Something went wrong');
                 setLoading(false);
@@ -51,53 +45,47 @@ export default function ProfileInfo() {
     };
 
     return (
-        <div className="w-full h-full">
-            <div className="py-4 md:py-10 mx-auto xl:container md:gap-y-8 gap-y-4 flex max-lg:flex-col items-start justify-between">
-                <div className="lg:w-[60%] w-full max-md:border-t-2 max-md:border-dashed max-md:border-primaryText/20 max-md:pt-6  md:bg-background md:shadow-xl flex flex-col items-start gap-y-4">
-                    <form onSubmit={handleUpdateName} className="w-full flex flex-col space-y-4">
-                        <div className="md:px-8 flex flex-col gap-y-8">
-                            <div className="w-full flex flex-col gap-y-2">
-                                <label htmlFor="username" className="text-md font-Medium text-primaryText">
-                                    Name
-                                </label>
-                                <input
-                                    type="name"
-                                    autoComplete="name"
-                                    placeholder="Enter your full name"
-                                    value={fullname}
-                                    onChange={(e) => setFullname(e.target.value)}
-                                    required
-                                    className="w-full text-lg px-4 py-2 border-2 bg-background text-primaryText border-primaryText/10 focus:outline-none focus:border-primaryText"
-                                />
-                            </div>
-                            <div className="w-full flex flex-col gap-y-2">
-                                <label htmlFor="email" className="text-md font-Medium text-primaryText">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    autoComplete="email"
-                                    disabled
-                                    value={user.email}
-                                    placeholder="Your Email"
-                                    className="w-full text-lg px-4 py-2 border-2 bg-background text-primaryText border-primaryText/10 focus:outline-none focus:border-primaryText"
-                                />
-                            </div>
-                        </div>
-                        <div className="w-full md:px-8 py-4 flex justify-end md:bg-primaryText/10">
-                            <button
-                                disabled={loading}
-                                type="submit"
-                                className="w-24 bg-primaryButtonBg text-base text-primaryButtonText py-2 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
-                            >
-                                {loading ? 'Updating...' : 'Save'}
-                            </button>
-                        </div>
-                        {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
-                    </form>
+        <form onSubmit={handleUpdateName} className="w-full flex flex-col space-y-4">
+            <div className="flex flex-col gap-y-8">
+                <div className="w-full flex flex-col gap-y-2">
+                    <label htmlFor="username" className="text-md font-sansMedium text-primaryTextColor">
+                        Username
+                    </label>
+                    <input
+                        type="name"
+                        autoComplete="name"
+                        placeholder="Enter your full name"
+                        value={fullname}
+                        onChange={(e) => setFullname(e.target.value)}
+                        required
+                        className="w-full text-base px-4 py-2 border bg-primary-bg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none focus:border-primaryTextColor"
+                    />
+                </div>
+                <div className="w-full flex flex-col gap-y-2">
+                    <label htmlFor="email" className="text-md font-sansMedium text-primaryTextColor">
+                        Email Address
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        autoComplete="email"
+                        disabled
+                        value={user.email}
+                        placeholder="Your Email"
+                        className="w-full text-base px-4 py-2 border bg-primary-bg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none focus:border-primaryTextColor"
+                    />
                 </div>
             </div>
-        </div>
+            <div className="w-full py-4 flex justify-end">
+                <button
+                    disabled={loading}
+                    type="submit"
+                    className="px-4 bg-primaryMain text-base text-white py-2 hover:bg-black rounded-xl transition duration-300"
+                >
+                    {loading ? 'Updating...' : 'Save Chnages'}
+                </button>
+            </div>
+            {message && <p className="font-sansMedium text-black text-center">{message}</p>}
+        </form>
     );
 }

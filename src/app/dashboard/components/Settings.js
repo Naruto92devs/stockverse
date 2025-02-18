@@ -67,8 +67,8 @@ export default function UserSettings({settings, setSettings}) {
     if (!token || !settings || currentView === null) return null;
 
     return (
-      <div className="w-full h-full p-6 flex flex-col items-center justify-center fixed top-0 left-0 z-20 bg-black/30 backdrop-blur-sm">
-        <div className='w-full h-max xl:w-[60%] md:w-[80%] flex flex-col bg-primaryBg rounded-xl'>
+      <div className="w-full h-full p-6 flex flex-col items-center justify-center absolute top-0 left-0 bottom-0 right-0 z-20 bg-black/30 backdrop-blur-sm overflow-y-scroll scrollbar-hide">
+        <div className='w-full min-h-max xl:w-[60%] md:w-[80%] flex flex-col bg-primaryBg rounded-xl'>
           <div className='w-full flex-none border-b border-black/5 p-4 flex flex-wrap-reverse gap-4 justify-between'>
             <h1 className='font-sansMedium text-lg text-primaryTextColor'>Account Settings</h1>
             <Image onClick={() => setSettings(false)} className='cursor-pointer' width={32} height={32} src='/images/cross.svg' alt='close' />
