@@ -764,16 +764,18 @@ const Neov = ()=>{
                     <form onSubmit={handleSubscribeEmailPhone} className="space-y-4">
                       <input
                         type="email"
+                        autoComplete="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email"
                         required
-                        className="placeholder:text-[#1E1E1F] w-full p-[0.4rem] rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-500"
+                        className="placeholder:text-[#1E1E1F] w-full p-[0.4rem] rounded bg-gray-800 text-primaryTextColor border border-gray-700 focus:outline-none focus:border-blue-500"
                       />
                       <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-2">
                         <PhoneInput
                           country={"us"}
                           value={phone}
+                          autoComplete="phone"
                           onChange={(value) => setPhone(value)}
                           inputProps={{
                             id: "phone",

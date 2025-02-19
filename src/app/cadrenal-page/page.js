@@ -482,7 +482,7 @@ const Neov = ()=>{
                     STOCK INFORMATION
                     </p>
                     <div className="flex items-center gap-2 mt-12">
-                       <Image className="w-[15%]" src="/images/neov-logo.svg" alt="neov" width={52} height={52}/>
+                       <Image className="w-[15%]" src="/images/cadrenal.jpeg" alt="neov" width={52} height={52}/>
                     <div className="">
                     <p className="text-sm 2xl:text-lg font-MontserratBold">Cadrenal Therapeutics, Inc.</p>
                     <p className="flex items-center gap-2 text-xs 2xl:text-base text-[#747474]">NEOV <Image src="/images/nasdaq.svg" alt="neov" width={24} height={24}/> Nasdaq Stock Market</p>
