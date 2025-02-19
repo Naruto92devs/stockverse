@@ -44,8 +44,14 @@ export const WatchlistProvider = ({ children }) => {
                 await fetchWatchlistData(tickers);
             }
         } catch (error) {
-            console.error('Error fetching user watchlist:', error);
-            setError(true);
+            if (error.response && error.response.status === 404) {
+                console.log("Watchlist not found, removing from localStorage...");
+                localStorage.removeItem('Watchlist');
+                setWatchlist(null);
+            } else {
+                console.error('Error fetching user watchlist:', error);
+                setError(true);
+            }
         } finally {
             setLoading(false);
         }

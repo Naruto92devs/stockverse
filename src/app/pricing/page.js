@@ -16,12 +16,12 @@ export default function Membership() {
 
   const plans = {
     monthly: {
-      free: { price: "0", priceId: "", label: "FREE" },
+      free: { price: "0", priceId: "price_free", label: "FREE" },
       basic: { price: "30", priceId: "price_1QMSAIBi8ZwCbxPYXKZFxfFk", label: "BASIC" },
       premium: { price: "80", priceId: "price_1QMSALBi8ZwCbxPY90cWxOs8", label: "PREMIUM" },
     },
     yearly: {
-      free: { price: "0", priceId: "", label: "FREE" },
+      free: { price: "0", priceId: "price_free", label: "FREE" },
       basic: { price: "300", priceId: "price_1QMSAPBi8ZwCbxPY5rlGmPjA", label: "BASIC" },
       premium: { price: "960", priceId: "price_1QMSASBi8ZwCbxPY8hAWCmSn", label: "PREMIUM" },
     },

@@ -67,6 +67,7 @@ function DashboardContent() {
   // State to manage searchbar visibility
   const [isSearchBar, setIsSearchBar] = useState(false);
 
+  // First Sidebar Render conditionally
   useEffect(() => {
     // Check sessionStorage first
     const storedSidebarState = sessionStorage.getItem("sidebarHide");
@@ -90,10 +91,11 @@ function DashboardContent() {
     }
 
     setIsInitialized(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Listen for window resize and update the sidebar state dynamically
   useEffect(() => {
-    // Listen for window resize and update the sidebar state dynamically
     const handleResize = () => {
       if (sessionStorage.getItem("sidebarHide") === null) {
         const screenWidth = window.innerWidth;
@@ -124,6 +126,24 @@ function DashboardContent() {
     // Mark initialization as complete
     setIsInitialized(true);
   }, []);
+
+  // when watchlist is empty this is close automatically if it's not it will not close
+  useEffect(() => {
+    const handleResize = () => {
+      const isSmallScreen = window.innerWidth < 1024; // Check if screen is smaller than 1024px
+  
+      if (!watchlist) {
+        setWatchlistHide(!isSmallScreen); // Hide on large screens, show on small
+      } else {
+        setWatchlistHide(isSmallScreen); // Show on large screens, hide on small
+      }
+    };
+  
+    handleResize(); // Run once on mount
+    window.addEventListener("resize", handleResize); // Listen for screen resize
+  
+    return () => window.removeEventListener("resize", handleResize); // Cleanup on unmount
+  }, [watchlist]);
 
   // Function to update the Sidebar
   const toggleSidebar = () => {
@@ -175,7 +195,7 @@ function DashboardContent() {
 
   return (
     <section className={`${view === 'chart' ? 'bg-primaryBg' : ''}bg-dashboardBg w-full flex flex-col h-[100dvh] overflow-hidden relative scrollbar-hide`}>
-      {/* <LogInPopup/> */}
+      <LogInPopup/>
       {/* Nav bar start */}
       <nav className="flex-shrink-0 w-full flex items-center lg:gap-1 gap-2 bg-primaryBg p-3 border-b border-black/5">
         <div title="Toggel Sidebar" onClick={toggleSidebar} className={`flex-shrink-0 relative flex items-center justify-between transition-width duration-300 ease-in-out ${sidebarHide ? 'lg:w-[5.5rem] w-max' : 'lg:w-[15rem] w-max'}`}>
@@ -216,6 +236,7 @@ function DashboardContent() {
         </div>
       </nav>
       {/* Nav bar end */}
+      
       <div className="w-full flex-1 min-h-0 flex items-start">
         {/* side bar start */}
         <aside className={`transition-width flex-shrink-0 overflow-x-hidden py-4 flex flex-col h-full border-r border-black/5 bg-primaryBg z-10 overflow-y-scroll scrollbar-thin max-lg:absolute transition duration-300 ease-in-out ${sidebarHide ? 'w-[4rem] max-lg:w-max max-lg:translate-x-[0]' : 'lg:w-[16rem] max-lg:w-max max-lg:translate-x-[-900px]'}`}>
