@@ -83,31 +83,31 @@ export default function Membership() {
           <h2 className="lg:text-4xl text-3xl mb-4 font-sansMedium text-black">Start Smart, Stay Informed, Absolutely Free!</h2>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Access live stock market data without any cost.</p>
+            <p className="font-snasMedium text-base md:text-lg text-black">Realtime Stocks Data & Charts</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Stay updated with upcoming IPOs and newly listed companies.</p>
+            <p className="font-snasMedium text-base md:text-lg text-black">Realtime Stocks News</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Monitor up to 5 stocks to keep an eye on your favorites.</p>
+            <p className="font-snasMedium text-base md:text-lg text-black">Add Stocks to Watch List</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Receive real-time alerts for price changes on your watchlist.</p>
+            <p className="font-snasMedium text-base md:text-lg text-black">IPO Calendar</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Get personalized stock recommendations based on your portfolio.</p>
+            <p className="font-snasMedium text-base md:text-lg text-black">Full Access to StockVerse GPT</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Track historical performance of companies with interactive charts.</p>
+            <p className="font-snasMedium text-base md:text-lg text-black">StockPicks</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src={`${view === 'PREMIUM' ? '/images/green_tick.svg' : '/images/red_cross.svg'}`} alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Track historical performance of companies with interactive charts.</p>
+            <p className="font-snasMedium text-base md:text-lg text-black">Level 2 (Order Book)</p>
           </div>
         </div>
         <div className="md:w-[48%] w-full flex flex-col gap-4 bg-primaryBg p-4 rounded-xl">
