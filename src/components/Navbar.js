@@ -78,21 +78,21 @@ return (
                             </svg>
                         </span>
                         <div onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} className={`relative md:absolute md:top-[100%] md:left-0 md:p-2 py-2 mt-2 max-md:shadow-none max-md:w-full w-48 bg-primaryBg rounded-lg shadow-xl max-md:gap-y-4 max-lg:mt-0 transition duration-300 ease-in-out overflow-hidden ${isDropdownVisible ? 'md:opacity-100 visible' : 'md:opacity-0 md:invisible hidden'}`}>
-                            <Link href="/gainers&losers">
+                            <Link href="/dashboard?view=gainers_losers">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Gainers / Losers</span>
                             </Link>
-                            <Link href="/level2">
+                            <Link href="/dashboard?view=level2">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Level 2</span>
                             </Link>
-                            <Link href="/ipo-calendar">
+                            <Link href="/dashboard?view=ipo_calendar">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">IPO Calender</span>
                             </Link>
-                            <Link href="/financials">
-                                <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Financials</span>
+                            <Link href="/dashboard?view=historical">
+                                <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Historical</span>
                             </Link>
-                            <Link href="/alerts" className="">
+                            {/* <Link href="/alerts" className="">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Alerts</span>
-                            </Link>
+                            </Link> */}
                         </div>
                 </div>
                 {/* nav dropdown end*/}
@@ -100,7 +100,7 @@ return (
                 <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/cvkd' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                     Stock Picks
                 </Link>
-                <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/news' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+                <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/dashboard?view=news' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
                     News
                 </Link>
                 <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/stockverse-gpt' className="max-md:w-full flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
