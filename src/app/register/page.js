@@ -301,7 +301,7 @@ export default function Register() {
                         Sign In!
                     </Link>
                 </p>
-                {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+                {message && <p className="text-sell text-center">{message}</p>}
             </div>
 
             <div
@@ -346,7 +346,7 @@ export default function Register() {
                             {loading ? 'Verifying...' : 'Submit'}
                         </button>
                     </div>
-                    {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+                    {message && <p className="text-sell text-center">{message}</p>}
                 </form>
             </div>
         </div>

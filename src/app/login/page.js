@@ -200,7 +200,7 @@ export default function LogIn() {
             Sign up
           </Link>
         </p>
-        {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+        {error && <p className="text-sell text-center">{error}</p>}
       </div>
 
       <div
@@ -246,7 +246,7 @@ export default function LogIn() {
                   </button>
               </div>
           </form>
-          {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+          {error && <p className="text-sell text-center">{error}</p>}
       </div>
     </div>
   );

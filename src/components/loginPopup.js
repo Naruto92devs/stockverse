@@ -113,7 +113,7 @@ export default function LogInPopup() {
         <Image className='sm:hidden pt-4' src="/images/stockverseLogo.png" width={200} height={57.20} alt='Stockverse Logo' />
         <div className={`${VerifyOTP ? 'hidden' : 'visible'} flex-grow p-4 sm:gap-y-2 gap-y-3 flex flex-col items-center justify-center`}>
           <h1 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome back!</h1>
-          <p className="text-lg mb-8 max-md:mb-4 leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
+          <p className="text-lg leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
             welcome back! Please enter your details.
           </p>
           <form onSubmit={handleSubmitForm} className="w-full space-y-4">
@@ -134,10 +134,10 @@ export default function LogInPopup() {
             </div>
             <div className="w-full flex flex-col relative">
               <div className="flex justify-between items-end">
-                <label htmlFor="password" className="text-md font-sansMedium text-primaryTextColor">
+                <label htmlFor="password" className="text-base font-sansMedium text-primaryTextColor">
                   Password
                 </label>
-                <Link className="text-md font-sansMedium text-primaryTextColor underline" href='/reset_password'>Forgot your password?</Link>
+                <Link className="text-base font-sansMedium text-primaryTextColor underline" href='/reset_password'>Forgot your password?</Link>
               </div>
               <input
                 type={passwordVisible ? 'text' : 'password'}
@@ -178,27 +178,28 @@ export default function LogInPopup() {
             <button
               disabled={loading}
               type="submit"
-              className="w-full bg-primaryMain text-base text-white py-2 rounded-lg hover:bg-black transition duration-300"
+              className="w-full bg-primaryMain text-base font-sansMedium text-white py-2 rounded-lg hover:bg-black transition duration-300"
             >
               {loading ? 'Signing In...' : 'Sign In'}
             </button>
-              <Image width={452} height={20} className='w-full' src='/images/or.png' alt='logo'></Image>
+              <Image width={1356} height={60} className='w-full' src='/images/or.png' alt='logo'></Image>
             <div className="w-full flex flex-col mt-4 space-y-2">
               <a
                 href={loading ? '' : `${STOCKVERSE_BACK_END}/auth/google`} 
-                className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-lg text-primaryTextColor py-2 rounded-lg transition duration-300"
+                className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 rounded-lg transition duration-300"
               >
                 <Image width={26} height={26} src='/images/google.png' alt='logo'></Image>
                 Continue with Google
               </a>
             </div>
           </form>
-          <p className="mt-4 flex gap-x-2 text-lg font-sansRegular text-primaryTextColor">
+          <p className="flex gap-x-2 text-lg font-sansMedium text-primaryTextColor">
             Don&#39;t have an account?
-            <Link className="text-primaryMain font-sansSemibold" href='/register'>
+            <Link className="text-primaryMain font-sansMedium" href='/register'>
               Sign up
             </Link>
           </p>
+          {error && <p className="text-sell text-center mt-4">{error}</p>}
         </div>
         {/* OTP VERIFICATION POPUP */}
         <form onSubmit={handleSubmitOTP} className={`${VerifyOTP ? 'flex' : 'hidden'} flex-grow p-4 sm:gap-y-2 gap-y-3 flex flex-col items-center justify-center`}>
@@ -228,8 +229,8 @@ export default function LogInPopup() {
           >
               {loading ? 'Verifying...' : 'Submit'}
           </button>
+          {error && <p className="text-sell text-center">{error}</p>}
         </form>
-        {error && <p className="text-red-500 text-center mt-4">{error}</p>}
       </div>
     </div>
   );
