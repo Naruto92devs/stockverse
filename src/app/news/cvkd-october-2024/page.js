@@ -50,7 +50,7 @@ const Cvkd = () => {
     return (
         <>
           <div className="xl:container mx-auto sticky top-24 xl:px-10 xl:py-4 max-sm:hidden">
-                <a href="" className="font-sansMedium text-base 2xl:text-xl flex items-center w-max justify-start gap-4">
+                <a href="/dashboard?view=news" className="font-sansMedium text-base 2xl:text-xl flex items-center w-max justify-start gap-4">
                     <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M19 12H5M12 19l-7-7 7-7" />
                     </svg>

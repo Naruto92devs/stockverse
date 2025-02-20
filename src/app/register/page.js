@@ -280,24 +280,24 @@ export default function Register() {
                     <button
                         disabled={loading}
                         type="submit"
-                        className="w-full bg-primaryMain text-base text-white py-2 rounded-lg hover:bg-primaryTextColor transition duration-300"
+                        className="w-full bg-primaryMain text-base font-sansMedium text-white py-2 rounded-lg hover:bg-primaryTextColor transition duration-300"
                     >
                         {loading ? 'Signing Up...' : 'Sign Up'}
                     </button>
-                    <Image width={452} height={20} className='w-full' src='/images/or.png' alt='logo'></Image>
+                    <Image width={1356} height={60} className='w-full' src='/images/or.png' alt='logo'></Image>
                     <div className="w-full flex flex-col mt-4 space-y-2">
                         <a 
                         href={loading ? '' : `${STOCKVERSE_BACK_END}/auth/google`} 
-                        className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-lg text-primaryTextColor py-2 rounded-lg transition duration-300"
+                        className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 rounded-lg transition duration-300"
                         >
                             <Image width={26} height={26} src='/images/google.png' alt='logo'></Image>
                             Continue with Google
                         </a>
                     </div>
                 </form>
-                <p className="flex gap-x-2 text-lg font-sansRegular text-primaryTextColor">
+                <p className="flex gap-x-2 text-lg font-sansMedium text-primaryTextColor">
                     Already have an account?
-                    <Link className="text-primaryMain font-sansSemibold" href='/login'>
+                    <Link className="text-primaryMain font-sansMedium" href='/login'>
                         Sign In!
                     </Link>
                 </p>

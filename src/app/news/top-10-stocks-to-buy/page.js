@@ -50,7 +50,7 @@ const PRESSRELEASENEOV = () => {
     return (
         <>
           <div className="xl:container mx-auto sticky top-24 xl:px-10 xl:py-4 max-sm:hidden">
-                <a href="" className="font-sansMedium text-base 2xl:text-xl flex items-center w-max justify-start gap-4">
+                <a href="/dashboard?view=news" className="font-sansMedium text-base 2xl:text-xl flex items-center w-max justify-start gap-4">
                     <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M19 12H5M12 19l-7-7 7-7" />
                     </svg>
@@ -62,7 +62,7 @@ const PRESSRELEASENEOV = () => {
                 <h1 className="text-4xl 2xl:text-5xl font-sansMedium max-sm:text-[1.6rem]  text-left text-primaryText  leading-[140%] 2xl:leading-[140%]">Top 10 Stocks to Buy Now for January 2025</h1>
             </div>
             <div className="pt-8 lg:pt-4 flex flex-col sm:flex-row gap-y-6 justify-between items-start sm:items-center border-t border-[#404040]">
-                <Link href='/dashboard?view=news' className=" leading-[110%] 2xl:text-xl text-sm font-sansMedium text-[#634FF7]">Nov 21, 2024 by Stockverse</Link>
+                <Link href='/dashboard?view=news' className=" leading-[110%] 2xl:text-xl text-sm font-sansMedium text-[#634FF7]">Nov 11, 2024 by Stockverse</Link>
                 <div className="">
                     <p className="text-base  text-primaryText leading-[110%]">SHARE THIS ARTICLE</p>
                     <div className="flex flex-wrap items-center gap-2 pt-2">

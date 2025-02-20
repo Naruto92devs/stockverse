@@ -30,77 +30,94 @@ const usePageSize = () => {
 };
 
 const stockverseNews = [
+  
   {
     id: 1,
-    title: "Halozyme Therapeutics in Talks for Major Acquisition by Large Pharma Partner",
-    published_utc: "Nov 21 2024 by Rafie",
+    title: "Cadrenal Therapeutics Gears Up for the 43rd Annual J.P. Morgan Healthcare Conference Week with Event Participation and Investor/Partner Meetings",
+    published_utc: "Dec 18, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/neov",
+    article_url: "/news/cadrenal-therapeutics-jp-morgan-healthcare-conference-2024",
   },
   {
     id: 2,
-    title: "Tesla Unveils New Battery Technology with Longer Lifespan",
-    published_utc: "Nov 22 2024 by Alex",
+    title: "How One Bright Stock Couldn’t Have Planned Their Surge At A Better Time. NASDAQ: NEOV",
+    published_utc: "Dec 12, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/tesla-battery",
+    article_url: "/news/december-pick-neov",
   },
   {
     id: 3,
-    title: "Apple's Vision Pro Expected to Disrupt AR Market",
-    published_utc: "Nov 23 2024 by Emily",
+    title: "NeoVolta and Expion360 Announce LOI to Advance Battery Manufacturing and Product Design",
+    published_utc: "Dec 11, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/apple-vision-pro",
+    article_url: "/news/neovolta-expion360-loi-battery-manufacturing-design",
   },
   {
     id: 4,
-    title: "Microsoft Invests $10 Billion in AI Research Lab",
-    published_utc: "Nov 24 2024 by John",
+    title: "CADRENAL THERAPEUTICS HIGHLIGHTS PRESENTATION AT EUROPEAN ASSOCIATION FOR CARDIO-THORACIC SURGERY (EACTS) MEDICAL CONGRESS",
+    published_utc: "Nov 21, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/microsoft-ai",
+    article_url: "/news/cadrenal-therapeutics-eacts-medical-congress-presentation",
   },
   {
     id: 5,
-    title: "Amazon Expands Cloud Services with New Data Centers",
-    published_utc: "Nov 25 2024 by Lisa",
+    title: "Cadrenal Therapeutics Provides 2024 Year-End Company Update, Reinforcing Clinical Development Plan for Tecarfarin in LVAD and Other Rare Cardiovascular Indications",
+    published_utc: "Nov 21, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/aws-expansion",
+    article_url: "/news/pr",
   },
   {
     id: 6,
-    title: "Halozyme Therapeutics in Talks for Major Acquisition by Large Pharma Partner",
-    published_utc: "Nov 21 2024 by Rafie",
+    title: "NeoVolta $250M Loan Application Part One Approved by the U.S. Department of Energy Loan Program",
+    published_utc: "Nov 21, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/neov",
+    article_url: "/news/neovolta-250m-loan-us-department-energy-approval",
   },
   {
     id: 7,
-    title: "Tesla Unveils New Battery Technology with Longer Lifespan",
-    published_utc: "Nov 22 2024 by Alex",
+    title: "PONTE VEDRA BIOTECH FIRM OPENS THE NASDAQ",
+    published_utc: "Nov 21, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/tesla-battery",
+    article_url: "/news/pr2025",
   },
   {
     id: 8,
-    title: "Halozyme Therapeutics in Talks for Major Acquisition by Large Pharma Partner",
-    published_utc: "Nov 21 2024 by Rafie",
+    title: "Cadrenal Therapeutics Named Anticoagulation Therapy Company of the Year by Pharma Tech Outlook",
+    published_utc: "Nov 19, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/neov",
+    article_url: "/news/cvkd-drug-of-the-year",
   },
   {
     id: 9,
-    title: "Tesla Unveils New Battery Technology with Longer Lifespan",
-    published_utc: "Nov 22 2024 by Alex",
+    title: "NeoVolta - Small Cap Making Big Promises",
+    published_utc: "Nov 13, 2024 by Stockverse",
     image_url: "/images/news_sample.jpg",
     author: "Stockverse",
-    article_url: "/tesla-battery",
+    article_url: "/news/neov-barchat",
+  },
+  {
+    id: 10,
+    title: "Top 10 Stocks to Buy Now for January 2025",
+    published_utc: "Nov 11, 2024 by Stockverse",
+    image_url: "/images/news_sample.jpg",
+    author: "Stockverse",
+    article_url: "/news/top-10-stocks-to-buy",
+  },
+  {
+    id: 11,
+    title: "Zacks Research Sets $30 Price Target for CVKD: Best Stock For October 2024",
+    published_utc: "Oct 21, 2024 by Stockverse",
+    image_url: "/images/news_sample.jpg",
+    author: "Stockverse",
+    article_url: "/news/cvkd-october-2024",
   },
 ];
 
@@ -176,11 +193,11 @@ export default function News({symbol, updateUrl}) {
           <h1 className="pt-3 pl-3 text-xl font-sansMedium text-primaryTextColor">Hot Topics</h1>
           <div className="flex flex-col gap-4 lg:overflow-y-auto p-3 scrollbar-thin">
             {stockverseNews.map((news) => (
-              <Link key={news.id} href={news.article_url} className="flex items-start gap-3 hover:bg-gray-100 rounded-lg transition">
+              <Link key={news.id} href={news.article_url} className="flex items-center gap-3 hover:bg-gray-100 rounded-lg transition">
                 <Image className="rounded-xl" src={news.image_url} width={80} height={80} alt={news.title} />
-                <div className="">
-                  <h2 className="text-sm font-semibold text-primaryTextColor">{news.title}</h2>
-                  <p className="text-sm text-gray-500">{news.published_utc}</p>
+                <div className="flex flex-col gap-2">
+                  <h2 className="text-sm font-sansSemibold text-primaryTextColor">{news.title}</h2>
+                  <p className="text-sm font-sansMedium text-primaryTextColor/50">{news.published_utc}</p>
                 </div>
               </Link>
             ))}
