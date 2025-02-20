@@ -10,7 +10,7 @@ export const ChartDataProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [backgroundRefreshing, setBackgroundRefreshing] = useState(false); // Track background fetch state
-    const [timeframe, setTimeframe] = useState('1D'); // Default timeframe
+    const [timeframe, setTimeframe] = useState('5Y'); // Default timeframe
 
     // Function to get US Eastern Time
     const getUSEasternTime = () => {

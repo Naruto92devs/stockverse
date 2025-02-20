@@ -7,6 +7,7 @@ import Loading from '@/loaders&errors_UI/loading';
 import MainLoader from '@/loaders&errors_UI/mian_loader';
 import Logo from '@/components/Logo';
 import Image from 'next/image';
+import Link from 'next/link';
 import axios from 'axios';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -121,10 +122,10 @@ const WatchList = ({ setIsvisible }) => {
                                 </div>
                                 {PaginatedData.length > 0 && PaginatedData[CurrentPage - 1]?.map((stock, index) => (
                                     <div className='w-full pl-1 gap-2' key={`${stock.ticker}-${index}`}>
-                                        <div className='p-3 flex gap-2 items-center border-b border-black/5'>
+                                        <Link href={`/dashboard?symbol=${stock.ticker}&view=chart`} className='p-3 flex gap-2 items-center border-b border-black/5'>
                                             <Logo symbol={stock.ticker} alt={stock.name} size={300} className="w-10 h-10 rounded-lg shadow" />
                                             <h2 className='text-lg leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
-                                        </div>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>

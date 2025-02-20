@@ -416,7 +416,7 @@ function DashboardContent() {
           </div>
           {watchlist && watchlist.length > 0 && watchlist.map((stock, index) => (
             <div className='min-w-full w-max flex justify-between max-lg:gap-8 items-center p-3' key={`${stock.ticker}`}>
-              <div className='flex gap-2 items-center'>
+              <div onClick={() => updateUrl(stock.ticker, 'chart')} className='flex gap-2 items-center cursor-pointer'>
                 <Logo symbol={stock.ticker} alt={stock.name} size={300} className="w-10 h-10 rounded-lg shadow" />
                 <div className=''>
                   <h2 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
