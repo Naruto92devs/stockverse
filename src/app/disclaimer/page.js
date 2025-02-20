@@ -6,38 +6,97 @@ export default function Disclaimer() {
         <p className="text-lg font-sansMedium text-primaryText">
           Effective Date: [August, 2024]
         </p>
-        <p className="text-base text-primaryText">This website, including stockverse.ai, stockverse.io, stockverse.com, and any associated social media accounts such as Twitter (@stockverseai), is owned, operated, and edited by Relqo Media LLC, a Wyoming Limited Liability Company (“LLC”). All references to “we,” “our,” or “us” within this disclaimer refer to Relqo Media LLC.</p>
+        <p className="text-base text-primaryText">{`This website/newsletter is owned, operated, and edited by Relqo Media LLC. Any wording found in this email or disclaimer referencing "I," "we," "our," or "Relqo Media" refers to Relqo Media LLC. This webpage/newsletter is a paid advertisement, not a recommendation or an offer to buy or sell securities. Our business model is to be financially compensated to market and promote small public companies. By reading our newsletter and our website, you agree to the terms of our disclaimer, which are subject to change at any time.`}</p>
+        <p className="text-base text-primaryText">We are not registered or licensed in any jurisdiction to provide investing advice or any advisory or consultancy services, and are therefore unqualified to give investment recommendations. Always conduct your own research and consult with a licensed investment professional before investing. This communication is never to be used as the basis for making investment decisions and is for entertainment purposes only. At most, this communication should serve as a starting point to conduct your own research and consult with a licensed professional regarding the companies profiled and discussed.</p>
+        <p className="text-base text-primaryText">Conduct your own research. Companies with a low price per share are speculative and carry a high degree of risk, so only invest what you can afford to lose. By using our service, you agree not to hold our site, its editors, owners, or staff liable for any damages, financial or otherwise, that may occur due to any action you may take based on the information contained within our newsletters or on our website.</p>
+        <p className="text-base text-primaryText">We do not advise any reader to take any specific action. Losses can be larger than expected if the company experiences issues with liquidity or wide spreads. Our website and newsletter are for entertainment purposes only. Never invest purely based on our alerts. Gains mentioned in our newsletter and on our website may be based on end-of-day or intraday data.</p>
+        <p className="text-base text-primaryText">{`This publication, its owners, and affiliates may hold positions in the securities mentioned in our alerts, which we may sell at any time without notice to our subscribers, potentially impacting share prices. If we own any shares, we will list the relevant stock information and the number of shares here. Relqo Media LLC's business model is to receive financial compensation to promote public companies.`}</p>
+
         <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Purpose</h2>
         <p className="text-base text-primaryText">These websites, social media accounts, and all associated content are provided for informational and entertainment purposes only. Relqo Media LLC engages in marketing, advertising, and brand awareness for small-cap public companies. The content, including articles, emails, tweets, and other communications across our platforms, is classified as paid advertisements and should not be considered an offer, recommendation, or solicitation to buy or sell securities. Readers and users should not rely on the information provided as a basis for making investment decisions.</p>
         <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Compensation Disclosure</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC is compensated for its promotional services, and this compensation may include cash payments, stock options, or other financial consideration from the companies we feature. The compensation received directly impacts the content presented on our platforms and creates a significant conflict of interest.</p>
+        <p className="text-base text-primaryText">Relqo Media LLC is compensated for its promotional services by Penzance LLC, and this compensation may include cash payments, stock options, or other financial consideration from the companies we feature. The compensation received directly impacts the content presented on our platforms and creates a significant conflict of interest.</p>
         <p className="text-base text-primaryText"><span className="font-sansSemibold">SRM Entertainment:</span> Relqo Media LLC has been compensated up to $250,000 to conduct a marketing campaign for SRM Entertainment between March and October 2024.</p>
-        <p className="text-base text-primaryText"><span className="font-sansSemibold">Cadrenal Therapeutics:</span> Relqo Media LLC has been compensated $50,000 per week since August 8, 2024, to run a 150-day marketing campaign for Cadrenal Therapeutics. This payment will continue until January 1st , 2024, bringing the total compensation to $500,000.</p>
-        <p className="text-base text-primaryText"><span className="font-sansSemibold">NeoVolta Inc:</span> Relqo Media LLC Has been compensated $400,000 USD  Starting 11/11/2024 to run a 60 day marketing campaign for Neovolta Inc. Relqo Media LLC owns 0 shares and does not plan to purchase or sell during this campaign. </p>
-        <p className="text-base text-primaryText">These compensation agreements are facilitated through Penzance LLC, which provides financial consideration for marketing these securities. Relqo Media LLC reserves the right to sell any of the securities mentioned at any time, potentially influencing the stock price. Given this conflict of interest, all content should be viewed as commercial advertisement and not unbiased analysis.</p>
+        <p className="text-base text-primaryText"><span className="font-sansSemibold">Cadrenal Therapeutics:</span> Relqo Media LLC has been compensated $30,000 per week since August 8, 2024, to run a marketing campaign for Cadrenal Therapeutics. This payment will continue until April 1, 2025, bringing the total compensation to seven hundred eighty thousand dollars.</p>
+        <p className="text-base text-primaryText"><span className="font-sansSemibold">NeoVolta Inc:</span> Relqo Media LLC has been compensated four hundred thousand dollars starting November 11, 2024, to run a marketing campaign for NeoVolta Inc. This payment will continue until March 31, 2025. Compensation represents a major conflict of interest in our ability to remain unbiased. Therefore, this communication should be viewed as a commercial advertisement only.</p>
+        <p className="text-base text-primaryText">We have not investigated the background of the hiring third party or parties. The third party, profiled company, or their affiliates may wish to liquidate shares of the profiled company at or near the time you receive this communication, which could negatively impact share prices. Any non-compensated alerts are purely for the purpose of expanding our database for future financially compensated investor relations efforts. Frequently, companies profiled in our alerts may experience a significant increase in volume and share price during investor relations marketing, which may decline as soon as the marketing ceases.</p>
+        <p className="text-base text-primaryText">Our emails may contain forward-looking statements, which are not guaranteed to materialize due to a variety of factors. We do not guarantee the timeliness, accuracy, or completeness of the information on our site or in our newsletters. The information in our email newsletters and on our website is believed to be accurate and correct but has not been independently verified and is not guaranteed.</p>
+        <p className="text-base text-primaryText">The information is collected from public sources, such as the profiled company’s website and press releases, but is not researched or verified in any way to ensure its accuracy. Furthermore, Relqo Media often employs independent contractor writers who may make errors when researching information and preparing these communications regarding profiled companies. While independent {`writers' `} works are reviewed and edited before publication, errors or omissions may occur. You should assume all information in our communications is incorrect until you verify it yourself and are encouraged never to invest based solely on the information contained in our communications.</p>
+        <p className="text-base text-primaryText">The information in this disclaimer is subject to change at any time without notice.</p>
         
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">No Investment Advice</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC, its officers, employees, and affiliates, are not registered investment advisors or brokers and are not licensed to provide financial, investment, legal, or tax advice. The information provided is strictly for informational purposes and should not be interpreted as personalized investment advice. Always consult a licensed professional for any financial or investment-related decisions.</p>
-        <p className="text-base text-primaryText">Investors should be aware that investing in stocks, especially penny stocks, is highly speculative and involves substantial risk, including the potential loss of some or all of your investment. Do not Buy or sell based off this page. </p>
+        <h1 className="text-3xl font-sansSemibold text-primaryText mt-16">Stockverse Legal Disclaimer</h1>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Earnings & Performance Disclaimer</h2>
+        <p className="text-base text-primaryText">Stockverse provides stock market data, research tools, AI-generated insights, and other financial information strictly for educational and informational purposes.</p>
         
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Risk Acknowledgment</h2>
-        <p className="text-base text-primaryText">The content featured on these platforms involves high-risk securities, including penny stocks. These securities may be volatile and illiquid, making it difficult to buy or sell positions. The possibility exists that you may lose some or all of your investment, and you should only invest funds you can afford to lose. Past performance is not indicative of future results, and individual results may vary significantly.</p>
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">No Guarantee of Future Performance</h2>
+        <p className="text-base text-primaryText">The past performance of any stock, security, or investment strategy does not guarantee future results. Stock markets are inherently volatile, and returns are unpredictable.</p>
         
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Forward-Looking Statements</h2>
-        <p className="text-base text-primaryText">Certain statements on our websites, social media accounts, and communications may contain forward-looking statements based on current expectations, estimates, and projections. These statements may involve risks, uncertainties, and assumptions that could cause actual results to differ materially from those expressed or implied. Relqo Media LLC undertakes no obligation to update or revise any forward-looking statements after their publication, even if new information or future events make these statements inaccurate or outdated.</p>
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Investment Risks</h2>
+        <p className="text-base text-primaryText">Investing in stocks, securities, and financial markets carries substantial risk, including the risk of total loss of capital. Users should perform independent due diligence before making investment decisions.</p>
         
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Jurisdiction and Governing Law</h2>
-        <p className="text-base text-primaryText">This disclaimer, along with any disputes arising from its content or use of our websites and social media platforms, shall be governed by the laws of the State of Wyoming, without regard to conflict of law principles. All legal actions arising out of or connected with this disclaimer must be brought exclusively in Wyoming state or federal courts.</p>
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">No Financial Advice</h2>
+        <p className="text-base text-primaryText">Stockverse does not provide financial, investment, tax, or legal advice. Any information, data, or AI-generated insights should not be considered personalized financial advice. Users should consult a licensed financial professional before making any trading or investment decisions.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">AI & Data Disclaimer</h2>
+        <p className="text-base text-primaryText">Stockverse integrates artificial intelligence (AI) technology (Stockverse GPT) and third-party financial data providers to generate stock insights and market analysis.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">AI Limitations & Potential Errors</h2>
+        <p className="text-base text-primaryText">Stockverse GPT is powered by OpenAI and third-party data sources. While it provides AI-driven stock analysis, it can generate inaccurate, outdated, or misleading information. AI predictions and insights are not a substitute for professional financial analysis.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Delayed & Inaccurate Data</h2>
+        <p className="text-base text-primaryText">Stock market data displayed on Stockverse may be delayed, incomplete, or inaccurate due to exchange rules, provider limitations, or data outages. Stockverse does not guarantee the accuracy, reliability, or completeness of any financial data provided.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">User Responsibility</h2>
+        <p className="text-base text-primaryText">Users acknowledge that Stockverse GPT and AI-generated insights should not be relied upon for making investment decisions. All trading and financial actions are taken at the {`user's sole`} discretion and risk.</p>
+
         <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Limitation of Liability</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC, its officers, directors, employees, and affiliates shall not be held liable for any direct, indirect, incidental, special, or consequential damages arising from the use or inability to use the content provided on these platforms. This includes, but is not limited to, trading losses, lost profits, and damages resulting from inaccuracies, omissions, or misinterpretations of the information provided.</p>
-        <p className="text-base text-primaryText">While we make every effort to ensure the accuracy of the information provided, Relqo Media LLC cannot guarantee that the information is free from errors or omissions. We strongly encourage all users to conduct their own research and consult with licensed professionals before making any investment decisions.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Third-Party Links and Content</h2>
-        <p className="text-base text-primaryText">These platforms may contain links to external websites, articles, and other third-party content. Relqo Media LLC does not endorse, control, or verify the accuracy or reliability of any third-party content, and the inclusion of such links does not imply any form of association or endorsement. Users access these links at their own risk.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">User Consent</h2>
-        <p className="text-base text-primaryText">By accessing and using stockverse.ai, stockverse.io, stockverse.com, or any associated social media platforms, users acknowledge that they have read, understood, and agree to be bound by the terms and conditions set forth in this disclaimer. If you do not agree to these terms, you must discontinue use of the platforms immediately.</p>
-        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Changes to Disclaimer</h2>
-        <p className="text-base text-primaryText">Relqo Media LLC reserves the right to amend or modify this disclaimer at any time, without prior notice. Any changes will be effective immediately upon posting to the websites or social media platforms. Users are responsible for periodically reviewing the disclaimer for updates, and continued use of the platforms constitutes acceptance of any changes.</p>
-        <p className="text-base text-primaryText">The information provided in this content, including but not limited to references to Cadrenal Therapeutics (CVKD), Tecarfarin, clinical trials, market projections, and FDA approvals, is for informational purposes only. Relqo Media LLC, the owner and operator of Stockverse.com, does not guarantee the accuracy, completeness, or reliability of the information provided.</p>
+        <p className="text-base text-primaryText">By using Stockverse, you acknowledge and agree that:</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">No Liability for Financial Losses</h2>
+        <p className="text-base text-primaryText">Stockverse, its owners, affiliates, partners, and employees shall not be liable for any direct, indirect, incidental, consequential, or financial losses incurred due to reliance on data, AI-generated insights, stock recommendations, or market trends displayed on this platform.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">No Warranties</h2>
+        <p className="text-base text-primaryText">{`Stockverse makes no warranties or representations, express or implied, regarding the accuracy, reliability, or completeness of any content provided. All information is provided "as is" and "as available."`}</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Third-Party Data & External Links</h2>
+        <p className="text-base text-primaryText">Stockverse may link to third-party content, stock exchanges, brokers, or news sources. We do not endorse, control, or assume responsibility for the accuracy or reliability of external websites or third-party data feeds.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Use at Your Own Risk</h2>
+        <p className="text-base text-primaryText">By using Stockverse, you acknowledge that all investment decisions are made solely at your own risk, and you release Stockverse from any and all liability associated with financial losses.</p>
+
+        <h1 className="text-3xl font-sansSemibold text-primaryText mt-16">Governing Law & Dispute Resolution</h1>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Jurisdiction & Applicable Law</h2>
+        <p className="text-base text-primaryText">This Agreement and any disputes arising out of or relating to Stockverse shall be governed by and construed under the laws of the State of Wyoming, without regard to conflict of law principles.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Binding Arbitration</h2>
+        <p className="text-base text-primaryText">Any disputes, claims, or controversies arising out of or related to the use of Stockverse shall be exclusively resolved through binding arbitration in Wyoming, in accordance with the rules of the American Arbitration Association (AAA).</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Waiver of Class Action & Jury Trial</h2>
+        <p className="text-base text-primaryText">By using Stockverse, you agree to waive any right to participate in a class action lawsuit or jury trial against Stockverse, its owners, affiliates, and representatives.</p>
+
+        <h1 className="text-3xl font-sansSemibold text-primaryText mt-16">Intellectual Property Rights</h1>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Ownership of Content</h2>
+        <p className="text-base text-primaryText">All content, design elements, trademarks, stock analysis, AI-generated insights, and proprietary data displayed on Stockverse are owned by Stockverse Holdings LLC and protected under U.S. and international copyright and intellectual property laws.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Restrictions on Use</h2>
+        <p className="text-base text-primaryText">Users may not copy, modify, distribute, sell, or republish any Stockverse content, AI-generated insights, or proprietary tools without explicit written permission from Stockverse Holdings LLC.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">AI-Generated Content & Licensing</h2>
+        <p className="text-base text-primaryText">AI-generated insights, trade signals, and stock analysis provided by Stockverse GPT are proprietary and cannot be resold, republished, or distributed for commercial use without express authorization.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">DMCA & Copyright Violations</h2>
+        <p className="text-base text-primaryText">Any unauthorized reproduction or use of Stockverse content may result in legal action under the Digital Millennium Copyright Act (DMCA) or applicable intellectual property laws.</p>
+
+        <h2 className="mt-8 text-primaryText text-xl font-sansSemibold">Acceptance of Terms</h2>
+        <p className="text-base text-primaryText">By accessing and using Stockverse, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, you must discontinue use of this platform immediately.</p>
+
+        <p className="text-base text-primaryText">For any legal inquiries or compliance concerns, please contact:</p>
+        
+        <a className="text-base text-[#190DF4] hover:underline" href="mailto:📧 support@stockverse.com">📧 support@stockverse.com</a>
+        <a className="text-base text-[#190DF4] hover:underline" href="https://stockverse.com">🌐 Stockverse.com</a>
       </div>
     </div>
   );
