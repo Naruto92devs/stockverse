@@ -134,8 +134,10 @@ function DashboardContent() {
   
       if (!watchlist) {
         setWatchlistHide(!isSmallScreen); // Hide on large screens, show on small
-      } else {
+      } else if (watchlist && !isSmallScreen) {
         setWatchlistHide(isSmallScreen); // Show on large screens, hide on small
+      } else if (watchlist && isSmallScreen) {
+        setWatchlistHide(!isSmallScreen);
       }
     };
   
