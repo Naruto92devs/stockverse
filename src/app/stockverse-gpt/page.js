@@ -56,6 +56,7 @@ export default function Stockverse_GPT() {
         }
     
         return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [responseloading]);
 
     useEffect(() => {
@@ -94,6 +95,7 @@ export default function Stockverse_GPT() {
                 fetchChatHistory();
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]); // Run only once on mount
 
     // UseEffect to run fetchChatHistory only when userid is set
@@ -101,6 +103,7 @@ export default function Stockverse_GPT() {
         if (userid) {
             fetchChatHistory();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
 
     // UseEffect to Create chatId automatically
@@ -121,6 +124,7 @@ export default function Stockverse_GPT() {
         } else {
             setLoading(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userid]);  // Dependency array with userid ensures it runs only after userid is set
 
     useEffect(() => {

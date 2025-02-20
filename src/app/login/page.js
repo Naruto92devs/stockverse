@@ -88,7 +88,7 @@ export default function LogIn() {
                 Cookies.set('authToken', authToken, { expires: 6 / 24 });
             }
             // Redirect to dashboard after successful login
-            router.push('/');
+            router.push('/dashboard');
             // setError(data.message);
             // setLoading(false);
             // router.push('/login');

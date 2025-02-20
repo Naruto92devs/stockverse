@@ -29,7 +29,7 @@ export default function Register() {
     useEffect(() => {
         const token = Cookies.get('authToken');
         if (token) {
-            router.push('/');
+            router.push('/dashboard');
         }
     }, [router]);
 
@@ -109,7 +109,7 @@ export default function Register() {
                     Cookies.set('authToken', authToken, { expires: 6 / 24 });
                 }
                 // Redirect to dashboard after successful login
-                router.push('/');
+                router.push('/dashboard');
                 // setMessage(data.message);
                 // setLoading(false);
                 // router.push('/login');
@@ -282,7 +282,7 @@ export default function Register() {
                         type="submit"
                         className="w-full bg-primaryMain text-base text-white py-2 rounded-lg hover:bg-primaryTextColor transition duration-300"
                     >
-                        {loading ? 'Signning Up...' : 'Sign Up'}
+                        {loading ? 'Signing Up...' : 'Sign Up'}
                     </button>
                     <Image width={452} height={20} className='w-full' src='/images/or.png' alt='logo'></Image>
                     <div className="w-full flex flex-col mt-4 space-y-2">

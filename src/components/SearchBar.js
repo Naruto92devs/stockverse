@@ -163,7 +163,7 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
 
     const handleSubmitHistory = async (symbol) => {
         try {
-            const response = await axios.post('http://localhost:4848/search-history', {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/search-history`, {
                 symbol,
             }, {
                 withCredentials: true,
