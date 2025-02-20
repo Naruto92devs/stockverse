@@ -88,7 +88,7 @@ export const TickerDetailsProvider = ({ children }) => {
                 todaysChangePerc: snapshotData?.todaysChangePerc ? snapshotData.todaysChangePerc.toFixed(2) : 'N/A',
                 todaysChange: snapshotData?.todaysChange ? snapshotData?.todaysChange.toFixed(2) : 'N/A',
                 closePrice: snapshotData?.prevDay?.c ? `$${snapshotData?.prevDay.c}` : 'N/A',
-                volume: snapshotData?.prevDay?.v ? `$${formatNumber(snapshotData?.prevDay.v)}` : "N/A",
+                volume: snapshotData?.prevDay?.v ? formatNumber(snapshotData?.prevDay.v) : "N/A",
                 name: referenceData?.name || 'Undefined',
                 type: referenceData?.type ? getTypeDescription(referenceData?.type) : 'Undefined',
                 market_cap: referenceData?.market_cap ? `$${formatNumber(referenceData?.market_cap)}` : 'N/A',

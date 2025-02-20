@@ -125,7 +125,7 @@ const Historical = ({ symbol }) => {
                                         <div className={`text-base font-sansMedium ${data.percentageChange >= 0 ? 'text-buy' : 'text-sell'}`}>{data.percentageChange.toFixed(2)}%</div>
                                     </div>
                                     <div className='flex items-center justify-between gap-8'>
-                                        <div className='text-base text-primaryTextColor font-sansMedium'>Change</div>
+                                        <div className='text-base text-primaryTextColor font-sansMedium'>Volume</div>
                                         <div>{formatNumber(data.volume)}</div>
                                     </div>
 
