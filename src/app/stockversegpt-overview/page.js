@@ -4,7 +4,7 @@ import Image from "next/image";
 const Gptoverview = ()=>{
     return(
         <>
-          <section className="py-4 overview-bg min-h-[100lvh]">
+          <section className="max-lg:py-4 overview-bg flex-grow">
             <div className="flex md:flex-row flex-col-reverse items-center justify-between w-full xl:container mx-auto">
               <div className="md:w-[48%] max-md:px-6 w-full flex flex-col gap-4">
                   <p className="w-max bg-[#ffffff1c] text-[#fff] text-sansRegular text-lg px-4 py-2 rounded-lg flex items-center gap-3 mb-4">
@@ -16,15 +16,15 @@ const Gptoverview = ()=>{
                   </p>
                   <h1 className="text-[#FFF] 2xl:text-6xl text-6xl font-sansMedium"><span className="overview-gradient w-max">Stockverse </span>GPT</h1>
                   <p className="text-lg font-sansRegular text-[#fff]">We have developed a model named Stockverse GPT that engages in interactive conversations.</p>
-                  <p className="text-lg font-sansRegular text-[#fff]">Its dialogue-based approach allows Stockverse GPT to address follow-up questions, acknowledge its errors, challenge flawed assumptions, and decline unsuitable requests.</p>
+                  <p className="text-lg font-sansRegular text-[#fff]">Stockverse GPT gives you real-time insights, technical analysis, and AI-powered predictions in seconds—no experience required.</p>
                   <div className="flex items-center gap-4">
-                    <Link href="/stockverse-gpt" className="bg-[#ffffff] hover:bg-[#ffffff]/90 transition-all transition-700 text-[#111111] font-sansMedium text-lg px-3 py-2 rounded-lg flex items-center gap-2">
-                      Try Stockverse GPT
+                    <Link href="/register" className="bg-[#ffffff] hover:bg-[#ffffff]/90 transition-all transition-700 text-[#111111] font-sansMedium text-lg px-3 py-2 rounded-lg flex items-center gap-2">
+                      Sign Up & Try Now
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4.33317 0.166504C3.87293 0.166504 3.49984 0.5396 3.49984 0.999837C3.49984 1.46007 3.87293 1.83317 4.33317 1.83317H8.98799L0.410582 10.4106C0.0851447 10.736 0.0851447 11.2637 0.410582 11.5891C0.736018 11.9145 1.26366 11.9145 1.58909 11.5891L10.1665 3.01168V7.6665C10.1665 8.12674 10.5396 8.49984 10.9998 8.49984C11.4601 8.49984 11.8332 8.12674 11.8332 7.6665V0.999837C11.8332 0.5396 11.4601 0.166504 10.9998 0.166504H4.33317Z" fill="black"/>
                       </svg>
                     </Link>
-                    <Link className="w-max bg-[#ffffff1c] text-[#fff] font-sansMedium text-lg px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#111111] transition-all transition-700" href="">Learn More</Link>
+                    <Link className="w-max bg-[#ffffff1c] text-[#fff] font-sansMedium text-lg px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#111111] transition-all transition-700" href="/stockverse-gpt">Sign In</Link>
                   </div>
               </div>
               <div className="md:w-[48%] max-md:px-6 w-[60%]">
