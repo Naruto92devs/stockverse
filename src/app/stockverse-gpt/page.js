@@ -581,10 +581,10 @@ export default function Stockverse_GPT() {
                     <h1 className='text-primaryTextColor/50 text-4xl max-lg:text-xl font-sansMedium'>Hi, {userInfo? userInfo.fullname : ''} </h1>
                     <h1 className='text-primaryTextColor text-5xl max-lg:text-3xl font-sansMedium'>What would you like to know?</h1>
                     <div className='w-full flex flex-wrap md:gap-4 max-md:gap-y-4 md:justify-center justify-between pt-12'>
-                        <div onClick={() => handleSubmitCommand(null, "What are the top stocks of the day?")} 
+                        <div onClick={() => handleSubmitCommand(null, "What are the top AI stocks to watch in 2025 for massive growth?")} 
                         className='flex flex-col gap-2 cursor-pointer w-56 max-md:w-[48%] py-4 px-4 rounded-lg bg-primaryBg shadow'>
                             <Image className='w-7 h-7' width={64} height={64} src='/images/world_logo.png' alt='logo'/>
-                            <p className='font-sansMedium text-sm'>What are the top stocks of the day?</p>
+                            <p className='font-sansMedium text-sm'>What are the top AI stocks to watch in 2025 for massive growth?</p>
                         </div>
                         <div onClick={() => handleSubmitCommand(null, "What are the key factors that affects the stock markets?")} 
                         className='flex flex-col gap-2 cursor-pointer w-56 max-md:w-[48%] py-4 px-4 rounded-lg bg-primaryBg shadow'>
