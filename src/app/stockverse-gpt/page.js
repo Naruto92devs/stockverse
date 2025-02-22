@@ -545,7 +545,7 @@ export default function Stockverse_GPT() {
                         </svg>
                         Dashboard
                     </a>
-                    <User/>
+                    <User settings={settings} setSettings={setSettings}/>
                 </div>
                 {/* Chat Navbar end */}
 

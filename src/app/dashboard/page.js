@@ -23,6 +23,7 @@ import MainLoader from "@/loaders&errors_UI/mian_loader";
 import Logo from '@/components/Logo';
 import axios from 'axios';
 import LogInPopup from "@/components/loginPopup";
+import NewsLetterPopup from "@/components/NewsLetterPopup";
 // import CandlestickChart from "./components/CandlestickChart";
 // import dynamic from 'next/dynamic';
 
@@ -48,6 +49,7 @@ function DashboardContent() {
   const router = useRouter();
   const { setSymbol } = useSymbol();
   const [settings, setSettings] = useState(false);
+  const [newsletter, setNewsletter] = useState(false);
 
   // Get query parameters directly from useSearchParams
   const symbol = searchParams.get('symbol') || 'AAPL';
@@ -227,14 +229,14 @@ function DashboardContent() {
         <Link href='/cvkd' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
           Stock Picks
         </Link>
-        <Link href='' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
+        <Link href='' onClick={() => setNewsletter(true)} className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
           Newsletter
         </Link>
         <Link href='/pricing' className="max-lg:hidden flex flex-col items-start px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
           Pricing
         </Link>
         <div className="ml-auto">
-          <ProfileLogo />
+          <ProfileLogo settings={settings} setSettings={setSettings} />
         </div>
       </nav>
       {/* Nav bar end */}
@@ -357,6 +359,7 @@ function DashboardContent() {
         {/* side bar end */}
 
         <UserSettings settings={settings} setSettings={setSettings}/>
+        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
 
         {/* Dashboard Area */}
         <div className="relative flex flex-col items-center flex-grow max-w-full h-full overflow-y-scroll scrollbar-thin">

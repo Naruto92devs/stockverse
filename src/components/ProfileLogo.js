@@ -2,7 +2,7 @@
 
 import { useUser } from '../context/UserContext';
 
-export default function User() {
+export default function User({settings, setSettings}) {
     const { user, loading } = useUser();
 
     // Function to extract initials
@@ -21,7 +21,7 @@ export default function User() {
 
     return (
         <div className="flex flex-col relative">
-            <div className="flex items-center gap-2">
+            <div onClick={() => setSettings(true)} className="cursor-pointer flex items-center gap-2">
                 <p className="max-md:hidden text-sm px-4 py-2 bg-primaryMain/10 rounded-lg font-sansMedium">
                     {user.fullname.trim().split(' ').slice(0, 2).join(' ')}
                 </p>
