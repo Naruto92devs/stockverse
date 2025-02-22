@@ -280,7 +280,8 @@ export default function Stockverse_GPT() {
 
     const typeAnswer = (chatId, fullText) => {
         let index = 0;
-        const speed = 20; // Typing speed in milliseconds
+        const speed = 10; // Faster interval
+        const step = 6; // Number of characters added per interval
     
         setChatCanvas((prevChatCanvas) =>
             prevChatCanvas.map((chat) =>
@@ -288,6 +289,31 @@ export default function Stockverse_GPT() {
             )
         );
     
+        // const interval = setInterval(() => {
+        //     setChatCanvas((prevChatCanvas) => {
+        //         const updatedCanvas = prevChatCanvas.map((chat) =>
+        //             chat.id === chatId
+        //                 ? { ...chat, answer: fullText.substring(0, index) }
+        //                 : chat
+        //         );
+    
+        //         sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
+    
+        //         // Scroll to the bottom during typing
+        //         if (chatCanvasRef.current) {
+        //             chatCanvasRef.current.scrollTop = chatCanvasRef.current.scrollHeight;
+        //         }
+    
+        //         return updatedCanvas;
+        //     });
+    
+        //     if (index >= fullText.length) {
+        //         clearInterval(interval);
+        //     } else {
+        //         index++;
+        //     }
+        // }, speed);
+
         const interval = setInterval(() => {
             setChatCanvas((prevChatCanvas) => {
                 const updatedCanvas = prevChatCanvas.map((chat) =>
@@ -295,24 +321,24 @@ export default function Stockverse_GPT() {
                         ? { ...chat, answer: fullText.substring(0, index) }
                         : chat
                 );
-    
+
                 sessionStorage.setItem('chatCanvas', JSON.stringify(updatedCanvas));
-    
-                // Scroll to the bottom during typing
+
                 if (chatCanvasRef.current) {
                     chatCanvasRef.current.scrollTop = chatCanvasRef.current.scrollHeight;
                 }
-    
+
                 return updatedCanvas;
             });
-    
+
             if (index >= fullText.length) {
                 clearInterval(interval);
             } else {
-                index++;
+                index += step; // Increase by more characters per step
             }
         }, speed);
     };
+
     const ConversationIdHistory = async (chatId) => {
     
         try {
@@ -710,26 +736,6 @@ export default function Stockverse_GPT() {
                 )}
             </div>
             {/* Chat canvas end */}
-
-            {/* IsLogin popup start*/}
-            {/* <div className={`${isLogin ? 'visible' : 'hidden'} fixed z-50 shadow-lg top-0 left-0 bottom-0 right-0 bg-primaryText/70 flex items-center justify-center`}>
-                <div className='max-w-[90%] w-max p-8 rounded-lg bg-background text-center flex flex-col items-center gap-4'>
-                    <p className="text-lg text-primaryText text-center">Please Login / Create Free Account to Use StockverseGPT</p>
-                    <div className="flex gap-4 flex-wrap">
-                        <Link href='/login'
-                            className="w-max bg-sell text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
-                        >
-                            Login / Create Free Account
-                        </Link>
-                        <Link href='/'
-                        className="w-max bg-buy text-base text-primaryButtonText py-2 px-8 hover:bg-secondaryHeading hover:text-mobNavLink transition duration-300"
-                        >
-                            Go to DashBoard
-                        </Link>
-                    </div>
-                </div>
-            </div> */}
-            {/* IsLogin popup end*/}
             
         </section>
     );
