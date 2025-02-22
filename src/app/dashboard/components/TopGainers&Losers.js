@@ -1,11 +1,16 @@
 'use client';
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useGainersLosers } from '@/context/GainersLosersContext';
+import { useWatchlist } from '@/context/WatchlistContext';
 import DataNotAvailable from '@/loaders&errors_UI/dataUnavailable';
 import RequestError from '@/loaders&errors_UI/requestError';
 import Loading from '@/loaders&errors_UI/loading';
 import MainLoader from '@/loaders&errors_UI/mian_loader';
 import Logo from '@/components/Logo';
+import Link from 'next/link';
+import axios from "axios";
+
+const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 const usePageSize = () => {
     const [pageSize, setPageSize] = useState(10);
@@ -32,6 +37,7 @@ const usePageSize = () => {
 };
 
 const TopGainersLosers = () => {
+    const { watchlist, fetchWatchlist } = useWatchlist();
     const { gainers, losers, loading, error } = useGainersLosers();
     const [gainersCurrentPage, setGainersCurrentPage] = useState(1);
     const [losersCurrentPage, setLosersCurrentPage] = useState(1);
@@ -109,6 +115,26 @@ const TopGainersLosers = () => {
         }
     };
 
+    const handleSubmitWatchList = async (symbol) => {
+        try {
+            const response = await axios.post(`${STOCKVERSE_BACK_END}/watchlist`, {
+                symbol,
+            }, {
+                withCredentials: true,
+            });
+    
+            const data = response.data;
+            console.log(data);
+            if (response.status === 207) {
+                fetchWatchlist();
+            } else if (response.status === 200) {
+                fetchWatchlist();
+            }
+        } catch (error) {
+            console.error('Error during watchlist submission:', error);
+        }
+    };
+
     if (!gainers && loading) {
         return <MainLoader Zindex={10} />; // Handle loading state
     }
@@ -129,13 +155,13 @@ const TopGainersLosers = () => {
                         <div className=' w-full mt-4 bg-primaryBg py-4 rounded-xl'>
                             <div className='flex w-full overflow-auto scrollbar-thin'>
                                 {/* Stocks Name Column */}
-                                <div className='flex flex-col items-center h-max w-[40%] min-w-max'>
+                                <div className='flex flex-col items-center h-max w-[30%] min-w-max'>
                                     <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         Stocks
                                     </div>
                                     {gainersPaginatedData.length > 0 && gainersPaginatedData[gainersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full pl-1 gap-2' key={`${stock.ticker}-${index}`}>
-                                            <div className='p-3 flex gap-2 items-center border-b border-black/5'>
+                                            <Link href={`/dashboard?symbol=${stock.ticker}&view=chart`} className='p-3 flex gap-2 items-center border-b border-black/5'>
                                                 <Logo symbol={stock.ticker} alt={stock.name} size={300} className="w-12 h-12 rounded-lg shadow" />
                                                 <div className=''>
                                                     <h2 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
@@ -143,7 +169,7 @@ const TopGainersLosers = () => {
                                                         {stock.name ? (stock.name.includes(" ") ? stock.name.split(" ")[0] : stock.name) : "Undefined"}
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         </div>
                                     ))}
                                 </div>
@@ -189,6 +215,33 @@ const TopGainersLosers = () => {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+
+                                {/* Watch Stock Column */}
+                                <div className='flex flex-col items-center h-max w-[10%] min-w-max'>
+                                    <div className='w-full text-center font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    Watch
+                                    </div>
+                                    {gainersPaginatedData.length > 0 && gainersPaginatedData[gainersCurrentPage - 1]?.map((stock, index) => {
+                                        const isInWatchlist = watchlist?.some((item) => item.ticker === stock.ticker);
+                                        return (
+                                            <div className='w-full flex flex-col items-center px-3 py-5 border-b border-black/5' key={`${stock.ticker}-${index}`}>
+                                                <svg 
+                                                    onClick={() => handleSubmitWatchList(stock.ticker)} 
+                                                    className='w-8 h-8 cursor-pointer'
+                                                    width="22" height="22" viewBox="0 0 16 16" 
+                                                    fill={isInWatchlist ? '#634FF7' : 'none'} 
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path 
+                                                        d="M9.33353 13.9997H6.66687M1.52943 3.8796C1.51986 2.91204 2.04152 2.00851 2.88423 1.53301M14.4683 3.87961C14.4779 2.91204 13.9562 2.00851 13.1135 1.53301M12.0002 5.33301C12.0002 4.27214 11.5788 3.25473 10.8286 2.50458C10.0785 1.75444 9.06106 1.33301 8.0002 1.33301C6.93933 1.33301 5.92192 1.75444 5.17177 2.50458C4.42163 3.25473 4.0002 4.27214 4.0002 5.33301C4.0002 7.39313 3.48051 8.80365 2.89998 9.73662C2.41028 10.5236 2.16544 10.9171 2.17442 11.0268C2.18436 11.1484 2.21011 11.1947 2.30805 11.2674C2.3965 11.333 2.79526 11.333 3.59277 11.333H12.4076C13.2051 11.333 13.6039 11.333 13.6923 11.2674C13.7903 11.1947 13.816 11.1484 13.826 11.0268C13.835 10.9171 13.5901 10.5236 13.1004 9.73662C12.5199 8.80365 12.0002 7.39313 12.0002 5.33301Z" 
+                                                        stroke={isInWatchlist ? '#634FF7' : 'black'} 
+                                                        strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" 
+                                                    />
+                                                </svg>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
 
@@ -247,7 +300,7 @@ const TopGainersLosers = () => {
                                     </div>
                                     {losersPaginatedData.length > 0 && losersPaginatedData[losersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full pl-1 gap-2' key={`${stock.ticker}-${index}`}>
-                                            <div className='p-3 flex gap-2 items-center border-b border-black/5'>
+                                            <Link href={`/dashboard?symbol=${stock.ticker}&view=chart`} className='p-3 flex gap-2 items-center border-b border-black/5'>
                                                 <Logo symbol={stock.ticker} alt={stock.name} size={300} className="w-12 h-12 rounded-lg shadow" />
                                                 <div className=''>
                                                     <h2 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
@@ -255,7 +308,7 @@ const TopGainersLosers = () => {
                                                         {stock.name ? (stock.name.includes(" ") ? stock.name.split(" ")[0] : stock.name) : "Undefined"}
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         </div>
                                     ))}
                                 </div>
@@ -300,6 +353,33 @@ const TopGainersLosers = () => {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+
+                                {/* Watch Stock Column */}
+                                <div className='flex flex-col items-center h-max w-[10%] min-w-max'>
+                                    <div className='w-full text-center font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    Watch
+                                    </div>
+                                    {losersPaginatedData.length > 0 && losersPaginatedData[losersCurrentPage - 1]?.map((stock, index) => {
+                                        const isInWatchlist = watchlist?.some((item) => item.ticker === stock.ticker);
+                                        return (
+                                            <div className='w-full flex flex-col items-center px-3 py-5 border-b border-black/5' key={`${stock.ticker}-${index}`}>
+                                                <svg 
+                                                    onClick={() => handleSubmitWatchList(stock.ticker)} 
+                                                    className='w-8 h-8 cursor-pointer'
+                                                    width="22" height="22" viewBox="0 0 16 16" 
+                                                    fill={isInWatchlist ? '#634FF7' : 'none'} 
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path 
+                                                        d="M9.33353 13.9997H6.66687M1.52943 3.8796C1.51986 2.91204 2.04152 2.00851 2.88423 1.53301M14.4683 3.87961C14.4779 2.91204 13.9562 2.00851 13.1135 1.53301M12.0002 5.33301C12.0002 4.27214 11.5788 3.25473 10.8286 2.50458C10.0785 1.75444 9.06106 1.33301 8.0002 1.33301C6.93933 1.33301 5.92192 1.75444 5.17177 2.50458C4.42163 3.25473 4.0002 4.27214 4.0002 5.33301C4.0002 7.39313 3.48051 8.80365 2.89998 9.73662C2.41028 10.5236 2.16544 10.9171 2.17442 11.0268C2.18436 11.1484 2.21011 11.1947 2.30805 11.2674C2.3965 11.333 2.79526 11.333 3.59277 11.333H12.4076C13.2051 11.333 13.6039 11.333 13.6923 11.2674C13.7903 11.1947 13.816 11.1484 13.826 11.0268C13.835 10.9171 13.5901 10.5236 13.1004 9.73662C12.5199 8.80365 12.0002 7.39313 12.0002 5.33301Z" 
+                                                        stroke={isInWatchlist ? '#634FF7' : 'black'} 
+                                                        strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" 
+                                                    />
+                                                </svg>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
 
