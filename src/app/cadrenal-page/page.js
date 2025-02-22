@@ -63,7 +63,8 @@ const Neov = ()=>{
           }
       } catch (error) {
           if (error.response && error.response.data) {
-              setMessage(error.response.data.message || 'Something went wrong');
+              // setMessage(error.response.data.message || 'Something went wrong');
+              setMessage('An error occurred. Please try again.');
               setLoading(false);
           } else {
               setMessage('An error occurred. Please try again.');

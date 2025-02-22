@@ -1,8 +1,6 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import Cookies from 'js-cookie';
-import Link from 'next/link';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Optional default styles
@@ -53,7 +51,8 @@ export default function NewsLetterPopup({newsletter, setNewsletter}) {
         }
     } catch (error) {
         if (error.response && error.response.data) {
-            setMessage(error.response.data.message || 'Something went wrong');
+            // setMessage(error.response.data.message || 'Something went wrong');
+            setMessage('An error occurred. Please try again.');
             setLoading(false);
         } else {
             setMessage('An error occurred. Please try again.');
