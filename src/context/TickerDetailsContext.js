@@ -87,8 +87,8 @@ export const TickerDetailsProvider = ({ children }) => {
                 ticker: snapshotData?.ticker || referenceData?.ticker || currentSymbol,
                 todaysChangePerc: snapshotData?.todaysChangePerc ? snapshotData.todaysChangePerc.toFixed(2) : 'N/A',
                 todaysChange: snapshotData?.todaysChange ? snapshotData?.todaysChange.toFixed(2) : 'N/A',
-                closePrice: snapshotData?.prevDay?.c ? `$${snapshotData?.prevDay.c}` : 'N/A',
-                volume: snapshotData?.prevDay?.v ? formatNumber(snapshotData?.prevDay.v) : "N/A",
+                closePrice: snapshotData?.day?.c ? `$${snapshotData?.day.c}` : 'N/A',
+                volume: snapshotData?.day?.v ? formatNumber(snapshotData?.day.v) : "N/A",
                 name: referenceData?.name || 'Undefined',
                 type: referenceData?.type ? getTypeDescription(referenceData?.type) : 'Undefined',
                 market_cap: referenceData?.market_cap ? `$${formatNumber(referenceData?.market_cap)}` : 'N/A',
@@ -118,7 +118,7 @@ export const TickerDetailsProvider = ({ children }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             if (symbol) fetchTickerDetails(symbol, true);
-        }, 5 * 60 * 1000);
+        }, 10000);
 
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps

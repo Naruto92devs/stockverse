@@ -30,8 +30,8 @@ export const GainersLosersProvider = ({ children }) => {
                     ticker: tickerData.ticker,
                     todaysChangePerc: tickerData.todaysChangePerc,
                     todaysChange: tickerData.todaysChange,
-                    price: tickerData.prevDay?.c || 0, // Extract volume
-                    volume: formatNumber(tickerData.prevDay?.v) || 0, // Extract volume
+                    price: tickerData.day?.c || 0, // Extract volume
+                    volume: formatNumber(tickerData.day?.v) || 0, // Extract volume
                 }));
 
                 // Fetch company details for each ticker

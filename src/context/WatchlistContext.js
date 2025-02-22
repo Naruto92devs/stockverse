@@ -13,6 +13,7 @@ const POLYGON_API_KEY = "9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy";
 export const WatchlistProvider = ({ children }) => {
     const [watchlist, setWatchlist] = useState(null); // Stores the watchlist data
     const [loading, setLoading] = useState(true); // Indicates loading state
+    const [tickers, setTickers] = useState([]);
     const [error, setError] = useState(false); // Indicates if there was an error
 
     const token = Cookies.get('authToken'); // Retrieve auth token from cookies
@@ -41,6 +42,7 @@ export const WatchlistProvider = ({ children }) => {
                 localStorage.setItem('Watchlist', JSON.stringify(response.data));
 
                 // Fetch detailed data for the tickers
+                setTickers(tickers);
                 await fetchWatchlistData(tickers);
             }
         } catch (error) {
@@ -83,8 +85,8 @@ export const WatchlistProvider = ({ children }) => {
                     name: companyInfo.name || "Unknown", // Company name
                     industry: companyInfo.sic_description || "Unknown", // Company name
                     marketCap: companyInfo.market_cap ? formatNumber(companyInfo.market_cap) : null, // Market capitalization
-                    price: tickerInfo.prevDay?.c || 0, // Previous day closing price
-                    volume: formatNumber(tickerInfo.prevDay?.v) || 0, // Volume
+                    price: tickerInfo.day?.c || 0, // Previous day closing price
+                    volume: formatNumber(tickerInfo.day?.v) || 0, // Volume
                     todaysChangePerc: tickerInfo.todaysChangePerc || 0, // Percentage change today
                     todaysChange: tickerInfo.todaysChange || 0, // Absolute change today
                     logoUrl: companyInfo.branding?.logo_url || null, // Logo URL
@@ -95,6 +97,8 @@ export const WatchlistProvider = ({ children }) => {
             setWatchlist(watchlistData); // Update the watchlist state
             setLoading(false);
             console.log('Updated Watchlist:', watchlistData); // Debugging output
+            // Run fetchWatchlistData again after completion with updated tickers
+            setTimeout(() => fetchWatchlistData(tickers), 10000); // 10-second delay
         } catch (error) {
             console.error('Error fetching watchlist data:', error);
             setError(true);
