@@ -4,7 +4,6 @@ import Footer from '@/components/Footer';
 import Link from 'next/link.js';
 import Image from 'next/image.js';
 import { useEffect, useState } from 'react';
-import LogoutButton from '@/components/logout';
 import React from 'react';
 import Cookies from 'js-cookie';
 
