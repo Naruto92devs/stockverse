@@ -75,7 +75,7 @@ export default function Home() {
         <section className='w-full pt-20 max-sm:py-4 pl-6 max-sm:pl-3 mx-auto xl:container h-full flex max-md:flex-col items-center justify-between gap-y-8'>
           <div className='md:w-[50%] flex flex-col items-start w-full max-md:py-4 gap-y-4'>
             <h1 className='font-sansMedium xl:mb-4 2xl:text-8xl lg:text-6xl text-4xl text-primaryTextColor'>One Stop Shop <span className='hero_h1'>Everything</span> <span className='text-heading'> Stocks</span></h1>
-            <p className='font-sansRegular text-lg text-primaryTextColor '>Access real-time stock data, tailored insights, and AI-driven recommendations designed to match your trading goals. Simplify your investing journey with powerful tools and analytics, all in one platform.</p>
+            <p className='font-sansRegular text-lg text-primaryTextColor '>Access real-time stock data, AI-driven analysis, and powerful tools to simplify your trading—everything you need, all in one platform.</p>
             <Link className='py-2 px-4 bg-primaryMain hover:bg-primaryMain/80 rounded-lg text-white text-md font-sansMedium' href='/register'>{`${userVisible? 'Dashboard' : 'Get started for free'}`}</Link>
           </div>
           <div className='md:w-[48%] w-full flex justify-end'>
@@ -91,8 +91,8 @@ export default function Home() {
               <path d="M16.9995 19.999H16.7995C15.1194 19.999 14.2793 19.999 13.6375 19.672C13.0731 19.3844 12.6141 18.9255 12.3265 18.361C11.9995 17.7193 11.9995 16.8792 11.9995 15.199V8.79902C11.9995 7.11887 11.9995 6.27879 12.3265 5.63705C12.6141 5.07257 13.0731 4.61362 13.6375 4.326C14.2793 3.99902 15.1194 3.99902 16.7995 3.99902H16.9995M16.9995 19.999C16.9995 21.1036 17.8949 21.999 18.9995 21.999C20.1041 21.999 20.9995 21.1036 20.9995 19.999C20.9995 18.8945 20.1041 17.999 18.9995 17.999C17.8949 17.999 16.9995 18.8945 16.9995 19.999ZM16.9995 3.99902C16.9995 5.10359 17.8949 5.99902 18.9995 5.99902C20.1041 5.99902 20.9995 5.10359 20.9995 3.99902C20.9995 2.89445 20.1041 1.99902 18.9995 1.99902C17.8949 1.99902 16.9995 2.89445 16.9995 3.99902ZM6.99951 11.999L16.9995 11.999M6.99951 11.999C6.99951 13.1036 6.10408 13.999 4.99951 13.999C3.89494 13.999 2.99951 13.1036 2.99951 11.999C2.99951 10.8945 3.89494 9.99902 4.99951 9.99902C6.10408 9.99902 6.99951 10.8945 6.99951 11.999ZM16.9995 11.999C16.9995 13.1036 17.8949 13.999 18.9995 13.999C20.1041 13.999 20.9995 13.1036 20.9995 11.999C20.9995 10.8945 20.1041 9.99902 18.9995 9.99902C17.8949 9.99902 16.9995 10.8945 16.9995 11.999Z" stroke={`${why === '1' ? '#634FF7' : '#000'}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <div>
-                <h2 className='text-3xl text-primaryTextColor font-sansMedium'>All-in-One Investment Platform</h2>
-                <p className='text-base text-primaryTextColor font-sansRegular'>Access everything you need—from real-time data to advanced analytics—all in one user-friendly platform.</p>
+                <h2 className='text-3xl text-primaryTextColor font-sansMedium'>All-in-One Stock Research Platform</h2>
+                <p className='text-base text-primaryTextColor font-sansRegular'>Get real-time market data, AI-driven insights, and deep analysis—all in one easy-to-use platform.</p>
               </div>
             </div>
             <div onMouseEnter={() => setWhy('2')} className={`flex gap-4 p-4 items-center border-l-2 ${why === '2' ? 'border-primaryMain' : 'border-black/20'}`}>
@@ -101,7 +101,7 @@ export default function Home() {
               </svg>
               <div>
                 <h2 className='text-3xl text-primaryTextColor font-sansMedium'>Insights Tailored to You</h2>
-                <p className='text-base text-primaryTextColor font-sansRegular'>Get personalized recommendations based on your preferences and goals to maximize your investment potential.</p>
+                <p className='text-base text-primaryTextColor font-sansRegular'>Access personalized stock analysis and research based on your preferences to stay ahead of the market.</p>
               </div>
             </div>
             <div onMouseEnter={() => setWhy('3')} className={`flex gap-4 p-4 items-center border-l-2 ${why === '3' ? 'border-primaryMain' : 'border-black/20'}`}>
@@ -125,32 +125,32 @@ export default function Home() {
       <section className='w-full px-6 max-sm:px-3 mx-auto xl:container flex flex-col gap-y-6 py-4'>
         <div className='w-full flex items-center gap-y-4 justify-between max-lg:flex-col py-8'>
           <div className='lg:w-[40%] w-full'>
-            <h1 className='font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-3xl text-primaryTextColor'>Our Dedication to Simplifying <span className='hero_h2'>Investments</span> for Everyone</h1>
+            <h1 className='font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-3xl text-primaryTextColor'>Our Dedication to Simplifying <span className='hero_h2'>Stock Research</span> for Everyone</h1>
           </div>
           <div className='lg:w-[50%]'>
             <p className='font-sansRegular text-lg text-primaryTextColor'>Stockverse was built on the vision that every investor, regardless of experience, should have access to reliable and simplified market insights. We know the stock market can be complex, so we’re here to decode it, providing you with real-time data, expert analysis, and intuitive tools to support confident decision-making.</p>
           </div>
         </div>
-        <div className='w-full border border-primaryTextColor/10 sm:border-x-0 flex flex-wrap items-start'>
+        <div className='w-full border border-primaryTextColor/10 sm:border-x-0 flex flex-wrap '>
           <div className='lg:w-[25%] sm:w-[50%] md:p-8 px-4 pb-6 sm:border border-primaryTextColor/10 sm:border-y-0'>
             <Image className='w-[30%]' src="/images/about_logo1.png" width={96} height={96} alt='Stockverse Logo' />
             <h3 className='font-sansSemibold text-xl'>Realtime Market Data</h3>
-            <p className='font-sansRegular text-base text-primaryTextColor'>Stay connected to the market in an instant. Stockverse provides real-time data to help you make quick and accurate decisions.</p>
+            <p className='font-sansRegular text-base text-primaryTextColor'>Stay connected to the market instantly. Stockverse delivers real-time data, helping you act quickly and make precise decisions.</p>
           </div>
           <div className='lg:w-[25%] sm:w-[50%] md:p-8 px-4 pb-6 sm:border-r-[1px] border-primaryTextColor/10'>
             <Image className='w-[30%]' src="/images/about_logo1.png" width={96} height={96} alt='Stockverse Logo' />
-            <h3 className='font-sansSemibold text-xl'>Realtime Market Data</h3>
-            <p className='font-sansRegular text-base text-primaryTextColor'>Stay connected to the market in an instant. Stockverse provides real-time data to help you make quick and accurate decisions.</p>
+            <h3 className='font-sansSemibold text-xl'>AI-Powered Stock Insights</h3>
+            <p className='font-sansRegular text-base text-primaryTextColor'>Leverage AI-driven analysis to spot trends, detect patterns, and develop a deeper market understanding for smarter trading.</p>
           </div>
           <div className='lg:w-[25%] sm:w-[50%] md:p-8 px-4 pb-6 lg:border-r-[1px] lg:border-l-0 lg:border-t-0 sm:border border-primaryTextColor/10'>
             <Image className='w-[30%]' src="/images/about_logo1.png" width={96} height={96} alt='Stockverse Logo' />
-            <h3 className='font-sansSemibold text-xl'>Realtime Market Data</h3>
-            <p className='font-sansRegular text-base text-primaryTextColor'>Stay connected to the market in an instant. Stockverse provides real-time data to help you make quick and accurate decisions.</p>
+            <h3 className='font-sansSemibold text-xl'>Pro-Level Charting & Analysis</h3>
+            <p className='font-sansRegular text-base text-primaryTextColor'>Access advanced charts, technical indicators, and in-depth analytics to refine your strategy and optimize market performance.</p>
           </div>
           <div className='lg:w-[25%] sm:w-[50%] md:p-8 px-4 pb-6 lg:border-r-[1px] lg:border-l-0 lg:border-t-0 sm:border sm:border-l-0 border-primaryTextColor/10'>
             <Image className='w-[30%]' src="/images/about_logo1.png" width={96} height={96} alt='Stockverse Logo' />
-            <h3 className='font-sansSemibold text-xl'>Realtime Market Data</h3>
-            <p className='font-sansRegular text-base text-primaryTextColor'>Stay connected to the market in an instant. Stockverse provides real-time data to help you make quick and accurate decisions.</p>
+            <h3 className='font-sansSemibold text-xl'>Personalized Watchlists</h3>
+            <p className='font-sansRegular text-base text-primaryTextColor'>Track and organize stocks effortlessly. Stay focused on key stocks with a tailored watchlist built specifically for traders.</p>
           </div>
         </div>
         <div className='w-full mt-8 flex flex-wrap md:justify-between justify-center gap-14 max-md:gap-8'>
@@ -174,7 +174,7 @@ export default function Home() {
             <Image className='absolute lg:top-[-40%] lg:right-[-15%] max-lg:right-[-25%] max-lg:bottom-[-25%] max-lg:w-[150%] z-[1]' src="/images/features_gpt_color.png" width={734} height={401} alt='Stockverse Logo' />
             <div className='relative xl:w-[33%] lg:w-[40%] w-full flex flex-col items-start gap-y-2'>
               <h2 className='font-sansMedium w-full xl:text-4xl lg:text-3xl text-2xl text-white'>StockVerse GPT</h2>
-              <p className='w-full text-white font-sansRegular text-lg'>Dive deeper with detailed market activity, including bid and ask prices, so you can see the true dynamics of stock movement.</p>
+              <p className='w-full text-white font-sansRegular text-lg'>Stockverse GPT is the ChatGPT for stocks—delivering real-time data, technical analysis, and market predictions instantly to help you trade smarter.</p>
             </div>
             <div className='relative xl:w-[64%] lg:w-[55%] w-full flex flex-col items-end gap-y-4'>
               <Image className='lg:w-[70%] w-full relative z-[3]' src="/images/features_gpt.png" width={954} height={738} alt='Stockverse Logo' />
@@ -193,8 +193,8 @@ export default function Home() {
             {/* ----------features Realtime---------- */}
             <div  className='lg:w-[49%] bg-realtimeBg bg-cover bg-center bg-no-repeat p-8 w-full flex flex-col gap-y-8 items-center relative border border-white/5 rounded-2xl !overflow-hidden'>
               <div className='flex flex-col items-start gap-y-2'>
-                <h2 className='font-sansMedium w-full xl:text-4xl lg:text-3xl text-2xl text-white'>Search your stocks</h2>
-                <p className='w-full pr-2 text-white font-sansRegular text-lg'>Your AI-powered investment assistant, ready to answer your questions, and guide you through the market with ease.</p>
+                <h2 className='font-sansMedium w-full xl:text-4xl lg:text-3xl text-2xl text-white'>Track Market Leaders Instantly</h2>
+                <p className='w-full pr-2 text-white font-sansRegular text-lg'>Get real-time stock data on top movers. Instantly track key stats, trends, and price action to make smarter trades.</p>
               </div>
               <Image className='w-full' src="/images/features_realtime.png" width={632} height={646} alt='Stockverse Logo' />
             </div>

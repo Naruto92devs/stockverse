@@ -1,10 +1,15 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
+import NewsLetterPopup from "@/components/NewsLetterPopup";
 
-const CVKD = () => {
+const NEOV = () => {
+
+    const [newsletter, setNewsletter] = useState(true);
     return (
         <div className='w-full h-[100vh]'>
+        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
         <iframe
-            src="https://top.stockverse.ai/neov" // Replace with the URL you want to embed
+            src="https://neov.netlify.app/" // Replace with the URL you want to embed
             className='w-full h-full border-none'
             title="Embedded Website"
         />
@@ -12,4 +17,4 @@ const CVKD = () => {
     );
 };
 
-export default CVKD;
+export default NEOV;
