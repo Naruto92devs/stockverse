@@ -432,9 +432,9 @@ function DashboardContent() {
               </div>
               <div className="flex gap-4 items-center">
                 <div className="text-right">
-                  <p className="font-sansMedium text-md">{stock.price ? `$${stock.price}` : 'N/A'}</p>
+                  <p className="font-sansMedium text-md">${stock.price}</p>
                   <p className={`font-sansMedium text-xs ${stock.todaysChangePerc >= 0 ? 'text-buy' : 'text-sell'}`}>
-                    {stock.todaysChangePerc ? stock.todaysChangePerc >= 0 ? `+${stock.todaysChangePerc.toFixed(2)}%` : `${stock.todaysChangePerc.toFixed(2)}%` : 'N/A'}
+                    {stock.todaysChangePerc >= 0 ? `+${stock.todaysChangePerc.toFixed(2)}%` : `${stock.todaysChangePerc.toFixed(2)}%`}
                   </p>
                 </div>
                 <Image onClick={() => handleSubmitWatchList(stock.ticker)} className='cursor-pointer' src='/images/cross.svg' width={24} height={24} alt='remove' />

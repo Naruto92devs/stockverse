@@ -13,7 +13,7 @@ const POLYGON_API_KEY = "9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy";
 export const WatchlistProvider = ({ children }) => {
     const [watchlist, setWatchlist] = useState(null); // Stores the watchlist data
     const [loading, setLoading] = useState(true); // Indicates loading state
-    const [tickers, setTickers] = useState([]);
+    // const [tickers, setTickers] = useState([]);
     const [error, setError] = useState(false); // Indicates if there was an error
 
     const token = Cookies.get('authToken'); // Retrieve auth token from cookies
@@ -42,7 +42,7 @@ export const WatchlistProvider = ({ children }) => {
                 localStorage.setItem('Watchlist', JSON.stringify(response.data));
 
                 // Fetch detailed data for the tickers
-                setTickers(tickers);
+                // setTickers(tickers);
                 await fetchWatchlistData(tickers);
             }
         } catch (error) {
@@ -85,20 +85,25 @@ export const WatchlistProvider = ({ children }) => {
                     name: companyInfo.name || "Unknown", // Company name
                     industry: companyInfo.sic_description || "Unknown", // Company name
                     marketCap: companyInfo.market_cap ? formatNumber(companyInfo.market_cap) : null, // Market capitalization
-                    price: tickerInfo.day?.c || 0, // Previous day closing price
+                    price: tickerInfo.day?.c !== undefined ? Number(tickerInfo.day.c.toFixed(2)) : watchlist?.find(w => w.ticker === ticker)?.price || 0,
+                    todaysChangePerc: tickerInfo.todaysChangePerc !== undefined ? tickerInfo.todaysChangePerc : watchlist?.find(w => w.ticker === ticker)?.todaysChangePerc || 0,
                     volume: formatNumber(tickerInfo.day?.v) || 0, // Volume
-                    todaysChangePerc: tickerInfo.todaysChangePerc || 0, // Percentage change today
                     todaysChange: tickerInfo.todaysChange || 0, // Absolute change today
                     logoUrl: companyInfo.branding?.logo_url || null, // Logo URL
                     iconUrl: companyInfo.branding?.icon_url || null, // Icon URL
                 };
             });
 
-            setWatchlist(watchlistData); // Update the watchlist state
+            // ✅ Only update the state if data has changed
+            if (JSON.stringify(watchlist) !== JSON.stringify(watchlistData)) {
+                setWatchlist(watchlistData);
+                console.log('Updated Watchlist:', watchlistData);
+            } else {
+                console.log('No changes in watchlist, skipping update.');
+            }
             setLoading(false);
-            console.log('Updated Watchlist:', watchlistData); // Debugging output
             // Run fetchWatchlistData again after completion with updated tickers
-            setTimeout(() => fetchWatchlistData(tickers), 10000); // 10-second delay
+            // setTimeout(() => fetchWatchlistData(tickers), 10000); // 10-second delay
         } catch (error) {
             console.error('Error fetching watchlist data:', error);
             setError(true);
@@ -126,6 +131,17 @@ export const WatchlistProvider = ({ children }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (watchlist) {
+                fetchWatchlist();
+            }
+        }, 10 * 1000);
+
+        return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [watchlist]);
 
     return (
         <WatchlistContext.Provider value={{ watchlist, loading, error, fetchWatchlist, setWatchlist }}>

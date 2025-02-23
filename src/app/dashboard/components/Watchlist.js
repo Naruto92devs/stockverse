@@ -152,7 +152,7 @@ const WatchList = ({ setIsvisible }) => {
                                 {PaginatedData.length > 0 && PaginatedData[CurrentPage - 1]?.map((stock, index) => (
                                     <div className='w-full' key={`${stock.ticker}-${index}`}>
                                         <div className='px-3 py-5 font-sansMedium text-md border-b border-black/5'>
-                                            {stock.price ? `$${stock.price}` : 'N/A'}
+                                            ${stock.price}
                                         </div>
                                     </div>
                                 ))}

@@ -61,7 +61,7 @@ const TickerInfo = ({watchlistHide, setWatchlistHide}) => {
       });
     };
 
-  if (loading) return (
+  if (loading && !tickerDetails) return (
     <div className="w-full px-4 py-2 border-b border-black/5">
       <div className={`w-full flex gap-2 justify-end ${watchlistHide ? 'max-lg:pr-[15%]' : ''}`}>
         <h3 onClick={toggleWatchlist} className="max-lg:hidden cursor-pointer font-sansMedium bg-primaryMain rounded-full px-3 py-1.5 text-sm text-white">
