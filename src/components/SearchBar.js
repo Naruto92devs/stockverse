@@ -126,7 +126,7 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
 
         // Fetch data immediately and then every 10 seconds
         updateStocks();
-        const intervalId = setInterval(updateStocks, 10000);
+        const intervalId = setInterval(updateStocks, 3 * 60 * 1000);
 
         // Clean up the interval on component unmount
         return () => clearInterval(intervalId);

@@ -85,8 +85,8 @@ export const WatchlistProvider = ({ children }) => {
                     name: companyInfo.name || "Unknown", // Company name
                     industry: companyInfo.sic_description || "Unknown", // Company name
                     marketCap: companyInfo.market_cap ? formatNumber(companyInfo.market_cap) : null, // Market capitalization
-                    price: tickerInfo.day?.c !== undefined ? Number(tickerInfo.day.c.toFixed(2)) : watchlist?.find(w => w.ticker === ticker)?.price || 0,
-                    todaysChangePerc: tickerInfo.todaysChangePerc !== undefined ? tickerInfo.todaysChangePerc : watchlist?.find(w => w.ticker === ticker)?.todaysChangePerc || 0,
+                    price: tickerInfo.day?.c !== undefined ? Number(tickerInfo.day.c.toFixed(2)) : watchlist?.find(w => w.ticker === ticker)?.price,
+                    todaysChangePerc: tickerInfo.todaysChangePerc !== undefined ? tickerInfo.todaysChangePerc : watchlist?.find(w => w.ticker === ticker)?.todaysChangePerc,
                     volume: formatNumber(tickerInfo.day?.v) || 0, // Volume
                     todaysChange: tickerInfo.todaysChange || 0, // Absolute change today
                     logoUrl: companyInfo.branding?.logo_url || null, // Logo URL
@@ -137,7 +137,7 @@ export const WatchlistProvider = ({ children }) => {
             if (watchlist) {
                 fetchWatchlist();
             }
-        }, 10 * 1000);
+        }, 2 * 60 * 1000);
 
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps

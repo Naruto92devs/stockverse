@@ -426,7 +426,7 @@ function DashboardContent() {
                 <div className="text-right">
                   <p className="font-sansMedium text-md">${stock.price}</p>
                   <p className={`font-sansMedium text-xs ${stock.todaysChangePerc >= 0 ? 'text-buy' : 'text-sell'}`}>
-                    {stock.todaysChangePerc >= 0 ? `+${stock.todaysChangePerc.toFixed(2)}%` : `${stock.todaysChangePerc.toFixed(2)}%`}
+                    {stock.todaysChangePerc ? stock.todaysChangePerc >= 0 ? `+${stock.todaysChangePerc.toFixed(2)}%` : `${stock.todaysChangePerc.toFixed(2)}%` : 'N/A'}
                   </p>
                 </div>
                 <Image onClick={() => handleSubmitWatchList(stock.ticker)} className='cursor-pointer' src='/images/cross.svg' width={24} height={24} alt='remove' />

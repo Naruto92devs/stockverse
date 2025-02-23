@@ -118,7 +118,7 @@ export const TickerDetailsProvider = ({ children }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             if (symbol) fetchTickerDetails(symbol, true);
-        }, 10000);
+        }, 2 * 60 * 1000);
 
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
