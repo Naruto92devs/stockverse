@@ -4,6 +4,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import Logo from './Logo';
 import { useWatchlist } from '@/context/WatchlistContext';
+import Loading from '@/loaders&errors_UI/loading';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
@@ -37,7 +38,11 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                 setLoading(true);
                 try {
                     // Fetch data from the current search API
-                    const searchResponse = await fetch(`/api/search?keyword=${query}`);
+                    const searchResponse = await fetch(`/api/search?keyword=${query}`, {
+                        headers: {
+                            'Cache-Control': 'no-cache',
+                        },
+                    });
                     if (!searchResponse.ok) {
                         throw new Error('Network response was not ok');
                     }
@@ -227,11 +232,13 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
                     <div 
                     className={`${loading ? 'visible' : 'hidden'} absolute top-0 left-0 right-0 bottom-0 w-full rounded-xl min-h-[35vh] lg:max-h-[45vh] max-h-[57vh] flex md:items-center justify-center max-md:pt-[15%] backdrop-blur-[2px] bg-black/20`}
                     >
-                        <div className="typewriter">
+                        {/* <div className="typewriter">
                             <div className="slide"><i></i></div>
                             <div className="paper"></div>
                             <div className="keyboard"></div>
-                        </div>
+                        </div> */}
+                        <Loading/>
+
                     </div>
                     {/* Loader End */}
 

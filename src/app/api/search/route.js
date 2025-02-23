@@ -14,5 +14,10 @@ const keyword = searchParams.get('keyword');
 const response = await fetch(`${STOCKVERSE_API}/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${API_KEY}`);
 const data = await response.json();
 
-return NextResponse.json(data);
+// return NextResponse.json(data);
+return NextResponse.json(data, {
+  headers: {
+    'Cache-Control': 'no-store',
+  },
+});
 }
