@@ -17,13 +17,11 @@ export default function Membership() {
   const plans = {
     monthly: {
       free: { price: "0", priceId: "price_free", label: "FREE" },
-      basic: { price: "30", priceId: "price_1QMSAIBi8ZwCbxPYXKZFxfFk", label: "BASIC" },
-      premium: { price: "80", priceId: "price_1QMSALBi8ZwCbxPY90cWxOs8", label: "PREMIUM" },
+      basic: { price: "30", priceId: "price_1QMSAIBi8ZwCbxPYXKZFxfFk", label: "PREMIUM" },
     },
     yearly: {
       free: { price: "0", priceId: "price_free", label: "FREE" },
-      basic: { price: "300", priceId: "price_1QMSAPBi8ZwCbxPY5rlGmPjA", label: "BASIC" },
-      premium: { price: "960", priceId: "price_1QMSASBi8ZwCbxPY8hAWCmSn", label: "PREMIUM" },
+      basic: { price: "300", priceId: "price_1QMSAPBi8ZwCbxPY5rlGmPjA", label: "PREMIUM" },
     },
   };
 
@@ -71,7 +69,7 @@ export default function Membership() {
             className={`flex items-center gap-2 pl-6 pr-1 py-1.5 text-base font-sansMedium rounded-full ${billingCycle === "yearly" ? "bg-primaryMain text-white" : "bg-none text-primaryTextColor"}`}
             onClick={() => setBillingCycle("yearly")}
           >
-            Yearly <span className={`px-3 py-1 text-sm rounded-full ${billingCycle === "yearly" ? "bg-white/5 text-white" : "bg-black/5 text-primaryTextColor"}`}>save 20%</span>
+            Yearly <span className={`px-3 py-1 text-sm rounded-full ${billingCycle === "yearly" ? "bg-white/5 text-white" : "bg-black/5 text-primaryTextColor"}`}>save 15%</span>
           </button>
         </div>
       </div>
@@ -105,17 +103,13 @@ export default function Membership() {
             <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
             <p className="font-snasMedium text-base md:text-lg text-black">StockPicks</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Image width={36} height={36} src={`${view === 'PREMIUM' ? '/images/green_tick.svg' : '/images/red_cross.svg'}`} alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Level 2 (Order Book)</p>
-          </div>
         </div>
         <div className="md:w-[48%] w-full flex flex-col gap-4 bg-primaryBg p-4 rounded-xl">
           {/* FREE Plan */}
           <div onClick={() => updatePlan('FREE' ,plans[billingCycle].free.priceId)} className={`${view === 'FREE' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
             <div className="flex flex-wrap gap-4 justify-between items-center py-2 border-b border-black/5">
               <h2 className="text-xl font-sansMedium">{plans[billingCycle].free.label}</h2>
-              <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].free.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">{billingCycle === 'monthly' ? 'Month' : 'Year'}<br/>/seat</span></p>
+              <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].free.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
             <p className="text-base font-sansRegular py-2">Our Company Plan is ideal for larger organizations seeking comprehensive solutions for their teams</p>
           </div>
@@ -123,15 +117,7 @@ export default function Membership() {
           <div onClick={() => updatePlan('BASIC' ,plans[billingCycle].basic.priceId)} className={`${view === 'BASIC' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
             <div className="flex flex-wrap gap-4 justify-between items-center py-2 border-b border-black/5">
               <h2 className="text-xl font-sansMedium">{plans[billingCycle].basic.label}</h2>
-              <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].basic.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">{billingCycle === 'monthly' ? 'Month' : 'Year'}<br/>/seat</span></p>
-            </div>
-            <p className="text-base font-sansRegular py-2">Our Company Plan is ideal for larger organizations seeking comprehensive solutions for their teams</p>
-          </div>
-          {/* PREMIUM Plan */}
-          <div onClick={() => updatePlan('PREMIUM' ,plans[billingCycle].premium.priceId)} className={`${view === 'PREMIUM' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
-            <div className="flex flex-wrap gap-4 justify-between items-center py-2 border-b border-black/5">
-              <h2 className="text-xl font-sansMedium">{plans[billingCycle].premium.label}</h2>
-              <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].premium.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">{billingCycle === 'monthly' ? 'Month' : 'Year'}<br/>/seat</span></p>
+              <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].basic.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
             <p className="text-base font-sansRegular py-2">Our Company Plan is ideal for larger organizations seeking comprehensive solutions for their teams</p>
           </div>

@@ -2,8 +2,8 @@
 import Image from "next/image";
 import React, { useRef, useState,useEffect } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope,FaRegEnvelope } from "react-icons/fa";
-
 import formatNumber from "@/components/FormatNumber";
+import NewsLetterPopup from "@/components/NewsLetterPopup";
 
 
 import PhoneInput from 'react-phone-input-2';
@@ -23,6 +23,7 @@ const Neov = ()=>{
       const [stockdata, setstockData] = useState([]); // State to store API data
       const [error, setError] = useState(null); // Error state
       const [isSubmitting, setIsSubmitting] = useState(false);
+      const [newsletter, setNewsletter] = useState(true);
       const scrollRef = useRef(null);
       let isDown = false;
       let startX;
@@ -131,6 +132,7 @@ const Neov = ()=>{
 
     return(
         <>
+        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
         {/* hero */}
         <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-12 max-md:px-3 px-3">
             <div className="w-full xl:container mx-auto flex justify-between max-lg:flex-col max-lg:gap-y-8">

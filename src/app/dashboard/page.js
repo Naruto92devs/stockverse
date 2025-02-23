@@ -314,14 +314,6 @@ function DashboardContent() {
             </svg>
             <p className={`font-sansMedium text-md ${view === 'trades' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Trades</p>
           </div>
-          <div title="Level 2" onClick={() => updateUrl(undefined, 'level2')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'level2' ? 'border-primaryMain' : 'border-white'}`}>
-            <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" clipRule="evenodd" d="M13.5 6.75C13.9142 6.75 14.25 7.08579 14.25 7.5V15C14.25 15.4142 13.9142 15.75 13.5 15.75C13.0858 15.75 12.75 15.4142 12.75 15V7.5C12.75 7.08579 13.0858 6.75 13.5 6.75Z" stroke={view === 'level2' ? 'rgba(var(--primary-main))' : 'black'} />
-              <path fillRule="evenodd" clipRule="evenodd" d="M4.5 9.75C4.91421 9.75 5.25 10.0858 5.25 10.5V15C5.25 15.4142 4.91421 15.75 4.5 15.75C4.08579 15.75 3.75 15.4142 3.75 15V10.5C3.75 10.0858 4.08579 9.75 4.5 9.75Z" stroke={view === 'level2' ? 'rgba(var(--primary-main))' : 'black'} />
-              <path fillRule="evenodd" clipRule="evenodd" d="M9 2.25C9.41421 2.25 9.75 2.58579 9.75 3V15C9.75 15.4142 9.41421 15.75 9 15.75C8.58579 15.75 8.25 15.4142 8.25 15V3C8.25 2.58579 8.58579 2.25 9 2.25Z" stroke={view === 'level2' ? 'rgba(var(--primary-main))' : 'black'} />
-            </svg>
-            <p className={`font-sansMedium text-md ${view === 'level2' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Level 2</p>
-          </div>
           <Link href='/stockverse-gpt' target="_blank" title="Stockverse Gpt" className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'stockverse_gpt' ? 'border-primaryMain' : 'border-white'}`}>
             <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9.75014 1.5L3.07023 9.51589C2.80863 9.82982 2.67782 9.98678 2.67582 10.1193C2.67409 10.2346 2.72544 10.3442 2.81508 10.4167C2.9182 10.5 3.12252 10.5 3.53117 10.5H9.00014L8.25014 16.5L14.93 8.48411C15.1917 8.17018 15.3225 8.01322 15.3245 7.88065C15.3262 7.76541 15.2748 7.65577 15.1852 7.58333C15.0821 7.5 14.8778 7.5 14.4691 7.5H9.00014L9.75014 1.5Z" stroke={view === 'stockverse_gpt' ? 'rgba(var(--primary-main))' : 'black'} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />

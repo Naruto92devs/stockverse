@@ -81,18 +81,15 @@ return (
                             <Link href="/dashboard?view=gainers_losers">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Gainers / Losers</span>
                             </Link>
-                            <Link href="/dashboard?view=level2">
-                                <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Level 2</span>
-                            </Link>
                             <Link href="/dashboard?view=ipo_calendar">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">IPO Calender</span>
                             </Link>
                             <Link href="/dashboard?view=historical">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Historical</span>
                             </Link>
-                            {/* <Link href="/alerts" className="">
+                            <Link href="/alerts" className="">
                                 <span className="w-full font-sansMedium rounded-lg text-sm block px-4 py-2 text-primaryTextColor hover:bg-primaryMain/10">Alerts</span>
-                            </Link> */}
+                            </Link>
                         </div>
                 </div>
                 {/* nav dropdown end*/}
