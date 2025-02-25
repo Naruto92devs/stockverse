@@ -45,6 +45,7 @@ export default function NewsLetterPopup({newsletter, setNewsletter}) {
             setDone(true);
             setEmail('');
             setPhone('');
+            setNewsletter(false);
         } else {
             setMessage(data.message || 'Something went wrong');
             setLoading(false);
