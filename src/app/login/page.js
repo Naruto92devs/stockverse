@@ -30,35 +30,36 @@ export default function LogIn() {
     }
 }, [router]);
 
-    useEffect(() => {
-        const getReCaptchaToken = async () => {
-          if (!executeRecaptcha) {
-            console.log("Execute recaptcha not yet available");
-            return;
-          }
-      
-          // First, get the token from reCAPTCHA
-          const token = await executeRecaptcha();
-         
-      
-          // Then, send the token to your backend for verification
-          const res = await fetch("http://192.168.100.42:4848/google-recaptcha", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ token }),
-          });
-      
-          // Optionally, handle the response from your backend
-          const data = await res.json();
-          if (res.ok) {
-            console.log("Verification Score:", data.score);
-          } else {
-            console.error("Captcha verification failed:", data.message);
-          }
-        };
-      
-        getReCaptchaToken();
-      }, [executeRecaptcha]);
+useEffect(() => {
+  const getReCaptchaToken = async () => {
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not yet available");
+      return;
+    }
+
+    // First, get the token from reCAPTCHA
+    const token = await executeRecaptcha("submit");
+
+
+    // Then, send the token to your backend for verification
+    const res = await fetch(`${STOCKVERSE_BACK_END}/google-recaptcha`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+
+    // Optionally, handle the response from your backend
+    const data = await res.json();
+    if (res.ok) {
+      console.log("Verification Score:", data.score);
+    } else {
+      console.error("Captcha verification failed:", data.message);
+    }
+  };
+  getReCaptchaToken();
+  
+}, [executeRecaptcha]);
+
       
 
   const handleSubmitForm = async (e) => {
