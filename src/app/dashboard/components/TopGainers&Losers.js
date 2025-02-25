@@ -151,7 +151,7 @@ const TopGainersLosers = () => {
                 <div className='w-full flex pt-8 lg:flex-row flex-col justify-between lg:gap-0 gap-8'>
                     {/* Top Gainers */}
                     <div className='lg:w-[49%] w-full'>
-                        <h1 className='font-sansMedium text-2xl text-primaryTextColor'>Top Gainers</h1>
+                        <h3 className='font-sansMedium text-2xl text-primaryTextColor'>Top Gainers</h3>
                         <div className=' w-full mt-4 bg-primaryBg py-4 rounded-xl'>
                             <div className='flex w-full overflow-auto scrollbar-thin'>
                                 {/* Stocks Name Column */}
@@ -290,7 +290,7 @@ const TopGainersLosers = () => {
 
                     {/* Top Losers */}
                     <div className='lg:w-[49%] w-full'>
-                        <h1 className='font-sansMedium text-2xl text-primaryTextColor'>Top Losers</h1>
+                        <h3 className='font-sansMedium text-2xl text-primaryTextColor'>Top Losers</h3>
                         <div className=' w-full mt-4 bg-primaryBg py-4 rounded-xl'>
                             <div className='flex w-full overflow-auto scrollbar-thin'>
                                 {/* Stocks Name Column */}

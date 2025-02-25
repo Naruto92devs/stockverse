@@ -110,7 +110,7 @@ const WatchList = ({ setIsvisible }) => {
                 {/* Response Data Table Start */}
                 <div className='w-full'>
                     <div className='w-full flex justify-between items-center'>
-                        <h1 className='font-sansMedium text-xl sm:text-2xl text-primaryTextColor'>My watchlist</h1>
+                        <h3 className='font-sansMedium text-xl sm:text-2xl text-primaryTextColor'>My watchlist</h3>
                         <button onClick={addWatchlist} className='px-3 py-2 text-base text-white bg-primaryMain font-sansMeium rounded-lg'>+ Add WatchList</button>
                     </div>
                     <div className=' w-full mt-4 bg-primaryBg py-4 rounded-xl'>

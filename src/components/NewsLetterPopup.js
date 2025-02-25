@@ -70,7 +70,7 @@ export default function NewsLetterPopup({newsletter, setNewsletter}) {
         <Image className='sm:hidden pt-4' src="/images/stockverseLogo.png" width={200} height={57.20} alt='Stockverse Logo' />
         <div className={`flex-grow p-4 sm:gap-y-2 gap-y-2 flex flex-col items-center justify-center`}>
           <Image className='cursor-pointer absolute top-2 right-2' onClick={() => setNewsletter(false)} width={32} height={32} src='/images/cross.svg' alt='close' />
-          <h1 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Winning Stock Picks</h1>
+          <h3 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Winning Stock Picks</h3>
           <p className="text-lg leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
             Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!
           </p>

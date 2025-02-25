@@ -112,7 +112,7 @@ export default function LogInPopup() {
         <Image className='flex-none max-sm:hidden' width={266} height={500} src='/images/popup_side_image.jpg' alt='img' />
         <Image className='sm:hidden pt-4' src="/images/stockverseLogo.png" width={200} height={57.20} alt='Stockverse Logo' />
         <div className={`${VerifyOTP ? 'hidden' : 'visible'} flex-grow p-4 sm:gap-y-2 gap-y-3 flex flex-col items-center justify-center`}>
-          <h1 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome back!</h1>
+          <h3 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome back!</h3>
           <p className="text-lg leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
             welcome back! Please enter your details.
           </p>
@@ -203,7 +203,7 @@ export default function LogInPopup() {
         </div>
         {/* OTP VERIFICATION POPUP */}
         <form onSubmit={handleSubmitOTP} className={`${VerifyOTP ? 'flex' : 'hidden'} flex-grow p-4 sm:gap-y-2 gap-y-3 flex flex-col items-center justify-center`}>
-          <h1 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Just One Step!</h1>
+          <h3 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Just One Step!</h3>
           <p className="text-base leading-[120%] font-sansRegular max-sm:text-sm text-center text-primaryText">
               You have already registered on our website but haven&#39;t verified your email address! In order to Login, please verify your email address by providing OTP sent to your email Inbox?
           </p>

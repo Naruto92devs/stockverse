@@ -77,7 +77,7 @@ export default function Membership() {
       {/* Pricing Plans */}
       <div className="mx-auto xl:container p-6 flex flex-wrap md:flex-row justify-between items-center max-md:gap-8">
         <div className="md:w-[48%] w-full flex flex-col items-start gap-2">
-          <h1 className="py-1 px-3 bg-black text-white font-sansMedium rounded-full">{view} PLAN</h1>
+          <h3 className="py-1 px-3 bg-black text-white font-sansMedium rounded-full">{view} PLAN</h3>
           <h2 className="lg:text-4xl text-3xl mb-4 font-sansMedium text-black">Start Smart, Stay Informed, Absolutely Free!</h2>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
