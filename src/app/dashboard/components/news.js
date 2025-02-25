@@ -190,7 +190,7 @@ export default function News({symbol, updateUrl}) {
       <div  className="w-full lg:min-h-[680px] 2xl:min-h-[350px] flex-grow flex lg:flex-row flex-col">
         {/* Hot Topics */}
         <div className="lg:w-[40%] w-full flex flex-col gap-2 lg:border-r max-lg:border-b border-black/10">
-          <h1 className="pt-3 pl-3 text-xl font-sansMedium text-primaryTextColor">Hot Topics</h1>
+          <h3 className="pt-3 pl-3 text-xl font-sansMedium text-primaryTextColor">Hot Topics</h3>
           <div className="flex flex-col gap-4 lg:overflow-y-auto p-3 scrollbar-thin">
             {stockverseNews.map((news) => (
               <Link key={news.id} href={news.article_url} className="flex items-center gap-3 hover:bg-gray-100 rounded-lg transition">
@@ -208,7 +208,7 @@ export default function News({symbol, updateUrl}) {
         <div className="lg:w-[60%] w-full flex flex-col relative">
           <div className='w-full p-3 flex max-xl:flex-col gap-4 items-center justify-between'>
             <div className='xl:w-[50%] w-full'>
-              <h1 className="2xl:text-2xl text-xl font-sansMedium text-primaryTextColor">View Market News From Around The World</h1>
+              <h3 className="2xl:text-2xl text-xl font-sansMedium text-primaryTextColor">View Market News From Around The World</h3>
             </div>
             <div className='xl:flex-grow w-full flex flex-wrap gap-2'>
               <div onClick={() => handleSearchClick('AMZN', undefined)} className='py-1 px-3 font-sansMedium text-xs md:text-sm cursor-pointer bg-primarybg rounded-full border border-black/5'>

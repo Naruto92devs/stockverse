@@ -5,10 +5,13 @@ import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 export default function LogIn() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -26,6 +29,37 @@ export default function LogIn() {
         router.push('/dashboard'); // Redirect to dashboard if already logged in
     }
 }, [router]);
+
+    useEffect(() => {
+        const getReCaptchaToken = async () => {
+          if (!executeRecaptcha) {
+            console.log("Execute recaptcha not yet available");
+            return;
+          }
+      
+          // First, get the token from reCAPTCHA
+          const token = await executeRecaptcha();
+         
+      
+          // Then, send the token to your backend for verification
+          const res = await fetch("http://192.168.100.42:4848/google-recaptcha", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token }),
+          });
+      
+          // Optionally, handle the response from your backend
+          const data = await res.json();
+          if (res.ok) {
+            console.log("Verification Score:", data.score);
+          } else {
+            console.error("Captcha verification failed:", data.message);
+          }
+        };
+      
+        getReCaptchaToken();
+      }, [executeRecaptcha]);
+      
 
   const handleSubmitForm = async (e) => {
       setLoading(true);

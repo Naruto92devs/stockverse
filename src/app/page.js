@@ -7,7 +7,10 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import Cookies from 'js-cookie';
 
+
 export default function Home() {
+
+
 
   const token = Cookies.get('authToken');
   const [userVisible, setUserVisible] = useState(false);
@@ -85,7 +88,7 @@ export default function Home() {
         {/* ----------second section---------- */}
         <section className='w-full lg:px-0 px-3 mx-auto xl:container py-12 flex md:flex-row flex-col items-center justify-between gap-y-8'>
           <div className='md:w-[48%] w-full'>
-            <h1 className='text-5xl text-primaryTextColor font-sansMedium mb-8'>Why <span className='text-primaryMain'> Stockverse?</span></h1>
+            <h3 className='text-5xl text-primaryTextColor font-sansMedium mb-8'>Why <span className='text-primaryMain'> Stockverse?</span></h3>
             <div onMouseEnter={() => setWhy('1')} className={`flex gap-4 p-4 items-center border-l-2 ${why === '1' ? 'border-primaryMain' : 'border-black/20'}`}>
               <svg className='w-12 h-12' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.9995 19.999H16.7995C15.1194 19.999 14.2793 19.999 13.6375 19.672C13.0731 19.3844 12.6141 18.9255 12.3265 18.361C11.9995 17.7193 11.9995 16.8792 11.9995 15.199V8.79902C11.9995 7.11887 11.9995 6.27879 12.3265 5.63705C12.6141 5.07257 13.0731 4.61362 13.6375 4.326C14.2793 3.99902 15.1194 3.99902 16.7995 3.99902H16.9995M16.9995 19.999C16.9995 21.1036 17.8949 21.999 18.9995 21.999C20.1041 21.999 20.9995 21.1036 20.9995 19.999C20.9995 18.8945 20.1041 17.999 18.9995 17.999C17.8949 17.999 16.9995 18.8945 16.9995 19.999ZM16.9995 3.99902C16.9995 5.10359 17.8949 5.99902 18.9995 5.99902C20.1041 5.99902 20.9995 5.10359 20.9995 3.99902C20.9995 2.89445 20.1041 1.99902 18.9995 1.99902C17.8949 1.99902 16.9995 2.89445 16.9995 3.99902ZM6.99951 11.999L16.9995 11.999M6.99951 11.999C6.99951 13.1036 6.10408 13.999 4.99951 13.999C3.89494 13.999 2.99951 13.1036 2.99951 11.999C2.99951 10.8945 3.89494 9.99902 4.99951 9.99902C6.10408 9.99902 6.99951 10.8945 6.99951 11.999ZM16.9995 11.999C16.9995 13.1036 17.8949 13.999 18.9995 13.999C20.1041 13.999 20.9995 13.1036 20.9995 11.999C20.9995 10.8945 20.1041 9.99902 18.9995 9.99902C17.8949 9.99902 16.9995 10.8945 16.9995 11.999Z" stroke={`${why === '1' ? '#634FF7' : '#000'}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -125,7 +128,7 @@ export default function Home() {
       <section className='w-full px-6 max-sm:px-3 mx-auto xl:container flex flex-col gap-y-6 py-4'>
         <div className='w-full flex items-center gap-y-4 justify-between max-lg:flex-col py-8'>
           <div className='lg:w-[40%] w-full'>
-            <h1 className='font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-3xl text-primaryTextColor'>Our Dedication to Simplifying <span className='hero_h2'>Investments</span> for Everyone</h1>
+            <h3 className='font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-3xl text-primaryTextColor'>Our Dedication to Simplifying <span className='hero_h2'>Investments</span> for Everyone</h3>
           </div>
           <div className='lg:w-[50%]'>
             <p className='font-sansRegular text-lg text-primaryTextColor'>Stockverse was built on the vision that every investor, regardless of experience, should have access to reliable and simplified market insights. We know the stock market can be complex, so we’re here to decode it, providing you with real-time data, expert analysis, and intuitive tools to support confident decision-making.</p>
@@ -166,7 +169,7 @@ export default function Home() {
       <section className='w-full flex flex-col bg-darkBlue py-16 relative'>
         <Image className='absolute top-0 w-full z-[1] self-center' src="/images/features_main_bg.png" width={1128} height={15} alt='Stockverse Logo' />
         <div className='z-[2] w-full px-6 max-sm:px-3 mx-auto xl:container flex flex-col items-center gap-y-8'>
-          <h1 className='2xl:w-[50%] lg:w-[70%] font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-center text-2xl text-white'>Tools and Resources Designed To Enhance Your Investments</h1>
+          <h3 className='2xl:w-[50%] lg:w-[70%] font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-center text-2xl text-white'>Tools and Resources Designed To Enhance Your Investments</h3>
           <p className='2xl:w-[40%] lg:w-[50%] w-full text-white font-sansRegular text-md text-center'>rom real-time stock data to tailored financial tools, Stockverse provides an array of services to help you maximize your portfolio.</p>
           {/* ----------features stockverse-gpt---------- */}
           <div className='w-full mt-8 lg:py-4 lg:px-8 p-8 gap-y-8 flex max-lg:flex-col items-center justify-between relative border border-white/5 rounded-2xl !overflow-hidden'>
@@ -217,7 +220,7 @@ export default function Home() {
       <section className='w-full px-6 max-sm:px-3 mx-auto xl:container flex flex-col gap-y-12 py-16'>
         <div className='w-full flex items-center gap-y-4 justify-between max-lg:flex-col lg:pt-8'>
           <div className='lg:w-[40%] w-full'>
-            <h1 className='font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-3xl text-primaryTextColor'>Everything You Need To Know <span className='hero_h2'>About Stockverse</span></h1>
+            <h3 className='font-sansMedium w-full 2xl:text-5xl lg:text-5xl text-3xl text-primaryTextColor'>Everything You Need To Know <span className='hero_h2'>About Stockverse</span></h3>
           </div>
           <div className='lg:w-[45%]'>
             <p className='font-sansRegular text-lg text-primaryTextColor'>ind quick answers to frequently asked questions about Stockverse’s tools, subscription options, and resources</p>
@@ -262,7 +265,7 @@ export default function Home() {
       {/* ----------join section---------- */}
       <section className='w-full px-6 max-sm:px-3 py-8 mx-auto xl:container flex flex-col items-center gap-y-4'>
         <div className='w-full max-md:px-3 py-12 bg-joinBg bg-cover bg-center gap-y-6 flex flex-col items-center justify-center relative border border-white/5 rounded-3xl !overflow-hidden'>
-          <h1 className='font-sansMedium xl:w-[46%] lg:w-[60%] md:w-[60%] w-full 2xl:text-6xl lg:text-5xl text-3xl text-center text-white'>Revolutionize Your Stock <span className='hero_h3'> Trading Journey</span></h1>
+          <h3 className='font-sansMedium xl:w-[46%] lg:w-[60%] md:w-[60%] w-full 2xl:text-6xl lg:text-5xl text-3xl text-center text-white'>Revolutionize Your Stock <span className='hero_h3'> Trading Journey</span></h3>
           <p className='2xl:w-[40%] md:w-[50%] w-full text-white font-sansRegular md:text-lg text-base text-center'>Join a platform trusted by investors looking to elevate their journey in the stock market.</p>
           <Image className='max-md:w-[90%]' src="/images/join_stocks.png" width={614} height={92} alt='Stockverse Logo' />
           <Link className='py-2 px-4 bg-primaryMain hover:bg-primaryMain/80 rounded-lg text-white text-md font-sansMedium' href='/register'>Get started for free</Link>

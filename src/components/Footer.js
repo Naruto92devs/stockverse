@@ -32,9 +32,9 @@ export default function Footer () {
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h2 className="text-xl font-sansMeduim text-primaryTextColor">Market</h2>
-                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/gainers&losers'>Gainers / Losers</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/news'>News</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/ipo-calendar'>IPO Calendar</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/dashboard?view=gainers_losers'>Gainers / Losers</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/dashboard?view=news'>News</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/dashboard?view=ipo_calendar'>IPO Calendar</Link>
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h2 className="text-xl font-sansMedium text-primaryTextColor">Contact</h2>

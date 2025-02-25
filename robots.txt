@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /checkout/
+Disallow: /api/
+Allow: /
+Sitemap: https://www.stockverse.com/sitemap

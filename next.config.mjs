@@ -10,7 +10,36 @@ const nextConfig = {
             },
         ]  // Add 'logo.clearbit.com' to the list of allowed domains
     },
-    // productionBrowserSourceMaps: true,
+    async redirects() {
+        return [
+          {
+            source: '/ipo-calendar', // URL to be redirected
+            destination: '/', // URL to redirect to
+            permanent: false, // Set to true for permanent redirects (301), false for temporary (307)
+          },
+          {
+            source : '/gainers&losers',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/news',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/level2',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/financials',
+            destination : '/',
+            permanent : false,
+          },
+        ];
+      },
+    
 };
 
 export default nextConfig;

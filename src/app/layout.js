@@ -7,6 +7,7 @@ import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 import UserProvider from './userProvider';
 import DashboardProvider from './dashboardProvider';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 export default function RootLayout({ children }) {
 
@@ -41,7 +42,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
         {/* <!-- End Google Tag Manager --> */}
-        
+    
         {/* <!-- Google tag (gtag.js) --> */}
         <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-PEDC750L6H`}></Script>
         <Script id="google-analytics" strategy="afterInteractive">
@@ -62,6 +63,7 @@ export default function RootLayout({ children }) {
           height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
+        <GoogleReCaptchaProvider reCaptchaKey="6LdxE-IqAAAAAJMrNxeSDAMAufTfPFoyi77Mpglo">
               <UserProvider>
                 <DashboardProvider>
                   <main className="w-[100%] min-h-[100vh] flex flex-col bg-primaryBg">
@@ -73,6 +75,7 @@ export default function RootLayout({ children }) {
                   </main>
                 </DashboardProvider>
               </UserProvider>
+        </GoogleReCaptchaProvider>
         {/* <Script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SNDh4K"></Script> */}
       </body>
     </html>
