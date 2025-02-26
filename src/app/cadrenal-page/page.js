@@ -132,7 +132,7 @@ const Neov = ()=>{
 
     return(
         <>
-        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
+        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} id={"YizWSN"} baseId={"VSwpYs"}/>
         {/* hero */}
         <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-12 max-md:px-3 px-3">
             <div className="w-full xl:container mx-auto flex justify-between max-lg:flex-col max-lg:gap-y-8">

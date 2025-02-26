@@ -133,9 +133,9 @@ export default function Register() {
         <div className={`${VerifyOTP ? 'bg-loginBg bg-cover bg-center bg-no-repeat' : ''} w-full lg:flex max-lg:flex-col xl:min-h-[100vh]`}>
             <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] px-6 max-lg:py-10 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
                 <Image width={56} height={56} src='/images/logo.png' alt='logo'></Image>
-                <h1 className="text-4xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Hi, welcome!</h1>
-                <p className="text-lg mb-8 max-md:mb-4 leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
-                Ready! Please enter your details.
+                <h1 className="text-2xl max-md:text-xl font-sansMedium text-primaryTextColor text-center">Sign Up in 10 Seconds - No Hassle.</h1>
+                <p className="text-lg mb-8 lg:px-[10%] xl:px-[20%] max-md:mb-4 leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
+                    Instant access to AI stock picks, market trends, and exclusive trading insights.
                 </p>
                 <form onSubmit={handleSubmit} className="w-[60%] max-xl:w-[75%] max-sm:w-[90%] space-y-4">
                     <div className="w-full flex flex-col">
@@ -282,7 +282,7 @@ export default function Register() {
                         type="submit"
                         className="w-full bg-primaryMain text-base font-sansMedium text-white py-2 rounded-lg hover:bg-primaryTextColor transition duration-300"
                     >
-                        {loading ? 'Signing Up...' : 'Sign Up'}
+                        {loading ? 'Signing Up...' : 'Create My Free Account'}
                     </button>
                     <Image width={1356} height={60} className='w-full' src='/images/or.png' alt='logo'></Image>
                     <div className="w-full flex flex-col mt-4 space-y-2">
@@ -291,7 +291,7 @@ export default function Register() {
                         className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 rounded-lg transition duration-300"
                         >
                             <Image width={26} height={26} src='/images/google.png' alt='logo'></Image>
-                            Continue with Google
+                            Sign Up with Google
                         </a>
                     </div>
                 </form>

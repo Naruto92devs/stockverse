@@ -7,7 +7,7 @@ import 'react-phone-input-2/lib/style.css'; // Optional default styles
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export default function NewsLetterPopup({newsletter, setNewsletter}) {
+export default function NewsLetterPopup({newsletter, setNewsletter, id, baseId}) {
 
   const [privacyChecked, setPrivacyChecked] = useState(false);
   const [phone, setPhone] = useState(null);
@@ -19,21 +19,23 @@ export default function NewsLetterPopup({newsletter, setNewsletter}) {
   const handleSubscribeEmailPhone = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const id = "YhpBUN";
-    const baseId = "VSwpYs";
+    // const id = "YhpBUN";
+    // const baseId = "VSwpYs";
 
     try {
         const requestData = {
-            id,
-            baseId,
             email,
             phone: `+${phone}`,
         };
 
-        // Only add the phone number if it is provided
-        // if (phone) {
-        //     requestData.phone = `+${phone}`;
-        // }
+        // Only add the baseId number if it is provided
+        if (baseId) {
+            requestData.baseId = baseId;
+        }
+        // Only add the id number if it is provided
+        if (id) {
+            requestData.id = id;
+        }
 
         const response = await axios.post(`${STOCKVERSE_BACK_END}/klaviyo-subscription`, requestData);
 

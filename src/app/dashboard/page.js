@@ -351,7 +351,7 @@ function DashboardContent() {
         {/* side bar end */}
 
         <UserSettings settings={settings} setSettings={setSettings}/>
-        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
+        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} baseId={"VSwpYs"}/>
 
         {/* Dashboard Area */}
         <div className="relative flex flex-col items-center flex-grow max-w-full h-full overflow-y-scroll scrollbar-thin">
