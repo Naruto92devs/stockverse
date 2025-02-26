@@ -77,8 +77,8 @@ export default function Membership() {
       {/* Pricing Plans */}
       <div className="mx-auto xl:container p-6 flex flex-wrap md:flex-row justify-between items-center max-md:gap-8">
         <div className="md:w-[48%] w-full flex flex-col items-start gap-2">
-          <h3 className="py-1 px-3 bg-black text-white font-sansMedium rounded-full">{view} PLAN</h3>
-          <h2 className="lg:text-4xl text-3xl mb-4 font-sansMedium text-black">Start Smart, Stay Informed, Absolutely Free!</h2>
+          <h2 className="py-1 px-3 bg-black text-white font-sansMedium rounded-full">{view} PLAN</h2>
+          <h3 className="lg:text-4xl text-3xl mb-4 font-sansMedium text-black">Start Smart, Stay Informed, Absolutely Free!</h3>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
             <p className="font-snasMedium text-base md:text-lg text-black">Realtime Stocks Data & Charts</p>
@@ -116,7 +116,7 @@ export default function Membership() {
           {/* BASIC Plan */}
           <div onClick={() => updatePlan('BASIC' ,plans[billingCycle].basic.priceId)} className={`${view === 'BASIC' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
             <div className="flex flex-wrap gap-4 justify-between items-center py-2 border-b border-black/5">
-              <h2 className="text-xl font-sansMedium">{plans[billingCycle].basic.label}</h2>
+              <h4 className="text-xl font-sansMedium">{plans[billingCycle].basic.label}</h4>
               <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].basic.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
             <p className="text-base font-sansRegular py-2">Our Company Plan is ideal for larger organizations seeking comprehensive solutions for their teams</p>

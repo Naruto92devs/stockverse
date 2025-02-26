@@ -67,7 +67,7 @@ try {
 } catch (err) {
     setError(
     <section className="w-[100%] h-[50dvh] flex flex-col gap-1 items-center justify-center text-center">
-        <h1 className="text-4xl font-bold text-primaryButtonBg">Oops, something went wrong!</h1>
+        <h4 className="text-4xl font-bold text-primaryButtonBg">Oops, something went wrong!</h4>
         <p className="text-base text-primaryText">we were not able to find what you were looking for.</p>
         <p className="text-base text-primaryText">Please try again!</p>
     </section>);
@@ -236,7 +236,7 @@ return (
                         </p>
                     </div>
 
-                    <h3 className="text-lg font-sansSemibold text-primaryText">{item.title}</h3>
+                    <h4 className="text-lg font-sansSemibold text-primaryText">{item.title}</h4>
 
 
                     {/* Banner image */}

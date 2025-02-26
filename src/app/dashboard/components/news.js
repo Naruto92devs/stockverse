@@ -190,7 +190,7 @@ export default function News({symbol, updateUrl}) {
       <div  className="w-full lg:min-h-[680px] 2xl:min-h-[350px] flex-grow flex lg:flex-row flex-col">
         {/* Hot Topics */}
         <div className="lg:w-[40%] w-full flex flex-col gap-2 lg:border-r max-lg:border-b border-black/10">
-          <h3 className="pt-3 pl-3 text-xl font-sansMedium text-primaryTextColor">Hot Topics</h3>
+          <h2 className="pt-3 pl-3 text-xl font-sansMedium text-primaryTextColor">Hot Topics</h2>
           <div className="flex flex-col gap-4 lg:overflow-y-auto p-3 scrollbar-thin">
             {stockverseNews.map((news) => (
               <Link key={news.id} href={news.article_url} className="flex items-center gap-3 hover:bg-gray-100 rounded-lg transition">

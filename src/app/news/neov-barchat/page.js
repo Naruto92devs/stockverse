@@ -101,12 +101,12 @@ const BARCHATNEOV = () => {
                 </ul>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">{`The Chart of the Day belongs to the energy storage company NeoVolta NEOV. I found the stock by using Barchart's powerful screening functions to find stocks with the highest technical buy signals, highest Weighted Alpha, superior current momentum and having a Trend Seeker buy signal then used the Flipchart feature to review the charts for consistent price appreciation. Since the Trend Seeker signaled a buy on 11/4 the stock gained 48.79%.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">NEOV Price vs Daily Moving Averages</h2>
+                <h3 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">NEOV Price vs Daily Moving Averages</h3>
                 <Image className="w-[100%] h-[100%]" width={1171} height={465} src='/images/neov-chart.jpeg' alt="NEOV"/>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">NeoVolta Inc. designs, manufactures, and sells energy storage systems in the United States. The company provides NV14, NV14-K, and NV 24 energy storage systems, which stores and uses energy through batteries and an inverter at residential or commercial sites. NeoVolta Inc. markets and sells its products directly to certified solar installers and solar equipment distributors. The company was founded in 2018 and is headquartered in Poway, California.</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">Barchart&#39;s Opinion Trading systems are listed below. Please note that the Barchart Opinion indicators are updated live during the session every 20 minutes and can therefore change during the day as the market fluctuates. The indicator numbers shown below therefore may not match what you see live on the <Link href='https://www.barchart.com/news/chart-of-the-day?source=content_type:react%7Cfirst_level_url:article%7Csection:main_content%7Cbutton:body_link' className="text-primaryHeading font-bold"> Barchart.com</Link> website when you read this report.</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Barchart Technical Indicators:</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Barchart Technical Indicators:</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">100% technical buy signals</li>
                     <li className="text-base 2xl:text-xl text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
@@ -121,13 +121,13 @@ const BARCHATNEOV = () => {
                     <li className="text-base 2xl:text-xl text-primaryText">Recently traded at $5.41 with 50 day moving average of $3.29</li>
                 </ul>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Fundamental Factors:</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Fundamental Factors:</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Market Cap $164 million</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Revenue expected to grow 244.00% this year and another 72.60% next year</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Earnings are estimated to increase 28.60% this year, and an additional 120.00% next year </li>
                 </ul>
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Analysts and Investor Sentiment -- I don&#39;t buy stocks because everyone else is buying but I do realize that if major firms and investors are dumping a stock it&#39;s hard to make money swimming against the tide:</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Analysts and Investor Sentiment -- I don&#39;t buy stocks because everyone else is buying but I do realize that if major firms and investors are dumping a stock it&#39;s hard to make money swimming against the tide:</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Wall Street analyst gave 1 strong buy</li>
                     <li className="text-base 2xl:text-xl text-primaryText">MorningStar gives the stock its average rating of 3 with a fair value of $8.72 or 43% under valued</li>

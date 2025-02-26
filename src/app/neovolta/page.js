@@ -140,7 +140,7 @@ const Neov = ()=>{
             <div className="w-full xl:container mx-auto flex justify-between max-lg:flex-col max-lg:gap-y-8">
                 <div className="w-[60%] max-md:w-[100%] max-lg:w-[100%]">
                 <h1 className="text-[#1D3045] 2xl:text-5xl lg:text-3xl text-[1.5rem] 2xl:leading-[150%] xl:leading-[150%] leading-[150%] font-sansSemibold">This  ${stockdata.price} Stock May SOAR 345.58%</h1>
-                <h1 className="text-[#12A72E] 2xl:text-5xl lg:text-3xl text-[1.5rem] 2xl:leading-[150%] xl:leading-[150%] leading-[150%] font-sansSemibold pl-16 max-lg:pl-0">NEOV: The Better Energy Storage!</h1>
+                <h2 className="text-[#12A72E] 2xl:text-5xl lg:text-3xl text-[1.5rem] 2xl:leading-[150%] xl:leading-[150%] leading-[150%] font-sansSemibold pl-16 max-lg:pl-0">NEOV: The Better Energy Storage!</h2>
                 <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl xl:text-base text-lg 2xl:w-full w-[80%] max-md:w-full pt-4">Breaking: Feb, 2025, Stockverse Reveals Top Energy Storage Stock Pick with Huge Potential! Subscribe Now For Updates!</p>
                 </div>
                 <div className="w-[35%] max-md:w-[100%] max-lg:w-[50%] md:mt-12">
@@ -205,7 +205,7 @@ const Neov = ()=>{
                     </div>
                 </div>
                 <div className="w-[54%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3">
-                    <h2 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 max-md:text-left">Leading the Charge: New US Policies Add Spark to the Future of Solar</h2>
+                    <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 max-md:text-left">Leading the Charge: New US Policies Add Spark to the Future of Solar</h3>
                     <h4 className="text-[#343D48] text-center 2xl:text-2xl lg:text-lg text-lg font-MontserratMedium md:px-28  max-md:text-left">And how one bright stock couldn’t have planned their surge at a better time.</h4>
                     <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-8 text-[#343D48]">Dear Investor,</h6>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-2 text-[#343D48]">
@@ -262,7 +262,7 @@ const Neov = ()=>{
                     </p>
                     <Image className="w-full my-8 xl:my-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
-                    <h2 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4  max-md:text-left">Solar Living, Post-NEM 3.0</h2>
+                    <h4 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4  max-md:text-left">Solar Living, Post-NEM 3.0</h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     NEM 3.0, or Net Energy Metering 3.0 was officially passed via an unanimous 
                     CPUC (California Public Utilities Commission) vote, as of December 15th, 2022.
@@ -288,9 +288,9 @@ const Neov = ()=>{
                     </p>
                     <Image className="w-full my-8 xl:my-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 text-[#343D48]">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 text-[#343D48]">
                         New Battery Systems Make or Break Solar Investments
-                    </h2>
+                    </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     With homeowners looking to <span className="underline">rely less on the grid</span>, more and more people are setting their 
                     sights on the best, more reliable battery systems. 
@@ -314,9 +314,9 @@ const Neov = ()=>{
                     Yet, in a sea of competition, one company has clearly stood out as the brightest.
                     </p>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     Introducing NeoVolta, Inc. <span className="text-[#12A72E]">(NEOV): </span>The Stock Leading the Charge in Solar Energy Storage
-                    </h2>
+                    </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     NeoVolta (NEOV) is a publicly-traded solar battery company leading the solar industry with best-in-class battery systems.
                     </p>
@@ -343,9 +343,9 @@ const Neov = ()=>{
                     </p>
                     <Image className="w-full my-8 xl:my-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     Led By Proven Experience
-                    </h2>
+                    </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     NeoVolta is led by CEO Ardes Johnson. 
                     </p>
@@ -372,9 +372,9 @@ const Neov = ()=>{
                     Said predictions have already begun to take shape…
                     </p>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     An Ever-Expanding Dealer Network
-                    </h2>
+                    </h4>
                     <p  className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     Neovolta recently secured a $1,4000,000 purchase order from National Renewable Energy 
                     Partners (NREP) for 150 NV14 energy storage systems. 
@@ -399,9 +399,9 @@ const Neov = ()=>{
                     </p>
                     <Image className="w-full my-8 xl:my-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
-                    <h2 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     Uncle Sam Approves: $250M Loan From The US Department of Energy
-                    </h2>
+                    </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     As of November, 2024, NeoVolta successfully secured a $250,000,000 loan from 
                     the US Department of Energy (DOE), via the Title 17 Loan Program. 
@@ -424,9 +424,9 @@ const Neov = ()=>{
                     </p>
                     <Image className="w-full my-8 xl:my-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
-                    <h2 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     A Glance into the Future
-                    </h2>
+                    </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     At this point, the quest for renewable energy is inevitable. With a rise in solar, we’re seeing:
                     </p>
@@ -451,9 +451,9 @@ const Neov = ()=>{
                     experts are projecting.`}
                     </p>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     Expert Investors Are Closely Watching NeoVolta (<span className="#12A72E">NEOV</span>)
-                    </h2>
+                    </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     As previously mentioned, there are a plethora of economic, governmental and environmental 
                     factors that will decide the future of solar.
@@ -534,9 +534,9 @@ const Neov = ()=>{
         
         {/* add neov to watchlist */}
         <section className="py-10">
-        <h2 className="text-[#1D3045]  font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
+        <h4 className="text-[#1D3045]  font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
         Add NEOV to your watchlist today
-        </h2>
+        </h4>
             <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
                 <div className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
                     <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/6.png" alt="3" width={70} height={70}/>
@@ -555,9 +555,9 @@ const Neov = ()=>{
 
         {/* Trusted members */}
         <section className="bg-[#010e140d] max-md:py-6 py-16">
-            <h2 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
+            <h4 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
             Proven Results, Trusted By 128,000 Members
-            </h2>
+            </h4>
             <div className="py-8">
             <div className="flex items-start gap-4 overflow-x-auto scroll-smooth scrollbar-hide whitespace-nowrap px-4"  
             ref={scrollRef}
@@ -743,9 +743,9 @@ const Neov = ()=>{
               <p className="font-MontserrarMedium l text-center text-[#fff]">
                 &#8213; Join StockVerse Alerts Today!
               </p>
-              <h1 className="text-[1.5rem] lg:text-[3.2rem] font-MontserratSemibold leading-[130%] lg:leading-[120%] pb-4 lg:pb-6 text-center text-[#fff]">
+              <h4 className="text-[1.5rem] lg:text-[3.2rem] font-MontserratSemibold leading-[130%] lg:leading-[120%] pb-4 lg:pb-6 text-center text-[#fff]">
                 Winning Stock Picks Sent To Inbox
-              </h1>
+              </h4>
               <p className="font-MontserratRegular text-base md:text-xl xl:tetx-2xl text-[#fff] px-4 lg:px-[5rem] leading-[150%] lg:leading-[120%] text-center">
                 Sign up for our newsletter to receive the latest updates, insights, and exclusive Winning Stock Picks. As of 2024, our alerts are up a total of 
                  873.22%.
@@ -758,9 +758,9 @@ const Neov = ()=>{
               {/* Left Section - Sign Up */}
               <div className="w-full lg:w-[48%]">
                 <div className="bg-[#111111] border border-solid border-[#404040] p-6 sm:p-8 rounded-2xl shadow-lg">
-                  <h3 className="text-center text-[#fff] font-MontserrarMedium text-xl sm:text-2xl italic mb-4">
+                  <h4 className="text-center text-[#fff] font-MontserrarMedium text-xl sm:text-2xl italic mb-4">
                     — Your Next Winning Stock Awaits!
-                  </h3>
+                  </h4>
                   <p className="text-center text-[#aaaaaa] MontserratRegular text-[1rem] sm:text-[1.3rem] mb-10 sm:mb-16 px-2 sm:px-4">
                     Grow Your Wealth by <span className="text-blue-500">+673.66%</span>! Sign Up Now for Exclusive Stock Picks and Alerts
                   </p>
@@ -922,9 +922,9 @@ const Neov = ()=>{
                     </div>
                     {/* Quick Links */}
                     <div className="w-[45%] sm:w-[30%] lg:w-[15%]">
-                    <h3 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
+                    <h4 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
                         Quick Links
-                    </h3>
+                    </h4>
                     <ul className="text-[#aaa] text-base md:text-xl font-MontserratRegular flex flex-col gap-3">
                         <li><a href="/">Home</a></li>
                         <li><a href="/stockverse-gpt">Stockverse GPT</a></li>
@@ -933,9 +933,9 @@ const Neov = ()=>{
                     </div>
                     {/* Market */}
                     <div className="w-[45%] sm:w-[30%] lg:w-[15%]">
-                    <h3 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
+                    <h4 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
                         Market
-                    </h3>
+                    </h4>
                     <ul className="text-[#aaa] text-base md:text-xl font-MontserratRegular flex flex-col gap-3">
                         <li><a href="/gainers&losers">Gainers/Losers</a></li>
                         <li><a href="/news">News</a></li>
@@ -944,9 +944,9 @@ const Neov = ()=>{
                     </div>
                     {/* Contact */}
                     <div className="w-[45%] sm:w-[30%] lg:w-[15%]">
-                    <h3 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
+                    <h4 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
                         Contact
-                    </h3>
+                    </h4>
                     <ul className="text-[#aaa] text-base md:text-xl font-MontserratRegular flex flex-col gap-3">
                         <li><a href="mailto:support@stockverse.com">Email Us</a></li>
                         <li><a href="/feedback">Send Us Feedback</a></li>

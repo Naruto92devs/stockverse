@@ -114,7 +114,7 @@ const Noev = () => {
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">In response to this high-in-demand use of alternative energy, companies around the country (and world) are racing to produce the best panels, inverters, mounting systems, trackers, batteries and more — all to be seen as the standard that powers-up the United States.</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Solar Living, Post-NEM 3.0</h2>
+                <h3 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Solar Living, Post-NEM 3.0</h3>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">NEM 3.0, or Net Energy Metering 3.0 was officially passed via an unanimous CPUC (California Public Utilities Commission) vote, as of December 15th, 2022.</p>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">As a result, California-based homeowners with solar paid up to 75% less in monthly electric bills.</p>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">NEM 3.0 also led to decreasing export rates, allowing for home solar systems to pay for themselves faster, despite increasing upfront costs, creating a boom in home installations.</p>
@@ -130,7 +130,7 @@ const Noev = () => {
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">That’s why manufacturers are racing to produce the most secure and durable battery systems with the highest nominal capacities. Yet, in a sea of competition, one company has clearly stood out as the brightest.</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Introducing NeoVolta (NEOV): The Stock Leading the Charge in Solar Energy Storage</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Introducing NeoVolta (NEOV): The Stock Leading the Charge in Solar Energy Storage</h4>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">{`NeoVolta (NEOV) is a publicly-traded solar battery company leading the solar industry with best-in-class battery systems.`}</p>
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">As the solar industry continues to gain traction around the nation, battery systems will be the main focus for consumers and investors alike. Stronger, more reliable battery systems will define solar’s inherent value, in the eyes of coastal and mainland Americans.</p>
@@ -141,19 +141,19 @@ const Noev = () => {
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">These are all questions consumers are, and will be asking, when it comes time to invest in the future of their home’s energy production. And the answer to these questions comes from the leader in solar batteries…</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Led By Proven Experience</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Led By Proven Experience</h4>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">NeoVolta is led by CEO Ardes Johnson. Johnson is known for his work at Tesla, Meyer Burger Americas, SolarWorld Americas, and General Electric. Johnson launched the PowerWall and PowerPack partner channel programs, which secured an 80 MWh storage contract with southern California Edison during his time at Tesla.</p>
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">As the President and General Manager at Meyer Burger Americas, Johnson oversaw a $1,000,000,000 backlog and scaled manufacturing to 2 gigawatts annually within just 90 days.</p>
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">With his experience with said solar giants, many believe Johnson will have a competitive edge, when it comes to forming lasting strategic partnerships that supercharge NeoVolta ahead of its competition. In other words, there is no better man to steer the solar ship!</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">An Ever-Expanding Dealer Network</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">An Ever-Expanding Dealer Network</h4>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">NeoVolta recently secured a $1,400,000 purchase order from National Renewable Energy Partners (NREP) for 150 NV14 energy storage systems. As part of this deal, NeoVolta’s dealer network is expected to expand to Ohio, Texas, Connecticut, Indiana, and Pennsylvania. And with this momentum, more can follow suit.</p>
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">“Today marks a significant milestone for NeoVolta as we secure a $1.4 million deal with National Renewable Energy Partners. This partnership not only expands our dealer network into key states like Ohio, Texas, and Connecticut but also reinforces our commitment to empowering homeowners with innovative solar energy storage solutions. Together, we are shaping a more sustainable future,”  — Ardes Johnson, NeoVolta CEO</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Uncle Sam Approves: $250M Loan From The US Department of Energy</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Uncle Sam Approves: $250M Loan From The US Department of Energy</h4>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">As of November, 2024, NeoVolta successfully secured a $250,000,000 loan from the US Department of Energy (DOE), via the Title 17 Loan Program. These funds were immediately allocated towards establishing a state-of-the-art manufacturing facility, as well as regional deployment centers around the country.</p>
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">This low-interest loan will enable NeoVolta to create 150+ high-paying jobs, and work in complete compliance with 2022’s Inflation Reduction Act (IRA), ensuring domestic codification.</p>
@@ -162,7 +162,7 @@ const Noev = () => {
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">The result: NeoVolta received economic development offers from 23 states — offers that are currently under review by their executive team.</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">A Glance into the Future</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">A Glance into the Future</h4>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">At this point, the quest for renewable energy is inevitable. With a rise in solar, we’re seeing:</p>
                 <ul className="list-disc pl-8 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText leading-[140%]">an increase in jobs that experts project will only increase with time</li>
@@ -178,7 +178,7 @@ const Noev = () => {
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">{`And as investors, it’s our job to consider the odds, considering what we know, and what experts are projecting.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Expert Investors Are Closely Watching NeoVolta (NEOV)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium">Expert Investors Are Closely Watching NeoVolta (NEOV)</h4>
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">As previously mentioned, there are a plethora of economic, governmental and environmental factors that will decide the future of solar.</p>
 
                 <p className="text-base 2xl:text-xl text-primaryText leading-[140%] font-sansRegular">In the case of NeoVolta, the stars are beginning to align.</p>

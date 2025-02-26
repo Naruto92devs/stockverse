@@ -122,7 +122,7 @@ const Marketing = () => {
                     </div>
                     <div className="bg-[#FFFFFF0F] flex max-md:flex-col max-md:gap-8 items-center justify-between rounded-3xl max-md:rounded-2xl 2xl:px-28 lg:px-12 px-4 2xl:py-8 lg:py-6 py-4">
                         <div className="max-md:w-full w-[40%] 2xl:w-[50%]">
-                            <h1 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#fff] xl:w-[80%] leading-[120%] 2xl:pb-48 lg:pb-32 pb-20">Your press releases are more <span className="text-[#FFFFFF66]">likely to get read</span></h1>
+                            <h3 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#fff] xl:w-[80%] leading-[120%] 2xl:pb-48 lg:pb-32 pb-20">Your press releases are more <span className="text-[#FFFFFF66]">likely to get read</span></h3>
                             <p className="text-[#fff] text-lg lg:text-xl 2xl:text-2xl 2xl:pb-12 pb-6 font-sansRegular">Instead of hoping investors stumble upon your website and then click through to your news page, we put you in direct contact with them. Your press releases are more likely to get read so that your brand awareness soars.</p>
                             <Link href="" className="bg-[#ffffff] font-sansMedium text-[#111] rounded-lg px-4 py-2 text-base 2xl:text-xl">Get started for free</Link>
                         </div>
@@ -140,7 +140,7 @@ const Marketing = () => {
                         <Image className="w-full h-full" src="/images/market-share.png" alt="market-share" width={587} height={636} />
                     </div>
                     <div className="max-md:w-full w-[52%]">
-                        <h1 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#000] leading-[120%] 2xl:pb-48 lg:pb-32 pb-20">Boost Market Share With <span className="text-[#00000066]">Innovative Strategies.</span></h1>
+                        <h4 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#000] leading-[120%] 2xl:pb-48 lg:pb-32 pb-20">Boost Market Share With <span className="text-[#00000066]">Innovative Strategies.</span></h4>
                         <p className="text-[#111] text-lg lg:text-xl 2xl:text-2xl 2xl:pb-12 pb-6 font-sansRegular">We offer a number of handy, easy-to-use tools that will allow you to see: how readers are engaging with your content, how the content is doing compared to others in your market, what the trending topics are on the web, and much more.</p>
                         <Link href="" className="bg-[#634FF7] duration-300 hover:bg-[#4934df] font-sansMedium text-[#fff] rounded-lg px-4 py-2 text-base 2xl:text-xl">Get started for free</Link>
                     </div>
@@ -149,7 +149,7 @@ const Marketing = () => {
 
             {/* interested investors */}
             <section className="w-full xl:container mx-auto max-md:py-6 py-20 px-3">
-                <h1 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#000] leading-[120%] 2xl:pb-24 lg:pb-16 pb-20 max-md:w-full w-[70%]">Right now interested investors want to <span className="text-[#00000066]">read about your company</span></h1>
+                <h4 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#000] leading-[120%] 2xl:pb-24 lg:pb-16 pb-20 max-md:w-full w-[70%]">Right now interested investors want to <span className="text-[#00000066]">read about your company</span></h4>
                 <div className="flex items-center justify-between max-md:flex-col max-md:items-start gap-y-6">
                     <Image className="w-[15%] max-md:w-[30%]" src="/images/top-4-stocks.png" alt="" width={202} height={56} />
                     <p className="text-[#111111] text-lg lg:text-xl 2xl:text-2xl 2xl:pb-12 pb-6 font-sansRegular w-[55%] max-md:w-full">The great thing about PressReach is not only do we offer exposure to one of the largest targeted investor audiences. But we also display your press releases to investors who have expressed interest in your marketplace. These are people who really want to hear what you have to say!</p>
@@ -160,7 +160,7 @@ const Marketing = () => {
             <section className="max-md:py-6 py-20 max-md:px-3 px-3 bg-[#fafafa]">
                 <div className="w-full xl:container mx-auto flex items-center justify-between max-md:flex-col max-md:gap-y-8">
                     <div className="flex flex-col justify-between max-md:w-[100%] w-[48%]">
-                        <h1 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#000] leading-[120%] 2xl:pb-40 lg:pb-60 pb-20">{`Don't Hesitate To Contact Us`}</h1>
+                        <h4 className="font-sansMedium xl:mb-4 2xl:text-8xl lg:text-7xl text-4xl text-[#000] leading-[120%] 2xl:pb-40 lg:pb-60 pb-20">{`Don't Hesitate To Contact Us`}</h4>
                         <div>
                             <p className="text-[#111] text-lg lg:text-xl 2xl:text-2xl 2xl:pb-12 pb-6 font-sansRegular">
                                 {`To capitalize on PressReach's publisher network and increase your investor exposure, 

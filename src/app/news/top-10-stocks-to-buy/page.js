@@ -101,7 +101,7 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Next, we looked at market positioning. Companies that stood out had something unique, whether it was innovative products, strong brand loyalty, or a leading spot in their industry. These competitive advantages give businesses the edge they need to stay ahead, even in tough markets. We also kept an eye on industry trends. For example, technology, renewable energy, healthcare, and consumer goods are sectors that are expected to grow significantly in 2025, so we focused on finding standout performers in these spaces.:`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Finally, we considered the bigger picture, macroeconomic conditions and market sentiment. With inflation, interest rates, and global market dynamics influencing stock prices, it was essential to make sure our picks aligned with these broader trends. By combining all these factors, we created a well-rounded list of stocks that offer a mix of stability and growth potential. Whether you’re a seasoned investor or just getting started, these picks are designed to help you make the most of your investments in January 2025 and beyond.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`This approach ensures that every stock on our list isn’t just a good pick, it’s one that’s backed by careful research, sound reasoning, and a clear view of what’s ahead in the market. Investing can seem complicated, but with the right insights, it doesn’t have to be.`}</p>
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">1. Taiwan Semiconductor Manufacturing Company Limited (NYSE: <Link href="https://stockverse.com/stocks/TSM" className="text-primaryHeading">TSM</Link>)</h2>
+                <h3 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">1. Taiwan Semiconductor Manufacturing Company Limited (NYSE: <Link href="https://stockverse.com/stocks/TSM" className="text-primaryHeading">TSM</Link>)</h3>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $194.64</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $1.02T</li>
@@ -112,7 +112,7 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`What really makes TSMC stand out is its client list. It works with tech giants like Apple, NVIDIA, and AMD, providing the advanced chips these companies rely on for their groundbreaking products. As the world’s biggest contract chipmaker, TSMC owns over 60% of the global market, which gives it a huge edge. AI-related chips are also becoming a bigger part of TSMC’s business, now making up 15% of its revenue compared to just 5% in 2023.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`On top of all this, TSMC is investing in its future. It’s expanding globally with new factories in the United States, Japan, and Germany. This move helps the company avoid risks tied to its home base in Taiwan while also meeting growing demand from customers worldwide.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">2. Amazon Inc. (NASDAQ: <Link href="https://stockverse.com/stocks/AMZN" className="text-primaryHeading">AMZN</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">2. Amazon Inc. (NASDAQ: <Link href="https://stockverse.com/stocks/AMZN" className="text-primaryHeading">AMZN</Link>)</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $223.29 </li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $2.37T</li>
@@ -124,7 +124,12 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Of course, e-commerce is still a core part of Amazon’s business, and it continues to grow. In North America, retail revenue rose 9% to $95.5 billion last quarter, driven by major events like Prime Day and Amazon’s focus on keeping prices competitive and delivery fast. Despite the challenges in retail, Amazon’s ability to adapt and stay ahead of competitors keeps its customers loyal and sales climbing.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Analysts are also backing Amazon in a big way. Several have raised their price targets for the stock, with Bernstein analyst Mark Shmulik pointing to growth in AWS and advertising as key reasons why Amazon is well-positioned for the future. His new price target of $265 reflects strong confidence in the company’s direction.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">3. UnitedHealth Group Incorporated (NYSE: <Link href="https://stockverse.com/stocks/UNH" className="text-primaryHeading">UNH</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
+                    3. UnitedHealth Group Incorporated (NYSE: 
+                    <Link href="https://stockverse.com/stocks/UNH" className="text-primaryHeading">
+                    UNH
+                    </Link>)
+                </h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $489.25</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $460.26B</li>
@@ -135,7 +140,12 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Analysts are optimistic about UnitedHealth’s future. The stock has a “Strong Buy” rating, with an average price target of $636.20, indicating plenty of potential for upside. This confidence is rooted in the company’s ability to adapt to changes in the healthcare landscape and maintain its position as a leader in the industry.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`UnitedHealth’s performance isn’t just about numbers; it’s about staying ahead in a competitive market. The company’s ability to grow revenue, expand its customer base, and deliver strong earnings reflects its strategic strength. With its reliable growth, solid financials, and positive analyst outlook, UnitedHealth is well-positioned to remain a top performer in the healthcare space. For investors, it’s a chance to benefit from the growing demand for healthcare services and the company’s ability to deliver results.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">4. Alphabet Inc. (NASDAQ: <Link href="https://stockverse.com/stocks/GOOG" className="text-primaryHeading">GOOG</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
+                    4. Alphabet Inc. (NASDAQ: 
+                    <Link href="https://stockverse.com/stocks/GOOG" className="text-primaryHeading">
+                    GOOG
+                    </Link>)
+                </h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $189.70</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $2.35T</li>
@@ -145,7 +155,12 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Another reason Alphabet is so exciting for investors is its leadership in artificial intelligence (AI). The company is making huge strides with advanced AI technologies like its Gemini 2.0 model and Trillium chip, both designed to improve everything from search engines to cloud services. Alphabet is also pushing the boundaries of quantum computing with its Willow chip, which could open up new possibilities in tech innovation. These advancements position Alphabet as a leader in the AI space, an area expected to drive massive growth in the years ahead.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Even with regulatory challenges and increasing competition, Alphabet’s diverse business model keeps it strong. It continues to dominate digital advertising while investing heavily in high-growth areas like cloud computing and AI. This mix of stability and innovation makes Alphabet a solid choice for long-term investors looking to ride the wave of technological advancements. With its impressive financials and cutting-edge technologies, Alphabet is well-positioned to keep growing and leading the tech industry into the future.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">5. Microsoft Corporation (NASDAQ:<Link href="https://stockverse.com/stocks/MSFT" className="text-primaryHeading"> MSFT</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
+                    5. Microsoft Corporation (NASDAQ:
+                    <Link href="https://stockverse.com/stocks/MSFT" className="text-primaryHeading">
+                     MSFT
+                     </Link>)
+                </h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $437.03</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $3.25T</li>
@@ -156,7 +171,12 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`What’s even more exciting is the market's optimism about Microsoft’s future. Some experts predict the company’s valuation could surpass $4 trillion in the coming years, thanks to its leadership in AI, cloud computing, and other high-growth areas. This kind of confidence reflects Microsoft’s ability to stay ahead in a fast-moving tech landscape while delivering consistent results.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Microsoft’s strong financial performance, dominance in the cloud sector, and strategic bets on AI make it a top choice for investors. The company is not just keeping up with the tech world, it’s leading the charge into the future. For anyone looking to invest in a reliable, innovative, and forward-thinking company, Microsoft continues to be a standout option.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">6. Meta Platforms, Inc. (NASDAQ: <Link href="https://stockverse.com/stocks/META" className="text-primaryHeading">META</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
+                    6. Meta Platforms, Inc. (NASDAQ: 
+                    <Link href="https://stockverse.com/stocks/META" className="text-primaryHeading">
+                    META
+                    </Link>)
+                </h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $595.57</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $1.47T</li>
@@ -166,7 +186,7 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Instagram has become a major growth driver for Meta and is expected to contribute more than half of its U.S. advertising revenue by 2025. The platform's short-form video feature, Reels, has gained immense popularity, attracting both users and advertisers. Enhanced monetization strategies are keeping Instagram at the forefront of social media innovation. Meta’s focus on AI has also played a huge role in its success. AI-powered features not only improve the user experience but also make ads more effective, increasing engagement and revenue. CEO Mark Zuckerberg has emphasized that AI advancements are a core part of Meta’s strategy, and it’s paying off big time.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Analysts are bullish on Meta’s future, with some raising their price targets significantly. For example, Truist Securities set a target of $700, citing the company’s growing user base and innovative advertising solutions as key reasons for optimism. Meta’s commitment to reinventing itself while maintaining steady financial performance is why it’s considered a top choice for long-term growth. Despite facing challenges like competition and regulatory scrutiny, Meta’s diversified revenue streams, strong focus on AI, and the dominance of platforms like Instagram ensure it remains a leader in the tech space.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">7. NVIDIA Corporation (NASDAQ: <Link href="https://stockverse.com/stocks/NVDA" className="text-primaryHeading">NVDA</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">7. NVIDIA Corporation (NASDAQ: <Link href="https://stockverse.com/stocks/NVDA" className="text-primaryHeading">NVDA</Link>)</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $130.68</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $3.29T</li>
@@ -176,7 +196,7 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Analysts are optimistic about NVIDIA’s future, and for good reason. Morgan Stanley recently gave NVIDIA an Overweight rating, pointing to big gains expected from its new GPU, Blackwell, which is set to roll out in late 2025. Even with competition heating up from companies like Broadcom, NVIDIA remains the leader in AI chips. What sets it apart is its all-in-one approach, offering optimized hardware, software, and networking solutions that keep it ahead of the pack.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`NVIDIA’s dominance in the AI industry isn’t just about the present—it’s about its ability to stay at the cutting edge of tech. From powering advanced AI models to serving as the backbone for data centers worldwide, NVIDIA’s influence is massive and growing. For anyone looking to invest in the future of AI, NVIDIA stands out as a clear winner with both impressive financial results and the vision to maintain its lead in the tech world.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">8. Tesla, Inc. (NASDAQ:  <Link href="https://stockverse.com/stocks/TSLA" className="text-primaryHeading">TSLA</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">8. Tesla, Inc. (NASDAQ:  <Link href="https://stockverse.com/stocks/TSLA" className="text-primaryHeading">TSLA</Link>)</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $436.17</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $1.35T</li>
@@ -188,7 +208,7 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Tesla’s stock has also been bolstered by the broader economic environment and policy changes, with analysts like Dan Ives of Wedbush pointing out how new regulations and support for autonomous driving technologies could benefit the company. Since early November, Tesla’s stock has risen by 76%, reflecting investor confidence in its future.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Tesla’s leadership in electric vehicles, its advancements in autonomous driving, and strong demand in key markets like China all point to a bright future. For investors looking at the intersection of technology and sustainability, Tesla remains a top choice with significant growth potential.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">9. American Express Company (NYSE: <Link href="https://stockverse.com/stocks/AXP" className="text-primaryHeading">AXP</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">9. American Express Company (NYSE: <Link href="https://stockverse.com/stocks/AXP" className="text-primaryHeading">AXP</Link>)</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $293.08</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $210.38B</li>
@@ -199,7 +219,7 @@ const PRESSRELEASENEOV = () => {
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`Analysts are optimistic about American Express’s future. Jim Cramer recently praised the company’s strong quarterly performance, saying the market hasn’t fully appreciated its potential. American Express’ focus on high-income earners and its ability to attract younger cardholders are positioning the company for long-term growth. Its strong brand and ability to adapt to changing customer preferences make it a resilient player in the competitive financial services market.`}</p>
                 <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">{`With robust financial results, a growing base of younger, affluent customers, and strategic market positioning, American Express is setting itself up for sustained success. For investors looking for a company that combines stability with the ability to capture new markets, American Express is a standout choice.`}</p>
 
-                <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">10. Visa Inc. (NYSE:  <Link href="https://stockverse.com/stocks/V" className="text-primaryHeading">V</Link>)</h2>
+                <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">10. Visa Inc. (NYSE:  <Link href="https://stockverse.com/stocks/V" className="text-primaryHeading">V</Link>)</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
                     <li className="text-base 2xl:text-xl text-primaryText">Price per Share: $314.88</li>
                     <li className="text-base 2xl:text-xl text-primaryText">Market Capitalization: $615.23B</li>

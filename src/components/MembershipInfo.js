@@ -30,14 +30,14 @@ export default function MembershipInfo() {
 
     return (
         <div className="w-full h-full">
-            <h1 className="font-sansRegular mb-4 text-primaryTextColor/50 text-lg">Current Plan</h1>
+            <h4 className="font-sansRegular mb-4 text-primaryTextColor/50 text-lg">Current Plan</h4>
             {loading ? (
                 <p>Loading...</p>
             ) : activePlan ? (
                 <div className="w-full h-full flex flex-col items-start gap-2">
-                    <h2 className="text-2xl text-primaryTextColor font-sansMedium">
+                    <h4 className="text-2xl text-primaryTextColor font-sansMedium">
                         {activePlan.label} Membership
-                    </h2>
+                    </h4>
                     <p className="text-base py-1 px-4 border border-primaryMain rounded-lg bg-primaryMain/5  font-sansMedium text-primaryMain">
                         Your next build is {activePlan.price} on {formatDate(membership.expires_at)}. 
                     </p>

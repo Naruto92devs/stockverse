@@ -244,9 +244,9 @@ const NEOVOLTALOAN = () => {
                     “We believe we are well positioned and ready to execute on our 
                     factory strategy here in the U.S.”
                     </p>
-                    <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
+                    <h3 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
                     About NeoVolta
-                    </h2>
+                    </h3>
                     <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
                         {`NeoVolta is a leading innovator in energy storage solutions dedicated to advancing 
                         the future of clean energy. ​ Founded to provide reliable, sustainable, and high-performance 
@@ -263,9 +263,9 @@ const NEOVOLTALOAN = () => {
                     email us: <span className="font-sansSemibold">Contact</span>: Kate 
                     Countryman <Link className="font-sansSemibold text-[#634ff7]" href="mailto:press@neovolta.com">press@neovolta.com</Link>  Or call us: 858-239-2349
                     </p>
-                    <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
+                    <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
                         Forward-Looking Statements
-                    </h2>
+                    </h4>
                     <p>
                     {`Some of the statements in this release are forward-looking statements within the meaning 
                     of Section 27A of the Securities Act of 1933, Section 21E of the Securities Exchange Act of 

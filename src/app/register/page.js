@@ -308,10 +308,10 @@ export default function Register() {
 
                 className={` ${VerifyOTP ? 'hidden' : 'flex'} relative lg:w-[50%] flex flex-col justify-end pt-12 gap-y-12 bg-loginBg bg-cover bg-center bg-no-repeat`}
             >
-                <h1 className='pl-12 font-sansMedium xl:text-6xl md:text-5xl text-4xl leading-[100%] text-primaryTextColor'>
+                <h2 className='pl-12 font-sansMedium xl:text-6xl md:text-5xl text-4xl leading-[100%] text-primaryTextColor'>
                 One Stop Shop <br></br>
                 <span className='text-primaryMain'> Everything Stocks</span>
-                </h1>
+                </h2>
                 <Image className='self-end md:w-[80%] w-[90%] ' width={1274} height={1274} src='/images/chart.png' alt='Dashbord'></Image>
             </div>
 

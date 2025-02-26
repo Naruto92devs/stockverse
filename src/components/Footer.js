@@ -25,19 +25,19 @@ export default function Footer () {
                         </div>
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
-                        <h2 className="text-xl font-sansMedium text-primaryTextColor">Quick Links</h2>
+                        <h4 className="text-xl font-sansMedium text-primaryTextColor">Quick Links</h4>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/'>Home</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/stockverse-gpt'>StockVerse GPT</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/stockpicks'>Stock Picks</Link>
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
-                        <h2 className="text-xl font-sansMeduim text-primaryTextColor">Market</h2>
+                        <h4 className="text-xl font-sansMeduim text-primaryTextColor">Market</h4>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/dashboard?view=gainers_losers'>Gainers / Losers</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/dashboard?view=news'>News</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/dashboard?view=ipo_calendar'>IPO Calendar</Link>
                     </div>
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
-                        <h2 className="text-xl font-sansMedium text-primaryTextColor">Contact</h2>
+                        <h4 className="text-xl font-sansMedium text-primaryTextColor">Contact</h4>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='mailto:contact@stockverse.com'>Email Us</Link>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/feedback'>Send us Feedback</Link>
                     </div>

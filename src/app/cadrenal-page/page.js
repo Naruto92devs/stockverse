@@ -138,7 +138,7 @@ const Neov = ()=>{
             <div className="w-full xl:container mx-auto flex justify-between max-lg:flex-col max-lg:gap-y-8">
                 <div className="w-[60%] max-md:w-[100%] max-lg:w-[100%]">
                 <h1 className="text-[#1D3045] 2xl:text-6xl lg:text-5xl text-[2rem] 2xl:leading-[150%] xl:leading-[150%] leading-[150%] font-syneBold">Brand New Stock Pick:</h1>
-                <h1 className="text-[#12A72E] 2xl:text-6xl lg:text-5xl text-[2rem] 2xl:leading-[150%] xl:leading-[150%] leading-[150%] font-syneBold pl-16 max-lg:pl-0">The better energy storage!</h1>
+                <h2 className="text-[#12A72E] 2xl:text-6xl lg:text-5xl text-[2rem] 2xl:leading-[150%] xl:leading-[150%] leading-[150%] font-syneBold pl-16 max-lg:pl-0">The better energy storage!</h2>
                 <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl xl:text-base text-lg 2xl:w-full w-[80%] max-md:w-full pt-4">Breaking: Dec, 2nd 2024, BigStocks Reveals Top Energy Storage Stock Pick with Huge Potential! Subscribe Now For Updates!</p>
                 </div>
                 <div className="w-[35%] max-md:w-[100%] max-lg:w-[50%] md:mt-12">
@@ -205,9 +205,9 @@ const Neov = ()=>{
                     </div>
                 </div>
                 <div className="w-[54%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3">
-                    <h2 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 max-md:text-left">
+                    <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 max-md:text-left">
                     Heart Disease: The $200 Billion Dollar Problem That’s Killing America in More Ways Than One
-                    </h2>
+                    </h3>
                     <h4 className="text-[#343D48] text-center 2xl:text-2xl lg:text-lg text-lg font-MontserratMedium md:px-28  max-md:text-left">
                     And how a surprisingly lucrative company might be a life-changing solution
                       </h4>
@@ -236,9 +236,9 @@ const Neov = ()=>{
                     </p>
                     <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
-                    <h2 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4  max-md:text-left">
+                    <h4 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4  max-md:text-left">
                     The Trickling Devastation of Heart Disease
-                      </h2>
+                      </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     As stated, approximately 121,000,000 Americans live with some form of cardiovascular 
                     disease. However, the devastation doesn’t end with them — it bleeds into their families 
@@ -267,9 +267,9 @@ const Neov = ()=>{
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     … and as the population ages, experts project this problem to worsen.
                     </p>
-                    <h2 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 mt-24 max-md:mt-8  max-md:text-left">
+                    <h4 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 mt-24 max-md:mt-8  max-md:text-left">
                     Warfarin: Today’s Limited Treatment Option
-                    </h2>
+                    </h4>
                     <Image className="w-full mt-8 xl:mt-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
@@ -322,9 +322,9 @@ const Neov = ()=>{
                     Despite the risks, patients use Warfarin, not because they want to — but because it’s their best choice… for now.
                     </p>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     The Unmet Need: Why We Desperately Need Better Treatments
-                    </h2>
+                    </h4>
 
 
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
@@ -357,9 +357,9 @@ const Neov = ()=>{
                     that come with it, health-related problems are not uncommon.
                     </p>
                     
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     Introducing Cadrenal Therapeutics (<span className="text-[#37b80b]">CVKD</span>): The Future of Heart Disease Treatment?
-                    </h2>
+                    </h4>
                     <Image className="w-full mt-8 xl:mt-12" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
                     <p  className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     Cadrenal Therapeutics (<span className="text-[#37b80b]">CVKD</span>) a publicly listed biopharmaceutical 
@@ -390,9 +390,9 @@ const Neov = ()=>{
                     This is Tecarfarin’s promise.
                     </p>
 
-                    <h2 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     The Tecarfarin Difference
-                    </h2>
+                    </h4>
 
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     Cadrenal Therapeutics (CVKD) designed Tecarfarin to specifically address the challenges 
@@ -420,9 +420,9 @@ const Neov = ()=>{
                     making it difficult to manage their anticoagulation therapy.
                     </p>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     The Road Ahead: Cadrenal’s Vision for the Future
-                    </h2>
+                    </h4>
                     <Image className="w-full mt-8 xl:mt-12" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498}/>
 
 
@@ -446,9 +446,9 @@ const Neov = ()=>{
                     on families and communities.
                     </p>
 
-                    <h2 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
+                    <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-4 pt-8 xl:pt-20">
                     Why You Should Consider Taking a Closer Look at Cadrenal Therapeutics
-                    </h2>
+                    </h4>
                     <p className="font-MontserratRegular text-base 2xl:text-xl pt-12 text-[#343D48]">
                     As an investor, you have the chance to become part of something special.
                     </p>
@@ -516,9 +516,9 @@ const Neov = ()=>{
         
         {/* add neov to watchlist */}
         <section className="py-10">
-        <h2 className="text-[#1D3045]  font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
+        <h4 className="text-[#1D3045]  font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
         Add CVKD to your watchlist today
-        </h2>
+        </h4>
             <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
                 <div className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
                     <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/6.png" alt="3" width={70} height={70}/>
@@ -537,9 +537,9 @@ const Neov = ()=>{
 
         {/* Trusted members */}
         <section className="bg-[#010e140d] max-md:py-6 py-16">
-            <h2 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
+            <h4 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl lg:text-3xl text-2xl leading-[150%] xl:leading-[150%] 2xl:leading-[150%] mb-8">
             Proven Results, Trusted By 128,000 Members
-            </h2>
+            </h4>
             <div className="py-8">
             <div className="flex items-start gap-4 overflow-x-auto scroll-smooth scrollbar-hide whitespace-nowrap px-4"  
             ref={scrollRef}
@@ -788,9 +788,9 @@ const Neov = ()=>{
               <p className="font-MontserrarMedium l text-center text-[#fff]">
                 &#8213; Join StockVerse Alerts Today!
               </p>
-              <h1 className="text-[1.5rem] lg:text-[3.2rem] font-MontserratSemibold leading-[130%] lg:leading-[120%] pb-4 lg:pb-6 text-center text-[#fff]">
+              <h4 className="text-[1.5rem] lg:text-[3.2rem] font-MontserratSemibold leading-[130%] lg:leading-[120%] pb-4 lg:pb-6 text-center text-[#fff]">
                 Winning Stock Picks Sent To Inbox
-              </h1>
+              </h4>
               <p className="font-MontserratRegular text-base md:text-xl xl:tetx-2xl text-[#fff] px-4 lg:px-[5rem] leading-[150%] lg:leading-[120%] text-center">
                 Sign up for our newsletter to receive the latest updates, insights, and exclusive Winning Stock Picks. As of 2024, our alerts are up a total of 
                  873.22%.
@@ -803,9 +803,9 @@ const Neov = ()=>{
               {/* Left Section - Sign Up */}
               <div className="w-full lg:w-[48%]">
                 <div className="bg-[#111111] border border-solid border-[#404040] p-6 sm:p-8 rounded-2xl shadow-lg">
-                  <h3 className="text-center text-[#fff] font-MontserrarMedium text-xl sm:text-2xl italic mb-4">
+                  <h4 className="text-center text-[#fff] font-MontserrarMedium text-xl sm:text-2xl italic mb-4">
                     — Your Next Winning Stock Awaits!
-                  </h3>
+                  </h4>
                   <p className="text-center text-[#aaaaaa] MontserratRegular text-[1rem] sm:text-[1.3rem] mb-10 sm:mb-16 px-2 sm:px-4">
                     Grow Your Wealth by <span className="text-blue-500">+673.66%</span>! Sign Up Now for Exclusive Stock Picks and Alerts
                   </p>
@@ -965,9 +965,9 @@ const Neov = ()=>{
                     </div>
                     {/* Quick Links */}
                     <div className="w-[45%] sm:w-[30%] lg:w-[15%]">
-                    <h3 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
+                    <h4 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
                         Quick Links
-                    </h3>
+                    </h4>
                     <ul className="text-[#aaa] text-base md:text-xl font-MontserratRegular flex flex-col gap-3">
                         <li><a href="/">Home</a></li>
                         <li><a href="/stockverse-gpt">Stockverse GPT</a></li>
@@ -976,9 +976,9 @@ const Neov = ()=>{
                     </div>
                     {/* Market */}
                     <div className="w-[45%] sm:w-[30%] lg:w-[15%]">
-                    <h3 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
+                    <h4 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
                         Market
-                    </h3>
+                    </h4>
                     <ul className="text-[#aaa] text-base md:text-xl font-MontserratRegular flex flex-col gap-3">
                         <li><a href="/gainers&losers">Gainers/Losers</a></li>
                         <li><a href="/news">News</a></li>
@@ -987,9 +987,9 @@ const Neov = ()=>{
                     </div>
                     {/* Contact */}
                     <div className="w-[45%] sm:w-[30%] lg:w-[15%]">
-                    <h3 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
+                    <h4 className="text-[#fff] text-xl md:text-2xl font-MontserratSemibold mb-8 relative after:content-[''] after:absolute after:left-0 after:top-[2.2rem] after:w-[3rem] after:h-[2px] after:bg-[#2175D9]">
                         Contact
-                    </h3>
+                    </h4>
                     <ul className="text-[#aaa] text-base md:text-xl font-MontserratRegular flex flex-col gap-3">
                         <li><a href="mailto:support@stockverse.com">Email Us</a></li>
                         <li><a href="/feedback">Send Us Feedback</a></li>

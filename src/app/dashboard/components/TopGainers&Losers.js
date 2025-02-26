@@ -151,7 +151,7 @@ const TopGainersLosers = () => {
                 <div className='w-full flex pt-8 lg:flex-row flex-col justify-between lg:gap-0 gap-8'>
                     {/* Top Gainers */}
                     <div className='lg:w-[49%] w-full'>
-                        <h3 className='font-sansMedium text-2xl text-primaryTextColor'>Top Gainers</h3>
+                        <h2 className='font-sansMedium text-2xl text-primaryTextColor'>Top Gainers</h2>
                         <div className=' w-full mt-4 bg-primaryBg py-4 rounded-xl'>
                             <div className='flex w-full overflow-auto scrollbar-thin'>
                                 {/* Stocks Name Column */}
@@ -164,7 +164,7 @@ const TopGainersLosers = () => {
                                             <Link href={`/dashboard?symbol=${stock.ticker}&view=chart`} className='p-3 flex gap-2 items-center border-b border-black/5'>
                                                 <Logo symbol={stock.ticker} alt={stock.name} size={300} className="w-12 h-12 rounded-lg shadow" />
                                                 <div className=''>
-                                                    <h2 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
+                                                    <h3 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h3>
                                                     <p className='textr-xs font-sansRegular leading-[100%] text-primaryTextColor/60'>
                                                         {stock.name ? (stock.name.includes(" ") ? stock.name.split(" ")[0] : stock.name) : "Undefined"}
                                                     </p>
@@ -290,7 +290,7 @@ const TopGainersLosers = () => {
 
                     {/* Top Losers */}
                     <div className='lg:w-[49%] w-full'>
-                        <h3 className='font-sansMedium text-2xl text-primaryTextColor'>Top Losers</h3>
+                        <h4 className='font-sansMedium text-2xl text-primaryTextColor'>Top Losers</h4>
                         <div className=' w-full mt-4 bg-primaryBg py-4 rounded-xl'>
                             <div className='flex w-full overflow-auto scrollbar-thin'>
                                 {/* Stocks Name Column */}
@@ -303,7 +303,7 @@ const TopGainersLosers = () => {
                                             <Link href={`/dashboard?symbol=${stock.ticker}&view=chart`} className='p-3 flex gap-2 items-center border-b border-black/5'>
                                                 <Logo symbol={stock.ticker} alt={stock.name} size={300} className="w-12 h-12 rounded-lg shadow" />
                                                 <div className=''>
-                                                    <h2 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h2>
+                                                    <h4 className='text-base leading-[110%] font-sansMedium text-primaryTextColor'>{stock.ticker || 'N/A'}</h4>
                                                     <p className='textr-xs font-sansRegular leading-[100%] text-primaryTextColor/60'>
                                                         {stock.name ? (stock.name.includes(" ") ? stock.name.split(" ")[0] : stock.name) : "Undefined"}
                                                     </p>
