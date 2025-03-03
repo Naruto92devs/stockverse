@@ -156,9 +156,9 @@ const TopGainersLosers = () => {
                             <div className='flex w-full overflow-auto scrollbar-thin'>
                                 {/* Stocks Name Column */}
                                 <div className='flex flex-col items-center h-max w-[30%] min-w-max'>
-                                    <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         Stocks
-                                    </div>
+                                    </h3>
                                     {gainersPaginatedData.length > 0 && gainersPaginatedData[gainersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full pl-1 gap-2' key={`${stock.ticker}-${index}`}>
                                             <Link href={`/dashboard?symbol=${stock.ticker}&view=chart`} className='p-3 flex gap-2 items-center border-b border-black/5'>
@@ -176,9 +176,9 @@ const TopGainersLosers = () => {
 
                                 {/* Price Column */}
                                 <div className='flex flex-col items-center h-max w-[20%] min-w-max'>
-                                    <div className='w-full sticky font-sansMedium top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full sticky font-sansMedium top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         Price
-                                    </div>
+                                    </h3>
                                     {gainersPaginatedData.length > 0 && gainersPaginatedData[gainersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full' key={`${stock.ticker}-${index}`}>
                                             <div className='px-3 py-6 font-sansMedium text-md border-b border-black/5'>
@@ -190,9 +190,9 @@ const TopGainersLosers = () => {
 
                                 {/* M.Cap Column */}
                                 <div className='flex flex-col items-center h-max w-[20%] min-w-max'>
-                                    <div className='w-full sticky top-0 z-[2] font-sansMedium text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full sticky top-0 z-[2] font-sansMedium text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         M.Cap
-                                    </div>
+                                    </h3>
                                     {gainersPaginatedData.length > 0 && gainersPaginatedData[gainersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full' key={`${stock.ticker}-${index}`}>
                                             <div className='px-3 py-6 font-sansMedium text-md border-b border-black/5'>
@@ -205,9 +205,9 @@ const TopGainersLosers = () => {
 
                                 {/* Move Price Column */}
                                 <div className='flex flex-col items-center h-max w-[20%] min-w-max'>
-                                    <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         Move
-                                    </div>
+                                    </h3>
                                     {gainersPaginatedData.length > 0 && gainersPaginatedData[gainersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full' key={`${stock.ticker}-${index}`}>
                                             <div className='px-3 py-6 font-sansMedium text-md text-buy border-b border-black/5'>
@@ -219,9 +219,9 @@ const TopGainersLosers = () => {
 
                                 {/* Watch Stock Column */}
                                 <div className='flex flex-col items-center h-max w-[10%] min-w-max'>
-                                    <div className='w-full text-center font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full text-center font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Watch
-                                    </div>
+                                    </h3>
                                     {gainersPaginatedData.length > 0 && gainersPaginatedData[gainersCurrentPage - 1]?.map((stock, index) => {
                                         const isInWatchlist = watchlist?.some((item) => item.ticker === stock.ticker);
                                         return (
@@ -290,14 +290,14 @@ const TopGainersLosers = () => {
 
                     {/* Top Losers */}
                     <div className='lg:w-[49%] w-full'>
-                        <h4 className='font-sansMedium text-2xl text-primaryTextColor'>Top Losers</h4>
+                        <h2 className='font-sansMedium text-2xl text-primaryTextColor'>Top Losers</h2>
                         <div className=' w-full mt-4 bg-primaryBg py-4 rounded-xl'>
                             <div className='flex w-full overflow-auto scrollbar-thin'>
                                 {/* Stocks Name Column */}
                                 <div className='flex flex-col items-center h-max w-[40%] min-w-max'>
-                                    <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         Stocks
-                                    </div>
+                                    </h3>
                                     {losersPaginatedData.length > 0 && losersPaginatedData[losersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full pl-1 gap-2' key={`${stock.ticker}-${index}`}>
                                             <Link href={`/dashboard?symbol=${stock.ticker}&view=chart`} className='p-3 flex gap-2 items-center border-b border-black/5'>
@@ -315,9 +315,9 @@ const TopGainersLosers = () => {
 
                                 {/* Price Column */}
                                 <div className='flex flex-col items-center h-max w-[20%] min-w-max'>
-                                    <div className='w-full sticky font-sansMedium top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full sticky font-sansMedium top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         Price
-                                    </div>
+                                    </h3>
                                     {losersPaginatedData.length > 0 && losersPaginatedData[losersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full' key={`${stock.ticker}-${index}`}>
                                             <div className='px-3 py-6 font-sansMedium text-md border-b border-black/5'>
@@ -329,9 +329,9 @@ const TopGainersLosers = () => {
 
                                 {/* M.Cap Column */}
                                 <div className='flex flex-col items-center h-max w-[20%] min-w-max'>
-                                    <div className='w-full sticky top-0 z-[2] font-sansMedium text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full sticky top-0 z-[2] font-sansMedium text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         M.Cap
-                                    </div>
+                                    </h3>
                                     {losersPaginatedData.length > 0 && losersPaginatedData[losersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full' key={`${stock.ticker}-${index}`}>
                                             <div className='px-3 py-6 font-sansMedium text-md border-b border-black/5'>
@@ -343,9 +343,9 @@ const TopGainersLosers = () => {
 
                                 {/* Move Price Column */}
                                 <div className='flex flex-col items-center h-max w-[20%] min-w-max'>
-                                    <div className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                         Move
-                                    </div>
+                                    </h3>
                                     {losersPaginatedData.length > 0 && losersPaginatedData[losersCurrentPage - 1]?.map((stock, index) => (
                                         <div className='w-full' key={`${stock.ticker}-${index}`}>
                                             <div className='px-3 py-6 font-sansMedium text-md text-sell border-b border-black/5'>
@@ -357,9 +357,9 @@ const TopGainersLosers = () => {
 
                                 {/* Watch Stock Column */}
                                 <div className='flex flex-col items-center h-max w-[10%] min-w-max'>
-                                    <div className='w-full text-center font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
+                                    <h3 className='w-full text-center font-sansMedium sticky top-0 z-[2] text-primaryTextColor/60 text-base bg-dashboardBg p-3 border border-x-0 border-black/5'>
                                     Watch
-                                    </div>
+                                    </h3>
                                     {losersPaginatedData.length > 0 && losersPaginatedData[losersCurrentPage - 1]?.map((stock, index) => {
                                         const isInWatchlist = watchlist?.some((item) => item.ticker === stock.ticker);
                                         return (
@@ -425,7 +425,6 @@ const TopGainersLosers = () => {
                             {/* Controller End */}
                         </div>
                     </div>
-
                 </div>
                 {/* Response Data Table End */}
             </div>
