@@ -7,7 +7,8 @@ import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 import UserProvider from './userProvider';
 import DashboardProvider from './dashboardProvider';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import { useState,useEffect } from 'react';
+import { GoogleReCaptchaProvider,useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function RootLayout({ children }) {
 
@@ -66,13 +67,15 @@ export default function RootLayout({ children }) {
         <GoogleReCaptchaProvider reCaptchaKey="6LdxE-IqAAAAAJMrNxeSDAMAufTfPFoyi77Mpglo">
               <UserProvider>
                 <DashboardProvider>
-                  <main className="w-[100%] min-h-[100vh] flex flex-col bg-primaryBg">
-                    <div className='w-full bg-primaryBg'>
-                      {!hideNavbar && <Navbar />}
-                    </div>
-                      {children}
-                      {!hideFooter && <Footer />}
-                  </main>
+                  <ReCaptchaWrapper>
+                    <main className="w-[100%] min-h-[100vh] flex flex-col bg-primaryBg">
+                      <div className='w-full bg-primaryBg'>
+                        {!hideNavbar && <Navbar />}
+                      </div>
+                        {children}
+                        {!hideFooter && <Footer />}
+                    </main>
+                  </ReCaptchaWrapper>
                 </DashboardProvider>
               </UserProvider>
         </GoogleReCaptchaProvider>
@@ -80,4 +83,44 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   )
+}
+
+
+function ReCaptchaWrapper({ children }) {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    if (!executeRecaptcha) {
+      return console.log("google recaptcha token not yet provided")
+    };
+
+    const fetchReCaptchaToken = async () => {
+      const recaptchaToken = await executeRecaptcha("layout_load");
+      setToken(recaptchaToken);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END}/google-recaptcha`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ recaptchaToken }),
+      });
+  
+      // Optionally, handle the response from your backend
+      const data = await res.json();
+      if (res.ok) {
+        console.log("Verification Score:", data.score);
+      } else {
+        console.error("Captcha verification failed:", data.message);
+      }
+    };
+
+    fetchReCaptchaToken();
+
+    const intervalId = setInterval(() => {
+      fetchReCaptchaToken();
+    }, 1 * 60 * 1000); // Runs every 5 minutes
+  
+    return () => clearInterval(intervalId);
+  }, [executeRecaptcha]);
+
+  return <>{children}</>;
 }
