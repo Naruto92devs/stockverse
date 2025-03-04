@@ -94,47 +94,47 @@ const BARCHATNEOV = () => {
                 <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Summary</h2>
 
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
-                    <li className="text-base 2xl:text-xl text-primaryText">NeoVolta NEOV has shown exceptional price appreciation, gaining 48.79% since the Trend Seeker buy signal on 11/4, and 87.67% in the last month.</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">{`Barchart's technical indicators are highly favorable, showing 100% technical buy signals, a 160.95% gain in the last year, and a Relative Strength Index of 84.62%.`}</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Despite its volatility, NeoVolta is considered undervalued by MorningStar, with a fair value of $8.72, and has a strong buy rating from one Wall Street analyst.</li>
+                    <li className="text-base text-primaryText">NeoVolta NEOV has shown exceptional price appreciation, gaining 48.79% since the Trend Seeker buy signal on 11/4, and 87.67% in the last month.</li>
+                    <li className="text-base text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
+                    <li className="text-base text-primaryText">{`Barchart's technical indicators are highly favorable, showing 100% technical buy signals, a 160.95% gain in the last year, and a Relative Strength Index of 84.62%.`}</li>
+                    <li className="text-base text-primaryText">Despite its volatility, NeoVolta is considered undervalued by MorningStar, with a fair value of $8.72, and has a strong buy rating from one Wall Street analyst.</li>
                 </ul>
-                <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">{`The Chart of the Day belongs to the energy storage company NeoVolta NEOV. I found the stock by using Barchart's powerful screening functions to find stocks with the highest technical buy signals, highest Weighted Alpha, superior current momentum and having a Trend Seeker buy signal then used the Flipchart feature to review the charts for consistent price appreciation. Since the Trend Seeker signaled a buy on 11/4 the stock gained 48.79%.`}</p>
+                <p className="text-base text-primaryText font-sansRegular leading-[140%]">{`The Chart of the Day belongs to the energy storage company NeoVolta NEOV. I found the stock by using Barchart's powerful screening functions to find stocks with the highest technical buy signals, highest Weighted Alpha, superior current momentum and having a Trend Seeker buy signal then used the Flipchart feature to review the charts for consistent price appreciation. Since the Trend Seeker signaled a buy on 11/4 the stock gained 48.79%.`}</p>
 
                 <h3 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">NEOV Price vs Daily Moving Averages</h3>
                 <Image className="w-[100%] h-[100%]" width={1171} height={465} src='/images/neov-chart.jpeg' alt="NEOV"/>
-                <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">NeoVolta Inc. designs, manufactures, and sells energy storage systems in the United States. The company provides NV14, NV14-K, and NV 24 energy storage systems, which stores and uses energy through batteries and an inverter at residential or commercial sites. NeoVolta Inc. markets and sells its products directly to certified solar installers and solar equipment distributors. The company was founded in 2018 and is headquartered in Poway, California.</p>
-                <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">Barchart&#39;s Opinion Trading systems are listed below. Please note that the Barchart Opinion indicators are updated live during the session every 20 minutes and can therefore change during the day as the market fluctuates. The indicator numbers shown below therefore may not match what you see live on the <Link href='https://www.barchart.com/news/chart-of-the-day?source=content_type:react%7Cfirst_level_url:article%7Csection:main_content%7Cbutton:body_link' className="text-primaryHeading font-bold"> Barchart.com</Link> website when you read this report.</p>
+                <p className="text-base text-primaryText font-sansRegular leading-[140%]">NeoVolta Inc. designs, manufactures, and sells energy storage systems in the United States. The company provides NV14, NV14-K, and NV 24 energy storage systems, which stores and uses energy through batteries and an inverter at residential or commercial sites. NeoVolta Inc. markets and sells its products directly to certified solar installers and solar equipment distributors. The company was founded in 2018 and is headquartered in Poway, California.</p>
+                <p className="text-base text-primaryText font-sansRegular leading-[140%]">Barchart&#39;s Opinion Trading systems are listed below. Please note that the Barchart Opinion indicators are updated live during the session every 20 minutes and can therefore change during the day as the market fluctuates. The indicator numbers shown below therefore may not match what you see live on the <Link href='https://www.barchart.com/news/chart-of-the-day?source=content_type:react%7Cfirst_level_url:article%7Csection:main_content%7Cbutton:body_link' className="text-primaryHeading font-bold"> Barchart.com</Link> website when you read this report.</p>
 
                 <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Barchart Technical Indicators:</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
-                    <li className="text-base 2xl:text-xl text-primaryText">100% technical buy signals</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">116.02+ Weighted Alpha</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">160.95% gain in the last year</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Trend Seeker buy signal</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">1.99 - 60 month Beta</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Above its 20, 50 and 100 day moving averages</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">15 new highs and up 87.67% in the last month</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Relative Strength Index 84.62%</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Technical support level at $4.59</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Recently traded at $5.41 with 50 day moving average of $3.29</li>
+                    <li className="text-base text-primaryText">100% technical buy signals</li>
+                    <li className="text-base text-primaryText">The company designs and sells energy storage systems, with expected revenue growth of 244% this year and 72.60% next year.</li>
+                    <li className="text-base text-primaryText">116.02+ Weighted Alpha</li>
+                    <li className="text-base text-primaryText">160.95% gain in the last year</li>
+                    <li className="text-base text-primaryText">Trend Seeker buy signal</li>
+                    <li className="text-base text-primaryText">1.99 - 60 month Beta</li>
+                    <li className="text-base text-primaryText">Above its 20, 50 and 100 day moving averages</li>
+                    <li className="text-base text-primaryText">15 new highs and up 87.67% in the last month</li>
+                    <li className="text-base text-primaryText">Relative Strength Index 84.62%</li>
+                    <li className="text-base text-primaryText">Technical support level at $4.59</li>
+                    <li className="text-base text-primaryText">Recently traded at $5.41 with 50 day moving average of $3.29</li>
                 </ul>
 
                 <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Fundamental Factors:</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
-                    <li className="text-base 2xl:text-xl text-primaryText">Market Cap $164 million</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Revenue expected to grow 244.00% this year and another 72.60% next year</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Earnings are estimated to increase 28.60% this year, and an additional 120.00% next year </li>
+                    <li className="text-base text-primaryText">Market Cap $164 million</li>
+                    <li className="text-base text-primaryText">Revenue expected to grow 244.00% this year and another 72.60% next year</li>
+                    <li className="text-base text-primaryText">Earnings are estimated to increase 28.60% this year, and an additional 120.00% next year </li>
                 </ul>
                 <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Analysts and Investor Sentiment -- I don&#39;t buy stocks because everyone else is buying but I do realize that if major firms and investors are dumping a stock it&#39;s hard to make money swimming against the tide:</h4>
                 <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
-                    <li className="text-base 2xl:text-xl text-primaryText">Wall Street analyst gave 1 strong buy</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">MorningStar gives the stock its average rating of 3 with a fair value of $8.72 or 43% under valued</li>
-                    <li className="text-base 2xl:text-xl text-primaryText">Only 437 investors monitor the stock on Seeking Alpha</li>
+                    <li className="text-base text-primaryText">Wall Street analyst gave 1 strong buy</li>
+                    <li className="text-base text-primaryText">MorningStar gives the stock its average rating of 3 with a fair value of $8.72 or 43% under valued</li>
+                    <li className="text-base text-primaryText">Only 437 investors monitor the stock on Seeking Alpha</li>
                 </ul>
-                <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">Additional disclosure: The Barchart Chart of the Day highlights stocks that are experiencing exceptional current price appreciation. They are not intended to be buy recommendations as these stocks are extremely volatile and speculative. Should you decide to add one of these stocks to your investment portfolio it is highly suggested you follow a predetermined diversification and moving stop loss discipline that is consistent with your personal investment risk tolerance and reevaluate your stop losses at least on a weekly basis.</p>
-                <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[140%]">On the date of publication, <Link className="text-primaryHeading font-bold underline" href='https://www.barchart.com/news/authors/46/jim-van-meerten'> Jim Van Meerten </Link> did not have (either directly or indirectly) positions in any of the securities mentioned in this article. All information and data in this article is solely for informational purposes. For more information please view the Barchart Disclosure Policy <Link className="text-primaryHeading font-bold underline" href='/policy'> here.</Link></p>
+                <p className="text-base text-primaryText font-sansRegular leading-[140%]">Additional disclosure: The Barchart Chart of the Day highlights stocks that are experiencing exceptional current price appreciation. They are not intended to be buy recommendations as these stocks are extremely volatile and speculative. Should you decide to add one of these stocks to your investment portfolio it is highly suggested you follow a predetermined diversification and moving stop loss discipline that is consistent with your personal investment risk tolerance and reevaluate your stop losses at least on a weekly basis.</p>
+                <p className="text-base text-primaryText font-sansRegular leading-[140%]">On the date of publication, <Link className="text-primaryHeading font-bold underline" href='https://www.barchart.com/news/authors/46/jim-van-meerten'> Jim Van Meerten </Link> did not have (either directly or indirectly) positions in any of the securities mentioned in this article. All information and data in this article is solely for informational purposes. For more information please view the Barchart Disclosure Policy <Link className="text-primaryHeading font-bold underline" href='/policy'> here.</Link></p>
             </div>
             <Disclaimer/>
         </div>

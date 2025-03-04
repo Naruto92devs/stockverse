@@ -203,7 +203,7 @@ const NEOVOLTALOAN = () => {
                 </div>
                 <div className="flex flex-col gap-6 py-4 2xl:pb-16 lg:pb-16 pb-8">
                     <h2 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">{`Technical Due Diligence Approved for $300M to Expand U.S. Manufacturing`}</h2>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     <span className="font-sansSemibold">SAN DIEGO, CA, February 25, 2025</span> – NeoVolta Inc. (Nasdaq: NEOV) 
                     (“NeoVolta”), a leading innovator in energy storage solutions, announced today 
                     that it has completed phase two of its loan application for $300M from the U.S. 
@@ -211,21 +211,21 @@ const NEOVOLTALOAN = () => {
                     to proceed the conditional commitment phase, which will include negotiating a 
                     term sheet and a site visit with the U.S. Department of Energy.
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                         NeoVolta will produce residential and commercial BESS products across 
                         the country, creating over 200 jobs and securing the American supply chain by 
                         onshoring battery cells and inverters. The company has shortlisted two states for 
                         its new headquarters, manufacturing facility, and regional offices from 23 state economic 
                         development offers.
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     “In order to ‘Unleash American Energy,’ battery storage is essential, as well as grid strengthening,” 
                     <span className="font-sansSemibold">stated the U.S. Department of Energy (DOE)</span>.  
                     Although there have been recent pauses on federal funding, the DOE has clarified that it will “
                     continue to follow the law and allocate monies in a way that supports the initiatives of the 
                     Administration.”
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     “We appreciate the DOE’s focus on developing a robust domestic energy storage supply chain. 
                     NeoVolta will provide products and services to strengthen the grid and offer resilient domestic 
                     solutions, fostering research and development for future technologies in America,” 
@@ -233,13 +233,13 @@ const NEOVOLTALOAN = () => {
                     expected to grow 80% by 2050 and renewable energy meeting much of this demand, 
                     NeoVolta is acting at the right time.”
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     Under the Title 17 Clean Energy Financing Program, projects must be able to feasibly 
                     and financially support energy development, transmission, storage, and deployment 
                     across the United States.  The Trump Administration is also focusing on U.S. manufacturing, 
                     strengthening the supply chain, and onshoring jobs, all components of this project led by NeoVolta.
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     “We are confident in our application to the DOE,” <span className="font-sansSemibold">added Johnson</span>, 
                     “We believe we are well positioned and ready to execute on our 
                     factory strategy here in the U.S.”
@@ -247,7 +247,7 @@ const NEOVOLTALOAN = () => {
                     <h3 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
                     About NeoVolta
                     </h3>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                         {`NeoVolta is a leading innovator in energy storage solutions dedicated to advancing 
                         the future of clean energy. ​ Founded to provide reliable, sustainable, and high-performance 
                         energy storage systems, the company has quickly established itself as a critical player 
@@ -258,7 +258,7 @@ const NEOVOLTALOAN = () => {
                         world stores and uses power.`}
                     </p>
                     
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     For more information visit: <Link className="font-sansSemibold text-[#634ff7]" href="https://NeoVolta.com">NeoVolta.com</Link> 
                     email us: <span className="font-sansSemibold">Contact</span>: Kate 
                     Countryman <Link className="font-sansSemibold text-[#634ff7]" href="mailto:press@neovolta.com">press@neovolta.com</Link>  Or call us: 858-239-2349
@@ -266,7 +266,7 @@ const NEOVOLTALOAN = () => {
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
                         Forward-Looking Statements
                     </h4>
-                    <p>
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     {`Some of the statements in this release are forward-looking statements within the meaning 
                     of Section 27A of the Securities Act of 1933, Section 21E of the Securities Exchange Act of 
                     1934 and the Private Securities Litigation Reform Act of 1995, which involve risks 
