@@ -295,10 +295,10 @@ return (
             <p className="text-[#2C2C2C] xl:text-3xl font-grotesqueSemibold">Sebastian, Philadelphia</p>
             <Image className="mb-2" src="images/rating-star.svg" alt="rating" width={160} height={24} />
             <p className="text-center w-[50%] text-base">
-                Guys thank you so much for hitting the ball out of the park on your last alert! 
+                {`Guys thank you so much for hitting the ball out of the park on your last alert! 
                 I've been trading for four months now and your alert helped me book my first real profit. 
                 Before your alert the biggest profit I made was about 5%. With yours I made 210% and 
-                came out with $6,620 in profit. You just paid for my next vacation!
+                came out with $6,620 in profit. You just paid for my next vacation!`}
             </p>
             </div>
         </SwiperSlide>
@@ -308,10 +308,10 @@ return (
             <p className="text-[#2C2C2C] xl:text-3xl font-grotesqueSemibold">Sebastian, Philadelphia</p>
             <Image className="mb-2" src="images/rating-star.svg" alt="rating" width={160} height={24} />
             <p className="text-center w-[50%] text-base">
-                Guys thank you so much for hitting the ball out of the park on your last alert! 
+                {`Guys thank you so much for hitting the ball out of the park on your last alert! 
                 I've been trading for four months now and your alert helped me book my first real profit. 
                 Before your alert the biggest profit I made was about 5%. With yours I made 210% and 
-                came out with $6,620 in profit. You just paid for my next vacation!
+                came out with $6,620 in profit. You just paid for my next vacation!`}
             </p>
             </div>
         </SwiperSlide>
@@ -321,10 +321,10 @@ return (
             <p className="text-[#2C2C2C] xl:text-3xl font-grotesqueSemibold">Sebastian, Philadelphia</p>
             <Image className="mb-2" src="images/rating-star.svg" alt="rating" width={160} height={24} />
             <p className="text-center w-[50%] text-base">
-                Guys thank you so much for hitting the ball out of the park on your last alert! 
+                {`Guys thank you so much for hitting the ball out of the park on your last alert! 
                 I've been trading for four months now and your alert helped me book my first real profit. 
                 Before your alert the biggest profit I made was about 5%. With yours I made 210% and 
-                came out with $6,620 in profit. You just paid for my next vacation!
+                came out with $6,620 in profit. You just paid for my next vacation!`}
             </p>
             </div>
         </SwiperSlide>
@@ -334,10 +334,10 @@ return (
             <p className="text-[#2C2C2C] xl:text-3xl font-grotesqueSemibold">Sebastian, Philadelphia</p>
             <Image className="mb-2" src="images/rating-star.svg" alt="rating" width={160} height={24} />
             <p className="text-center w-[50%] text-base">
-                Guys thank you so much for hitting the ball out of the park on your last alert! 
+                {`Guys thank you so much for hitting the ball out of the park on your last alert! 
                 I've been trading for four months now and your alert helped me book my first real profit. 
                 Before your alert the biggest profit I made was about 5%. With yours I made 210% and 
-                came out with $6,620 in profit. You just paid for my next vacation!
+                came out with $6,620 in profit. You just paid for my next vacation!`}
             </p>
             </div>
         </SwiperSlide>

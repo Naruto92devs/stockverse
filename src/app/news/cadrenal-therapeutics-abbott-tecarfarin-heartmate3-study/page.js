@@ -209,9 +209,10 @@ const PRESSRELEASECVKD = () => {
                     patients with Left Ventricular Assist Devices (LVADs).
                     </p>
                     <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
-                        The collaboration focuses on testing tecarfarin, a new oral Vitamin K antagonist (VKA), 
-                        with Abbott's <span className="font-sansMedium">HeartMate 3™ LVAD</span>, which is currently the only advanced mechanical circulatory 
-                        support device available in the United States for patients with advanced heart failure.
+                        {`The collaboration focuses on testing tecarfarin, a new oral Vitamin K antagonist (VKA), 
+                        with Abbott's `}<span className="font-sansMedium">{`HeartMate 3™ LVAD`}</span>
+                        {`, which is currently the only advanced mechanical circulatory 
+                        support device available in the United States for patients with advanced heart failure.`}
                     </p>
                     <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
                         Under the agreement, Abbott will provide support in:
