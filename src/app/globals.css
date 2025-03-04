@@ -368,7 +368,31 @@
   src: url('/fonts/syne-bold.otf') format('opentype');
   font-weight: 700;
 }
-
+@font-face {
+  font-family: 'grotesque-Semibold';
+  src: url('/fonts/DarkerGrotesque-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'grotesque-Extrabold';
+  src: url('/fonts/DarkerGrotesque-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'grotesque-Bold';
+  src: url('/fonts/DarkerGrotesque-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'poppins-Regular';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'poppins-Medium';
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
 
 /* Example custom styles for scrollbar */
 .scrollbar-thin::-webkit-scrollbar {
@@ -904,4 +928,83 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+}
+
+
+/* stockpicks homepage css */
+.border-bottom {
+  position: relative;
+}
+.border-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background: #2c2c2c;
+  transition: all 0.1s;
+}
+.border-bottom:hover::after {
+  width: 100%;
+}
+.text-bg {
+  background: url('/images/text-bg.jpeg');
+  background-size: 180%;
+  background-position: center;
+  background-clip: text;
+  color: transparent;
+  animation: bg-position 6s linear infinite forwards;
+}
+.width-anime {
+  animation: width-anime 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: left;
+}
+.rotate {
+  animation: rotate 15s cubic-bezier(0.25, 0.50, 0.75, 1) infinite forwards;
+  transform-origin: 50% 76%;
+}
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(36deg); }
+  20% { transform: rotate(72deg); }
+  30% { transform: rotate(108deg); }
+  40% { transform: rotate(144deg); }
+  50% { transform: rotate(180deg); }
+  60% { transform: rotate(216deg); }
+  70% { transform: rotate(252deg); }
+  80% { transform: rotate(288deg); }
+  90% { transform: rotate(324deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes width-anime {
+  0%{
+    transform: scaleX(0);
+  }
+  100%{
+    transform: scaleX(1);
+  }
+}
+@keyframes bg-position {
+  0%{
+    background-position: 0% 0%;
+  }
+  50%{
+    background-position: 100% 100%;
+  }
+  100%{
+    background-position: 0% 0%;
+  }
+}
+.swiper-button-next {
+  color : #A5A4A1 !important;
+  border-radius: 10px !important;
+}
+.swiper-button-prev {
+  color : #A5A4A1 !important;
+}
+@media (max-width:768px) {
+  .border-bottom {
+    display: inline-block;
+  }
 }

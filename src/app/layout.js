@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   // Define routes where Navbar should be hidden
-  const excludedNavbarRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/',];
+  const excludedNavbarRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/','/homepage'];
   // Define routes where Footer should be hidden
-  const excludedFooterRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/', '/neovolta', '/cadrenal-page', '/stockversegpt-overview', '/help-center'];
+  const excludedFooterRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/', '/neovolta', '/cadrenal-page', '/stockversegpt-overview', '/help-center','/homepage'];
 
   // Check if the current route is in the excluded routes
   const hideNavbar = excludedNavbarRoutes.includes(pathname);

@@ -41,6 +41,13 @@ module.exports = {
         MontserratMI : ['Montserrat-mi'],
         MontserratMedium : ['Montserrat-Medium'],
         syneBold : ['syne-Bold'],
+
+        grotesqueSemibold : ['grotesque-Semibold'],
+        poppinsRegular : ['poppins-Regular'],
+        poppinsMedium : ['poppins-Medium'],
+        grotesqueExtrabold : ['grotesque-Extrabold'],
+        grotesqueBold : ['grotesque-Bold'],
+        
       },
       backgroundImage: {
         'loaderBg': "url('/images/loader_bg.jpg')",
