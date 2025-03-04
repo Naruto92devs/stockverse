@@ -203,25 +203,25 @@ const PRESSRELEASECVKD = () => {
                     </div>
                 </div>
                 <div className="flex flex-col gap-6 py-4 2xl:pb-16 lg:pb-16 pb-8">
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     <span className="font-sansMedium">Cadrenal Therapeutics (CVKD)</span> has announced a significant collaboration 
                     agreement with <span className="font-sansMedium">Abbott (ABT)</span> to support their pivotal TECH-LVAD trial, evaluating tecarfarin in 
                     patients with Left Ventricular Assist Devices (LVADs).
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                         {`The collaboration focuses on testing tecarfarin, a new oral Vitamin K antagonist (VKA), 
                         with Abbott's `}<span className="font-sansMedium">{`HeartMate 3™ LVAD`}</span>
                         {`, which is currently the only advanced mechanical circulatory 
                         support device available in the United States for patients with advanced heart failure.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                         Under the agreement, Abbott will provide support in:
                     </p>
                     <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
-                        <li className="text-base 2xl:text-xl text-primaryText">Trial design</li>
-                        <li className="text-base 2xl:text-xl text-primaryText">Site identification</li>
-                        <li className="text-base 2xl:text-xl text-primaryText">Trial awareness</li>
-                        <li className="text-base 2xl:text-xl text-primaryText">HeartMate 3™ expertise</li>
+                        <li className="text-base text-primaryText">Trial design</li>
+                        <li className="text-base text-primaryText">Site identification</li>
+                        <li className="text-base text-primaryText">Trial awareness</li>
+                        <li className="text-base text-primaryText">HeartMate 3™ expertise</li>
                     </ul>
                     <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
                     The LVAD market, valued at $1.1 billion in 2023, is projected to reach $2.4 billion by 2032, 
@@ -229,38 +229,38 @@ const PRESSRELEASECVKD = () => {
                     </p>
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Positive</h4>
                     <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
-                        <li className="text-base 2xl:text-xl text-primaryText">Strategic collaboration with major healthcare company Abbott</li>
-                        <li className="text-base 2xl:text-xl text-primaryText">Access to key clinical trial sites and enhanced patient enrollment</li>
-                        <li className="text-base 2xl:text-xl text-primaryText">Targeting $1.1B LVAD market with projected growth to $2.4B by 2032</li>
-                        <li className="text-base 2xl:text-xl text-primaryText">First innovation in vitamin K anticoagulation in 70+ years</li>
+                        <li className="text-base text-primaryText">Strategic collaboration with major healthcare company Abbott</li>
+                        <li className="text-base text-primaryText">Access to key clinical trial sites and enhanced patient enrollment</li>
+                        <li className="text-base text-primaryText">Targeting $1.1B LVAD market with projected growth to $2.4B by 2032</li>
+                        <li className="text-base text-primaryText">First innovation in vitamin K anticoagulation in 70+ years</li>
                     </ul>
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Negative</h4>
                     <ul className="list-disc pl-8 flex flex-col gap-y-4 font-sansRegular">
-                        <li className="text-base 2xl:text-xl text-primaryText">Late-stage development implies significant ongoing R&D expenses</li>
-                        <li className="text-base 2xl:text-xl text-primaryText">Success dependent on clinical trial outcomes</li>
+                        <li className="text-base text-primaryText">Late-stage development implies significant ongoing R&D expenses</li>
+                        <li className="text-base text-primaryText">Success dependent on clinical trial outcomes</li>
                     </ul>
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Pharmaceutical Industry Analyst</h4>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     This collaboration between <span className="font-sansMedium">Cadrenal Therapeutics </span> and <span className="font-sansMedium">Abbott</span> represents a significant strategic 
                     {`advancement for Cadrenal's clinical development program. The agreement directly supports 
                     Cadrenal's pivotal TECH-LVAD trial for tecarfarin, their lead late-stage asset. Abbott's commitment 
                     to provide trial design expertise, site identification support, and access to HeartMate 3™ 
                     LVAD insights substantially de-risks the execution of this critical study.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     {`The partnership provides Cadrenal with three key advantages: enhanced trial site access, 
                     improved patient enrollment capabilities, and validation from a global healthcare leader. 
                     For a company with Cadrenal's market cap ($32.7 million), securing support from Abbott 
                     significantly strengthens their clinical development position and potentially accelerates 
                     their regulatory pathway.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                   {`  The LVAD market represents a substantial commercial opportunity, valued at $1.1 billion in 2023 
                     with projected growth to $2.4 billion by 2032. Tecarfarin aims to address a critical medical 
                     need as potentially the first innovation in vitamin K-targeted anticoagulation in over 70 years. 
                     Successful development could position it as a preferred anticoagulant for LVAD patients.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     {`While financial terms weren't disclosed, the non-monetary contributions from Abbott 
                     appear substantial. The collaboration structure focuses on clinical development support rather 
                     than direct investment, suggesting Abbott sees potential value in improving anticoagulation 
@@ -269,59 +269,59 @@ const PRESSRELEASECVKD = () => {
                     </p>
 
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Cardiology Medical Device Expert</h4>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                         {`This collaboration targets a critical unmet need in advanced heart failure management. 
                         Anticoagulation therapy is essential for LVAD patients to prevent thromboembolic 
                         complications, but current options present significant clinical challenges. 
                         Abbott's HeartMate 3™ LVAD, while the most advanced device in the U.S. 
                         market, still requires effective anticoagulation management to optimize patient outcomes.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                    {` The technical value of this partnership lies in combining Abbott's device expertise with 
                     Cadrenal's specialized anticoagulant. Abbott's willingness to share insights from recent HeartMate 3™ 
                     trials suggests they recognize potential benefits from improved anticoagulation specific to their device 
                     platform. This data sharing could help Cadrenal optimize their trial design to demonstrate tecarfarin's 
                     value specifically in this patient population.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     {`From a clinical perspective, vitamin K antagonists have remained largely unchanged for 
                     decades despite their narrow therapeutic window and monitoring challenges. 
                     A new VKA specifically studied in LVAD patients could potentially address significant clinical 
                     management issues. The collaboration focuses on a well-defined patient population with clear 
                     anticoagulation needs, creating a focused regulatory and commercial pathway.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     {`The strategic alignment between Cadrenal's anticoagulant therapy and Abbott's mechanical 
                     circulatory support technology could improve the overall therapeutic approach to advanced 
                     heart failure patients. If successful, this could establish a new standard of care for anticoagulation 
                     in LVAD therapy, particularly for the HeartMate 3™ platform that dominates the U.S. market.`}
                     </p>
 
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                         {`Strengthens the Potential for Improved Patient Outcomes through Improvements in 
                         the Quality of Anticoagulation, Enhancing Hemocompatibility in HeartMate 3™ LVAD patients`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     PONTE VEDRA, Fla.--(BUSINESS WIRE)-- 
                     <Link href="https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fwww.cadrenal.com%2F&esheet=54218519&newsitemid=20250304792377&lan=en-US&anchor=Cadrenal+Therapeutics&index=1&md5=849cf8be59121165ab208f7f5b1ad1c8" className="underline font-sansMedium">
                     Cadrenal Therapeutics, Inc</Link>. (Nasdaq: CVKD), 
                     {`a late-stage biopharmaceutical company focused on the development of specialized 
                     cardiovascular therapeutics, with the late-stage asset tecarfarin, a new oral Vitamin K 
                     antagonist (VKA), today announced the signing of a Collaboration Agreement with 
-                    Abbott (NYSE: ABT) to support Cadrenal’s pivotal  {" "}`} 
+                    Abbott (NYSE: ABT) to support Cadrenal’s pivotal `} 
                      <span className="font-sansMedium">
                     {`TECarfarin Anticoagulation and Hemocompatibility with Left Ventricular Assist Devices 
                     (TECH-LVAD) trial`}
                     </span>.
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     Under the terms of the Collaboration and Data Sharing Agreement, Abbott will support 
                     Cadrenal on the planning and execution of the <span className="underline">TECH-LVAD</span> trial to evaluate the efficacy 
                     and safety of tecarfarin in patients with LVADs. Under the Agreement, Abbott will share 
                     insights from recent HeartMate 3™ trials and will support Cadrenal with: trial design, site 
                     identification, trial awareness, and HeartMate 3™ expertise.
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     {`“We are pleased to have the support of Abbott, a global healthcare leader, which further validates 
                     the advancement into late-stage clinical development of tecarfarin. This partnership strengthens 
                     our access to key clinical trial sites and enhances patient enrollment efforts,” said Quang X. Pham, 
@@ -329,7 +329,7 @@ const PRESSRELEASECVKD = () => {
                     evaluate tecarfarin in combination with the HeartMate 3™ LVAD, advancing our commitment to 
                     bringing forward the first innovation in vitamin K-targeted anticoagulation in over 70 years.”`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     {`Abbott’s HeartMate​ 3™​ LVAD is a mechanical circulatory support device designed for patients with 
                     advanced heart failure. Abbott’s heart pumps have set the standard in LVAD therapy. 
                     The HeartMate 3™ LVAD is the most advanced LVAD yet and the only one currently 
@@ -339,7 +339,7 @@ const PRESSRELEASECVKD = () => {
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">
                         {`About Cadrenal Therapeutics, Inc.`}
                     </h4>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     <Link href="https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fwww.cadrenal.com%2F&esheet=54218519&newsitemid=20250304792377&lan=en-US&anchor=Cadrenal+Therapeutics%2C+Inc.&index=2&md5=82f83d00c946b74ca6c3626c28d09eca" className="underline">Cadrenal Therapeutics, Inc</Link>. is a late-stage biopharmaceutical company focused on developing 
                     {`specialized therapeutics for rare cardiovascular conditions. The Company is developing 
                     its late-stage asset, tecarfarin, a new oral vitamin K antagonist (VKA) designed to be a better 
@@ -349,20 +349,20 @@ const PRESSRELEASECVKD = () => {
                     With its innovation, Cadrenal aims to meet the unmet needs of this patient population by 
                     relieving them and their healthcare providers of some of warfarin’s greatest clinical challenges.`}
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     Cadrenal is pursuing a product-in-a-pipeline approach with tecarfarin. Tecarfarin received 
                     Orphan Drug designation (ODD) for advanced heart failure patients with implanted left 
                     ventricular assist devices (LVADs). The Company also received ODD and fast-track status 
                     for tecarfarin in end-stage kidney disease and atrial fibrillation (ESKD+AFib).
                     </p>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                     Cadrenal is opportunistically pursuing business development initiatives with a 
                     longer-term focus to build a pipeline of specialized cardiovascular therapeutics. 
                     For more information, visit <Link href="https://cts.businesswire.com/ct/CT?id=smartlink&url=http%3A%2F%2Fwww.cadrenal.com%2F&esheet=54218519&newsitemid=20250304792377&lan=en-US&anchor=www.cadrenal.com&index=3&md5=cd0f523648df5a5d76bc78a85e0cb708">www.cadrenal.com</Link> and connect with us on 
                     <Link href="https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fcadrenal&esheet=54218519&newsitemid=20250304792377&lan=en-US&anchor=LinkedIn&index=4&md5=f48e62ac04d5e4704dba6585a6428235">LinkedIn</Link>.
                     </p>
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Safe Harbor</h4>
-                    <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
+                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
                         {`Any statements contained in this press release about future expectations, 
                         plans, and prospects, as well as any other statements regarding matters that 
                         are not historical facts, may constitute “forward-looking statements.” 
