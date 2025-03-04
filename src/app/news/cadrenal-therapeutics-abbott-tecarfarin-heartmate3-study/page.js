@@ -304,10 +304,10 @@ const PRESSRELEASECVKD = () => {
                     PONTE VEDRA, Fla.--(BUSINESS WIRE)-- 
                     <Link href="https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fwww.cadrenal.com%2F&esheet=54218519&newsitemid=20250304792377&lan=en-US&anchor=Cadrenal+Therapeutics&index=1&md5=849cf8be59121165ab208f7f5b1ad1c8" className="underline font-sansMedium">
                     Cadrenal Therapeutics, Inc</Link>. (Nasdaq: CVKD), 
-                    a late-stage biopharmaceutical company focused on the development of specialized 
+                    {`a late-stage biopharmaceutical company focused on the development of specialized 
                     cardiovascular therapeutics, with the late-stage asset tecarfarin, a new oral Vitamin K 
                     antagonist (VKA), today announced the signing of a Collaboration Agreement with 
-                    Abbott (NYSE: ABT) to support Cadrenal’s pivotal  {" "} 
+                    Abbott (NYSE: ABT) to support Cadrenal’s pivotal  {" "}`} 
                      <span className="font-sansMedium">
                     TECarfarin Anticoagulation and Hemocompatibility with Left Ventricular Assist Devices 
                     (TECH-LVAD) trial
@@ -340,13 +340,13 @@ const PRESSRELEASECVKD = () => {
                     </h4>
                     <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
                     <Link href="https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fwww.cadrenal.com%2F&esheet=54218519&newsitemid=20250304792377&lan=en-US&anchor=Cadrenal+Therapeutics%2C+Inc.&index=2&md5=82f83d00c946b74ca6c3626c28d09eca" className="underline">Cadrenal Therapeutics, Inc</Link>. is a late-stage biopharmaceutical company focused on developing 
-                    specialized therapeutics for rare cardiovascular conditions. The Company is developing 
+                    {`specialized therapeutics for rare cardiovascular conditions. The Company is developing 
                     its late-stage asset, tecarfarin, a new oral vitamin K antagonist (VKA) designed to be a better 
                     and safer anticoagulant than warfarin, for individuals with implanted cardiac devices. 
                     Although warfarin is widely used off-label for several rare cardiovascular conditions, 
                     extensive clinical and real-world data have shown it to have significant serious side effects. 
                     With its innovation, Cadrenal aims to meet the unmet needs of this patient population by 
-                    relieving them and their healthcare providers of some of warfarin’s greatest clinical challenges.
+                    relieving them and their healthcare providers of some of warfarin’s greatest clinical challenges.`}
                     </p>
                     <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
                     Cadrenal is pursuing a product-in-a-pipeline approach with tecarfarin. Tecarfarin received 
@@ -362,7 +362,7 @@ const PRESSRELEASECVKD = () => {
                     </p>
                     <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Safe Harbor</h4>
                     <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
-                        Any statements contained in this press release about future expectations, 
+                        {`Any statements contained in this press release about future expectations, 
                         plans, and prospects, as well as any other statements regarding matters that 
                         are not historical facts, may constitute “forward-looking statements.” 
                         The words “anticipate,” “believe,” “continue,” “could,” “estimate,” “expect,” “intend,” “may,” “plan,” 
@@ -391,7 +391,7 @@ const PRESSRELEASECVKD = () => {
                         contained in this press release speak only as of the date hereof and, except as required by 
                         federal securities laws, the Company specifically disclaims any obligation to update any 
                         forward-looking statement, 
-                        whether as a result of new information, future events, or otherwise.
+                        whether as a result of new information, future events, or otherwise.`}
                     </p>
                     {/* <p className="text-base 2xl:text-xl text-primaryText font-sansRegular leading-[150%]">
                     View source version on businesswire.com: 
