@@ -117,6 +117,7 @@ export const ChartDataProvider = ({ children }) => {
         if (symbol) {
             fetchChartData(symbol, timeframe);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [symbol, timeframe]);
 
     // Background fetch every 5 minutes
@@ -128,6 +129,7 @@ export const ChartDataProvider = ({ children }) => {
         }, 60 * 1000); // Refresh every minute
 
         return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [symbol, timeframe]);
 
     return (

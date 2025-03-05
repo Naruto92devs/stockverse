@@ -78,6 +78,7 @@ try {
 // Fetch news when the component mounts or when the filters change
 useEffect(() => {
 fetchNews(topic, sort, limit);
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [topic, sort, limit]);
 
 // Handle filter changes

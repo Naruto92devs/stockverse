@@ -33,6 +33,7 @@ export default function Membership() {
   // Update priceId when billingCycle changes
   useEffect(() => {
     setPriceId(plans[billingCycle][view.toLowerCase()].priceId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [billingCycle, view]);
 
   

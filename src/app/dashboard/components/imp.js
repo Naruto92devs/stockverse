@@ -67,6 +67,7 @@ const CandlestickChart = () => {
       window.removeEventListener("resize", handleResize);
       newChart.remove();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const setChartInterval = (interval) => {

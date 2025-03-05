@@ -6,15 +6,23 @@ import Image from 'next/image.js';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Cookies from 'js-cookie';
+import { useMetadata } from "@/context/MetadataContext";
 
 
 export default function Home() {
 
-
-
+  const { setMetadata } = useMetadata();
   const token = Cookies.get('authToken');
   const [userVisible, setUserVisible] = useState(false);
   const [why, setWhy] = useState('1');
+
+  useEffect(() => {
+    setMetadata({
+      title: "Stockverse - Home",
+      description: "Discover real-time stock data, expert financial analysis, and market insights on Stockverse.",
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
   useEffect(() => {
       if (token) {

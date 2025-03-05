@@ -24,6 +24,7 @@ import Logo from '@/components/Logo';
 import axios from 'axios';
 import LogInPopup from "@/components/loginPopup";
 import NewsLetterPopup from "@/components/NewsLetterPopup";
+import { useMetadata } from "@/context/MetadataContext";
 // import CandlestickChart from "./components/CandlestickChart";
 // import dynamic from 'next/dynamic';
 
@@ -43,6 +44,7 @@ export default function DashBoard() {
 
 function DashboardContent() {
 
+  const { setMetadata } = useMetadata();
   const token = Cookies.get("authToken");
   const searchParams = useSearchParams();
   const { watchlist, fetchWatchlist, loading, error } = useWatchlist();
@@ -54,6 +56,14 @@ function DashboardContent() {
   // Get query parameters directly from useSearchParams
   const symbol = searchParams.get('symbol') || 'AAPL';
   const view = searchParams.get('view') || 'chart';
+
+  useEffect(() => {
+    setMetadata({
+      title: "Stockverse - Dashboard",
+      description: "Your dashboard for stock insights and analytics.",
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Sync symbol from search params to global context
   useEffect(() => {
