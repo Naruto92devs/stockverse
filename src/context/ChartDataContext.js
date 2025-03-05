@@ -10,7 +10,7 @@ export const ChartDataProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [backgroundRefreshing, setBackgroundRefreshing] = useState(false); // Track background fetch state
-    const [timeframe, setTimeframe] = useState('5Y'); // Default timeframe
+    const [timeframe, setTimeframe] = useState('1D'); // Default timeframe
 
     // Function to get US Eastern Time
     const getUSEasternTime = () => {
@@ -48,7 +48,7 @@ export const ChartDataProvider = ({ children }) => {
             range = "minute"; // Use hourly data for 5D
         } else if (timeframe === "1M") {
             start_date.setUTCMonth(end_date.getUTCMonth() - 1);
-            range = "hour"; // Use hourly data for 1M
+            range = "minute"; // Use hourly data for 1M
         } else if (timeframe === "6M") {
             start_date.setUTCMonth(end_date.getUTCMonth() - 6);
             range = "day"; // Use daily data for 6M
@@ -95,7 +95,7 @@ export const ChartDataProvider = ({ children }) => {
 
             const { start_date, end_date, range } = getDateRange(selectedTimeframe);
 
-            const apiUrl = `https://api.polygon.io/v2/aggs/ticker/${currentSymbol}/range/1/${range}/${start_date}/${end_date}?sort=asc&apiKey=9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy`;
+            const apiUrl = `https://api.polygon.io/v2/aggs/ticker/${currentSymbol}/range/1/${range}/${start_date}/${end_date}?sort=asc&limit=50000&apiKey=9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy`;
 
             const response = await axios.get(apiUrl);
             setChartData(response.data.results || []);

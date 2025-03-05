@@ -8,6 +8,7 @@ import formatNumber from '@/components/FormatNumber';
 // Context for managing the watchlist
 const WatchlistContext = createContext();
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+const ALPHA_VANTAGE_API_KEY = "VEFY3WP6EIULI240";
 const POLYGON_API_KEY = "9SqQlpW_rHXpqHJgrC3Ea0Q1fibyvtjy";
 
 export const WatchlistProvider = ({ children }) => {
@@ -85,7 +86,7 @@ export const WatchlistProvider = ({ children }) => {
                     name: companyInfo.name || "Unknown", // Company name
                     industry: companyInfo.sic_description || "Unknown", // Company name
                     marketCap: companyInfo.market_cap ? formatNumber(companyInfo.market_cap) : null, // Market capitalization
-                    price: tickerInfo.day?.c !== undefined ? Number(tickerInfo.day.c.toFixed(2)) : watchlist?.find(w => w.ticker === ticker)?.price,
+                    price: tickerInfo.lastTrade?.p !== undefined ? Number(tickerInfo.lastTrade.p.toFixed(2)) : watchlist?.find(w => w.ticker === ticker)?.price,
                     todaysChangePerc: tickerInfo.todaysChangePerc !== undefined ? tickerInfo.todaysChangePerc : watchlist?.find(w => w.ticker === ticker)?.todaysChangePerc,
                     volume: formatNumber(tickerInfo.day?.v) || 0, // Volume
                     todaysChange: tickerInfo.todaysChange || 0, // Absolute change today
@@ -109,6 +110,54 @@ export const WatchlistProvider = ({ children }) => {
             setError(true);
         }
     };
+
+
+    // const fetchWatchlistData = async (tickers) => {
+    //     if (!tickers || tickers.length === 0) return;
+
+    //     try {
+    //         const [stockResponses, companyResponses] = await Promise.all([
+    //             Promise.all(
+    //                 tickers.map(ticker => 
+    //                     axios.get(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&entitlement=realtime&apikey=${ALPHA_VANTAGE_API_KEY}`)
+    //                 )
+    //             ),
+    //             Promise.all(
+    //                 tickers.map(ticker => 
+    //                     axios.get(`https://api.polygon.io/v3/reference/tickers/${ticker}?apiKey=${POLYGON_API_KEY}`)
+    //                 )
+    //             )
+    //         ]);
+
+    //         const watchlistData = tickers.map((ticker, index) => {
+    //             const stockData = stockResponses[index]?.data?.['Global Quote'] || {};
+    //             const companyInfo = companyResponses[index]?.data?.results || {};
+
+    //             return {
+    //                 ticker: stockData["01. symbol"] || ticker,
+    //                 name: companyInfo.name || "Unknown",
+    //                 industry: companyInfo.sic_description || "Unknown",
+    //                 marketCap: companyInfo.market_cap ? formatNumber(companyInfo.market_cap) : null,
+    //                 price: Number(stockData["05. price"] || 0).toFixed(2),
+    //                 volume: formatNumber(stockData["06. volume"] || 0),
+    //                 todaysChangePerc: stockData["10. change percent"] ? stockData["10. change percent"].replace('%', '') : "0.00",
+    //                 logoUrl: companyInfo.branding?.logo_url || null,
+    //                 iconUrl: companyInfo.branding?.icon_url || null,
+    //             };
+    //         });
+
+    //         if (JSON.stringify(watchlist) !== JSON.stringify(watchlistData)) {
+    //             setWatchlist(watchlistData);
+    //             console.log('Updated Watchlist:', watchlistData);
+    //         } else {
+    //             console.log('No changes in watchlist, skipping update.');
+    //         }
+    //         setLoading(false);
+    //     } catch (error) {
+    //         console.error('Error fetching watchlist data:', error);
+    //         setError(true);
+    //     }
+    // };
 
     // Effect to initialize the watchlist on component mount
     useEffect(() => {
