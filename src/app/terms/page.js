@@ -1,5 +1,17 @@
-
+'use client'
+import { useMetadata } from "@/context/MetadataContext";
+import { useEffect } from "react";
 export default function Terms() {
+  const { setMetadata } = useMetadata();
+
+
+  useEffect(()=>{
+    setMetadata({
+      title : "Terms of Service - Stockverse",
+      description : "Review Stockverse's Terms of Service. Learn about your rights, responsibilities, account security, subscription details and more while using the platform"
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   return (
     <div className="hero py-16 max-md:py-6 w-full">
       <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">

@@ -1,5 +1,16 @@
+'use client'
+import { useMetadata } from "@/context/MetadataContext";
+import { useEffect } from "react";
 
 export default function Policy() {
+  const {setMetadata} = useMetadata();
+  useEffect(()=>{
+    setMetadata({
+      title : "Privacy Policy - Stockverse",
+      description : "Review the Privacy Policy of Stockverse. Learn about data collection, usage and your privacy rights while using our services and website"
+    })
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   return (
     <div className="hero py-16 max-md:py-6 w-full">
       <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">

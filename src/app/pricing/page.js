@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useMembership } from "@/context/MembershipContext";
 import axios from 'axios';
 import Image from "next/image";
-
+import { useMetadata } from "@/context/MetadataContext";
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 export default function Membership() {
@@ -13,6 +13,16 @@ export default function Membership() {
   const [priceId, setPriceId] = useState('');
   const [view, setView] = useState('FREE');
   const router = useRouter();
+  const { setMetadata } = useMetadata();
+
+
+  useEffect(() => {
+    setMetadata({
+      title: "Pricing Plans - Stockverse",
+      description: "Our pricing plans for everyone. Access real-time data, personalized stock alerts and valuable insights to help you make informed investment decisions",
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const plans = {
     monthly: {

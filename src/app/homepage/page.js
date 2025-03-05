@@ -1,5 +1,6 @@
 'use client'
 import Navbar from "@/components/stockpicks_nav";
+import Footer from "@/components/stockpicks_footer";
 import Image from "next/image";
 import { useState,useEffect,useRef } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -29,8 +30,6 @@ const calculateNextTarget = () => {
 
   return targetDate.getTime(); // Return as timestamp
 };
-
-// State for tracking the target time
 const [targetTime, setTargetTime] = useState(calculateNextTarget);
 const [timeLeft, setTimeLeft] = useState(targetTime - Date.now());
 
@@ -83,7 +82,7 @@ const toggleFAQ = (index) => {
       ];
 
 return (
-    <>
+    <div className="cvkd-bg">
     <Navbar/>
     {/* hero section */}
     <section className="w-full xl:container mx-auto xl:py-20 md:py-12 md:px-4 relative max-md:px-3 max-md:py-8">
@@ -187,7 +186,7 @@ return (
             </defs>
             </svg>
         </div>
-        <Image className="width-anime" src="/images/hero-graph.png" alt="" width={942} height={528}/>
+        <Image className="width-anime max-md:hidden" src="/images/hero-graph.png" alt="" width={942} height={528}/>
       </div>
      </div>
     </section>
@@ -250,14 +249,14 @@ return (
             </div>
         </div>
     </section>
-    <section className="w-full xl:container mx-auto border-b border-b-[#000]">
+    <section className="w-full xl:container mx-auto xl:py-16">
         <h2 className="text-center text-5xl font-grotesqueExtrabold">
             Why our members consistently beat the street
         </h2>
-        <p className="text-center">
+        <p className="text-center mt-4 text-lg">
         Proven track record backed by over 80 years of financial expertise
         </p>
-        <div className="flex items-center flex-wrap justify-between text-center">
+        <div className="flex items-center flex-wrap justify-between text-center mt-16">
             <div className="xl:w-[23%] md:w-[40%] w-[100%] flex flex-col items-center gap-y-2">
                 <Image className="w-[30%]" src="/images/analysis.gif" alt="analysis" width={300} height={300} />
                 <h3 className="text-[#2C2C2C] xl:text-[1.3rem] text-2xl font-grotesqueBold">Advanced Reporting Analysis</h3>
@@ -265,26 +264,44 @@ return (
                     Our stock experts tap into billions of digital data points to help find the next explosive stock pick.
                 </p>
             </div>
-            <div className="xl:w-[23%] md:w-[40%] w-[100%]">
+            <div className="xl:w-[23%] md:w-[40%] w-[100%] flex flex-col items-center gap-y-2">
+                <Image className="w-[30%]" src="/images/alert.gif" alt="alert" width={300} height={300} />
                 <h3 className="text-[#2C2C2C] xl:text-[1.3rem] text-2xl font-grotesqueBold">Real-Time Stock Alerts</h3>
                 <p>
                     Daily alerts to help you take your trading to the next level. Be the first to know about market changes.
                 </p>
             </div>
-            <div className="xl:w-[23%] md:w-[40%] w-[100%]">
+            <div className="xl:w-[23%] md:w-[40%] w-[100%] flex flex-col items-center gap-y-2">
+                <Image className="w-[30%]" src="/images/experience.gif" alt="alert" width={300} height={300} />
                 <h3 className="text-[#2C2C2C] xl:text-[1.3rem] text-2xl font-grotesqueBold">Backed by Experience</h3>
                 <p>
                     Our financial analysts have over 80 years experience forecasting off of historical stock market trends.
                 </p>
             </div>
-            <div className="xl:w-[23%] md:w-[40%] w-[100%]">
+            <div className="xl:w-[23%] md:w-[40%] w-[100%] flex flex-col items-center gap-y-2">
+                <Image className="w-[30%]" src="/images/stock.gif" alt="alert" width={300} height={300} />
                 <h3 className="text-[#2C2C2C] xl:text-[1.3rem] text-2xl font-grotesqueBold">Limited-Time Access</h3>
                 <p>Join over 700K subscribers who have gained from our alerts. New subscriber spots are limited – Sign up today!</p>
             </div>
         </div>
     </section>
+    <section className="w-full xl:container mx-auto border-b border-b-[#000] pb-16">
+        <h2 className="text-center text-5xl font-grotesqueExtrabold">
+        Stock picks that OUTPERFORM the market
+        </h2>
+        <p className="text-center mt-4 text-lg px-40">
+        {`Over the years, Penny Stocks have consistently Outperformed Blue Chip Stocks due to their volatile 
+        nature. But how do you find them? With Expert Analysis, we track the market so you don’t have to!`}
+        </p>
+    </section>
+
+    <section>
+      <div>
+        <h3>Our track record is our reputation!!</h3>
+      </div>
+    </section>
     {/* testimonials */}
-    <section className="w-full xl:container mx-auto py-20">
+    <section className="w-full xl:container mx-auto py-16 border-b border-b-[#000]">
         <div className="mb-10">
             <h2 className="text-center text-5xl font-grotesqueExtrabold">Real Testimonials - Latest Subscribers</h2>
         </div>
@@ -345,10 +362,10 @@ return (
     </section>
      {/* ----------FAQ section---------- */}
      <section className='w-full px-6 max-sm:px-3 mx-auto xl:container flex flex-col gap-y-12 py-16'>
-        <div className='w-full flex items-center gap-y-4 justify-between max-lg:flex-col lg:pt-8'>
+        <div className='w-full flex items-center gap-y-4 justify-between max-lg:flex-col'>
           <div className='w-full'>
             <h2 className='text-center text-5xl font-grotesqueExtrabold'>The Lowdown on Penny Stocks</h2>
-            <p className="text-center">What Wall St. doesn’t want you to know about penny stocks.</p>
+            <p className="text-center mt-4 text-lg px-40 font-poppinsRegular">What Wall St. doesn’t want you to know about penny stocks.</p>
           </div>
         </div>
         <div className='flex flex-col gap-y-8'>
@@ -389,7 +406,65 @@ return (
           ))}
         </div>
       </section>
-    </>
+      <section className="w-full xl:container mx-auto xl:py-6">
+        <div className="bg-[#FFF] rounded-xl shadow-[0px_10px_50px_5px_#0000000D] py-4">
+        <h2 className="text-[#2C2C2C] text-center text-5xl font-grotesqueExtrabold">What are you waiting for?</h2>
+        <p className="text-center mt-4 text-lg px-40 font-poppinsRegular">Our next big stock alert is coming in</p>
+        <div className="flex items-center justify-center gap-32 mt-12">
+            <div className="flex flex-col items-center gap-y-2">
+                <p className="text-[#2C2C2C] text-5xl font-grotesqueExtrabold">{days}</p>
+                <p className="text-[#2C2C2C] font-poppinsRegular text-base">Days</p>
+            </div>
+            <div className="flex flex-col items-center gap-y-2">
+                <p className="text-[#2C2C2C] text-5xl font-grotesqueExtrabold">{hours}</p>
+                <p className="text-[#2C2C2C] font-poppinsRegular text-base">Hours</p>
+            </div>
+            <div className="flex flex-col items-center gap-y-2">
+                <p className="text-[#2C2C2C] text-5xl font-grotesqueExtrabold">{minutes}</p>
+                <p className="text-[#2C2C2C] font-poppinsRegular text-base">Minutes</p>
+            </div>
+            <div className="flex flex-col items-center gap-y-2">
+                <p className="text-[#2C2C2C] text-5xl font-grotesqueExtrabold">{seconds}</p>
+                <p className="text-[#2C2C2C] font-poppinsRegular text-base">Seconds</p>
+            </div>
+        </div>
+        <div className="w-full flex flex-col items-center justify-center w-full p-6">
+      <div className="w-full flex flex-col md:flex-row gap-4 w-full">
+        <div className="w-[35%]">
+        <input
+          type="text"
+          placeholder="Enter your name"
+          className="w-full p-4 border-[1.5px] border-[#A5A4A1] rounded-xl placeholder:text-base placeholder:text-lg text-[#A5A4A1] focus:outline-none focus:ring-2 focus:ring-gray-400"
+        />
+        </div>
+        <div className="w-[35%]">
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          className="w-full p-4 border-[1.5px] border-[#A5A4A1] rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-400"
+        />
+        </div>
+        <div className="w-[27%]">
+        <button className="w-full px-6 py-4 bg-black text-white font-medium rounded-xl flex items-center justify-center transition hover:bg-gray-900">
+          Subscribe 
+          <span className="ml-2">
+            <svg width="42" height="16" viewBox="0 0 42 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9V7ZM41.7071 8.70711C42.0976 8.31658 42.0976 7.68342 41.7071 7.29289L35.3431 0.928932C34.9526 0.538408 34.3195 0.538408 33.9289 0.928932C33.5384 1.31946 33.5384 1.95262 33.9289 2.34315L39.5858 8L33.9289 13.6569C33.5384 14.0474 33.5384 14.6805 33.9289 15.0711C34.3195 15.4616 34.9526 15.4616 35.3431 15.0711L41.7071 8.70711ZM1 9H41V7H1V9Z" fill="white"/>
+            </svg>
+          </span>
+        </button>
+        </div>
+      </div>
+      <p className="text-base text-[#2C2C2C] font-poppinsRegular mt-5">
+       Read <Link href="/disclaimer" className="underline text-[#007AFF]">disclaimer</Link> 
+       &#160;and <Link href="/policy" className="underline text-[#007AFF]">privacy policy</Link> 
+        {" "}before joining. &#160;&#160; |&#160;&#160;  Your info is never shared.&#160;&#160;  |&#160;&#160;  Unsubscribe anytime
+      </p>
+        </div>
+        </div>
+    </section>
+    <Footer />
+    </div>
 )
 
 }

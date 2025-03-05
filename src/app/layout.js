@@ -94,6 +94,7 @@ function DynamicMetadata() {
     <>
       <title>{metadata.title}</title>
       <meta name="description" content={metadata.description} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schema) }} />
     </>
   );
 }

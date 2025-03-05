@@ -2,23 +2,32 @@
 // import AweberForm from "@/components/AweberForm";
 // import Form from "@/components/Form";
 'use client';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Optional default styles
 import Disclaimer from '../disclaimer/page';
+import { useMetadata } from '@/context/MetadataContext';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 export default function Alerts() {
-
+  const { setMetadata } = useMetadata();
   const [privacyChecked, setPrivacyChecked] = useState(false);
   const [phone, setPhone] = useState(null);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [done, setDone] = useState(null);
   const [loading, setLoading] = useState(null);
+
+   useEffect(() => {
+      setMetadata({
+        title: "Stock Alerts, Monitor the Stock Market - Stockverse",
+        description: "Set stock alerts and monitor the market! Stay updated with real-time notifications and expert insights to track your investments effectively",
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
   const handleSubscribeEmailPhone = async (e) => {
     setLoading(true);

@@ -1,4 +1,17 @@
+'use client'
+import { useEffect } from "react";
+import { useMetadata } from "@/context/MetadataContext";
 export default function Disclaimer() {
+  const { setMetadata }= useMetadata();
+
+  useEffect(() => {
+    setMetadata({
+      title: "Disclaimer - Stockverse",
+      description: "Disclaimer - Read the full disclaimer for Stockverse. Content is for informational purposes only!",
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="hero py-16 max-md:py-6 w-full">
       <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">

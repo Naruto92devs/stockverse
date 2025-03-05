@@ -1,5 +1,16 @@
-
+'use client'
+import { useEffect } from "react";
+import { useMetadata } from "@/context/MetadataContext";
 export default function Policy() {
+    const  { setMetadata } = useMetadata();
+
+    useEffect(()=>{
+        setMetadata({
+            title : "Refund Policy - Stockverse",
+            description : "Review Stockverse's Refund Policy. Learn about subscription refunds, cancellations and exceptional circumstances. Contact us for refund requests or inquiries"
+        })
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
     return (
         <div className="hero py-16 max-md:py-6 w-full">
         <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">

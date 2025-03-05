@@ -7,6 +7,7 @@ export function MetadataProvider({ children }) {
   const [metadata, setMetadata] = useState({
     title: "Stockverse",
     description: "Discover real-time stock data, expert financial analysis, and market insights on Stockverse.",
+    schema : "",
   });
 
   return (

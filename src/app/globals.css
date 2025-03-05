@@ -956,6 +956,11 @@
   color: transparent;
   animation: bg-position 6s linear infinite forwards;
 }
+.cvkd-bg{
+  background: url("/images/cvkd-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .width-anime {
   animation: width-anime 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-origin: left;
@@ -1000,8 +1005,15 @@
   color : #A5A4A1 !important;
   border-radius: 10px !important;
 }
+.swiper-button-next::after {
+  font-size : 30px !important;
+  border-radius: 10px !important;
+}
 .swiper-button-prev {
   color : #A5A4A1 !important;
+}
+.swiper-button-prev::after {
+  font-size: 30px !important;
 }
 @media (max-width:768px) {
   .border-bottom {

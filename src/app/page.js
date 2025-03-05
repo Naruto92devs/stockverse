@@ -18,8 +18,19 @@ export default function Home() {
 
   useEffect(() => {
     setMetadata({
-      title: "Stockverse - Home",
-      description: "Discover real-time stock data, expert financial analysis, and market insights on Stockverse.",
+      title: "Live Stock Data, Stock Market & Finance News - Stockverse",
+      description: "Discover real-time stock data, expert analysis, market insights, live updates, IPO calendars and tools on Stockverse to make informed investment decisions",
+      schema :` "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Stockverse",
+  "url": "https://stockverse.com/",
+  "logo": "https://stockverse.com/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@stockverse.com",
+    "contactType": "customer support"
+  }
+`
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
