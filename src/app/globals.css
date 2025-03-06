@@ -9,7 +9,9 @@
   -webkit-tap-highlight-color: transparent;
   -moz-tap-highlight-color: transparent;
 }
-
+::selection {
+  background-color: #ffcc00;
+}
 :root {
   --white: 255, 255, 255;
   --black: 0, 0, 0;
@@ -393,7 +395,11 @@
   src: url('/fonts/Poppins-Medium.ttf') format('truetype');
   font-weight: 500;
 }
-
+@font-face {
+  font-family: 'poppins-Semibold';
+  src: url('/fonts/poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
 /* Example custom styles for scrollbar */
 .scrollbar-thin::-webkit-scrollbar {
   width: 6px;
@@ -959,7 +965,8 @@
 .cvkd-bg{
   background: url("/images/cvkd-bg.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+  background-position: top center;
 }
 .width-anime {
   animation: width-anime 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1015,8 +1022,31 @@
 .swiper-button-prev::after {
   font-size: 30px !important;
 }
+.record {
+  position: relative;
+}
+.record::after {
+  content: "";
+  width: 1.5px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top:0;
+  background: linear-gradient(180deg, #a5a4a100 0%, #A5A4A1 50%,#a5a4a100  100%);
+}
+
 @media (max-width:768px) {
   .border-bottom {
     display: inline-block;
   }
+  .record::after {
+    content: "";
+    width: 100%;
+    height: 1.5px;
+    position: absolute;
+    left: 0;
+    top:0;
+    background: linear-gradient(90deg, #a5a4a100 0%, #A5A4A1 50%,#a5a4a100  100%);
+  }
+ 
 }

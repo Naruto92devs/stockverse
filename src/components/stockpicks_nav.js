@@ -68,7 +68,7 @@ return (
                 <Image className='' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' />
             </Link>
             {/* nav mob start */}
-            <div className={`${isNavbarVisible? 'max-md:translate-y-[0px]' : 'max-md:translate-y-[-900px]'} transition duration-300 ease-in-out max-md:overflow-hidden relative z-10 min-w-max flex items-center lg:gap-12 max-md:gap-6 md:gap-8  max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:flex-col max-md:gap-2 max-md:bg-primaryBg max-md:items-start max-md:p-4 max-md:pt-20 max-md:rounded-b-3xl max-md:shadow-2xl`} aria-expanded="true" aria-haspopup="true" ref={NavRef}>
+            <div className={`${isNavbarVisible? 'max-md:translate-y-[0px]' : 'max-md:translate-y-[-900px]'} transition duration-300 ease-in-out max-md:overflow-hidden relative z-10 min-w-max flex items-center lg:gap-12 max-md:gap-6 md:gap-4  max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:flex-col max-md:gap-2 max-md:bg-primaryBg max-md:items-start max-md:p-4 max-md:pt-20 max-md:rounded-b-3xl max-md:shadow-2xl`} aria-expanded="true" aria-haspopup="true" ref={NavRef}>
                 {/* nav dropdown start */}
                 <Link onClick={(e) => {if (window.innerWidth <= 768) {toggleNav();}}} href='/' className="flex flex-col items-start text-base font-poppinsRegular text-primaryTextColor border-bottom">
                     Home

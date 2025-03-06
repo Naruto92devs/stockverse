@@ -45,6 +45,7 @@ module.exports = {
         grotesqueSemibold : ['grotesque-Semibold'],
         poppinsRegular : ['poppins-Regular'],
         poppinsMedium : ['poppins-Medium'],
+        poppinsSemibold : ['poppins-Semibold'],
         grotesqueExtrabold : ['grotesque-Extrabold'],
         grotesqueBold : ['grotesque-Bold'],
         
