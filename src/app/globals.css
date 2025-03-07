@@ -12,6 +12,11 @@
 ::selection {
   background-color: #ffcc00;
 }
+/* 
+.grecaptcha-badge {
+  display: none;
+} */
+
 :root {
   --white: 255, 255, 255;
   --black: 0, 0, 0;
