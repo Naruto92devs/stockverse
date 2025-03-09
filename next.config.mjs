@@ -37,6 +37,71 @@ const nextConfig = {
             destination : '/',
             permanent : false,
           },
+          {
+            source : '/articles/cvkd',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/META',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/AMZN',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/MSFT',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/TSM',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/UNH',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/NVDA',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/GOOG',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/TSLA',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/AXP',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/stocks/V',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/ipo',
+            destination : '/',
+            permanent : false,
+          },
+          {
+            source : '/earnings-calendar',
+            destination : '/dashboard?view=earnings_calendar',
+            permanent : false,
+          },
         ];
       },
     
