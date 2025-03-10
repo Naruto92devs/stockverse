@@ -231,7 +231,7 @@ useEffect(() => {
               href={loading ? '' : `${STOCKVERSE_BACK_END}/auth/facebook`} 
               className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 rounded-lg transition duration-300"
             >
-              <Image width={26} height={26} src='/images/google.png' alt='logo'></Image>
+              <Image width={26} height={26} src='/images/facebook_login.png' alt='logo'></Image>
               Sign In with Facebook
             </a>
           </div>

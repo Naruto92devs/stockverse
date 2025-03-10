@@ -293,6 +293,13 @@ export default function Register() {
                             <Image width={26} height={26} src='/images/google.png' alt='logo'></Image>
                             Sign Up with Google
                         </a>
+                        <a
+                            href={loading ? '' : `${STOCKVERSE_BACK_END}/auth/facebook`} 
+                            className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 rounded-lg transition duration-300"
+                        >
+                            <Image width={26} height={26} src='/images/facebook_login.png' alt='logo'></Image>
+                            Sign Up with Facebook
+                        </a>
                     </div>
                 </form>
                 <p className="flex gap-x-2 text-lg font-sansMedium text-primaryTextColor">
