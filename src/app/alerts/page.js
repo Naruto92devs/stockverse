@@ -15,15 +15,16 @@ import 'react-phone-input-2/lib/style.css'; // Optional default styles
 
 const calculateNextTarget = () => {
   const now = new Date();
-  let targetDate = new Date("March 1, 2025 16:00:17 GMT+05:00"); // Example: Target Date
+  let targetDate = new Date("March 1, 2025 16:00:17 GMT+05:00");
 
-  // If the target date is in the past, move it forward by 2 days
-  if (now >= targetDate) {
-    targetDate.setDate(now.getDate() + 2);
+  // If the target date is in the past, keep moving it forward by 2 days
+  while (now >= targetDate) {
+    targetDate.setDate(targetDate.getDate() + 2);
   }
 
   return targetDate.getTime();
 };
+
 
 const Homepage = () => {
   const [phone, setPhone] = useState("");
@@ -42,23 +43,24 @@ const Homepage = () => {
   const [targetTime, setTargetTime] = useState(null);
   const [timeLeft, setTimeLeft] = useState(null);
   useEffect(() => {
-    // Initialize countdown on client-side
-    const target = calculateNextTarget();
-    setTargetTime(target);
-    setTimeLeft(target - Date.now());
-
-    const interval = setInterval(() => {
+    const updateCountdown = () => {
       const now = Date.now();
+      let target = calculateNextTarget();
       let remaining = target - now;
 
       if (remaining <= 0) {
-        // If time is up, set a new target 2 days later
-        const newTarget = calculateNextTarget();
-        setTargetTime(newTarget);
-        remaining = newTarget - now; // Reset countdown
+        target = calculateNextTarget(); // Update target time
+        remaining = target - now;
       }
 
+      setTargetTime(target);
       setTimeLeft(remaining);
+    };
+
+    updateCountdown(); // Initialize countdown
+
+    const interval = setInterval(() => {
+      updateCountdown();
     }, 1000);
 
     return () => clearInterval(interval);
