@@ -122,7 +122,7 @@ export default function Membership() {
               <h2 className="text-xl font-sansMedium">{plans[billingCycle].free.label}</h2>
               <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].free.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
-            <p className="text-base font-sansRegular py-2">Our Company Plan is ideal for larger organizations seeking comprehensive solutions for their teams</p>
+            <p className="text-base font-sansRegular py-2">This Plan has limited stock insights, ideal for single individuals seeking comprehensive knowledge for stocks.</p>
           </div>
           {/* BASIC Plan */}
           <div onClick={() => updatePlan('BASIC' ,plans[billingCycle].basic.priceId)} className={`${view === 'BASIC' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
@@ -130,7 +130,7 @@ export default function Membership() {
               <h4 className="text-xl font-sansMedium">{plans[billingCycle].basic.label}</h4>
               <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].basic.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
-            <p className="text-base font-sansRegular py-2">Our Company Plan is ideal for larger organizations seeking comprehensive solutions for their teams</p>
+            <p className="text-base font-sansRegular py-2">Unlock unlimited stock insights for just $9.99/month.</p>
           </div>
 
           <button 
