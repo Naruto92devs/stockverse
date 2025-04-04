@@ -11,6 +11,20 @@ import { useState,useEffect } from 'react';
 import { MetadataProvider, useMetadata } from "@/context/MetadataContext";
 import { GoogleReCaptchaProvider,useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
+
+const jsonld = {
+  "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Stockverse",
+    "url": "https://stockverse.com/",
+    "logo": "https://stockverse.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@stockverse.com",
+      "contactType": "customer support"
+    }
+  }
+
 export default function RootLayout({ children }) {
 
   const pathname = usePathname();
@@ -60,6 +74,12 @@ export default function RootLayout({ children }) {
           </Script>
         </head>
         <body className="bg-background w-[100%] mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonld),
+          }}
+        />
           {/* <!-- Google Tag Manager (noscript) --> */}
           <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKNBV87L"
@@ -94,7 +114,7 @@ function DynamicMetadata() {
     <>
       <title>{metadata.title}</title>
       <meta name="description" content={metadata.description} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schema) }} />
+      {/* <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schema) }} /> */}
     </>
   );
 }

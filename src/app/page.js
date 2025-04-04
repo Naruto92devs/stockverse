@@ -9,6 +9,19 @@ import Cookies from 'js-cookie';
 import { useMetadata } from "@/context/MetadataContext";
 
 
+const jsonld = {
+"@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Stockverse",
+  "url": "https://stockverse.com/",
+  "logo": "https://stockverse.com/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@stockverse.com",
+    "contactType": "customer support"
+  }
+}
+
 export default function Home() {
 
   const { setMetadata } = useMetadata();
@@ -20,17 +33,6 @@ export default function Home() {
     setMetadata({
       title: "Live Stock Data, Stock Market & Finance News - Stockverse",
       description: "Discover real-time stock data, expert analysis, market insights, live updates, IPO calendars and tools on Stockverse to make informed investment decisions",
-      schema :` "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Stockverse",
-  "url": "https://stockverse.com/",
-  "logo": "https://stockverse.com/logo.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "contact@stockverse.com",
-    "contactType": "customer support"
-  }
-`
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -91,6 +93,12 @@ export default function Home() {
 
   return (
     <div className="w-full">
+       <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonld),
+          }}
+        />
       <div className="hero pb-0 w-full bg-heroBg bg-no-repeat bg-cover bg-top-left">
         <Navbar/>
         {/* ----------hero section---------- */}
