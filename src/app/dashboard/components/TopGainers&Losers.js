@@ -10,6 +10,19 @@ import Logo from '@/components/Logo';
 import Link from 'next/link';
 import axios from "axios";
 
+
+const jsonld = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Live Stock Data",
+    "description": "Real-time stock market data including prices, volumes, and more.",
+    "url": "https://stockverse.com/dashboard?view=gainers_losers",
+    "creator": {
+      "@type": "Organization",
+      "name": "Stockverse"
+    }  
+}
+
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
 const usePageSize = () => {
@@ -141,6 +154,12 @@ const TopGainersLosers = () => {
 
     return (
         <div className='flex flex-col lg:px-4 px-2 items-center w-full gap-4'>
+             <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonld),
+          }}
+        />
             <div className='w-full flex flex-col py-6 items-center gap-4'>
                 <h1 className='font-sansMedium md:text-3xl text-2xl text-center'>
                     Top Gainers And Losers

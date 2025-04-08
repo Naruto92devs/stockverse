@@ -6,6 +6,35 @@ import RequestError from '@/loaders&errors_UI/requestError';
 import Loading from '@/loaders&errors_UI/loading';
 import MainLoader from '@/loaders&errors_UI/mian_loader';
 
+
+const jsonld ={
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "IPO Calendar",
+    "description": "Explore the IPO calendar on Stockverse. Stay updated by filtering IPO data using options like Upcoming, Active, or Withdrawn.",
+    "url": "https://stockverse.com/dashboard?view=ipo_calendar",
+    "creator": {
+      "@type": "Organization",
+      "name": "Stockverse",
+      "url": "https://stockverse.com"
+    },
+    "license": "https://stockverse.com/terms",
+    "keywords": [
+      "IPO calendar",
+      "upcoming IPOs",
+      "active IPOs",
+      "withdrawn IPOs",
+      "delisted IPOs",
+      "IPO filters",
+      "IPO insights"
+    ],
+    "potentialAction": {
+      "@type": "Action",
+      "name": "Filter IPO Calendar Data",
+      "description": "Filter IPO data by selecting options of Upcoming, Active, or Withdrawn IPOs.",
+      "target": "https://stockverse.com/dashboard?view=ipo_calendar"
+    }  
+}
 const usePageSize = () => {
     const [pageSize, setPageSize] = useState(10);
 
@@ -83,6 +112,12 @@ const IPOsCalendar = () => {
 
     return (
         <div className='flex flex-col lg:px-4 px-2 items-center w-full gap-4'>
+            <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonld),
+          }}
+        />
             <div className='w-full flex flex-col py-6 items-center gap-4'>
                 <h1 className='font-sansMedium md:text-3xl text-2xl text-center'>
                     IPO Calendar
