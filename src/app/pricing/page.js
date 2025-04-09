@@ -124,7 +124,7 @@ export default function Membership() {
             </div>
             <p className="text-base font-sansRegular py-2">This Plan has limited stock insights, ideal for single individuals seeking comprehensive knowledge for stocks.</p>
           </div>
-          {/* BASIC Plan */}
+          {/* PREMIUM Plan */}
           <div onClick={() => updatePlan('BASIC' ,plans[billingCycle].basic.priceId)} className={`${view === 'BASIC' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
             <div className="flex flex-wrap gap-4 justify-between items-center py-2 border-b border-black/5">
               <h4 className="text-xl font-sansMedium">{plans[billingCycle].basic.label}</h4>
@@ -136,10 +136,16 @@ export default function Membership() {
           <button 
           onClick={handleCheckout} 
           disabled={membership?.price_id === priceId}  
-          className="disabled:bg-black w-full text-lg py-2 bg-primaryMain hover:bg-black text-white rounded-lg"
+          className={`${membership?.price_id !== 'FREE' && view === 'FREE' ? 'hidden' : ''} disabled:bg-black w-full text-lg py-2 bg-primaryMain hover:bg-black text-white rounded-lg`}
           >
             {membership?.price_id === priceId ? 'Current Plan' : 'Select Plan'}
           </button>
+          {membership?.price_id !== 'price_free' && view === 'FREE' ? (
+            <p className="text-black font-sansRegular">{`ℹ️ Info: You’re currently subscribed to our Premium plan. If you wish to downgrade to the Free version, simply cancel your current subscription. Once your plan reaches its expiration date, your account will automatically be moved to the Free tier.`}</p>
+          ) : null}
+          {membership?.price_id !== 'price_free' && view !== 'FREE' ? (
+            <p className="text-black font-sansRegular">{`⚠️ Info: You’re currently subscribed to our Premium plan. If you wish to upgrade or downgrade to the other plan, Please notice that your current plan will be canceled and cannot be revived.`}</p>
+          ) : null}
         </div>
       </div>
     </div>
