@@ -2,6 +2,7 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useGainersLosers } from '@/context/GainersLosersContext';
 import { useWatchlist } from '@/context/WatchlistContext';
+import { useMembership } from "@/context/MembershipContext";
 import DataNotAvailable from '@/loaders&errors_UI/dataUnavailable';
 import RequestError from '@/loaders&errors_UI/requestError';
 import Loading from '@/loaders&errors_UI/loading';
@@ -49,8 +50,9 @@ const usePageSize = () => {
     return pageSize;
 };
 
-const TopGainersLosers = () => {
+const TopGainersLosers = ({setUpgrade}) => {
     const { watchlist, fetchWatchlist } = useWatchlist();
+    const { membership } = useMembership();
     const { gainers, losers, loading, error } = useGainersLosers();
     const [gainersCurrentPage, setGainersCurrentPage] = useState(1);
     const [losersCurrentPage, setLosersCurrentPage] = useState(1);
@@ -129,6 +131,20 @@ const TopGainersLosers = () => {
     };
 
     const handleSubmitWatchList = async (symbol) => {
+        const isFreeUser = membership?.price_id === 'price_free';
+        const isAtLimit = watchlist?.length >= 5;
+        const alreadyAdded = watchlist?.some(
+            (stock) =>
+                stock?.ticker &&
+                symbol &&
+                stock.ticker.toUpperCase() === symbol.toUpperCase()
+        );
+        
+        if (isFreeUser && isAtLimit && !alreadyAdded) {
+          setUpgrade(true);
+          return; // Stop here
+        }
+        
         try {
             const response = await axios.post(`${STOCKVERSE_BACK_END}/watchlist`, {
                 symbol,

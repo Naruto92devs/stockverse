@@ -7,7 +7,7 @@ import { useChartData } from "@/context/ChartDataContext";
 import MainLoader from "@/loaders&errors_UI/mian_loader";
 import Image from "next/image";
 
-const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
+const ChartView = ({ symbol, watchlistHide, setWatchlistHide, setUpgrade }) => {
   const [chart, setChart] = useState("line");
   const [selectedInterval, setSelectedInterval] = useState(null);
   const { tickerDetails } = useTickerDetails();
@@ -41,7 +41,7 @@ const ChartView = ({ symbol, watchlistHide, setWatchlistHide }) => {
 
   return (
     <div className="w-full h-full flex flex-col items-start">
-      <TickerInfo watchlistHide={watchlistHide} setWatchlistHide={setWatchlistHide} />
+      <TickerInfo setUpgrade={setUpgrade} watchlistHide={watchlistHide} setWatchlistHide={setWatchlistHide} />
       {/* Full Screen */}
       <div className={`${fullScreen? 'fixed w-full h-full z-20 top-0 left-0 bottom-0 right-0' : ''} w-full flex-grow flex flex-col items-start bg-primaryBg`}>
         <div className="w-full flex-none flex flex-wrap gap-2 p-3 items-center justify-between">

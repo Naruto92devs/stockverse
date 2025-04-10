@@ -3,6 +3,7 @@ import { lazy, Suspense, useState, useEffect } from "react";
 import ProfileLogo from "@/components/ProfileLogo"
 import { useSearchParams, useRouter } from "next/navigation";
 import { useSymbol } from '@/context/SymbolContext';
+import { useMembership } from "@/context/MembershipContext";
 import { useWatchlist } from '@/context/WatchlistContext';
 import ChartView from "./components/ChartView";
 import UserSettings from "./components/Settings";
@@ -25,6 +26,7 @@ import Logo from '@/components/Logo';
 import axios from 'axios';
 import LogInPopup from "@/components/loginPopup";
 import NewsLetterPopup from "@/components/NewsLetterPopup";
+import UpgradePopup from "@/components/UpgradePlanPopup";
 import { useMetadata } from "@/context/MetadataContext";
 // import CandlestickChart from "./components/CandlestickChart";
 // import dynamic from 'next/dynamic';
@@ -46,6 +48,7 @@ export default function DashBoard() {
 function DashboardContent() {
 
   const { setMetadata } = useMetadata();
+  const { membership } = useMembership();
   const token = Cookies.get("authToken");
   const searchParams = useSearchParams();
   const { watchlist, fetchWatchlist, loading, error } = useWatchlist();
@@ -53,10 +56,20 @@ function DashboardContent() {
   const { setSymbol } = useSymbol();
   const [settings, setSettings] = useState(false);
   const [newsletter, setNewsletter] = useState(false);
+  const [upgrade, setUpgrade] = useState(false);
 
   // Get query parameters directly from useSearchParams
   const symbol = searchParams.get('symbol') || 'AAPL';
   const view = searchParams.get('view') || 'chart';
+
+    useEffect(() => {
+      if (view === 'trades' && membership && membership?.price_id === 'price_free' || view === 'financials' && membership && membership?.price_id === 'price_free') {
+        setUpgrade(true);
+      } else {
+        setUpgrade(false);
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [membership, view]);
 
   useEffect(() => {
     setMetadata({
@@ -175,6 +188,20 @@ function DashboardContent() {
   };
 
   const handleSubmitWatchList = async (symbol) => {
+    const isFreeUser = membership?.price_id === 'price_free';
+    const isAtLimit = watchlist?.length >= 5;
+    const alreadyAdded = watchlist?.some(
+        (stock) =>
+            stock?.ticker &&
+            symbol &&
+            stock.ticker.toUpperCase() === symbol.toUpperCase()
+    );
+  
+    if (isFreeUser && isAtLimit && !alreadyAdded) {
+      setUpgrade(true);
+      return; // Stop here
+    }
+    
     try {
       const response = await axios.post(`${STOCKVERSE_BACK_END}/watchlist`, {
         symbol,
@@ -232,7 +259,7 @@ function DashboardContent() {
             className="w-full text-sm px-2 pl-10 py-2 border bg-primaryBg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none"
           />
         </div>
-        <SearchBar isVisible={isSearchBar} setIsvisible={setIsSearchBar} updateUrl={updateUrl} />
+        <SearchBar isVisible={isSearchBar} setIsvisible={setIsSearchBar} updateUrl={updateUrl} setUpgrade={setUpgrade} />
         <Link href='/stockverse-gpt' target="_blank" className="max-lg:hidden flex items-center gap-2 px-4 max-xl:px-2 py-2 text-sm font-sansMedium text-primaryTextColor hover:bg-primaryMain/10 rounded-lg">
           StockVerse Gpt
           {/* <span className="-rotate-45">&rarr;</span> */}
@@ -324,8 +351,9 @@ function DashboardContent() {
               </defs>
             </svg>
             <p className={`font-sansMedium text-md ${view === 'trades' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Trades</p>
+            <Image className={`${membership && membership?.price_id === 'price_free' ? 'visible' : 'hidden'} -ml-3`} width={22} height={22} src='/images/lock.svg'/>
           </div>
-          {/* <div title="Trades" onClick={() => updateUrl(undefined, 'financials')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'financials' ? 'border-primaryMain' : 'border-white'}`}>
+          <div title="Trades" onClick={() => updateUrl(undefined, 'financials')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'financials' ? 'border-primaryMain' : 'border-white'}`}>
             <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_19251_325)">
                 <path d="M4.5 4.5L6 3M6 3L4.5 1.5M6 3H4.5C2.84315 3 1.5 4.34315 1.5 6M13.5 13.5L12 15M12 15L13.5 16.5M12 15H13.5C15.1569 15 16.5 13.6569 16.5 12M10.0629 10.0629C10.6496 10.3431 11.3065 10.5 12 10.5C14.4853 10.5 16.5 8.48528 16.5 6C16.5 3.51472 14.4853 1.5 12 1.5C9.51472 1.5 7.5 3.51472 7.5 6C7.5 6.69354 7.65689 7.35043 7.93712 7.93712M10.5 12C10.5 14.4853 8.48528 16.5 6 16.5C3.51472 16.5 1.5 14.4853 1.5 12C1.5 9.51472 3.51472 7.5 6 7.5C8.48528 7.5 10.5 9.51472 10.5 12Z" stroke={view === 'financials' ? 'rgba(var(--primary-main))' : 'black'} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -337,7 +365,8 @@ function DashboardContent() {
               </defs>
             </svg>
             <p className={`font-sansMedium text-md ${view === 'financials' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Financials</p>
-          </div> */}
+            <Image className={`${membership && membership?.price_id === 'price_free' ? 'visible' : 'hidden'} -ml-3`} width={22} height={22} src='/images/lock.svg'/>
+          </div>
           <Link href='/stockverse-gpt' target="_blank" title="Stockverse Gpt" className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'stockverse_gpt' ? 'border-primaryMain' : 'border-white'}`}>
             <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9.75014 1.5L3.07023 9.51589C2.80863 9.82982 2.67782 9.98678 2.67582 10.1193C2.67409 10.2346 2.72544 10.3442 2.81508 10.4167C2.9182 10.5 3.12252 10.5 3.53117 10.5H9.00014L8.25014 16.5L14.93 8.48411C15.1917 8.17018 15.3225 8.01322 15.3245 7.88065C15.3262 7.76541 15.2748 7.65577 15.1852 7.58333C15.0821 7.5 14.8778 7.5 14.4691 7.5H9.00014L9.75014 1.5Z" stroke={view === 'stockverse_gpt' ? 'rgba(var(--primary-main))' : 'black'} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -376,6 +405,7 @@ function DashboardContent() {
 
         <UserSettings settings={settings} setSettings={setSettings}/>
         <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} baseId={"VSwpYs"}/>
+        <UpgradePopup currentView={view} upgrade={upgrade} setUpgrade={setUpgrade} updateUrl={updateUrl}/>
 
         {/* Dashboard Area */}
         <div className="relative flex flex-col items-center flex-grow max-w-full h-full overflow-y-scroll scrollbar-thin">
@@ -384,11 +414,11 @@ function DashboardContent() {
             switch (view) {
               case 'chart':
                 return (
-                  <ChartView symbol={symbol} isSearchBar={isSearchBar} watchlistHide={watchlistHide} setWatchlistHide={setWatchlistHide} />
+                  <ChartView symbol={symbol} isSearchBar={isSearchBar} watchlistHide={watchlistHide} setWatchlistHide={setWatchlistHide} setUpgrade={setUpgrade} />
                 );
               case 'gainers_losers':
                 return (
-                  <TopGainersLosers symbol={symbol} />
+                  <TopGainersLosers symbol={symbol} setUpgrade={setUpgrade} />
                 );
               case 'news':
                 return (
@@ -412,7 +442,7 @@ function DashboardContent() {
                 );
               case 'watchlist':
                 return (
-                  <WatchList setIsvisible={setIsSearchBar} />
+                  <WatchList setIsvisible={setIsSearchBar} setUpgrade={setUpgrade} />
                 );
               case 'trades':
                 return (
@@ -430,7 +460,7 @@ function DashboardContent() {
         {/* Dashboard Area */}
 
         {/* watchlist side bar start */}
-        <aside className={`transition-width flex-shrink-0 overflow-x-hidden flex flex-col h-full border-l border-black/5 bg-primaryBg z-10 max-lg:pb-20 overflow-y-scroll scrollbar-thin max-lg:absolute max-lg:top-15 max-lg:right-0 transition duration-300 ease-in-out ${watchlistHide ? 'w-0 max-lg:w-max max-lg:translate-x-[0]' : 'lg:w-[18rem] max-lg:w-max max-lg:translate-x-[900px]'} ${view === 'chart' || 'financials' ? 'visible' : 'hidden'}`}>
+        <aside className={`transition-width flex-shrink-0 overflow-x-hidden flex flex-col h-full border-l border-black/5 bg-primaryBg z-10 max-lg:pb-20 overflow-y-scroll scrollbar-thin max-lg:absolute max-lg:top-15 max-lg:right-0 transition duration-300 ease-in-out ${watchlistHide ? 'w-0 max-lg:w-max max-lg:translate-x-[0]' : 'lg:w-[18rem] max-lg:w-max max-lg:translate-x-[900px]'} ${view === 'chart' || view === 'financials' || view === 'gainers_losers' ? 'visible' : 'hidden'}`}>
           <div className='min-w-full sticky top-0 bg-primaryBg w-max flex justify-between max-lg:gap-8 items-center p-3 border-b border-black/5'>
             <h1 className='font-sansMedium text-lg sm:text-lg text-primaryTextColor'>My watchlist</h1>
             <button onClick={addWatchlist} className='text-base text-primaryMain font-sansMeium rounded-lg'>+ Add</button>

@@ -136,7 +136,7 @@ export default function Membership() {
           <button 
           onClick={handleCheckout} 
           disabled={membership?.price_id === priceId}  
-          className={`${membership?.price_id !== 'FREE' && view === 'FREE' ? 'hidden' : ''} disabled:bg-black w-full text-lg py-2 bg-primaryMain hover:bg-black text-white rounded-lg`}
+          className={`${membership?.price_id !== 'price_free' && view === 'FREE' ? 'hidden' : ''} disabled:bg-black w-full text-lg py-2 bg-primaryMain hover:bg-black text-white rounded-lg`}
           >
             {membership?.price_id === priceId ? 'Current Plan' : 'Select Plan'}
           </button>

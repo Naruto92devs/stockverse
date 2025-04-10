@@ -4,6 +4,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import Logo from './Logo';
 import { useWatchlist } from '@/context/WatchlistContext';
+import { useMembership } from "@/context/MembershipContext";
 import Loading from '@/loaders&errors_UI/loading';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -20,8 +21,9 @@ const initialStocks = [
     { "1. symbol": "AMD", "2. name": "Advanced Micro Devices Inc." },
 ];
 
-export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
+export default function SearchBar({isVisible, setIsvisible, updateUrl, setUpgrade }) {
     const { watchlist, fetchWatchlist } = useWatchlist();
+    const { membership } = useMembership();
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [stocks, setStocks] = useState(initialStocks);
@@ -192,6 +194,20 @@ export default function SearchBar({isVisible, setIsvisible, updateUrl }) {
     };
 
     const handleSubmitWatchList = async (symbol) => {
+        const isFreeUser = membership?.price_id === 'price_free';
+        const isAtLimit = watchlist?.length >= 5;
+        const alreadyAdded = watchlist?.some(
+            (stock) =>
+                stock?.ticker &&
+                symbol &&
+                stock.ticker.toUpperCase() === symbol.toUpperCase()
+        );
+        
+        if (isFreeUser && isAtLimit && !alreadyAdded) {
+            setUpgrade(true);
+            return; // Stop here
+        }
+        
         try {
             const response = await axios.post(`${STOCKVERSE_BACK_END}/watchlist`, {
                 symbol,

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTickerDetails } from "@/context/TickerDetailsContext";
 import { useWatchlist } from '@/context/WatchlistContext';
+import { useMembership } from "@/context/MembershipContext";
 import Image from "next/image";
 import Logo from "@/components/Logo";
 import axios from "axios";
@@ -22,13 +23,28 @@ const truncateDescription = (description, wordLimit) => {
   };
 };
 
-const TickerInfo = ({watchlistHide, setWatchlistHide}) => {
+const TickerInfo = ({watchlistHide, setWatchlistHide, setUpgrade}) => {
   const { tickerDetails, loading, error } = useTickerDetails();
   const { watchlist, fetchWatchlist } = useWatchlist();
+  const { membership } = useMembership();
   const [showFullDescription, setShowFullDescription] = useState(false);
   const isInWatchlist = watchlist?.some((item) => item.ticker === tickerDetails?.ticker);
 
   const handleSubmitWatchList = async (symbol) => {
+    const isFreeUser = membership?.price_id === 'price_free';
+    const isAtLimit = watchlist?.length >= 5;
+    const alreadyAdded = watchlist?.some(
+        (stock) =>
+            stock?.ticker &&
+            symbol &&
+            stock.ticker.toUpperCase() === symbol.toUpperCase()
+    );
+    
+    if (isFreeUser && isAtLimit && !alreadyAdded) {
+      setUpgrade(true);
+      return; // Stop here
+    }
+
     try {
       const response = await axios.post(`${STOCKVERSE_BACK_END}/watchlist`, {
         symbol,
