@@ -44,6 +44,7 @@ export default function Stockverse_GPT() {
     const { membership, setMembership } = useMembership();
     const [upgrade, setUpgrade] = useState(false);
     const [fixed, setFixed] = useState(false);
+    const [warning, setWarning] = useState(false);
 
     useEffect(() => {
         let index = 0;
@@ -74,12 +75,12 @@ export default function Stockverse_GPT() {
         }
     }, [chatCanvas]);
 
-    useEffect(() => {
-        if (membership?.counter < 1) {
-            setUpgrade(true);
-            setFixed(true);
-        }
-    }, [membership]);
+    // useEffect(() => {
+    //     if (membership?.counter < 1) {
+    //         setUpgrade(true);
+    //         setFixed(true);
+    //     }
+    // }, [membership]);
     
     // useEffect(() => {
     //     if (token) {
@@ -215,12 +216,12 @@ export default function Stockverse_GPT() {
     const handleSubmitCommand = async (e, inputCommand = null) => {
         if (e) e.preventDefault(); 
         
-        if(membership?.counter < 5) {
-            setUpgrade(true);
-        } else if (membership?.counter < 1) {
+        if(membership?.counter <= 0) {
             setUpgrade(true);
             setFixed(true);
+            return
         }
+
         const commandToSubmit = inputCommand || command; 
         setResponseLoading(true);
         setQuestion(commandToSubmit);
@@ -260,7 +261,10 @@ export default function Stockverse_GPT() {
                         
                         // Also update in localStorage
                         localStorage.setItem('MembershipInfo', JSON.stringify(updated));
-                    
+                        if (response.data.counter <= 0) {
+                            setUpgrade(true);
+                            setWarning(true);
+                        }
                         return updated;
                     });
                 }
@@ -536,7 +540,7 @@ export default function Stockverse_GPT() {
     return (
         <section className="flex items-start h-[100dvh] overflow-hidden relative scrollbar-hide">
             <LogInPopup/>
-            <UpgradePopup fixed={fixed} upgrade={upgrade} setUpgrade={setUpgrade}/>
+            <UpgradePopup warning={warning} setWarning={setWarning} fixed={fixed} upgrade={upgrade} setUpgrade={setUpgrade}/>
             {/* side bar start */}
             <div className={`relative pr-1 max-lg:absolute top-0 left-0 bg-white z-10 transition-width flex-shrink-0 overflow-x-hidden flex flex-col h-[100%] ${sidebarHide ? 'lg:w-0 w-[18rem] max-lg:translate-x-[0]' : 'lg:w-[18rem] w-[18rem] max-lg:translate-x-[-900px]'} transition-transform duration-300 ease-in-out`}>
                 <div className="bg-primaryBg w-full p-2 flex justify-between">
