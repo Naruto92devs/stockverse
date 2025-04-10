@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Cookies from 'js-cookie';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { useMembership } from "@/context/MembershipContext";
 // import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import axios from 'axios';
 import User from '@/components/ProfileLogo';
@@ -12,6 +13,7 @@ import Loading from '@/loaders&errors_UI/loading';
 import UserSettings from '../dashboard/components/Settings';
 import LogInPopup from '@/components/loginPopup';
 import { useUser } from '@/context/UserContext';
+import UpgradePopup from '@/components/UpgradePlanPopup';
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
@@ -39,6 +41,9 @@ export default function Stockverse_GPT() {
     const [isChatEmpty, setIsChatEmpty] = useState(true);
     const [settings, setSettings] = useState(false);
     const token = Cookies.get('authToken');
+    const { membership, setMembership } = useMembership();
+    const [upgrade, setUpgrade] = useState(false);
+    const [fixed, setFixed] = useState(false);
 
     useEffect(() => {
         let index = 0;
@@ -69,6 +74,12 @@ export default function Stockverse_GPT() {
         }
     }, [chatCanvas]);
 
+    useEffect(() => {
+        if (membership?.counter < 1) {
+            setUpgrade(true);
+            setFixed(true);
+        }
+    }, [membership]);
     
     // useEffect(() => {
     //     if (token) {
@@ -204,6 +215,12 @@ export default function Stockverse_GPT() {
     const handleSubmitCommand = async (e, inputCommand = null) => {
         if (e) e.preventDefault(); 
         
+        if(membership?.counter < 5) {
+            setUpgrade(true);
+        } else if (membership?.counter < 1) {
+            setUpgrade(true);
+            setFixed(true);
+        }
         const commandToSubmit = inputCommand || command; 
         setResponseLoading(true);
         setQuestion(commandToSubmit);
@@ -236,6 +253,17 @@ export default function Stockverse_GPT() {
                 typeAnswer(tempId, response.data.answer); // Trigger typing effect
                 fetchChatHistory();
                 setResponseLoading(false);
+                if (response.data.counter !== undefined) {
+                    // Update in context
+                    setMembership((prev) => {
+                        const updated = { ...prev, counter: response.data.counter };
+                        
+                        // Also update in localStorage
+                        localStorage.setItem('MembershipInfo', JSON.stringify(updated));
+                    
+                        return updated;
+                    });
+                }
             } else {
                 setMessage(response.data.message || 'Something went wrong');
                 setResponseLoading(false);
@@ -508,6 +536,7 @@ export default function Stockverse_GPT() {
     return (
         <section className="flex items-start h-[100dvh] overflow-hidden relative scrollbar-hide">
             <LogInPopup/>
+            <UpgradePopup fixed={fixed} upgrade={upgrade} setUpgrade={setUpgrade}/>
             {/* side bar start */}
             <div className={`relative pr-1 max-lg:absolute top-0 left-0 bg-white z-10 transition-width flex-shrink-0 overflow-x-hidden flex flex-col h-[100%] ${sidebarHide ? 'lg:w-0 w-[18rem] max-lg:translate-x-[0]' : 'lg:w-[18rem] w-[18rem] max-lg:translate-x-[-900px]'} transition-transform duration-300 ease-in-out`}>
                 <div className="bg-primaryBg w-full p-2 flex justify-between">
