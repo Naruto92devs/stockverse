@@ -69,16 +69,18 @@ const Financials = ({ symbol, watchlistHide, setWatchlistHide }) => {
         {financials && (
           <div>
             {/* filters Start */}
-            <div className=' max-w-full overflow-x-auto overflow-y-hidden self-center scrollbar-hide flex items-center gap-2 py-5 mt-4 px-1 bg-primaryBg border border-primaryMain/10 rounded-full'>
-              <div onClick={() => changeStatus('annual')} className={`rounded-full font-sansMedium text-base text-primaryTextColor py-1 px-2 cursor-pointer ${timeframe === 'annual' ? 'bg-primaryMain text-white px-4' : ''}`}>
-                Annual
-              </div>
-              <div onClick={() => changeStatus('quarterly')} className={`rounded-full font-sansMedium text-base text-primaryTextColor py-1 px-2 cursor-pointer ${timeframe === 'quarterly' ? 'bg-primaryMain text-white px-4' : ''}`}>
-                Quarterly
-              </div>
-              <div onClick={() => changeStatus('ttm')} className={`rounded-full font-sansMedium text-base text-primaryTextColor py-1 px-2 cursor-pointer ${timeframe === 'ttm' ? 'bg-primaryMain text-white px-4' : ''}`}>
-                TTM
-              </div>
+            <div className="w-full flex items-center justify-center">
+                <div className=' max-w-full overflow-x-auto overflow-y-hidden scrollbar-hide flex items-center gap-2 py-1 mt-4 px-1 bg-primaryBg border border-primaryMain/10 rounded-full'>
+                <div onClick={() => changeStatus('annual')} className={`rounded-full font-sansMedium text-base text-primaryTextColor py-1 px-2 cursor-pointer ${timeframe === 'annual' ? 'bg-primaryMain text-white px-4' : ''}`}>
+                    Annual
+                </div>
+                <div onClick={() => changeStatus('quarterly')} className={`rounded-full font-sansMedium text-base text-primaryTextColor py-1 px-2 cursor-pointer ${timeframe === 'quarterly' ? 'bg-primaryMain text-white px-4' : ''}`}>
+                    Quarterly
+                </div>
+                <div onClick={() => changeStatus('ttm')} className={`rounded-full font-sansMedium text-base text-primaryTextColor py-1 px-2 cursor-pointer ${timeframe === 'ttm' ? 'bg-primaryMain text-white px-4' : ''}`}>
+                    TTM
+                </div>
+                </div>
             </div>
             {/* filters End */}
             <div className="w-full p-4 flex flex-wrap justify-between gap-4 gap-y-8">
