@@ -14,7 +14,7 @@ export default function UpgradePopup ({upgrade, setUpgrade, updateUrl, currentVi
       setUpgrade(false);
       setWarning(false);
     }
-  };
+  }; 
 
   return (
     <div className={`${upgrade ? 'visible' : 'hidden'} fixed z-20 top-0 left-0 bottom-0 right-0 p-4 w-full flex bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center h-full max-h-screen overflow-y-scroll scrollbar-hide`}>
