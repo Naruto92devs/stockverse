@@ -9,6 +9,7 @@ import { GainersLosersProvider } from '@/context/GainersLosersContext';
 import { TickerDetailsProvider } from '@/context/TickerDetailsContext';
 import { NewsProvider } from '@/context/NewsContext';
 import { ChartDataProvider } from '@/context/ChartDataContext';
+import { FinancialsProvider } from '@/context/FinancialsContext';
 
 const DashboardProvider = ({ children }) => {
     {/* Wrap everything in SymbolProvider to ensure global access to symbol */}
@@ -24,7 +25,9 @@ const DashboardProvider = ({ children }) => {
                                         <GainersLosersProvider>
                                             <ChartDataProvider>
                                             <NewsProvider>
+                                                <FinancialsProvider>
                                                         {children}
+                                                </FinancialsProvider>
                                             </NewsProvider>
                                             </ChartDataProvider>
                                         </GainersLosersProvider>

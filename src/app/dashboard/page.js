@@ -460,7 +460,7 @@ function DashboardContent() {
         {/* Dashboard Area */}
 
         {/* watchlist side bar start */}
-        <aside className={`transition-width flex-shrink-0 overflow-x-hidden flex flex-col h-full border-l border-black/5 bg-primaryBg z-10 max-lg:pb-20 overflow-y-scroll scrollbar-thin max-lg:absolute max-lg:top-15 max-lg:right-0 transition duration-300 ease-in-out ${watchlistHide ? 'w-0 max-lg:w-max max-lg:translate-x-[0]' : 'lg:w-[18rem] max-lg:w-max max-lg:translate-x-[900px]'} ${view === 'chart' || view === 'financials' || view === 'gainers_losers' ? 'visible' : 'hidden'}`}>
+        <aside className={`transition-width flex-shrink-0 overflow-x-hidden flex flex-col h-full border-l border-black/5 bg-primaryBg z-10 max-lg:pb-20 overflow-y-scroll scrollbar-thin max-lg:absolute max-lg:top-15 max-lg:right-0 transition duration-300 ease-in-out ${watchlistHide ? 'w-0 max-lg:w-max max-lg:translate-x-[0]' : 'lg:w-[18rem] max-lg:w-max max-lg:translate-x-[900px]'} ${view === 'chart' || view === 'gainers_losers' ? 'visible' : 'hidden'}`}>
           <div className='min-w-full sticky top-0 bg-primaryBg w-max flex justify-between max-lg:gap-8 items-center p-3 border-b border-black/5'>
             <h1 className='font-sansMedium text-lg sm:text-lg text-primaryTextColor'>My watchlist</h1>
             <button onClick={addWatchlist} className='text-base text-primaryMain font-sansMeium rounded-lg'>+ Add</button>
