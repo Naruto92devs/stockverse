@@ -33,7 +33,7 @@ export default function LogInPopup() {
       e.preventDefault();
       try {
           const response = await axios.post(`${STOCKVERSE_BACK_END}/signin`, {
-              email,
+              email: email.toLowerCase(),
               password,
           }, {
               withCredentials: true, // Include cookies in the request

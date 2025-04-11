@@ -351,7 +351,7 @@ function DashboardContent() {
               </defs>
             </svg>
             <p className={`font-sansMedium text-md ${view === 'trades' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Trades</p>
-            <Image className={`${membership && membership?.price_id === 'price_free' ? 'visible' : 'hidden'} -ml-3`} width={22} height={22} src='/images/lock.svg'/>
+            <Image className={`${membership && membership?.price_id === 'price_free' ? 'visible' : 'hidden'} -ml-3`} width={22} height={22} src='/images/lock.svg' alt="logo"/>
           </div>
           <div title="Trades" onClick={() => updateUrl(undefined, 'financials')} className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'financials' ? 'border-primaryMain' : 'border-white'}`}>
             <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -365,7 +365,7 @@ function DashboardContent() {
               </defs>
             </svg>
             <p className={`font-sansMedium text-md ${view === 'financials' ? 'text-primaryMain' : 'text-primaryTextColor'}`}>Financials</p>
-            <Image className={`${membership && membership?.price_id === 'price_free' ? 'visible' : 'hidden'} -ml-3`} width={22} height={22} src='/images/lock.svg'/>
+            <Image className={`${membership && membership?.price_id === 'price_free' ? 'visible' : 'hidden'} -ml-3`} width={22} height={22} src='/images/lock.svg' alt="logo"/>
           </div>
           <Link href='/stockverse-gpt' target="_blank" title="Stockverse Gpt" className={`w-max p-3 pl-4 border-l-4 cursor-pointer flex items-center gap-4 ${view === 'stockverse_gpt' ? 'border-primaryMain' : 'border-white'}`}>
             <svg className="w-6 h-6" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

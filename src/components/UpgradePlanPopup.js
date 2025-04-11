@@ -29,26 +29,26 @@ export default function UpgradePopup ({upgrade, setUpgrade, updateUrl, currentVi
           </p>
           <p className='font-sansMedium text-xl py-4'><span className='text-primaryMain'>Everything</span> on Basic plan, plus</p>
           <p className='flex items-center gap-2 font-sansRegular text-lg'>
-            <Image width={20} height={20} src='/images/check.svg'/>
+            <Image width={20} height={20} src='/images/check.svg' alt="logo"/>
             Add Unlimited Stocks to Watchlish
           </p>
           <p className='flex items-center gap-2 font-sansRegular text-lg'>
-            <Image width={20} height={20} src='/images/check.svg'/>
+            <Image width={20} height={20} src='/images/check.svg' alt="logo"/>
             Unlimited Access to StockverseGPT
           </p>
           <p className='flex items-center gap-2 font-sansRegular text-lg'>
-            <Image width={20} height={20} src='/images/check.svg'/>
+            <Image width={20} height={20} src='/images/check.svg' alt="logo"/>
             Unlimited Access to Trades
           </p>
           <p className='flex items-center gap-2 font-sansRegular text-lg'>
-            <Image width={20} height={20} src='/images/check.svg'/>
+            <Image width={20} height={20} src='/images/check.svg' alt="logo"/>
             Unlimited Access to Financials
           </p>
           <Link href='/pricing' className="mt-auto w-full text-center bg-primaryMain text-base font-sansMedium text-white py-2 rounded-lg hover:bg-black transition duration-300">
             Upgrade my plan!
           </Link>
-          <p className={`${warning ? 'visible' : 'hidden'} text-black font-sansRegular text-sm`}>⚠️ You're on your last free question! Unlock unlimited stock insights for just $9.99/month.</p>
-          <p className={`${fixed ? 'visible' : 'hidden'} text-black font-sansRegular text-sm`}>⚠️ Upgrade to Stockverse GPT Pro for unlimited real-time stock analysis and AI-driven insights. Don’t miss out—your next big move could be one question away!</p>
+          <p className={`${warning ? 'visible' : 'hidden'} text-black font-sansRegular text-sm`}>⚠️ {`You're on your last free question! Unlock unlimited stock insights for just $9.99/month.`}</p>
+          <p className={`${fixed ? 'visible' : 'hidden'} text-black font-sansRegular text-sm`}>⚠️ {`Upgrade to Stockverse GPT Pro for unlimited real-time stock analysis and AI-driven insights. Don’t miss out—your next big move could be one question away!`}</p>
         </div>
       </div>
     </div>

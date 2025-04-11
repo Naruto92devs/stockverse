@@ -58,7 +58,7 @@ export default function Register() {
         try {
             const response = await axios.post(`${STOCKVERSE_BACK_END}/signup`, {
                 username,
-                email,
+                email: email.toLowerCase(),
                 password,
                 phone: `+${sanitizedPhone}`,
             }, {
