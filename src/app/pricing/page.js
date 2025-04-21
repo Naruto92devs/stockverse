@@ -49,12 +49,16 @@ export default function Membership() {
   
   const handleCheckout = async () => {
     try {
-      const response = await axios.post(`${STOCKVERSE_BACK_END}/create-checkout-session`, { priceId }, {withCredentials:true,});
-      const data = response.data;
-      if (data.clientSecret) {
-        router.push(`/checkout?clientSecret=${data.clientSecret}`);
+      if (membership) {
+        const response = await axios.post(`${STOCKVERSE_BACK_END}/create-checkout-session`, { priceId }, {withCredentials:true,});
+        const data = response.data;
+        if (data.clientSecret) {
+          router.push(`/checkout?clientSecret=${data.clientSecret}`);
+        } else {
+          console.error(data.error);
+        }
       } else {
-        console.error(data.error);
+        router.push('/register');
       }
     } catch (error) {
       console.error('Error creating checkout session:', error);
@@ -92,27 +96,27 @@ export default function Membership() {
           <h3 className="lg:text-4xl text-3xl mb-4 font-sansMedium text-black">Start Smart, Stay Informed, Absolutely Free!</h3>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Realtime Stocks Data & Charts</p>
+            <p className="font-sansMedium text-base md:text-lg text-black">Realtime Stocks Data & Charts</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Realtime Stocks News</p>
+            <p className="font-sansMedium text-base md:text-lg text-black">Realtime Stocks News</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Add Stocks to Watch List</p>
+            <p className="font-sansMedium text-base md:text-lg text-black">Add Stocks to Watch List</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">IPO Calendar</p>
+            <p className="font-sansMedium text-base md:text-lg text-black">IPO Calendar</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">Full Access to StockVerse GPT</p>
+            <p className="font-sansMedium text-base md:text-lg text-black">Full Access to StockVerse GPT</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
-            <p className="font-snasMedium text-base md:text-lg text-black">StockPicks</p>
+            <p className="font-sansMedium text-base md:text-lg text-black">StockPicks</p>
           </div>
         </div>
         <div className="md:w-[48%] w-full flex flex-col gap-4 bg-primaryBg p-4 rounded-xl">
@@ -122,7 +126,7 @@ export default function Membership() {
               <h2 className="text-xl font-sansMedium">{plans[billingCycle].free.label}</h2>
               <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].free.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
-            <p className="text-base font-sansRegular py-2">This Plan has limited stock insights, ideal for single individuals seeking comprehensive knowledge for stocks.</p>
+            <p className="text-base font-sansMedium py-2 text-primaryTextColor/60">Get your feet wet with stock data and charts. Love it? Upgrade anytime to unlock full AI insights and advanced tools.</p>
           </div>
           {/* PREMIUM Plan */}
           <div onClick={() => updatePlan('BASIC' ,plans[billingCycle].basic.priceId)} className={`${view === 'BASIC' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
@@ -130,20 +134,28 @@ export default function Membership() {
               <h4 className="text-xl font-sansMedium">{plans[billingCycle].basic.label}</h4>
               <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].basic.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
-            <p className="text-base font-sansRegular py-2">Unlock unlimited stock insights for just $9.99/month.</p>
+            <p className="text-base font-sansMedium py-2 text-primaryTextColor/60">$9.99/month is less than one trade—but can unlock unlimited real-time stock data, AI-backed picks, and early IPO signals. One edge. Endless potential.</p>
           </div>
 
           <button 
           onClick={handleCheckout} 
           disabled={membership?.price_id === priceId}  
-          className={`${membership?.price_id !== 'price_free' && view === 'FREE' ? 'hidden' : ''} disabled:bg-black w-full text-lg py-2 bg-primaryMain hover:bg-black text-white rounded-lg`}
+          className={`${membership?.price_id !== 'price_free' && view === 'FREE' ? '' : ''} disabled:bg-black w-full text-lg py-2 font-sansMedium bg-primaryMain hover:bg-black text-white rounded-lg`}
           >
-            {membership?.price_id === priceId ? 'Current Plan' : 'Select Plan'}
+            {!membership && view === 'FREE' ? (
+              'Get Started For Free'
+            ) : !membership && view !== 'FREE'  ? (
+              'Get Started'
+            ) : membership?.price_id === priceId ? (
+              'Current Plan'
+            ) : (
+              'Select Plan'
+            )}
           </button>
-          {membership?.price_id !== 'price_free' && view === 'FREE' ? (
+          {membership && membership?.price_id !== 'price_free' && view === 'FREE' ? (
             <p className="text-black font-sansRegular">{`ℹ️ Info: You’re currently subscribed to our Premium plan. If you wish to downgrade to the Free version, simply cancel your current subscription. Once your plan reaches its expiration date, your account will automatically be moved to the Free tier.`}</p>
           ) : null}
-          {membership?.price_id !== 'price_free' && view !== 'FREE' ? (
+          {membership && membership?.price_id !== 'price_free' && membership?.price_id !== priceId && view !== 'FREE' ? (
             <p className="text-black font-sansRegular">{`⚠️ Info: You’re currently subscribed to our Premium plan. If you wish to upgrade or downgrade to the other plan, Please notice that your current plan will be canceled and cannot be revived.`}</p>
           ) : null}
         </div>

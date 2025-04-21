@@ -353,7 +353,7 @@ export default function Register() {
                             {loading ? 'Verifying...' : 'Submit'}
                         </button>
                     </div>
-                    {message && <p className="text-sell text-center">{message}</p>}
+                    {message && <p className="text-buy font-sansMedium text-base text-center">{message}.</p>}
                 </form>
             </div>
         </div>
