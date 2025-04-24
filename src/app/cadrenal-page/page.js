@@ -23,6 +23,7 @@ const Neov = ()=>{
       const [stockdata, setstockData] = useState([]); // State to store API data
       const [error, setError] = useState(null); // Error state
       const [isSubmitting, setIsSubmitting] = useState(false);
+      const [er, setEr] = useState(null);
       const [newsletter, setNewsletter] = useState(true);
       const scrollRef = useRef(null);
       let isDown = false;
@@ -35,14 +36,11 @@ const Neov = ()=>{
     const handleSubscribeEmailPhone = async (e) => {
       setLoading(true);
       e.preventDefault();
-      const id = "YizWSN";
-      const baseId = "VSwpYs";
 
       try {
           const requestData = {
-              id,
-              baseId,
-              email,
+            email,
+            tag: 'CVKD subscriber'
           };
 
           // Only add the phone number if it is provided
@@ -50,24 +48,39 @@ const Neov = ()=>{
               requestData.phone = `+${phone}`;
           }
 
-          const response = await axios.post(`${STOCKVERSE_BACK_END}/klaviyo-subscription`, requestData);
+          const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
 
           const data = response.data;
           console.log(data);
           if (response.status === 200) {
               setMessage(data.message);
               setLoading(false);
+              setEr(false);
+              setEmail('');
+              setPhone('');
               setDone(true);
           } else {
+              setDone(true);
+              setEr(true);
+              setEmail('');
+              setPhone('');
               setMessage(data.message || 'Something went wrong');
               setLoading(false);
           }
       } catch (error) {
           if (error.response && error.response.data) {
-              // setMessage(error.response.data.message || 'Something went wrong');
-              setMessage('An error occurred. Please try again.');
+              setEr(true);
+              setDone(true);
+              setEmail('');
+              setPhone('');
+              setMessage(error.response.data.message || 'Something went wrong');
+              // setMessage('An error occurred. Please try again.');
               setLoading(false);
           } else {
+              setDone(true);
+              setEr(true);
+              setEmail('');
+              setPhone('');
               setMessage('An error occurred. Please try again.');
               setLoading(false);
           }
@@ -144,8 +157,8 @@ const Neov = ()=>{
                 <div className="w-[35%] max-md:w-[100%] max-lg:w-[50%] md:mt-12">
                     <div>
                     {done && (
-                    <div className="w-full bg-[#12a72e] absolute left-0 top-16 p-2 px-4 text-center text-base font-sansMedium text-[#fff]">
-                      Thanks For Subscribing.
+                    <div className={`${er ? 'text-sell' : 'text-[#fff]' } w-full bg-[#12a72e] absolute left-0 top-16 p-2 px-4 text-center text-base font-sansMedium`}>
+                      {er ? `${message}` : 'Thanks For Subscribing.'}
                     </div>
                   )}
                      <form className="flex items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
@@ -817,7 +830,7 @@ const Neov = ()=>{
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email"
                         required
-                        className="placeholder:text-[#1E1E1F] w-full p-[0.4rem] rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-500"
+                        className="placeholder:text-[#1E1E1F] text-black w-full p-[0.4rem] rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500"
                       />
                       <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-2">
                         <PhoneInput
@@ -877,7 +890,7 @@ const Neov = ()=>{
                     </form>
                   )}
                   {done && (
-                    <div className="bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium">
+                    <div className={`${er ? 'text-sell' : 'text-buy' } bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium`}>
                       {message}
                     </div>
                   )}

@@ -14,50 +14,50 @@ export default function NewsLetterPopup({newsletter, setNewsletter, id, baseId})
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [done, setDone] = useState(null);
+  const [er, setEr] = useState(null);
   const [loading, setLoading] = useState(null);
 
   const handleSubscribeEmailPhone = async (e) => {
     setLoading(true);
     e.preventDefault();
-    // const id = "YhpBUN";
-    // const baseId = "VSwpYs";
 
     try {
         const requestData = {
             email,
             phone: `+${phone}`,
+            tag: 'stockpicks subscriber'
         };
 
-        // Only add the baseId number if it is provided
-        if (baseId) {
-            requestData.baseId = baseId;
-        }
-        // Only add the id number if it is provided
-        if (id) {
-            requestData.id = id;
-        }
-
-        const response = await axios.post(`${STOCKVERSE_BACK_END}/klaviyo-subscription`, requestData);
+        const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
 
         const data = response.data;
         console.log(data);
         if (response.status === 200) {
-            setMessage(data.message);
+            // setMessage(data.message);
             setLoading(false);
             setDone(true);
+            setEr(false);
             setEmail('');
             setPhone('');
             setNewsletter(false);
         } else {
+            setDone(true);
+            setEr(true);
             setMessage(data.message || 'Something went wrong');
+            setEmail('');
+            setPhone('');
             setLoading(false);
         }
     } catch (error) {
         if (error.response && error.response.data) {
-            // setMessage(error.response.data.message || 'Something went wrong');
-            setMessage('An error occurred. Please try again.');
+            setDone(true);
+            setEr(true);
+            setMessage(error.response.data.message || 'Something went wrong');
+            // setMessage('An error occurred. Please try again.');
             setLoading(false);
         } else {
+            setDone(true);
+            setEr(true);
             setMessage('An error occurred. Please try again.');
             setLoading(false);
         }
@@ -158,7 +158,7 @@ export default function NewsLetterPopup({newsletter, setNewsletter, id, baseId})
               {loading ? 'Subscribing...' : 'Reveal the Winners!'}
             </button>
           </form>
-          {done && <p className="text-black text-center">{message}</p>}
+          {done && <p className={`${er ? 'text-sell' : 'text-buy' }  text-center`}>{message}</p>}
         </div>
       </div>
     </div>

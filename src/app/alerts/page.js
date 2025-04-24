@@ -32,6 +32,7 @@ const Homepage = () => {
   const [done, setDone] = useState(null);
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(null);
+  const [er, setEr] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
 
@@ -105,14 +106,11 @@ const Homepage = () => {
   const handleSubscribeEmailPhone = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const id = "Y4nSkL";
-    const baseId = "VSwpYs";
 
     try {
       const requestData = {
-        id,
-        baseId,
         email,
+        tag: 'stockpicks subscriber'
       };
 
       // Only add the phone number if it is provided
@@ -120,7 +118,7 @@ const Homepage = () => {
         requestData.phone = `+${phone}`;
       }
 
-      const response = await axios.post(`${STOCKVERSE_BACK_END}/klaviyo-subscription`, requestData);
+      const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
 
       const data = response.data;
       console.log(data);
@@ -128,16 +126,22 @@ const Homepage = () => {
         setMessage(data.message);
         setLoading(false);
         setDone(true);
+        setEr(false);
       } else {
+        setEr(true);
+        setDone(true);
         setMessage(data.message || 'Something went wrong');
         setLoading(false);
       }
     } catch (error) {
       if (error.response && error.response.data) {
-        // setMessage(error.response.data.message || 'Something went wrong');
-        setMessage('An error occurred. Please try again.');
+        setEr(true);
+        setMessage(error.response.data.message || 'Something went wrong');
         setLoading(false);
+        setDone(true);
       } else {
+        setEr(true);
+        setDone(true);
         setMessage('An error occurred. Please try again.');
         setLoading(false);
       }
@@ -312,7 +316,7 @@ const Homepage = () => {
             </form>
           )}
           {done && (
-            <div className="bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium">
+            <div className={`${er ? 'text-sell' : 'text-buy' } bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium`}>
               {message}
             </div>
           )}
@@ -730,7 +734,7 @@ const Homepage = () => {
                 </form>
               )}
               {done && (
-                <div className="bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium">
+                <div className={`${er ? 'text-sell' : 'text-buy' } bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium`}>
                   {message}
                 </div>
               )}
