@@ -41,7 +41,7 @@ const Neov = ()=>{
       try {
           const requestData = {
             email,
-            tag: 'CVKD subscriber'
+            tag: 'NEOV subscriber'
           };
 
           // Only add the phone number if it is provided
