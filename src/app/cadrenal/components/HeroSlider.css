@@ -1,0 +1,40 @@
+
+.project-slider .swiper-slide .img {
+  opacity: 60%;
+  filter: saturate(0%);
+}
+.project-slider .swiper-slide-active .img {
+  opacity: 100%;
+  filter: saturate(100%);
+}
+
+.project-slider {
+  position: relative;
+}
+
+/* make sure your Swiper itself doesn’t reserve space for the old pagination/nav */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-pagination {
+  display: none;
+}
+
+/* style your custom-nav however you like: flex, centered, spacing… */
+
+.custom-nav .swiper-pagination {
+  /* flex: 1;     make the progressbar fill the remaining space */
+  /* max-width: 300px; */
+  height: 1px; /* adjust thickness of progress bar */
+  background: rgba(0, 0, 0, 0.16);
+  position: relative;
+}
+
+/* Swiper will inject the “.swiper-pagination-progressbar-fill” inside your .swiper-pagination */
+.custom-nav .swiper-pagination-progressbar-fill {
+  background: #000000;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  content: none !important;
+}

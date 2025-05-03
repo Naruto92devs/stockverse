@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import Cookies from 'js-cookie';
+import HeroSlider from './components/HeroSilder';
 
 const Cadrenal = () => {
 
@@ -59,6 +60,10 @@ const Cadrenal = () => {
             <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow'/>
           </Link>
         </div>
+      </div>
+      {/* HeroSlider */}
+      <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container sm:py-16 py-8 relative select-none'>
+        <HeroSlider/>
       </div>
     </div>
   );
