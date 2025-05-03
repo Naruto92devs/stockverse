@@ -572,7 +572,7 @@ const Neov = ()=>{
             Proven Results, Trusted By 128,000 Members
             </h4>
             <div className="py-8">
-            <div className="flex items-start gap-4 overflow-x-auto scroll-smooth scrollbar-hide whitespace-nowrap px-4"  
+            <div className="flex items-start gap-4 select-none cursor-pointer overflow-x-auto scroll-smooth scrollbar-hide whitespace-nowrap px-4"  
             ref={scrollRef}
             onMouseDown={handleMouseDown}
             onMouseLeave={handleMouseLeave}

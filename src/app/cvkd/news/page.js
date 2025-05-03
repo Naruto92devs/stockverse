@@ -89,7 +89,7 @@ const PRESSRELEASECVKD = () => {
                         href="/dashboard?view=news"
                         className=" leading-[110%] 2xl:text-xl text-sm font-sansMedium text-[#634FF7]"
                     >
-                        March, 2025 by Stockverse
+                        May, 2025 by Stockverse
                     </Link>
                     <div className="">
                         <p className="text-base  text-primaryText leading-[110%]">

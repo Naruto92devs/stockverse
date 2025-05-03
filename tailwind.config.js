@@ -42,6 +42,11 @@ module.exports = {
         MontserratMedium : ['Montserrat-Medium'],
         syneBold : ['syne-Bold'],
 
+        RomanRegular : ['Roman'],
+        RomanItalic : ['Roman-Italic'],
+
+        inter: ['InterTight', 'sans-serif'],
+
         grotesqueSemibold : ['grotesque-Semibold'],
         poppinsRegular : ['poppins-Regular'],
         poppinsMedium : ['poppins-Medium'],
@@ -64,6 +69,7 @@ module.exports = {
         // background gradients
         'profileBg': 'radial-gradient(100% 100% at 50% 0%, #8B77FF 0%, #634FF7 100%)',
         'upgradeBg': 'linear-gradient(121.78deg, #2713A5 7.6%, #634FF7 92.4%)',
+        'cvkdButton': 'linear-gradient(90deg, #5B8BFC 0%, #175CFF 51.92%, #5B8BFC 100%)',
       },
     },
   },

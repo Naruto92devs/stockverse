@@ -335,6 +335,13 @@
   font-style: italic;
 }
 
+/**
+* @license
+*
+* Font Family: Montserrat
+*
+*/
+
 @font-face {
   font-family: 'Montserrat-semibold';
   src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
@@ -370,11 +377,27 @@
   font-display: swap;
   font-style: normal;
 }
+
+/**
+* @license
+*
+* Font Family: syne
+*
+*/
+
 @font-face {
   font-family: 'syne-Bold';
   src: url('/fonts/syne-bold.otf') format('opentype');
   font-weight: 700;
 }
+
+/**
+* @license
+*
+* Font Family: grotesque
+*
+*/
+
 @font-face {
   font-family: 'grotesque-Semibold';
   src: url('/fonts/DarkerGrotesque-SemiBold.ttf') format('truetype');
@@ -390,6 +413,14 @@
   src: url('/fonts/DarkerGrotesque-Bold.ttf') format('truetype');
   font-weight: 700;
 }
+
+/**
+* @license
+*
+* Font Family: poppins
+*
+*/
+
 @font-face {
   font-family: 'poppins-Regular';
   src: url('/fonts/Poppins-Regular.ttf') format('truetype');
@@ -405,6 +436,50 @@
   src: url('/fonts/poppins-SemiBold.ttf') format('truetype');
   font-weight: 600;
 }
+
+/**
+* @license
+*
+* Font Family: Times New Roman
+*
+*/
+
+@font-face {
+  font-family: 'Roman';
+  src: url('/fonts/TimesNewRoman/Roman.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roman-Italic';
+  src: url('/fonts/TimesNewRoman/Roman-Italic.ttf') format('truetype');
+  font-display: swap;
+  font-style: italic;
+}
+
+/**
+* @license
+*
+* Font Family: InterTight
+*
+*/
+
+@font-face {
+  font-family: 'InterTight';
+  src: url('/fonts/InterTight/InterTight-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* variable range */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'InterTight';
+  src: url('/fonts/InterTight/InterTight-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+
 /* Example custom styles for scrollbar */
 .scrollbar-thin::-webkit-scrollbar {
   width: 6px;
