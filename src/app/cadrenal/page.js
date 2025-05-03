@@ -57,15 +57,15 @@ const Cadrenal = () => {
         <div className='lg:w-[32.5%] md:w-[35%] sm:w-[60%] w-full pt-4 flex flex-col items-start xl:gap-12 gap-6'>
           <p className='font-inter font-normal text-lg text-[#606060] leading-[130%]'>Cadrenal Therapeutics <span className='font-medium italic text-[#383838]'> (NASDAQ: CVKD) </span> Is Redefining Cardiovascular Safety With The Only Drug Designed Specifically For Patients With LVAD, ESKD + AFib, And MHV.</p>
           <Link href='/' className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base'>
-            Why CVKD 
-            <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow'/>
+            Why CVKD
+            <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
           </Link>
         </div>
       </div>
 
       {/* HeroSlider */}
       <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container sm:py-16 py-8 relative'>
-        <HeroSlider/>
+        <HeroSlider />
       </div>
 
       {/* CVKD Leader */}
@@ -81,11 +81,11 @@ const Cadrenal = () => {
           <div className='flex flex-wrap items-center gap-4 pt-5'>
             <Link href='/' className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base'>
               Learn About Quang X. Pham
-              <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow'/>
+              <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
             </Link>
             <Link href='/' className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-black bg-white font-medium border border-[#D0D5DD] text-base'>
               {`Get the Book – Underdog Nation`}
-              <Image className='invert' width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow'/>
+              <Image className='invert' width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
             </Link>
           </div>
           <h3 className='font-RomanRegular text-[#1B1B1B] text-3xl pt-14'>Meet Our Founder</h3>
@@ -103,7 +103,7 @@ const Cadrenal = () => {
             <p className='font-inter font-normal md:text-2xl text-lg text-white leading-[150%]'>Why Investors Are Watching</p>
             <h4 className='md:w-[55%] w-full font-RomanRegular text-white xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[120%]'>Investors are closely watching CVKD for several reasons</h4>
           </div>
-          <InvestorSlider/>
+          <InvestorSlider />
         </div>
       </div>
 
@@ -114,37 +114,37 @@ const Cadrenal = () => {
         </h2>
         <div className='w-full flex flex-wrap justify-between gap-y-4'>
           <div className='lg:w-[24%] md:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info1.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info1.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Ticker</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>NASDAQ: CVKD</p>
           </div>
           <div className='lg:w-[24%] md:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info2.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info2.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Lead Asset</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Tecarfarin (oral VKA)</p>
           </div>
           <div className='lg:w-[24%] md:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info3.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info3.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Primary Indication</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>LVAD Anticoagulation</p>
           </div>
           <div className='lg:w-[24%] md:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info4.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info4.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>FDA Status</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Fast Track and Orphan Drug (2x)</p>
           </div>
           <div className='md:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info5.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info5.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Market Size</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>More than $2 billion combined peak potential across three indications</p>
           </div>
           <div className='md:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info6.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info6.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Clinical Stage</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'> Late-stage, Phase 3-ready</p>
           </div>
           <div className='md:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info7.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info7.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Strategic Partner</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Abbott, contributing to trial design, site access, and awareness</p>
           </div>
@@ -158,19 +158,62 @@ const Cadrenal = () => {
         </h2>
         <div className='w-full flex flex-wrap justify-between gap-y-4'>
           <div className='lg:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info1.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info1.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Fewer Drug Interactions</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Better metabolism by bypassing the CYP450 pathway, resulting in fewer drug interactions</p>
           </div>
           <div className='lg:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info2.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info2.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Renal-Friendly Solution</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Safer use in patients with renal failure</p>
           </div>
           <div className='lg:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>
-            <Image width={45} height={45} src='/images/cvkd/info4.svg' alt='logo'/>
+            <Image width={45} height={45} src='/images/cvkd/info4.svg' alt='logo' />
             <h4 className='font-inter font-medium text-2xl text-black'>Tailored for Rare Needs</h4>
             <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>It is the only late-stage anticoagulant in development for LVADs and rare cardiovascular indications</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Big Pharma */}
+      <div className='w-full bg-[#FAFAFA]'>
+        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-24 flex lg:flex-row flex-col items-start justify-between lg:gap-0 gap-16 relative'>
+          <div className='lg:w-[49%]'>
+            <h2 className='font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
+              Patients With Implanted Cardiac Devices Are Left Behind by <span className='font-RomanItalic'> Big Pharma </span>
+            </h2>
+            <p className='pt-14 font-inter font-normal text-lg text-[#606060] leading-[130%] capitalize'>{`Challenges faced by patients include:`}</p>
+          </div>
+
+          <div className='lg:w-[49%] '>
+            <div className="flex max-sm:flex-col items-start justify-between gap-2 gap-6 px-6 py-6 border-b border-[#111111]/15">
+              <div className='sm:w-[48%] flex items-center gap-6'>
+                <p className='font-inter font-normal text-[#8D8D8D] text-base leading-[150%]'>(01)</p>
+                <h4 className='font-inter font-medium text-2xl text-[#111111] leading-[150%]'>{`DOACs Don’t Work`}</h4>
+              </div>
+              <h4 className='sm:w-[48%] font-inter font-normal text-lg text-[#606060] leading-[150%]'>{`LVAD patients are not covered by DOACs, and warfarin is ineffective`}</h4>
+            </div>
+            <div className="flex max-sm:flex-col items-start justify-between gap-2 gap-6 px-6 py-6 border-b border-[#111111]/15">
+              <div className='sm:w-[48%] flex items-center gap-6'>
+                <p className='font-inter font-normal text-[#8D8D8D] text-base leading-[150%]'>(02)</p>
+                <h4 className='font-inter font-medium text-2xl text-[#111111] leading-[150%]'>{`Kidney Patients Left Out`}</h4>
+              </div>
+              <h4 className='sm:w-[48%] font-inter font-normal text-lg text-[#606060] leading-[150%]'>{`Over 70% of kidney failure patients with AFib receive no anticoagulation due to safety concerns`}</h4>
+            </div>
+            <div className="flex max-sm:flex-col items-start justify-between gap-2 gap-6 px-6 py-6 border-b border-[#111111]/15">
+              <div className='sm:w-[48%] flex items-center gap-6'>
+                <p className='font-inter font-normal text-[#8D8D8D] text-base leading-[150%]'>(03)</p>
+                <h4 className='font-inter font-medium text-2xl text-[#111111] leading-[150%]'>{`No Options for MHV`}</h4>
+              </div>
+              <h4 className='sm:w-[48%] font-inter font-normal text-lg text-[#606060] leading-[150%]'>{`There are no approved therapies beyond warfarin for mechanical heart valves`}</h4>
+            </div>
+            <div className="flex max-sm:flex-col items-start justify-between gap-2 gap-6 px-6 py-6 border-b border-[#111111]/15">
+              <div className='sm:w-[48%] flex items-center gap-6'>
+                <p className='font-inter font-normal text-[#8D8D8D] text-base leading-[150%]'>(04)</p>
+                <h4 className='font-inter font-medium text-2xl text-[#111111] leading-[150%]'>{`Bleeding Still Unsolved`}</h4>
+              </div>
+              <h4 className='sm:w-[48%] font-inter font-normal text-lg text-[#606060] leading-[150%]'>{`Current therapies result in uncontrolled bleeding, stroke, and death — and the issue remains unaddressed`}</h4>
+            </div>
           </div>
         </div>
       </div>
