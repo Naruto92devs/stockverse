@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import HeroSlider from './components/HeroSilder';
+import InvestorSlider from './components/InvestorSlider';
 
 const Cadrenal = () => {
 
@@ -92,6 +93,17 @@ const Cadrenal = () => {
           <p className='pt-6 font-inter font-normal text-lg text-[#606060] leading-[150%] capitalize'>{`Now, with Underdog Nation (published by Forbes Books), Pham shares the ER Approach™ — Effort + Results — that powers his leadership and Cadrenal’s bold mission to transform cardiovascular safety for neglected patient groups.`}</p>
           <p className='pt-12 font-interItalic font-normal text-2xl text-[#606060] leading-[150%] capitalize'>“Success {`isn’t`} reserved for the privileged — it <span className='font-medium text-[#383838]'> belongs </span> to those who <span className='font-medium text-[#383838]'> fight </span> for it.”</p>
           <p className='pt-6 font-inter font-normal text-lg text-[#606060] leading-[150%] capitalize'> — <span className='font-interItalic font-medium text-[#383838]'> Quang X. Pham, </span> CEO, Cadrenal Therapeutics (CVKD)</p>
+        </div>
+      </div>
+
+      {/* Investors */}
+      <div className='w-full bg-[#111111]'>
+        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-16 relative'>
+          <div className='w-full flex md:flex-row flex-col items-start justify-between gap-4'>
+            <p className='font-inter font-normal md:text-2xl text-lg text-white leading-[150%]'>Why Investors Are Watching</p>
+            <h4 className='md:w-[55%] w-full font-RomanRegular text-white xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[120%]'>Investors are closely watching CVKD for several reasons</h4>
+          </div>
+          <InvestorSlider/>
         </div>
       </div>
     </div>
