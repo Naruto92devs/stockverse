@@ -60,7 +60,7 @@ const Cadrenal = () => {
   };
 
   return (
-    <div className='w-full'>
+    <div className='w-full overflow-hidden'>
       {/* Navbar */}
       <motion.nav
       initial={{ y: -50, opacity: 0 }}
