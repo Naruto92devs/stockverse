@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle';
 import { Pagination, Navigation } from 'swiper/modules';
 import './HeroSlider.css';
+import CurtainImage from './CurtainImage';
 
 // simple hook to track a matchMedia query
 function useMediaQuery(query) {
@@ -44,13 +45,13 @@ const InvestorSlider = () => {
             className="mySwiper-investo"
             >
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
-                <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide1.jpg' alt='logo'/>
+                <CurtainImage className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide1.jpg' alt='logo'/>
               </SwiperSlide>
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
-                <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide2.jpg' alt='logo'/>
+                <CurtainImage className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide2.jpg' alt='logo'/>
               </SwiperSlide>  
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
-                <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide3.jpg' alt='logo'/>
+                <CurtainImage className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide3.jpg' alt='logo'/>
               </SwiperSlide>
               {isMd && (
                 <SwiperSlide className="swiper-project-slide sm:!w-auto !w-[100%] !opacity-0">
