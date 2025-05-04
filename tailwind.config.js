@@ -67,6 +67,7 @@ module.exports = {
         'contactPowerSectionBg': "url('/images/powerful_bg.png')",
         'pricingBg': "url('/images/pricing_bg.jpg')",
         'loginBg': "url('/images/login_page_pic.jpg')",
+        'cvkdBg': "url('/images/cvkd/unlocking_bg.jpg')",
         // background gradients
         'profileBg': 'radial-gradient(100% 100% at 50% 0%, #8B77FF 0%, #634FF7 100%)',
         'upgradeBg': 'linear-gradient(121.78deg, #2713A5 7.6%, #634FF7 92.4%)',

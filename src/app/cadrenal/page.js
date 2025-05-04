@@ -217,6 +217,38 @@ const Cadrenal = () => {
           </div>
         </div>
       </div>
+
+      {/* Big Pharma */}
+      <div className='w-full bg-cvkdBg bg-no-repeat bg-cover bg-bottom-left'>
+        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-24 flex lg:flex-row flex-col justify-between lg:gap-0 gap-16 relative'>
+          <div className='lg:min-w-[50%] flex flex-col justify-between'>
+            <h2 className='font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
+              Unlocking Untapped Markets in Cardiovascular Safety
+            </h2>
+            <p className='lg:w-[63%] pt-14 font-inter font-normal text-lg text-[#606060] leading-[130%] capitalize'>{`The market potential for each of these indications exceeds $500 million. Supporting visuals include a comparison chart of Tecarfarin versus warfarin, and a bar graph illustrating TTR performance.`}</p>
+          </div>
+
+          <div className='lg:min-w-[58%] relative lg:right-[8%] flex flex-wrap gap-8 justify-end items-start'>
+            <div className='sm:w-[48%] bg-white w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-7 border border-black/5 rounded-lg'>
+              <Image width={45} height={45} src='/images/cvkd/info8.svg' alt='logo' />
+              <h4 className='font-inter font-medium text-2xl text-black'>LAVD</h4>
+              <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Granted Orphan Drug designation and trial-ready</p>
+            </div>
+            <div className='w-full flex flex-wrap max-sm:gap-8 justify-between'>
+              <div className='sm:w-[48%] bg-white w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-7 border border-black/5 rounded-lg'>
+                <Image width={45} height={45} src='/images/cvkd/info8.svg' alt='logo' />
+                <h4 className='font-inter font-medium text-2xl text-black'>MHV</h4>
+                <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Application currently pending</p>
+              </div>
+              <div className='sm:w-[48%] bg-cvkdButton w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-7 border border-black/5 rounded-lg'>
+                <Image width={45} height={45} src='/images/cvkd/info8.svg' alt='logo' />
+                <h4 className='font-inter font-medium text-2xl text-white'>ESKD + AFib</h4>
+                <p className='font-inter font-normal text-lg text-white leading-[150%]'>Granted Orphan Drug and Fast Track status</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
