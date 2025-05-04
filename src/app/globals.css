@@ -127,6 +127,32 @@
 
 /* Main Loader End */
 
+
+/* Phone Input border style */
+
+.react-tel-input .flag-dropdown {
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  width: 45px;
+  background: white !important;
+}
+
+.react-tel-input .flag-dropdown:hover {
+  border-radius: 0 !important;
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  width: 45px;
+  background: white !important;
+}
+
+.react-tel-input .flag-dropdown.open {
+  border-radius: 0 !important;
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  width: 45px;
+  background: white !important;
+}
+
 .hero_h1 {
   background: linear-gradient(93.29deg, #190DF4 40.54%, #A38CFF 97.25%);
   -webkit-background-clip: text;

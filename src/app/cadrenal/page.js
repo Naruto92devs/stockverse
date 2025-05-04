@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import HeroSlider from './components/HeroSilder';
 import InvestorSlider from './components/InvestorSlider';
+import CvkdForm from './components/cvkdForm';
 
 const Cadrenal = () => {
 
@@ -246,6 +247,23 @@ const Cadrenal = () => {
                 <p className='font-inter font-normal text-lg text-white leading-[150%]'>Granted Orphan Drug and Fast Track status</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      
+      {/* Form */}
+      <div className='w-full '>
+        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-24 flex md:flex-row flex-col justify-between lg:gap-0 gap-16 relative'>
+          <div className='md:w-[43%] flex flex-col justify-between'>
+            <h2 className='font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
+              {`Don’t Miss a Beat`}
+            </h2>
+            <p className='pt-14 font-inter font-normal text-lg text-[#606060] leading-[130%] capitalize'>{`Be the first to receive updates on CVKD’s clinical milestones, media coverage, and investor news. Alerts are sent directly to your inbox or phone.`}</p>
+          </div>
+
+          <div className='md:w-[43%] lg:py-10 flex flex-wrap gap-8 justify-end items-start'>
+            <CvkdForm/>
           </div>
         </div>
       </div>
