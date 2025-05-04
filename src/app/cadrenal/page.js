@@ -23,6 +23,35 @@ const Cadrenal = () => {
     setLoading(false); // Set loading to false after checking token
   }, [token]);
 
+  const faqData = [
+    {
+      question: "What does Cadrenal do?",
+      answer:
+        "Current therapies result in uncontrolled bleeding, stroke, and death — and the issue remains unaddressed",
+    },
+    {
+      question: "Why is Tecarfarin different from warfarin or Eliquis?",
+      answer:
+        "Tecarfarin is different from warfarin and Eliquis because it's designed to be more predictable and safer, with fewer drug and food interactions, and is metabolized differently—potentially making it a better option for patients with variable responses to traditional anticoagulants.",
+    },
+    {
+      question: "How is Abbott involved?",
+      answer:
+        "Abbott is involved by providing the anticoagulation monitoring technology used in the clinical trials of Tecarfarin, helping ensure accurate and consistent dosing.",
+    },
+    {
+      question: "Why is the unmet need so large?",
+      answer:
+        "The unmet need is so large because millions of patients can't safely or effectively use current anticoagulants like warfarin or Eliquis due to risks of bleeding, drug interactions, or inconsistent response—leaving them without optimal treatment options.",
+    }
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
     <div className='w-full'>
       {/* Navbar */}
@@ -219,7 +248,7 @@ const Cadrenal = () => {
         </div>
       </div>
 
-      {/* Big Pharma */}
+      {/* Unlocking Safety */}
       <div className='w-full bg-cvkdBg bg-no-repeat bg-cover bg-bottom-left'>
         <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-24 flex lg:flex-row flex-col justify-between lg:gap-0 gap-16 relative'>
           <div className='lg:min-w-[50%] flex flex-col justify-between'>
@@ -251,10 +280,9 @@ const Cadrenal = () => {
         </div>
       </div>
 
-      
       {/* Form */}
       <div className='w-full '>
-        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-24 flex md:flex-row flex-col justify-between lg:gap-0 gap-16 relative'>
+        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-24 flex md:flex-row flex-col justify-between md:gap-0 gap-16 relative'>
           <div className='md:w-[43%] flex flex-col justify-between'>
             <h2 className='font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
               {`Don’t Miss a Beat`}
@@ -262,8 +290,64 @@ const Cadrenal = () => {
             <p className='pt-14 font-inter font-normal text-lg text-[#606060] leading-[130%] capitalize'>{`Be the first to receive updates on CVKD’s clinical milestones, media coverage, and investor news. Alerts are sent directly to your inbox or phone.`}</p>
           </div>
 
-          <div className='md:w-[43%] lg:py-10 flex flex-wrap gap-8 justify-end items-start'>
-            <CvkdForm/>
+          <div className='lg:w-[43%] md:w-[53%] lg:py-10 flex flex-wrap gap-8 justify-end items-start'>
+            <CvkdForm />
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ's */}
+      <div className='w-full bg-[#FAFAFA]'>
+        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-20 flex md:flex-row flex-col justify-between md:gap-0 gap-16 relative'>
+          <div className='md:w-[43%] flex flex-col justify-between'>
+            <h2 className='font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
+              {`Investor Questions`}
+            </h2>
+          </div>
+
+          <div className='md:w-[56%] flex flex-col gap-2 items-start'>
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className="rounded-xl border border-black/5"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="faq-toggle flex justify-between items-center w-full p-6 font-inter font-medium xl:text-2xl text-xl text-left leading-[130%]"
+                >
+                  <span className='w-[90%]'>{faq.question}</span>
+                  <span
+                    className={`icon transition-transform origin-center duration-300 ${activeIndex === index ? "rotate-180" : ""
+                      }`}
+                  >
+                    {/* {activeIndex === index ? "–" : "+"} */}
+                    <Image className='min-w-max flex-none' src="/images/cvkd/chevron-up.svg" width={24} height={24} alt='' />
+                  </span>
+                </button>
+                <div
+                  className={`faq-content px-6 text-[#606060] font-inter font-normal text-lg transition-all duration-600 overflow-hidden ${activeIndex === index ? "max-h-screen pb-6" : "max-h-0"
+                    }`}
+                  style={{ maxHeight: activeIndex === index ? "600px" : "0" }}
+                >
+                  {faq.answer}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Partners Section */}
+      <div className='w-full bg-[#111111]'>
+        <div className='w-full mx-auto xl:px-0 2xl:px-16 xl:container flex lg:flex-row flex-col justify-between md:gap-0 gap-16 relative'>
+          <div className='lg:w-[50%] flex flex-col justify-between'>
+            <Image className='w-full' width={720} height={688} src='/images/cvkd/partners_img.jpg' alt='logo'/>
+          </div>
+
+          <div className='lg:w-[50%] flex flex-col gap-2 p-8 items-start'>
+            <h4 className='font-RomanRegular text-white leading-[130%] 2xl:text-[2.4rem] sm:text-4xl text-3xl'>Cadrenal Therapeutics has been featured on prominent platforms including NASDAQ, BusinessWire, Yahoo Finance, and Seeking Alpha.</h4>
+            <p className='text-[#9F9F9F] font-inter text-lg pt-10 font-normal 2xl:pr-9'>“With <span className='font-interItalic font-[500] text-[#CFCFCF]'> {`Abbott’s Backing`} </span>  And <span className='font-interItalic font-[500] text-[#CFCFCF]'> A $2B Addressable Market</span>, CVKD Could Become The Go-To Anticoagulant For Thousands Of Ignored Patients.”</p>
+            <Image className='mt-auto max-lg:pt-12 w-full' width={894} height={39} src='/images/cvkd/partners.png' alt='logo'/>
           </div>
         </div>
       </div>

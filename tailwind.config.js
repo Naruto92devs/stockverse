@@ -45,7 +45,7 @@ module.exports = {
         RomanRegular : ['Roman'],
         RomanItalic : ['Roman-Italic'],
 
-        inter: ['InterTight', 'sans-serif'],
+        inter: ['InterTight'],
         interItalic: ['InterTight-Italic', 'sans-serif'],
 
         grotesqueSemibold : ['grotesque-Semibold'],
