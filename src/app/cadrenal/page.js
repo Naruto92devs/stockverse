@@ -341,13 +341,58 @@ const Cadrenal = () => {
       <div className='w-full bg-[#111111]'>
         <div className='w-full mx-auto xl:px-0 2xl:px-16 xl:container flex lg:flex-row flex-col justify-between md:gap-0 gap-16 relative'>
           <div className='lg:w-[50%] flex flex-col justify-between'>
-            <Image className='w-full' width={720} height={688} src='/images/cvkd/partners_img.jpg' alt='logo'/>
+            <Image className='w-full' width={720} height={688} src='/images/cvkd/partners_img.jpg' alt='logo' />
           </div>
 
           <div className='lg:w-[50%] flex flex-col gap-2 p-8 items-start'>
             <h4 className='font-RomanRegular text-white leading-[130%] 2xl:text-[2.4rem] sm:text-4xl text-3xl'>Cadrenal Therapeutics has been featured on prominent platforms including NASDAQ, BusinessWire, Yahoo Finance, and Seeking Alpha.</h4>
             <p className='text-[#9F9F9F] font-inter text-lg pt-10 font-normal 2xl:pr-9'>“With <span className='font-interItalic font-[500] text-[#CFCFCF]'> {`Abbott’s Backing`} </span>  And <span className='font-interItalic font-[500] text-[#CFCFCF]'> A $2B Addressable Market</span>, CVKD Could Become The Go-To Anticoagulant For Thousands Of Ignored Patients.”</p>
-            <Image className='mt-auto max-lg:pt-12 w-full' width={894} height={39} src='/images/cvkd/partners.png' alt='logo'/>
+            <Image className='mt-auto max-lg:pt-12 w-full' width={894} height={39} src='/images/cvkd/partners.png' alt='logo' />
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className='w-full bg-[#111111]'>
+        <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container flex lg:flex-row flex-col justify-between md:gap-0 gap-16 relative'>
+          <div className="w-full flex flex-wrap justify-between py-24 items-start max-lg:gap-y-8">
+            <div className="flex flex-col items-start gap-3">
+              <Image className='' src="/images/cvkd/Logo.svg" width={149} height={40} alt='Stockverse Logo' />
+              <div className="flex items-center gap-2 pt-8">
+                <Link href='/'>
+                  <Image className='' src="/images/cvkd/Facebook.svg" width={32} height={32} alt='Stockverse Logo' />
+                </Link>
+                <Link href='/'>
+                  <Image className='' src="/images/cvkd/Instagram.svg" width={32} height={32} alt='Stockverse Logo' />
+                </Link>
+                <Link href='/'>
+                  <Image className='' src="/images/cvkd/Twitter.svg" width={32} height={32} alt='Stockverse Logo' />
+                </Link>
+                <Link href='/'>
+                  <Image className='' src="/images/cvkd/Linkedin.svg" width={32} height={32} alt='Stockverse Logo' />
+                </Link>
+              </div>
+            </div>
+            <div className="max-sm:w-[46%] flex flex-col items-start gap-y-2">
+              <h4 className="text-xl font-inter font-medium text-white">Quick Links</h4>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/'>Home</Link>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/stockverse-gpt'>StockVerse GPT</Link>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/stockpicks'>Stock Picks</Link>
+            </div>
+            <div className="max-sm:w-[46%] flex flex-col items-start gap-y-2">
+              <h4 className="text-xl font-inter font-medium text-white">Market</h4>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/dashboard?view=gainers_losers'>Gainers / Losers</Link>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/dashboard?view=news'>News</Link>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/dashboard?view=ipo_calendar'>IPO Calendar</Link>
+            </div>
+            <div className="max-sm:w-[46%] flex flex-col items-start gap-y-2">
+              <h4 className="text-xl font-inter font-medium text-white">Contact</h4>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='mailto:contact@stockverse.com'>Email Us</Link>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/feedback'>Send us Feedback</Link>
+            </div>
+            <div className='flex'>
+              <p className="text-lg font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white">© 2025 Stockverse Kit. All rights reserved.</p>
+            </div>
           </div>
         </div>
       </div>

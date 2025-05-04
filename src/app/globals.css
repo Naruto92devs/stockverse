@@ -1038,6 +1038,7 @@
 .overview-gradient {
   background: linear-gradient(91.52deg, #7D76FD 5.95%, #72BDD5 51.29%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
 }
