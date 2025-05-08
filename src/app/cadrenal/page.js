@@ -36,7 +36,7 @@ const Cadrenal = () => {
         "Cadrenal Therapeutics is developing a novel anticoagulant designed to reduce the risks associated with current blood thinners, such as bleeding and stroke, especially in high-risk patient populations where treatment options remain limited.",
     },
     {
-      question: "Why is Tecarfarin different from warfarin or Eliquis?",
+      question: "Why is Tecarfarin different from blood thinners?",
       answer:
         "Tecarfarin is different from warfarin and Eliquis because it's designed to be more predictable and safer, with fewer drug and food interactions, and is metabolized differently—potentially making it a better option for patients with variable responses to traditional anticoagulants.",
     },
