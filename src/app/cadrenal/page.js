@@ -33,7 +33,7 @@ const Cadrenal = () => {
     {
       question: "What does Cadrenal do?",
       answer:
-        "Current therapies result in uncontrolled bleeding, stroke, and death — and the issue remains unaddressed",
+        "Cadrenal Therapeutics is developing a novel anticoagulant designed to reduce the risks associated with current blood thinners, such as bleeding and stroke, especially in high-risk patient populations where treatment options remain limited.",
     },
     {
       question: "Why is Tecarfarin different from warfarin or Eliquis?",
