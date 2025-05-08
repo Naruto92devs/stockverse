@@ -1,10 +1,10 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle';
 import { Pagination, Navigation } from 'swiper/modules';
 import './HeroSlider.css';
-import CurtainImage from './CurtainImage';
 
 // simple hook to track a matchMedia query
 function useMediaQuery(query) {

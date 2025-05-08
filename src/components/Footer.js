@@ -10,16 +10,16 @@ export default function Footer () {
                         <Image className='' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' />
                         <p className="text-lg max-sm:text-[3.2vw] font-sansRegular text-primaryTextColor">Your trusted platform for live Stock Data, Stock News, IPO Calendar, AI-driven insights, Stockpicks, Alerts and personalized analysis tools.</p>
                         <div className="flex items-center gap-2">
-                            <Link href='/'>
+                            <Link href='https://www.facebook.com/profile.php?id=61556580840606#'>
                                 <Image className='' src="/images/facebook.png" width={38} height={38} alt='Stockverse Logo' />
                             </Link>
-                            <Link href='/'>
+                            <Link href='https://www.instagram.com/stockverse.ai?igsh=MWVuZXk4OHc0endyeA%3D%3D'>
                                 <Image className='' src="/images/instagram.png" width={38} height={38} alt='Stockverse Logo' />
                             </Link>
-                            <Link href='/'>
+                            <Link href='https://x.com/StockVerseAI'>
                                 <Image className='' src="/images/twitter.png" width={38} height={38} alt='Stockverse Logo' />
                             </Link>
-                            <Link href='/'>
+                            <Link href='https://www.tiktok.com/@stockverseai'>
                                 <Image className='' src="/images/tiktok.png" width={38} height={38} alt='Stockverse Logo' />
                             </Link>
                         </div>
@@ -39,7 +39,7 @@ export default function Footer () {
                     <div className="max-lg:hidden flex flex-col items-start gap-y-2">
                         <h4 className="text-xl font-sansMedium text-primaryTextColor">Contact</h4>
                         <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='mailto:contact@stockverse.com'>Email Us</Link>
-                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/feedback'>Send us Feedback</Link>
+                        <Link className="text-base max-sm:text-[3.5vw] font-sansRegular text-primaryTextColor/70 hover:underline hover:text-primaryTextColor" href='/help-center'>Send us Feedback</Link>
                     </div>
                 </div>
             </div>

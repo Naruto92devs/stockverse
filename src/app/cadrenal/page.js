@@ -11,7 +11,6 @@ import Leader from './components/cvkdLeader';
 import KeyInfo from './components/KeyInfo';
 import WhyCVKD from './components/WhyCvkd';
 import BigPharma from './components/BigPharma';
-import { motion } from 'framer-motion';
 
 const Cadrenal = () => {
 
@@ -62,11 +61,7 @@ const Cadrenal = () => {
   return (
     <div className='w-full overflow-hidden'>
       {/* Navbar */}
-      <motion.nav
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="w-full border-b-[1.5px] border-[#111111]/15 bg-white">
+      <nav className="w-full border-b-[1.5px] border-[#111111]/15 bg-white">
         <div className='w-full mx-auto px-3 xl:px-0 2xl:px-28 xl:container flex items-center justify-between py-2 relative'>
           <Link href='/' className="relative z-20 flex w-max mr-2">
             <Image className='max-sm:w-[130px]' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' />
@@ -85,19 +80,16 @@ const Cadrenal = () => {
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Hero Heading */}
       <Hero/>
 
       {/* HeroSlider */}
-      <motion.div 
-      initial={{ x: 200, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }} 
+      <div 
       className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container sm:py-16 py-8 relative'>
         <HeroSlider />
-      </motion.div>
+      </div>
 
       {/* CVKD Leader */}
       <Leader/>
@@ -121,7 +113,7 @@ const Cadrenal = () => {
             <h2 className='font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
               Unlocking Untapped Markets in Cardiovascular Safety
             </h2>
-            <p className='lg:w-[63%] pt-14 font-inter font-normal text-lg text-[#606060] leading-[130%] capitalize'>{`The market potential for each of these indications exceeds $500 million. Supporting visuals include a comparison chart of Tecarfarin versus warfarin, and a bar graph illustrating TTR performance.`}</p>
+            <p className='lg:w-[63%] pt-14 font-inter font-normal text-lg text-[#606060] leading-[130%] capitalize'>{`Each of these heart-related conditions could be worth over $500 million in market potential. Tecarfarin is showing strong results compared to older drugs like warfarin, with data showing it keeps patients in the safe range more consistently.`}</p>
           </div>
 
           <div className='lg:min-w-[58%] relative lg:right-[8%] flex flex-wrap gap-8 justify-end items-start'>
@@ -225,16 +217,16 @@ const Cadrenal = () => {
             <div className="flex flex-col items-start gap-3">
               <Image className='' src="/images/cvkd/Logo.svg" width={149} height={40} alt='Stockverse Logo' />
               <div className="flex items-center gap-2 pt-8">
-                <Link href='/'>
+                <Link href='https://www.facebook.com/profile.php?id=61556580840606#'>
                   <Image className='' src="/images/cvkd/Facebook.svg" width={32} height={32} alt='Stockverse Logo' />
                 </Link>
-                <Link href='/'>
+                <Link href='https://www.instagram.com/stockverse.ai?igsh=MWVuZXk4OHc0endyeA%3D%3D'>
                   <Image className='' src="/images/cvkd/Instagram.svg" width={32} height={32} alt='Stockverse Logo' />
                 </Link>
-                <Link href='/'>
+                <Link href='https://x.com/StockVerseAI'>
                   <Image className='' src="/images/cvkd/Twitter.svg" width={32} height={32} alt='Stockverse Logo' />
                 </Link>
-                <Link href='/'>
+                <Link href='https://www.tiktok.com/@stockverseai'>
                   <Image className='' src="/images/cvkd/Linkedin.svg" width={32} height={32} alt='Stockverse Logo' />
                 </Link>
               </div>
@@ -254,7 +246,7 @@ const Cadrenal = () => {
             <div className="max-sm:w-[46%] flex flex-col items-start gap-y-2">
               <h4 className="text-xl font-inter font-medium text-white">Contact</h4>
               <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='mailto:contact@stockverse.com'>Email Us</Link>
-              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/feedback'>Send us Feedback</Link>
+              <Link className="text-base font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white" href='/help-center'>Send us Feedback</Link>
             </div>
             <div className='flex'>
               <p className="text-lg font-inter font-normal text-[#9F9F9F] hover:underline hover:text-white">© 2025 Stockverse Kit. All rights reserved.</p>

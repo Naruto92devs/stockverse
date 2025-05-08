@@ -17,52 +17,43 @@ export default function CvkdForm() {
   const [done, setDone] = useState(null);
   const [er, setEr] = useState(null);
   const [loading, setLoading] = useState(null);
+  const [loadingButton, setLoadingButton] = useState(null); // 'cvkd' | 'sms' | null
 
-  const handleSubscribeEmailPhone = async (e) => {
-    setLoading(true);
+  const handleSubscribeEmailPhone = async (e, tagType) => {
     e.preventDefault();
-
+    setTag(tagType);
+    setLoadingButton(tagType);
+  
     try {
-        const requestData = {
-            email,
-            phone: `+${phone}`,
-            tag
-        };
-
-        const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
-
-        const data = response.data;
-        console.log(data);
-        if (response.status === 200) {
-            // setMessage(data.message);
-            setLoading(false);
-            setDone(true);
-            setMessage(data.message || 'Subscribed Successfully');
-            setEr(false);
-            setEmail('');
-            setPhone('');
-        } else {
-            setDone(true);
-            setEr(true);
-            setMessage(data.message || 'Something went wrong');
-            setEmail('');
-            setPhone('');
-            setLoading(false);
-        }
+      const requestData = {
+        email,
+        phone: `+${phone}`,
+        tag: tagType,
+      };
+  
+      const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
+      const data = response.data;
+  
+      if (response.status === 200) {
+        setDone(true);
+        setEr(false);
+        setMessage(data.message || 'Subscribed Successfully');
+        setEmail('');
+        setPhone('');
+      } else {
+        setDone(true);
+        setEr(true);
+        setMessage(data.message || 'Something went wrong');
+        setEmail('');
+        setPhone('');
+      }
     } catch (error) {
-        if (error.response && error.response.data) {
-            setDone(true);
-            setEr(true);
-            setMessage(error.response.data.message || 'Something went wrong');
-            // setMessage('An error occurred. Please try again.');
-            setLoading(false);
-        } else {
-            setDone(true);
-            setEr(true);
-            setMessage('An error occurred. Please try again.');
-            setLoading(false);
-        }
-        console.error('Error during subscribing:', error);
+      setDone(true);
+      setEr(true);
+      setMessage(error?.response?.data?.message || 'An error occurred. Please try again.');
+      console.error('Error during subscribing:', error);
+    } finally {
+      setLoadingButton(null);
     }
   };
 
@@ -135,22 +126,25 @@ export default function CvkdForm() {
               You may receive <span className='text-[#0429BB]'> recurring </span> email or SMS alerts from Stockverse. Message and data rates may apply. You can unsubscribe at any time.
             </p>
             <div className='flex flex-wrap gap-4'>
-              <button
-                disabled={loading}
-                type="submit"
-                className="px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base"
-              >
-                {loading ? 'Subscribing...' : 'Get CVKD Investor Alerts Now'}
-                <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
-              </button>
-              <button
-                disabled={loading}
-                type="submit"
-                className="px-5 py-3 rounded-full flex items-center gap-2 font-inter text-black bg-white font-medium border border-[#D0D5DD] text-base"
-              >
-                {loading ? 'Subscribing...' : 'SMS Stock Alert'}
-                <Image className='invert' width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
-              </button>
+            <button
+  disabled={loadingButton !== null}
+  type="button"
+  onClick={(e) => handleSubscribeEmailPhone(e, 'cvkd subscriber')}
+  className="px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base"
+>
+  {loadingButton === 'cvkd subscriber' ? 'Subscribing...' : 'Get CVKD Investor Alerts Now'}
+  <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
+</button>
+
+<button
+  disabled={loadingButton !== null}
+  type="button"
+  onClick={(e) => handleSubscribeEmailPhone(e, 'sms stock alert')}
+  className="px-5 py-3 rounded-full flex items-center gap-2 font-inter text-black bg-white font-medium border border-[#D0D5DD] text-base"
+>
+  {loadingButton === 'sms stock alert' ? 'Subscribing...' : 'SMS Stock Alert'}
+  <Image className='invert' width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
+</button>
             </div>
           </form>
           {done && <p className={`${er ? 'text-sell' : 'text-buy' } pt-4 font-inter font-normal  text-center`}>{message}</p>}

@@ -1,25 +1,4 @@
-'use client';
-import { motion } from 'framer-motion';
 import InvestorSlider from './InvestorSlider';
-
-const container = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.05,
-    },
-  },
-};
-
-const letter = {
-  hidden: { opacity: 0, scale: 0.8, y: 10 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { type: 'spring', stiffness: 500, damping: 30 },
-  },
-};
 
 export default function Investors() {
 
@@ -29,27 +8,9 @@ export default function Investors() {
     <div className='w-full bg-[#111111]'>
     <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container py-24 relative'>
       <div className='w-full flex md:flex-row flex-col items-start justify-between gap-4'>
-        <motion.p 
-        initial={{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
-        whileInView={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
-        transition={{ duration: 1.2, ease: 'easeInOut', delay: 0 }}
-        viewport={{ once: true }}
-        className='font-inter font-normal md:text-2xl text-lg text-white leading-[150%]'>Why Investors Are Watching
-        </motion.p>
-        <motion.h4
-            className='md:w-[55%] w-full font-RomanRegular text-white xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[120%] flex flex-wrap'
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {text.split('').map((char, index) => (
-              <motion.span key={index} variants={letter}>
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </motion.h4>
-        {/* <h4 className='md:w-[55%] w-full font-RomanRegular text-white xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[120%]'>Investors are closely watching CVKD for several reasons</h4> */}
+        <p className='font-inter font-normal md:text-2xl text-lg text-white leading-[150%]'>Why Investors Are Watching
+        </p>
+        <h4 className='md:w-[55%] w-full font-RomanRegular text-white xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[120%]'>Investors are closely watching CVKD for several reasons</h4>
       </div>
       <InvestorSlider />
     </div>
