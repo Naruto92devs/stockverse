@@ -95,7 +95,8 @@ export default function MembershipInfo() {
                             } else if (membership?.status === 'active') {
                                 return `Your next payment of ${activePlan.price} is scheduled for ${formatDate(membership.expires_at)}.`;
                             } else if (membership?.status === 'paused') {
-                                return `Your subscription is currently paused. Your ${activePlan.price} plan will automatically cancel on ${formatDate(membership.expires_at)}. Once cancelled, it cannot be resumed. Please click "Resume" below before the expiration date if you wish to keep your subscription.`;
+                                // return `Your subscription is currently paused. Your ${activePlan.price} plan will automatically cancel on ${formatDate(membership.expires_at)}. Once cancelled, it cannot be resumed. Please click "Resume" below before the expiration date if you wish to keep your subscription.`;
+                                return `Your subscription is been canceled. You will have access to premium features that your plan ${activePlan.price} provides till ${formatDate(membership.expires_at)}. Once the expiration reached, you will automatically be downgraded to free plan.`;
                             } else if (membership?.status === 'canceled') {
                                 return `Your subscription is been canceled. You will have access to premium features that your plan ${activePlan.price} provides till ${formatDate(membership.expires_at)}. Once the expiration reached, you will automatically be downgraded to free plan.`;
                             }
@@ -109,9 +110,9 @@ export default function MembershipInfo() {
                         <div onClick={handleSubscritionCancellation} className={`${membership?.status === 'active' && membership?.price_id !== 'price_free' ? 'visible' : 'hidden'} bg-white text-sell border border-sell rounded-lg py-1 px-4 text-base font-sansMedium cursor-pointer`}>
                             {subscritionLoading ? 'Loading...' : 'Cancel'}
                         </div>
-                        <div onClick={handleSubscriptionResume} className={`${membership?.status === 'paused' ? 'visible' : 'hidden'} bg-white text-buy border border-buy rounded-lg py-1 px-4 text-base font-sansMedium cursor-pointer`}>
+                        {/* <div onClick={handleSubscriptionResume} className={`${membership?.status === 'paused' ? 'visible' : 'hidden'} bg-white text-buy border border-buy rounded-lg py-1 px-4 text-base font-sansMedium cursor-pointer`}>
                             {subscritionLoading ? 'Loading...' : 'Resume'}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             ) : (
