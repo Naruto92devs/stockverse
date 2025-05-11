@@ -22,7 +22,7 @@ export default function Leader() {
             <Image className='invert' width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
           </Link>
         </div>
-        <h3 className='font-RomanRegular text-[#1B1B1B] text-3xl pt-14'>Meet Our Founder</h3>
+        <h3 className='font-RomanRegular text-[#1B1B1B] text-3xl pt-14'>Meet the Founder</h3>
         <p className='pt-4 font-inter font-normal text-lg text-[#606060] leading-[150%] capitalize'>{`Quang X. Pham didn’t take the conventional route to Wall Street. He fled Vietnam as a war refugee, became the first Vietnamese American aviator in the U.S. Marine Corps, broke records in biotech sales, and took Cadrenal Therapeutics public on Nasdaq.`}</p>
         <p className='pt-6 font-inter font-normal text-lg text-[#606060] leading-[150%] capitalize'>{`Now, with Underdog Nation (published by Forbes Books), Pham shares the ER Approach™ — Effort + Results — that powers his leadership and Cadrenal’s bold mission to transform cardiovascular safety for neglected patient groups.`}</p>
         <p className='pt-12 font-interItalic font-normal text-2xl text-[#606060] leading-[150%] capitalize'>“Success {`isn’t`} reserved for the privileged — it <span className='font-medium text-[#383838]'> belongs </span> to those who <span className='font-medium text-[#383838]'> fight </span> for it.”</p>
