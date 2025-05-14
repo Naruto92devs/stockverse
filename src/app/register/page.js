@@ -24,6 +24,7 @@ export default function Register() {
     const [id, setid] = useState(null);
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+    const [green, setGreen] = useState(true);
     const router = useRouter();
 
     useEffect(() => {
@@ -74,14 +75,17 @@ export default function Register() {
                 setVerifyOTP(true);
             } else {
                 setMessage(data.message || 'Something went wrong');
+                setGreen(false);
                 setLoading(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 setMessage(error.response.data.message || 'Something went wrong');
+                setGreen(false);
                 setLoading(false);
             } else {
                 setMessage('An error occurred. Please try again.');
+                setGreen(false);
                 setLoading(false);
             }
             console.error('Error during signup:', error);
@@ -116,14 +120,17 @@ export default function Register() {
             } else {
                 setMessage(data.message || 'Something went wrong');
                 setLoading(false);
+                setGreen(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 setMessage(error.response.data.message || 'Something went wrong');
                 setLoading(false);
+                setGreen(false);
             } else {
                 setMessage('An error occurred. Please try again.');
                 setLoading(false);
+                setGreen(false);
             }
             console.error('Error during signup:', error);
         }
@@ -308,7 +315,7 @@ export default function Register() {
                         Sign In!
                     </Link>
                 </p>
-                {message && <p className="text-sell text-center">{message}</p>}
+                {message && <p className={`${green? 'text-buy' : 'text-sell'} font-sansMedium text-base text-center text-center`}>{message}</p>}
             </div>
 
             <div
@@ -353,7 +360,7 @@ export default function Register() {
                             {loading ? 'Verifying...' : 'Submit'}
                         </button>
                     </div>
-                    {message && <p className="text-buy font-sansMedium text-base text-center">{message}.</p>}
+                    {message && <p className={`${green? 'text-buy' : 'text-sell'} font-sansMedium text-base text-center`}>{message}.</p>}
                 </form>
             </div>
         </div>

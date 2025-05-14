@@ -242,7 +242,7 @@ export default function LogIn() {
             Sign up
           </Link>
         </p>
-        {error && <p className="text-sell text-center">{error}</p>}
+        {error && <p className="text-sell font-sansMedium text-base text-center text-center">{error}</p>}
       </div>
 
       <div className={` ${VerifyOTP ? 'hidden' : 'flex'} relative lg:w-[50%] flex flex-col justify-end pt-12 gap-y-12 bg-cover bg-center bg-no-repeat`}
@@ -287,7 +287,7 @@ export default function LogIn() {
             </button>
           </div>
         </form>
-        {error && <p className="text-sell text-center">{error}</p>}
+        {error && <p className="text-sell font-sansMedium text-base text-center text-center">{error}</p>}
       </div>
     </div>
   );

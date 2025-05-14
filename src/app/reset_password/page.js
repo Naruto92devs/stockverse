@@ -17,6 +17,7 @@ export default function ResetPasswrod() {
     const [error, setError] = useState('');
     const [OTP, setOTP] = useState('');
     const [VerifyOTP, setVerifyOTP] = useState(false);
+    const [green, setGreen] = useState(true);
     const [id, setid] = useState(null);
     const router = useRouter();
 
@@ -42,20 +43,24 @@ export default function ResetPasswrod() {
                 const data = response.data;
                 console.log(data);
                 setError(data.message);
+                setGreen(true);
                 setid(data.id);
                 setLoading(false);
                 setVerifyOTP(true);
             } else {
                 setError(response.data.message || 'Failed to sign in');
                 setLoading(false);
+                setGreen(false);
             }
         } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
                 setError(err.response.data.message);
+                setGreen(false);
                 setLoading(false);
             } else {
                 setError(err.message || 'An unexpected error occurred');
                 setLoading(false);
+                setGreen(false);
             }
         }
     };
@@ -78,21 +83,26 @@ export default function ResetPasswrod() {
             if (response.status === 207) {
                 setError(data.message);
                 setLoading(false);
+                setGreen(true);
                 router.push('/login');
             } else {
                 setError(data.message || 'Something went wrong');
                 setLoading(false);
+                setGreen(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 setError(error.response.data.message || 'Something went wrong');
                 setError(false);
+                setGreen(false);
             } else {
                 setError('An error occurred. Please try again.');
                 setLoading(false);
+                setGreen(false);
             }
             console.error('Error during signup:', error);
             setLoading(false);
+                setGreen(false);
         }
     };
 
@@ -112,18 +122,22 @@ export default function ResetPasswrod() {
             console.log(data);
             if (response.status === 207) {
                 setError(data.message);
+                setGreen(true);
                 setLoading(false);
             } else {
                 setError(data.message || 'Something went wrong');
                 setLoading(false);
+                setGreen(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 setError(error.response.data.message || 'Something went wrong');
                 setError(false);
+                setGreen(false);
             } else {
                 setError('An error occurred. Please try again.');
                 setLoading(false);
+                setGreen(false);
             }
             console.error('Error during signup:', error);
             setLoading(false);
@@ -170,7 +184,7 @@ export default function ResetPasswrod() {
                         </p>
                     </div>
                 </form>
-                {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+                {error && <p className={`${green? 'text-buy' : 'text-sell'} text-base font-sansRegular text-center mt-4`}>{error}</p>}
             </div>
 
             {/* OTP VERIFICATION POPUP */}
@@ -198,7 +212,7 @@ export default function ResetPasswrod() {
                                 required
                                 className="w-full text-base px-4 py-2 border font-sansRegualr bg-white text-primaryText border-primaryText/40 rounded-lg focus:outline-none focus:border-primaryText"
                             />
-                            <p onClick={resendOTP} className="cursor-pointer self-end text-md font-Medium text-primaryText underline"> {loading ? 'Sending...' : 'Resend OTP?'}</p>
+                            <p onClick={resendOTP} className="cursor-pointer self-end text-md font-sansMedium text-primaryText underline"> {loading ? 'Sending...' : 'Resend OTP?'}</p>
                         </div>
                         <div className="w-full flex flex-col relative gap-y-2">
                             <div className="flex justify-between items-end">
@@ -252,7 +266,7 @@ export default function ResetPasswrod() {
                         </button>
                     </div>
                 </form>
-                {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+                {error && <p className={`${green? 'text-buy' : 'text-sell'} font-sansRegular text-base text-center mt-4`}>{error}</p>}
             </div>
 
         </div>
