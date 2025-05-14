@@ -131,7 +131,7 @@ export default function Register() {
 
     return (
         <div className={`${VerifyOTP ? 'bg-loginBg bg-cover bg-center bg-no-repeat' : ''} w-full lg:flex max-lg:flex-col xl:min-h-[100vh]`}>
-            <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] px-6 max-lg:py-10 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
+            <div className={` ${VerifyOTP ? 'hidden' : 'flex'} lg:w-[50%] 2xl:px-40 lg:px-6 md:px-32 sm:px-6 max-lg:py-10 max-sm:px-3 gap-y-2 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
                 <Image width={56} height={56} src='/images/logo.png' alt='logo'></Image>
                 <h1 className="text-2xl max-md:text-xl font-sansMedium text-primaryTextColor text-center">Sign Up in 10 Seconds - No Hassle.</h1>
                 <p className="text-lg mb-8 lg:px-[10%] xl:px-[20%] max-md:mb-4 leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
@@ -285,20 +285,20 @@ export default function Register() {
                         {loading ? 'Signing Up...' : 'Create My Free Account'}
                     </button>
                     <Image width={1356} height={60} className='w-full' src='/images/or.png' alt='logo'></Image>
-                    <div className="w-full flex flex-col mt-4 space-y-2">
+                    <div className="w-full flex items-center mt-4 space-x-2">
                         <a 
                         href={loading ? '' : `${STOCKVERSE_BACK_END}/auth/google`} 
-                        className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 rounded-lg transition duration-300"
+                        className="flex-grow cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 px-2 rounded-lg transition duration-300"
                         >
                             <Image width={26} height={26} src='/images/google.png' alt='logo'></Image>
-                            Sign Up with Google
+                            Google
                         </a>
                         <a
                             href={loading ? '' : `${STOCKVERSE_BACK_END}/auth/facebook`} 
-                            className="w-[100%] cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 rounded-lg transition duration-300"
+                            className="flex-grow cursor-pointer flex gap-x-4 justify-center border border-black/10 hover:border-black text-center font-sansMedium text-base text-primaryTextColor py-2 px-2 rounded-lg transition duration-300"
                         >
                             <Image width={26} height={26} src='/images/facebook_login.png' alt='logo'></Image>
-                            Sign Up with Facebook
+                            Facebook
                         </a>
                     </div>
                 </form>
@@ -324,14 +324,14 @@ export default function Register() {
 
             {/* OTP VERIFICATION POPUP */}
             <div className={`${VerifyOTP ? 'flex' : 'hidden'} px-6 max-sm:px-3 min-h-[100vh] mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center justify-center`}>
-                <form onSubmit={handleSubmitOTP} className="flex flex-col items-center w-[35%] max-lg:w-[55%] max-sm:w-[90%] space-y-4">
-                    <Image src="/images/stockverseLogo.png" width={250} height={57.20} alt='Stockverse Logo' />
-                    <div className="p-8 max-sm:px-4 rounded-xl flex flex-col gap-y-8 items-center bg-background shadow-lg">
+                <form onSubmit={handleSubmitOTP} className="flex flex-col items-center 2xl:w-[40%] lg:w-[50%] md:w-[70%] sm:w-[90%] space-y-4">
+                    <div className="p-8 max-sm:px-4 rounded-xl flex flex-col gap-y-8 items-center bg-white shadow-lg">
+                        <Image src="/images/stockverseLogo.png" width={200} height={57.20} alt='Stockverse Logo' />
                         <p className="text-base leading-[120%] font-sansRegular max-sm:text-sm text-center text-primaryText">
                             Thanks for signing up! Before getting started, could you verify your email address by providing OTP emailed to you?
                         </p>
                         <div className="w-full flex flex-col gap-y-2">
-                            <label htmlFor="otp" className="text-md font-Medium text-primaryTextColor">
+                            <label htmlFor="otp" className="text-md font-sansMedium text-primaryTextColor">
                                 Enter OTP
                             </label>
                             <input
@@ -342,13 +342,13 @@ export default function Register() {
                                 onChange={(e) => setOTP(e.target.value)}
                                 placeholder="Enter OTP Sent To Your Email"
                                 required
-                                className="w-full text-base px-4 py-2 border bg-mobNavLink text-primaryTextColor border-primaryTextColor/40 rounded-lg focus:outline-none focus:border-primaryTextColor"
+                                className="w-full text-base px-4 py-2 font-sansRegular border bg-mobNavLink text-primaryTextColor border-primaryTextColor/40 rounded-lg focus:outline-none focus:border-primaryTextColor"
                             />
                         </div>
                         <button
                             disabled={loading}
                             type="submit"
-                            className="w-full bg-primaryMain text-base text-white py-2 rounded-lg hover:bg-black transition duration-300"
+                            className="w-full bg-primaryMain font-sansMedium text-base text-white py-2 rounded-lg hover:bg-black transition duration-300"
                         >
                             {loading ? 'Verifying...' : 'Submit'}
                         </button>
