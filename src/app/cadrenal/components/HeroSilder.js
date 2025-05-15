@@ -48,7 +48,7 @@ const HeroSlider = () => {
             className="mySwiper"
             >
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
-                <Image className='img' width={505} height={362} src='/images/cvkd/hero_slide1.jpg' alt='logo'/>
+                <Image className='img rounded-lg max-md:w-full max-md:h-[362px] max-sm:h-auto' width={370} height={362} src='/images/cvkd/hero_slide1.jpeg' alt='logo'/>
               </SwiperSlide>
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
                 <Image className='img' width={505} height={362} src='/images/cvkd/hero_slide2.jpg' alt='logo'/>
