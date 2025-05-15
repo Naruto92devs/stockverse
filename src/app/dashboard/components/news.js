@@ -119,6 +119,22 @@ const stockverseNews = [
     author: "Stockverse",
     article_url: "/news/cvkd-october-2024",
   },
+  {
+    id: 12,
+    title: "Cadrenal Therapeutics Announces Collaboration Agreement with Abbott in Support of Pivotal Study of Tecarfarin in Patients with HeartMate 3™ LVAD",
+    published_utc: "May, 2025 by Stockverse",
+    image_url: "/images/news_sample.jpg",
+    author: "Stockverse",
+    article_url: "/cvkd/news",
+  },
+  {
+    id: 13,
+    title: "Cadrenal Therapeutics Announces Tecarfarin Manufacturing Progress in Support of Clinical Trial Readiness",
+    published_utc: "May, 2025 by Stockverse",
+    image_url: "/images/news_sample.jpg",
+    author: "Stockverse",
+    article_url: "/cvkd/news-press",
+  },
 ];
 
 export default function News({symbol, updateUrl}) {

@@ -1,11 +1,9 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
 import Disclaimer from "@/components/Article_disclaimer";
 
 const PRESSRELEASECVKD = () => {
-    const pressReleaseUrl = `https://stockverse.com/news/cadrenal-therapeutics-abbott-tecarfarin-heartmate3-study`; // The current URL
+    const pressReleaseUrl = `https://stockverse.com/cvkd/news`; // The current URL
 
     const handleFacebookShare = () => {
         const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
