@@ -5,7 +5,7 @@ export default function WhyCVKD() {
   return (
       <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container flex flex-col items-center gap-12 py-12 relative'>
         <h2 className='text-center font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
-          Why CVKD is Different
+          Why Tecarfarin is Different
         </h2>
         <div className='w-full flex flex-wrap justify-between gap-y-4'>
           <div className='lg:w-[32.3%] sm:w-[48.7%] w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-4 border border-black/10 rounded-lg'>

@@ -36,9 +36,9 @@ const Cadrenal = () => {
         "Cadrenal Therapeutics is developing a novel anticoagulant designed to reduce the risks associated with current blood thinners, such as bleeding and stroke, especially in high-risk patient populations where treatment options remain limited.",
     },
     {
-      question: "Why is Tecarfarin different from blood thinners?",
+      question: "How is Tecarfarin different from traditional blood thinners?",
       answer:
-        "Tecarfarin is different from warfarin and Eliquis because it's designed to be more predictable and safer, with fewer drug and food interactions, and is metabolized differently—potentially making it a better option for patients with variable responses to traditional anticoagulants.",
+        "Tecarfarin is designed to offer more predictable effects and fewer interactions with certain medications and foods. Its unique metabolism may support more consistent results in patients who respond variably to conventional anticoagulants.",
     },
     {
       question: "How is Abbott involved?",
@@ -48,7 +48,7 @@ const Cadrenal = () => {
     {
       question: "Why is the unmet need so large?",
       answer:
-        "The unmet need is so large because millions of patients can't safely or effectively use current anticoagulants like warfarin or Eliquis due to risks of bleeding, drug interactions, or inconsistent response—leaving them without optimal treatment options.",
+        "The unmet need remains significant because millions of patients are unable to use existing anticoagulants effectively—often due to bleeding risks, drug interactions, or unpredictable response—leaving them without consistent or suitable treatment options.",
     }
   ];
 
@@ -119,7 +119,7 @@ const Cadrenal = () => {
           <div className='lg:min-w-[58%] relative lg:right-[8%] flex flex-wrap gap-8 justify-end items-start'>
             <div className='sm:w-[48%] bg-white w-full flex flex-col sm:items-start items-center max-sm:text-center gap-4 p-7 border border-black/5 rounded-lg'>
               <Image width={45} height={45} src='/images/cvkd/info8.svg' alt='logo' />
-              <h4 className='font-inter font-medium text-2xl text-black'>LAVD</h4>
+              <h4 className='font-inter font-medium text-2xl text-black'>LVAD</h4>
               <p className='font-inter font-normal text-lg text-[#606060] leading-[150%]'>Granted Orphan Drug designation and trial-ready</p>
             </div>
             <div className='w-full flex flex-wrap max-sm:gap-8 justify-between'>

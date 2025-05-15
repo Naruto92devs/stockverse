@@ -6,7 +6,7 @@ export default function Hero() {
     <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 xl:container flex md:flex-row flex-col justify-between sm:py-16 py-8 relative'>
         <div className='md:w-[60%] w-full'>
           <h1 className='font-RomanRegular text-[#1E1E1E] xl:text-[3.3rem] lg:text-[3.1rem] sm:text-[2.4rem] text-4xl leading-[125%]'>
-          CVKD: The Under $50M Market Cap Stock Targeting a Billion-Dollar 
+            (Nasdaq: CVKD): The Under-$50M Market Cap Stock Targeting a Billion-Dollar
             <span className='font-RomanItalic'> Cardiovascular Problem</span>
           </h1>
         </div>
