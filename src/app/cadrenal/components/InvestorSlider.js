@@ -45,17 +45,17 @@ const InvestorSlider = () => {
             className="mySwiper-investo"
             >
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
-                <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide1.jpg' alt='logo'/>
+                <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide3.jpg' alt='logo'/>
               </SwiperSlide>
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
                 <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide2.jpg' alt='logo'/>
               </SwiperSlide>  
               <SwiperSlide id='slide-bg' className="swiper-project-slide sm:!w-auto !w-[100%]">
-                <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide3.jpg' alt='logo'/>
+                <Image className='img rounded-lg' width={505} height={362} src='/images/cvkd/investor_slide1.jpg' alt='logo'/>
               </SwiperSlide>
               {isMd && (
                 <SwiperSlide className="swiper-project-slide sm:!w-auto !w-[100%] !opacity-0">
-                  <Image className="img rounded-lg" width={505} height={362} src="/images/cvkd/investor_slide3.jpg" alt="extra slide"/>
+                  <Image className="img rounded-lg" width={505} height={362} src="/images/cvkd/investor_slide1.jpg" alt="extra slide"/>
                 </SwiperSlide>
               )}
             </Swiper>

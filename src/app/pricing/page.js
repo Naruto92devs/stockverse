@@ -66,25 +66,25 @@ export default function Membership() {
   };
 
   return (
-    <div className="w-full h-full sm:pt-24 pt-12 bg-pricingBg bg-no-repeat bg-cover bg-top-center">
+    <div className="w-full h-full sm:py-24 py-12 bg-pricingBg bg-no-repeat bg-cover bg-top-center">
       
       <div className="px-6 max-sm:px-3 mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-center">
-        <h1 className="w-full md:w-[70%] xl:w-[50%] font-sansMedium text-5xl max-sm:text-[7vw] leading-[120%] text-center">
-          Choose the plan that fits your business
+        <h1 className="w-full md:w-[70%] xl:w-[45%] font-sansMedium text-5xl max-sm:text-[7vw] leading-[120%] text-center">
+          Trade Smarter. Move Faster. Win Bigger.
         </h1>
         {/* Toggle Monthly/Yearly */}
         <div className="flex items-center justify-center my-8 bg-white p-1 rounded-full">
           <button
-            className={`px-6 py-2 text-base font-sansMedium rounded-full ${billingCycle === "monthly" ? "bg-primaryMain text-white" : "bg-none text-primaryTextColor"}`}
+            className={`px-6 py-2 text-lg font-sansMedium rounded-full ${billingCycle === "monthly" ? "bg-primaryMain text-white" : "bg-none text-primaryTextColor"}`}
             onClick={() => setBillingCycle("monthly")}
           >
             Monthly
           </button>
           <button
-            className={`flex items-center gap-2 pl-6 pr-1 py-1.5 text-base font-sansMedium rounded-full ${billingCycle === "yearly" ? "bg-primaryMain text-white" : "bg-none text-primaryTextColor"}`}
+            className={`flex items-center gap-2 pl-6 pr-1 py-1.5 text-lg font-sansMedium rounded-full ${billingCycle === "yearly" ? "bg-primaryMain text-white" : "bg-none text-primaryTextColor"}`}
             onClick={() => setBillingCycle("yearly")}
           >
-            Yearly <span className={`px-3 py-1 text-sm rounded-full ${billingCycle === "yearly" ? "bg-white/5 text-white" : "bg-black/5 text-primaryTextColor"}`}>save 15%</span>
+            Yearly <span className={`px-3 py-1 text-sm font-sansMedium rounded-full ${billingCycle === "yearly" ? "bg-white/5 text-white" : "bg-black/5 text-primaryTextColor"}`}>save 15%</span>
           </button>
         </div>
       </div>
@@ -92,31 +92,35 @@ export default function Membership() {
       {/* Pricing Plans */}
       <div className="mx-auto xl:container p-6 flex flex-wrap md:flex-row justify-between items-center max-md:gap-8">
         <div className="md:w-[48%] w-full flex flex-col items-start gap-2">
-          <h2 className="py-1 px-3 bg-black text-white font-sansMedium rounded-full">{view === 'FREE' ? 'FREE' : 'PREMIUM'} PLAN</h2>
-          <h3 className="lg:text-4xl text-3xl mb-4 font-sansMedium text-black">Start Smart, Stay Informed, Absolutely Free!</h3>
+          <h2 className="py-1 px-3 bg-black text-lg text-white font-sansMedium rounded-full">{view === 'FREE' ? 'FREE' : 'PREMIUM'} MEMBERSHIP</h2>
+          <h3 className="text-xl mt-2 mb-4 font-sansMedium text-black">What You Get with Premium:</h3>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-sansMedium text-base md:text-lg text-black">Realtime Stocks Data & Charts</p>
+            <p className="font-sansRegular text-base md:text-lg text-black"> <span className="font-sansMedium"> Live Stock Data & Charts </span> — No delays, no guessing</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-sansMedium text-base md:text-lg text-black">Realtime Stocks News</p>
+            <p className="font-sansRegular text-base md:text-lg text-black"> <span className="font-sansMedium"> Instant Market News  </span> — Beat the headlines, beat the herd</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-sansMedium text-base md:text-lg text-black">Add Stocks to Watch List</p>
+            <p className="font-sansRegular text-base md:text-lg text-black"> <span className="font-sansMedium"> Build Your Watchlist </span> — Track winners before they move</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src='/images/green_tick.svg' alt='logo'/>
-            <p className="font-sansMedium text-base md:text-lg text-black">IPO Calendar</p>
+            <p className="font-sansRegular text-base md:text-lg text-black"> <span className="font-sansMedium"> Early IPO Access </span> — Get in before the crowd</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
-            <p className="font-sansMedium text-base md:text-lg text-black">Full Access to StockVerse GPT</p>
+            <p className="font-sansRegular text-base md:text-lg text-black"> <span className="font-sansMedium"> Real-Time Stock Trades </span> — Follow our latest trade entries and exits</p>
           </div>
           <div className="flex items-center gap-2">
             <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
-            <p className="font-sansMedium text-base md:text-lg text-black">StockPicks</p>
+            <p className="font-sansRegular text-base md:text-lg text-black"> <span className="font-sansMedium"> Pro-Level Research Tools </span> — See what others {`don’t`}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <Image width={36} height={36} src={`${view === 'FREE' ? '/images/red_cross.svg' : '/images/green_tick.svg'}`} alt='logo'/>
+            <p className="font-sansRegular text-base md:text-lg text-black"> <span className="font-sansMedium"> Verified Stock Picks </span> — Our top trade ideas, updated frequently</p>
           </div>
         </div>
         <div className="md:w-[48%] w-full flex flex-col gap-4 bg-primaryBg p-4 rounded-xl">
@@ -126,7 +130,7 @@ export default function Membership() {
               <h2 className="text-xl font-sansMedium">{plans[billingCycle].free.label}</h2>
               <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].free.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
-            <p className="text-base font-sansMedium py-2 text-primaryTextColor/60">Get your feet wet with stock data and charts. Love it? Upgrade anytime to unlock full AI insights and advanced tools.</p>
+            <p className="text-lg font-sansRegular py-2 text-primaryTextColor">Get your feet wet with stock data and charts. Love it? Upgrade anytime to unlock full AI insights and advanced tools.</p>
           </div>
           {/* PREMIUM Plan */}
           <div onClick={() => updatePlan('BASIC' ,plans[billingCycle].basic.priceId)} className={`${view === 'BASIC' ? 'bg-white/5 border border-primaryMain shadow-xl' : 'bg-black/5 border border-black/10'} w-full p-4 rounded-xl cursor-pointer`}>
@@ -134,7 +138,7 @@ export default function Membership() {
               <h4 className="text-xl font-sansMedium">{plans[billingCycle].basic.label}</h4>
               <p className="flex items-start text-4xl font-sansSemibold text-primaryText"><span className="text-base font-sansMedium">$</span> {plans[billingCycle].basic.price} <span className="text-base leading-[100%] self-end pb-0.5 pl-1 font-sansMedium text-primaryTextColor/60">/{billingCycle === 'monthly' ? 'Month' : 'Year'}</span></p>
             </div>
-            <p className="text-base font-sansMedium py-2 text-primaryTextColor/60">$9.99/month is less than one trade—but can unlock unlimited real-time stock data, AI-backed picks, and early IPO signals. One edge. Endless potential.</p>
+            <p className="text-lg font-sansRegular py-2 text-primaryTextColor">Unlock full market access for just {billingCycle === 'monthly' ? '$9.99/month' : '$99.99/year'} .</p>
           </div>
 
           <button 

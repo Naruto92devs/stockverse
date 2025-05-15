@@ -13,8 +13,8 @@ export default function Hero() {
         <div className='lg:w-[32.5%] md:w-[35%] sm:w-[60%] w-full pt-4 flex flex-col items-start xl:gap-12 gap-6'>
           <p className='font-inter font-normal text-lg text-[#606060] leading-[130%]'>Cadrenal Therapeutics <span className='font-medium italic text-[#383838]'> (NASDAQ: CVKD) </span> Is Redefining Cardiovascular Safety With The Only Drug Designed Specifically For Patients With LVAD, ESKD + AFib, And MHV.
           </p>
-          <Link href='/cvkd' className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base'>
-            Why CVKD
+          <Link href='/dashboard?symbol=CVKD' className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base'>
+            Show Me the Stock
             <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
           </Link>
         </div>
