@@ -19,8 +19,8 @@ const updateWidget = () => {
     script.innerHTML = `
     {
         "autosize": true,
-        "symbol": "${symbol}",
-        "interval": "D",
+        "symbol": "OTC:BBLR",
+        "interval": "240",
         "support_host": "https://www.tradingview.com",
         "timezone": "exchange",
         "theme": "${theme}",
