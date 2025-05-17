@@ -2,8 +2,8 @@
 import Link from "next/link";
 import Disclaimer from "@/components/Article_disclaimer";
 
-const PRESSRELEASECVKD = () => {
-    const pressReleaseUrl = `https://stockverse.com/cvkd/news-press`; // The current URL
+const WEBAI = () => {
+    const pressReleaseUrl = `https://stockverse.com/news/ethical-web-ai`; // The current URL
 
     const handleFacebookShare = () => {
         const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -78,7 +78,7 @@ const PRESSRELEASECVKD = () => {
             <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
                 <div className="py-8 gap-y-6">
                     <h1 className="text-[#1D3045] font-MontserratSemibold md:text-4xl text-2xl !leading-[1.4]">
-                    Cadrenal Therapeutics Announces Tecarfarin Manufacturing Progress in Support of Clinical Trial Readiness
+                    Ethical Web AI submits AI Vault on AWS Marketplace for Enterprises to Purchase and Install
                     </h1>
                 </div>
                 <div className="pt-8 lg:pt-4 flex flex-col sm:flex-row gap-y-6 justify-between items-start sm:items-center border-t border-[#404040]">
@@ -201,19 +201,20 @@ const PRESSRELEASECVKD = () => {
                 </div>
                 <div className="flex flex-col gap-6 py-4 2xl:pb-16 lg:pb-16 pb-8">
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      PONTE VEDRA, Fla.--(BUSINESS WIRE)-- <span className="font-MontserratBold"> Cadrenal Therapeutics, Inc. (Nasdaq: CVKD) </span>, a biopharmaceutical company developing therapeutics for patients with cardiovascular disease, today announced manufacturing and supply chain milestones for its lead drug candidate, tecarfarin, a novel oral vitamin K antagonist (VKA) anticoagulant that is designed to address unmet needs in anticoagulation therapy.
+                      {`NEW YORK, May 14, 2025 (GLOBE NEWSWIRE) --  Bubblr Inc., d/b/a Ethical`} <Link href="https://www.globenewswire.com/Tracker?data=DBFh7Ao72KJttfWVRsz3QnPMi8WXkDp78OAcni7Ibm_Rv8XcQ7_aMPq0LA5LCg7VcerRII1ouIkU1e7-Y_q2NQ==" className="underline font-MontserratBold">Web AI</Link>. {`(OTCQB: BBLR) - A frontrunner in enterprise-specific generative AI has submitted AI Vault to become publicly available on AWS Marketplace. AI Vault is Ethical Web AI's unique enterprise-specific generative AI product. This event is hugely significant as it will allow clients to install and implement AI Vault directly from AWS Marketplace.`}
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`Cadrenal completed the technical transfer and manufacturing of its tecarfarin drug substance in accordance with current good manufacturing practices (cGMP) earlier this year at a U.S. site of a leading global Contract Development and Manufacturing Organization (CDMO). Manufacturing of the tecarfarin drug product candidate is currently underway.`}
+                      {`Being featured on the AWS Marketplace is a significant milestone for Ethical Web AI and underscores the value of our enterprise generative AI product, AI Vault. As an AWS Software Partner, we are able to leverage AWS's extensive global infrastructure, trusted reputation, and reach to deliver AI Vault to a wider audience of businesses who prioritise transparency, control, and data protection in their generative AI solutions. This strategic route to market not only positions AI Vault as a cutting-edge solution for companies wary of generative AI risks but also enhances our ability to support businesses in various industries, particularly those navigating complex regulatory landscapes like the General Data Protection Regulation. Through the AWS Marketplace, we're making it easier than ever for companies to adopt a secure, innovative AI product that meets their most critical needs.`}
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {'“We are pleased with the important progress we have made with the supply chain and cGMP manufacturing process for tecafarin,” said'} <span className="font-MontserratBold">{'Quang X. Pham, Chairman & CEO. '}</span> {'“This is a key milestone as we support our clinical development strategy and tecarfarin’s potential to provide clinical benefits for patients with cardiovascular disease who require chronic VKA anticoagulation.”'}
+                      {'AI Vault is a revolutionary generative AI product specifically designed to meet the needs of enterprise clients who are hesitant to adopt traditional generative AI solutions due to concerns over security and data privacy. This includes 27% of all companies, primarily large organisations such as banks and other businesses, where data security is paramount. AI Vault provides these enterprises with their own secure, private generative AI platform, giving them complete control over access and full transparency of all AI usage within their organisation. Supported by three USPTO patents, including a groundbreaking patent that ensures sensitive client data is never shared with Ethical Web AI or any third-party generative AI partners, AI Vault is the ideal solution for companies looking to harness the power of generative AI without compromising on security, privacy, or control.'}
                     </p>
-
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      {`You can find out precisely what AI Vault is by watching the following explainer video by clicking on the link:`} <Link href="https://www.globenewswire.com/Tracker?data=TsmQnHYErE5_C0KLid_G4xtfWiozumSEaT_Ca3XGJRalQGdRcDowWRPtvElNeocCp9PrOSUVA2Blq4NTX4tAuXOxsjCNkpdn9M5-ZW_crFB0NiE2Jpz-AyWu-v67niHUwEcHiobmW5MLd_9rArm_E9TeqdQJ21niVIicwY3hM-o=" className="font-MontserratBold underline">https://ethicalweb.ai/ai-vault-explainer-video/</Link>
+                    </p>
+                    
                     <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">About Cadrenal Therapeutics, Inc.</h4>
-                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      <span className="font-MontserratBold">{'Cadrenal Therapeutics, Inc'}</span>{'. is a biopharmaceutical company developing therapeutics for patients with cardiovascular disease. Cadrenal’s lead investigational product is tecarfarin, a novel oral vitamin K antagonist anticoagulant that addresses unmet needs in anticoagulation therapy. Tecarfarin is a reversible anticoagulant (blood thinner) designed to prevent heart attacks, strokes, and deaths due to blood clots in patients requiring chronic anticoagulation. Although warfarin is widely used off-label for several indications, extensive clinical and real-world data have shown it can have significant, serious side effects.'}
-                    </p>
+                    
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                       {`Cadrenal is pursuing a pipeline-in-a-product approach with tecarfarin. Tecarfarin received Orphan Drug designation (ODD) for advanced heart failure patients with implanted mechanical circulatory support devices, including Left Ventricular Assisted Devices (LVADs). The Company also received ODD and fast-track status for tecarfarin in end-stage kidney disease and atrial fibrillation (ESKD+AFib).`}
                     </p>
@@ -250,4 +251,4 @@ const PRESSRELEASECVKD = () => {
     );
 };
 
-export default PRESSRELEASECVKD;
+export default WEBAI;

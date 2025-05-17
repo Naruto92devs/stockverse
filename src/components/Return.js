@@ -61,7 +61,7 @@ const Return = () => {
     if (status === 'paid') {
         return (
             <section id="success" className='min-h-[100vh] py-12 bg-[#F9F7FF]'>
-                <div className='xl:container lg:px-[29%] md:px-[22%] px-10% mx-auto flex flex-col items-center'>
+                <div className='w-full max-w-[560px] sm:px-6 px-4 mx-auto flex flex-col items-center'>
                     <Image className='-mb-10 relative' width={72} height={72} src='/images/stockverse_rounded_logo.svg' alt='logo'/>
                     <div className='w-[90%] flex flex-col gap-2 items-center bg-white rounded-t-xl shadow-lg/50 p-8 pt-12'>
                         <p className='text-center text-black/60 font-sansRegular text-xl'>Amount</p>

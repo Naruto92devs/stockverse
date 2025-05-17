@@ -216,7 +216,7 @@ export default function Stockverse_GPT() {
     const handleSubmitCommand = async (e, inputCommand = null) => {
         if (e) e.preventDefault(); 
         
-        if(membership?.counter <= 0) {
+        if(membership?.counter <= 0 && membership?.price_id === "price_free") {
             setUpgrade(true);
             setFixed(true);
             return
@@ -261,7 +261,7 @@ export default function Stockverse_GPT() {
                         
                         // Also update in localStorage
                         localStorage.setItem('MembershipInfo', JSON.stringify(updated));
-                        if (response.data.counter <= 0) {
+                        if (response.data.counter <= 0 && response.data.price_id === "price_free") {
                             setUpgrade(true);
                             setWarning(true);
                         }
