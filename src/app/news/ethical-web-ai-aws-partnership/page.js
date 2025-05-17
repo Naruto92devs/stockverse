@@ -220,7 +220,7 @@ const WEBAI = () => {
                     <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6">
                       <li><span className="font-MontserratBold">Secure ChatGPT:</span> Real-time protection against sensitive data accidentally being shared, misuse by employees, and blocks either us as suppliers or Open AI from getting any visibility of any sensitive data or any personal data.</li>
                       <li><span className="font-MontserratBold">End-to-end governance:</span> {`Audit logging, usage visibility, and policy enforcement across teams and applications. The customer has complete control of who has access to Gen AI with complete visibility of what it is being used for.`}</li>
-                      <li><span className="font-MontserratBold">Seamless AWS Integration:</span> Using the client's existing cloud infrastructure</li>
+                      <li><span className="font-MontserratBold">Seamless AWS Integration:</span> {`Using the client's existing cloud infrastructure`}</li>
                       <li><span className="font-MontserratBold">Scalable by Design:</span> Suitable for startups and Fortune 500s alike, with simple deployment</li>
                     </ul>
 
