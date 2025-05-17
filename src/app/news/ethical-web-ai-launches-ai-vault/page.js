@@ -3,7 +3,7 @@ import Link from "next/link";
 import Disclaimer from "@/components/Bblr_disclaimer";
 
 const WEBAI = () => {
-    const pressReleaseUrl = `https://stockverse.com/news/ethical-web-ai`; // The current URL
+    const pressReleaseUrl = `https://stockverse.com/news/ethical-web-ai-launches-ai-vault`; // The current URL
 
     const handleFacebookShare = () => {
         const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -78,7 +78,7 @@ const WEBAI = () => {
             <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
                 <div className="py-8 gap-y-6">
                     <h1 className="text-[#1D3045] font-MontserratSemibold md:text-4xl text-2xl !leading-[1.4]">
-                    Ethical Web AI submits AI Vault on AWS Marketplace for Enterprises to Purchase and Install
+                    Ethical Web AI Launches "AI Vault," a Groundbreaking Enterprise SaaS Solution Designed to Protect Subscribers from Various AI Threats
                     </h1>
                 </div>
                 <div className="pt-8 lg:pt-4 flex flex-col sm:flex-row gap-y-6 justify-between items-start sm:items-center border-t border-[#404040]">
@@ -200,39 +200,80 @@ const WEBAI = () => {
                     </div>
                 </div>
                 <div className="flex flex-col gap-6 py-4 2xl:pb-16 lg:pb-16 pb-8">
+                    <ul className="list-disc font-MontserratBold text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6">
+                      <li>Company Enters $1 Billion Marketplace Projected to Double by 2029</li>
+                      <li>Advanced Beta Version is Being Demo'd to Major Prospective Partners</li>
+                      <li>New Patent Filing, Company Infrastructure Build-out, Expected in 2Q-25</li>
+                    </ul>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`NEW YORK, May 14, 2025 (GLOBE NEWSWIRE) --  Bubblr Inc., d/b/a Ethical`} <Link href="https://www.globenewswire.com/Tracker?data=DBFh7Ao72KJttfWVRsz3QnPMi8WXkDp78OAcni7Ibm_Rv8XcQ7_aMPq0LA5LCg7VcerRII1ouIkU1e7-Y_q2NQ==" className="underline font-MontserratBold">Web AI</Link>. {`(OTCQB: BBLR) - A frontrunner in enterprise-specific generative AI has submitted AI Vault to become publicly available on AWS Marketplace. AI Vault is Ethical Web AI's unique enterprise-specific generative AI product. This event is hugely significant as it will allow clients to install and implement AI Vault directly from AWS Marketplace.`}
+                      NEW YORK, March 17, 2025 (GLOBE NEWSWIRE) -- Ethical Web AI (d/b/a Bubblr Inc.) (OTCQB: BBLR), a leader in Generative AI innovation, today announced that it has launched its groundbreaking Generative AI enterprise security product – AI VaultTM. AI Vault is a groundbreaking, generative AI-powered enterprise security software-as-a-service (SaaS) solution built upon Ethical Web AI's growing AI intellectual property estate, including 3 US patents that have been developed over the past two years.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`Being featured on the AWS Marketplace is a significant milestone for Ethical Web AI and underscores the value of our enterprise generative AI product, AI Vault. As an AWS Software Partner, we are able to leverage AWS's extensive global infrastructure, trusted reputation, and reach to deliver AI Vault to a wider audience of businesses who prioritise transparency, control, and data protection in their generative AI solutions. This strategic route to market not only positions AI Vault as a cutting-edge solution for companies wary of generative AI risks but also enhances our ability to support businesses in various industries, particularly those navigating complex regulatory landscapes like the General Data Protection Regulation. Through the AWS Marketplace, we're making it easier than ever for companies to adopt a secure, innovative AI product that meets their most critical needs.`}
+                      As a further enhancement of this product launch, Ethical Web AI has filed a new US patent (app.no. 19055968) titled Sensitive Data Protection for Generative AI. This patent describes a key process of dynamically detecting sensitive terms in Generative AI prompts.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {'AI Vault is a revolutionary generative AI product specifically designed to meet the needs of enterprise clients who are hesitant to adopt traditional generative AI solutions due to concerns over security and data privacy. This includes 27% of all companies, primarily large organisations such as banks and other businesses, where data security is paramount. AI Vault provides these enterprises with their own secure, private generative AI platform, giving them complete control over access and full transparency of all AI usage within their organisation. Supported by three USPTO patents, including a groundbreaking patent that ensures sensitive client data is never shared with Ethical Web AI or any third-party generative AI partners, AI Vault is the ideal solution for companies looking to harness the power of generative AI without compromising on security, privacy, or control.'}
+                      As was previously outlined in its February 5 <Link href="https://www.globenewswire.com/Tracker?data=baMFj_Yv-AuvZ8739Zo7JdWvrZ5a5rUqF09so0jzU_QclPmye8IpS3zZUB4EDATxCBKm-8mTc1kj80CikHFf3BeKC13t1844BW2Ta5mRuPw=" className="font-MontserratBold underline">news release</Link> as the Company's next strategic initiative, this enterprise-level SaaS product is designed to protect enterprises from emerging cyber threats posed by uncontrolled employee use of ChatGPT, DeepSeek, and their peers while ensuring clients' sensitive information remains protected and confidential.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`You can find out precisely what AI Vault is by watching the following explainer video by clicking on the link:`} <Link href="https://www.globenewswire.com/Tracker?data=TsmQnHYErE5_C0KLid_G4xtfWiozumSEaT_Ca3XGJRalQGdRcDowWRPtvElNeocCp9PrOSUVA2Blq4NTX4tAuXOxsjCNkpdn9M5-ZW_crFB0NiE2Jpz-AyWu-v67niHUwEcHiobmW5MLd_9rArm_E9TeqdQJ21niVIicwY3hM-o=" className="font-MontserratBold underline">https://ethicalweb.ai/ai-vault-explainer-video/</Link>
+                      Leveraging advanced generative AI, AI Vault enhances threat detection, response, and prevention with real-time redaction of the subscribers' critical data. It has been designed specifically for AWS customers to become a seamless component of a scalable, secure Gen AI Marketplace enterprise proposition.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                        {`Tom Symonds, CEO of`} <span className="font-MontserratBold">Ethical Web AI</span>, {`remarked: “Achieving approval to sell AI Vault through the AWS Marketplace has been a technically demanding process that reflects the high standards and rigorous requirements that AWS places on its partners. From ensuring seamless integration with AWS's infrastructure to meeting stringent security protocols and compliance standards, the process required a deep commitment to excellence from our development team. Their tireless work in addressing these complex technical challenges has been instrumental in ensuring AI Vault not only meets but exceeds AWS's expectations. We would like to extend our sincere gratitude to our development team and the AWS support staff for their dedication, expertise, and perseverance in making this milestone a reality. Their efforts have been crucial in enabling us to offer AI Vault through one of the most trusted platforms in the world.`}
+                      Twenty-seven per cent of enterprises have banned generative AI applications such as ChatGPT, according to the <Link href="https://www.globenewswire.com/Tracker?data=cF3tfY3TTrvOt8HsJTcXOfbdqSdYAAwiNe75r3UzKFdrLD7xBaQQqv6JC517ATWd_KDaviro6nkP8Jco1u5WleDrb9_adK4xXTIUoyS6Quyxbg7tVhByrlGRUx9eLfLClgv2YFm7IdHVcLDndLxx9B2F0FmsZJgYROCsY31kyruZiHoRXQsAiMQ4tLwQzZOb">2024 Cisco Data Privacy Study</Link> published in January 2025. The productivity, process optimization, and customer service benefits expected from widespread, growing commercial and enterprise AI adoption are being lost or threatened by poorly understood and inadequately managed risks.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                        {`“In our last press release on April 29th, 2025, we proudly announced our achievement of becoming an AWS Software Partner, a milestone that has allowed us to bring AI Vault to the AWS Marketplace. This partnership not only provides us with unparalleled technical advantages but also significantly amplifies our marketing reach. As an approved AWS Software Partner, Ethical Web AI now benefits from increased visibility within AWS's global ecosystem, giving us direct exposure to thousands of potential customers across industries. This visibility is critical, as one of our biggest challenges has been the world's lack of awareness of how groundbreaking our products are. Through this partnership, we're confident that AI Vault will reach the attention it deserves, helping us position ourselves as leaders in generative AI while establishing trust and credibility in the marketplace. The extensive marketing support from AWS further enhances our ability to effectively communicate the true value of our solutions to the global business community.”`}
+                      Analysts at <Link href="https://www.globenewswire.com/Tracker?data=KWmVBDM1BfPNxsI0EA05U6tiDIvrOp5TwkjumA5niQDQ3fOo3qKlCPM2-mF3b-T5aaEMevZ-DvPSvAIwJS72m0MKqqmgBh9N93y89mDAAKtMDYPzCwJzJ5yYyNR1YtNqzZroF2cGT3u0m-C7XUDqRNXXuy9xZC-nDLF9um4QHHFeW2E1w60psrQVlR3WWpBsCffbEbv2aBBIhgw5U0yffyoxmD-9E5RhtFEHS2-lmlg=" className="underline font-MontserratBold">The Business Research Company</Link> project the Generative AI-in-security addressable market to see exponential growth in the next few years – from $0.8 billion in 2024 to $2.04 billion in 2029 at a compound annual growth rate (CAGR) of 20.6%. Its report states, "The growth in the historical period can be attributed to the rise in cyber threats, the big data explosion, the development of generative models, new security challenges due to the vast number of connected devices, and real-time threat detection and response."
                     </p>
-                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">About Ethical Web AI</h4>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      According to <Link href="https://www.globenewswire.com/Tracker?data=n3jNmUxxgAp98cIE1-OcxWgUFdBLQnCVLSC7DcClyIq-0qOGQCh8-LZhcuJgKWNiDAJ5G28O77cPf4nYy6oGnNxghffqDqAmRv2mNImTKVXeNMdRQ_Q_2JNPzuBvYjUtaJruHHAYcMVM78lCqCHNv-gciC3NQn5p1s7Eu0KISJY=" className="underline font-MontserratBold">Fortune Business Insights</Link>, the broader, US generative AI market size was valued at $21.87 billion in 2023 and is projected to reach an estimated value of $220.27 billion by 2032, "driven by technological advancements, increased cloud adoption, demand for automation, and significant venture capital investments."
+                    </p>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      Commenting on the AI Vault launch, Chief Executive Officer Tom Symonds said, "We're thrilled to introduce a uniquely smart and feature-rich security solution for cloud-based enterprise users of generative AI. With 27 per cent of enterprises banning their employees' use of AI, we are offering a highly cost-effective, seamlessly integrated solution that we are confident will accelerate AI adoption globally by ensuring its privacy and safety.”
+                    </p>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      "We are privately demonstrating AI Vault in beta to highly prospective partners. Going forward, as we are approaching commercialization, we expect to publish our detailed demo program in the next few weeks," Mr. Symonds added. "We are making solid progress building out a deliberately lean but robust corporate infrastructure to include adding a Chief Revenue Officer, publishing a new investor presentation deck, and upgrading our website content for clients and shareholders."
+                    </p>
                     
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">How AI Vault Works</h4>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`Ethical Web AI is an ethical technology company that is championing an anonymous, safe, and fair new internet. We produce unique intellectual property and technology that is defensible by our valuable utility software patents.`}
-                    </p>
-                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      Media and investor contact: <Link href="https://www.globenewswire.com/Tracker?data=3MHBesjG_wg7H8ihAWSNvLh7hKsrmhsUsZ6WVLj_Z0kdNMe771RGLXZTEgZeYKQE_ziTXt2MfArnjTw9Jj22dt7hqupGmGUzihfjDzXJJuwaUr86f-CgMEUTvdatD-Qy" className="underline font-MontserratBold">tom.symonds@ethicalweb.ai</Link>
+                      AI Vault serves as a secure generative AI aggregator, ensuring that third-party content providers (such as OpenAI) cannot trace the origin of user prompts. This anonymization guarantees complete confidentiality for enterprise users. Further, its Automated Redaction Engine instantly redacts sensitive terms in communications and logs, ensuring compliance and confidentiality.
                     </p>
 
-                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Safe Harbor Statement</h4>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Key AI Vault Features</h4>
+                    <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6">
+                      <li>AI-Driven Threat Intelligence: Uses generative AI to analyze vast datasets and identify patterns indicative of cyber threats.</li>
+                      <li>Real-Time Anomaly Detection: Continuously monitors network activity to detect and neutralize threats before they cause harm.</li>
+                      <li>Adaptive Security Framework: Evolves with emerging threats, ensuring long-term protection against AI-powered cyberattacks.</li>
+                    </ul>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Key AI Vault Benefits</h4>
+                    <ul className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6">
+                      <li className="list-disc">Bundled AI Licenses with Secure Architecture</li>
+                      <li>Unlike other solutions that require businesses to procure separate generative AI licenses, AI Vault provides cost-effective pre-integrated AI licenses as part of its turnkey package.</li>
+                      <li className="list-disc">Fully Encrypted Enterprise Deployment</li>
+                      <li>AI Vault operates within a dedicated AWS environment for each client, containerizing product components — including an AWS RDS instance that stores all AI-generated prompts and responses.</li>
+                      <li className="list-disc">Advanced-Data Redaction & Contextual Sensitivity Detection</li>
+                      <li>AI Vault uniquely identifies explicitly defined sensitive terms and suggests additional potentially sensitive terms through LLM-based Named Entity Recognition (NER).</li>
+                      <li className="list-disc">Patent-Protected Secure Workflow</li>
+                      <li>AI Vault executes a structured, end-to-end anonymized process.</li>
+                      <li className="list-disc">Multimedia Integration and Real-Time Data Handling</li>
+                      <li>AI Vault provides rapid, turnkey, effortless deployment requiring no bespoke integration into existing infrastructure.</li>
+                      <li className="list-disc">Cost-Effective and Scalable</li>
+                      <li>As an aggregated AI solution, AI Vault not only enhances security but also reduces generative AI costs by 25 per cent.</li>
+                    </ul>
+                   
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
+                      About Ethical Web AI
+                    </h4>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                        {`This press release contains forward-looking statements within the meaning of Section 27A of the Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934. These forward-looking statements are based on the current plans and expectations of management. They are subject to several uncertainties and risks that could significantly affect the Company's current plans and expectations, future operations, and financial condition. The Company reserves the right to update or alter its forward-looking statements, whether due to new information, future events or otherwise.`}
+                      Ethical Web AI is an AI-based cybersecurity technology company currently commercializing its enterprise AI VaultTM solution. Built upon its powerful IP and patent estate, it is the first in a planned suite of SaaS products to champion a private, safe, and high-value AI experience.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                    A video accompanying this announcement is available at  <Link className="underline font-MontserratBold" href="https://www.globenewswire.com/Tracker?data=TsmQnHYErE5_C0KLid_G468GQ1_tZTfLTR8peDnSxeeMIXhGo6mRDuyFJT77PEMc4fEHJtC_ulZYrwKYMJn2GmOWIVUN_IW-S8bxmildlngfjNpWhBHU2COsS6MRPYp94yah708YOKLLFDXsHUT6to9DCNKzeXhPOP6zD8lYsV-okbV3eoK6IdmW2eEFe1i3qiuDrqzplBXGQHmfwJEm8DsRBLpF2FiRlnkKqBPfWRxFDEXBjj3ff7sCWwi5VQr9MdD_FnbAWjhLxlo5td0Lwg==">https://www.globenewswire.com/NewsRoom/AttachmentNg/255c2f9c-8192-40fa-b372-1af848b76b75</Link>
+                      AI Vault initially targets the global enterprise marketplace with innovative solutions that protect businesses from advanced threats.
+                    </p>
+
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Media and investor contact – <Link href="" className="underline">tom.symonds@ethicalweb.ai</Link></h4>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Safe Harbor Statement</h4>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      This press release contains forward-looking statements within the meaning of Section 27A of the Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934. These forward-looking statements are based on the current plans and expectations of management. They are subject to several uncertainties and risks that could significantly affect the Company's current plans and expectations, future operations, and financial condition. The Company reserves the right to update or alter its forward-looking statements, whether due to new information, future events or otherwise.
                     </p>
 
                     {/* <h4 className="text-[#1D3045] font-MontserratBold pt-12 text-2xl !leading-[1.5]">Corporate and Investor Relations</h4>

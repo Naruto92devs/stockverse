@@ -82,7 +82,7 @@ export default function ProfileInfo() {
                     type="submit"
                     className="px-4 bg-primaryMain text-base text-white py-2 hover:bg-black rounded-xl transition duration-300"
                 >
-                    {loading ? 'Updating...' : 'Save Chnages'}
+                    {loading ? 'Updating...' : 'Save Changes'}
                 </button>
             </div>
             {message && <p className="font-sansMedium text-black text-center">{message}</p>}

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Disclaimer from "@/components/Bblr_disclaimer";
 
 const WEBAI = () => {
-    const pressReleaseUrl = `https://stockverse.com/news/ethical-web-ai`; // The current URL
+    const pressReleaseUrl = `https://stockverse.com/news/ethical-web-ai-aws-partnership`; // The current URL
 
     const handleFacebookShare = () => {
         const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -78,7 +78,7 @@ const WEBAI = () => {
             <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
                 <div className="py-8 gap-y-6">
                     <h1 className="text-[#1D3045] font-MontserratSemibold md:text-4xl text-2xl !leading-[1.4]">
-                    Ethical Web AI submits AI Vault on AWS Marketplace for Enterprises to Purchase and Install
+                    Ethical Web AI (EWA) announces ground-breaking Software partnership with AWS and full AWS Marketplace Integration
                     </h1>
                 </div>
                 <div className="pt-8 lg:pt-4 flex flex-col sm:flex-row gap-y-6 justify-between items-start sm:items-center border-t border-[#404040]">
@@ -201,38 +201,53 @@ const WEBAI = () => {
                 </div>
                 <div className="flex flex-col gap-6 py-4 2xl:pb-16 lg:pb-16 pb-8">
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`NEW YORK, May 14, 2025 (GLOBE NEWSWIRE) --  Bubblr Inc., d/b/a Ethical`} <Link href="https://www.globenewswire.com/Tracker?data=DBFh7Ao72KJttfWVRsz3QnPMi8WXkDp78OAcni7Ibm_Rv8XcQ7_aMPq0LA5LCg7VcerRII1ouIkU1e7-Y_q2NQ==" className="underline font-MontserratBold">Web AI</Link>. {`(OTCQB: BBLR) - A frontrunner in enterprise-specific generative AI has submitted AI Vault to become publicly available on AWS Marketplace. AI Vault is Ethical Web AI's unique enterprise-specific generative AI product. This event is hugely significant as it will allow clients to install and implement AI Vault directly from AWS Marketplace.`}
+                      NEW YORK, April 29, 2025 (GLOBE NEWSWIRE) -- Ethical Web AI (d/b/a Bubblr Inc.) (OTCQB: BBLR), a world-leading innovator in Generative AI security solutions, today announced it had become a validated partner with the world's leading cloud platform, Amazon Web Services (AWS), making its enterprise-grade Generative AI Security solution (AI Vault) available on AWS Marketplace.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`Being featured on the AWS Marketplace is a significant milestone for Ethical Web AI and underscores the value of our enterprise generative AI product, AI Vault. As an AWS Software Partner, we are able to leverage AWS's extensive global infrastructure, trusted reputation, and reach to deliver AI Vault to a wider audience of businesses who prioritise transparency, control, and data protection in their generative AI solutions. This strategic route to market not only positions AI Vault as a cutting-edge solution for companies wary of generative AI risks but also enhances our ability to support businesses in various industries, particularly those navigating complex regulatory landscapes like the General Data Protection Regulation. Through the AWS Marketplace, we're making it easier than ever for companies to adopt a secure, innovative AI product that meets their most critical needs.`}
+                      This is a highly significant milestone for EWA and validation of its innovative approach to enterprise software development. This collaboration brings scalable, real-time protection and governance for generative AI applications/ChatGPT directly to enterprises worldwide. Through integration with AWS Marketplace, EWA can leverage all of its expertise in scalable cloud-based deployment while offering its customers a quick and seamless method of procurement.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {'AI Vault is a revolutionary generative AI product specifically designed to meet the needs of enterprise clients who are hesitant to adopt traditional generative AI solutions due to concerns over security and data privacy. This includes 27% of all companies, primarily large organisations such as banks and other businesses, where data security is paramount. AI Vault provides these enterprises with their own secure, private generative AI platform, giving them complete control over access and full transparency of all AI usage within their organisation. Supported by three USPTO patents, including a groundbreaking patent that ensures sensitive client data is never shared with Ethical Web AI or any third-party generative AI partners, AI Vault is the ideal solution for companies looking to harness the power of generative AI without compromising on security, privacy, or control.'}
+                      With the rapid adoption of generative AI tools by both SMEs and Fortune 500 companies, organisations face a growing need to secure AI integrations, ensure data integrity and enforce compliance at scale. AI Vault offers a simple, flexible, and robust solution that allows the client to fully unlock ChatGPT's potential to drive productivity gain whilst safeguarding against the threat of data leakage and reputational damage through the misuse of confidential company info.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`You can find out precisely what AI Vault is by watching the following explainer video by clicking on the link:`} <Link href="https://www.globenewswire.com/Tracker?data=TsmQnHYErE5_C0KLid_G4xtfWiozumSEaT_Ca3XGJRalQGdRcDowWRPtvElNeocCp9PrOSUVA2Blq4NTX4tAuXOxsjCNkpdn9M5-ZW_crFB0NiE2Jpz-AyWu-v67niHUwEcHiobmW5MLd_9rArm_E9TeqdQJ21niVIicwY3hM-o=" className="font-MontserratBold underline">https://ethicalweb.ai/ai-vault-explainer-video/</Link>
+                      EWA has developed a fully patented solution that puts the client in control of how it manages and controls the use of ChatGPT across the enterprise. Its unique solution allows the client to define key sensitive terms that can redacted from prompts augmented by proprietary contextual parameters/criteria. This ensures that all potentially damaging/proprietary data is prevented from augmenting the public LLMs/. The solution sits within the client infrastructure/intranet, with all client-identifying data fully anonymised. Sophisticated reporting allows the client to monitor precisely how the generative AI app is being used within the organisation. AI Vault has been optimised to run solely on AWS cloud infrastructure.
                     </p>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                        {`Tom Symonds, CEO of`} <span className="font-MontserratBold">Ethical Web AI</span>, {`remarked: “Achieving approval to sell AI Vault through the AWS Marketplace has been a technically demanding process that reflects the high standards and rigorous requirements that AWS places on its partners. From ensuring seamless integration with AWS's infrastructure to meeting stringent security protocols and compliance standards, the process required a deep commitment to excellence from our development team. Their tireless work in addressing these complex technical challenges has been instrumental in ensuring AI Vault not only meets but exceeds AWS's expectations. We would like to extend our sincere gratitude to our development team and the AWS support staff for their dedication, expertise, and perseverance in making this milestone a reality. Their efforts have been crucial in enabling us to offer AI Vault through one of the most trusted platforms in the world.`}
+                      "Our Validated AWS Partner Status combined with the seamless Marketplace integration is a huge step forward for EWA and in democratising secure and responsible AI adoption at scale," said Tom Symonds, CEO of Ethical Web. "We're very excited to offer our customers the best in-breed AWS cloud solution and a seamless path to securing their generative AI initiatives without compromising innovation. Without robust oversight, these benefits can be overshadowed by risks to data integrity, brand reputation, and compliance.”
                     </p>
-                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                        {`“In our last press release on April 29th, 2025, we proudly announced our achievement of becoming an AWS Software Partner, a milestone that has allowed us to bring AI Vault to the AWS Marketplace. This partnership not only provides us with unparalleled technical advantages but also significantly amplifies our marketing reach. As an approved AWS Software Partner, Ethical Web AI now benefits from increased visibility within AWS's global ecosystem, giving us direct exposure to thousands of potential customers across industries. This visibility is critical, as one of our biggest challenges has been the world's lack of awareness of how groundbreaking our products are. Through this partnership, we're confident that AI Vault will reach the attention it deserves, helping us position ourselves as leaders in generative AI while establishing trust and credibility in the marketplace. The extensive marketing support from AWS further enhances our ability to effectively communicate the true value of our solutions to the global business community.”`}
-                    </p>
-                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">About Ethical Web AI</h4>
-                    
-                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      {`Ethical Web AI is an ethical technology company that is championing an anonymous, safe, and fair new internet. We produce unique intellectual property and technology that is defensible by our valuable utility software patents.`}
-                    </p>
-                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                      Media and investor contact: <Link href="https://www.globenewswire.com/Tracker?data=3MHBesjG_wg7H8ihAWSNvLh7hKsrmhsUsZ6WVLj_Z0kdNMe771RGLXZTEgZeYKQE_ziTXt2MfArnjTw9Jj22dt7hqupGmGUzihfjDzXJJuwaUr86f-CgMEUTvdatD-Qy" className="underline font-MontserratBold">tom.symonds@ethicalweb.ai</Link>
-                    </p>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Key Benefits of AI Vault on AWS Marketplace:</h4>
 
+                    <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6">
+                      <li><span className="font-MontserratBold">Secure ChatGPT:</span> Real-time protection against sensitive data accidentally being shared, misuse by employees, and blocks either us as suppliers or Open AI from getting any visibility of any sensitive data or any personal data.</li>
+                      <li><span className="font-MontserratBold">End-to-end governance:</span> Audit logging, usage visibility, and policy enforcement across teams and applications. The customer has complete control of who has access to Gen AI with complete visibility of what it is being used for.</li>
+                      <li><span className="font-MontserratBold">Seamless AWS Integration:</span> Using the client's existing cloud infrastructure</li>
+                      <li><span className="font-MontserratBold">Scalable by Design:</span> Suitable for startups and Fortune 500s alike, with simple deployment</li>
+                    </ul>
+
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Accelerating Time to Market for SMEs with AWS Marketplace</h4>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                        For SMEs looking to integrate AI into their operations quickly, AWS Marketplace provides a <span className="font-MontserratBold">frictionless procurement and deployment experience</span>:
+                    </p>
+                    <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6">
+                      <li><span className="font-MontserratBold">Fast Onboarding:</span>  Get started in minutes with preconfigured templates and integrations.</li>
+                      <li><span className="font-MontserratBold">Flexible Billing:</span>  Consolidated billing through AWS—no News Vendors or contracts needed.</li>
+                      <li><span className="font-MontserratBold">No Infrastructure Headaches:</span> Deploy within your existing AWS environment without a complex setup.</li>
+                      <li><span className="font-MontserratBold">Enterprise-Grade from Day One:</span> Access the same security and compliance features used by global enterprises—without enterprise-level overhead.</li>
+                      <li><span className="font-MontserratBold">Scalability as You Grow:</span> Easily scale usage and security policies as your AI footprint expands.</li>
+                    </ul>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">About Ethical Web AI</h4>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      Ethical Web AI is an AI-based cybersecurity technology company currently commercializing its enterprise AI Vault™ solution. Built upon its powerful IP and patent estate, it is the first in a planned suite of SaaS products to champion a private, safe, and high-value AI experience.
+                    </p>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      AI Vault initially targets the global enterprise marketplace with innovative solutions that protect businesses from advanced threats.
+                    </p>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
+                      Media and investor contact – <Link href="https://www.globenewswire.com/Tracker?data=PG1yepNZG0pn1Tm9JG7vbtRaBICX486ez-utXVyU0dEycB2wAhZBa-NHHV5-O3W1mkq-3LZUAmgEP_0Nkd46XkZWW61u3D5nzkUKUQdnR6kFuQZN1sWCBrUbNIuyeRe7" className="underline">tom.symonds@ethicalweb.ai</Link>
+                    </h4>
                     <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Safe Harbor Statement</h4>
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                        {`This press release contains forward-looking statements within the meaning of Section 27A of the Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934. These forward-looking statements are based on the current plans and expectations of management. They are subject to several uncertainties and risks that could significantly affect the Company's current plans and expectations, future operations, and financial condition. The Company reserves the right to update or alter its forward-looking statements, whether due to new information, future events or otherwise.`}
-                    </p>
-                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-                    A video accompanying this announcement is available at  <Link className="underline font-MontserratBold" href="https://www.globenewswire.com/Tracker?data=TsmQnHYErE5_C0KLid_G468GQ1_tZTfLTR8peDnSxeeMIXhGo6mRDuyFJT77PEMc4fEHJtC_ulZYrwKYMJn2GmOWIVUN_IW-S8bxmildlngfjNpWhBHU2COsS6MRPYp94yah708YOKLLFDXsHUT6to9DCNKzeXhPOP6zD8lYsV-okbV3eoK6IdmW2eEFe1i3qiuDrqzplBXGQHmfwJEm8DsRBLpF2FiRlnkKqBPfWRxFDEXBjj3ff7sCWwi5VQr9MdD_FnbAWjhLxlo5td0Lwg==">https://www.globenewswire.com/NewsRoom/AttachmentNg/255c2f9c-8192-40fa-b372-1af848b76b75</Link>
+                      This press release contains forward-looking statements within the meaning of Section 27A of the Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934. These forward-looking statements are based on the current plans and expectations of management. They are subject to several uncertainties and risks that could significantly affect the Company's current plans and expectations, future operations, and financial condition. The Company reserves the right to update or alter its forward-looking statements, whether due to new information, future events or otherwise.
                     </p>
 
                     {/* <h4 className="text-[#1D3045] font-MontserratBold pt-12 text-2xl !leading-[1.5]">Corporate and Investor Relations</h4>
