@@ -56,10 +56,10 @@ const PRESSRELEASECVKD = () => {
 
     return (
         <>
-            <div className="xl:container mx-auto sticky top-24 xl:px-10 xl:py-4 max-sm:hidden">
+            <div className="xl:container mx-auto sticky top-24 xl:px-10 px-3 py-4 w-full">
                 <a
                     href="/dashboard?view=news"
-                    className="font-sansMedium text-base 2xl:text-xl flex items-center w-max justify-start gap-4"
+                    className="font-MontserratMedium text-base 2xl:text-xl flex items-center w-max justify-start gap-4"
                 >
                     <svg
                         className="w-5 h-5 text-gray-700"
@@ -77,19 +77,19 @@ const PRESSRELEASECVKD = () => {
             </div>
             <div className="w-full h-full mx-auto xl:container lg:px-[15%] max-xl:px-3">
                 <div className="py-8 gap-y-6">
-                    <h1 className="text-4xl 2xl:text-5xl font-sansMedium max-sm:text-[1.6rem]  text-left text-primaryText  leading-[140%] 2xl:leading-[140%]">
+                    <h1 className="text-[#1D3045] font-MontserratSemibold md:text-4xl text-2xl !leading-[1.4]">
                     Cadrenal Therapeutics Announces Tecarfarin Manufacturing Progress in Support of Clinical Trial Readiness
                     </h1>
                 </div>
                 <div className="pt-8 lg:pt-4 flex flex-col sm:flex-row gap-y-6 justify-between items-start sm:items-center border-t border-[#404040]">
                     <Link
                         href="/dashboard?view=news"
-                        className=" leading-[110%] 2xl:text-xl text-sm font-sansMedium text-[#634FF7]"
+                        className=" leading-[110%] text-base font-MontserratMedium text-[#634FF7]"
                     >
                         May, 2025 by Stockverse
                     </Link>
                     <div className="">
-                        <p className="text-base  text-primaryText leading-[110%]">
+                        <p className="text-sm font-MontserratMedium  text-primaryText leading-[110%]">
                             SHARE THIS ARTICLE
                         </p>
                         <div className="flex flex-wrap items-center gap-2 pt-2">
@@ -200,47 +200,47 @@ const PRESSRELEASECVKD = () => {
                     </div>
                 </div>
                 <div className="flex flex-col gap-6 py-4 2xl:pb-16 lg:pb-16 pb-8">
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
-                      PONTE VEDRA, Fla.--(BUSINESS WIRE)-- <span className="font-sansMedium"> Cadrenal Therapeutics, Inc. (Nasdaq: CVKD) </span>, a biopharmaceutical company developing therapeutics for patients with cardiovascular disease, today announced manufacturing and supply chain milestones for its lead drug candidate, tecarfarin, a novel oral vitamin K antagonist (VKA) anticoagulant that is designed to address unmet needs in anticoagulation therapy.
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+                      PONTE VEDRA, Fla.--(BUSINESS WIRE)-- <span className="font-MontserratBold"> Cadrenal Therapeutics, Inc. (Nasdaq: CVKD) </span>, a biopharmaceutical company developing therapeutics for patients with cardiovascular disease, today announced manufacturing and supply chain milestones for its lead drug candidate, tecarfarin, a novel oral vitamin K antagonist (VKA) anticoagulant that is designed to address unmet needs in anticoagulation therapy.
                     </p>
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                       {`Cadrenal completed the technical transfer and manufacturing of its tecarfarin drug substance in accordance with current good manufacturing practices (cGMP) earlier this year at a U.S. site of a leading global Contract Development and Manufacturing Organization (CDMO). Manufacturing of the tecarfarin drug product candidate is currently underway.`}
                     </p>
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                       {`“We are pleased with the important progress we have made with the supply chain and cGMP manufacturing process for tecafarin,” said Quang X. Pham, Chairman & CEO. “This is a key milestone as we support our clinical development strategy and tecarfarin’s potential to provide clinical benefits for patients with cardiovascular disease who require chronic VKA anticoagulation.”`}
                     </p>
 
-                    <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">About Cadrenal Therapeutics, Inc.</h4>
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">About Cadrenal Therapeutics, Inc.</h4>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                       {`Cadrenal Therapeutics, Inc. is a biopharmaceutical company developing therapeutics for patients with cardiovascular disease. Cadrenal’s lead investigational product is tecarfarin, a novel oral vitamin K antagonist anticoagulant that addresses unmet needs in anticoagulation therapy. Tecarfarin is a reversible anticoagulant (blood thinner) designed to prevent heart attacks, strokes, and deaths due to blood clots in patients requiring chronic anticoagulation. Although warfarin is widely used off-label for several indications, extensive clinical and real-world data have shown it can have significant, serious side effects.`}
                     </p>
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                       {`Cadrenal is pursuing a pipeline-in-a-product approach with tecarfarin. Tecarfarin received Orphan Drug designation (ODD) for advanced heart failure patients with implanted mechanical circulatory support devices, including Left Ventricular Assisted Devices (LVADs). The Company also received ODD and fast-track status for tecarfarin in end-stage kidney disease and atrial fibrillation (ESKD+AFib).`}
                     </p>
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                       {`Cadrenal is opportunistically pursuing business development initiatives with a longer-term focus on creating a pipeline of cardiovascular therapeutics. For more information, visit https://www.cadrenal.com/ and connect with us on LinkedIn.`}
                     </p>
 
-                    <h4 className="text-xl text-primaryText md:text-2xl 2xl:text-3xl font-sansMedium pt-2">Safe Harbor</h4>
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-24 2xl:text-4xl text-2xl !leading-[1.5]">Safe Harbor</h4>
+                    <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                         {`Any statements in this press release about future expectations, plans, and prospects, as well as any other statements regarding matters that are not historical facts, may constitute “forward-looking statements.” The words “anticipate,” “believe,” “continue,” “could,” “estimate,” “expect,” “intend,” “may,” “plan,” “potentially,” “predict,” “project,” “should,” “target,” “will,” “would” and similar expressions are intended to identify forward-looking statements, although not all forward-looking statements contain these identifying words. These statements include statements regarding tecarfarin’s potential to provide clinical benefits for patients with cardiovascular disease who require chronic VKA anticoagulation and pursuing business development initiatives with a longer-term focus on creating a pipeline of cardiovascular therapeutics. Actual results may differ materially from those indicated by such forward-looking statements as a result of various important factors, including the ability of tecarfarin to provide clinical benefits for patients with cardiovascular disease who require chronic VKA anticoagulation, the ability of Cadrenal to build a pipeline of specialized cardiovascular therapeutics and other assets and the other risk factors described in the Company’s Annual Report on Form 10-K for the year ended December 31, 2024, and the Company’s subsequent filings with the Securities and Exchange Commission, including subsequent periodic reports on Quarterly Reports on Form 10-Q and Current Reports on Form 8-K. Any forward-looking statements contained in this press release speak only as of the date hereof and, except as required by federal securities laws, the Company specifically disclaims any obligation to update any forward-looking statement, whether as a result of new information, future events, or otherwise.`}
                     </p>
-                    <p className="text-base text-primaryText font-sansRegular leading-[150%]">
+                    <p className="font-MontserratMedium text-base pt-12 text-[#343D48]">
                     View source version on businesswire.com: 
                     <Link className="text-primaryMain" href="https://www.businesswire.com/news/home/20250515408603/en"> https://www.businesswire.com/news/home/20250515408603/en</Link>
                     </p>
 
-                    <h4 className="text-lg text-primaryText md:text-xl 2xl:text-2xl font-sansMedium pt-2">Corporate and Investor Relations</h4>
-                    <p className="text-base  text-primaryText leading-[100%] font-sansRegular">{`Paul Sagan`}</p>
-                    <p className="text-base  text-primaryText leading-[100%] font-sansRegular">{`LaVoieHealthScience`}</p>
-                    <p className="text-base  text-primaryText leading-[100%] font-sansRegular">{`(617) 865-0041`}</p>
-                    <Link href='mailto:psagan@lavoiehealthscience.com' className="text-base  text-primaryText leading-[100%] font-sansRegular">{`psagan@lavoiehealthscience.com`}</Link>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-12 text-2xl !leading-[1.5]">Corporate and Investor Relations</h4>
+                    <p className="font-MontserratMedium text-base text-[#343D48]">{`Paul Sagan`}</p>
+                    <p className="font-MontserratMedium text-base text-[#343D48]">{`LaVoieHealthScience`}</p>
+                    <p className="font-MontserratMedium text-base text-[#343D48]">{`(617) 865-0041`}</p>
+                    <Link href='mailto:psagan@lavoiehealthscience.com' className="font-MontserratMedium text-base text-[#343D48]">{`psagan@lavoiehealthscience.com`}</Link>
 
-                    <h4 className="text-lg text-primaryText md:text-xl 2xl:text-2xl font-sansMedium pt-2">Media</h4>
-                    <p className="text-base  text-primaryText leading-[100%] font-sansRegular">{`Andrew Korda`}</p>
-                    <p className="text-base  text-primaryText leading-[100%] font-sansRegular">{`LaVoieHealthScience`}</p>
-                    <p className="text-base  text-primaryText leading-[100%] font-sansRegular">{`(617) 865-0043`}</p>
-                    <Link href='mailto:akorda@lavoiehealthscience.com' className="text-base  text-primaryText leading-[100%] font-sansRegular">{`akorda@lavoiehealthscience.com`}</Link>
+                    <h4 className="text-[#1D3045] font-MontserratBold pt-12 text-2xl !leading-[1.5]">Media</h4>
+                    <p className="font-MontserratMedium text-base text-[#343D48]">{`Andrew Korda`}</p>
+                    <p className="font-MontserratMedium text-base text-[#343D48]">{`LaVoieHealthScience`}</p>
+                    <p className="font-MontserratMedium text-base text-[#343D48]">{`(617) 865-0043`}</p>
+                    <Link href='mailto:akorda@lavoiehealthscience.com' className="font-MontserratMedium text-base text-[#343D48]">{`akorda@lavoiehealthscience.com`}</Link>
                     
                     <p className="text-base  text-primaryText leading-[200%] font-sansRegular">{`SOURCE Cadrenal Therapeutics, Inc.`}</p>
                 </div>
