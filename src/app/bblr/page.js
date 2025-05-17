@@ -179,8 +179,9 @@ const BBLR = () => {
                   {er ? `${message}` : 'Thanks For Subscribing.'}
                 </div>
               )}
-              <form className="flex items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
-                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute left-6" />
+              <form className="flex flex-col gap-4 items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
+                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" />
+                <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-28 left-6" />
                 <input
                   name="search_Symbols"
                   type="text"
@@ -189,7 +190,16 @@ const BBLR = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <button type="submit" className={`bg-[#12A72E] text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition absolute right-2.5 ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
+                <input
+                  name="search_Symbols"
+                  type="tel"
+                  className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
+                  placeholder="Enter your phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  autoComplete="tel"
+                />
+                <button type="submit" className={`bg-[#12A72E] text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
                     Subscribe now <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
@@ -379,185 +389,18 @@ const BBLR = () => {
         </div>
       </section>
 
-      {/* Trusted members */}
-      <section className="bg-[#010e140d] max-md:py-6 py-16">
-        <h4 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-12">
-          Proven Results, Trusted By 128,000 Members
-        </h4>
-        <div className="py-8">
-          <div className="flex items-start gap-4 overflow-x-auto scroll-smooth scrollbar-hide whitespace-nowrap px-4"
-            ref={scrollRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-
-          >
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would like to take this oppertunity to thank SA Places for the great service rendered to
-                us and in particular Estelle. You got me the best place ever in just a few moments after
-                I spoke to you.
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={45} height={45} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Minnie Horn
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hello.mimmie
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/veona watson.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                Thank you for all your help. Your service was excellent and very FAST.
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/justin.svg" alt="justin" width={45} height={45} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Cherice Justin
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @cherice.me
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                Many thanks for you kind and efficient service. I have already and will definitely continue to
-                recommend your services to others in the future. Wishing you all a
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Minnie Horn
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hello.mimmie
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would like to take this oppertunity to thank SA Places for the great service rendered to
-                us and in particular Estelle. You got me the best place ever in just a few moments after
-                I spoke to you.
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/veona watson.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Minnie Horn
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hello.mimmie
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/justin.svg" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="xl:container mx-auto px-8 xl:px-3 relative -z-1 flex flex-col gap-y-8">
+        <div className="bg-[#0A84EF] px-2 py-8 xl:py-16 lg:py-[2rem] space-y-4 rounded-3xl bg-cvkd-bg-6 bg-no-repeat bg-[100%_100%] bg-[length:100%_100%]">
+          <p className="font-MontserrarMedium md:text-2xl text-base italic text-center text-[#fff]">
+            &#8213; Join StockVerse Alerts Today!
+          </p>
+          <h4 className="text-[2rem] xl:text-[3.2rem] font-MontserratSemibold leading-[130%] lg:leading-[120%] text-center text-[#fff]">
+            Winning Stock Picks Sent To Inbox
+          </h4>
+          <p className="pt-2 font-MontserratRegular text-base md:text-xl xl:tetx-2xl text-[#fff] px-4 lg:px-[15%] leading-[150%] lg:leading-[120%] text-center">
+            Sign up for our newsletter to receive the latest updates, insights, and exclusive Winning Stock Picks. As of 2024, our alerts are up a total of
+            873.22%.
+          </p>
         </div>
       </section>
 
@@ -627,22 +470,9 @@ const BBLR = () => {
         </p>
       </section>
 
-      <section className="xl:container mx-auto px-8 xl:px-3 relative -z-1 flex flex-col gap-y-8">
-        <div className="bg-[#0A84EF] px-2 py-8 xl:py-16 lg:py-[2rem] space-y-4 rounded-3xl bg-cvkd-bg-6 bg-no-repeat bg-[100%_100%] bg-[length:100%_100%]">
-          <p className="font-MontserrarMedium md:text-2xl text-base italic text-center text-[#fff]">
-            &#8213; Join StockVerse Alerts Today!
-          </p>
-          <h4 className="text-[2rem] xl:text-[3.2rem] font-MontserratSemibold leading-[130%] lg:leading-[120%] text-center text-[#fff]">
-            Winning Stock Picks Sent To Inbox
-          </h4>
-          <p className="pt-2 font-MontserratRegular text-base md:text-xl xl:tetx-2xl text-[#fff] px-4 lg:px-[15%] leading-[150%] lg:leading-[120%] text-center">
-            Sign up for our newsletter to receive the latest updates, insights, and exclusive Winning Stock Picks. As of 2024, our alerts are up a total of
-            873.22%.
-          </p>
-        </div>
-      </section>
 
-      <section className="w-full bg-[#000] pt-[4rem] xl:pt-[8rem] mt-[-5rem] xl:mt-[-7rem]">
+
+      <section className="w-full bg-[#000] pt-[3rem]">
         <div className="w-full xl:container py-28 xl:px-3 px-8 px-8 mx-auto flex flex-col lg:flex-row lg:justify-between border-b border-solid border-[#404040] space-y-10 lg:space-y-0">
           {/* Left Section - Sign Up */}
           <div className="w-full xl:w-[40%] lg:w-[48%] md:w-[70%]">
