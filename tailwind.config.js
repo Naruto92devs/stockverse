@@ -76,6 +76,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/aspect-ratio'),
     function ({ addUtilities }) {
         addUtilities({
             '.scrollbar-hide': {
