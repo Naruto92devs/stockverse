@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Disclaimer() {
   return (
     <div className="hero py-16 max-md:py-6 w-full border-t-[1.2px] border-[#404040]">
-      <div className="mx-auto xl:container gap-y-4 max-sm:gap-y-3 flex flex-col items-start">
+      <div className="mx-auto xl:container gap-y-4 px-8 xl:px-3 max-sm:gap-y-3 flex flex-col items-start">
         <h4 className="text-3xl font-inter font-bold text-primaryText">MASTER LEGAL DISCLAIMER</h4>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Effective Date</span>: August 2024</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Last Updated</span>: May 17, 2025</p>

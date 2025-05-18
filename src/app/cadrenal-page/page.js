@@ -152,22 +152,22 @@ const CadrenalPage = () => {
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%]">
             <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Biotech Stock Alert:</h1>
-            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold pl-12 max-md:pl-0"><span className="text-[#1d3045]">Ticker: </span>CVKD <span className="text-[#1d3045]">(NASDAQ)</span></h2>
+            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-[#1d3045]">Ticker: </span>CVKD <span className="text-[#1d3045]">(NASDAQ)</span></h2>
             <div className="flex flex-wrap gap-2 pt-8">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD'>
-                <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo"/>
+                <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" />
               </Link>
               <Link href='https://www.schwab.com/'>
-                <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo"/>
+                <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" />
               </Link>
               <Link href='https://www.tradestation.com/'>
-                <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo"/>
+                <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" />
               </Link>
               <Link href='https://us.etrade.com/home'>
-                <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo"/>
+                <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" />
               </Link>
               <Link href='https://www.interactivebrokers.com/'>
-                <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo"/>
+                <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" />
               </Link>
             </div>
             <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Introduces CVKD — A Biotech Company Advancing Heart Disease Treatment. Be First to Know — Get Free Stock Alerts Now.</p>
@@ -221,36 +221,34 @@ const CadrenalPage = () => {
       {/* main */}
       <section className="w-full xl:container mx-auto py-24 px-3">
         <div className="flex lg:items-start justify-between flex-wrap max-lg:gap-y-8">
-          <div className="w-[23%] max-lg:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:relative max-lg:top-0 max-lg:order-2">
+          <div className="w-[23%] max-lg:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:relative max-lg:top-0 max-lg:order-2 max-md:order-3">
             <p className="bg-[#F2F3F3] text-[#1D3045] font-MontserratSemibold text-base px-4 py-4 rounded 2xl:rounded-lg">
               Latest News
             </p>
             <div className="flex flex-col gap-2">
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-sm p-2 py-4 border-b border-[#F2F3F3] text-[#343D48] hover:underline"
-                href="https://www.benzinga.com/news/24/09/40827755/why-champions-oncology-shares-are-trading-higher-by-over-13-here-are-20-stocks-moving-premarket">
-                Why Champions Oncology Shares Are Trading Higher By Over 13%; Here Are 20 Stocks
-                Moving Premarket - Champions Oncology ( NASDAQ:CSBR )
+                href="/cvkd-news">
+                Cadrenal Therapeutics Announces Tecarfarin Manufacturing Progress in Support of Clinical Trial Readiness
               </Link>
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-base p-2 py-4 border-b border-[#F2F3F3] text-[#343D48] hover:underline"
-                href="https://www.benzinga.com/pressreleases/24/08/g40481416/presenting-on-the-emerging-growth-conference-74-day-2-on-august-22-register-now">
-                Presenting on the Emerging Growth Conference 74 Day 2 on August 22 Register Now -
-                BlockchainK2 ( OTC:BIDCF ) , Ascend Wellness Holdings ( OTC:AAWH )
+                href="/cvkd/news">
+                Cadrenal Therapeutics Announces Collaboration Agreement with Abbott in Support of Pivotal Study of Tecarfarin in Patients with HeartMate 3™ LVAD
               </Link>
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-base p-2 py-4 text-[#343D48] hover:underline"
-                href="https://www.benzinga.com/pressreleases/24/08/g40457701/presenting-on-the-emerging-growth-conference-74-day-1-on-august-21-register-now">
-                {`Presenting on the Emerging Growth Conference 74 Day 1 on August 21 Register Now - BlockchainK2 ( OTC:BIDCF ) , Ascend Wellness Holdings ( OTC:AAWH )`}
+                href="/news/cadrenal-therapeutics-jp-morgan-healthcare-conference-2024">
+                {`Cadrenal Therapeutics Gears Up for the 43rd Annual J.P. Morgan Healthcare Conference Week with Event Participation and Investor/Partner Meetings`}
               </Link>
             </div>
           </div>
-          <div className="w-[50%] pt-6 max-md:w-[100%] max-lg:w-[100%] max-lg:order-3">
+          <div className="w-[50%] pt-6 max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              {`💔 Heart Disease: America’s Most Expensive Killer`}
+              <span className="max-lg:hidden">💔</span> Heart Disease: {`America’s`} Most Expensive Killer
             </h3>
             <h4 className="text-[#343D48] text-center 2xl:text-2xl lg:text-lg text-lg font-MontserratMedium md:px-28 leading-[24px]  max-md:text-left">
-             And the Public Company Quietly Developing a Potential Game-Changer
+              And the Public Company Quietly Developing a Potential Game-Changer
             </h4>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">Every 36 seconds, someone in the United States dies from heart disease. That adds up to over 2,300 deaths every single day. More than 121 million Americans are living with cardiovascular disease. Annual direct medical costs have surpassed $200 billion, burdening patients, families, and the healthcare system. Yet the most widely used blood thinner, Warfarin, has remained unchanged for more than 60 years.</p>
             <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">The Reality of Today’s Blood Thinners</h6>
@@ -267,7 +265,7 @@ const CadrenalPage = () => {
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               Patients don’t choose Warfarin because it’s ideal — they choose it because it’s the only FDA-approved option in many cases.
             </p>
-            
+
             {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
             <h4 className="text-[#1D3045] font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5] max-md:text-left">
@@ -279,7 +277,7 @@ const CadrenalPage = () => {
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               This population has no oral anticoagulant currently approved specifically for their needs. The medical gap is urgent and growing.
             </p>
-            
+
 
             <h4 className="text-[#1D3045] font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5] max-md:text-left">
               Introducing Cadrenal Therapeutics (CVKD)
@@ -312,7 +310,7 @@ const CadrenalPage = () => {
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               On May 15, 2025, Cadrenal Therapeutics (CVKD) announced the successful completion of the technical transfer and U.S.-based manufacturing of Tecarfarin’s active pharmaceutical ingredient (API). This milestone is intended to strengthen the company’s supply chain and support readiness for upcoming pivotal trials.
             </p>
-<p className="pt-4"><Link href="https://www.businesswire.com/news/home/20250515408603/en/Cadrenal-Therapeutics-Announces-Tecarfarin-Manufacturing-Progress-in-Support-of-Clinical-Trial-Readiness" className="font-MontserratMedium underline text-[#4f96ff]">Read the full press release on BusinessWire</Link></p>            
+            <p className="pt-4"><Link href="https://www.businesswire.com/news/home/20250515408603/en/Cadrenal-Therapeutics-Announces-Tecarfarin-Manufacturing-Progress-in-Support-of-Clinical-Trial-Readiness" className="font-MontserratMedium underline text-[#4f96ff]">Read the full press release on BusinessWire</Link></p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               The company is preparing Tecarfarin for a Phase 3 clinical study, initially targeting two high-risk patient groups:
             </p>
@@ -369,7 +367,7 @@ const CadrenalPage = () => {
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               CVKD is positioned at the intersection of medical innovation and patient need. For investors seeking early-stage exposure to potential breakthroughs in cardiovascular care, this is a company to watch closely.
             </p>
-            
+
 
             <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
               About the Company
@@ -390,22 +388,21 @@ const CadrenalPage = () => {
               Enjoyed This Article?
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              If you found this breakdown of Cadrenal Therapeutics (CVKD) helpful, we invite you to join Stockverse — a platform built for investors who want early access to unique stock insights before they hit the mainstream.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Sign up today to access:
+              If you found this breakdown helpful, consider joining Stockverse — a platform designed for investors who value early access to thoughtful stock research and market insights.
+              Your membership includes:
             </p>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Exclusive alerts on stocks like CVKD</li>
-              <li>Real-time news and technical data</li>
-              <li>Watchlist tools and portfolio tracking</li>
-              <li>Deep-dive research on emerging growth companies</li>
-              <li><span className="font-MontserratBold">Focus:</span> Cardiovascular therapies, next-generation anticoagulation</li>
-              <li className="font-MontserratBold">Website: <Link href="" className="underline">www.cadrenal.com</Link></li>
+              <li>Alerts on emerging companies</li>
+              <li>Real-time news, technical data, and market updates</li>
+              <li>Access to <Link className="font-MontserratBold text-[#4f96ff]" href='/stockverse-gpt' > StockverseGPT</Link>, a research tool for exploring stock-related questions</li>
+              <li>Tools to manage your watchlist and track your portfolio</li>
+              <li>Independent research across a range of sectors</li>
             </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              👉 Register now at <Link href="Stockverse.com/register" className="underline">Stockverse.com/register</Link><br/>
-              Join the community. Stay informed. Stay ahead.
+              If you appreciate staying informed and organized in your investing, <Link className="font-MontserratBold text-[#4f96ff]" href='/' > Stockverse </Link> is built for you.
+              Sign up at
+              <Link href="/register" className="underline text-[#4f96ff] pl-2">Stockverse.com/register</Link><br />
+              Informed decisions start with the right tools.
             </p>
           </div>
           <div className="w-[23%] max-lg:w-[48%] max-md:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:order-1 max-lg:relative max-lg:top-0">
@@ -448,271 +445,22 @@ const CadrenalPage = () => {
           Add CVKD to your watchlist today
         </h4>
         <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
-          <div className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
+          <Link href='https://www.etrade.wallst.com/sso/saml2/requestAssertion.ashx?originalTarget=https%3A%2F%2Fwww%2Eetrade%2Ewallst%2Ecom%2Fv1%2Fstocks%2Fsnapshot%2Fsnapshot%2Easp%3Fsymbol%3Dcvkd%26rsO%3Dnew&authnContext=prospect&ChallengeUrl=https%3A%2F%2Fidp%2Eetrade%2Ecom%2Fidp%2FSSO%2Esaml2' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/6.png" alt="3" width={70} height={70} />
-          </div>
-          <div className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
+          </Link>
+          <Link href='https://www.schwab.com/' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/7.png" alt="3" width={70} height={70} />
-          </div>
-          <div className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
+          </Link>
+          <Link href='https://www.tradingview.com/symbols/NASDAQ-CVKD/' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/8.png" alt="3" width={70} height={70} />
-          </div>
-          <div className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
+          </Link>
+          <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/9.png" alt="3" width={70} height={70} />
-          </div>
+          </Link>
         </div>
       </section>
 
-      {/* Trusted members */}
-      <section className="bg-[#010e140d] max-md:py-6 py-16">
-        <h4 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-12">
-          Proven Results, Trusted By 128,000 Members
-        </h4>
-        <div className="py-8">
-          <div className="flex items-start gap-4 overflow-x-auto scroll-smooth scrollbar-hide whitespace-nowrap px-4"
-            ref={scrollRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-
-          >
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would like to take this oppertunity to thank SA Places for the great service rendered to
-                us and in particular Estelle. You got me the best place ever in just a few moments after
-                I spoke to you.
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={45} height={45} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Minnie Horn
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hello.mimmie
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/veona watson.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                Thank you for all your help. Your service was excellent and very FAST.
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/justin.svg" alt="justin" width={45} height={45} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Cherice Justin
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @cherice.me
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                Many thanks for you kind and efficient service. I have already and will definitely continue to
-                recommend your services to others in the future. Wishing you all a
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Minnie Horn
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hello.mimmie
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would like to take this oppertunity to thank SA Places for the great service rendered to
-                us and in particular Estelle. You got me the best place ever in just a few moments after
-                I spoke to you.
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/veona watson.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Minnie Horn
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hello.mimmie
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/justin.svg" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#fff] myslide rounded p-4 w-[100%] md:w-[48%] lg:w-[30%] xl:w-[22%] flex-shrink-0">
-              <p className="font-sansRegular text-base 2xl:text-xl pt-2 text-[#343D48] whitespace-normal">
-                I would just like to compliment Estelle Pestana. She has been most professional
-                and gone to great lengths to assist me. Her patience with me as I continuously
-                changed my plans is to be commended. Her service re-affirms why I always choose
-                to book through an agency instead of directly. Thank you
-              </p>
-              <div className="flex items-center gap-3 mt-8">
-                <Image className="w-[3rem]" src="/images/minnie horn.png" alt="user" width={70} height={70} />
-                <div>
-                  <p className="font-sansMedium text-sm 2xl:text-lg text-[#343D48]">
-                    Veona Watson
-                  </p>
-                  <p className="font-sansMedium text-xs 2xl:text-base text-[#4F96FF]">
-                    @hi.veona
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* disclaimer */}
-      <Disclaimer/>
-      {/* <section className="w-full xl:container mx-auto max-md:px-3 py-20 px-3 text-[#343D48]">
-        <p className="font-MontserratMedium text-base 2xl:text-xl 2xl:leading-[185%] leading-[170%] pt-2">
-          {` Disclaimer: This website/newsletter is owned, operated and edited by Stellar Partners LLC.  
-            Any wording found in this e-mail or disclaimer referencing to “I” or “we” or “our” or “Stellar 
-            Partners” refers to Stellar Partners  LLC.  This webpage/newsletter is a paid advertisement, not a 
-            recommendation nor an offer to buy or sell securities. Our business model is to be financially 
-            compensated to market and promote small public companies.  By reading our newsletter and 
-            our website you agree to the terms of our disclaimer, which are subject to change at any time. 
-            We are not registered or licensed in any jurisdiction whatsoever to provide investing advice or 
-            anything of an advisory or consultancy nature and are therefore are unqualified to give 
-            investment recommendations. Always do your own research and consult with a licensed 
-            investment professional before investing. This communication is never to be used as the basis 
-            for making investment decisions and is for entertainment purposes only. At most, this 
-            communication should serve only as a starting point to do your own research and consult 
-            with a licensed professional regarding the companies profiled and discussed. Conduct your 
-            own research. Companies with low price per share are speculative and carry a high degree of 
-            risk, so only invest what you can afford to lose. By using our service you agree not to hold our 
-            site, its editor’s, owners, or staff liable for any damages, financial or otherwise, that may occur 
-            due to any action you may take based on the information contained within our newsletters or 
-            on our website.`}
-        </p>
-        <p className="font-MontserratMedium text-base 2xl:text-xl 2xl:leading-[185%] leading-[170%] pt-12">
-          {` We do not advise any reader take any specific action. Losses can be larger than expected 
-            if the company experiences any problems with liquidity or wide spreads. Our website and newsletter 
-            are for entertainment purposes only. Never invest purely based on our alerts. Gains mentioned in our 
-            newsletter and on our website may be based on end-of-day or intraday data. This publication and 
-            their owners and affiliates may hold positions in the securities mentioned in our alerts, which we may 
-            sell at any time without notice to our subscribers, which may have a negative impact on share prices. 
-            If we own any shares we will list the information relevant to the stock and number of shares here. 
-            Stellar Partners business model is to receive financial compensation to promote public companies. 
-            Pursuant to an agreement between Stellar Partners LLC. and Penzance LLC (a non affiliated 3rd party), 
-            Stellar Partners has been hired for a period beginning on 11/09/24 and ending on 01/11/25 to 
-            conduct investor relations advertising and marketing and publicly disseminate information about 
-            (NEOV) via Website, Email and SMS. We have been paid two hundred thousand dollars via bank wire 
-            transfer. We expect to receive additional compensation as the investor awareness continues. We will 
-            disclose every amount we receive. We own zero shares of (NEOV). We expect to receive additional 
-            compensation as the investor awareness continues. We own zero shares of (NEOV). compensation 
-            is a major conflict of interest in our ability to be unbiased regarding. Therefore, this communication 
-            should be viewed as a commercial advertisement only.  We have not investigated the background of 
-            the hiring third party or parties. The third party, profiled company, or their affiliates likely wish to 
-            liquidate shares of the profiled company at or near the time you receive this communication, which 
-            has the potential to hurt share prices.  Any non-compensated alerts are purely for the purpose of 
-            expanding our database for the benefit of our future financially compensated investor relations efforts. 
-            Frequently companies profiled in our alerts may experience a large increase in volume and share 
-            price during the course of investor relations marketing, which may end as soon as the investor 
-            relations marketing ceases. Our emails may contain forward-looking statements, which are not 
-            guaranteed to materialize due to a variety of factors.`}
-        </p>
-        <p className="font-MontserratMedium text-base 2xl:text-xl 2xl:leading-[185%] leading-[170%] pt-12">
-          {`We do not guarantee the timeliness, accuracy, or completeness of the information on our site or in our 
-          newsletters. The information in our email newsletters and on our website is believed to be accurate 
-          and correct, but has not been independently verified and is not guaranteed to be correct. The 
-          information is collected from public sources, such as the profiled company’s website and press releases, 
-          but is not researched or verified in any way whatsoever to ensure the publicly available information is 
-          correct. Furthermore, Delta Media often employs independent contractor writers who may make errors 
-          when researching information and preparing these communications regarding profiled companies. 
-          Independent writers’ works are double-checked and verified before publication, but it is certainly 
-          possible for errors or omissions to take place during editing of independent contractor writer’s 
-          communications regarding the profiled company(s). You should assume all information in all of our 
-          communications is incorrect until you personally verify the information, and again are encouraged to 
-          never invest based on the information contained in our written communications. The information in 
-          our disclaimers is subject to change at any time without notice. `}
-        </p>
-      </section> */}
-
-      <section className="xl:container mx-auto px-8 xl:px-3 relative -z-1 flex flex-col gap-y-8">
+      <section className="xl:container mx-auto px-8 xl:px-3 pb-20 relative -z-1 flex flex-col gap-y-8">
         <div className="bg-[#0A84EF] px-2 py-8 xl:py-16 lg:py-[2rem] space-y-4 rounded-3xl bg-cvkd-bg-6 bg-no-repeat bg-[100%_100%] bg-[length:100%_100%]">
           <p className="font-MontserrarMedium md:text-2xl text-base italic text-center text-[#fff]">
             &#8213; Join StockVerse Alerts Today!
@@ -727,7 +475,11 @@ const CadrenalPage = () => {
         </div>
       </section>
 
-      <section className="w-full bg-[#000] pt-[4rem] xl:pt-[8rem] mt-[-5rem] xl:mt-[-7rem]">
+
+      {/* disclaimer */}
+      <Disclaimer />
+
+      <section className="w-full bg-[#000] pt-[3rem]">
         <div className="w-full xl:container py-28 xl:px-3 px-8 px-8 mx-auto flex flex-col lg:flex-row lg:justify-between border-b border-solid border-[#404040] space-y-10 lg:space-y-0">
           {/* Left Section - Sign Up */}
           <div className="w-full xl:w-[40%] lg:w-[48%] md:w-[70%]">
