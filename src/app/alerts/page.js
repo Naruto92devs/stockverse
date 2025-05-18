@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/stockpicks_nav";
-import Footer from "@/components/stockpicks_footer";
+import StockpicksFooter from "@/components/stockpicks_footer";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -747,7 +747,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      <StockpicksFooter />
     </div>
   )
 

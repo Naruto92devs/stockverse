@@ -27,7 +27,7 @@ export default function Disclaimer() {
         <p className="text-base text-primaryText font-inter">
           Relqo Media LLC has been retained by Genesis One Holdings LLC to provide promotional media services for Cadrenal Therapeutics, Inc. (NASDAQ: CVKD). As of the effective date:
         </p>
-        <ul className="list-disc text-base text-primaryText space-y-3 font-inter">
+        <ul className="list-disc text-base text-primaryText space-y-3 font-inter pl-8">
           <li>Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.</li>
           <li>The total compensation paid for these services is $25,000 per week, paid weekly, for the period beginning January 1, 2025 through July 1, 2025, totaling $650,000.</li>
           <li>Genesis One Holdings LLC may own, acquire, or dispose of shares in CVKD during or after the campaign period.</li>

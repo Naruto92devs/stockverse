@@ -365,12 +365,6 @@ const Cadrenal = () => {
             <p className="text-base font-inter font-normal text-[#CFCFCF]/85 capitalize">By accessing and using Stockverse, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, you must discontinue use of this platform immediately.</p>
           </div>
 
-
-
-
-
-
-
           <p className="mt-16 text-xl font-inter font-[400] text-white capitalize">For any legal inquiries or compliance concerns, please contact:</p>
           
           <div className='flex gap-6 pt-4 flex-wrap'>

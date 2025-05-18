@@ -14,7 +14,7 @@ import Link from "next/link";
 
 import { Mousewheel, } from 'swiper/modules';
 
-const Neov = () => {
+const CadrenalPage = () => {
   const [privacyChecked, setPrivacyChecked] = useState(false);
   const [phone, setPhone] = useState(null);
   const [email, setEmail] = useState('');
@@ -949,6 +949,6 @@ const Neov = () => {
   )
 }
 
-export default Neov;
+export default CadrenalPage;
 
 
