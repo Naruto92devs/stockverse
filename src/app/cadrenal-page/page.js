@@ -151,7 +151,7 @@ const Neov = () => {
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%]">
             <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Biotech Stock Alert:</h1>
-            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold pl-12 max-md:pl-0">Ticker: CVKD (NASDAQ)</h2>
+            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold pl-12 max-md:pl-0"><span className="text-[#1d3045]">Ticker: </span>CVKD <span className="text-[#1d3045]">(NASDAQ)</span></h2>
             <div className="flex flex-wrap gap-2 pt-8">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD'>
                 <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo"/>
