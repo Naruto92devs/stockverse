@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope, FaRegEnvelope } from "react-icons/fa";
 import formatNumber from "@/components/FormatNumber";
 import NewsLetterPopup from "@/components/NewsLetterPopup";
+import Disclaimer from "@/components/Cvkd_disclaimer";
 
 
 import PhoneInput from 'react-phone-input-2';
@@ -645,7 +646,8 @@ const Neov = () => {
       </section>
 
       {/* disclaimer */}
-      <section className="w-full xl:container mx-auto max-md:px-3 py-20 px-3 text-[#343D48]">
+      <Disclaimer/>
+      {/* <section className="w-full xl:container mx-auto max-md:px-3 py-20 px-3 text-[#343D48]">
         <p className="font-MontserratMedium text-base 2xl:text-xl 2xl:leading-[185%] leading-[170%] pt-2">
           {` Disclaimer: This website/newsletter is owned, operated and edited by Stellar Partners LLC.  
             Any wording found in this e-mail or disclaimer referencing to “I” or “we” or “our” or “Stellar 
@@ -708,7 +710,7 @@ const Neov = () => {
           never invest based on the information contained in our written communications. The information in 
           our disclaimers is subject to change at any time without notice. `}
         </p>
-      </section>
+      </section> */}
 
       <section className="xl:container mx-auto px-8 xl:px-3 relative -z-1 flex flex-col gap-y-8">
         <div className="bg-[#0A84EF] px-2 py-8 xl:py-16 lg:py-[2rem] space-y-4 rounded-3xl bg-cvkd-bg-6 bg-no-repeat bg-[100%_100%] bg-[length:100%_100%]">
