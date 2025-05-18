@@ -9,7 +9,6 @@ export default function Disclaimer() {
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Last Updated</span>: May 17, 2025</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Publisher</span>: Relqo Media LLC (Wyoming, United States)</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Subject Company</span>: Cadrenal Therapeutics, Inc. (CVKD)</p>
-        <p className="text-lg font-inter text-primaryText"><span className="font-inter">Promoting Entity</span>: Genesis One Holdings LLC</p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">IMPORTANT SUMMARY — PLEASE READ FIRST</h4>
         <p className="text-base text-primaryText font-inter">
