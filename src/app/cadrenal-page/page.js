@@ -476,8 +476,7 @@ const CadrenalPage = () => {
       </section>
 
 
-      {/* disclaimer */}
-      <Disclaimer />
+
 
       <section className="w-full bg-[#000] pt-[3rem]">
         <div className="w-full xl:container py-28 xl:px-3 px-8 px-8 mx-auto flex flex-col lg:flex-row lg:justify-between border-b border-solid border-[#404040] space-y-10 lg:space-y-0">
@@ -697,6 +696,8 @@ const CadrenalPage = () => {
           </div>
         </div>
       </footer>
+      {/* disclaimer */}
+      <Disclaimer />
     </>
   )
 }
