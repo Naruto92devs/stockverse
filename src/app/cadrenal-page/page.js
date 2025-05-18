@@ -150,8 +150,25 @@ const Neov = () => {
       <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-12 ">
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%]">
-            <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Brand New Stock Pick:</h1>
-            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold pl-12 max-md:pl-0">The better energy storage!</h2>
+            <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Biotech Stock Alert:</h1>
+            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold pl-12 max-md:pl-0">Ticker: CVKD (NASDAQ)</h2>
+            <div className="flex flex-wrap gap-2 pt-8">
+              <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD'>
+                <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo"/>
+              </Link>
+              <Link href='https://www.schwab.com/'>
+                <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo"/>
+              </Link>
+              <Link href='https://www.tradestation.com/'>
+                <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo"/>
+              </Link>
+              <Link href='https://us.etrade.com/home'>
+                <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo"/>
+              </Link>
+              <Link href='https://www.interactivebrokers.com/'>
+                <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo"/>
+              </Link>
+            </div>
             <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Dec, 2nd 2024, BigStocks Reveals Top Energy Storage Stock Pick with Huge Potential! Subscribe Now For Updates!</p>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
@@ -161,8 +178,9 @@ const Neov = () => {
                   {er ? `${message}` : 'Thanks For Subscribing.'}
                 </div>
               )}
-              <form className="flex items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
-                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute left-6" />
+              <form className="flex flex-col gap-4 items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
+                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" />
+                <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-28 left-6" />
                 <input
                   name="search_Symbols"
                   type="text"
@@ -171,7 +189,16 @@ const Neov = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <button type="submit" className={`bg-[#12A72E] text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition absolute right-2.5 ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
+                <input
+                  name="search_Symbols"
+                  type="tel"
+                  className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
+                  placeholder="Enter your phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  autoComplete="tel"
+                />
+                <button type="submit" className={`bg-[#12A72E] text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
                     Subscribe now <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
