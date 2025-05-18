@@ -208,7 +208,7 @@ const CVKD = () => {
                     <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
                       {`Warfarin has been prescribed for decades to reduce the risk of stroke, clotting, and other cardiovascular complications. But its limitations are widely known:`}
                     </p>
-                    <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6">
+                    <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48] space-y-6 ml-3">
                       <li>Requires frequent blood testing and dose adjustments</li>
                       <li>Interacts with common foods (especially those rich in Vitamin K)</li>
                       <li>Has dangerous drug-to-drug interactions</li>

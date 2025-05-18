@@ -169,7 +169,7 @@ const Neov = () => {
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo"/>
               </Link>
             </div>
-            <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Dec, 2nd 2024, BigStocks Reveals Top Energy Storage Stock Pick with Huge Potential! Subscribe Now For Updates!</p>
+            <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Introduces CVKD — A Biotech Company Advancing Heart Disease Treatment. Be First to Know — Get Free Stock Alerts Now.</p>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
             <div>
@@ -201,7 +201,7 @@ const Neov = () => {
                 <button type="submit" className={`bg-[#12A72E] text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
-                    Subscribe now <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
+                    Get Alerts Now <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
                   </>}
                 </button>
               </form>
@@ -246,276 +246,165 @@ const Neov = () => {
           </div>
           <div className="w-[50%] pt-6 max-md:w-[100%] max-lg:w-[100%] max-lg:order-3">
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              Heart Disease: The $200 Billion Dollar Problem That’s Killing America in More Ways Than One
+              {`💔 Heart Disease: America’s Most Expensive Killer`}
             </h3>
             <h4 className="text-[#343D48] text-center 2xl:text-2xl lg:text-lg text-lg font-MontserratMedium md:px-28 leading-[24px]  max-md:text-left">
-              And how a surprisingly lucrative company might be a life-changing solution
+             And the Public Company Quietly Developing a Potential Game-Changer
             </h4>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">Dear Investor,</h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">Every 36 seconds, someone in the United States dies from heart disease. That adds up to over 2,300 deaths every single day. More than 121 million Americans are living with cardiovascular disease. Annual direct medical costs have surpassed $200 billion, burdening patients, families, and the healthcare system. Yet the most widely used blood thinner, Warfarin, has remained unchanged for more than 60 years.</p>
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">The Reality of Today’s Blood Thinners</h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              Heart disease has quickly become the leading cause of death in the United States.
-              According to the American Heart Association, <span className="underline font-MontserratBold">nearly half of US-based adults live with
-                some form of cardiovascular disease</span> — that’s about 121,000,000 people.
+              Warfarin has been prescribed for decades to reduce the risk of stroke, clotting, and other cardiovascular complications. But its limitations are widely known:
             </p>
+            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
+              <li>Requires frequent blood testing and dose adjustments</li>
+              <li>Interacts with common foods (especially those rich in Vitamin K)</li>
+              <li>Has dangerous drug-to-drug interactions</li>
+              <li>Carries a high risk of internal bleeding, including GI bleeds</li>
+              <li>Complicates treatment in elderly and kidney-impaired patients</li>
+            </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              {`Someone dies from cardiovascular disease in the United States every 36 seconds — 
-                        which makes up for approximately 25% of total deaths.`}
+              Patients don’t choose Warfarin because it’s ideal — they choose it because it’s the only FDA-approved option in many cases.
             </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              As if the climbing death toll wasn’t horrible enough, the long-term effects are
-              <span className="font-MontserratBold"> draining billions of dollars from the US’ economy.</span>
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              In fact, direct costs for treating heart disease exceeds $200,000,000,000 annually —
-              this includes healthcare services, medications and lost productivity. When considering
-              indirect costs, such as lost wages and decreased quality of life, the economic impact
-              falls just short of $1,000,000,000,000 every year.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Heart disease is more than a health crisis. It’s an economic crisis, too.
-            </p>
+            
             {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
             <h4 className="text-[#1D3045] font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5] max-md:text-left">
-              The Trickling Devastation of Heart Disease
+              The Unmet Medical Need
             </h4>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              As stated, approximately 121,000,000 Americans live with some form of cardiovascular
-              disease. However, the devastation doesn’t end with them — it bleeds into their families
-              and communities.
+              Patients with implanted cardiac devices like Left Ventricular Assist Devices (LVADs) are particularly vulnerable. They require lifelong anticoagulation therapy — yet Warfarin puts them at high risk of bleeding, especially when combined with chronic kidney disease.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              When someone has a heart attack, loved ones can’t help but worry.
+              This population has no oral anticoagulant currently approved specifically for their needs. The medical gap is urgent and growing.
             </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-4 text-[#343D48]">
-              “Will they survive”<br />
-              “If they do, will they have a decent quality of life?”<br />
-              “Will insurance help cover these costs?”<br />
-              “Will I need a second job to cover these medical expenses?”
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              They’re left with fear, anxiety — and oftentimes, dread.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Then friends, neighbors and coworkers hear the news. Here, each person’s life is affected a little differently.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              In the short-term, people feel grief and sadness. In the long-term, <span className="underline font-MontserratBold">communities
-                and businesses begin to suffer.</span> Eventually, there’s a long-lasting stress on local healthcare
-              systems, leading to a snowball effect of economic strain.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              … and as the population ages, experts project this problem to worsen.
-            </p>
+            
+
             <h4 className="text-[#1D3045] font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5] max-md:text-left">
-              Warfarin: Today’s Limited Treatment Option
+              Introducing Cadrenal Therapeutics (CVKD)
             </h4>
             {/* <Image className="w-full mt-8 xl:mt-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Americans have had to settle for Warfarin over the past few decades.
-              The blood-thinning medication has been used to prevent strokes, heart attacks,
-              and other blood clot-related complications.
+              <span className="underline font-MontserratBold">Cadrenal Therapeutics (NASDAQ: CVKD)</span> is a clinical-stage biopharmaceutical company developing Tecarfarin, a novel oral blood thinner designed to address the limitations of Warfarin.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              As of 2022, <span className="underline font-MontserratBold">Warfarin was valued at $540.21M</span> globally and is on pace to reach upwards of $566.73M by 2028.
+              <span className="underline font-MontserratBold">Tecarfarin is a Vitamin K antagonist (VKA) like Warfarin</span> — but with a key distinction: it’s metabolized by carboxyl esterase, not the liver’s cytochrome P450 system. This alternative metabolic pathway is being explored for its potential to offer greater stability, fewer interactions, and better suitability for patients with kidney or liver issues.
             </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Millions of Americans with atrial fibrillation, deep vein thrombosis, and similar conditions —
-              and those who have undergone heart valve replacement surgery have been prescribed Warfarin.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              And while it’s certainly true that Warfarin has saved countless lives — it’s far from a perfect solution.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Because while there have been upsides, Warfarin is notoriously known to:
-            </p>
+            <h4 className="text-[#1D3045] font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5] max-md:text-left">Tecarfarin’s Potential Advantages</h4>
+
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Be difficult to manage</li>
-              <li>Require consistent monitoring and dose adjustments</li>
-              <li>Involve regular blood testing (to monitor blood thickness)</li>
+              <li>Fewer food and drug interactions</li>
+              <li>Not dependent on kidney or liver function</li>
+              <li>More consistent therapeutic levels</li>
+              <li>Lower bleeding risk profile (pending trial outcomes)</li>
+              <li>Being developed for high-risk patients, including those with LVADs</li>
             </ul>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Taking Warfarin is a known balancing act, requiring careful management — yes, many patients still experience complications.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              For instance, Warfarin is known to not interact with other medications (and even certain foods) well.
-              Even a simple kale salad for lunch (high in Vitamin K) can adversely affect how Warfarin works in the body.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Stronger, more reliable battery systems will define solar’s inherent value, in the eyes of coastal and mainland Ameicans.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              As a result, patients must follow a strict diet and be constantly cautious about other medications they choose
-              — regardless of their condition.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              That’s because Warfarin’s associated risks are substantial. Some can include bleeding complications,
-              ranging from minor bruising to life-threatening hemorrhages.
-            </p>
-            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              In fact, <span className="underline font-MontserratBold">gastrointestinal bleeding is one of the most common causes</span> for hospital admissions among Warfarin patients
-              — this can easily lead to prolonged hospital stays, blood transfusions, and in some cases, surgery.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Despite the risks, patients use Warfarin, not because they want to — but because it’s their best choice… for now.
+              Tecarfarin is being developed to potentially deliver the benefits of anticoagulation therapy with fewer of the complications commonly associated with older treatments like Warfarin.
             </p>
 
             <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5] mb-4 pt-8 xl:pt-20">
-              The Unmet Need: Why We Desperately Need Better Treatments
+              Latest Developments: Manufacturing & Trial Readiness
             </h4>
-
-
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Warfarin’s limitations shed light on a broader issue in treating heart disease:
-              the urgent need for a safer, more effective solution.
+              On May 15, 2025, Cadrenal Therapeutics (CVKD) announced the successful completion of the technical transfer and U.S.-based manufacturing of Tecarfarin’s active pharmaceutical ingredient (API). This milestone is intended to strengthen the company’s supply chain and support readiness for upcoming pivotal trials.
             </p>
+<p className="pt-4"><Link href="https://www.businesswire.com/news/home/20250515408603/en/Cadrenal-Therapeutics-Announces-Tecarfarin-Manufacturing-Progress-in-Support-of-Clinical-Trial-Readiness" className="font-MontserratMedium underline text-[#4f96ff]">Read the full press release on BusinessWire</Link></p>            
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Patients with atrial fibrillation, heart failure, and those who require mechanical circulatory support devices like Left
-              Ventricular Assist Devices (LVADs) are particularly vulnerable. And they’re often at high risk for thromboembolic
-              events (such as strokes), as well as bleeding complications. Their stakes are incredibly high, and the need for
-              improved anticoagulation therapy is critical.
+              The company is preparing Tecarfarin for a Phase 3 clinical study, initially targeting two high-risk patient groups:
             </p>
+            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
+              <li>Patients with implanted cardiac devices (LVADs)</li>
+              <li>Patients with end-stage kidney disease and atrial fibrillation</li>
+            </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              LVAD patients, for example, rely on these devices to keep their hearts pumping, but they also require
-              lifelong anticoagulation therapy to prevent blood clots from forming in the device.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Warfarin is typically prescribed, but as mentioned earlier, it <span className="font-MontserratBold">
-                comes with very dangerous risks.</span> The bleeding
-              complications associated with warfarin are especially problematic for LVAD patients,
-              who already face numerous health challenges.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Then, the situation is further complicated — many heart disease patients are elderly and have other
-              comorbidities, such as chronic kidney disease, that can make managing their condition even more difficult.
-              These patients often take <span className="underline font-MontserratBold">multiple medications,</span> increasing the risk of drug interactions and adverse effects.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Between the direct adverse effects of taking Warfarin, and all of the restrictions
-              that come with it, health-related problems are not uncommon.
+              If approved, Tecarfarin could become the first oral anticoagulant specifically indicated for these populations.
             </p>
 
             <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
-              Introducing Cadrenal Therapeutics (<span className="text-[#37b80b]">CVKD</span>): The Future of Heart Disease Treatment?
+              Analyst Coverage: “Buy” Rating Reaffirmed
             </h4>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Cadrenal Therapeutics (<span className="text-[#37b80b]">CVKD</span>) a publicly listed biopharmaceutical
-              company is on the frontlines of developing a next-generation solution to one of the most pressing challenges
-              in heart disease treatment..
+              In May 2025, H.C. Wainwright & Co. reiterated a Buy rating on CVKD, issuing a price target of $32, citing Tecarfarin’s differentiated profile, market potential, and advancing clinical pipeline.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Their flagship product, Tecarfarin, is a novel anticoagulant with the potential to revolutionize
-              how we manage patients in need of blood-thinning therapy..
+              “We believe CVKD’s progress on manufacturing and trial planning, combined with Tecarfarin’s unique mechanism, supports a favorable risk-reward ratio for long-term investors.” — H.C. Wainwright Equity Research (May 2025)
             </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Tecarfarin is a Vitamin K Antagonist (VKA), like Warfarin, but with a crucial difference: it’s metabolized
-              through a different pathway. Unlike Warfarin, which is processed by the liver’s cytochrome
-              P450 system, Tecarfarin is metabolized by carboxyl esterase, an enzyme that’s not as susceptible
-              to the same drug-drug interactions.
-            </p>
-            <p className="font-MontserratMedium italic text-base 2xl:text-xl pt-12 text-[#343D48]">
-              So, Tecarfarin has the potential to provide more stable anticoagulation, with fewer dietary and medication restrictions.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This can be life-changing for patients.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This could mean a world without worrying about what they can eat because of their medication.
-              A world where they can take their anticoagulant <span className="font-MontserratBold">without fear of bleeding complications.</span>
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This is Tecarfarin’s promise.
-            </p>
+            <p className="pt-4"><Link href="https://www.gurufocus.com/news/2869695/cadrenal-therapeutics-cvkd-receives-buy-rating-from-hc-wainwright-co-cvkd-stock-news" className="font-MontserratMedium underline text-[#4f96ff]">📄 Read the full analyst coverage on GuruFocus</Link></p>
 
             <h4 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
-              The Tecarfarin Difference
+              Why Investors Are Watching CVKD
             </h4>
+            <table className="text-left font-MontserratMedium text-sm mt-16 font-MontserratMedium">
+              <tr className="border-b">
+                <th>Strategic Factor</th>
+                <th>Why It Matters</th>
+              </tr>
+              <tr className="border-b">
+                <td className="py-3 pr-8">FDA Orphan Drug Status</td>
+                <td className="py-3">Creates exclusive market rights and accelerates the process</td>
+              </tr>
+              <tr className="border-b">
+                <td className="py-3 pr-8">Large, underserved market	</td>
+                <td className="py-3">High-risk patients need alternatives now</td>
+              </tr>
+              <tr className="border-b">
+                <td className="py-3 pr-8">Platform potential</td>
+                <td className="py-3">Could extend beyond LVADs into other cardiac segments</td>
+              </tr>
+              <tr className="border-b">
+                <td className="py-3 pr-8">First-mover advantage	</td>
+                <td className="py-3">No oral blood thinner is currently approved for LVAD patients</td>
+              </tr>
+              <tr className="border-b">
+                <td className="py-3 pr-8">Public listing</td>
+                <td className="py-3">Ticker: CVKD (accessible on the open market)</td>
+              </tr>
+            </table>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Cadrenal Therapeutics (CVKD) designed Tecarfarin to specifically address the challenges
-              that make managing anticoagulation so difficult for patients with complex cardiovascular conditions.
+              CVKD is positioned at the intersection of medical innovation and patient need. For investors seeking early-stage exposure to potential breakthroughs in cardiovascular care, this is a company to watch closely.
             </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              In clinical studies, Tecarfarin has demonstrated the ability to maintain a more consistent level of
-              anticoagulation, reducing the risk of both clotting and bleeding events.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This consistency is particularly important for patients with LVADs, who rely on their
-              anticoagulant therapy to keep them alive. The potential for <span className="underline font-MontserratBold">fewer complications</span>
-              means these patients can <span className="underline font-MontserratBold">spend less time in the hospital</span> and more time living their lives.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              But Tecarfarin’s benefits don’t stop there…
-            </p>
-
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Due to its <span className="underline font-MontserratBold">unique metabolization propertie</span>s, Tecarfarin is less likely to be affected by changes
-              in kidney function, which is a common issue among patients with chronic kidney disease.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This gives a significant advantage to Tecarfarin, as many heart disease patients have impaired renal function,
-              making it difficult to manage their anticoagulation therapy.
-            </p>
+            
 
             <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
-              The Road Ahead: Cadrenal’s Vision for the Future
+              About the Company
             </h4>
+            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
+              <li><span className="font-MontserratBold">Company:</span> Cadrenal Therapeutics, Inc.</li>
+              <li><span className="font-MontserratBold">Ticker: </span> CVKD</li>
+              <li><span className="font-MontserratBold">Exchange:</span> NASDAQ</li>
+              <li><span className="font-MontserratBold">Sector:</span> Biopharmaceuticals</li>
+              <li><span className="font-MontserratBold">Focus:</span> Cardiovascular therapies, next-generation anticoagulation</li>
+              <li className="font-MontserratBold">Website: <Link href="" className="underline">www.cadrenal.com</Link></li>
+            </ul>
 
-
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Cadrenal Therapeutics (<span className="text-[#30c509]">CVKD</span>) is fully committed to bringing Tecarfarin to market as <span className="underline font-MontserratBold">the
-                first and only oral anticoagulant</span> specifically approved for patients with implanted cardiac devices.
-              They’re currently advancing through pivotal clinical trials, and the early results are promising.
+              Sponsored Content Disclosure: This content is part of a paid awareness campaign. Please read the full disclaimer below.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              The FDA has already granted Tecarfarin Orphan Drug Designation, recognizing its potential
-              to address a critical unmet need in a rare patient population. This designation not only
-              accelerates the development process but also provides market exclusivity, positioning
-              Cadrenal for long-term success.
+              Enjoyed This Article?
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              But Cadrenal’s vision goes beyond just one drug.
+              If you found this breakdown of Cadrenal Therapeutics (CVKD) helpful, we invite you to join Stockverse — a platform built for investors who want early access to unique stock insights before they hit the mainstream.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              They’re dedicated to transforming the landscape of cardiovascular care by developing
-              innovative therapies that improve patient outcomes and reduce the burden of heart disease
-              on families and communities.
+              Sign up today to access:
             </p>
-
-            <h4 className="text-[#1D3045] max-md:text-left font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
-              Why You Should Consider Taking a Closer Look at Cadrenal Therapeutics
-            </h4>
+            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
+              <li>Exclusive alerts on stocks like CVKD</li>
+              <li>Real-time news and technical data</li>
+              <li>Watchlist tools and portfolio tracking</li>
+              <li>Deep-dive research on emerging growth companies</li>
+              <li><span className="font-MontserratBold">Focus:</span> Cardiovascular therapies, next-generation anticoagulation</li>
+              <li className="font-MontserratBold">Website: <Link href="" className="underline">www.cadrenal.com</Link></li>
+            </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              As an investor, you have the chance to become part of something special.
-            </p>
-            <p className="font-MontserratBold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Cadrenal Therapeutics isn’t just some biotech company — they’re on the verge of changing the way we treat heart disease.
-              They could very well be a few steps-away from changing millions of lives for the better.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              So by considering Cadrenal, you could potentially become part of solving one of our nation’s
-              biggest, and most devastating challenges — and of course, reaping the rewards of its success.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              With Tecarfarin, Cadrenal is addressing a massive unmet need with a drug that can potentially become
-              <span className="font-MontserratBold">the new gold standard in anticoagulation therapy.</span>
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This is a real chance to make a real difference in the lives of patients and their families.
-              By paying close attention to Cadrenal, you might be investing in a healthy future for your family,
-              friends, neighbors and beyond.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Cadrenal Therapeutics is at a critical juncture, and the next few years could see them make a
-              significant impact on the healthcare industry. For those who believe in the company’s
-              mission and the potential of Tecarfarin, now is the time to take a much closer look.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              If you’re ready to be part of a revolution in heart disease treatment – consider taking a
-              closer look a Cadrenal Therapeutics (<span className="text-[#0d9503]">CVKD</span>).
+              👉 Register now at <Link href="Stockverse.com/register" className="underline">Stockverse.com/register</Link><br/>
+              Join the community. Stay informed. Stay ahead.
             </p>
           </div>
           <div className="w-[23%] max-lg:w-[48%] max-md:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:order-1 max-lg:relative max-lg:top-0">
