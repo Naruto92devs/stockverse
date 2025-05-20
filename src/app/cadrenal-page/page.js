@@ -413,7 +413,7 @@ const CadrenalPage = () => {
               <Image className="w-[15%]" src="/images/cadrenal.jpeg" alt="neov" width={52} height={52} />
               <div className="">
                 <p className="text-base font-MontserratBold">Cadrenal Therapeutics, Inc.</p>
-                <p className="flex items-center gap-2 font-MontserratMedium text-xs 2xl:text-sm text-[#747474]">NEOV <Image src="/images/nasdaq.svg" alt="neov" width={24} height={24} /> Nasdaq Stock Market</p>
+                <p className="flex items-center gap-2 font-MontserratMedium text-xs 2xl:text-sm text-[#747474]">CVKD <Image src="/images/nasdaq.svg" alt="neov" width={24} height={24} /> Nasdaq Stock Market</p>
               </div>
             </div>
             <div className="flex flex-wrap gap-y-4 items-center border-y border-[#F2F3F3] py-4 p-2 mt-4">
