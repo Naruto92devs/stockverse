@@ -152,7 +152,7 @@ const CadrenalPage = () => {
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%]">
             <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Biotech Stock Alert:</h1>
-            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-[#1d3045]">Ticker: </span>CVKD <span className="text-[#1d3045]">(NASDAQ)</span></h2>
+            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-[#1d3045]">Ticker: </span> <Link href='/cadrenal' className="underline"> CVKD</Link> <span className="text-[#1d3045]">(NASDAQ)</span></h2>
             <div className="flex flex-wrap gap-2 pt-8">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD'>
                 <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" />
@@ -170,7 +170,7 @@ const CadrenalPage = () => {
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" />
               </Link>
             </div>
-            <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Introduces CVKD — A Biotech Company Advancing Heart Disease Treatment. Be First to Know — Get Free Stock Alerts Now.</p>
+            <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Introduces  <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — A Biotech Company Advancing Heart Disease Treatment. Be First to Know — Get Free Stock Alerts Now.</p>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
             <div>
@@ -280,12 +280,12 @@ const CadrenalPage = () => {
 
 
             <h4 className="text-[#1D3045] font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5] max-md:text-left">
-              Introducing Cadrenal Therapeutics (CVKD)
+              Introducing Cadrenal Therapeutics <Link href='/cadrenal' className="font-MontserratBold underline"> (CVKD)</Link>
             </h4>
             {/* <Image className="w-full mt-8 xl:mt-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              <span className="underline font-MontserratBold">Cadrenal Therapeutics (NASDAQ: CVKD)</span> is a clinical-stage biopharmaceutical company developing Tecarfarin, a novel oral blood thinner designed to address the limitations of Warfarin.
+              <Link href='/cadrenal' className="underline font-MontserratBold">Cadrenal Therapeutics (NASDAQ: CVKD)</Link> is a clinical-stage biopharmaceutical company developing Tecarfarin, a novel oral blood thinner designed to address the limitations of Warfarin.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               <span className="underline font-MontserratBold">Tecarfarin is a Vitamin K antagonist (VKA) like Warfarin</span> — but with a key distinction: it’s metabolized by carboxyl esterase, not the liver’s cytochrome P450 system. This alternative metabolic pathway is being explored for its potential to offer greater stability, fewer interactions, and better suitability for patients with kidney or liver issues.
@@ -308,7 +308,7 @@ const CadrenalPage = () => {
               Latest Developments: Manufacturing & Trial Readiness
             </h4>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              On May 15, 2025, Cadrenal Therapeutics (CVKD) announced the successful completion of the technical transfer and U.S.-based manufacturing of Tecarfarin’s active pharmaceutical ingredient (API). This milestone is intended to strengthen the company’s supply chain and support readiness for upcoming pivotal trials.
+              On May 15, 2025, <Link href='/cadrenal' className="font-MontserratBold underline"> Cadrenal Therapeutics (CVKD)</Link> announced the successful completion of the technical transfer and U.S.-based manufacturing of Tecarfarin’s active pharmaceutical ingredient (API). This milestone is intended to strengthen the company’s supply chain and support readiness for upcoming pivotal trials.
             </p>
             <p className="pt-4"><Link href="https://www.businesswire.com/news/home/20250515408603/en/Cadrenal-Therapeutics-Announces-Tecarfarin-Manufacturing-Progress-in-Support-of-Clinical-Trial-Readiness" className="font-MontserratMedium underline text-[#4f96ff]">Read the full press release on BusinessWire</Link></p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
@@ -327,15 +327,15 @@ const CadrenalPage = () => {
             </h4>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              In May 2025, H.C. Wainwright & Co. reiterated a Buy rating on CVKD, issuing a price target of $32, citing Tecarfarin’s differentiated profile, market potential, and advancing clinical pipeline.
+              In May 2025, H.C. Wainwright & Co. reiterated a Buy rating on <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link>, issuing a price target of $32, citing Tecarfarin’s differentiated profile, market potential, and advancing clinical pipeline.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              “We believe CVKD’s progress on manufacturing and trial planning, combined with Tecarfarin’s unique mechanism, supports a favorable risk-reward ratio for long-term investors.” — H.C. Wainwright Equity Research (May 2025)
+              “We believe <Link href='/cadrenal' className="font-MontserratBold underline"> {`CVKD’s`}</Link> progress on manufacturing and trial planning, combined with Tecarfarin’s unique mechanism, supports a favorable risk-reward ratio for long-term investors.” — H.C. Wainwright Equity Research (May 2025)
             </p>
             <p className="pt-4"><Link href="https://www.gurufocus.com/news/2869695/cadrenal-therapeutics-cvkd-receives-buy-rating-from-hc-wainwright-co-cvkd-stock-news" className="font-MontserratMedium underline text-[#4f96ff]">📄 Read the full analyst coverage on GuruFocus</Link></p>
 
             <h4 className="text-[#1D3045]  max-md:text-left font-MontserratBold text-center pt-24 2xl:text-4xl text-2xl !leading-[1.5]">
-              Why Investors Are Watching CVKD
+              Why Investors Are Watching <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD </Link>
             </h4>
             <table className="text-left font-MontserratMedium text-sm mt-16 font-MontserratMedium">
               <tr className="border-b">
@@ -360,12 +360,12 @@ const CadrenalPage = () => {
               </tr>
               <tr className="border-b">
                 <td className="py-3 pr-8">Public listing</td>
-                <td className="py-3">Ticker: CVKD (accessible on the open market)</td>
+                <td className="py-3">Ticker: <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> (accessible on the open market)</td>
               </tr>
             </table>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              CVKD is positioned at the intersection of medical innovation and patient need. For investors seeking early-stage exposure to potential breakthroughs in cardiovascular care, this is a company to watch closely.
+              <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> is positioned at the intersection of medical innovation and patient need. For investors seeking early-stage exposure to potential breakthroughs in cardiovascular care, this is a company to watch closely.
             </p>
 
 
@@ -373,8 +373,8 @@ const CadrenalPage = () => {
               About the Company
             </h4>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">Company:</span> Cadrenal Therapeutics, Inc.</li>
-              <li><span className="font-MontserratBold">Ticker: </span> CVKD</li>
+              <li><span className="font-MontserratBold">Company:</span>  <Link href='/cadrenal' className="font-MontserratBold underline"> Cadrenal Therapeutics, Inc. </Link></li>
+              <li><span className="font-MontserratBold">Ticker: </span> <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link></li>
               <li><span className="font-MontserratBold">Exchange:</span> NASDAQ</li>
               <li><span className="font-MontserratBold">Sector:</span> Biopharmaceuticals</li>
               <li><span className="font-MontserratBold">Focus:</span> Cardiovascular therapies, next-generation anticoagulation</li>
@@ -442,7 +442,7 @@ const CadrenalPage = () => {
       {/* add neov to watchlist */}
       <section className="py-10">
         <h4 className="text-[#1D3045]  font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-12">
-          Add CVKD to your watchlist today
+          Add <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> to your watchlist today
         </h4>
         <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
           <Link href='https://www.etrade.wallst.com/sso/saml2/requestAssertion.ashx?originalTarget=https%3A%2F%2Fwww%2Eetrade%2Ewallst%2Ecom%2Fv1%2Fstocks%2Fsnapshot%2Fsnapshot%2Easp%3Fsymbol%3Dcvkd%26rsO%3Dnew&authnContext=prospect&ChallengeUrl=https%3A%2F%2Fidp%2Eetrade%2Ecom%2Fidp%2FSSO%2Esaml2' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
