@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Disclaimer from "@/components/Article_disclaimer";
+import Disclaimer from "@/components/Cvkd_disclaimer";
 
 const PRESSRELEASECVKD = () => {
     const pressReleaseUrl = `https://stockverse.com/cvkd/news-press`; // The current URL

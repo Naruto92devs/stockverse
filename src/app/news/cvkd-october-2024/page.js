@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from 'next/head';
-import Disclaimer from "@/components/Article_disclaimer";
+import Disclaimer from "@/components/Cvkd_disclaimer";
 
 const Cvkd = () => {
 

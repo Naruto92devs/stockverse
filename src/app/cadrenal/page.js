@@ -11,6 +11,7 @@ import Leader from './components/cvkdLeader';
 import KeyInfo from './components/KeyInfo';
 import WhyCVKD from './components/WhyCvkd';
 import BigPharma from './components/BigPharma';
+import Disclaimer from '@/components/Cvkd_disclaimer';
 
 const Cadrenal = () => {
 
@@ -256,7 +257,7 @@ const Cadrenal = () => {
       </div>
 
       {/* Disclaimer */}
-      <div className='w-full bg-[#1B1B1B]'>
+      {/* <div className='w-full bg-[#1B1B1B]'>
         <div className='w-full mx-auto px-4 xl:px-6 2xl:px-36 py-8 xl:container'>
           <div className='flex flex-col gap-6 pb-16 border-b border-white/15'>
             <h4 className="text-3xl font-inter font-medium text-white">Disclaimer</h4>
@@ -378,7 +379,9 @@ const Cadrenal = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <Disclaimer/>
     </div>
   );
 }
