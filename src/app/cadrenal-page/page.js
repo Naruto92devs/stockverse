@@ -154,19 +154,19 @@ const CadrenalPage = () => {
             <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Biotech Stock Alert:</h1>
             <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-[#1d3045]">Ticker: </span> <Link href='/cadrenal' className="underline"> CVKD</Link> <span className="text-[#1d3045]">(NASDAQ)</span></h2>
             <div className="flex flex-wrap gap-2 pt-8">
-              <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD'>
+              <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" />
               </Link>
-              <Link href='https://www.schwab.com/'>
+              <Link href='https://www.schwab.com/' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" />
               </Link>
-              <Link href='https://www.tradestation.com/'>
+              <Link href='https://www.tradestation.com/' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" />
               </Link>
-              <Link href='https://us.etrade.com/home'>
+              <Link href='https://us.etrade.com/home' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" />
               </Link>
-              <Link href='https://www.interactivebrokers.com/'>
+              <Link href='https://www.interactivebrokers.com/' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" />
               </Link>
             </div>
@@ -228,17 +228,18 @@ const CadrenalPage = () => {
             <div className="flex flex-col gap-2">
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-sm p-2 py-4 border-b border-[#F2F3F3] text-[#343D48] hover:underline"
-                href="/cvkd-news">
+                href="/cvkd-news" target="_blank" rel="noopener noreferrer">
                 Cadrenal Therapeutics Announces Tecarfarin Manufacturing Progress in Support of Clinical Trial Readiness
               </Link>
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-base p-2 py-4 border-b border-[#F2F3F3] text-[#343D48] hover:underline"
-                href="/cvkd/news">
+                href="/cvkd/news" target="_blank" rel="noopener noreferrer">
                 Cadrenal Therapeutics Announces Collaboration Agreement with Abbott in Support of Pivotal Study of Tecarfarin in Patients with HeartMate 3™ LVAD
               </Link>
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-base p-2 py-4 text-[#343D48] hover:underline"
-                href="/news/cadrenal-therapeutics-jp-morgan-healthcare-conference-2024">
+                href="/news/cadrenal-therapeutics-jp-morgan-healthcare-conference-2024"
+                target="_blank" rel="noopener noreferrer">
                 {`Cadrenal Therapeutics Gears Up for the 43rd Annual J.P. Morgan Healthcare Conference Week with Event Participation and Investor/Partner Meetings`}
               </Link>
             </div>
