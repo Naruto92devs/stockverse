@@ -13,11 +13,11 @@ export default function Leader() {
 
       <div className='md:w-[49%]'>
         <div className='flex flex-wrap items-center gap-4 pt-5'>
-          <Link href='https://quangxpham.com/' className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base'>
+          <Link href='https://quangxpham.com/' target="_blank" rel="noopener noreferrer" className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-white bg-cvkdButton font-medium text-base'>
             Learn About Quang X. Pham
             <Image width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
           </Link>
-          <Link href='https://a.co/d/dYZ3Li0' className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-black bg-white font-medium border border-[#D0D5DD] text-base'>
+          <Link href='https://a.co/d/dYZ3Li0' target="_blank" rel="noopener noreferrer" className='px-5 py-3 rounded-full flex items-center gap-2 font-inter text-black bg-white font-medium border border-[#D0D5DD] text-base'>
             {`Get the Book – Underdog Nation`}
             <Image className='invert' width={24} height={24} src='/images/arrow-up-right.svg' alt='arrow' />
           </Link>
