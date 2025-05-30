@@ -51,6 +51,10 @@ export default function RootLayout({ children }) {
       <html lang="en" suppressHydrationWarning>
         <head>
           <link rel="icon" href="/favicon.png" size="92*92" />
+          <link rel="preload" href="/fonts/Montserrat-Medium.ttf" as="font" type="font/truetype" crossOrigin="anonymous"/>
+          <link rel="preload" href="/fonts/Montserrat-Bold.ttf" as="font" type="font/truetype" crossOrigin="anonymous"/>
+          <link rel="preload" href="/fonts/Syne-Bold.ttf" as="font" type="font/truetype" crossOrigin="anonymous"/>
+
           <DynamicMetadata />
           {/* <!-- Google Tag Manager --> */}
           <Script id="gtm-head" strategy="afterInteractive">

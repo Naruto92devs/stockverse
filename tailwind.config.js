@@ -19,6 +19,7 @@ module.exports = {
       primaryBg: "rgba(var(--primary-bg))",
       dashboardBg: "rgba(var(--dasboard-bg))",
       darkBlue: "rgba(var(--dark-blue))",
+      gray: "rgba(var(--gray-color))",
     },
     extend: {
       fontFamily: {

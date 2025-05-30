@@ -155,22 +155,22 @@ const CadrenalPage = () => {
             <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-[#1d3045]">Ticker: </span> <Link href='/cadrenal' className="underline"> CVKD</Link> <span className="text-[#1d3045]">(NASDAQ)</span></h2>
             <div className="flex flex-wrap gap-2 pt-8">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" loading="lazy" />
               </Link>
               <Link href='https://www.schwab.com/' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" loading="lazy" />
               </Link>
               <Link href='https://www.tradestation.com/' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" loading="lazy" />
               </Link>
               <Link href='https://us.etrade.com/home' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" loading="lazy" />
               </Link>
               <Link href='https://www.interactivebrokers.com/' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" />
+                <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="lazy" />
               </Link>
             </div>
-            <p className="text-[#343d4899] font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Introduces  <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — A Biotech Company Advancing Heart Disease Treatment. Be First to Know — Get Free Stock Alerts Now.</p>
+            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Introduces  <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — A Biotech Company Advancing Heart Disease Treatment. Be First to Know — Get Free Stock Alerts Now.</p>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
             <div>
