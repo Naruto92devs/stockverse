@@ -57,6 +57,8 @@ function DashboardContent() {
   const [settings, setSettings] = useState(false);
   const [newsletter, setNewsletter] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
+  const heading = "Winning Stock Picks"
+  const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
 
   // Get query parameters directly from useSearchParams
   const symbol = searchParams.get('symbol') || 'AAPL';
@@ -404,7 +406,7 @@ function DashboardContent() {
         {/* side bar end */}
 
         <UserSettings settings={settings} setSettings={setSettings}/>
-        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} baseId={"VSwpYs"}/>
+        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"stockpicks subscriber"} heading={heading} subHeading={subHeading}/>
         <UpgradePopup currentView={view} upgrade={upgrade} setUpgrade={setUpgrade} updateUrl={updateUrl}/>
 
         {/* Dashboard Area */}

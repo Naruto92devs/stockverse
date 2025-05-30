@@ -12,8 +12,6 @@ import 'react-phone-input-2/lib/style.css'; // Optional default styles
 import axios from "axios";
 import Link from "next/link";
 
-import { Mousewheel, } from 'swiper/modules';
-
 const CadrenalPage = () => {
   const [privacyChecked, setPrivacyChecked] = useState(false);
   const [phone, setPhone] = useState(null);
@@ -26,10 +24,25 @@ const CadrenalPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [er, setEr] = useState(null);
   const [newsletter, setNewsletter] = useState(true);
-  const scrollRef = useRef(null);
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+  const heading = "Want the Next Stock That Could Explode?"
+  const subHeading = "💸 Join 12,042+ Investors Getting Alerts First"
+    
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -118,35 +131,11 @@ const CadrenalPage = () => {
   }, []);
 
 
-
-  const handleMouseDown = (e) => {
-    isDown = true;
-    if (!scrollRef.current) return;
-    startX = e.pageX - scrollRef.current.offsetLeft;
-    scrollLeft = scrollRef.current.scrollLeft;
-  };
-
-  const handleMouseLeave = () => {
-    isDown = false;
-  };
-
-  const handleMouseUp = () => {
-    isDown = false;
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDown || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust speed
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-
-
   return (
     <>
-      {/* <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} id={"YizWSN"} baseId={"VSwpYs"}/> */}
+      {hasMounted && isDesktop && (
+        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"cvkd subscriber"} heading={heading} subHeading={subHeading}/>
+      )}
       {/* hero */}
       <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-12 ">
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
@@ -170,7 +159,10 @@ const CadrenalPage = () => {
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="lazy" />
               </Link>
             </div>
-            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Introduces  <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — A Biotech Company Advancing Heart Disease Treatment. Be First to Know — Get Free Stock Alerts Now.</p>
+            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Unveils <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — The Biotech Sleeper That Could Soar 354%+ 
+            <br/> Wall {`Street’s`} Not Watching Yet — But You Can Be First.
+            <br/> Read Below Why <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> May Be the Hottest NASDAQ Stock of the Year.
+            </p>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
             <div>
@@ -204,7 +196,7 @@ const CadrenalPage = () => {
                 <button type="submit" className={`bg-[#12A72E] text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
-                    Get Alerts Now <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
+                    Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
                   </>}
                 </button>
               </form>
@@ -248,7 +240,7 @@ const CadrenalPage = () => {
           </div>
           <div className="w-[50%] pt-6 max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              <span className="max-lg:hidden">💔</span> Heart Disease: {`America’s`} Most Expensive Killer
+              Heart Disease: {`America’s`} Most Expensive Killer
             </h3>
             <h4 className="text-[#343D48] text-center 2xl:text-2xl lg:text-lg text-lg font-MontserratMedium md:px-28 leading-[24px]  max-md:text-left">
               And the Public Company Quietly Developing a Potential Game-Changer

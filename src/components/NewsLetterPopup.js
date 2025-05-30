@@ -7,7 +7,7 @@ import 'react-phone-input-2/lib/style.css'; // Optional default styles
 
 const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
 
-export default function NewsLetterPopup({newsletter, setNewsletter, id, baseId}) {
+export default function NewsLetterPopup({newsletter, setNewsletter, tag, heading, subHeading}) {
 
   const [privacyChecked, setPrivacyChecked] = useState(false);
   const [phone, setPhone] = useState(null);
@@ -25,7 +25,7 @@ export default function NewsLetterPopup({newsletter, setNewsletter, id, baseId})
         const requestData = {
             email,
             phone: `+${phone}`,
-            tag: 'stockpicks subscriber'
+            tag: tag,
         };
 
         const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
@@ -72,9 +72,9 @@ export default function NewsLetterPopup({newsletter, setNewsletter, id, baseId})
         <Image className='sm:hidden pt-4' src="/images/stockverseLogo.png" width={200} height={57.20} alt='Stockverse Logo' />
         <div className={`flex-grow p-4 sm:gap-y-2 gap-y-2 flex flex-col items-center justify-center`}>
           <Image className='cursor-pointer absolute top-2 right-2' onClick={() => setNewsletter(false)} width={32} height={32} src='/images/cross.svg' alt='close' />
-          <h4 className="text-3xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">Winning Stock Picks</h4>
+          <h4 className="text-2xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">{heading}</h4>
           <p className="text-lg leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
-            Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!
+            {subHeading}
           </p>
           <form onSubmit={handleSubscribeEmailPhone} className="w-full space-y-4">
             <div className="w-full flex flex-col">
