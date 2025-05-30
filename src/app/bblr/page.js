@@ -185,6 +185,7 @@ const BBLR = () => {
                 <input
                   name="search_Symbols"
                   type="text"
+                  required
                   className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
                   placeholder="Enter your email"
                   value={email}
@@ -196,6 +197,7 @@ const BBLR = () => {
                   className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
                   placeholder="Enter your phone number"
                   value={phone}
+                  required
                   onChange={(e) => setPhone(e.target.value)}
                   autoComplete="tel"
                 />

@@ -188,6 +188,7 @@ const CadrenalPage = () => {
                   className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
                   placeholder="Enter your email"
                   value={email}
+                  required
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
@@ -196,6 +197,7 @@ const CadrenalPage = () => {
                   className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
                   placeholder="Enter your phone number"
                   value={phone}
+                  required
                   onChange={(e) => setPhone(e.target.value)}
                   autoComplete="tel"
                 />
@@ -508,7 +510,8 @@ const CadrenalPage = () => {
                       onChange={(value) => setPhone(value)}
                       inputProps={{
                         id: "phone",
-                        required: true,
+                        name: "phone",
+                        required: true, // HTML5 validation
                         autoFocus: false,
                       }}
                       inputStyle={{
@@ -526,6 +529,7 @@ const CadrenalPage = () => {
                       dropdownStyle={{
                         borderRadius: "0.5rem",
                       }}
+                      
                     />
                   </div>
                   <div className="flex items-center space-x-2">
