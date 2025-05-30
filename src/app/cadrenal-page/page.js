@@ -5,6 +5,14 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope, 
 import formatNumber from "@/components/FormatNumber";
 import NewsLetterPopup from "@/components/NewsLetterPopup";
 import Disclaimer from "@/components/Cvkd_disclaimer";
+import DesktopNewsletterPopup from "@/components/DesktopNewsletterPopup";
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  display: 'swap', // << crucial
+});
 
 
 import PhoneInput from 'react-phone-input-2';
@@ -24,25 +32,6 @@ const CadrenalPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [er, setEr] = useState(null);
   const [newsletter, setNewsletter] = useState(true);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
-  const heading = "Want the Next Stock That Could Explode?"
-  const subHeading = "💸 Join 12,042+ Investors Getting Alerts First"
-    
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
-    };
-
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -133,38 +122,35 @@ const CadrenalPage = () => {
 
   return (
     <>
-      {hasMounted && isDesktop && (
-        <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"cvkd subscriber"} heading={heading} subHeading={subHeading}/>
-      )}
       {/* hero */}
-      <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-12 ">
+      <section className="bg-[#010e140d] min-h-[600px] 2xl:py-20 xl:py-24 py-12 ">
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%] space-y-10">
             <div>
-            <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Hot Stock Alert:</h1>
-            <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-[#1d3045]">Ticker: </span> <Link href='/cadrenal' className="underline"> CVKD</Link> <span className="text-[#1d3045]">(NASDAQ)</span></h2>
+            <h1 className="text-black 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Hot Stock Alert:</h1>
+            <h2 className="text-darkGreen 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-black">Ticker: </span> <Link href='/cadrenal' className="underline"> CVKD</Link> <span className="text-black">(NASDAQ)</span></h2>
             </div>
             <div className="flex flex-wrap gap-2">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" loading="lazy" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" loading="eager" />
               </Link>
               <Link href='https://www.schwab.com/' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" loading="lazy" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" loading="eager" />
               </Link>
               <Link href='https://www.tradestation.com/' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" loading="lazy" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" loading="eager" />
               </Link>
               <Link href='https://us.etrade.com/home' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" loading="lazy" />
+                <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" loading="eager" />
               </Link>
               <Link href='https://www.interactivebrokers.com/' target="_blank" rel="noopener noreferrer">
-                <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="lazy" />
+                <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="eager" />
               </Link>
             </div>
             <div>
-            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full">Breaking: Stockverse Unveils <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — The Biotech Sleeper That Could Soar 354%+ </p>
-            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full">Wall {`Street’s`} Not Watching Yet — But You Can Be First.</p>
-            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full">Read Below Why <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> May Be the Hottest NASDAQ Stock of the Year.</p>
+            <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>Breaking: Stockverse Unveils <Link href='/cadrenal' className="font-bold underline"> CVKD</Link> — The Biotech Sleeper That Could Soar 354%+ </p>
+            <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>Wall {`Street’s`} Not Watching Yet — But You Can Be First.</p>
+            <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>Read Below Why <Link href='/cadrenal' className="font-bold underline"> CVKD</Link> May Be the Hottest NASDAQ Stock of the Year.</p>
             </div>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
@@ -175,8 +161,8 @@ const CadrenalPage = () => {
                 </div>
               )}
               <form className="flex flex-col gap-4 items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
-                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" />
-                <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-28 left-6" />
+                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
+                <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-28 left-6" loading="eager" />
                 <input
                   name="search_Symbols"
                   type="text"
@@ -196,7 +182,7 @@ const CadrenalPage = () => {
                   onChange={(e) => setPhone(e.target.value)}
                   autoComplete="tel"
                 />
-                <button type="submit" className={`bg-[#12A72E] text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
+                <button type="submit" className={`bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
                     Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
@@ -204,11 +190,11 @@ const CadrenalPage = () => {
                 </button>
               </form>
               <div className="flex items-center gap-2 2xl:w-[70%] w-[80%] mt-8 2xl:mt-12 relative">
-                <Image src="/images/investors.svg" alt="investors" width={102} height={49} />
-                <p className="text-[#4B698D] font-MontserratMedium text-base">
+                <Image src="/images/investors.svg" alt="investors" width={102} height={49} loading="eager" />
+                <p className="text-gray/60 font-MontserratMedium text-base">
                   Join 128,000 smart investors. Subscribe today.
                 </p>
-                <Image className="absolute -right-24 2xl:w-[8rem] w-[7rem] max-lg:-right-20 2xl:-right-38 2xl:-top-12" src="/images/arrow.png" alt="arrow" width={112} height={111} />
+                <Image className="absolute -right-24 2xl:w-[8rem] w-[7rem] max-lg:-right-20 2xl:-right-38 2xl:-top-12" src="/images/arrow.png" alt="arrow" width={112} height={111} loading="eager" />
               </div>
             </div>
           </div>
@@ -408,10 +394,10 @@ const CadrenalPage = () => {
               STOCK INFORMATION
             </p>
             <div className="flex flex-wrap items-center gap-2 p-2 mt-4">
-              <Image className="w-[15%]" src="/images/cadrenal.jpeg" alt="neov" width={52} height={52} />
+              <Image className="w-[15%]" src="/images/cadrenal.jpeg" alt="neov" width={52} height={52} loading="lazy" />
               <div className="">
                 <p className="text-base font-MontserratBold">Cadrenal Therapeutics, Inc.</p>
-                <p className="flex items-center gap-2 font-MontserratMedium text-xs 2xl:text-sm text-[#747474]">CVKD <Image src="/images/nasdaq.svg" alt="neov" width={24} height={24} /> Nasdaq Stock Market</p>
+                <p className="flex items-center gap-2 font-MontserratMedium text-xs 2xl:text-sm text-[#747474]">CVKD <Image src="/images/nasdaq.svg" alt="neov" width={24} height={24} loading="lazy" /> Nasdaq Stock Market</p>
               </div>
             </div>
             <div className="flex flex-wrap gap-y-4 items-center border-y border-[#F2F3F3] py-4 p-2 mt-4">
@@ -444,16 +430,16 @@ const CadrenalPage = () => {
         </h4>
         <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
           <Link href='https://www.etrade.wallst.com/sso/saml2/requestAssertion.ashx?originalTarget=https%3A%2F%2Fwww%2Eetrade%2Ewallst%2Ecom%2Fv1%2Fstocks%2Fsnapshot%2Fsnapshot%2Easp%3Fsymbol%3Dcvkd%26rsO%3Dnew&authnContext=prospect&ChallengeUrl=https%3A%2F%2Fidp%2Eetrade%2Ecom%2Fidp%2FSSO%2Esaml2' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
-            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/6.png" alt="3" width={70} height={70} />
+            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/6.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
           <Link href='https://www.schwab.com/' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
-            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/7.png" alt="3" width={70} height={70} />
+            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/7.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
           <Link href='https://www.tradingview.com/symbols/NASDAQ-CVKD/' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
-            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/8.png" alt="3" width={70} height={70} />
+            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/8.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
           <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
-            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/9.png" alt="3" width={70} height={70} />
+            <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/9.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
         </div>
       </section>
@@ -580,6 +566,7 @@ const CadrenalPage = () => {
                     width={100}
                     height={100}
                     className="w-[2rem] h-[2rem]"
+                    loading="lazy"
                   />
                   USA
                 </p>
@@ -636,9 +623,8 @@ const CadrenalPage = () => {
         <div className="xl:container mx-auto px-8">
           <div className="flex flex-wrap justify-between gap-8">
             {/* Description Section */}
-
             <div className="w-full lg:w-[45%]">
-              <Image src="/images/Logo.svg" width={100} height={100} alt="logo" className="w-[12rem] mb-8" />
+              <Image src="/images/Logo.svg" width={100} height={100} alt="logo" className="w-[12rem] mb-8" loading="lazy" />
               <p className="text-[#aaa] text-xl font-MontserratRegular">
                 Your trusted platform for live Stock Data, Stock News, IPO Calendar,
                 AI-driven insights, Stock Picks, Alerts, and personalized analysis tools.
@@ -696,6 +682,7 @@ const CadrenalPage = () => {
           </div>
         </div>
       </footer>
+      <DesktopNewsletterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
       {/* disclaimer */}
       <Disclaimer />
     </>

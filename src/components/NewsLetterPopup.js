@@ -68,10 +68,10 @@ export default function NewsLetterPopup({newsletter, setNewsletter, tag, heading
   return (
     <div className={`${newsletter ? 'visible' : 'hidden'} fixed z-20 top-0 left-0 bottom-0 right-0 p-4 w-full flex bg-black/10 backdrop-blur-sm flex flex-col items-center justify-center h-full max-h-screen overflow-y-scroll scrollbar-hide`}>
       <div className={`md:w-[750px] relative w-full min-h-max flex sm:flex-row flex-col items-center bg-primaryBg rounded-xl overflow-hidden`}>
-        <Image className='flex-none max-sm:hidden' width={266} height={500} src='/images/popup_side_image.jpg' alt='img' />
-        <Image className='sm:hidden pt-4' src="/images/stockverseLogo.png" width={200} height={57.20} alt='Stockverse Logo' />
+        <Image className='flex-none max-sm:hidden' width={266} height={500} src='/images/popup_side_image.jpg' alt='img' loading="eager" />
+        <Image className='sm:hidden pt-4' src="/images/stockverseLogo.png" width={200} height={57.20} alt='Stockverse Logo' loading="eager" />
         <div className={`flex-grow p-4 sm:gap-y-2 gap-y-2 flex flex-col items-center justify-center`}>
-          <Image className='cursor-pointer absolute top-2 right-2' onClick={() => setNewsletter(false)} width={32} height={32} src='/images/cross.svg' alt='close' />
+          <Image className='cursor-pointer absolute top-2 right-2' onClick={() => setNewsletter(false)} width={32} height={32} src='/images/cross.svg' alt='close' loading="eager" />
           <h4 className="text-2xl max-md:text-2xl font-sansMedium text-primaryTextColor text-center">{heading}</h4>
           <p className="text-lg leading-[120%] max-xl:text-base max-sm:text-sm text-center text-primaryTextColor">
             {subHeading}

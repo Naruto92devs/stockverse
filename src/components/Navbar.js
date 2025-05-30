@@ -65,7 +65,7 @@ return (
     <nav className="w-full">
         <div className=' w-full mx-auto px-3 xl:container max-xl:px-1 flex items-center justify-between py-2 relative select-none'>
             <Link href='/' className="relative z-20 flex w-max mr-2">
-                <Image className='' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' />
+                <Image className='' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' loading="eager" />
             </Link>
             {/* nav mob start */}
             <div className={`${isNavbarVisible? 'max-md:translate-y-[0px]' : 'max-md:translate-y-[-900px]'} transition duration-300 ease-in-out max-md:overflow-hidden z-10 min-w-max flex items-center gap-0.5  max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:flex-col max-md:gap-2 max-md:bg-primaryBg max-md:items-start max-md:p-4 max-md:pt-20 max-md:rounded-b-3xl max-md:shadow-2xl`} aria-expanded="true" aria-haspopup="true" ref={NavRef}>
@@ -134,8 +134,8 @@ return (
             </div>
             {/* nav toggle buton */}
             <div onClick={toggleNav} ref={toggleButtonRef} className="cursor-pointer md:hidden relative z-20 flex w-max mr-2">
-                <Image className={`${isNavbarVisible? 'hidden' : 'visible'}`} src="/images/nav_close.png" width={32} height={32} alt='Stockverse Logo' />
-                <Image className={`${isNavbarVisible? 'visible' : 'hidden'}`} src="/images/nav_open.png" width={32} height={32} alt='Stockverse Logo' />
+                <Image className={`${isNavbarVisible? 'hidden' : 'visible'}`} src="/images/nav_close.png" width={32} height={32} loading="eager" alt='Stockverse Logo' />
+                <Image className={`${isNavbarVisible? 'visible' : 'hidden'}`} src="/images/nav_open.png" width={32} height={32} loading="lazy" alt='Stockverse Logo' />
             </div>
         </div>
     </nav>
