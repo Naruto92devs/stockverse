@@ -139,10 +139,12 @@ const CadrenalPage = () => {
       {/* hero */}
       <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-12 ">
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
-          <div className="w-[64%] max-lg:w-[100%]">
+          <div className="w-[64%] max-lg:w-[100%] space-y-10">
+            <div>
             <h1 className="text-[#1D3045] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Hot Stock Alert:</h1>
             <h2 className="text-[#12A72E] 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-[#1d3045]">Ticker: </span> <Link href='/cadrenal' className="underline"> CVKD</Link> <span className="text-[#1d3045]">(NASDAQ)</span></h2>
-            <div className="flex flex-wrap gap-2 pt-8">
+            </div>
+            <div className="flex flex-wrap gap-2">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CVKD' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" loading="lazy" />
               </Link>
@@ -159,10 +161,11 @@ const CadrenalPage = () => {
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="lazy" />
               </Link>
             </div>
-            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full pt-10">Breaking: Stockverse Unveils <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — The Biotech Sleeper That Could Soar 354%+ 
-            <br/> Wall {`Street’s`} Not Watching Yet — But You Can Be First.
-            <br/> Read Below Why <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> May Be the Hottest NASDAQ Stock of the Year.
-            </p>
+            <div>
+            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full">Breaking: Stockverse Unveils <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> — The Biotech Sleeper That Could Soar 354%+ </p>
+            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full">Wall {`Street’s`} Not Watching Yet — But You Can Be First.</p>
+            <p className="text-gray/60 font-MontserratMedium 2xl:text-xl text-lg 2xl:w-full w-[80%] max-md:w-full">Read Below Why <Link href='/cadrenal' className="font-MontserratBold underline"> CVKD</Link> May Be the Hottest NASDAQ Stock of the Year.</p>
+            </div>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
             <div>
