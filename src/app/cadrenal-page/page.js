@@ -232,7 +232,7 @@ const CadrenalPage = () => {
               Heart Disease: {`America’s`} Most Expensive Killer
             </h3>
             <h4 className="text-[#343D48] text-center 2xl:text-2xl lg:text-lg text-lg font-MontserratMedium md:px-28 leading-[24px]  max-md:text-left">
-              And the Public Company Quietly Developing a Potential Game-Changer
+              And the Public Company <Link href='/cadrenal' className="underline font-MontserratBold"> CVKD</Link> Quietly Developing a Potential Game-Changer
             </h4>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">Every 36 seconds, someone in the United States dies from heart disease. That adds up to over 2,300 deaths every single day. More than 121 million Americans are living with cardiovascular disease. Annual direct medical costs have surpassed $200 billion, burdening patients, families, and the healthcare system. Yet the most widely used blood thinner, Warfarin, has remained unchanged for more than 60 years.</p>
             <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">The Reality of Today’s Blood Thinners</h6>
