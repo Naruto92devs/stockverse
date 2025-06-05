@@ -137,13 +137,13 @@ const CadrenalPage = () => {
               <Link href='https://www.schwab.com/' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" loading="eager" />
               </Link>
-              <Link href='https://www.tradestation.com/' target="_blank" rel="noopener noreferrer">
+              <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=cvkd&rsO=new' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" loading="eager" />
               </Link>
-              <Link href='https://us.etrade.com/home' target="_blank" rel="noopener noreferrer">
+              <Link href='https://robinhood.com/stocks/cvkd/' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" loading="eager" />
               </Link>
-              <Link href='https://www.interactivebrokers.com/' target="_blank" rel="noopener noreferrer">
+              <Link href='https://www.webull.com/quote/nasdaq-cvkd' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="eager" />
               </Link>
             </div>
