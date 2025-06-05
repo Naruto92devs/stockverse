@@ -22,7 +22,7 @@ import Link from "next/link";
 
 const CadrenalPage = () => {
   const [privacyChecked, setPrivacyChecked] = useState(false);
-  const [phone, setPhone] = useState(null);
+  const [phone, setPhone] = useState('+1');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [done, setDone] = useState(null);
@@ -48,7 +48,7 @@ const CadrenalPage = () => {
 
       // Only add the phone number if it is provided
       if (phone) {
-        requestData.phone = `+${phone}`;
+        requestData.phone = `${phone}`;
       }
 
       const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
