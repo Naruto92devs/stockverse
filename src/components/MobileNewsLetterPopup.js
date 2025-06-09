@@ -6,9 +6,9 @@ const NewsLetterPopup = dynamic(() => import('./NewsLetterPopup'), {
   loading: () => null, // Optional: return null while loading
 });
 
-export default function DesktopNewsletterPopup({ newsletter, setNewsletter }) {
+export default function MobileNewsletterPopup({ newsletter, setNewsletter }) {
   // Only render on large screens
-  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+  if (typeof window !== 'undefined' && window.innerWidth > 768) {
     return null;
   }
 

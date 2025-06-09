@@ -11,7 +11,7 @@ import Cookies from 'js-cookie';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Optional default styles
 import axios from "axios";
-
+import MobileNewsletterPopup from '@/components/mobileNewsLetterPopup';
 const CVKD = () => {
   
   const { setMetadata } = useMetadata();
@@ -25,6 +25,7 @@ const CVKD = () => {
   const [done, setDone] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [er, setEr] = useState(null);
+  const [newsletter, setNewsletter] = useState(true);
   
 
   useEffect(() => {
@@ -415,6 +416,7 @@ const CVKD = () => {
       <div className='xl:container mx-auto px-0 2xl:px-28'>
         <Disclaimer />
       </div>
+            <MobileNewsletterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
     </div>
   );
 };
