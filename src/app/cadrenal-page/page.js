@@ -163,7 +163,6 @@ const CadrenalPage = () => {
               )}
               <form className="flex flex-col gap-4 items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
                 <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
-                <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-28 left-6" loading="eager" />
                 <input
                   name="search_Symbols"
                   type="text"
@@ -173,16 +172,25 @@ const CadrenalPage = () => {
                   required
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <input
-                  name="search_Symbols"
-                  type="tel"
-                  className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
-                  placeholder="Enter your phone number"
-                  value={phone}
-                  required
-                  onChange={(e) => setPhone(e.target.value)}
-                  autoComplete="tel"
-                />
+                <div className="w-full relative">
+                  <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
+                  <input
+                    name="search_Symbols"
+                    type="tel"
+                    className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
+                    placeholder="Enter your phone number"
+                    value={phone}
+                    required
+                    onChange={(e) => setPhone(e.target.value)}
+                    autoComplete="tel"
+                  />
+                  {/* Custom floating placeholder */}
+                  {phone === '+1' && (
+                    <span className="font-MontserratMedium absolute left-20 top-1/2 -translate-y-1/2 text-sm transition-all pointer-events-none text-[#9CA3AF] peer-focus:hidden">
+                      Enter your phone number
+                    </span>
+                  )}
+                </div>
                 <button type="submit" className={`bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
