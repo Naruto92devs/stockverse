@@ -11,7 +11,8 @@ import Cookies from 'js-cookie';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Optional default styles
 import axios from "axios";
-import MobileNewsletterPopup from '@/components/mobileNewsLetterPopup';
+import MobileNewsletterPopup from '@/components/MobNewsLetterPopup';
+
 const CVKD = () => {
   
   const { setMetadata } = useMetadata();
