@@ -26,7 +26,13 @@
   --sell-color: 235, 0, 27;
   --dark-blue: 9, 14, 18;
   --gray-color: 52, 61, 72; 
-  --dark-green: 18, 167, 46; 
+  --dark-green: 18, 167, 46;
+  --gold: 212, 175, 55;
+  --cvkd-green: 0, 128, 0;
+}
+
+.cvkd-gold-heading {
+  text-shadow: 0 0 3px rgba(255, 215, 0, 0.3);
 }
 
 /* Main Loader Start */
@@ -414,6 +420,7 @@
   font-family: 'syne-Bold';
   src: url('/fonts/Syne-Bold.ttf') format('truetype');
   font-weight: 700;
+  font-display: swap;
 }
 
 /**
@@ -481,6 +488,21 @@
   src: url('/fonts/TimesNewRoman/Roman-Italic.ttf') format('truetype');
   font-display: swap;
   font-style: italic;
+}
+
+/**
+* @license
+*
+* Font Family: Roboto
+*
+*/
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900; /* variable range */
+  font-style: normal;
+  font-display: swap;
 }
 
 /**

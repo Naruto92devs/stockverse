@@ -11,6 +11,8 @@ module.exports = {
       // new design varialbles
       white: "rgba(var(--white))",
       black: "rgba(var(--black))",
+      gold: "rgba(var(--gold))",
+      cvkdGreen: "rgba(var(--cvkd-green))",
       buy: "rgba(var(--buy-color))",
       sell: "rgba(var(--sell-color))",
       primaryMain: "rgba(var(--primary-main))",
@@ -49,7 +51,9 @@ module.exports = {
 
         inter: ['InterTight'],
         interItalic: ['InterTight-Italic', 'sans-serif'],
-
+        
+        Roboto: ['Roboto', 'sans-serif'],
+        
         grotesqueSemibold : ['grotesque-Semibold'],
         poppinsRegular : ['poppins-Regular'],
         poppinsMedium : ['poppins-Medium'],
