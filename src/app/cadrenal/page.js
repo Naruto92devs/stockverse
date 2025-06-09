@@ -12,12 +12,16 @@ import KeyInfo from './components/KeyInfo';
 import WhyCVKD from './components/WhyCvkd';
 import BigPharma from './components/BigPharma';
 import Disclaimer from '@/components/Cvkd_disclaimer';
+import NewsLetterPopup from '@/components/NewsLetterPopup';
 
 const Cadrenal = () => {
 
   const [userVisible, setUserVisible] = useState(false);
   const [loading, setLoading] = useState(true); // Added loading state
   const token = Cookies.get('authToken');
+  const [newsletter, setNewsletter] = useState(true);
+  const heading = "Winning Stock Picks"
+  const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
   
 
   useEffect(() => {
@@ -255,6 +259,8 @@ const Cadrenal = () => {
           </div>
         </div>
       </div>
+
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"stockpicks subscriber"} heading={heading} subHeading={subHeading}/>
 
       {/* Disclaimer */}
       {/* <div className='w-full bg-[#1B1B1B]'>

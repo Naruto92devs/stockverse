@@ -5,7 +5,6 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope, 
 import formatNumber from "@/components/FormatNumber";
 import NewsLetterPopup from "@/components/NewsLetterPopup";
 import Disclaimer from "@/components/Cvkd_disclaimer";
-import DesktopNewsletterPopup from "@/components/DesktopNewsletterPopup";
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
@@ -32,6 +31,8 @@ const CadrenalPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [er, setEr] = useState(null);
   const [newsletter, setNewsletter] = useState(true);
+  const heading = "Winning Stock Picks"
+  const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -682,7 +683,7 @@ const CadrenalPage = () => {
           </div>
         </div>
       </footer>
-      <DesktopNewsletterPopup newsletter={newsletter} setNewsletter={setNewsletter}/>
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"stockpicks subscriber"} heading={heading} subHeading={subHeading}/>
       {/* disclaimer */}
       <Disclaimer />
     </>
