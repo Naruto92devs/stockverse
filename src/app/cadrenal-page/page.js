@@ -485,7 +485,7 @@ const CadrenalPage = () => {
                   />
                   <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-2">
                     <PhoneInput
-                      className="font-MontserratRegular"
+                      className="!font-MontserratRegular"
                       country={"us"}
                       value={phone}
                       onChange={(value) => setPhone(value)}

@@ -8,6 +8,9 @@ import FinancialsWidget from '@/components/FinancialsWidget';
 import Link from 'next/link';
 import Image from 'next/image';
 import Cookies from 'js-cookie';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css'; // Optional default styles
+import axios from "axios";
 
 const CVKD = () => {
   
@@ -15,6 +18,13 @@ const CVKD = () => {
   const [userVisible, setUserVisible] = useState(false);
   const [loading, setLoading] = useState(true); // Added loading state
   const token = Cookies.get('authToken');
+  const [privacyChecked, setPrivacyChecked] = useState(false);
+  const [phone, setPhone] = useState('+1');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(null);
+  const [done, setDone] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [er, setEr] = useState(null);
   
 
   useEffect(() => {
@@ -35,6 +45,63 @@ const CVKD = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
+  const handleSubscribeEmailPhone = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+
+    try {
+      const requestData = {
+        email,
+        tag: 'CVKD subscriber'
+      };
+
+      // Only add the phone number if it is provided
+      if (phone) {
+        requestData.phone = `${phone}`;
+      }
+
+      const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
+
+      const data = response.data;
+      console.log(data);
+      if (response.status === 200) {
+        setMessage(data.message);
+        setLoading(false);
+        setEr(false);
+        setEmail('');
+        setPhone('');
+        setDone(true);
+      } else {
+        setDone(true);
+        setEr(true);
+        setEmail('');
+        setPhone('');
+        setMessage(data.message || 'Something went wrong');
+        setLoading(false);
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setEr(true);
+        setDone(true);
+        setEmail('');
+        setPhone('');
+        setMessage(error.response.data.message || 'Something went wrong');
+        // setMessage('An error occurred. Please try again.');
+        setLoading(false);
+      } else {
+        setDone(true);
+        setEr(true);
+        setEmail('');
+        setPhone('');
+        setMessage('An error occurred. Please try again.');
+        setLoading(false);
+      }
+      console.error('Error during subscribing:', error);
+    }
+  };
 
   return (
     <div>
@@ -62,7 +129,7 @@ const CVKD = () => {
 
       {/* Hero */}
       <div className='w-full bg-black flex flex-col items-start justify-center max-sm:min-h-screen'>
-        <div className='w-full mx-auto px-3 md:px-8 2xl:px-28 lg:py-72 sm:py-20 xl:container flex flex-col md:gap-6 gap-4'>
+        <div className='w-full mx-auto px-3 md:px-8 2xl:px-28 xl:py-32 2xl:py-72 sm:py-20 xl:container flex flex-col md:gap-6 gap-4'>
           <h1 className='text-white lg:text-7xl sm:text-5xl text-3xl font-Roboto font-semibold flex items-center gap-2'>
             Hot Stock Alert:
             <span className='font-black lg:text-9xl sm:text-7xl text-4xl text-gold cvkd-gold-heading'> (CVKD)</span>
@@ -210,7 +277,7 @@ const CVKD = () => {
           <h3 className='md:text-5xl text-3xl font-Roboto text-black text-center pb-4 border-b-2 border-cvkdGreen font-bold !leading-[130%]'>
             CEO Discusses the Groundbreaking Potential of Tecarfarin for Cadrenal Therapeutics (CVKD)
           </h3>
-          <iframe className='w-full md:h-[600px]' width="560" height="315" src="https://www.youtube.com/embed/MvQWFLvecho?si=fsSHDVPl8LqJr3hM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullscreen></iframe>
+          <iframe className='w-full md:h-[600px]' width="560" height="315" src="https://www.youtube.com/embed/MvQWFLvecho?si=fsSHDVPl8LqJr3hM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
         
         {/* Chart and financials */}
@@ -225,7 +292,7 @@ const CVKD = () => {
         
         {/* Form */}
         <div className='w-full mx-auto px-3 md:px-8 xl:px-28 py-12 xl:container flex flex-wrap gap-y-12 justify-between'>
-          <div className='md:w-[45%] w-full space-y-4'>
+          <div className='lg:w-[45%] w-full space-y-4'>
             <h4 className='text-lg px-2 border-l-4 border-cvkdGreen font-Roboto text-black font-semibold'>Join StockVerse Alerts Today!</h4>
             <h4 className='text-black font-Roboto text-3xl font-semibold'>Winning Stock Picks Sent To Inbox</h4>
             <p className='text-lg font-Roboto text-black font-normal pb-4 border-b'>
@@ -254,8 +321,90 @@ const CVKD = () => {
               Stockverse - Your Trusted Source for Winning Stock Picks.
             </p>
           </div>
-          <div className='md:w-[48%] w-full'>
-          
+          <div className='lg:w-[48%] w-full'>
+          <div className="bg-[#111111] border border-solid border-[#404040] p-6 sm:p-8 rounded-2xl shadow-lg">
+              <h4 className="text-center text-[#fff] font-MontserrarMedium text-xl sm:text-2xl italic mb-4">
+                — Your Next Winning Stock Awaits!
+              </h4>
+              <p className="text-center text-[#aaaaaa] font-MontserratRegular text-[1rem] sm:text-[1.3rem] mb-10 sm:mb-16 px-2 sm:px-4">
+                Grow Your Wealth by <span className="text-blue-500">+673.66%</span>! Sign Up Now for Exclusive Stock Picks and Alerts
+              </p>
+              {!done && (
+                <form onSubmit={handleSubscribeEmailPhone} className="space-y-4">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email address"
+                    required
+                    className="placeholder:text-[#1E1E1F] font-MontserratRegular text-black w-full p-1.5 px-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500"
+                  />
+                  <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-2">
+                    <PhoneInput
+                      className="!font-MontserratRegular"
+                      country={"us"}
+                      value={phone}
+                      onChange={(value) => setPhone(value)}
+                      inputProps={{
+                        id: "phone",
+                        name: "phone",
+                        required: true, // HTML5 validation
+                        autoFocus: false,
+                      }}
+                      inputStyle={{
+                        width: "100%",
+                        padding: "10px 10px 10px 50px",
+                        fontSize: "16px",
+                        border: "1px solid rgba(156, 163, 175, 0.4)",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#F7FAFC",
+                        color: "#1A202C",
+                      }}
+                      containerStyle={{
+                        width: "100%",
+                      }}
+                      dropdownStyle={{
+                        borderRadius: "0.5rem",
+                      }}
+                      
+                    />
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      id="privacyPolicy"
+                      checked={privacyChecked}
+                      onChange={() => setPrivacyChecked(!privacyChecked)}
+                      required
+                      className="placeholder:text-[#1E1E1F] w-5 h-5 rounded bg-gray-800 border-gray-700 focus:ring-blue-500"
+                    />
+                    <label htmlFor="privacyPolicy" className="text-[1rem] font-MontserratRegular text-[#96A0B5]">
+                      Privacy Policy
+                    </label>
+                  </div>
+                  <p className="text-sm text-[#96A0B5] font-MontserratRegular">
+                    By submitting this form and signing up for texts, you consent to receive marketing text messages (e.g., promos, cart reminders)
+                    from Relqo Media at the number provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available).{" "}
+                    <a href="/policy" className="text-[#0A84EF] text-[0.8rem] underline font-MontserratSemibold">
+                      Privacy Policy
+                    </a>{" "}
+                    &{" "}
+                    <a href="/terms" className="text-[#0A84EF] text-[0.8rem] font-MontserratSemibold underline">
+                      Terms
+                    </a>
+                    .
+                  </p>
+                  <button type="submit" className="w-full bg-[#0A84EF] font-MontserratMedium hover:bg-blue-700 text-[#fff] p-2 rounded">
+                    Continue
+                  </button>
+                </form>
+              )}
+              {done && (
+                <div className={`${er ? 'text-sell' : 'text-buy'} bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium`}>
+                  {message}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 

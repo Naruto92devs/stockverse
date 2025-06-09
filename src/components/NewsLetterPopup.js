@@ -89,7 +89,7 @@ export default function NewsLetterPopup({newsletter, setNewsletter, tag, heading
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="sams@lineakit.com"
                 required
-                className="w-full text-base px-4 py-2 border bg-primary-bg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none focus:border-primaryTextColor"
+                className="w-full font-sansRegular text-base px-4 py-2 border bg-primary-bg text-primaryTextColor border-primaryTextColor/10 rounded-lg focus:outline-none focus:border-primaryTextColor"
               />
             </div>
             <div className="w-full flex flex-col relative">
@@ -99,6 +99,7 @@ export default function NewsLetterPopup({newsletter, setNewsletter, tag, heading
                 </label>
               </div>
               <PhoneInput
+                className="!font-sansRegular"
                 country={"us"}
                 value={phone}
                 autoComplete="phone"
