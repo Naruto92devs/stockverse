@@ -260,7 +260,7 @@ const Cadrenal = () => {
         </div>
       </div>
 
-      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"stockpicks subscriber"} heading={heading} subHeading={subHeading}/>
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"cvkd subscriber popup"} heading={heading} subHeading={subHeading}/>
 
       {/* Disclaimer */}
       {/* <div className='w-full bg-[#1B1B1B]'>

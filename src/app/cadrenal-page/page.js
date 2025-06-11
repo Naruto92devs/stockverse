@@ -191,7 +191,7 @@ const CadrenalPage = () => {
                     </span>
                   )}
                 </div>
-                <button type="submit" className={`bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
+                <button type="submit" className={`animate-heartbeat bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-lg transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
                     Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
@@ -691,7 +691,7 @@ const CadrenalPage = () => {
           </div>
         </div>
       </footer>
-      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"stockpicks subscriber"} heading={heading} subHeading={subHeading}/>
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"cvkd subscriber popup"} heading={heading} subHeading={subHeading}/>
       {/* disclaimer */}
       <Disclaimer />
     </>

@@ -79,6 +79,21 @@ module.exports = {
         'upgradeBg': 'linear-gradient(121.78deg, #2713A5 7.6%, #634FF7 92.4%)',
         'cvkdButton': 'linear-gradient(90deg, #5B8BFC 0%, #175CFF 51.92%, #5B8BFC 100%)',
       },
+      keyframes: {
+        heartbeat: {
+          '0%, 100%': { 
+            transform: 'scale(1.3)',
+            boxShadow: '0 35px 35px -15px rgba(0, 0, 0, 0.3), 0 20px 25px -5px rgba(0, 0, 0, 0.1)', // shadow-3xl
+          },
+          '50%': { 
+            transform: 'scale(1)',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)', // shadow-lg
+          },
+        },
+      },
+      animation: {
+        heartbeat: 'heartbeat 3s ease-in-out infinite',
+      },
     },
   },
   plugins: [
