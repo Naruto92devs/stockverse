@@ -60,7 +60,7 @@ const NewsletterAlerts = () => {
         <div className="max-w-[650px] w-[95%] flex flex-col items-center gap-y-8">
           <h1 className="text-primaryText font-OpenSans sm:text-[2.33rem] text-2xl font-semibold text-center leading-[130%]">🚨 SUNDAY 8PM ET — THE TECH TICKER DROPS</h1>
           <div className="max-w-[570px] w-[97%] sm:p-6 p-4 space-y-6 bg-white shadow rounded-xl border border-black/10">
-            <h2 className="text-primaryText font-OpenSans font-bold sm:text-[1.7rem] text-xl text-center leading-[130%]">Be First. Move Early. Act Before the Crowd.</h2>
+            <h2 className="text-primaryText font-OpenSans font-bold sm:text-[1.7rem] text-xl text-center leading-[130%]">Be First. Move Early. Strike Before the Crowd.</h2>
             <ul className="list-disc pl-4 font-OpenSans text-lg space-y-2">
               <li>🔥 {`It’s`} a brand-new tech stock setup</li>
               <li>📈 Fresh chart. Real momentum.</li>
