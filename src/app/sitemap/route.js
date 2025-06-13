@@ -8,7 +8,7 @@ export async function GET() {
     {slug: "feedback", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "1.0"},
     {slug: "stockverse-gpt", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "1.0"},
     {slug: "stockpicks", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "1.0"},
-    { slug: "dashboard?view=gainers_losers", lastmod: new Date().toISOString().split("T")[0], changefreq: "daily", priority: "0.9" },
+    {slug: "dashboard?view=gainers_losers", lastmod: new Date().toISOString().split("T")[0], changefreq: "daily", priority: "0.9" },
     {slug: "dashboard?view=news", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "0.9"},
     {slug: "dashboard?view=ipo_calendar", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "0.9"},
     {slug: "disclaimer", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "1.0"},

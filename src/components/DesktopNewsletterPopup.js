@@ -17,7 +17,7 @@ export default function DesktopNewsletterPopup({ newsletter, setNewsletter }) {
       <NewsLetterPopup
         newsletter={newsletter}
         setNewsletter={setNewsletter}
-        tag={"cvkd subscriber"}
+        tag={"cvkd subscriber popup"}
         heading = {"Want the Next Stock That Could Explode?"}
         subHeading = {"💸 Join 12,042+ Investors Getting Alerts First"}
       />

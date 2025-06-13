@@ -124,9 +124,9 @@ const CadrenalPage = () => {
   return (
     <>
       {/* hero */}
-      <section className="bg-[#010e140d] min-h-[600px] 2xl:py-20 xl:py-24 py-12 ">
+      <section className="bg-[#010e140d] min-h-[600px] 2xl:py-20 xl:py-24 py-6 ">
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
-          <div className="w-[64%] max-lg:w-[100%] space-y-10">
+          <div className="w-[64%] max-lg:w-[100%] lg:space-y-10 space-y-6">
             <div>
             <h1 className="text-black 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Hot Stock Alert:</h1>
             <h2 className="text-darkGreen 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-black">Ticker: </span> <Link href='/cadrenal' className="underline"> CVKD</Link> <span className="text-black">(NASDAQ)</span></h2>
@@ -191,7 +191,7 @@ const CadrenalPage = () => {
                     </span>
                   )}
                 </div>
-                <button type="submit" className={`bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-md transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
+                <button type="submit" className={`animate-heartbeat bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-lg transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
                     Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
@@ -691,7 +691,7 @@ const CadrenalPage = () => {
           </div>
         </div>
       </footer>
-      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"stockpicks subscriber"} heading={heading} subHeading={subHeading}/>
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"cvkd subscriber popup"} heading={heading} subHeading={subHeading}/>
       {/* disclaimer */}
       <Disclaimer />
     </>

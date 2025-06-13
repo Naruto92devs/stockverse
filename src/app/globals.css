@@ -9,10 +9,6 @@
   -webkit-tap-highlight-color: transparent;
   -moz-tap-highlight-color: transparent;
 }
-/* 
-.grecaptcha-badge {
-  display: none;
-} */
 
 :root {
   --white: 255, 255, 255;
@@ -28,6 +24,7 @@
   --gray-color: 52, 61, 72; 
   --dark-green: 18, 167, 46;
   --gold: 212, 175, 55;
+  --blue: 60, 126, 255;
   --cvkd-green: 0, 128, 0;
 }
 
@@ -388,6 +385,13 @@
   font-style: normal;
 }
 @font-face {
+  font-family: 'Montserrat-Light';
+  src: url('/fonts/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
   font-family: 'Montserrat-Medium';
   src: url('/fonts/Montserrat-Medium.ttf') format('truetype');
   font-weight: 500;
@@ -500,6 +504,21 @@
 @font-face {
   font-family: 'Roboto';
   src: url('/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900; /* variable range */
+  font-style: normal;
+  font-display: swap;
+}
+
+/**
+* @license
+*
+* Font Family: DM-sans
+*
+*/
+
+@font-face {
+  font-family: 'DM-Sans';
+  src: url('/fonts/DM_sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900; /* variable range */
   font-style: normal;
   font-display: swap;
