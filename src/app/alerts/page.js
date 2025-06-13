@@ -170,10 +170,8 @@ const Homepage = () => {
               Spots are Limited! Sign Up 100% FREE Below
             </p>
           </div>
-          <div className="w-[58%] max-md:w-full absolute max-md:hidden right-0 top-[-2rem]">
-            <div className="w-[45%] max-md:w-[100%] z-[0] absolute -bottom-[18%] -right-[0%] max-md:static">
-            </div>
-            <Image className="width-anime max-md:hidden" src="/images/hero-graph.png" alt="" width={942} height={528} />
+          <div className="w-[58%] width-anime max-md:w-full absolute max-md:hidden overflow-hidden right-0 top-[-2rem]">
+            <Image className="max-md:hidden min-w-max" src="/images/hero-graph.png" alt="" width={942} height={528} />
           </div>
         </div>
       </section>
