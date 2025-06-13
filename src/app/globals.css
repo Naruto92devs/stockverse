@@ -1131,9 +1131,20 @@
   background-size: 100% 100%;
   background-position: top center;
 }
+
 .width-anime {
-  animation: width-anime 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform-origin: left;
+  /* animation: revealClip 2s ease-out forwards; */
+  animation: revealClip 2.5s 0.3s ease-out forwards;
+  clip-path: inset(0 100% 0 0); /* start fully hidden from right */
+}
+
+@keyframes revealClip {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+  }
 }
 .rotate {
   animation: rotate 15s cubic-bezier(0.25, 0.50, 0.75, 1) infinite forwards;
@@ -1151,25 +1162,6 @@
   80% { transform: rotate(288deg); }
   90% { transform: rotate(324deg); }
   100% { transform: rotate(360deg); }
-}
-@keyframes width-anime {
-  0%{
-    transform: scaleX(0);
-  }
-  100%{
-    transform: scaleX(1);
-  }
-}
-@keyframes bg-position {
-  0%{
-    background-position: 0% 0%;
-  }
-  50%{
-    background-position: 100% 100%;
-  }
-  100%{
-    background-position: 0% 0%;
-  }
 }
 .swiper-button-next {
   color : #A5A4A1 !important;
