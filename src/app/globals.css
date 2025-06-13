@@ -25,6 +25,7 @@
   --dark-green: 18, 167, 46;
   --gold: 212, 175, 55;
   --blue: 60, 126, 255;
+  --sky-blue: 0, 189, 242;
   --cvkd-green: 0, 128, 0;
 }
 
@@ -519,6 +520,21 @@
 @font-face {
   font-family: 'DM-Sans';
   src: url('/fonts/DM_sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900; /* variable range */
+  font-style: normal;
+  font-display: swap;
+}
+
+/**
+* @license
+*
+* Font Family: Open-sans
+*
+*/
+
+@font-face {
+  font-family: 'Open-Sans';
+  src: url('/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
   font-weight: 100 900; /* variable range */
   font-style: normal;
   font-display: swap;

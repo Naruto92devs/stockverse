@@ -13,6 +13,7 @@ module.exports = {
       black: "rgba(var(--black))",
       gold: "rgba(var(--gold))",
       blue: "rgba(var(--blue))",
+      skyBlue: "rgba(var(--sky-blue))",
       cvkdGreen: "rgba(var(--cvkd-green))",
       buy: "rgba(var(--buy-color))",
       sell: "rgba(var(--sell-color))",
@@ -57,6 +58,7 @@ module.exports = {
         Roboto: ['Roboto'],
         
         DM: ['DM-Sans'],
+        OpenSans: ['Open-Sans'],
         
         grotesqueSemibold : ['grotesque-Semibold'],
         poppinsRegular : ['poppins-Regular'],

@@ -30,9 +30,9 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   // Define routes where Navbar should be hidden
-  const excludedNavbarRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/', '/homepage', '/alerts', '/cadrenal', '/cvkd'];
+  const excludedNavbarRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/', '/homepage', '/alerts', '/cadrenal', '/cvkd', '/newsletter'];
   // Define routes where Footer should be hidden
-  const excludedFooterRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/', '/neovolta', '/cadrenal-page', '/stockversegpt-overview', '/help-center', '/homepage', '/alerts', '/return', '/cadrenal', '/reset_password'];
+  const excludedFooterRoutes = ['/stockverse-gpt', '/gpt', '/dashboard', '/login', '/register', '/', '/neovolta', '/cadrenal-page', '/stockversegpt-overview', '/help-center', '/homepage', '/alerts', '/return', '/cadrenal', '/reset_password', '/newsletter'];
   // Define routes where Footer should be shown
   const includedShortFooterRoutes = ['/pricing', '/'];
 
