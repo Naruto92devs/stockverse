@@ -1,7 +1,8 @@
 'use client';
 import Image from "next/image";
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
+import StockpicksFooter from "@/components/stockpicks_footer";
 
 const Newsletter = () => {
   const [phone, setPhone] = useState('');
@@ -78,7 +79,7 @@ const Newsletter = () => {
       {/* Logo */}
       <section className="bg-skyBlue py-12">
         <div className="xl:container mx-auto flex flex-col items-center">
-          <Image className="max-w-[400px] w-[80%]" width={1246} height={230} src='/images/TheEarlyBird-Logo.png' alt="logo"/>
+          <h1 className="font-OpenSans md:text-7xl text-5xl font-[600] text-[#181851]">StockVerse</h1>
         </div>
       </section>
         <section className="w-full xl:container mx-auto py-12 flex flex-col items-center gap-y-8">
@@ -139,6 +140,7 @@ const Newsletter = () => {
             <h3 className="text-skyBlue uppercase font-OpenSans sm:text-[2.6rem] text-2xl font-semibold text-center leading-[130%]">Hurry! What You Miss This Morning Could Affect Your Bottom Line This Afternoon</h3>
           </div>
         </section>
+        <StockpicksFooter/>
     </>
   )
 }
