@@ -101,7 +101,7 @@ const NewsletterAlerts = () => {
           <ul className="max-w-[570px] w-[97%] list-disc sm:pl-10 pl-8 font-OpenSans text-lg space-y-2">
             <li>👀 Send this to your crew.</li>
             <li>👊 Put real traders on this drop.</li>
-            <li>🔗 <Link className='text-skyBlue' href='https://stockverse.com/alerts'> stockverse.com/alerts</Link></li>
+            <li>🔗 <Link className='text-skyBlue' href='/newsletter'> stockverse.com/newsletter</Link></li>
           </ul>
           <p className='text-black font-OpenSans font-bold text-xl text-center leading-[130%]'>The more eyes on this before Monday… the louder the move.</p>
           <p className='text-skyBlue uppercase font-OpenSans sm:text-[2.6rem] text-2xl font-semibold text-center leading-[130%]'>THIS TECH PLAY COULD BE THE MONDAY STORY AND YOU SAW IT FIRST.</p>
