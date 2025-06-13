@@ -25,7 +25,7 @@ const Newsletter = () => {
     try {
       const requestData = {
         email,
-        tag: 'CVKD subscriber'
+        tag: 'newsletter'
       };
 
       // Only add the phone number if it is provided
