@@ -16,6 +16,8 @@ export default function NewsLetterPopup({newsletter, setNewsletter, tag, heading
   const [done, setDone] = useState(null);
   const [er, setEr] = useState(null);
   const [loading, setLoading] = useState(null);
+  const isValidPhone = phone && phone.replace(/\D/g, '').length >= 10;
+  const isFormValid = email && isValidPhone && privacyChecked && !loading;
 
   const handleSubscribeEmailPhone = async (e) => {
     setLoading(true);
@@ -152,9 +154,9 @@ export default function NewsLetterPopup({newsletter, setNewsletter, tag, heading
               .
             </p>
             <button
-              disabled={loading}
+              disabled={!isFormValid}
               type="submit"
-              className="w-full bg-primaryMain text-base font-sansMedium text-white py-2 rounded-lg hover:bg-black transition duration-300"
+              className={`${isFormValid ? 'bg-primaryMain text-white hover:bg-black cursor-pointer' : 'opacity-70 cursor-not-allowed'} w-full bg-primaryMain text-base font-sansMedium text-white py-2 rounded-lg transition duration-300`}
             >
               {loading ? 'Subscribing...' : 'Reveal the Winners!'}
             </button>

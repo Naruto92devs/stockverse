@@ -30,6 +30,8 @@ const CadrenalPage = () => {
   const [error, setError] = useState(null); // Error state
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [er, setEr] = useState(null);
+  const isValidPhone = phone && phone.replace(/\D/g, '').length >= 10;
+  const isFormValid = email && isValidPhone && !loading;
   const [newsletter, setNewsletter] = useState(true);
   const heading = "Winning Stock Picks"
   const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
@@ -164,8 +166,9 @@ const CadrenalPage = () => {
               <form className="flex flex-col gap-4 items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
                 <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
                 <input
+                  autoComplete="email"
                   name="search_Symbols"
-                  type="text"
+                  type="email"
                   className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
                   placeholder="Enter your email"
                   value={email}
@@ -191,7 +194,10 @@ const CadrenalPage = () => {
                     </span>
                   )}
                 </div>
-                <button type="submit" className={`animate-heartbeat bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-lg transition  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
+                <button 
+                disabled={!isFormValid}
+                type="submit" 
+                className={`animate-heartbeat bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-lg transition ${isFormValid ? '' : 'cursor-not-allowed'}  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
 
                   {isSubmitting ? "Subscribing..." : <>
                     Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
@@ -547,8 +553,13 @@ const CadrenalPage = () => {
                     </a>
                     .
                   </p>
-                  <button type="submit" className="w-full bg-[#0A84EF] font-MontserratMedium hover:bg-blue-700 text-[#fff] p-2 rounded">
-                    Continue
+                  <button 
+                  disabled={!isFormValid}
+                  type="submit" 
+                  className={`${isFormValid ? '' : 'cursor-not-allowed'} w-full bg-[#0A84EF] font-MontserratMedium hover:bg-blue-700 text-[#fff] p-2 rounded`}>
+                    {isSubmitting ? "Subscribing..." : <>
+                      Continue
+                    </>}
                   </button>
                 </form>
               )}
