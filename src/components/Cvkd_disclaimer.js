@@ -19,7 +19,7 @@ export default function Disclaimer() {
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">1. NATURE AND INTENT OF THIS COMMUNICATION</h4>
         <p className="text-base text-primaryText font-inter">
           Relqo Media LLC is a for-profit marketing agency engaged in paid promotions of public companies. The content we produce is strictly commercial and intended to create temporary public awareness, visibility, and short-term market activity around the featured company. This material is not impartial. All readers should interpret our content as a paid commercial advertisement and not as an editorial, research article, or independent commentary.
-          We create advertisements, not analysis. These Communications are not intended to be factual evaluations of the company’s operations or investment merit.
+          We create advertisements, not analysis. These Communications are not intended to be factual evaluations of the {`company’s`} operations or investment merit.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR CADRENAL THERAPEUTICS, INC. (CVKD)</h4>
@@ -32,7 +32,7 @@ export default function Disclaimer() {
           <li>Genesis One Holdings LLC may own, acquire, or dispose of shares in CVKD during or after the campaign period.</li>
         </ul>
         <p className="text-base text-primaryText font-inter">
-          This relationship creates a material conflict of interest. Relqo Media’s content regarding CVKD should be considered promotional, biased, and financially motivated.
+          This relationship creates a material conflict of interest. Relqo {`Media’s`} content regarding CVKD should be considered promotional, biased, and financially motivated.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">3. INTENDED AUDIENCE</h4>
@@ -51,7 +51,7 @@ export default function Disclaimer() {
           Promotional campaigns commonly result in short-lived spikes in stock price and volume, followed by rapid declines. These spikes are typically driven by retail speculation, promotional circulation, and momentary investor interest—not fundamentals. You should expect that:
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter">
-          <li>CVKD’s stock may increase temporarily during this promotion,</li>
+          <li>{`CVKD’s`} stock may increase temporarily during this promotion,</li>
           <li>Trading volume may rise sharply, and</li>
           <li>The price may fall after the campaign ends or selling begins.</li>
         </ul>
