@@ -243,7 +243,7 @@ const IQSTPage = () => {
           <div className="w-[50%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
             <p className="text-gray/60 font-MontserratMedium text-right pb-4">*Sponsored</p>
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              IQSTEL (NASDAQ: IQST): 5 Reasons This Nasdaq Tech Company Deserves a Closer Look
+              IQSTEL (NASDAQ: IQST): 5 Reasons This Company Should Be On Your Radar
             </h3>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
               IQSTEL Inc. (NASDAQ: IQST) is a diversified technology company operating in telecom, fintech, IoT, blockchain, and electric vehicles (EVs). With strong reported revenue growth, a disciplined capital structure, and a recent uplisting to Nasdaq, IQSTEL has begun attracting more investor attention. Below are five reasons why investors may want to include this company in their research.
