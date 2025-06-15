@@ -212,6 +212,15 @@ const IQSTPage = () => {
         <h4 className="text-[#1D3045]  font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-12">
           Add <Link href='/iqst' className="font-MontserratBold underline"> IQST</Link> to your watchlist today
         </h4>
+        <div className="w-full xl:container mx-auto pb-2 px-3 flex flex-col items-center">
+          <div className="lg:w-[50%] w-full">
+            <p className="font-MontserratMedium text-gray/60">Disclaimer</p>
+            <p className="pb-4 font-MontserratMedium text-gray/60">This article is a paid advertisement and is for informational purposes only. It does not constitute investment advice, a solicitation, or an offer to buy or sell any securities. All information presented has been compiled from publicly available sources believed to be accurate as of the date of writing. However, no representation or warranty is made as to its accuracy or completeness.</p>
+            <p className="pb-4 font-MontserratMedium text-gray/60">This communication includes forward-looking statements, which involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. Such statements reflect current expectations but are subject to change without notice.</p>
+            <p className="pb-4 font-MontserratMedium text-gray/60">Investors are strongly encouraged to conduct their own due diligence and consult with a licensed financial advisor before making any investment decisions.</p>
+            <p className="pb-4 font-MontserratMedium text-gray/60">For details regarding compensation and potential conflicts of interest, please refer to the full disclaimer below.</p>
+          </div>
+        </div>
         <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
           <Link href='https://www.etrade.wallst.com/sso/saml2/requestAssertion.ashx?originalTarget=https%3A%2F%2Fwww%2Eetrade%2Ewallst%2Ecom%2Fv1%2Fstocks%2Fsnapshot%2Fsnapshot%2Easp%3Fsymbol%3Diqst%26rsO%3Dnew&authnContext=prospect&ChallengeUrl=https%3A%2F%2Fidp%2Eetrade%2Ecom%2Fidp%2FSSO%2Esaml2' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/6.png" alt="3" width={70} height={70} loading="lazy" />
@@ -386,7 +395,7 @@ const IQSTPage = () => {
       <div className="mx-auto xl:container gap-y-4 px-8 xl:px-3 max-sm:gap-y-3 flex flex-col items-start">
         <h4 className="text-3xl font-inter font-bold text-primaryText">MASTER LEGAL DISCLAIMER</h4>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Effective Date</span>: August 2024</p>
-        <p className="text-lg font-inter text-primaryText"><span className="font-inter">Last Updated</span>: May 17, 2025</p>
+        <p className="text-lg font-inter text-primaryText"><span className="font-inter">Last Updated</span>: June 15, 2025</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Publisher</span>: Relqo Media LLC (Wyoming, United States)</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Subject Company</span>: IQSTEL, INC. (IQST)</p>
 
@@ -402,7 +411,7 @@ const IQSTPage = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR IQSTEL, INC. (IQST)</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC has been retained by CorporateAds, LLC to provide promotional media services for iQSTEL, Inc. (NASDAQ: IQST). As of the effective date:
+          Relqo Media LLC has been retained by CorporateAds, LLC to provide promotional media services for iQSTEL, Inc. (NASDAQ: IQST). As of the effective date: June 15, 2025
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter pl-8">
           <li>Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.</li>
