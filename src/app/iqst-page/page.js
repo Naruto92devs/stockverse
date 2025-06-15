@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, { useState, useEffect } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope } from "react-icons/fa";
 import formatNumber from "@/components/FormatNumber";
-import NewsLetterPopup from "@/components/NewsLetterPopup";
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
@@ -13,27 +12,11 @@ const montserrat = Montserrat({
 });
 
 
-import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Optional default styles
-import axios from "axios";
 import Link from "next/link";
 
 const IQSTPage = () => {
-  const [privacyChecked, setPrivacyChecked] = useState(false);
-  const [phone, setPhone] = useState('+1');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState(null);
-  const [done, setDone] = useState(null);
-  const [loading, setLoading] = useState(null);
   const [stockdata, setstockData] = useState([]); // State to store API data
-  const [error, setError] = useState(null); // Error state
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [er, setEr] = useState(null);
-  const isValidPhone = phone && phone.replace(/\D/g, '').length >= 10;
-  const isFormValid = email && isValidPhone && !loading;
-  const [newsletter, setNewsletter] = useState(true);
-  const heading = "Winning Stock Picks"
-  const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -70,7 +53,7 @@ const IQSTPage = () => {
   return (
     <>
       {/* hero */}
-      <section className="bg-[#010e140d] min-h-[600px] 2xl:py-20 xl:py-24 py-6 ">
+      <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-6 ">
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%] lg:space-y-10 space-y-6">
             <div>
@@ -99,13 +82,11 @@ const IQSTPage = () => {
               <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>iQSTEL (NASDAQ: IQST) posted $283M in 2024 revenue, nearly doubling from last year. With no dilution and expansion into fintech and AI, growth momentum is building. <span className="font-MontserratBold"> Add IQST to Your Watchlist Immediately.</span></p>
             </div>
           </div>
-          <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
-          </div>
         </div>
       </section>
 
       {/* main */}
-      <section className="w-full xl:container mx-auto py-24 px-3">
+      <section className="w-full xl:container mx-auto md:py-24 py-12 px-3">
         <div className="flex lg:items-start justify-between flex-wrap max-lg:gap-y-8">
           <div className="w-[23%] max-lg:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:relative max-lg:top-0 max-lg:order-2 max-md:order-3">
             <p className="bg-[#F2F3F3] text-[#1D3045] font-MontserratSemibold text-base px-4 py-4 rounded 2xl:rounded-lg">
@@ -400,7 +381,6 @@ const IQSTPage = () => {
           </div>
         </div>
       </footer>
-      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"IQST subscriber popup"} heading={heading} subHeading={subHeading}/>
       {/* disclaimer */}
       <div className="hero py-16 max-md:py-6 w-full border-t-[1.2px] border-[#404040]">
       <div className="mx-auto xl:container gap-y-4 px-8 xl:px-3 max-sm:gap-y-3 flex flex-col items-start">
