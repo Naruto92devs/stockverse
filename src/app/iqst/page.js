@@ -60,6 +60,10 @@ const IQSTPage = () => {
             <h1 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">Hot Stock Alert:</h1>
             <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(NASDAQ: <Link href='/dashboard?symbol=IQST' className=" text-darkGreen"> IQST</Link>)</h2>
             </div>
+            <div className="space-y-4">
+              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> This Stock May Soar 312% — {`Here’s`} Why</p>
+              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>iQSTEL (NASDAQ: IQST) posted $283M in 2024 revenue, nearly doubling from last year. With no dilution and expansion into fintech and AI, growth momentum is building. <span className="font-MontserratBold"> Add IQST to Your Watchlist Immediately.</span></p>
+            </div>
             <div className="flex flex-wrap gap-2">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=IQST' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" loading="eager" />
@@ -76,10 +80,6 @@ const IQSTPage = () => {
               <Link href='https://www.webull.com/quote/nasdaq-iqst' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="eager" />
               </Link>
-            </div>
-            <div className="space-y-4">
-              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> This Stock May Soar 312% — {`Here’s`} Why</p>
-              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>iQSTEL (NASDAQ: IQST) posted $283M in 2024 revenue, nearly doubling from last year. With no dilution and expansion into fintech and AI, growth momentum is building. <span className="font-MontserratBold"> Add IQST to Your Watchlist Immediately.</span></p>
             </div>
           </div>
         </div>
