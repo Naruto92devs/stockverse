@@ -1,8 +1,9 @@
 'use client';
 import Image from "next/image";
 import React, { useState, useEffect } from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope, FaRegEnvelope } from "react-icons/fa";
 import formatNumber from "@/components/FormatNumber";
+import NewsLetterPopup from "@/components/NewsLetterPopup";
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
@@ -12,14 +13,85 @@ const montserrat = Montserrat({
 });
 
 
+import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Optional default styles
+import axios from "axios";
 import Link from "next/link";
 
 const IQSTPage = () => {
+  const [privacyChecked, setPrivacyChecked] = useState(false);
+  const [phone, setPhone] = useState('+1');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(null);
+  const [done, setDone] = useState(null);
+  const [loading, setLoading] = useState(null);
   const [stockdata, setstockData] = useState([]); // State to store API data
+  const [error, setError] = useState(null); // Error state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [er, setEr] = useState(null);
+  const isValidPhone = phone && phone.replace(/\D/g, '').length >= 10;
+  const isFormValid = email && isValidPhone && !loading;
+  const [newsletter, setNewsletter] = useState(true);
+  const heading = "Winning Stock Picks"
+  const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
+
+  const handleSubscribeEmailPhone = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+
+    try {
+      const requestData = {
+        email,
+        tag: 'IQST subscriber'
+      };
+
+      // Only add the phone number if it is provided
+      if (phone) {
+        requestData.phone = `${phone}`;
+      }
+
+      const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
+
+      const data = response.data;
+      console.log(data);
+      if (response.status === 200) {
+        setMessage(data.message);
+        setLoading(false);
+        setEr(false);
+        setEmail('');
+        setPhone('');
+        setDone(true);
+      } else {
+        setDone(true);
+        setEr(true);
+        setEmail('');
+        setPhone('');
+        setMessage(data.message || 'Something went wrong');
+        setLoading(false);
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setEr(true);
+        setDone(true);
+        setEmail('');
+        setPhone('');
+        setMessage(error.response.data.message || 'Something went wrong');
+        // setMessage('An error occurred. Please try again.');
+        setLoading(false);
+      } else {
+        setDone(true);
+        setEr(true);
+        setEmail('');
+        setPhone('');
+        setMessage('An error occurred. Please try again.');
+        setLoading(false);
+      }
+      console.error('Error during subscribing:', error);
+    }
+  };
 
   useEffect(() => {
     const fetchStockData = async () => {
@@ -53,7 +125,7 @@ const IQSTPage = () => {
   return (
     <>
       {/* hero */}
-      <section className="bg-[#010e140d] 2xl:py-20 xl:py-24 py-6 ">
+      <section className="bg-[#010e140d] min-h-[600px] 2xl:py-20 xl:py-24 py-6 ">
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%] lg:space-y-10 space-y-6">
             <div>
@@ -82,11 +154,68 @@ const IQSTPage = () => {
               <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>iQSTEL (NASDAQ: IQST) posted $283M in 2024 revenue, nearly doubling from last year. With no dilution and expansion into fintech and AI, growth momentum is building. <span className="font-MontserratBold"> Add IQST to Your Watchlist Immediately.</span></p>
             </div>
           </div>
+          <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
+            <div>
+              {done && (
+                <div className={`${er ? 'text-sell' : 'text-[#fff]'} w-full bg-[#12a72e] absolute left-0 top-16 p-2 px-4 text-center text-base font-sansMedium`}>
+                  {er ? `${message}` : 'Thanks For Subscribing.'}
+                </div>
+              )}
+              <form className="flex flex-col gap-4 items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
+                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
+                <input
+                  autoComplete="email"
+                  name="search_Symbols"
+                  type="email"
+                  className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
+                  placeholder="Enter your email"
+                  value={email}
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <div className="w-full relative">
+                  <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
+                  <input
+                    name="search_Symbols"
+                    type="tel"
+                    className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
+                    placeholder="Enter your phone number"
+                    value={phone}
+                    required
+                    onChange={(e) => setPhone(e.target.value)}
+                    autoComplete="tel"
+                  />
+                  {/* Custom floating placeholder */}
+                  {phone === '+1' && (
+                    <span className="font-MontserratMedium absolute left-20 top-1/2 -translate-y-1/2 text-sm transition-all pointer-events-none text-[#9CA3AF] peer-focus:hidden">
+                      Enter your phone number
+                    </span>
+                  )}
+                </div>
+                <button 
+                disabled={!isFormValid}
+                type="submit" 
+                className={`animate-heartbeat bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-lg transition ${isFormValid ? '' : 'cursor-not-allowed'}  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
+
+                  {isSubmitting ? "Subscribing..." : <>
+                    Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
+                  </>}
+                </button>
+              </form>
+              <div className="flex items-center gap-2 2xl:w-[70%] w-[80%] mt-8 2xl:mt-12 relative">
+                <Image src="/images/investors.svg" alt="investors" width={102} height={49} loading="eager" />
+                <p className="text-gray/60 font-MontserratMedium text-base">
+                  Join 128,000 smart investors. Subscribe today.
+                </p>
+                <Image className="absolute -right-24 2xl:w-[8rem] w-[7rem] max-lg:-right-20 2xl:-right-38 2xl:-top-12" src="/images/arrow.png" alt="arrow" width={112} height={111} loading="eager" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* main */}
-      <section className="w-full xl:container mx-auto md:py-24 py-12 px-3">
+      <section className="w-full xl:container mx-auto py-24 px-3">
         <div className="flex lg:items-start justify-between flex-wrap max-lg:gap-y-8">
           <div className="w-[23%] max-lg:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:relative max-lg:top-0 max-lg:order-2 max-md:order-3">
             <p className="bg-[#F2F3F3] text-[#1D3045] font-MontserratSemibold text-base px-4 py-4 rounded 2xl:rounded-lg">
@@ -111,63 +240,151 @@ const IQSTPage = () => {
               </Link>
             </div>
           </div>
-          <div className="w-[50%] pt-6 max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
+          <div className="w-[50%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
+            <p className="text-gray/60 font-MontserratMedium text-right pb-4">*Sponsored</p>
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              5 Reasons IQSTEL Should Be On Your Radar
+              IQSTEL (NASDAQ: IQST): 5 Reasons This Nasdaq Tech Company Deserves a Closer Look
             </h3>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">1. Proven Revenue Growth and Profitability Trends</h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              IQSTEL recently announced:
+              IQSTEL Inc. (NASDAQ: IQST) is a diversified technology company operating in telecom, fintech, IoT, blockchain, and electric vehicles (EVs). With strong reported revenue growth, a disciplined capital structure, and a recent uplisting to Nasdaq, IQSTEL has begun attracting more investor attention. Below are five reasons why investors may want to include this company in their research.
+            </p>
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">1. Strong Revenue Growth and Profitability Indicators</h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              According to company filings and press releases:
             </p>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">$283 million</span> in 2024 revenue (+96% YoY)</li>
-              <li><span className="font-MontserratBold">$57.6 million</span> in Q1 2025 revenue</li>
-              <li>Positive net income and <span className="font-MontserratBold">adjusted EBITDA</span></li>
+              <li>IQSTEL reported <span className="font-MontserratBold"> $283 million</span> in 2024 revenue, reflecting a 96 percent year-over-year increase.</li>
+              <li>	In the first quarter of 2025, the company reported <span className="font-MontserratBold"> $57.6 million</span> in revenue.</li>
+              <li>The company stated it achieved positive net income and adjusted EBITDA.</li>
+              <li>IQSTEL reaffirmed its 2025 revenue guidance at <span className="font-MontserratBold"> $340 million</span>, and has communicated an internal goal of reaching a $400 million revenue run-rate by year-end.</li>
             </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              With full-year 2025 revenue guidance reaffirmed at <span className="font-MontserratBold">$340 million</span>, and a year-end revenue run-rate goal of <span className="font-MontserratBold">$400 million</span>, the company has clearly signaled its growth trajectory. The long-term company vision is to reach <span className="font-MontserratBold">$1 billion in revenue by 2027</span>.
+              These figures reflect continued top-line growth and operational execution. As always, projections are subject to risk and depend on market and internal performance factors.
             </p>
 
             {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              2. Tight Float, Strong Per-Share Metrics
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12  text-center text-[#343D48]">
+              2. Tight Share Structure and Strong Per-Share Metrics
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              IQST has <span className="font-MontserratBold">2.9 million shares outstanding</span>, which is unusually low for a Nasdaq-listed company of its size.
+              IQSTEL currently has approximately <span className="font-MontserratBold"> 2.9 million</span> shares outstanding, based on recent disclosures. This results in strong per-share fundamentals:
             </p>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">Revenue per share:</span>  Over $100</li>
+              <li><span className="font-MontserratBold">Revenue per share (based on 2024 revenue):</span>  Over $100</li>
               <li><span className="font-MontserratBold">Equity per share:</span>  $4.38</li>
-              <li><span className="font-MontserratBold">Market cap:</span> ~$35 million</li>
+              <li><span className="font-MontserratBold">Market capitalization:</span> Approximately $35 million</li>
             </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              These numbers suggest a disconnect between the company’s fundamentals and its current valuation. A reassessment by the market may occur as institutional awareness increases.
+              This combination of high revenue and a tight float is unusual for a Nasdaq-listed company. While valuation is determined by many market factors, such metrics may prompt reassessment by analysts or investors over time.
             </p>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              3. Strategic Fintech Expansion Through GlobeTopper
+            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
+              3. Expansion into Fintech via GlobeTopper
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              The {`company's`} 51% acquisition of GlobeTopper, a fintech provider projected to generate <span className="font-MontserratBold">$65M+ in 2025</span>, enables cross-sector growth. IQSTEL plans to integrate GlobeTopper’s services across its 600+ telecom partners—potentially unlocking new recurring revenue streams and a more diversified business model.
+              IQSTEL owns a 51 percent stake in GlobeTopper, a fintech platform focused on:
             </p>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              4. NASDAQ Uplisting Completed Without Dilution
+            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
+              <li>International mobile top-ups</li>
+              <li>Cross-border digital payments</li>
+              <li>Remittances and bill pay services</li>
+            </ul>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+              The company has announced projections that GlobeTopper may generate more than <span className="font-MontserratBold"> $65 million</span> in revenue in 2025, though actual results will depend on execution and adoption. IQSTEL intends to integrate {`GlobeTopper’s`} offerings across its existing network of more than 600 telecom partners, with the goal of creating recurring, high-margin revenue streams within the fintech space.
+            </p>
+            <h6 className="font-MontserratBold text-center  text-lg 2xl:text-xl pt-12 text-[#343D48]">
+              4. Nasdaq Uplisting with No Dilution
             </h6>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              On May 14, 2025, IQSTEL uplisted to the <span className="font-MontserratBold">NASDAQ Capital Market</span> through a direct listing. No capital was raised, and no shares were sold—resulting in zero shareholder dilution. This move has increased the {`company's`} visibility and access to new investor classes, including institutions and family offices.
+              On May 14, 2025, IQSTEL uplisted to the Nasdaq Capital Market through a direct listing. This structure:
+            </p>
+            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
+              <li>Did not involve the issuance of new shares</li>
+              <li>Did not involve the sale of existing shares</li>
+              <li>Did not dilute existing shareholders</li>
+            </ul>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+              Uplisting to Nasdaq typically enhances visibility, improves liquidity, and enables access to a broader pool of investors, including institutional capital.
             </p>
 
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              5. Undervalued Relative to Industry Peers
+            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
+              5. Valuation Below Industry Multiples
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Despite its financial performance, IQST is trading at a revenue multiple of only <span className="font-MontserratBold">~0.1x 2024 revenue</span>, far below the tech and fintech industry averages. While valuation changes are not guaranteed, the current metrics place the company well below peer benchmarks—potentially presenting an opportunity for growth-oriented investors.
+              IQSTEL currently trades at a revenue multiple of approximately 0.12x based on its 2024 revenue of $283 million. This compares to the revenue multiples of several peer companies in adjacent sectors:
+            </p>
+            <div className="overflow-x-auto w-full pt-4">
+              <div className="min-w-max flex">
+                <div className="min-w-max">
+                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Company</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">IQSTEL</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Kaleyra (acquired 2023)</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Bandwidth Inc. (NASDAQ: BAND)</p>
+                </div>
+                <div className="min-w-max">
+                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Revenue</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">$283M</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">$339M</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">~$630M</p>
+                </div>
+                <div className="min-w-max">
+                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Market Cap</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">~$35M</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">~$100M (buyout)</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">~$300M</p>
+                </div>
+                <div className="min-w-max">
+                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Revenue Multiple</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">~0.12x</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">~0.30x</p>
+                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">~0.47x</p>
+                </div>
+              </div>
+            </div>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+              Note: Kaleyra was acquired in 2023 by Tata Communications and is no longer publicly traded. Bandwidth is a current Nasdaq-listed communications platform company.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              IQSTEL’s strong financials, diversified business lines, and disciplined capital structure may appeal to both retail and institutional investors looking for exposure to telecom, fintech, and tech-enabled services.
+              While valuation comparisons vary based on sector, margins, and risk, IQSTEL’s current revenue multiple places it well below other companies with similar revenue profiles.
             </p>
 
+            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
+              What IQSTEL Does: A Breakdown of Its Business Segments
+            </h6>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              Telecom Services
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              IQSTEL provides international voice, SMS, and data transmission services to telecom carriers through more than 600 B2B partner relationships. These services support global communication infrastructure, particularly in Latin America and emerging markets.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              Fintech
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              Through its majority ownership of GlobeTopper, IQSTEL is expanding into digital financial services such as mobile wallet top-ups, cross-border bill payments, and remittances. This line of business is aimed at underserved populations and complements its telecom infrastructure.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              EV and IoT Products
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              The company offers Internet of Things (IoT) solutions, including asset-tracking devices and smart sensors, as well as electric mobility products under the EVOSS brand. These products focus on connected mobility and energy-efficient transportation.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              Blockchain Solutions
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              IQSTEL has developed a blockchain-based telecom settlement platform designed to increase transparency and reduce fraud in cross-border telecom billing. This segment is still early in development but supports the {`company’s`} focus on innovation and digital transformation.
+            </p>
+            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
+              Final Considerations
+            </h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+              IQSTEL is a technology company with significant reported revenue, a tight share structure, and a diverse portfolio of operating segments. It is involved in global infrastructure sectors—telecom, fintech, IoT, and mobility—that have high demand across multiple regions.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+              While these factors position IQSTEL as a company of interest, investors are encouraged to conduct their own research, consider risk factors, and review official filings before making any investment decisions.
+            </p>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               📌 This is a stock worth watching as it continues to execute on its strategy.
@@ -258,6 +475,96 @@ const IQSTPage = () => {
       <section className="w-full bg-[#000] pt-[3rem]">
         <div className="w-full xl:container py-28 xl:px-3 px-8 px-8 mx-auto flex flex-col lg:flex-row lg:justify-between border-b border-solid border-[#404040] space-y-10 lg:space-y-0">
           {/* Left Section - Sign Up */}
+          <div className="w-full xl:w-[40%] lg:w-[48%] md:w-[70%]">
+            <div className="bg-[#111111] border border-solid border-[#404040] p-6 sm:p-8 rounded-2xl shadow-lg">
+              <h4 className="text-center text-[#fff] font-MontserrarMedium text-xl sm:text-2xl italic mb-4">
+                — Your Next Winning Stock Awaits!
+              </h4>
+              <p className="text-center text-[#aaaaaa] font-MontserratRegular text-[1rem] sm:text-[1.3rem] mb-10 sm:mb-16 px-2 sm:px-4">
+                Grow Your Wealth by <span className="text-blue-500">+673.66%</span>! Sign Up Now for Exclusive Stock Picks and Alerts
+              </p>
+              {!done && (
+                <form onSubmit={handleSubscribeEmailPhone} className="space-y-4">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email address"
+                    required
+                    className="placeholder:text-[#1E1E1F] font-MontserratRegular text-black w-full p-1.5 px-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500"
+                  />
+                  <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-2">
+                    <PhoneInput
+                      className="!font-MontserratRegular"
+                      country={"us"}
+                      value={phone}
+                      onChange={(value) => setPhone(value)}
+                      inputProps={{
+                        id: "phone",
+                        name: "phone",
+                        required: true, // HTML5 validation
+                        autoFocus: false,
+                      }}
+                      inputStyle={{
+                        width: "100%",
+                        padding: "10px 10px 10px 50px",
+                        fontSize: "16px",
+                        border: "1px solid rgba(156, 163, 175, 0.4)",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#F7FAFC",
+                        color: "#1A202C",
+                      }}
+                      containerStyle={{
+                        width: "100%",
+                      }}
+                      dropdownStyle={{
+                        borderRadius: "0.5rem",
+                      }}
+                      
+                    />
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      id="privacyPolicy"
+                      checked={privacyChecked}
+                      onChange={() => setPrivacyChecked(!privacyChecked)}
+                      required
+                      className="placeholder:text-[#1E1E1F] w-5 h-5 rounded bg-gray-800 border-gray-700 focus:ring-blue-500"
+                    />
+                    <label htmlFor="privacyPolicy" className="text-[1rem] font-MontserratRegular text-[#96A0B5]">
+                      Privacy Policy
+                    </label>
+                  </div>
+                  <p className="text-sm text-[#96A0B5] font-MontserratRegular">
+                    By submitting this form and signing up for texts, you consent to receive marketing text messages (e.g., promos, cart reminders)
+                    from Relqo Media at the number provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available).{" "}
+                    <a href="/policy" className="text-[#0A84EF] text-[0.8rem] underline font-MontserratSemibold">
+                      Privacy Policy
+                    </a>{" "}
+                    &{" "}
+                    <a href="/terms" className="text-[#0A84EF] text-[0.8rem] font-MontserratSemibold underline">
+                      Terms
+                    </a>
+                    .
+                  </p>
+                  <button 
+                  disabled={!isFormValid}
+                  type="submit" 
+                  className={`${isFormValid ? '' : 'cursor-not-allowed'} w-full bg-[#0A84EF] font-MontserratMedium hover:bg-blue-700 text-[#fff] p-2 rounded`}>
+                    {isSubmitting ? "Subscribing..." : <>
+                      Continue
+                    </>}
+                  </button>
+                </form>
+              )}
+              {done && (
+                <div className={`${er ? 'text-sell' : 'text-buy'} bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium`}>
+                  {message}
+                </div>
+              )}
+            </div>
+          </div>
 
           {/* Right Section - Offices and Social */}
           <div className="w-full lg:w-[48%]">
@@ -390,6 +697,7 @@ const IQSTPage = () => {
           </div>
         </div>
       </footer>
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"IQST subscriber popup"} heading={heading} subHeading={subHeading}/>
       {/* disclaimer */}
       <div className="hero py-16 max-md:py-6 w-full border-t-[1.2px] border-[#404040]">
       <div className="mx-auto xl:container gap-y-4 px-8 xl:px-3 max-sm:gap-y-3 flex flex-col items-start">
@@ -569,3 +877,5 @@ const IQSTPage = () => {
 }
 
 export default IQSTPage;
+
+
