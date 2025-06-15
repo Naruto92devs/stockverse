@@ -129,8 +129,8 @@ const IQSTPage = () => {
         <div className="w-full xl:container mx-auto px-3 flex justify-between max-lg:flex-col max-lg:gap-y-8">
           <div className="w-[64%] max-lg:w-[100%] lg:space-y-10 space-y-6">
             <div>
-            <h1 className="text-black 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold">Hot Stock Alert:</h1>
-            <h2 className="text-darkGreen 2xl:text-6xl sm:text-[2.5rem] text-[2rem] !leading-[1.2] font-syneBold"><span className="text-black">Ticker: </span> <Link href='/dashboard?symbol=IQST' className="underline"> IQST</Link> <span className="text-black">(NASDAQ)</span></h2>
+            <h1 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">Hot Stock Alert:</h1>
+            <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(NASDAQ: <Link href='/dashboard?symbol=IQST' className=" text-darkGreen"> IQST</Link>)</h2>
             </div>
             <div className="flex flex-wrap gap-2">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=IQST' target="_blank" rel="noopener noreferrer">
@@ -149,10 +149,9 @@ const IQSTPage = () => {
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="eager" />
               </Link>
             </div>
-            <div>
-              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}><span className="font-MontserratBold">Current Status:</span> Undervalued. Strong Financial Growth. Recently Uplisted to NASDAQ.</p>
-              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}><span className="font-MontserratBold">Target:</span> $1 Billion Revenue by 2027 (Company Forecast)</p>
-              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>In a market full of uncertainty, IQSTEL Inc. (<Link className="font-bold underline" href="/dashboard?symbol=IQST">IQST</Link>) is delivering measurable performance and expanding into new high-growth technology sectors. Backed by strong financial results, a tight float, and a Nasdaq uplisting completed without dilution, IQSTEL is positioning itself for potential revaluation.</p>
+            <div className="space-y-4">
+              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> This Stock May Soar 312% — {`Here’s`} Why</p>
+              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>iQSTEL (NASDAQ: IQST) posted $283M in 2024 revenue, nearly doubling from last year. With no dilution and expansion into fintech and AI, growth momentum is building. <span className="font-MontserratBold"> Add IQST to Your Watchlist Immediately.</span></p>
             </div>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
