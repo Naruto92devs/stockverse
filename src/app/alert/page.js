@@ -70,7 +70,7 @@ const NewsletterAlerts = () => {
             <h2 className="text-skyBlue font-OpenSans font-bold text-xl text-center leading-[130%]">And {`you’re`} already on the VIP list.</h2>
             {isOut ? (
               <div className="text-center">
-                <p className="text-sell text-xl font-OpenSans font-bold">🚨 The Stock Pick is Out Now!</p>
+                <Link href='/iqst' className="text-white text-xl font-OpenSans font-bold animate-heartbeat bg-skyBlue px-6 py-4 rounded-full shadow-lg transition">🚨 The Stock Pick is Out Now!</Link>
               </div>
             ) : (
               <div className="w-full flex flex-wrap items-center justify-center md:gap-8 gap-4">

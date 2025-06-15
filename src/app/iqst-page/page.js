@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import React, { useState, useEffect } from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope, FaRegEnvelope } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope } from "react-icons/fa";
 import formatNumber from "@/components/FormatNumber";
 import NewsLetterPopup from "@/components/NewsLetterPopup";
 import { Montserrat } from 'next/font/google';
@@ -37,61 +37,6 @@ const IQSTPage = () => {
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
-
-  const handleSubscribeEmailPhone = async (e) => {
-    setLoading(true);
-    e.preventDefault();
-
-    try {
-      const requestData = {
-        email,
-        tag: 'IQST subscriber'
-      };
-
-      // Only add the phone number if it is provided
-      if (phone) {
-        requestData.phone = `${phone}`;
-      }
-
-      const response = await axios.post(`${STOCKVERSE_BACK_END}/stockpicks/create-contact`, requestData);
-
-      const data = response.data;
-      console.log(data);
-      if (response.status === 200) {
-        setMessage(data.message);
-        setLoading(false);
-        setEr(false);
-        setEmail('');
-        setPhone('');
-        setDone(true);
-      } else {
-        setDone(true);
-        setEr(true);
-        setEmail('');
-        setPhone('');
-        setMessage(data.message || 'Something went wrong');
-        setLoading(false);
-      }
-    } catch (error) {
-      if (error.response && error.response.data) {
-        setEr(true);
-        setDone(true);
-        setEmail('');
-        setPhone('');
-        setMessage(error.response.data.message || 'Something went wrong');
-        // setMessage('An error occurred. Please try again.');
-        setLoading(false);
-      } else {
-        setDone(true);
-        setEr(true);
-        setEmail('');
-        setPhone('');
-        setMessage('An error occurred. Please try again.');
-        setLoading(false);
-      }
-      console.error('Error during subscribing:', error);
-    }
-  };
 
   useEffect(() => {
     const fetchStockData = async () => {
@@ -156,61 +101,6 @@ const IQSTPage = () => {
             </div>
           </div>
           <div className="w-[35%] max-md:w-[75%] max-sm:w-[100%] max-lg:w-[60%] lg:mt-12">
-            <div>
-              {done && (
-                <div className={`${er ? 'text-sell' : 'text-[#fff]'} w-full bg-[#12a72e] absolute left-0 top-16 p-2 px-4 text-center text-base font-sansMedium`}>
-                  {er ? `${message}` : 'Thanks For Subscribing.'}
-                </div>
-              )}
-              <form className="flex flex-col gap-4 items-center justify-between w-full relative" onSubmit={handleSubscribeEmailPhone}>
-                <Image width={24} height={24} src='/images/cvkd/sms.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
-                <input
-                  autoComplete="email"
-                  name="search_Symbols"
-                  type="email"
-                  className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
-                  placeholder="Enter your email"
-                  value={email}
-                  required
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <div className="w-full relative">
-                  <Image width={24} height={24} src='/images/cvkd/phone.svg' alt="sms" className="absolute top-6 left-6" loading="eager" />
-                  <input
-                    name="search_Symbols"
-                    type="tel"
-                    className="w-[100%] max-lg:w-[100%] pl-14 p-6 font-MontserratMedium rounded-full placeholder:text-sm  text-base max-lg:text-xl bg-white rounded outline outline-1 outline-[#DDE9EF]"
-                    placeholder="Enter your phone number"
-                    value={phone}
-                    required
-                    onChange={(e) => setPhone(e.target.value)}
-                    autoComplete="tel"
-                  />
-                  {/* Custom floating placeholder */}
-                  {phone === '+1' && (
-                    <span className="font-MontserratMedium absolute left-20 top-1/2 -translate-y-1/2 text-sm transition-all pointer-events-none text-[#9CA3AF] peer-focus:hidden">
-                      Enter your phone number
-                    </span>
-                  )}
-                </div>
-                <button 
-                disabled={!isFormValid}
-                type="submit" 
-                className={`animate-heartbeat bg-darkGreen text-sm text-[#fff] font-MontserratSemibold px-6 py-4 rounded-full shadow-lg transition ${isFormValid ? '' : 'cursor-not-allowed'}  ${isSubmitting ? "cursor-not-allowed bg-[#649f6f]" : "bg-[#12A72E]"}`}>
-
-                  {isSubmitting ? "Subscribing..." : <>
-                    Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
-                  </>}
-                </button>
-              </form>
-              <div className="flex items-center gap-2 2xl:w-[70%] w-[80%] mt-8 2xl:mt-12 relative">
-                <Image src="/images/investors.svg" alt="investors" width={102} height={49} loading="eager" />
-                <p className="text-gray/60 font-MontserratMedium text-base">
-                  Join 128,000 smart investors. Subscribe today.
-                </p>
-                <Image className="absolute -right-24 2xl:w-[8rem] w-[7rem] max-lg:-right-20 2xl:-right-38 2xl:-top-12" src="/images/arrow.png" alt="arrow" width={112} height={111} loading="eager" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -379,96 +269,6 @@ const IQSTPage = () => {
       <section className="w-full bg-[#000] pt-[3rem]">
         <div className="w-full xl:container py-28 xl:px-3 px-8 px-8 mx-auto flex flex-col lg:flex-row lg:justify-between border-b border-solid border-[#404040] space-y-10 lg:space-y-0">
           {/* Left Section - Sign Up */}
-          <div className="w-full xl:w-[40%] lg:w-[48%] md:w-[70%]">
-            <div className="bg-[#111111] border border-solid border-[#404040] p-6 sm:p-8 rounded-2xl shadow-lg">
-              <h4 className="text-center text-[#fff] font-MontserrarMedium text-xl sm:text-2xl italic mb-4">
-                — Your Next Winning Stock Awaits!
-              </h4>
-              <p className="text-center text-[#aaaaaa] font-MontserratRegular text-[1rem] sm:text-[1.3rem] mb-10 sm:mb-16 px-2 sm:px-4">
-                Grow Your Wealth by <span className="text-blue-500">+673.66%</span>! Sign Up Now for Exclusive Stock Picks and Alerts
-              </p>
-              {!done && (
-                <form onSubmit={handleSubscribeEmailPhone} className="space-y-4">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email address"
-                    required
-                    className="placeholder:text-[#1E1E1F] font-MontserratRegular text-black w-full p-1.5 px-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500"
-                  />
-                  <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-2">
-                    <PhoneInput
-                      className="!font-MontserratRegular"
-                      country={"us"}
-                      value={phone}
-                      onChange={(value) => setPhone(value)}
-                      inputProps={{
-                        id: "phone",
-                        name: "phone",
-                        required: true, // HTML5 validation
-                        autoFocus: false,
-                      }}
-                      inputStyle={{
-                        width: "100%",
-                        padding: "10px 10px 10px 50px",
-                        fontSize: "16px",
-                        border: "1px solid rgba(156, 163, 175, 0.4)",
-                        borderRadius: "0.5rem",
-                        backgroundColor: "#F7FAFC",
-                        color: "#1A202C",
-                      }}
-                      containerStyle={{
-                        width: "100%",
-                      }}
-                      dropdownStyle={{
-                        borderRadius: "0.5rem",
-                      }}
-                      
-                    />
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      id="privacyPolicy"
-                      checked={privacyChecked}
-                      onChange={() => setPrivacyChecked(!privacyChecked)}
-                      required
-                      className="placeholder:text-[#1E1E1F] w-5 h-5 rounded bg-gray-800 border-gray-700 focus:ring-blue-500"
-                    />
-                    <label htmlFor="privacyPolicy" className="text-[1rem] font-MontserratRegular text-[#96A0B5]">
-                      Privacy Policy
-                    </label>
-                  </div>
-                  <p className="text-sm text-[#96A0B5] font-MontserratRegular">
-                    By submitting this form and signing up for texts, you consent to receive marketing text messages (e.g., promos, cart reminders)
-                    from Relqo Media at the number provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available).{" "}
-                    <a href="/policy" className="text-[#0A84EF] text-[0.8rem] underline font-MontserratSemibold">
-                      Privacy Policy
-                    </a>{" "}
-                    &{" "}
-                    <a href="/terms" className="text-[#0A84EF] text-[0.8rem] font-MontserratSemibold underline">
-                      Terms
-                    </a>
-                    .
-                  </p>
-                  <button 
-                  disabled={!isFormValid}
-                  type="submit" 
-                  className={`${isFormValid ? '' : 'cursor-not-allowed'} w-full bg-[#0A84EF] font-MontserratMedium hover:bg-blue-700 text-[#fff] p-2 rounded`}>
-                    {isSubmitting ? "Subscribing..." : <>
-                      Continue
-                    </>}
-                  </button>
-                </form>
-              )}
-              {done && (
-                <div className={`${er ? 'text-sell' : 'text-buy'} bg-[#fff] p-2 px-4 rounded-lg text-base font-sansMedium`}>
-                  {message}
-                </div>
-              )}
-            </div>
-          </div>
 
           {/* Right Section - Offices and Social */}
           <div className="w-full lg:w-[48%]">
@@ -781,5 +581,3 @@ const IQSTPage = () => {
 }
 
 export default IQSTPage;
-
-
