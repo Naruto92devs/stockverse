@@ -18,7 +18,7 @@ import 'react-phone-input-2/lib/style.css'; // Optional default styles
 import axios from "axios";
 import Link from "next/link";
 
-const MYSZ = () => {
+const CABR = () => {
   const [privacyChecked, setPrivacyChecked] = useState(false);
   const [phone, setPhone] = useState('+1');
   const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ const MYSZ = () => {
     try {
       const requestData = {
         email,
-        tag: 'MYSZ subscriber'
+        tag: 'CBRA subscriber'
       };
 
       // Only add the phone number if it is provided
@@ -96,7 +96,7 @@ const MYSZ = () => {
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        const response = await fetch(`${STOCKVERSE_BACK_END}/stocks-list?symbols=mysz`);
+        const response = await fetch(`${STOCKVERSE_BACK_END}/stocks-list?symbols=cbra`);
         if (!response.ok) throw new Error("Failed to fetch data");
 
         const result = await response.json();
@@ -129,26 +129,26 @@ const MYSZ = () => {
           <div className="w-[64%] max-lg:w-[100%] lg:space-y-10 space-y-6">
             <div>
             <h1 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">Hot Stock Alert:</h1>
-            <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(NASDAQ: <Link href='/dashboard?symbol=MYSZ' className=" text-darkGreen"> MYSZ</Link>)</h2>
+            <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(OTCMKTS: <Link href='/dashboard?symbol=CBRA' className=" text-darkGreen"> CBRA</Link>)</h2>
             </div>
             <div className="space-y-4">
-              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> Disruptive Tech Play Set for a Breakout — {`Here’s What’s`} Driving It</p>
-              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>My Size, Inc. (NASDAQ: MYSZ) uses AI-powered measurement apps to help shoppers find the right fit, driving strong growth as major retailers adopt its technology worldwide. With expanding markets, new acquisitions, and rising subscription revenue, MYSZ stands out as a high-upside play in e-commerce.<span className="font-MontserratBold"> Add MYSZ to Your Watchlist Immediately.</span></p>
+              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> Fast-Growing Wellness Rollup Primed for Expansion — Here’s Why CBRA Stands Out</p>
+              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>CBRA (OTCMKTS: CBRA) is building a diversified platform of high-potential wellness and consumer brands, focusing on innovation and rapid growth in health-related markets. Through strategic acquisitions, new product launches, and smart partnerships, CBRA is expanding its footprint and creating multiple revenue streams. With a tight share structure and experienced leadership, CBRA is positioned for outsized gains as wellness demand accelerates.<span className="font-MontserratBold"> Add CBRA to Your Watchlist Immediately.</span></p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=MYSZ' target="_blank" rel="noopener noreferrer">
+              <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=CBRA' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/fedelity.jpeg' alt="logo" loading="eager" />
               </Link>
               <Link href='https://www.schwab.com/' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/charles.jpeg' alt="logo" loading="eager" />
               </Link>
-              <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MYSZ' target="_blank" rel="noopener noreferrer">
+              <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=CBRA' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/article-link.jpeg' alt="logo" loading="eager" />
               </Link>
-              <Link href='https://robinhood.com/stocks/mysz/' target="_blank" rel="noopener noreferrer">
+              <Link href='https://robinhood.com/stocks/cbra/' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg" width={60} height={60} src='/images/robinhood_logo.png' alt="logo" loading="eager" />
               </Link>
-              <Link href='https://www.webull.com/quote/nasdaq-mysz' target="_blank" rel="noopener noreferrer">
+              <Link href='https://www.webull.com/quote/otcmqb-CBRA' target="_blank" rel="noopener noreferrer">
                 <Image className="rounded-lg bg-[#fff]" width={60} height={60} src='/images/webull.png' alt="logo" loading="eager" />
               </Link>
             </div>
@@ -223,13 +223,13 @@ const MYSZ = () => {
             <div className="flex flex-col gap-2">
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-sm p-2 py-4 border-b border-[#F2F3F3] text-[#343D48] hover:underline"
-                href="https://www.prnewswire.com/news-releases/mysize-present-year-over-year-growth--2025-targets-15m-revenue--anticipates-strong-2024-finish-close-to-100-growth-from-2022-302339582.html" target="_blank" rel="noopener noreferrer">
-                    MySize present year over year growth, 2025 targets $15M Revenue, Anticipates Strong 2024 Finish close to 100% Growth from 2022
+                href="https://finance.yahoo.com/news/cbre-group-inc-announces-details-123000931.html" target="_blank" rel="noopener noreferrer">
+                    CBRE Group, Inc. Announces Details of Conference Call and Webcast for Second Quarter 2025 Financial Results
               </Link>
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-base p-2 py-4 border-b border-[#F2F3F3] text-[#343D48] hover:underline"
-                href="https://www.prnewswire.com/news-releases/my-size-launches-online-store-modelista-to-showcase-mysizeid-mobile-measurement-technology-for-online-retailers-300768815.html" target="_blank" rel="noopener noreferrer">
-                My Size Launches Online Store {`'Modelista'`} to Showcase MySizeID™ Mobile Measurement Technology for Online Retailers
+                href="https://finance.yahoo.com/news/invitation-interest-participate-development-hkstp-091000220.html" target="_blank" rel="noopener noreferrer">
+                Invitation for Interest to Participate for Development of the HKSTP San Tin Technopole
               </Link>
               <Link
                 className="font-MontserratSemibold 2xl:text-base lg:text-sm text-base p-2 py-4 text-[#343D48] hover:underline"
@@ -242,59 +242,58 @@ const MYSZ = () => {
           <div className="w-[50%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
             <p className="text-gray/60 font-MontserratMedium text-right pb-4">*Sponsored</p>
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-3xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              My Size, Inc. (NASDAQ: MYSZ): 5 Reasons This Stock Should Be on Your Radar
+              Caring Brands (OTCMKTS: CBRA): 5 Reasons This Stock Should Be on Your Radar
             </h3>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              My Size, Inc. is a U.S. tech company that makes smartphone apps and cloud software to help shoppers accurately measure themselves for online clothing purchases, reducing returns and improving fit, with revenue from product sales and software subscriptions.
+              Caring Brands is a healthcare company dedicated to acquiring, developing, and operating businesses in the wellness, health, and consumer goods sectors, with a focus on innovative brands and scalable growth.
             </p>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">1. Consistent Revenue Growth and Improving Margins</h6>
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">1. Consistent Growth and Expanding Portfolio</h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
               According to recent company filings and press releases:
             </p>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold"> My Size, Inc. (NASDAQ: MYSZ)</span> reported $8.26 million in revenue for 2024, representing an 18% increase year-over-year.</li>
-              <li>Net loss narrowed to <span className="font-MontserratBold"> $3.99 million</span>, a 37% improvement over the prior year, with management targeting further cost reductions.</li>
-              <li>The company ended 2024 with <span className="font-MontserratBold"> $4.88 million</span> in cash and cash equivalents, more than doubling its cash position from the previous year.</li>
-              <li>My Size reaffirmed a strong growth outlook for 2025, focusing on international expansion, strategic acquisitions, and enhanced AI technology solutions.</li>
+              <li><span className="font-MontserratBold"> Caring Brands</span>  has expanded its portfolio with strategic acquisitions in the wellness and consumer products space, broadening its footprint and market reach.</li>
+              <li>The {`company’s`} multi-brand approach aims to diversify revenue streams and reduce dependence on any single product line.</li>
+              <li>Management has outlined ambitious plans for new product launches and partnerships to drive top-line growth in 2025.</li>
+              <li>Recent acquisitions have begun contributing to consolidated revenue, demonstrating the effectiveness of the {`company’s`} roll-up strategy.</li>
             </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              These metrics indicate solid top-line momentum and clear progress toward profitability. However, forward-looking statements are inherently subject to execution and market risks.
+              While these factors highlight positive momentum, future performance will depend on successful integration and execution.
             </p>
 
             {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
             <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12  text-center text-[#343D48]">
-              2. Lean Share Structure and Strong Per-Share Fundamentals
+              2. Lean Share Structure and Shareholder Value Focus
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               Based on public disclosures:
             </p>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">My Size currently has approximately 3.1 million shares outstanding </span> (as of June 2025), resulting in a compact float for a Nasdaq-listed tech company.</li>
-              <li><span className="font-MontserratBold">Equity per share (2024):</span>  ~$2.67</li>
-              <li><span className="font-MontserratBold">{`Shareholders’`} equity per share:</span> ~$2.23</li>
-              <li><span className="font-MontserratBold">Market capitalization:</span> About $3.6 million</li>
+              <li><span className="font-MontserratBold">Caring Brands </span> maintains a relatively modest number of shares outstanding for an OTC-listed company, resulting in a tight float.</li>
+              <li>This lean structure means each share is more responsive to business developments and growth announcements.</li>
+              <li>The {`company’s`} commitment to shareholder value is reflected in its focus on acquiring profitable businesses and building recurring revenue streams.</li>
             </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This lean structure means each share is backed by solid assets and revenue, making MYSZ particularly sensitive to news, growth, and trading activity—though volatility is also higher in low-float stocks.
+              This lean structure means each share is backed by solid assets and revenue, making CABR particularly sensitive to news, growth, and trading activity—though volatility is also higher in low-float stocks.
             </p>
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              3. Rapid Growth in AI-Powered Sizing and E-commerce Platforms
+              3. Expansion in High-Demand Health & Wellness Markets
             </h6>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">{`My Size’s`}</span> flagship solutions, <span className="font-MontserratBold">MySizeID</span> and <span className="font-MontserratBold">Naiz Fit</span>, use AI and computer vision to help online shoppers accurately measure for clothing, boosting conversions and reducing costly returns.</li>
+              <li><span className="font-MontserratBold">Caring Brands </span> targets rapidly growing segments within the health, wellness, and consumer goods industries, including supplements, nutrition, and personal care.</li>
               <li>In 2024, <span className="font-MontserratBold"> Naiz Fit delivered over 42 million size recommendations</span> and helped clients increase average order values by 27%, while reducing return rates by 14%.</li>
-              <li>The {`company’s`} e-commerce business, Orgad, is rapidly expanding in both North America and Europe, now certified by a major European retailer.</li>
-              <li>Integration with leading platforms (Shopify, Magento, Salesforce) has positioned My Size as a go-to solution for over 100 fashion brands.</li>
+              <li>The company leverages market trends and consumer demand for healthy, natural, and innovative products.</li>
+              <li>Through its acquisition and development strategy, Caring Brands aims to capture market share in both B2B and direct-to-consumer channels.</li>
             </ul>
             <h6 className="font-MontserratBold text-center  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              4. Strategic Acquisitions and Expansion Initiatives
+              4. Strategic Partnerships and Brand Development
             </h6>
 
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>My Size continues to pursue a growth-by-acquisition strategy, recently acquiring Percentil’s assets and expanding into second-hand apparel and circular fashion—a sector benefiting from new EU sustainability regulations.</li>
-              <li>The company signed Letters of Intent for further acquisitions in AI-powered shoe tech and adjacent sectors.</li>
-              <li>Board additions include executives with IPO and M&A experience, aligning with stated ambitions for long-term scale.</li>
+              <li>The company is actively forming partnerships with established health brands, distributors, and e-commerce platforms to accelerate market entry and distribution.</li>
+              <li>Caring Brands emphasizes the development of its acquired businesses through branding, operational improvements, and cross-selling opportunities.</li>
+              <li>This approach is designed to create value across its portfolio while strengthening each individual brand.</li>
             </ul>
 
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
@@ -302,9 +301,9 @@ const MYSZ = () => {
             </h6>
             <div className="overflow-x-auto w-full pt-4">
               <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 pb-4 text-[#343D48]">
-                MYSZ currently trades at a price-to-sales (P/S) ratio of around 0.16x–0.34x, well below other SaaS and retail tech peers, which typically trade at higher multiples.
+                CBRA trades at a valuation below many peers in the diversified wellness and consumer products space, offering an attractive entry point for investors.
               </p>
-              <div className="min-w-max flex">
+              {/* <div className="min-w-max flex">
                 <div className="min-w-max">
                   <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Factor</p>
                   <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Growth Trend</p>
@@ -321,41 +320,38 @@ const MYSZ = () => {
                   <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Board upgrades, tech expansion, sustainable focus</p>
                   <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">	Appears undervalued if growth sustains</p>
                 </div>
-              </div>
+              </div> */}
             </div>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Comparable companies in e-commerce enablement or SaaS often command much higher P/S ratios, reflecting sector enthusiasm for recurring revenue and scalable platforms.
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This relative undervaluation may present a re-rating opportunity if My Size continues to deliver growth and margin improvements.
+              If Caring Brands continues to execute on its acquisition and brand-building strategy, it may see a significant re-rating as revenues scale.
             </p>
 
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              What My Size, Inc. Does: A Business Overview
+              What Caring Brands Does: A Business Overview
             </h6>
             <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              AI-Driven Retail Tech:
+              Health & Wellness Focus:
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              My Size develops mobile and cloud-based tools that use AI and machine learning to deliver accurate sizing for online apparel shoppers, improving the online shopping experience and reducing costly returns for retailers.
+              Caring Brands acquires and operates innovative businesses in the health, wellness, and consumer goods sectors, building a diversified portfolio of high-potential brands.
             </p>
             <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              E-commerce Operations:
+              Growth by Acquisition:
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              Through Orgad and other platforms, My Size runs its own online retail and B2B channels, expanding its geographic reach and diversifying revenue streams.
+              The company uses a roll-up strategy to expand its reach, integrating new brands and scaling operations for maximum efficiency.
             </p>
             <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              SaaS Revenue Model:
+              Multi-Channel Revenue Model:
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              The company generates income through direct product sales, software licensing, cloud-enabled subscriptions, and associated support services.
+              Caring Brands generates income through product sales, B2B distribution, e-commerce, and cross-brand opportunities within its growing portfolio.
             </p>
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
               Final Considerations
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              My Size, Inc. (NASDAQ: MYSZ) is an innovative micro-cap technology company focused on solving a real-world e-commerce challenge. Its improving revenue, tight share structure, deepening SaaS adoption, and recent expansion moves make it a stock worth watching. As always, investors should conduct thorough research, review the latest filings, and consider both the potential rewards and risks associated with smaller, high-growth companies in the tech sector.
+              Caring Brands (OTCMKTS: CBRA) offers investors access to the fast-growing health and wellness sector through a diversified, acquisition-driven business model. Its expanding brand portfolio, focus on recurring revenue, and lean share structure make it a stock worth monitoring as it builds momentum. As always, investors should review filings, conduct due diligence, and consider both opportunities and risks before making investment decisions.
             </p>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
@@ -367,10 +363,10 @@ const MYSZ = () => {
               STOCK INFORMATION
             </p>
             <div className="flex flex-wrap items-center gap-2 p-2 mt-4">
-              <Image className="w-[15%]" src="/images/mysz.webp" alt="neov" width={52} height={52} loading="lazy" />
+              <Image className="w-[15%] rounded-full" src="/images/cbra.png" alt="neov" width={52} height={52} loading="lazy" />
               <div className="">
-                <p className="text-base font-MontserratBold">My Size, Inc.</p>
-                <p className="flex items-center gap-2 font-MontserratMedium text-xs 2xl:text-sm text-[#747474]">MYSZ <Image src="/images/nasdaq.svg" alt="neov" width={24} height={24} loading="lazy" /> Nasdaq Stock Market</p>
+                <p className="text-base font-MontserratBold">Caring Brands (OTCMKTS: CBRA)</p>
+                <p className="flex items-center gap-2 font-MontserratMedium text-xs 2xl:text-sm text-[#747474]">CBRA <Image src="/images/nasdaq.svg" alt="neov" width={24} height={24} loading="lazy" /> OTCMKTS Stock Market</p>
               </div>
             </div>
             <div className="flex flex-wrap gap-y-4 items-center border-y border-[#F2F3F3] py-4 p-2 mt-4">
@@ -399,7 +395,7 @@ const MYSZ = () => {
       {/* add neov to watchlist */}
       <section className="py-10">
         <h4 className="text-[#1D3045]  font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-12">
-          Add <Link href='/dashboard?symbol=MYSZ' className="font-MontserratBold underline"> MYSZ</Link> to your watchlist today
+          Add <Link href='/dashboard?symbol=CBRA' className="font-MontserratBold underline"> CBRA</Link> to your watchlist today
         </h4>
         <div className="w-full xl:container mx-auto pb-2 px-3 flex flex-col items-center">
           <div className="lg:w-[50%] w-full">
@@ -411,16 +407,16 @@ const MYSZ = () => {
           </div>
         </div>
         <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
-          <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MYSZ' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
+          <Link href='https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=CBRA' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem]  flex items-center justify-center border-x-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/6.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
           <Link href='https://www.schwab.com/' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/7.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
-          <Link href='https://www.tradingview.com/symbols/NASDAQ-MYSZ/' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
+          <Link href='https://www.tradingview.com/symbols/OTC-CBRA/' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/8.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
-          <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=mysz' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
+          <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=cbra' className="w-[22%] h-[9rem] 2xl:h-[12rem] max-md:h-[5rem] flex items-center justify-center border-r-2 border-[#3934341c]">
             <Image className="grayscale w-[37%] max-md:w-[60%]" src="/images/9.png" alt="3" width={70} height={70} loading="lazy" />
           </Link>
         </div>
@@ -669,7 +665,7 @@ const MYSZ = () => {
           </div>
         </div>
       </footer>
-      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"MYSZ subscriber popup"} heading={heading} subHeading={subHeading}/>
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"CABR subscriber popup"} heading={heading} subHeading={subHeading}/>
       {/* disclaimer */}
       <div className="hero py-16 max-md:py-6 w-full border-t-[1.2px] border-[#404040]">
       <div className="mx-auto xl:container gap-y-4 px-8 xl:px-3 max-sm:gap-y-3 flex flex-col items-start">
@@ -677,11 +673,11 @@ const MYSZ = () => {
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Effective Date</span>: August 2024</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Last Updated</span>: June 15, 2025</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Publisher</span>: Relqo Media LLC (Wyoming, United States)</p>
-        <p className="text-lg font-inter text-primaryText"><span className="font-inter">Subject Company</span>: My Size, Inc. (MYSZ)</p>
+        <p className="text-lg font-inter text-primaryText"><span className="font-inter">Subject Company</span>: Caring Brands (CABR)</p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">IMPORTANT SUMMARY — PLEASE READ FIRST</h4>
         <p className="text-base text-primaryText font-inter">
-          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by CorporateAds, LLC to produce and distribute promotional content regarding My Size, Inc. (NASDAQ: MYSZ). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
+          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by CorporateAds, LLC to produce and distribute promotional content regarding Caring Brands (OTCMKTS: CABR). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">1. NATURE AND INTENT OF THIS COMMUNICATION</h4>
@@ -689,27 +685,27 @@ const MYSZ = () => {
           Relqo Media LLC is a for-profit marketing agency engaged in paid promotions of public companies. The content we produce is strictly commercial and intended to create temporary public awareness, visibility, and short-term market activity around the featured company. This material is not impartial. All readers should interpret our content as a paid commercial advertisement and not as an editorial, research article, or independent commentary. We create advertisements, not analysis. These communications are not intended to be factual evaluations of the {`company’s`} operations or investment merit.
         </p>
 
-        <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR My Size, Inc. (MYSZ)</h4>
+        <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR Caring Brands (CABR)</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC has been retained by CorporateAds, LLC to provide promotional media services for My Size, Inc. (NASDAQ: MYSZ). As of the effective date: June 15, 2025
+          Relqo Media LLC has been retained by CorporateAds, LLC to provide promotional media services for Caring Brands (OTCMKTS: CABR). As of the effective date: June 15, 2025
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter pl-8">
           <li>Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.</li>
           <li>The total compensation paid for these services is $20,000 for the period beginning June 15, 2025, through June 18, 2025.</li>
-          <li>CorporateAds, LLC may own, acquire, or dispose of shares in MYSZ during or after the campaign period.</li>
+          <li>CorporateAds, LLC may own, acquire, or dispose of shares in CABR during or after the campaign period.</li>
         </ul>
         <p className="text-base text-primaryText font-inter">
-          This relationship creates a material conflict of interest. Relqo {`Media’s`} content regarding MYSZ should be considered promotional, biased, and financially motivated.
+          This relationship creates a material conflict of interest. Relqo {`Media’s`} content regarding CABR should be considered promotional, biased, and financially motivated.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">3. INTENDED AUDIENCE</h4>
         <p className="text-base text-primaryText font-inter">
-          These Communications are directed solely to U.S.-based, self-directed investors who understand the risks of investing in microcap and Nasdaq-listed securities. The content is not intended for children, seniors, retirement accounts, or individuals with limited experience in securities trading. These Communications are not intended to guide investment for long-term portfolio management or financial planning purposes.
+          These Communications are directed solely to U.S.-based, self-directed investors who understand the risks of investing in microcap and OTCMKTS-listed securities. The content is not intended for children, seniors, retirement accounts, or individuals with limited experience in securities trading. These Communications are not intended to guide investment for long-term portfolio management or financial planning purposes.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">4. NO ENDORSEMENT OR VERIFICATION OF COMPANY CLAIMS</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC does not independently verify, investigate, or audit any statements made by the company being promoted, its officers, its press releases, or any third-party sources. Any claims, projections, customer announcements, or product statements made in connection with MYSZ should be assumed to be unverified and potentially inaccurate unless independently confirmed.
+          Relqo Media LLC does not independently verify, investigate, or audit any statements made by the company being promoted, its officers, its press releases, or any third-party sources. Any claims, projections, customer announcements, or product statements made in connection with CABR should be assumed to be unverified and potentially inaccurate unless independently confirmed.
           You should not rely on any statements regarding future performance, partnerships, revenue projections, or corporate plans.
         </p>
 
@@ -718,7 +714,7 @@ const MYSZ = () => {
           Promotional campaigns commonly result in short-lived spikes in stock price and volume, followed by rapid declines. These spikes are typically driven by retail speculation, promotional circulation, and momentary investor interest—not fundamentals. You should expect that:
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter">
-          <li>{`MYSZ’s`} stock may increase temporarily during this promotion,</li>
+          <li>{`CABR’s`} stock may increase temporarily during this promotion,</li>
           <li>Trading volume may rise sharply, and</li>
           <li>The price may fall after the campaign ends or selling begins.</li>
         </ul>
@@ -760,7 +756,7 @@ const MYSZ = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">9. OWNERSHIP AND TRADING CONFLICTS</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC, its contractors, members, and affiliates may hold or acquire shares in the companies we promote, including MYSZ. We may buy or sell such shares without prior notice. These transactions may occur before, during, or after a promotional campaign and may affect market pricing.
+          Relqo Media LLC, its contractors, members, and affiliates may hold or acquire shares in the companies we promote, including CABR. We may buy or sell such shares without prior notice. These transactions may occur before, during, or after a promotional campaign and may affect market pricing.
           We are not obligated to update readers on our trading activity or affiliate holdings.
         </p>
 
@@ -848,4 +844,4 @@ const MYSZ = () => {
   )
 }
 
-export default MYSZ;
+export default CABR;
