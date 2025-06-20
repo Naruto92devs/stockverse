@@ -132,8 +132,8 @@ const CABR = () => {
             <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(NASDAQ: <Link href='/dashboard?symbol=BBGI' className=" text-darkGreen"> BBGI</Link>)</h2>
             </div>
             <div className="space-y-4">
-              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> Fast-Growing Wellness Rollup Primed for Expansion — Here’s Why BBGI Stands Out</p>
-              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>BBGI (NASDAQ: BBGI) is building a diversified platform of high-potential wellness and consumer brands, focusing on innovation and rapid growth in health-related markets. Through strategic acquisitions, new product launches, and smart partnerships, BBGI is expanding its footprint and creating multiple revenue streams. With a tight share structure and experienced leadership, BBGI is positioned for outsized gains as wellness demand accelerates.<span className="font-MontserratBold"> Add BBGI to Your Watchlist Immediately.</span></p>
+              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}>This Stock May Soar 312% — {`Here’s`} Why</p>
+              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>BBGI’s low float combined with recent insider buying and a reverse stock split has created increased volatility—ideal conditions for short-term breakout setups.<span className="font-MontserratBold"> Add BBGI to Your Watchlist Immediately.</span></p>
             </div>
             <div className="flex flex-wrap gap-2">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=BBGI' target="_blank" rel="noopener noreferrer">
@@ -185,89 +185,92 @@ const CABR = () => {
           <div className="w-[50%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
             <p className="text-gray/60 font-MontserratMedium text-right pb-4">*Sponsored</p>
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-3xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              Beasley Broadcast Group (NASDAQ: BBGI): 5 Reasons Investors Should Take Notice
+              Beasley Broadcast Group (NASDAQ: BBGI): Low-Float Media Stock With a Digital Shift Worth Watching
             </h3>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              Beasley Broadcast Group, Inc. (NASDAQ: BBGI) operates 57 U.S. radio stations and a growing digital & sports network. {`Here’s`} why the company could be gaining renewed investor attention:
+              In {`today’s`} market, the ability to spot under-the-radar setups early is what separates the proactive from the reactive. One name beginning to stand out among low-float microcaps is Beasley Broadcast Group (NASDAQ: BBGI).
             </p>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">1. Q1 2025 Revenue Holds Despite Ad Market Challenges</h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              While BBGI may be known for its traditional radio business, the company is actively evolving—embracing digital strategies and AI-powered ad solutions while trading at a valuation that some market observers consider deeply discounted.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              This article does not make any investment recommendation, but highlights publicly available information that may be of interest to those tracking emerging media models and structural trading setups.
+            </p>
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">What Is BBGI?</h6>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Q1 net revenue was <span className="font-MontserratBold">$48.9 million</span>, declined 10.1% year-over-year—but adjusted EBITDA rose from <span className="font-MontserratBold">$0.9 million to $1.1 million</span>, a 28% increase</li>
-              <li>Operating expenses fell approximately <span className="font-MontserratBold">$4 million</span>, reflecting broader cost-control initiatives . This demonstrates financial discipline helping to preserve margins amid top-line pressure.</li>
+              <li>Beasley Broadcast Group is a U.S.-based media company that owns and operates 61 radio stations across large and mid-sized markets. Beyond traditional broadcasting, BBGI is expanding its footprint into digital advertising, podcasting, streaming, and influencer campaigns.</li>
+              <li>In recent public statements and press materials, the company has introduced tools like “Audio Amplify AI”—an internal platform aimed at enhancing digital ad placement using artificial intelligence and automation. This move is part of a broader push to diversify revenue and adapt to evolving media consumption trends.</li>
             </ul>
             {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
             <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12  text-center text-[#343D48]">
-              2. Digital Segment Shows Strong Profitability Momentum
+              {`What’s`} Getting Trader Attention?
             </h6>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Digital revenue now accounts for ~22% of total revenue.</li>
-              <li>Operating income from digital climbed from <span className="font-MontserratBold">$0.1 million</span> in Q1 2024 to <span className="font-MontserratBold">$1.9 million</span> in Q1 2025</li>
-            </ul>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              The improved profitability in digital supports diversification beyond traditional broadcast.
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              ✅ Ultra-Low Float: ~710,000 Shares
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              {`BBGI’s`} estimated public float is approximately 710,000 shares, out of a total ~1.79 million shares outstanding. This means the tradable supply is limited, and any increase in volume can potentially lead to significant volatility—a key consideration for active market participants.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              ✅ Small Market Cap: ~$9.8 Million
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              Despite operating a nationwide media platform with legacy and digital assets, BBGI trades at a market capitalization of under $10 million. For some, this raises questions about whether the market is fully reflecting the {`company’s`} infrastructure and evolving strategy.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              ✅ AI & Digital Media Exposure
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              While BBGI is not a pure-play technology company, it is actively integrating AI into its operations—particularly in the ad-tech segment. The {`company’s`} shift toward programmatic audio ads, branded content, and podcast monetization positions it alongside several larger media firms that have undergone similar digital transitions.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              ✅ Institutional Ownership: ~16.6%
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              Public filings indicate that approximately 16.6% of BBGI shares are held by institutions, despite limited retail awareness or mainstream coverage. This may suggest early confidence from professional market participants.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              ✅ Emerging Story, Low Visibility
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              Unlike many widely discussed microcaps, BBGI has not been the subject of speculative hype or viral attention. This presents a unique situation: a legacy company with real operations and new initiatives—yet little spotlight. For investors who prefer to study setups before they become crowded, that may be worth noting.
             </p>
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              3. Robust $20M in Annualized Cost Savings
+              Why Add BBGI to a Watchlist Now?
             </h6>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Q4 2024 results highlighted <span className="font-MontserratBold">$20 million</span> annualized expense reductions via workforce and operational efficiencies</li>
-              <li>These savings contributed to stronger EBITDA per indenture, which doubled in Q4 to <span className="font-MontserratBold">$12.5 million</span></li>
-              <li>Ongoing efficiency should further enhance profitability.</li>
+              <li>Structural setup: Tight float and low market cap</li>
+              <li>Thematic alignment: AI, digital transformation, ad-tech</li>
+              <li>Corporate footprint: Real operations across 60+ U.S. stations</li>
+              <li>Low current attention: Limited coverage or chatter, yet material developments</li>
             </ul>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              For traders and researchers focused on low-float volatility, valuation gaps, or sector transformation stories, BBGI may be a company to monitor more closely in the coming days and weeks.
+            </p>
             <h6 className="font-MontserratBold text-center  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              4. Revenue Boost from Election-Cycle Political Ads
+              Important Considerations
             </h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              While {`BBGI’s`} setup is unique, all microcap stocks carry risk. These include:
+            </p>
 
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Q4 net revenue rose 2.3% (to <span className="font-MontserratBold">$67.3 million</span>), driven by <span className="font-MontserratBold">$8.3 million</span> in political advertising </li>
-              <li>For a cyclical boost, BBGI is capitalizing on political ad revenue opportunities to offset soft spots in core segments.</li>
+              <li>High volatility due to limited liquidity </li>
+              <li>Execution risk in digital transformation efforts</li>
+              <li>Lack of analyst coverage or widespread market awareness</li>
+              <li>Potential for rapid price swings in either direction</li>
             </ul>
-
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              5. Strengthening Local Engagement and New Sports Rights
-            </h6>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Local direct advertiser revenue increased slightly (0.3% YoY) and now makes up 55% of local business</li>
-              <li>BBGI also expanded its sports vertical, securing a flagship agreement with University of Michigan Athletics</li>
-            </ul>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 pb-4 text-[#343D48]">
-              These moves help fortify community ties and build recurring advertiser partnerships.
-            </p>
-            <div className="overflow-x-auto w-full pt-4">
-              <div className="min-w-max flex">
-                <div className="min-w-max">
-                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Segment</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Digital</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Advertising</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Cost Control</p>
-                </div>
-                <div className="min-w-max">
-                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Highlights</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">	22% of total revenue; strong profit gains</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Political + Local growing, though national ad market remains weak </p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">$20M saved; better EBITDA and operating income</p>
-                </div>
-              </div>
-            </div>
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              Final Considerations
-            </h6>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              BBGI {`isn’t`} a perfect turnaround play—national ad revenue is under pressure, and Q4 showed a net loss. Still, the company is making solid strides:
-            </p>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Margin expansion through cost efficiencies</li>
-              <li>Digital and sports growth adding diversified revenue</li>
-              <li>Tactical use of political ad cycles to improve results</li>
-            </ul>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              For investors focused on broadcasting firms balancing legacy operations with digital transformation, BBGI may deserve a spot on the radar. As always, consider risks—cyclical revenue, continued investment needs, and debt levels—and conduct full due diligence with financial filings and earnings call details.
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
+              As always, any decision to act on a security should follow careful, independent research.
             </p>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              📌 This is a stock worth watching as it continues to execute on its strategy.
+              📘 Access Public Information, Charts, and More Here:
             </p>
+            <Link href='/bbgi' className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-skyBlue">
+              👉 https://stockverse.com/bbgi
+            </Link>
           </div>
           <div className="w-[23%] max-lg:w-[48%] max-md:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:order-1 max-lg:relative max-lg:top-0">
             <p className="bg-[#F2F3F3] text-[#1D3045] font-MontserratSemibold text-base px-4 py-4 rounded 2xl:rounded-lg">
@@ -311,10 +314,10 @@ const CABR = () => {
         <div className="w-full xl:container mx-auto pb-2 px-3 flex flex-col items-center">
           <div className="lg:w-[50%] w-full">
             <p className="font-MontserratMedium text-gray/60">Disclaimer</p>
-            <p className="pb-4 font-MontserratMedium text-gray/60">This article is a paid advertisement and is for informational purposes only. It does not constitute investment advice, a solicitation, or an offer to buy or sell any securities. All information presented has been compiled from publicly available sources believed to be accurate as of the date of writing. However, no representation or warranty is made as to its accuracy or completeness.</p>
-            <p className="pb-4 font-MontserratMedium text-gray/60">This communication includes forward-looking statements, which involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. Such statements reflect current expectations but are subject to change without notice.</p>
-            <p className="pb-4 font-MontserratMedium text-gray/60">Investors are strongly encouraged to conduct their own due diligence and consult with a licensed financial advisor before making any investment decisions.</p>
-            <p className="pb-4 font-MontserratMedium text-gray/60">For details regarding compensation and potential conflicts of interest, please refer to the full disclaimer below.</p>
+            <p className="pb-4 font-MontserratMedium text-gray/60">This article is for <span className="font-MontserratBold"> informational and educational purposes only</span>. It is not <span className="font-MontserratBold">investment advice</span> and does not constitute a recommendation to buy, sell, or hold any security. All data cited is based on <span className="font-MontserratBold"> publicly available sources believed to be accurate </span> but is not <span className="font-MontserratBold">guaranteed</span>. Stockverse and Relqo Media LLC are <span className="font-MontserratBold">not affiliated with Beasley Broadcast Group Inc</span>. and received no <span className="font-MontserratBold"> compensation for the publication </span> of this content. Trading and investing in securities involves risk, including the potential loss of capital. Full disclaimer available at: </p>
+            <Link href='/bbgi' className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-skyBlue">
+              👉 https://stockverse.com/bbgi
+            </Link>
           </div>
         </div>
         <div className="flex items-center  justify-center border-y-2 border-[#3934341c]">
