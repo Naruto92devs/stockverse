@@ -188,7 +188,7 @@ const CABR = () => {
               Beasley Broadcast Group (NASDAQ: BBGI): Low-Float Media Stock With a Digital Shift Worth Watching
             </h3>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              In {`today’s`} market, the ability to spot under-the-radar setups early is what separates the proactive from the reactive. One name beginning to stand out among low-float microcaps is Beasley Broadcast Group (NASDAQ: BBGI).
+              In {`today’s`} market, the ability to spot under-the-radar setups early is what separates the proactive from the reactive. One name beginning to stand out among low-float microcaps is <span className="font-MontserratBold"> Beasley Broadcast Group (NASDAQ: BBGI)</span>.
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
               While BBGI may be known for its traditional radio business, the company is actively evolving—embracing digital strategies and AI-powered ad solutions while trading at a valuation that some market observers consider deeply discounted.
@@ -198,8 +198,8 @@ const CABR = () => {
             </p>
             <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">What Is BBGI?</h6>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Beasley Broadcast Group is a U.S.-based media company that owns and operates 61 radio stations across large and mid-sized markets. Beyond traditional broadcasting, BBGI is expanding its footprint into digital advertising, podcasting, streaming, and influencer campaigns.</li>
-              <li>In recent public statements and press materials, the company has introduced tools like “Audio Amplify AI”—an internal platform aimed at enhancing digital ad placement using artificial intelligence and automation. This move is part of a broader push to diversify revenue and adapt to evolving media consumption trends.</li>
+              <li>Beasley Broadcast Group is a U.S.-based media company that owns and operates 61 radio stations across large and mid-sized markets. Beyond traditional broadcasting, BBGI is expanding its footprint into <span className="font-MontserratBold"> digital advertising, podcasting, streaming, and influencer campaigns. </span></li>
+              <li>In recent public statements and press materials, the company has introduced tools like “<span className="font-MontserratBold">Audio Amplify AI</span>”—an internal platform aimed at enhancing digital ad placement using artificial intelligence and automation. This move is part of a broader push to diversify revenue and adapt to evolving media consumption trends.</li>
             </ul>
             {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
@@ -210,13 +210,13 @@ const CABR = () => {
               ✅ Ultra-Low Float: ~710,000 Shares
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              {`BBGI’s`} estimated public float is approximately 710,000 shares, out of a total ~1.79 million shares outstanding. This means the tradable supply is limited, and any increase in volume can potentially lead to significant volatility—a key consideration for active market participants.
+              {`BBGI’s`} estimated public float is approximately <span className="font-MontserratBold">710,000 shares</span>, out of a total <span className="font-MontserratBold">~1.79 million shares outstanding</span>. This means the tradable supply is limited, and any increase in <span className="font-MontserratBold">volume can potentially lead to significant volatility</span>—a key consideration for active market participants.
             </p>
             <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
               ✅ Small Market Cap: ~$9.8 Million
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              Despite operating a nationwide media platform with legacy and digital assets, BBGI trades at a market capitalization of under $10 million. For some, this raises questions about whether the market is fully reflecting the {`company’s`} infrastructure and evolving strategy.
+              Despite operating a nationwide media platform with legacy and digital assets, BBGI trades at a <span className="font-MontserratBold">market capitalization of under $10 million</span>. For some, this raises questions about whether the market is fully reflecting the {`company’s`} infrastructure and evolving strategy.
             </p>
             <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
               ✅ AI & Digital Media Exposure
@@ -228,7 +228,7 @@ const CABR = () => {
               ✅ Institutional Ownership: ~16.6%
             </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              Public filings indicate that approximately 16.6% of BBGI shares are held by institutions, despite limited retail awareness or mainstream coverage. This may suggest early confidence from professional market participants.
+              Public filings indicate that approximately <span className="font-MontserratBold">16.6% of BBGI shares are held by institutions</span>, despite limited retail awareness or mainstream coverage. This may suggest early confidence from professional market participants.
             </p>
             <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
               ✅ Emerging Story, Low Visibility
@@ -240,10 +240,10 @@ const CABR = () => {
               Why Add BBGI to a Watchlist Now?
             </h6>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Structural setup: Tight float and low market cap</li>
-              <li>Thematic alignment: AI, digital transformation, ad-tech</li>
-              <li>Corporate footprint: Real operations across 60+ U.S. stations</li>
-              <li>Low current attention: Limited coverage or chatter, yet material developments</li>
+              <li><span className="font-MontserratBold">Structural setup:</span> Tight float and low market cap</li>
+              <li><span className="font-MontserratBold">Thematic alignment:</span> AI, digital transformation, ad-tech</li>
+              <li><span className="font-MontserratBold">Corporate footprint:</span> Real operations across 60+ U.S. stations</li>
+              <li><span className="font-MontserratBold">Low current attention:</span> Limited coverage or chatter, yet material developments</li>
             </ul>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
               For traders and researchers focused on low-float volatility, valuation gaps, or sector transformation stories, BBGI may be a company to monitor more closely in the coming days and weeks.
@@ -265,7 +265,7 @@ const CABR = () => {
               As always, any decision to act on a security should follow careful, independent research.
             </p>
 
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
+            <p className="font-MontserratBold text-base 2xl:text-xl pt-12 text-[#343D48]">
               📘 Access Public Information, Charts, and More Here:
             </p>
             <Link href='/bbgi' className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-skyBlue">
