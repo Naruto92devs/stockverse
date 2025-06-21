@@ -11,8 +11,8 @@ const PRESSRELEASECBRA = () => {
 
   useEffect(() => {
     setMetadata({
-      title: "Cadrenal Therapeutics Highlights New Research on Anticoagulation Burden for LVAD Patients",
-      description: "Cadrenal Therapeutics, Inc. (Nasdaq: CVKD), a biopharmaceutical company developing novel therapeutics for patients with cardiovascular disease, today announced new findings from third-party research on the economic and medical burdens faced by advanced heart failure patients with left ventricular assist devices (LVAD) requiring chronic anticoagulation.",
+      title: "Caring brand commence trading on the OTCQB",
+      description: "JUPITER, FL — Caring Brands Inc. (OTCQB: CBRA) has commenced trading on the OTCQB Venture Market, marking an inflection point for the company as it accelerates commercialization efforts across a diversified wellness and diagnostics portfolio.",
       schema: ``
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

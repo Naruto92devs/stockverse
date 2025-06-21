@@ -35,6 +35,8 @@ export async function GET() {
     {slug: "news/neov-barchat", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "0.8"},
     {slug: "news/top-10-stocks-to-buy", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "0.8"},
     {slug: "news/cvkd-october-2024", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "0.8"},
+    {slug: "cbra", lastmod: new Date().toISOString().split("T")[0], changefreq: "daily", priority: "1"},
+    {slug: "news/caring-brand-lists-on-otcqb", lastmod: new Date().toISOString().split("T")[0], changefreq: "daily", priority: "1"},
 
     // {slug: "dashboard?view=watchlist", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "0.7"},
     // {slug: "dashboard?view=trades", lastmod: new Date().toISOString().split("T")[0], changefreq: "monthly", priority: "0.7"},
