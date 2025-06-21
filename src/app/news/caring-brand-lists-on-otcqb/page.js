@@ -1,0 +1,114 @@
+'use client';
+import Link from "next/link";
+import React, { useEffect } from 'react';
+import Disclaimer from "@/components/Cvkd_disclaimer";
+import { useMetadata } from "@/context/MetadataContext";
+
+
+const PRESSRELEASECBRA = () => {
+
+  const { setMetadata } = useMetadata();
+
+  useEffect(() => {
+    setMetadata({
+      title: "Cadrenal Therapeutics Highlights New Research on Anticoagulation Burden for LVAD Patients",
+      description: "Cadrenal Therapeutics, Inc. (Nasdaq: CVKD), a biopharmaceutical company developing novel therapeutics for patients with cardiovascular disease, today announced new findings from third-party research on the economic and medical burdens faced by advanced heart failure patients with left ventricular assist devices (LVAD) requiring chronic anticoagulation.",
+      schema: ``
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+    return (
+        <>
+          <div className="xl:container mx-auto xl:sticky xl:top-24 xl:px-10 xl:py-4 max-sm:hidden">
+                <a href="/dashboard?view=news" className="font-sansMedium text-base 2xl:text-xl flex items-center w-max justify-start gap-4">
+                    <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back to news
+                </a>
+            </div>
+          <div className="w-full h-full mx-auto xl:container lg:px-[13%] max-xl:px-3">
+            <div className="pt-8 flex flex-col sm:flex-row gap-y-6 justify-between items-start sm:items-center">
+                <Link href='/cadrenal-page' className=" leading-[110%] text-base font-normal text-black">CVKD</Link>
+                <Link href='/dashboard?view=news' className=" leading-[110%] text-base font-light text-black">June 12, 2025 by Stockverse</Link>
+            </div>
+            <div className="py-10 gap-y-6">
+                <h1 className={`text-4xl 2xl:text-[2.4rem] max-sm:text-[1.6rem] font-DM font-semibold text-left text-primaryText leading-[120%]`}>
+                  Caring brand commence trading on the OTCQB
+                </h1>
+            </div>
+            <div className="flex flex-col gap-6 py-4 2xl:pb-16 lg:pb-16 pb-8">
+              <p className="text-lg text-primaryText font-normal leading-[150%]">
+                <span className="font-bold">Jupiter, FL (GLOBE NEWSWIRE) (OTCQB: CBRA)</span>, today announced it has begun trading
+                today on the OTCQB under the symbol “CBRA.” U.S. investors can find current
+                financial disclosure and Real-Time Level 2 quotes for the company
+                on <Link className="underline font-bold" href="https://www.globenewswire.com/Tracker?data=miP-a1m0w9Op8FezWQo7XNR3FPKyyWBfkWJAZAH5YpvqFUOGhaQ2g3DQYkiYvWgYE0J-2e3ALKmiZEQoXUJT9ndOjjMaChNCr3PgHOTUWVOz_ftpoCuH_fzi62ReJtuORSN1NChlYvcr2681X2xAOy40Z8e96oHw3-wyxuabyel8F3BiGTEbUlMf3XHU4QHh0J9DBypZNcVxzatQ2QWw0g==">www.otcmarkets.com</Link>. Caring Brands has a growing portfolio of unique,
+                patented, and clinically validated products for skin and hair growth. Additional
+                product opportunities include CB-101 for the treatment of eczema, Nostingz, a
+                sunscreen that prevents jellyfish stings, and an at home diagnostic test for Ebola.
+                </p>
+              <h3 className="text-lg text-primaryText font-bold leading-[140%]">About OTC Markets</h3>
+              <p className="text-lg text-primaryText font-normal leading-[150%]">
+                We operate a regulated stock market for the trading of over 12,000 U.S. and
+                global securities. We organize these securities into four markets based on the
+                quality and timeliness of the disclosure and the information which the company
+                provides to investors: OTCQX® Best Market, OTCQB® Venture Market, the
+                OTCID® Basic Market and Pink Limited Information. Our goal is to right size the
+                process of being public so you can focus on growing your business.
+              </p>
+              <h3 className="text-lg text-primaryText font-bold leading-[140%]">About Caring Brands</h3>
+              <p className="text-lg text-primaryText font-normal leading-[150%]">
+                Caring Brands Inc. has a growing portfolio of unique, patented, and clinically
+                validated products for skin and hair growth. The Company intends to launch a total
+                of 5 products over the next 2 years in addition to in-licensing additional products.
+                Management has a successful track record of strategic acquisitions, rapid product
+                development, IP development and product licensing. Revenues from the sales of
+                Hair Enzyme Booster for the treatment of hair loss, and Photocil for the treatment
+                of psoriasis and vitiligo, are currently being generated by direct sales in the US and
+                licensees in India. Additional product opportunities include CB-101 for the
+                treatment of eczema, Nostingz, a sunscreen that prevents jellyfish stings, and an at
+                home diagnostic test for Ebola.
+             </p>
+             <p className="text-lg text-primaryText font-normal leading-[150%]">
+                To learn more about how we create better informed and more efficient markets,
+                visit <Link className="text-blue" href="https://www.globenewswire.com/Tracker?data=miP-a1m0w9Op8FezWQo7XEa2_ZVssprhW5nc2Ao6nVH9kDIsRvgiT2L_RcPNbmjKeClnCnLMbTmg4CsPF1-OdjXTSDVbC3m-W7SAi1gFhHJwghDiezLApA0ZNdg7J2wSyGfiXOspkGtu-8kMrXKFHTVK0AX_Gck9z6DZ4HPd1lxILzjJIg965oh59D4AYaZ8sUatVhzJeHSmrm9VmCJbkQ==">www.otcmarkets.com</Link>.
+             </p>
+              <div>
+                <p className="text-lg text-primaryText font-normal leading-[150%]">
+                    <Link className="text-blue" href="https://www.globenewswire.com/Tracker?data=O0Hs3aFaS7ZBn7aBiW2bcSOFC5gAW1hYsjD7IKAtjedvz1DHzCZ4cnoePWqE_J3LoIHxwTCSWopMGWZJeoff5f_1E6Vs8HAUfnHJCZCKq8kXzSYCqHuTPT6qOW7NYMk1ALAavLr0RQPknOaXsGsCpaQPz6-kk3UaGXk6q8jLBEPnETc76euH5hdTkYaSxr4tfS4x5zLIK1-F2079qbF9o-ka5lfVWzRiMozl1CkZa8wYhXH4ygktQ8724oB8aXf2">Subscribe to the OTC Markets RSS Feed</Link>
+                </p>
+              </div>
+              <h3 className="text-lg text-primaryText font-bold leading-[140%]">CONTACT:</h3>
+              <p className="text-lg text-primaryText font-normal leading-[150%]">Brian S John</p>
+              <p className="text-lg text-primaryText font-normal leading-[150%]">561-599-0080</p>
+
+              <h3 className="text-lg text-primaryText font-bold leading-[140%]">Forward-Looking Statements</h3>
+              <p className="text-lg text-primaryText font-normal leading-[150%]">
+                This communication contains forward-looking statements regarding Caring Brands, Inc., including, the anticipated
+                timing of studies and the results and benefits thereof. You can generally identify forward-looking statements by the
+                use of forward-looking terminology such as “anticipate,” “believe,” “continue,” “could,” “estimate,” “expect,”
+                “explore,” “evaluate,” “intend,” “may,” “might,” “plan,” “potential,” “predict,” “project,” “seek,” “should,” or “will,”
+                or the negative thereof or other variations thereon or comparable terminology. These forward-looking statements are
+                based on each of the Company’s current plans, objectives, estimates, expectations, and intentions and inherently
+                involve significant risks and uncertainties, many of which are beyond our control. Actual results and the timing of
+                events could differ materially from those anticipated in such forward-looking statements as a result of these risks and
+                uncertainties and other risks and uncertainties affecting Caring Brands, Inc.. Moreover, other risks and uncertainties
+                of which the combined company is not currently aware may also affect each of the companies’ forward-looking
+                statements and may cause actual results and the timing of events to differ materially from those anticipated. Investors
+                are cautioned that forward-looking statements are not guarantees of future performance. The forward-looking
+                statements made in this communication are made only as of the date hereof or as of the dates indicated in the forwardlooking statements and reflect the views stated therein with respect to future events at such dates, even if they are
+                subsequently made available by Caring Brands, Inc. on its website or otherwise. Caring Brands, Inc. undertakes no
+                obligation to update or supplement any forward-looking statements to reflect actual results, new information, future
+                events, changes in its expectations or other circumstances that exist after the date as of which the forward-looking
+                statements were made
+              </p>
+              
+            </div>
+            <Disclaimer/>
+        </div>
+        </>
+    );
+}
+
+export default PRESSRELEASECBRA;
