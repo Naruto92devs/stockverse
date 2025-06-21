@@ -132,7 +132,7 @@ const CABR = () => {
             <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(OTCMKTS: <Link href='/dashboard?symbol=CBRA' className=" text-darkGreen"> CBRA</Link>)</h2>
             </div>
             <div className="space-y-4">
-              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> Fast-Growing Wellness Rollup Primed for Expansion — Here’s Why CBRA Stands Out</p>
+              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> This Stock May Soar 312% — {`Here’s`} Why</p>
               <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>CBRA (OTCMKTS: CBRA) is building a diversified platform of high-potential wellness and consumer brands, focusing on innovation and rapid growth in health-related markets. Through strategic acquisitions, new product launches, and smart partnerships, CBRA is expanding its footprint and creating multiple revenue streams. With a tight share structure and experienced leadership, CBRA is positioned for outsized gains as wellness demand accelerates.<span className="font-MontserratBold"> Add CBRA to Your Watchlist Immediately.</span></p>
             </div>
             <div className="flex flex-wrap gap-2">
