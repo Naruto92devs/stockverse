@@ -31,7 +31,7 @@ const CABR = () => {
   const [er, setEr] = useState(null);
   const isValidPhone = phone && phone.replace(/\D/g, '').length >= 10;
   const isFormValid = email && isValidPhone && !loading;
-  const [newsletter, setNewsletter] = useState(true);
+  const [newsletter, setNewsletter] = useState(false);
   const heading = "Winning Stock Picks"
   const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
 
@@ -241,120 +241,44 @@ const CABR = () => {
           <div className="w-[50%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
             <p className="text-gray/60 font-MontserratMedium text-right pb-4">*Sponsored</p>
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-3xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              Caring Brands (OTCMKTS: CBRA): 5 Reasons This Stock Should Be on Your Radar
+              New Listing Alert: CBRA Begins Trading on OTCQB — Key Developments Investors Should Know
             </h3>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              Caring Brands is a healthcare company dedicated to acquiring, developing, and operating businesses in the wellness, health, and consumer goods sectors, with a focus on innovative brands and scalable growth.
+              <span className="font-MontserratBold">JUPITER, FL — Caring Brands Inc. (OTCQB: CBRA)</span> has commenced trading on the OTCQB Venture Market, marking an inflection point for the company as it accelerates commercialization efforts across a diversified wellness and diagnostics portfolio.
+              With revenue already being generated and five product launches planned over the next 24 months, Caring Brands offers investors early exposure to a company targeting high-demand categories across dermatology, diagnostics, and consumer protection.
             </p>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">1. Consistent Growth and Expanding Portfolio</h6>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              According to recent company filings and press releases:
-            </p>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold"> Caring Brands</span>  has expanded its portfolio with strategic acquisitions in the wellness and consumer products space, broadening its footprint and market reach.</li>
-              <li>The {`company’s`} multi-brand approach aims to diversify revenue streams and reduce dependence on any single product line.</li>
-              <li>Management has outlined ambitious plans for new product launches and partnerships to drive top-line growth in 2025.</li>
-              <li>Recent acquisitions have begun contributing to consolidated revenue, demonstrating the effectiveness of the {`company’s`} roll-up strategy.</li>
-            </ul>
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">CBRA Now Live on OTCQB (Ticker: CBRA)</h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              While these factors highlight positive momentum, future performance will depend on successful integration and execution.
+              <span className="font-MontserratBold">{`CBRA’s`}</span> uplisting to the OTCQB provides enhanced transparency, access to real-time Level 2 quotes, and ongoing disclosure compliance through OTCMarkets.com. The company’s public debut follows a period of significant development investment and IP accumulation.
+              Led by a management team with prior success in product licensing, strategic acquisitions, and public listings, Caring Brands is entering the public markets with a commercial-ready product base and global expansion plans in place.
             </p>
 
             {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
 
             <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12  text-center text-[#343D48]">
-              2. Lean Share Structure and Shareholder Value Focus
+              Product Pipeline Addressing Large Unmet Markets
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Based on public disclosures:
+              Caring Brands is developing and commercializing patented, clinically validated OTC products addressing conditions with significant consumer demand and limited innovation. The current portfolio includes:
             </p>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">Caring Brands </span> maintains a relatively modest number of shares outstanding for an OTC-listed company, resulting in a tight float.</li>
-              <li>This lean structure means each share is more responsive to business developments and growth announcements.</li>
-              <li>The {`company’s`} commitment to shareholder value is reflected in its focus on acquiring profitable businesses and building recurring revenue streams.</li>
+              <li><span className="font-MontserratBold">Hair Enzyme Booster (Hair Loss):</span>  Revenue-generating in the U.S. and licensed in India</li>
+              <li><span className="font-MontserratBold">Photocil (Psoriasis & Vitiligo):</span>  FDA-cleared, available OTC, generating international sales</li>
+              <li><span className="font-MontserratBold">CB-101 (Eczema):</span>  Dual-action treatment, OTC formulation targeting underserved patients</li>
+              <li>Strategic LOI to acquire NOVODX and the GoldN™ diagnostics platform</li>
+              <li>Management team with proven execution in public markets and product commercialization</li>
+              <li>60% insider ownership; strong alignment with shareholders</li>
+              <li>Uplisting to a senior exchange planned upon achieving operational milestones</li>
             </ul>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              This lean structure means each share is backed by solid assets and revenue, making CABR particularly sensitive to news, growth, and trading activity—though volatility is also higher in low-float stocks.
-            </p>
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              3. Expansion in High-Demand Health & Wellness Markets
-            </h6>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">Caring Brands </span> targets rapidly growing segments within the health, wellness, and consumer goods industries, including supplements, nutrition, and personal care.</li>
-              <li>In 2024, <span className="font-MontserratBold"> Naiz Fit delivered over 42 million size recommendations</span> and helped clients increase average order values by 27%, while reducing return rates by 14%.</li>
-              <li>The company leverages market trends and consumer demand for healthy, natural, and innovative products.</li>
-              <li>Through its acquisition and development strategy, Caring Brands aims to capture market share in both B2B and direct-to-consumer channels.</li>
-            </ul>
-            <h6 className="font-MontserratBold text-center  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              4. Strategic Partnerships and Brand Development
-            </h6>
-
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>The company is actively forming partnerships with established health brands, distributors, and e-commerce platforms to accelerate market entry and distribution.</li>
-              <li>Caring Brands emphasizes the development of its acquired businesses through branding, operational improvements, and cross-selling opportunities.</li>
-              <li>This approach is designed to create value across its portfolio while strengthening each individual brand.</li>
-            </ul>
-
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              5. Retail Investor Takeaways
-            </h6>
-            <div className="overflow-x-auto w-full pt-4">
-              <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 pb-4 text-[#343D48]">
-                CBRA trades at a valuation below many peers in the diversified wellness and consumer products space, offering an attractive entry point for investors.
-              </p>
-              {/* <div className="min-w-max flex">
-                <div className="min-w-max">
-                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Factor</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Growth Trend</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Upside Potential</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Financial Health</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Strategic Moves</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Valuation</p>
-                </div>
-                <div className="min-w-max">
-                  <p className="w-full font-MontserratMedium text-base py-2 border-b-2 border-black pr-8">Revenue</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">	Revenue up 18% with strong cash growth</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">	Analyst target ~3x current price</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Low debt, strong liquidity</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">Board upgrades, tech expansion, sustainable focus</p>
-                  <p className="w-full font-MontserratRegular text-base py-2 border-b border-black pr-8">	Appears undervalued if growth sustains</p>
-                </div>
-              </div> */}
-            </div>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              If Caring Brands continues to execute on its acquisition and brand-building strategy, it may see a significant re-rating as revenues scale.
-            </p>
-
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              What Caring Brands Does: A Business Overview
-            </h6>
-            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Health & Wellness Focus:
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              Caring Brands acquires and operates innovative businesses in the health, wellness, and consumer goods sectors, building a diversified portfolio of high-potential brands.
-            </p>
-            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Growth by Acquisition:
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              The company uses a roll-up strategy to expand its reach, integrating new brands and scaling operations for maximum efficiency.
-            </p>
-            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Multi-Channel Revenue Model:
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              Caring Brands generates income through product sales, B2B distribution, e-commerce, and cross-brand opportunities within its growing portfolio.
-            </p>
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              Final Considerations
+              Conclusion
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Caring Brands (OTCMKTS: CBRA) offers investors access to the fast-growing health and wellness sector through a diversified, acquisition-driven business model. Its expanding brand portfolio, focus on recurring revenue, and lean share structure make it a stock worth monitoring as it builds momentum. As always, investors should review filings, conduct due diligence, and consider both opportunities and risks before making investment decisions.
+              Caring Brands enters the public market with real products, existing revenue, and a near-term catalyst pipeline. With a valuation still under early-stage multiples, the opportunity for long-term appreciation remains attractive as the company scales into regulated consumer health, diagnostics, and wellness.
             </p>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              📌 This is a stock worth watching as it continues to execute on its strategy.
+              📌 Investors seeking growth-stage exposure in OTC healthcare should monitor CBRA closely.
             </p>
           </div>
           <div className="w-[23%] max-lg:w-[48%] max-md:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:order-1 max-lg:relative max-lg:top-0">
@@ -676,7 +600,7 @@ const CABR = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">IMPORTANT SUMMARY — PLEASE READ FIRST</h4>
         <p className="text-base text-primaryText font-inter">
-          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by CorporateAds, LLC to produce and distribute promotional content regarding Caring Brands (OTCMKTS: CABR). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
+          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by Genesis One Holdings LLC to produce and distribute promotional content regarding Caring Brands (OTCMKTS: CABR). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">1. NATURE AND INTENT OF THIS COMMUNICATION</h4>
@@ -686,12 +610,12 @@ const CABR = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR Caring Brands (CABR)</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC has been retained by CorporateAds, LLC to provide promotional media services for Caring Brands (OTCMKTS: CABR). As of the effective date: June 15, 2025
+          Relqo Media LLC has been retained by Genesis One Holdings LLC to provide promotional media services for Caring Brands (OTCMKTS: CABR). As of the effective date: June 21, 2025
+          Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter pl-8">
-          <li>Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.</li>
-          <li>The total compensation paid for these services is $20,000 for the period beginning June 15, 2025, through June 18, 2025.</li>
-          <li>CorporateAds, LLC may own, acquire, or dispose of shares in CABR during or after the campaign period.</li>
+          <li>The total compensation paid for these services is $25,000 per week for the period beginning June 21, 2025, through July 21, 2025.</li>
+          <li>Genesis One Holdings LLC may own, acquire, or dispose of shares in CABR during or after the campaign period.</li>
         </ul>
         <p className="text-base text-primaryText font-inter">
           This relationship creates a material conflict of interest. Relqo {`Media’s`} content regarding CABR should be considered promotional, biased, and financially motivated.
