@@ -5,6 +5,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaEnvelope, 
 import formatNumber from "@/components/FormatNumber";
 import NewsLetterPopup from "@/components/NewsLetterPopup";
 import { Montserrat } from 'next/font/google';
+import { useMetadata } from "@/context/MetadataContext";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -34,6 +35,16 @@ const CABR = () => {
   const [newsletter, setNewsletter] = useState(false);
   const heading = "Winning Stock Picks"
   const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
+  const { setMetadata } = useMetadata();
+
+  useEffect(() => {
+    setMetadata({
+      title: "OTCMKTS: CBRA",
+      description: "CBRA (OTCQB: CBRA) is now live on the OTCQB with a commercial-stage hair loss product and additional OTC launches coming soon, including eczema, sun protection, and diagnostics. Real products. Real pipeline. Add CBRA to Your Watchlist.",
+      schema: ``
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
