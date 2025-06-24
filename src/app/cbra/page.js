@@ -599,7 +599,7 @@ const CABR = () => {
           </div>
         </div>
       </footer>
-      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"CABR subscriber popup"} heading={heading} subHeading={subHeading}/>
+      <NewsLetterPopup newsletter={newsletter} setNewsletter={setNewsletter} tag={"CBRA subscriber popup"} heading={heading} subHeading={subHeading}/>
       {/* disclaimer */}
       <div className="hero py-16 max-md:py-6 w-full border-t-[1.2px] border-[#404040]">
       <div className="mx-auto xl:container gap-y-4 px-8 xl:px-3 max-sm:gap-y-3 flex flex-col items-start">
@@ -607,11 +607,11 @@ const CABR = () => {
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Effective Date</span>: August 2024</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Last Updated</span>: June 15, 2025</p>
         <p className="text-lg font-inter text-primaryText"><span className="font-inter">Publisher</span>: Relqo Media LLC (Wyoming, United States)</p>
-        <p className="text-lg font-inter text-primaryText"><span className="font-inter">Subject Company</span>: Caring Brands (CABR)</p>
+        <p className="text-lg font-inter text-primaryText"><span className="font-inter">Subject Company</span>: Caring Brands (CBRA)</p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">IMPORTANT SUMMARY — PLEASE READ FIRST</h4>
         <p className="text-base text-primaryText font-inter">
-          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by Genesis One Holdings LLC to produce and distribute promotional content regarding Caring Brands (OTCMKTS: CABR). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
+          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by Genesis One Holdings LLC to produce and distribute promotional content regarding Caring Brands (OTCMKTS: CBRA). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">1. NATURE AND INTENT OF THIS COMMUNICATION</h4>
@@ -619,17 +619,17 @@ const CABR = () => {
           Relqo Media LLC is a for-profit marketing agency engaged in paid promotions of public companies. The content we produce is strictly commercial and intended to create temporary public awareness, visibility, and short-term market activity around the featured company. This material is not impartial. All readers should interpret our content as a paid commercial advertisement and not as an editorial, research article, or independent commentary. We create advertisements, not analysis. These communications are not intended to be factual evaluations of the {`company’s`} operations or investment merit.
         </p>
 
-        <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR Caring Brands (CABR)</h4>
+        <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR Caring Brands (CBRA)</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC has been retained by Genesis One Holdings LLC to provide promotional media services for Caring Brands (OTCMKTS: CABR). As of the effective date: June 21, 2025
+          Relqo Media LLC has been retained by Genesis One Holdings LLC to provide promotional media services for Caring Brands (OTCMKTS: CBRA). As of the effective date: June 21, 2025
           Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter pl-8">
           <li>The total compensation paid for these services is $25,000 per week for the period beginning June 21, 2025, through July 21, 2025.</li>
-          <li>Genesis One Holdings LLC may own, acquire, or dispose of shares in CABR during or after the campaign period.</li>
+          <li>Genesis One Holdings LLC may own, acquire, or dispose of shares in CBRA during or after the campaign period.</li>
         </ul>
         <p className="text-base text-primaryText font-inter">
-          This relationship creates a material conflict of interest. Relqo {`Media’s`} content regarding CABR should be considered promotional, biased, and financially motivated.
+          This relationship creates a material conflict of interest. Relqo {`Media’s`} content regarding CBRA should be considered promotional, biased, and financially motivated.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">3. INTENDED AUDIENCE</h4>
@@ -639,7 +639,7 @@ const CABR = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">4. NO ENDORSEMENT OR VERIFICATION OF COMPANY CLAIMS</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC does not independently verify, investigate, or audit any statements made by the company being promoted, its officers, its press releases, or any third-party sources. Any claims, projections, customer announcements, or product statements made in connection with CABR should be assumed to be unverified and potentially inaccurate unless independently confirmed.
+          Relqo Media LLC does not independently verify, investigate, or audit any statements made by the company being promoted, its officers, its press releases, or any third-party sources. Any claims, projections, customer announcements, or product statements made in connection with CBRA should be assumed to be unverified and potentially inaccurate unless independently confirmed.
           You should not rely on any statements regarding future performance, partnerships, revenue projections, or corporate plans.
         </p>
 
@@ -648,7 +648,7 @@ const CABR = () => {
           Promotional campaigns commonly result in short-lived spikes in stock price and volume, followed by rapid declines. These spikes are typically driven by retail speculation, promotional circulation, and momentary investor interest—not fundamentals. You should expect that:
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter">
-          <li>{`CABR’s`} stock may increase temporarily during this promotion,</li>
+          <li>{`CBRA’s`} stock may increase temporarily during this promotion,</li>
           <li>Trading volume may rise sharply, and</li>
           <li>The price may fall after the campaign ends or selling begins.</li>
         </ul>
@@ -690,7 +690,7 @@ const CABR = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">9. OWNERSHIP AND TRADING CONFLICTS</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC, its contractors, members, and affiliates may hold or acquire shares in the companies we promote, including CABR. We may buy or sell such shares without prior notice. These transactions may occur before, during, or after a promotional campaign and may affect market pricing.
+          Relqo Media LLC, its contractors, members, and affiliates may hold or acquire shares in the companies we promote, including CBRA. We may buy or sell such shares without prior notice. These transactions may occur before, during, or after a promotional campaign and may affect market pricing.
           We are not obligated to update readers on our trading activity or affiliate holdings.
         </p>
 
