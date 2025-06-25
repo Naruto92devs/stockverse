@@ -71,7 +71,7 @@ const IQSTPage = () => {
             <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(NASDAQ: <Link href='/dashboard?symbol=ALBT' className=" text-darkGreen"> ALBT</Link>)</h2>
             </div>
             <div className="space-y-4">
-              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}>Add This Stock to Your Watchlist Immediately — {`Here’`}s Why”</p>
+              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}>Add This Stock to Your Watchlist Immediately — {`Here’`}s Why</p>
               <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>Avalon GloboCare (NASDAQ: ALBT) is executing a transformation that includes a pending AI merger, a commercial FDA-cleared device, and a newly issued immunotherapy patent — all while trading below a $6M market cap with just 1.5M shares in the float.</p>
             </div>
             <div className="flex flex-wrap gap-2">
