@@ -439,7 +439,7 @@ const IQSTPage = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">IMPORTANT SUMMARY — PLEASE READ FIRST</h4>
         <p className="text-base text-primaryText font-inter">
-          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by CorporateAds, LLC to produce and distribute promotional content regarding Avalon GloboCare Corp. (NASDAQ: ALBT). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
+          This website and any affiliated digital materials are published by Relqo Media LLC, a Wyoming marketing agency that has been compensated in cash by YachtXotics Enterprises Inc. to produce and distribute promotional content regarding Avalon GloboCare Corp. (NASDAQ: ALBT). This communication is a paid advertisement, not a research report, not investment advice, and not an independent publication. Relqo Media is not a broker-dealer, investment adviser, or securities analyst. Investing in small-cap or microcap securities is extremely speculative and may result in the total loss of your investment. We strongly urge all viewers to consult a licensed investment professional and perform their own due diligence.
         </p>
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">1. NATURE AND INTENT OF THIS COMMUNICATION</h4>
@@ -449,12 +449,11 @@ const IQSTPage = () => {
 
         <h4 className="mt-8 text-primaryText text-xl font-inter font-medium">2. COMPENSATION FOR Avalon GloboCare Corp. (ALBT)</h4>
         <p className="text-base text-primaryText font-inter">
-          Relqo Media LLC has been retained by CorporateAds, LLC to provide promotional media services for Avalon GloboCare Corp. (NASDAQ: ALBT). As of the effective date: June 15, 2025
+          Relqo Media LLC has been retained by YachtXotics Enterprises Inc. to provide promotional media services for Avalon GloboCare Corp. (NASDAQ: ALBT). As of the effective date: June 25, 2025 Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.
         </p>
         <ul className="list-disc text-base text-primaryText space-y-3 font-inter pl-8">
-          <li>Relqo Media LLC is receiving cash compensation for digital investor awareness campaigns.</li>
-          <li>The total compensation paid for these services is $20,000 for the period beginning June 15, 2025, through June 18, 2025.</li>
-          <li>CorporateAds, LLC may own, acquire, or dispose of shares in ALBT during or after the campaign period.</li>
+          <li>The total compensation paid for these services is $14,200 for the period beginning June 25, 2025, through June 26, 2025.</li>
+          <li>YachtXotics Enterprises Inc. may own, acquire, or dispose of shares in ALBT during or after the campaign period.</li>
         </ul>
         <p className="text-base text-primaryText font-inter">
           This relationship creates a material conflict of interest. Relqo {`Media’s`} content regarding ALBT should be considered promotional, biased, and financially motivated.
