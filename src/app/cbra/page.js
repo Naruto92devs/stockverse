@@ -281,12 +281,6 @@ const CABR = () => {
               <li>60% insider ownership; strong alignment with shareholders</li>
               <li>Uplisting to a senior exchange planned upon achieving operational milestones</li>
             </ul>
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              Conclusion
-            </h6>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Caring Brands enters the public market with real products, existing revenue, and a near-term catalyst pipeline. With a valuation still under early-stage multiples, the opportunity for long-term appreciation remains attractive as the company scales into regulated consumer health, diagnostics, and wellness.
-            </p>
 
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
               📌 Investors seeking growth-stage exposure in OTC healthcare should monitor CBRA closely.
