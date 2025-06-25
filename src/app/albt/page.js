@@ -71,8 +71,8 @@ const IQSTPage = () => {
             <h2 className="text-black 2xl:text-6xl sm:text-[3.5rem] text-[3rem] !leading-[1.2] font-DM font-sansMedium">(NASDAQ: <Link href='/dashboard?symbol=ALBT' className=" text-darkGreen"> ALBT</Link>)</h2>
             </div>
             <div className="space-y-4">
-              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}> This Stock May Soar 200%+ — {`Here’s`} Why</p>
-              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>Avalon GloboCare (NASDAQ: ALBT) is rapidly transforming its business through a high-profile merger with YOOV Group, setting the stage to become a major player in the booming AI-as-a-Service (AIaaS) market. With new medical device partnerships, fresh intellectual property wins in cellular therapy, and a cleaner share structure after regaining Nasdaq compliance, ALBT is attracting significant investor attention. <span className="font-MontserratBold"> Add ALBT to Your Watchlist Immediately.</span></p>
+              <p className={`text-gray/60 2xl:text-xl text-lg font-MontserratBold w-full`}>Add This Stock to Your Watchlist Immediately — {`Here’`}s Why”</p>
+              <p className={`text-gray/60 ${montserrat.className} 2xl:text-xl text-lg w-full`}>Avalon GloboCare (NASDAQ: ALBT) is executing a transformation that includes a pending AI merger, a commercial FDA-cleared device, and a newly issued immunotherapy patent — all while trading below a $6M market cap with just 1.5M shares in the float.</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <Link href='https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=ALBT' target="_blank" rel="noopener noreferrer">
@@ -124,85 +124,94 @@ const IQSTPage = () => {
           <div className="w-[50%] max-md:w-[100%] max-lg:w-[100%] max-lg:order-3 max-md:order-2">
             <p className="text-gray/60 font-MontserratMedium text-right pb-4">*Sponsored</p>
             <h3 className="text-[#1D3045] font-MontserratBold text-center 2xl:text-4xl text-2xl !leading-[1.5] mb-4 max-md:text-left">
-              Avalon GloboCare Corp. (NASDAQ: ALBT): 5 Reasons This Company Belongs On Your Radar 🚀
+              Just 1.5M Shares in the Float — and a Real FDA Device in Use: Why ALBT May Be the Microcap to Watch
             </h3>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
-              Avalon GloboCare Corp. (NASDAQ: ALBT) is an emerging leader at the intersection of biotechnology, precision diagnostics, and artificial intelligence. The company is making bold moves with a pending merger to launch an AI-as-a-Service (AIaaS) platform, while expanding its portfolio of FDA-registered medical devices and breakthrough cellular therapies. With new strategic partnerships, intellectual property wins, and a recently streamlined share structure, Avalon is positioned for accelerated growth. Below are five reasons why investors may want to include this innovative company in their research.
-            </p>
-            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">1. Strategic Proposed Merger with YOOV</h6>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>On <span className="font-MontserratBold"> April 29, 2025</span>, Avalon and AI‑automation provider <span className="font-MontserratBold">YOOV Group Holding</span> filed a Form S‑4 with the SEC, signaling a planned merger to create a public <span className="font-MontserratBold">AI-as-a-Service (AIaaS)</span> platform</li>
-              <li>The combined entity aims to streamline operations across industries through accessible AI-powered tools—poised to attract enterprise clients and recurring revenue.</li>
+              <li><span className="font-MontserratSemibold">Ticker:</span> NASDAQ: ALBT</li>
+              <li><span className="font-MontserratSemibold">Price:</span> $3.00</li>
+              <li><span className="font-MontserratSemibold">Market Cap:</span> ~$5.7 million</li>
+              <li><span className="font-MontserratSemibold">Float:</span> 1.52M shares</li>
+              <li><span className="font-MontserratSemibold">Shares Outstanding:</span> 1.89M</li>
+              <li><span className="font-MontserratSemibold">Reverse Split:</span> 1-for-15 completed in 2024</li>
             </ul>
-
-            {/* <Image className="w-full my-6 xl:my-12 mb-[8] xl:mb-20" src="/images/neovolta-energy-house.png" alt="neovolta energy house" width={892} height={498} /> */}
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12  text-center text-[#343D48]">
+              A Microcap With Real Products, IP, and a Pending AI Merger
+            </h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              Avalon GloboCare <span className="font-MontserratSemibold">(NASDAQ: ALBT)</span> might be one of the smallest companies listed on the Nasdaq by market cap — but recent developments suggest {`it’s`} not one to overlook. With an <span className="font-MontserratSemibold">FDA-registered product in hand</span>, a proposed acquisition of an AI automation firm, and newly issued global patents in cell therapy, Avalon is in motion across several fronts.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              The company is structured lean, with under <span className="font-MontserratSemibold">2 million</span> shares outstanding and just 1.5 million in the public float. Insider ownership stands at roughly 57%, according to company disclosures. At current prices, the entire business is valued at less than <span className="font-MontserratSemibold">$6 million</span>.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              {`Let’s`} take a look at {`what’s`} unfolded over the last few months.
+            </p>
+            <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12 text-[#343D48] text-center">1. Real Device, Real Use: KetoAir™ Breathalyzer</h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              On April 15, Avalon announced a partnership with SpecialtyHealth and Pounds Transformation (PT) to deploy its handheld <span className="font-MontserratSemibold">KetoAir™ breathalyzer</span> across multiple state police departments. The device, which detects acetone levels in breath to monitor fat metabolism, is being used in a first responder wellness initiative called the BrAce 4 Impact Challenge.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              Key facts:
+            </p>
+            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
+              <li>FDA-registered Class I medical device (Registration #3026284320)</li>
+              <li>Available for purchase and use today</li>
+              <li>Integrated into public health programs for law enforcement</li>
+            </ul>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              The product is currently live on the <span className="font-MontserratSemibold">Apple App Store</span> and <span className="font-MontserratSemibold">Google Play</span>, and supports users in tracking their daily ketone levels in real time.
+            </p>
 
             <h6 className="font-MontserratBold  text-lg 2xl:text-xl pt-12  text-center text-[#343D48]">
-              2. Multiple Recent Partnerships Fueling Growth
+              2. Patented Immunotherapy Platform in China
             </h6>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">April 15 & 1, 2025:</span> Partnerships with <span className="font-MontserratBold"> SpecialtyHealth and Pounds Transformation Clinics</span> rolled out the “BrAce 4 Impact Challenge”, promoting KetoAir™ breathalyzer adoption—targeting wellness and law‑enforcement sectors</li>
-              <li>These alliances demonstrate {`Avalon’s`} traction in channeling its <span className="font-MontserratBold">FDA‑registered medical device</span>, potentially boosting consumer adoption and recurring use.</li>
-            </ul>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              On April 10, Avalon announced the issuance of a new patent in China for its <span className="font-MontserratSemibold">CAR-T and CAR-NK immunotherapy platform</span>. The patent, co-developed with Arbele Limited, covers a bispecific CAR design that targets CD19 and CD22 antigens, along with a novel localized cytokine release mechanism.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              This new IP strengthens {`Avalon’s`} portfolio in the growing field of cell therapy and adds 20 years of protection in one of the world’s most significant healthcare markets.
+            </p>
+            
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              3. New IP Expansion: CAR‑T/CAR‑NK Patent in China
+              3. AI Merger in Progress: YOOV Group
+            </h6>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              On April 29, Avalon filed a registration statement with the SEC related to its planned acquisition of <span className="font-MontserratSemibold">YOOV Group Holding Limited</span>, a provider of AI-powered workflow automation and business services.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              If approved, the merger would transform Avalon into a hybrid of health technology and artificial intelligence. YOOV’s no-code platform is designed for business automation, and its subsidiaries offer services in credit evaluation and insurance brokerage.
+            </p>
+            <p className="font-MontserratMedium text-base 2xl:text-xl pt-3 text-[#343D48]">
+              The transaction remains subject to standard closing conditions and regulatory approval.
+            </p>
+
+            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
+              What Makes ALBT Stand Out?
             </h6>
             <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li><span className="font-MontserratBold">April 10, 2025:</span> Avalon was granted a <span className="font-MontserratBold">Chinese patent</span> on novel <span className="font-MontserratBold">CAR‑T and CAR‑NK cellular therapy technologies</span>, expanding its IP portfolio and reinforcing global biotech credentials</li>
-              <li>Strengthened IP adds strategic value and positions Avalon for licensing, partnerships, or pipeline advancement in cellular therapies.</li>
-            </ul>
-            <h6 className="font-MontserratBold text-center  text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              4. Short Interest Plummeting: Bearish Sentiment Fading
-            </h6>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>As of <span className="font-MontserratBold">May 29, 2025</span>, short interest dropped by <span className="font-MontserratBold">62.2%</span>, suggesting that skeptics are reducing their bearish bets</li>
-              <li>This signals growing investor confidence and potentially primes ALBT for a technical rebound.</li>
+              <li>Commercial-stage product with FDA registration</li>
+              <li>IP portfolio spanning diagnostics and cell therapy</li>
+              <li>Proposed acquisition of a functional AI business</li>
+              <li>Micro float and tightly held cap table</li>
+              <li>Nasdaq-listed with low current valuation</li>
             </ul>
 
             <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              5. Improved Nasdaq Compliance & Share Structure
-            </h6>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Following the <span className="font-MontserratBold">October 2024 1-for-15 reverse stock split</span>, Avalon regained compliance with Nasdaq listing criteria</li>
-              <li>With compliance behind them, Avalon can now fully pursue commercial and capital market strategies without regulatory constraints.</li>
-            </ul>
-
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              📊 Overview of Business Segments
-            </h6>
-            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Precision Diagnostics & Lab Services
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              Offers a broad test menu (bloodwork, pathology, pharmacogenomics) through a one-stop clinical lab
-            </p>
-            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              KetoAir™ Breathalyzer
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              FDA-registered, nanosensor-based device for ketosis tracking; gaining real-world adoption via strategic programs
-            </p>
-            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Cellular Therapy IP
-            </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-2 text-[#343D48]">
-              CAR-T/CAR-NK technologies with new patents in China, highlighting a move into regenerative medicine
-            </p>
-            <h6 className="font-MontserratBold text-center text-lg 2xl:text-xl pt-12 text-[#343D48]">
-              🔍 Final Considerations
+              Final Note
             </h6>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              Avalon GloboCare is at an inflection point—evolving from diagnostics and medical devices into <span className="font-MontserratBold">AI-powered business automation</span>, while ensuring biotech credibility through patent-backed cellular therapies. The drop in short interest underscores a shift toward positive sentiment. That said, the merger depends on <span className="font-MontserratBold">shareholder and Nasdaq approval</span>, and operationalizing AI-as-a-Service entails execution risks.
+              Avalon GloboCare is an early-stage company in transition. {`It’s`} not risk-free, and like any microcap, it carries volatility. But it also checks off several boxes that retail investors often look for: a real product on the market, regulatory milestones, and a pending shift into AI. 
+              If {`you're`} tracking low-float names with current products and active corporate events, this is one you may want to start following now — not after the chart moves.
             </p>
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]"><span className="font-MontserratBold">Bottom line:</span> ALBT offers a compelling value story blending <span className="font-MontserratBold">precision diagnostics, consumer medical devices, cellular‐therapy IP</span>, and now <span className="font-MontserratBold">AI growth potential</span>. Keep an eye on:</p>
-            <ul className="list-disc font-MontserratMedium text-base 2xl:text-xl pl-8 leading-[170%] pt-12 2xl:leading-[170%] text-[#343D48]">
-              <li>Filing efficacy and shareholder votes on the YOOV merger</li>
-              <li>Early revenue or contract wins from AIaaS integration</li>
-              <li>Upticks in KetoAir adoption through ongoing programs</li>
-            </ul>
 
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              📌 Set a watchlist alert for ALBT.
+            </p>
+            <p className="font-MontserratSemibold text-base 2xl:text-xl pt-12 text-[#343D48]">
+              🔎 Read the filings. Follow the updates. Do your research
+            </p>
             <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              📌 This is a stock worth watching as it continues to execute on its strategy.
+              This {`isn’t`} a recommendation — just a reminder to pay attention.
             </p>
           </div>
           <div className="w-[23%] max-lg:w-[48%] max-md:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:order-1 max-lg:relative max-lg:top-0">
