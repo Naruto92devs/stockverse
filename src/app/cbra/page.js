@@ -276,15 +276,9 @@ const CABR = () => {
               <li><span className="font-MontserratBold">Hair Enzyme Booster (Hair Loss):</span>  Revenue-generating in the U.S. and licensed in India</li>
               <li><span className="font-MontserratBold">Photocil (Psoriasis & Vitiligo):</span>  FDA-cleared, available OTC, generating international sales</li>
               <li><span className="font-MontserratBold">CB-101 (Eczema):</span>  Dual-action treatment, OTC formulation targeting underserved patients</li>
-              <li>Strategic LOI to acquire NOVODX and the GoldN™ diagnostics platform</li>
               <li>Management team with proven execution in public markets and product commercialization</li>
               <li>60% insider ownership; strong alignment with shareholders</li>
-              <li>Uplisting to a senior exchange planned upon achieving operational milestones</li>
             </ul>
-
-            <p className="font-MontserratMedium text-base 2xl:text-xl pt-12 text-[#343D48]">
-              📌 Investors seeking growth-stage exposure in OTC healthcare should monitor CBRA closely.
-            </p>
           </div>
           <div className="w-[23%] max-lg:w-[48%] max-md:w-[48%] max-md:w-full border border-[#DDE9EF] p-2 shadow-md rounded-md 2xl:rounded-xl sticky top-12 max-lg:order-1 max-lg:relative max-lg:top-0">
             <p className="bg-[#F2F3F3] text-[#1D3045] font-MontserratSemibold text-base px-4 py-4 rounded 2xl:rounded-lg">
