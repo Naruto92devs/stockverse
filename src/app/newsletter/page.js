@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import StockpicksFooter from "@/components/stockpicks_footer";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 const Newsletter = () => {
   const [phone, setPhone] = useState('');
@@ -15,6 +16,7 @@ const Newsletter = () => {
   const [er, setEr] = useState(null);
   const isValidPhone = phone && phone.replace(/\D/g, '').length >= 10;
   const isFormValid = email && isValidPhone && !loading;
+  const router = useRouter();
 
 
   const STOCKVERSE_BACK_END = process.env.NEXT_PUBLIC_STOCKVERSE_BACK_END;
@@ -45,6 +47,7 @@ const Newsletter = () => {
         setEmail('');
         setPhone('');
         setDone(true);
+        router.push('/cadrenal-page');
       } else {
         setDone(true);
         setEr(true);
@@ -80,7 +83,8 @@ const Newsletter = () => {
       {/* Logo */}
       <section className="bg-skyBlue py-12">
         <div className="xl:container mx-auto flex flex-col items-center">
-          <h1 className="font-OpenSans md:text-7xl text-5xl font-[600] text-[#181851]">StockVerse</h1>
+          <Image className='lg:w-[350px]' src="/images/StockverseLogo.png" width={180} height={48} alt='Stockverse Logo' loading="eager" />
+          {/* <h1 className="font-OpenSans md:text-7xl text-5xl font-[600] text-[#181851]">StockVerse</h1> */}
         </div>
       </section>
         <section className="w-full xl:container mx-auto py-12 flex flex-col items-center gap-y-8">
@@ -134,7 +138,7 @@ const Newsletter = () => {
                       Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
                     </>}
                   </button>
-                  <Link className="text-blue underline text-center" href="/cadrenal-page">“Just want {`today’s`} stock pick? Click here to read the report.”</Link>
+                  <Link className="text-blue underline text-center" href="/cadrenal-page">Just want {`today’s`} stock pick? Click here to read the report.</Link>
                 </form>
               </div>
               <p className="text-primaryText font-OpenSans font-normal text-xs">*By submitting your email address, you give us permission to deliver access instructions to your email inbox and send free ongoing updates and marketing as well as one of our preferred partners. . You can unsubscribe at any time. See Privacy Policy here .</p>
