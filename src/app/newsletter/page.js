@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from 'react';
 import axios from "axios";
 import StockpicksFooter from "@/components/stockpicks_footer";
+import Link from "next/link";
 
 const Newsletter = () => {
   const [phone, setPhone] = useState('');
@@ -133,6 +134,7 @@ const Newsletter = () => {
                       Get Winning Stock Picks <span className="font-MontserratBold max-md:hidden">&#8212; FREE</span>
                     </>}
                   </button>
+                  <Link className="text-blue underline text-center" href="/cadrenal-page">“Just want {`today’s`} stock pick? Click here to read the report.”</Link>
                 </form>
               </div>
               <p className="text-primaryText font-OpenSans font-normal text-xs">*By submitting your email address, you give us permission to deliver access instructions to your email inbox and send free ongoing updates and marketing as well as one of our preferred partners. . You can unsubscribe at any time. See Privacy Policy here .</p>
