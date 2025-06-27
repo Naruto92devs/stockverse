@@ -32,7 +32,7 @@ const CadrenalPage = () => {
   const [er, setEr] = useState(null);
   const isValidPhone = phone && phone.replace(/\D/g, '').length >= 10;
   const isFormValid = email && isValidPhone && !loading;
-  const [newsletter, setNewsletter] = useState(true);
+  const [newsletter, setNewsletter] = useState(false);
   const heading = "Winning Stock Picks"
   const subHeading = "Grow Your Wealth by +673.66%! Get Exclusive Stock Picks Sent To Your Inbox!"
 
