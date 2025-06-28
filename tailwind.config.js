@@ -25,6 +25,9 @@ module.exports = {
       darkBlue: "rgba(var(--dark-blue))",
       gray: "rgba(var(--gray-color))",
       darkGreen: "rgba(var(--dark-green))",
+      cbraBg : "rgba(var(--cbra-bgprimary))",
+      cbrablueBg : "rgba(var(--cbra-bgblue))",
+      cbraBorder : "rgba(var(--cbra-border))",
     },
     extend: {
       fontFamily: {
@@ -80,10 +83,16 @@ module.exports = {
         'pricingBg': "url('/images/pricing_bg.jpg')",
         'loginBg': "url('/images/login_page_pic.jpg')",
         'cvkdBg': "url('/images/cvkd/unlocking_bg.jpg')",
+        'factsbg': "url('/images/facts-bg.png')",
         // background gradients
         'profileBg': 'radial-gradient(100% 100% at 50% 0%, #8B77FF 0%, #634FF7 100%)',
         'upgradeBg': 'linear-gradient(121.78deg, #2713A5 7.6%, #634FF7 92.4%)',
         'cvkdButton': 'linear-gradient(90deg, #5B8BFC 0%, #175CFF 51.92%, #5B8BFC 100%)',
+        'cbrabannergradient' : 'linear-gradient(180deg, #FFFFFF 0%, #F5F5F5 100%)',
+        'cbratextgradient': 'linear-gradient(114.22deg, #60C9FF -1.77%, #5070F1 43.48%)',
+      },
+      fontSize : {
+        cbraH2 : '3.25rem',
       },
       keyframes: {
         heartbeat: {
